@@ -1,0 +1,10 @@
+table.comments-box.fixed{
+ table-layout:auto;
+}
+table.comments-box.fixed #the-comment-list td.column-author{
+ width:30%;
+}
+th.column-subscribe-reloaded,td.column-subscribe-reloaded{
+ text-align:center;
+ width:5%;
+}

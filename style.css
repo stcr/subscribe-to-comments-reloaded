@@ -1,0 +1,122 @@
+#subscribe-to-comments-icon{
+ background-image:url(images/subscribe-to-comments.png);
+ background-position:center; 
+ background-repeat:no-repeat; 
+ margin: 8px 6px 0 4px;
+}
+#subscribe-to-comments-icon.rtl{
+ float:right;
+}
+.wrap h2.medium{
+ border-bottom:1px solid #CCCCCC;
+ font-size:.9em;
+ padding-bottom:0;
+}
+.wrap .nav-tab{
+ border-style:dashed;
+ color:#464646;
+ font-size:1em;
+ font-style:normal;
+ line-height:1.1em;
+ padding:10px;
+ text-decoration:none;
+}
+.wrap a.nav-tab.nav-tab-inactive:hover{
+ background-color:#fff;
+}
+.wrap .nav-tab.nav-tab-active{
+ border-style:solid;
+ font-weight:700;
+ position:relative;
+}
+.wrap div.updated{
+ width:97.2%;
+}
+.postbox{
+ float:left;
+ margin-right:5px;
+ overflow:auto;
+ width:98.6%;
+}
+.postbox.small{
+ margin-top:10px;
+ width:49%;
+}
+.postbox h3,.postbox p,.postbox ul{
+ cursor:default;
+ font-size:.9em;
+ margin:0;
+ padding:4px;
+}
+.postbox p.liquid{
+ float:left;
+}
+.postbox span.right{
+ float:right;
+}
+.postbox p.small{
+ font-size:.8em;
+}
+.postbox .subscribe-list-navigation{
+ float:right;
+ font-size:.8em;
+}
+.postbox .subscribe-list-navigation a{
+ margin-right:10px;
+}
+.postbox .subscribe-list-header{
+ background-color:#dfdfdf;
+}
+.postbox .subscribe-column{
+ float:left;
+ padding-right:6px;
+}
+.postbox .subscribe-column-1{
+ min-width:35%;
+}
+.postbox .subscribe-column-2{
+ min-width:25%;
+}
+.postbox .subscribe-column-3{
+ min-width:20%;
+}
+.postbox .subscribe-column-4{
+ min-width:5%;
+ text-align:center;
+}
+.postbox ul li{
+ margin-bottom:0;
+ overflow:auto;
+ padding:3px 0;
+}
+input.checkbox{
+ float:left;
+ margin:2px 12px 0 5px;
+}
+
+.form-table th,
+.form-table td{
+ padding:3px 10px;
+}
+.form-table td.description{
+ white-space:normal;
+}
+.form-table td.narrowcolumn{
+ width:100px;
+}
+.form-table td.shortrow{
+ padding:0 10px 20px;
+ white-space:normal;
+}
+.form-table input{
+ margin:0 8px 0 0;
+}
+.form-table.rtl input{
+ margin:0 0 0 8px;
+}
+.form-table input.longtext{
+ width:400px;
+}
+.form-table textarea{
+ width:70%;
+}
