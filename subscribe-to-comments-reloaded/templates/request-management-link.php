@@ -7,7 +7,7 @@ if (!function_exists('add_action')){
 
 require_once(WP_PLUGIN_DIR.'/subscribe-to-comments-reloaded/classes/helper.class.php');
 
-$helper = new subscripeToCommentsHelper();
+$helper = new subscribeToCommentsHelper();
 ob_start();
 if (!empty($email)){
 	global $wp_subscribe_reloaded;
