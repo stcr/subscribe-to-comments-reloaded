@@ -9,11 +9,11 @@
 *	##########################################################################################
 *	@version
 *	##########################################################################################
-*	1.0	|	10-Jul-2013	|	Creation of new class. Adding the method verifyXSS().
-*	1.1 |	09-Jan-2013	|	Rename the class name. The name was in conflict with another class.
+*	1.0		|	10-Jul-2013	|	Creation of new class. Adding the method verifyXSS().
+*	V140109 |	09-Jan-2013	|	* Rename the class name. The name was in conflict with another class.
 *	##########################################################################################
 */
-class subscripeToCommentsHelper {
+class subscribeToCommentsHelper {
 
 	function __construct()
 	{
