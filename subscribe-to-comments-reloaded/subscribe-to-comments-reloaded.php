@@ -62,12 +62,11 @@ function subscribe_reloaded_show(){
 			$checkbox_field = "<input$checkbox_inline_style type='checkbox' name='subscribe-reloaded' id='subscribe-reloaded' value='yes'".((get_option('subscribe_reloaded_checked_by_default', 'no') == 'yes')?" checked='checked'":'')." />";
 		}
 		else{
-			$checkbox_field = "<select name='subscribe-reloaded' id='subscribe-reloaded'>
-				<option value='none'>".__("Don't subscribe",'subscribe-reloaded')."</option>
-				<option value='yes'".((get_option('subscribe_reloaded_checked_by_default', 'no') == 'yes')?" selected='selected'":'').">".__('All','subscribe-reloaded')."</option>
-				<option value='replies'>".__('Replies to my comments','subscribe-reloaded')."</option>
-				<!-- option value='digest'>".__('Daily digest','subscribe-reloaded')."</option -->
-			</select>";
+			$checkbox_field = 	"<select name='subscribe-reloaded' id='subscribe-reloaded'>
+									<option value='none'".((get_option('subscribe_reloaded_default_subscription_type') === '0') ? "selected='selected'" : '').">".__("Don't subscribe",'subscribe-reloaded')."</option>
+									<option value='yes'".((get_option('subscribe_reloaded_default_subscription_type') === '1') ? "selected='selected'" : '').">".__("All",'subscribe-reloaded')."</option>
+									<option value='replies'".((get_option('subscribe_reloaded_default_subscription_type') === '2') ? "selected='selected'" : '').">".__("Replies to my comments",'subscribe-reloaded')."</option>
+								</select>";
 		}
 		if (empty($checkbox_html_wrap)){
 			$html_to_show = "$checkbox_field <label for='subscribe-reloaded'>$checkbox_label</label>" . $html_to_show;
@@ -222,6 +221,7 @@ class wp_subscribe_reloaded{
 		add_option('subscribe_reloaded_show_subscription_box', 'yes', '', 'no');
 		add_option('subscribe_reloaded_checked_by_default', 'no', '', 'no');
 		add_option('subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'no');
+		add_option('subscribe_reloaded_default_subscription_type', '2', '', 'no');
 		add_option('subscribe_reloaded_checkbox_inline_style', 'width:30px', '', 'no');
 		add_option('subscribe_reloaded_checkbox_html', "<p><label for='subscribe-reloaded'>[checkbox_field] [checkbox_label]</label></p>", '', 'no');
 		add_option('subscribe_reloaded_checkbox_label', __("Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.",'subscribe-reloaded'), '', 'no');

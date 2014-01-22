@@ -9,11 +9,12 @@ if (!function_exists('is_admin') || !is_admin()){
 if (isset($_POST['options'])){
 	$faulty_fields = '';
 	if (isset($_POST['options']['show_subscription_box']) && !subscribe_reloaded_update_option('show_subscription_box', $_POST['options']['show_subscription_box'], 'yesno')) $faulty_fields = __('Enable default checkbox','subscribe-reloaded').', ';
-	if (isset($_POST['options']['checked_by_default']) && !subscribe_reloaded_update_option('checked_by_default', $_POST['options']['checked_by_default'], 'yesno')) $faulty_fields = __('Checked by default','subscribe-reloaded').', ';	
-	if (isset($_POST['options']['enable_advanced_subscriptions']) && !subscribe_reloaded_update_option('enable_advanced_subscriptions', $_POST['options']['enable_advanced_subscriptions'], 'yesno')) $faulty_fields = __('Advanced subscription','subscribe-reloaded').', ';	
+	if (isset($_POST['options']['checked_by_default']) && !subscribe_reloaded_update_option('checked_by_default', $_POST['options']['checked_by_default'], 'yesno')) $faulty_fields = __('Checked by default','subscribe-reloaded').', ';
+	if (isset($_POST['options']['enable_advanced_subscriptions']) && !subscribe_reloaded_update_option('enable_advanced_subscriptions', $_POST['options']['enable_advanced_subscriptions'], 'yesno')) $faulty_fields = __('Advanced subscription','subscribe-reloaded').', ';
+	if (isset($_POST['options']['default_subscription_type']) && !subscribe_reloaded_update_option('default_subscription_type', $_POST['options']['default_subscription_type'], 'integer')) $faulty_fields = __('Advanced subscription','subscribe-reloaded').', ';
 	if (isset($_POST['options']['checkbox_inline_style']) && !subscribe_reloaded_update_option('checkbox_inline_style', $_POST['options']['checkbox_inline_style'], 'text-no-encode')) $faulty_fields = __('Custom inline style','subscribe-reloaded').', ';
 	if (isset($_POST['options']['checkbox_html']) && !subscribe_reloaded_update_option('checkbox_html', $_POST['options']['checkbox_html'], 'text-no-encode')) $faulty_fields = __('Custom HTML','subscribe-reloaded').', ';
-
+// default_subscription_type
 	if (isset($_POST['options']['checkbox_label']) && !subscribe_reloaded_update_option('checkbox_label', $_POST['options']['checkbox_label'], 'text')) $faulty_fields = __('Checkbox label','subscribe-reloaded').', ';
 	if (isset($_POST['options']['subscribed_label']) && !subscribe_reloaded_update_option('subscribed_label', $_POST['options']['subscribed_label'], 'text')) $faulty_fields = __('Subscribed label','subscribe-reloaded').', ';
 	if (isset($_POST['options']['subscribed_waiting_label']) && !subscribe_reloaded_update_option('subscribed_waiting_label', $_POST['options']['subscribed_waiting_label'], 'text')) $faulty_fields = __('Awaiting label','subscribe-reloaded').', ';
@@ -56,6 +57,21 @@ if (isset($_POST['options'])){
 			<input type="radio" name="options[enable_advanced_subscriptions]" value="no" <?php echo (subscribe_reloaded_get_option('enable_advanced_subscriptions') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
 			<div class="description"><?php _e('Allow users to choose from different subscription types (all, replies only).','subscribe-reloaded'); ?></div></td>
 	</tr>
+	<?php
+	// Make sure that the default subscription type is visible only when advance subscriptions are enable
+	if (subscribe_reloaded_get_option('enable_advanced_subscriptions') == 'yes'):	?>
+		<tr>
+			<th scope="row"><label for="default_subscription_type"><?php _e('Advanced default','subscribe-reloaded') ?></label></th>
+			<td>
+				<select name="options[default_subscription_type]" id="default_subscription_type">
+					<option value="0" <?php echo (subscribe_reloaded_get_option('default_subscription_type') === '0') ? "selected='selected'" : ''; ?>><?php _e('None','subscribe-reloaded'); ?></option>
+					<option value="1" <?php echo (subscribe_reloaded_get_option('default_subscription_type') === '1') ? "selected='selected'" : ''; ?>><?php _e('All new comments','subscribe-reloaded'); ?></option>
+					<option value="2" <?php echo (subscribe_reloaded_get_option('default_subscription_type') === '2') ? "selected='selected'" : ''; ?>><?php _e('Replies to this comment','subscribe-reloaded'); ?></option>
+				</select>
+
+				<div class="description"><?php _e('The default subscription type that should be selected when Advanced subscriptions are enable.','subscribe-reloaded'); ?></div></td>
+		</tr>
+	<?php endif;?>
 	<tr>
 		<th scope="row"><label for="checkbox_inline_style"><?php _e('Custom inline style','subscribe-reloaded') ?></label></th>
 		<td><input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style" value="<?php echo subscribe_reloaded_get_option('checkbox_inline_style'); ?>" size="20">
