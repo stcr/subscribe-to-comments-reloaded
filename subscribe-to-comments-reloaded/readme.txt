@@ -1,9 +1,9 @@
 === Subscribe To Comments Reloaded ===
-Contributors: coolmann, Reedyseth
+Contributors: coolmann, Reedyseth, raamdev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 3.5
+Tested up to: 3.8
 Stable tag: 2.0.6
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
