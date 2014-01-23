@@ -873,6 +873,7 @@ class wp_subscribe_reloaded{
 		else{
 			$message = str_replace('[post_title]', $post->post_title, $message);
 		}
+		$message = apply_filters('stcr_confirmation_email_message', $message, $_post_ID, $email);
 		if($content_type == 'text/html') $message = $this->wrap_html_message($message, $subject);
 
 		wp_mail($clean_email, $subject, $message, $headers);
@@ -925,6 +926,7 @@ class wp_subscribe_reloaded{
 		else{
 			$message = str_replace('[post_title]', $post->post_title, $message);
 		}
+		$message = apply_filters('stcr_notify_user_message', $message, $_post_ID, $_email, $_comment_ID);
 		if($content_type == 'text/html') $message = $this->wrap_html_message($message, $subject);
 
 		wp_mail($clean_email, $subject, $message, $headers);
