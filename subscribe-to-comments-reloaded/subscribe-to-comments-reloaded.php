@@ -931,6 +931,13 @@ class wp_subscribe_reloaded{
 		$comment_permalink = get_comment_link($_comment_ID);
 		$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
 
+		$comment_content = $comment->comment_content;
+
+		// Add HTML paragraph tags to comment
+		// See wp-includes/formatting.php for details on the wpautop() function
+		if ($content_type == 'text/html')
+			$comment_content = wpautop($comment->comment_content);
+
 		// Replace tags with their actual values
 		$subject = str_replace('[post_title]', $post->post_title, $subject);
 
@@ -938,7 +945,7 @@ class wp_subscribe_reloaded{
 		$message = str_replace('[comment_permalink]', $comment_permalink, $message);
 		$message = str_replace('[comment_reply_permalink]', $comment_reply_permalink, $message);
 		$message = str_replace('[comment_author]', $comment->comment_author, $message);
-		$message = str_replace('[comment_content]', $comment->comment_content, $message);
+		$message = str_replace('[comment_content]', $comment_content, $message);
 		$message = str_replace('[manager_link]', $manager_link, $message);
 
 		// QTranslate support
