@@ -849,8 +849,7 @@ class wp_subscribe_reloaded{
 		$manager_link .= ((strpos($manager_link, '?') !== false)?'&':'?')."sre=".urlencode($clean_email)."&srk=$subscriber_salt";
 		$confirm_link = "$manager_link&srp=$_post_ID&sra=c";
 
-		$headers = "MIME-Version: 1.0\n";
-		$headers .= "From: $from_name <$from_email>\n";
+		$headers = "From: $from_name <$from_email>\n";
 		$content_type = (get_option('subscribe_reloaded_enable_html_emails', 'no') == 'yes')?'text/html':'text/plain';
 		$headers .= "Content-Type: $content_type; charset=".get_bloginfo('charset')."\n";
 
@@ -898,8 +897,7 @@ class wp_subscribe_reloaded{
 
 		$manager_link .= ((strpos($manager_link, '?') !== false)?'&':'?')."sre=".urlencode($clean_email)."&srk=$subscriber_salt";
 
-		$headers = "MIME-Version: 1.0\n";
-		$headers .= "From: $from_name <$from_email>\n";
+		$headers = "From: $from_name <$from_email>\n";
 		$content_type = (get_option('subscribe_reloaded_enable_html_emails', 'no') == 'yes')?'text/html':'text/plain';
 		$headers .= "Content-Type: $content_type; charset=".get_bloginfo('charset')."\n";
 
