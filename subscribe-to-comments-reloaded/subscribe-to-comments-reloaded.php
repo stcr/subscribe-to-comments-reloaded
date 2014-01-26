@@ -925,12 +925,14 @@ class wp_subscribe_reloaded{
 		$comment = get_comment($_comment_ID);
 		$post_permalink = get_permalink( $_post_ID );
 		$comment_permalink = get_comment_link($_comment_ID);
+		$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
 
 		// Replace tags with their actual values
 		$subject = str_replace('[post_title]', $post->post_title, $subject);
 
 		$message = str_replace('[post_permalink]', $post_permalink, $message);
 		$message = str_replace('[comment_permalink]', $comment_permalink, $message);
+		$message = str_replace('[comment_reply_permalink]', $comment_reply_permalink, $message);
 		$message = str_replace('[comment_author]', $comment->comment_author, $message);
 		$message = str_replace('[comment_content]', $comment->comment_content, $message);
 		$message = str_replace('[manager_link]', $manager_link, $message);
