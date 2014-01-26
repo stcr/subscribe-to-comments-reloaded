@@ -343,7 +343,7 @@ class wp_subscribe_reloaded{
 		if ($info->comment_approved == 1){
 			$subscriptions = $this->get_subscriptions(array('post_id', 'status'), array('equals', 'equals'), array($info->comment_post_ID, 'Y'));
 			if (!empty($info->comment_parent))
-				$subscriptions = array_merge($subscriptions, $this->get_subscriptions('parent', 'equals', $info->comment_parent));
+				$subscriptions = array_merge($subscriptions, $this->get_subscriptions('parent', 'equals', array($info->comment_parent, $info->comment_post_ID)));
 
 			foreach($subscriptions as $a_subscription){
 				// Skip the user who posted this new comment
@@ -393,7 +393,7 @@ class wp_subscribe_reloaded{
 				$this->update_subscription_status($info->comment_post_ID, $info->comment_author_email, '-C');
 				$subscriptions = $this->get_subscriptions(array('post_id', 'status'), array('equals', 'equals'), array($info->comment_post_ID, 'Y'));
 				if (!empty($info->comment_parent))
-					$subscriptions = array_merge($subscriptions, $this->get_subscriptions('parent', 'equals', $info->comment_parent));
+					$subscriptions = array_merge($subscriptions, $this->get_subscriptions('parent', 'equals', array($info->comment_parent, $info->comment_post_ID)));
 
 				foreach($subscriptions as $a_subscription)
 					if ($a_subscription->email != $info->comment_author_email) // Skip the user who posted this new comment
@@ -760,12 +760,32 @@ class wp_subscribe_reloaded{
 
 		// Find if exists a 'replies only' subscription for the parent comment
 		if ($search_fields[0] == 'parent'){
-			return $wpdb->get_results($wpdb->prepare("
+
+			$parent_comment_id = $search_values[0];
+			$comment_post_id = $search_values[1];
+
+			// Get the parent comment author email so we can search for any Replies Only subscriptions
+			$parent_comment_author_email_query = mysql_query("SELECT `comment_author_email` FROM $wpdb->comments WHERE `comment_ID` = '$parent_comment_id'");
+			$parent_comment_author_email = mysql_fetch_row($parent_comment_author_email_query);
+			$parent_comment_author_email = "\_stcr@\_" . $parent_comment_author_email[0];
+
+			// Check if $parent_comment_author_email has any Replies Only (R) subscriptions for $comment_post_id
+
+			/*
+							Heads up: this will return Replies Only subscriptions for a given post, *not* for a given comment.
+							This plugin does not track subscriptions for specific comments but rather for entire posts, so there
+							is no way to figure out if a specific parent comment has a subscription (of any type). To make the
+							Replies Only feature half-work, we check if a parent comment author has *any* Replies Only subscriptions
+							for a given post. If they do, we assume that they must want to get notified of replies to *any* of their
+							comments on *that* post.
+			*/
+
+			return $wpdb->get_results( $wpdb->prepare( "
 				SELECT pm.meta_id, REPLACE(pm.meta_key, '_stcr@_', '') AS email, pm.post_id, SUBSTRING(pm.meta_value, 1, 19) AS dt, SUBSTRING(pm.meta_value, 21) AS status
-				FROM $wpdb->postmeta pm INNER JOIN $wpdb->comments c ON pm.post_id = c.comment_post_ID
-				WHERE pm.meta_key LIKE '\_stcr@\_%%'
+				FROM $wpdb->postmeta pm
+				WHERE pm.meta_key LIKE %s
 					AND pm.meta_value LIKE '%%R'
-					AND c.comment_ID = %d", $search_values[0]), OBJECT);
+					AND pm.post_id = %d", $parent_comment_author_email, $comment_post_id ), OBJECT );
 		}
 		else{
 			$where_clause = '';
