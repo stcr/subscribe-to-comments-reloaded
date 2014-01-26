@@ -51,6 +51,9 @@ delete_option('subscribe_reloaded_double_check_content');
 delete_option('subscribe_reloaded_management_subject');
 delete_option('subscribe_reloaded_management_content');
 
+delete_option('subscribe_reloaded_version');
+delete_option('subscribe_reloaded_deferred_admin_notices');
+
 // Remove scheduled autopurge events
 wp_clear_scheduled_hook('subscribe_reloaded_purge');
 

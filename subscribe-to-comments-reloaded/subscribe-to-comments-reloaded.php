@@ -86,6 +86,8 @@ if (get_option('subscribe_reloaded_show_subscription_box', 'yes') == 'yes')
 
 class wp_subscribe_reloaded{
 
+	public $current_version = '140125';
+
 	/**
 	 * Constructor -- Sets things up.
 	 */
@@ -139,6 +141,10 @@ class wp_subscribe_reloaded{
 			add_action('admin_print_styles-edit-comments.php', array(&$this, 'add_post_comments_stylesheet'));
 			add_action('admin_print_styles-edit.php', array(&$this, 'add_post_comments_stylesheet'));
 
+			// Admin notices
+			add_action('admin_init', array(&$this, 'admin_init'));
+			add_action('admin_notices', array(&$this, 'admin_notices'));
+
 			// Contextual help
 			add_action('contextual_help', array(&$this,'contextual_help'), 10, 3);
 
@@ -147,6 +153,24 @@ class wp_subscribe_reloaded{
 		}
 	}
 	// end __construct
+
+	public function admin_init() {
+
+		$version= get_option('subscribe_reloaded_version');
+		if ($version != $this->current_version) {
+			// Do whatever upgrades needed here.
+			update_option('subscribe_reloaded_version', $this->current_version);
+		}
+	}
+
+	public function admin_notices() {
+		if ($notices= get_option('subscribe_reloaded_deferred_admin_notices')) {
+			foreach ($notices as $notice) {
+				echo $notice;
+			}
+			delete_option('subscribe_reloaded_deferred_admin_notices');
+		}
+	}
 
 	/**
 	 * Support for WP MU network activations (experimental)
@@ -208,6 +232,9 @@ class wp_subscribe_reloaded{
 		// Starting from version 2.0 StCR uses Wordpress' tables to store the information about subscriptions
 		$this->_update_db();
 
+		// Import data from WP Comment Subscriptions plugin, if needed
+		$this->_import_wpcs_data();
+
 		// Messages related to the management page
 		global $wp_rewrite;
 
@@ -261,6 +288,9 @@ class wp_subscribe_reloaded{
 		// Schedule the autopurge hook
 		if (!wp_next_scheduled('subscribe_reloaded_purge'))
 			wp_schedule_event(time(), 'daily', 'subscribe_reloaded_purge');
+
+		delete_option('subscribe_reloaded_version');
+		delete_option('subscribe_reloaded_deferred_admin_notices');
 	}
 	// end _activate
 
@@ -1138,6 +1168,76 @@ class wp_subscribe_reloaded{
 		}
 	}
 	// end _update_db
+
+	/**
+	 * Imports options and subscription data created with the WP Comment Subscriptions plugin
+	 */
+	private function _import_wpcs_data(){
+		global $wpdb;
+
+		// Import the information collected by WP Comment Subscriptions, if needed
+		$wpcs_data_count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_wpcs@\_%'");
+
+		// Perform the import only if the target table does not contain any subscriptions
+		$count_postmeta_rows = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'");
+
+		if (!empty($wpcs_data_count) && $count_postmeta_rows == 0){
+			$wpdb->query("
+				INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value)
+				SELECT post_id, REPLACE(meta_key, '_wpcs@_', '_stcr@_') meta_key, meta_value
+				FROM $wpdb->postmeta
+				WHERE meta_key LIKE '%_wpcs@_%'");
+
+			if( $option = get_option('wp_comment_subscriptions_manager_page') ) { add_option('subscribe_reloaded_manager_page', $option); }
+			if( $option = get_option('wp_comment_subscriptions_show_subscription_box') ) { add_option('subscribe_reloaded_show_subscription_box', $option); }
+			if( $option = get_option('wp_comment_subscriptions_checked_by_default') ) { add_option('subscribe_reloaded_checked_by_default', $option); }
+			if( $option = get_option('wp_comment_subscriptions_enable_advanced_subscriptions') ) { add_option('subscribe_reloaded_enable_advanced_subscriptions', $option); }
+			if( $option = get_option('wp_comment_subscriptions_checkbox_inline_style') ) { add_option('subscribe_reloaded_checkbox_inline_style', $option); }
+			if( $option = get_option('wp_comment_subscriptions_checkbox_html') ) { add_option('subscribe_reloaded_checkbox_html', $option); }
+			if( $option = get_option('wp_comment_subscriptions_checkbox_label') ) { add_option('subscribe_reloaded_checkbox_label', $option); }
+			if( $option = get_option('wp_comment_subscriptions_subscribed_label') ) { add_option('subscribe_reloaded_subscribed_label', $option); }
+			if( $option = get_option('wp_comment_subscriptions_subscribed_waiting_label') ) { add_option('subscribe_reloaded_subscribed_waiting_label', $option); }
+			if( $option = get_option('wp_comment_subscriptions_author_label') ) { add_option('subscribe_reloaded_author_label', $option); }
+			if( $option = get_option('wp_comment_subscriptions_htmlify_message_links') ) { add_option('subscribe_reloaded_htmlify_message_links', $option); }
+
+			if( $option = get_option('wp_comment_subscriptions_manager_page_enabled') ) { add_option('subscribe_reloaded_manager_page_enabled', $option); }
+			if( $option = get_option('wp_comment_subscriptions_manager_page_title') ) { add_option('subscribe_reloaded_manager_page_title', $option); }
+			if( $option = get_option('wp_comment_subscriptions_custom_header_meta') ) { add_option('subscribe_reloaded_custom_header_meta', $option); }
+			if( $option = get_option('wp_comment_subscriptions_request_mgmt_link') ) { add_option('subscribe_reloaded_request_mgmt_link', $option); }
+			if( $option = get_option('wp_comment_subscriptions_request_mgmt_link_thankyou') ) { add_option('subscribe_reloaded_request_mgmt_link_thankyou', $option); }
+			if( $option = get_option('wp_comment_subscriptions_subscribe_without_commenting') ) { add_option('subscribe_reloaded_subscribe_without_commenting', $option); }
+			if( $option = get_option('wp_comment_subscriptions_subscription_confirmed') ) { add_option('subscribe_reloaded_subscription_confirmed', $option); }
+			if( $option = get_option('wp_comment_subscriptions_subscription_confirmed_dci') ) { add_option('subscribe_reloaded_subscription_confirmed_dci', $option); }
+			if( $option = get_option('wp_comment_subscriptions_author_text') ) { add_option('subscribe_reloaded_author_text', $option); }
+			if( $option = get_option('wp_comment_subscriptions_user_text') ) { add_option('subscribe_reloaded_user_text', $option); }
+
+			if( $option = get_option('wp_comment_subscriptions_from_name') ) { add_option('subscribe_reloaded_from_name', $option); }
+			if( $option = get_option('wp_comment_subscriptions_from_email') ) { add_option('subscribe_reloaded_from_email', $option); }
+			if( $option = get_option('wp_comment_subscriptions_notification_subject') ) { add_option('subscribe_reloaded_notification_subject', $option); }
+			if( $option = get_option('wp_comment_subscriptions_notification_content') ) { add_option('subscribe_reloaded_notification_content', $option); }
+			if( $option = get_option('wp_comment_subscriptions_double_check_subject') ) { add_option('subscribe_reloaded_double_check_subject', $option); }
+			if( $option = get_option('wp_comment_subscriptions_double_check_content') ) { add_option('subscribe_reloaded_double_check_content', $option); }
+			if( $option = get_option('wp_comment_subscriptions_management_subject') ) { add_option('subscribe_reloaded_management_subject', $option); }
+			if( $option = get_option('wp_comment_subscriptions_management_content') ) { add_option('subscribe_reloaded_management_content', $option); }
+
+			if( $option = get_option('wp_comment_subscriptions_purge_days') ) { add_option('subscribe_reloaded_purge_days', $option); }
+			if( $option = get_option('wp_comment_subscriptions_enable_double_check') ) { add_option('subscribe_reloaded_enable_double_check', $option); }
+			if( $option = get_option('wp_comment_subscriptions_notify_authors') ) { add_option('subscribe_reloaded_notify_authors', $option); }
+			if( $option = get_option('wp_comment_subscriptions_enable_html_emails') ) { add_option('subscribe_reloaded_enable_html_emails', $option); }
+			if( $option = get_option('wp_comment_subscriptions_process_trackbacks') ) { add_option('subscribe_reloaded_process_trackbacks', $option); }
+			if( $option = get_option('wp_comment_subscriptions_enable_admin_messages') ) { add_option('subscribe_reloaded_enable_admin_messages', $option); }
+			if( $option = get_option('wp_comment_subscriptions_admin_subscribe') ) { add_option('subscribe_reloaded_admin_subscribe', $option); }
+			if( $option = get_option('wp_comment_subscriptions_admin_bcc') ) { add_option('subscribe_reloaded_admin_bcc', $option); }
+
+			$notices = get_option('subscribe_reloaded_deferred_admin_notices', array());
+			$notices[] = '<div class="updated"><h3>' . __('Important Notice', 'subscribe-reloaded') . '</h3>'.
+					'<p>' . __('Plugin options and comment subscription data from the <strong>WP Comment Subscriptions</strong> plugin were detected and automatically imported into the <strong>Subscribe to Comments Reloaded</strong> plugin. It is recommended that you now <strong>deactivate</strong> WP Comment Subscriptions to prevent confusion between the two plugins.', 'subscribe-reloaded') . '</p>' .
+					'<p>' . __('<strong>Note:</strong> If you were previously using the <code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-subscribe-url]</code> shortcode, you\'ll need to replace those with <code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> respectively.', 'subscribe-reloaded') . '</p>' .
+					'<p>' . __('Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded') . '</p></div>';
+			update_option('subscribe_reloaded_deferred_admin_notices', $notices);
+		}
+	}
+	// end _import_wpcs_data
 
 	/**
 	 * Retrieves the comment information from the databse
