@@ -253,6 +253,7 @@ class wp_subscribe_reloaded{
 		add_option('subscribe_reloaded_enable_double_check', 'no', '', 'no');
 		add_option('subscribe_reloaded_notify_authors', 'no', '', 'no');
 		add_option('subscribe_reloaded_enable_html_emails', 'no', '', 'no');
+		add_option('subscribe_reloaded_htmlify_message_links', 'no', '', 'no');
 		add_option('subscribe_reloaded_process_trackbacks', 'no', '', 'no');
 		add_option('subscribe_reloaded_enable_admin_messages', 'no', '', 'no');
 		add_option('subscribe_reloaded_admin_subscribe', 'no', '', 'no');
@@ -958,11 +959,27 @@ class wp_subscribe_reloaded{
 			$message = str_replace('[post_title]', $post->post_title, $message);
 		}
 		$message = apply_filters('stcr_notify_user_message', $message, $_post_ID, $_email, $_comment_ID);
-		if($content_type == 'text/html') $message = $this->wrap_html_message($message, $subject);
+		if($content_type == 'text/html') {
+			if(get_option('subscribe_reloaded_htmlify_message_links') == 'yes')
+				$message = $this->htmlify_message_links($message);
+			$message = $this->wrap_html_message($message, $subject);
+		}
 
 		wp_mail($clean_email, $subject, $message, $headers);
 	}
 	// end notify_user
+
+	/**
+	 * Finds all links in text and wraps them with an HTML anchor tag
+	 *
+	 * @param $text
+	 *
+	 * @return string Text with all links wrapped in HTML anchor tags
+	 *
+	 */
+	public function htmlify_message_links($text){
+		return preg_replace('!(((f|ht)tp(s)?://)[-a-zA-Zа-яА-Я()0-9@:%_+.~#?&;//=]+)!i', '<a href="$1">$1</a>', $text);
+	}
 
 	/**
 	 * Generate a unique key to allow users to manage their subscriptions

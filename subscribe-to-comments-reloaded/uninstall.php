@@ -31,6 +31,7 @@ delete_option('subscribe_reloaded_checked_by_default');
 delete_option('subscribe_reloaded_enable_double_check');
 delete_option('subscribe_reloaded_notify_authors');
 delete_option('subscribe_reloaded_enable_html_emails');
+delete_option('subscribe_reloaded_htmlify_message_links');
 delete_option('subscribe_reloaded_process_trackbacks');
 delete_option('subscribe_reloaded_enable_admin_messages');
 delete_option('subscribe_reloaded_admin_subscribe');
