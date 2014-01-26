@@ -921,6 +921,10 @@ class wp_subscribe_reloaded{
 		$content_type = (get_option('subscribe_reloaded_enable_html_emails', 'no') == 'yes')?'text/html':'text/plain';
 		$headers .= "Content-Type: $content_type; charset=".get_bloginfo('charset')."\n";
 
+		if (get_option('subscribe_reloaded_admin_bcc', 'no') == 'yes') {
+			$headers .= "Bcc: $from_name <$from_email>\n";
+		}
+
 		$post = get_post($_post_ID);
 		$comment = get_comment($_comment_ID);
 		$post_permalink = get_permalink( $_post_ID );

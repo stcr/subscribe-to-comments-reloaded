@@ -15,6 +15,7 @@ if (isset($_POST['options'])){
 	if (isset($_POST['options']['process_trackbacks']) && !subscribe_reloaded_update_option('process_trackbacks', $_POST['options']['process_trackbacks'], 'yesno')) $faulty_fields = __('Send trackbacks','subscribe-reloaded').', ';
 	if (isset($_POST['options']['enable_admin_messages']) && !subscribe_reloaded_update_option('enable_admin_messages', $_POST['options']['enable_admin_messages'], 'yesno')) $faulty_fields = __('Notify admin','subscribe-reloaded').', ';
 	if (isset($_POST['options']['admin_subscribe']) && !subscribe_reloaded_update_option('admin_subscribe', $_POST['options']['admin_subscribe'], 'yesno')) $faulty_fields = __('Let admin subscribe','subscribe-reloaded').', ';
+	if (isset($_POST['options']['admin_bcc']) && !subscribe_reloaded_update_option('admin_bcc', $_POST['options']['admin_bcc'], 'yesno')) $faulty_fields = __('BCC admin on Notifications','subscribe-reloaded').', ';
 
 	// Display an alert in the admin interface if something went wrong
 	echo '<div class="updated fade"><p>';
@@ -77,6 +78,13 @@ wp_print_scripts( 'quicktags' );
 			<input type="radio" name="options[admin_subscribe]" id="admin_subscribe" value="yes"<?php echo (subscribe_reloaded_get_option('admin_subscribe') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
 			<input type="radio" name="options[admin_subscribe]" value="no" <?php echo (subscribe_reloaded_get_option('admin_subscribe') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
 			<div class="description"><?php _e('Let the administrator subscribe to comments when logged in.','subscribe-reloaded'); ?></div></td>
+	</tr>
+	<tr>
+		<th scope="row"><label for="admin_bcc"><?php _e('BCC admin on Notifications','subscribe-reloaded') ?></label></th>
+		<td>
+			<input type="radio" name="options[admin_bcc]" id="admin_bcc" value="yes"<?php echo (subscribe_reloaded_get_option('admin_bcc') == 'yes')?' checked="checked"':''; ?>> <?php _e('Yes','subscribe-reloaded') ?> &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="options[admin_bcc]" value="no" <?php echo (subscribe_reloaded_get_option('admin_bcc') == 'no')?'  checked="checked"':''; ?>> <?php _e('No','subscribe-reloaded') ?>
+			<div class="description"><?php _e('Send a copy of all Notifications to the administrator.','subscribe-reloaded'); ?></div></td>
 	</tr>
 </tbody>
 </table>
