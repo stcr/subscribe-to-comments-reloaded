@@ -223,23 +223,14 @@ class wp_subscribe_reloaded{
 		// Load localization files
 		load_plugin_textdomain('subscribe-reloaded', WP_PLUGIN_DIR .'/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs');
 
-		// Import the information collected by Subscribe to Comments & Co., if needed
-		$result = $wpdb->get_row("DESC $wpdb->comments comment_subscribe", ARRAY_A);
-		$count_postmeta_rows = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'");
-		if (!empty($result) && is_array($result) && $count_postmeta_rows == 0){
-			$wpdb->query("
-				INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value)
-					SELECT comment_post_ID, CONCAT('_stcr@_', comment_author_email), CONCAT(comment_date, '|Y')
-					FROM $wpdb->comments
-					WHERE comment_author_email LIKE '%@%.%' AND comment_subscribe = 'Y'
-					GROUP BY comment_post_ID, comment_author_email");
-		}
+		// Import data from the WP Comment Subscriptions plugin, if needed
+		$this->_import_wpcs_data();
+
+		// Import data from Subscribe to Comments & Co., if needed
+		$this->_import_stc_data();
 
 		// Starting from version 2.0 StCR uses Wordpress' tables to store the information about subscriptions
 		$this->_update_db();
-
-		// Import data from WP Comment Subscriptions plugin, if needed
-		$this->_import_wpcs_data();
 
 		// Messages related to the management page
 		global $wp_rewrite;
@@ -294,9 +285,6 @@ class wp_subscribe_reloaded{
 		// Schedule the autopurge hook
 		if (!wp_next_scheduled('subscribe_reloaded_purge'))
 			wp_schedule_event(time(), 'daily', 'subscribe_reloaded_purge');
-
-		delete_option('subscribe_reloaded_version');
-		delete_option('subscribe_reloaded_deferred_admin_notices');
 	}
 	// end _activate
 
@@ -1176,6 +1164,36 @@ class wp_subscribe_reloaded{
 	// end _update_db
 
 	/**
+	 * Imports subscription data created with the Subscribe to Comments plugin
+	 */
+	private function _import_stc_data(){
+		global $wpdb;
+
+		// Import the information collected by Subscribe to Comments, if needed
+		$result = $wpdb->get_row("DESC $wpdb->comments comment_subscribe", ARRAY_A);
+
+		// Perform the import only if the target table does not contain any subscriptions
+		$count_postmeta_rows = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'");
+
+		if (!empty($result) && is_array($result) && $count_postmeta_rows == 0){
+			$wpdb->query("
+					INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value)
+						SELECT comment_post_ID, CONCAT('_stcr@_', comment_author_email), CONCAT(comment_date, '|Y')
+						FROM $wpdb->comments
+						WHERE comment_author_email LIKE '%@%.%' AND comment_subscribe = 'Y'
+						GROUP BY comment_post_ID, comment_author_email");
+
+			$notices = get_option('subscribe_reloaded_deferred_admin_notices', array());
+			$notices[] = '<div class="updated"><h3>' . __('Important Notice', 'subscribe-reloaded') . '</h3>'.
+					'<p>' . __('Comment subscription data from the <strong>Subscribe to Comments</strong> plugin was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>. It is recommended that you now <strong>deactivate</strong> Subscribe to Comments to prevent confusion between the two plugins.', 'subscribe-reloaded') . '</p>' .
+					'<p>' . __('If you have subscription data from Subscribe to Comments Reloaded < v2.0 that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded') . '</p>' .
+					'<p>' . __('Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded') . '</p></div>';
+			update_option('subscribe_reloaded_deferred_admin_notices', $notices);
+		}
+	}
+	// end _import_stc_data
+
+	/**
 	 * Imports options and subscription data created with the WP Comment Subscriptions plugin
 	 */
 	private function _import_wpcs_data(){
@@ -1237,7 +1255,8 @@ class wp_subscribe_reloaded{
 
 			$notices = get_option('subscribe_reloaded_deferred_admin_notices', array());
 			$notices[] = '<div class="updated"><h3>' . __('Important Notice', 'subscribe-reloaded') . '</h3>'.
-					'<p>' . __('Plugin options and comment subscription data from the <strong>WP Comment Subscriptions</strong> plugin were detected and automatically imported into the <strong>Subscribe to Comments Reloaded</strong> plugin. It is recommended that you now <strong>deactivate</strong> WP Comment Subscriptions to prevent confusion between the two plugins.', 'subscribe-reloaded') . '</p>' .
+					'<p>' . __('Plugin options and comment subscription data from the <strong>WP Comment Subscriptions</strong> plugin were detected and automatically imported into the <strong>Subscribe to Comments Reloaded</strong> plugin. It is recommended that you now <strong>deactivate</strong> WP Comment Subscriptions to prevent confusion between the two plugins. ', 'subscribe-reloaded') . '</p>' .
+					'<p>' . __('If you have subscription data from another plugin (such as Subscribe to Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('<strong>Note:</strong> If you were previously using the <code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-subscribe-url]</code> shortcode, you\'ll need to replace those with <code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> respectively.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded') . '</p></div>';
 			update_option('subscribe_reloaded_deferred_admin_notices', $notices);

@@ -72,12 +72,14 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 * **Bug Fix**. Paragraph tags are now properly added to the comment content when sending HTML emails with `[comment_content]`
 * **Bug Fix**. Partial fix for the broken Subscribe to Replies Only feature. The Replies Only feature has not been working as intended. Instead of only receiving notificaitons for replies to their own comment, subscribers were receiving notifications for all new comments on the post. This fix makes sure they only receiving replies to their own comment thread.
 * **Bug Fix**. Fix duplicate `MIME-Version` header bug resulting in unsent emails. Fixes a bug where using StCR with other plugins, like WP-Mail-SMTP, results in a quiet duplicate header error. `wp_mail()` already takes care of setting the `MIME-Version` header so this doesn't need to be done again.
+* **Bug Fix**. Fixed `Fatal Error: Cannot redeclare class Helper` when visiting the `[subscribe_link]`. See also: <http://wordpress.org/support/topic/bug-fatal-error-in-classeshelperclassphp>
 * New import routine for WP Comment Subscriptions plugin. If subscription data and options are found for WP Comment Subscriptions, StCR will import those upon activation. Options and data are only imported if there is no existing StCR subscription data.
 * New admin notices to improve messaging and indicate when data is imported from an existing plugin.
 * New `stcr_confirmation_email_message` hook to modify the message that is sent to confirm a subscription. (Thanks to ziofix!)
 * New `stcr_notify_user_message` hook to modify the notification message that is sent to a user. (Thanks to ziofix!)
 * New plugin versioning format of YYMMDD.
 * Plugin development is now actively happening over at the new GitHub Repository for Subscribe to Comments Reloaded. If you have a bug to report or want to make a feature request, please post a new Issue over at GitHub. If you're a programmer, you're welcome to submit a Pull Request! See: <https://github.com/stcr/subscribe-to-comments-reloaded>
+* Added Raam Dev (`raamdev`) to the contributors list.
 
 = 2.0.6 =
 * Updated: Updated the contact information on every laguage file, some links were missing.
