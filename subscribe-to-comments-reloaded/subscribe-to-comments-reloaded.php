@@ -9,7 +9,6 @@ Tested up to: 3.8
 
 Plugin URI: http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/
 Description: Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notifications. It includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications.
-Author: camu, Reedyseth, andreasbo, raamdev
 Contributors: camu, Reedyseth, andreasbo, raamdev
 */
 
@@ -1271,7 +1270,7 @@ class wp_subscribe_reloaded{
 
 			$notices = get_option('subscribe_reloaded_deferred_admin_notices', array());
 			$notices[] = '<div class="updated"><h3>' . __('Important Notice', 'subscribe-reloaded') . '</h3>'.
-					'<p>' . __('Plugin options and comment subscription data from the <strong>WP Comment Subscriptions</strong> plugin were detected and automatically imported into the <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded') . ( is_plugin_active( 'wp-comment-subscriptions/wp-comment-subscriptions.php' ) ? __(' It is recommended that you now <strong>deactivate</strong> WP Comment Subscriptions to prevent confusion between the two plugins.','subscribe-reloaded') : '' ) . '</p>' .
+					'<p>' . __('Plugin options and comment subscription data from the <strong>WP Comment Subscriptions</strong> plugin were detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded') . ( is_plugin_active( 'wp-comment-subscriptions/wp-comment-subscriptions.php' ) ? __(' It is recommended that you now <strong>deactivate</strong> WP Comment Subscriptions to prevent confusion between the two plugins.','subscribe-reloaded') : '' ) . '</p>' .
 					'<p>' . __('If you have subscription data from another plugin (such as Subscribe to Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('<strong>Note:</strong> If you were previously using the <code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-subscribe-url]</code> shortcode, you\'ll need to replace those with <code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> respectively.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded') . '</p></div>';
