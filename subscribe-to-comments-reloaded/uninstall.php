@@ -36,6 +36,7 @@ delete_option('subscribe_reloaded_process_trackbacks');
 delete_option('subscribe_reloaded_enable_admin_messages');
 delete_option('subscribe_reloaded_admin_subscribe');
 delete_option('subscribe_reloaded_custom_header_meta');
+delete_option('subscribe_reloaded_admin_bcc');
 
 delete_option('subscribe_reloaded_notification_subject');
 delete_option('subscribe_reloaded_notification_content');

@@ -281,6 +281,7 @@ class wp_subscribe_reloaded{
 		add_option('subscribe_reloaded_process_trackbacks', 'no', '', 'no');
 		add_option('subscribe_reloaded_enable_admin_messages', 'no', '', 'no');
 		add_option('subscribe_reloaded_admin_subscribe', 'no', '', 'no');
+		add_option('subscribe_reloaded_admin_bcc', 'no', '', 'no');
 
 		// Schedule the autopurge hook
 		if (!wp_next_scheduled('subscribe_reloaded_purge'))
