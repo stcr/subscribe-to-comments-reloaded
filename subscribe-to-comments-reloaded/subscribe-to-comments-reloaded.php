@@ -221,7 +221,6 @@ class wp_subscribe_reloaded{
 	 * Adds the options to the database and imports the data from other plugins
 	 */
 	private function _activate(){
-		global $wpdb;
 
 		// Load localization files
 		load_plugin_textdomain('subscribe-reloaded', WP_PLUGIN_DIR .'/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs');
@@ -314,6 +313,9 @@ class wp_subscribe_reloaded{
 		else{
 			wp_clear_scheduled_hook('subscribe_reloaded_purge');
 		}
+
+		delete_option('subscribe_reloaded_version');
+		delete_option('subscribe_reloaded_deferred_admin_notices');
 	}
 	// end deactivate
 
