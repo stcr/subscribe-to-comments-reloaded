@@ -156,6 +156,9 @@ class wp_subscribe_reloaded{
 
 			// Shortcodes to use the management URL sitewide
 			add_shortcode('subscribe-url', array(&$this,'subscribe_url_shortcode'));
+
+			// Settings link for plugin on plugins page
+			add_filter('plugin_action_links', array(&$this,'plugin_settings_link'), 10, 2);
 		}
 	}
 	// end __construct
@@ -313,6 +316,16 @@ class wp_subscribe_reloaded{
 		}
 	}
 	// end deactivate
+
+	/*
+	 * Add Settings link to plugin on plugins page
+	 */
+	public function plugin_settings_link($links, $file) {
+		if ( $file == 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' ) {
+			$links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url( 'options-general.php?page=subscribe-to-comments-reloaded/options/index.php' ), __( 'Settings', 'subscribe-reloaded' ) );
+		}
+		return $links;
+	}
 
 	/**
 	 * Takes the appropriate action, when a new comment is posted
