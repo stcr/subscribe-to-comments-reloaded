@@ -60,7 +60,9 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 1. Manage your subscriptions
 2. Use your own messages to interact with your users
-3. Customize the plugin's behavior
+3. Configure the Virtual Management page
+4. Customize the notification messages
+5. Customize the plugin's behavior
 
 == Changelog ==
 
