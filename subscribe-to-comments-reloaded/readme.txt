@@ -1,10 +1,11 @@
 === Subscribe To Comments Reloaded ===
+Author: camu, Reedyseth, andreasbo, raamdev
 Contributors: coolmann, Reedyseth, raamdev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
 Tested up to: 3.8
-Stable tag: 2.0.6
+Stable tag: 140128
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -62,6 +63,24 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 3. Customize the plugin's behavior
 
 == Changelog ==
+
+= 140128 =
+
+* **New Feature**. There is now an option to BCC the admin on all Notifications. This is very useful when troubleshooting email delivery issues.
+* **New Option**. There is a new 'HTMLify links in emails' Option. When using HTML emails for messages you can now choose to have StCR automatically HTMLify the links for you (*Settings -> Subscribe to Comments -> Options -> HTMLify links in emails*). You can, of course, leave this option disabled and add your own HTML to the messages if you prefer.
+* **New Option**. There is a new 'default subscription type' Option. If you're using Advanced subscriptions, you can now specify the Advanced default subscription type ("None", "All new comments", or "Replies to this comment") in *Settings -> Subscribe to Comments -> Comment Form -> Advanced default*. This will be the default option shown on the comment form.
+* **Bug Fix**. Paragraph tags are now properly added to the comment content when sending HTML emails with `[comment_content]`
+* **Bug Fix**. Partial fix for the broken Subscribe to Replies Only feature. The Replies Only feature has not been working as intended. Instead of only receiving notificaitons for replies to their own comment, subscribers were receiving notifications for all new comments on the post. This fix makes sure they only receiving replies to their own comment thread.
+* **Bug Fix**. Fix duplicate `MIME-Version` header bug resulting in unsent emails. Fixes a bug where using StCR with other plugins, like WP-Mail-SMTP, results in a quiet duplicate header error. `wp_mail()` already takes care of setting the `MIME-Version` header so this doesn't need to be done again.
+* **Bug Fix**. Fixed `Fatal Error: Cannot redeclare class Helper` when visiting the `[subscribe_link]`. See also: <http://wordpress.org/support/topic/bug-fatal-error-in-classeshelperclassphp>
+* New import routine for WP Comment Subscriptions plugin. If subscription data and options are found for WP Comment Subscriptions, StCR will import those upon activation. Options and data are only imported if there is no existing StCR subscription data.
+* New admin notices to improve messaging and indicate when data is imported from an existing plugin.
+* New `stcr_confirmation_email_message` hook to modify the message that is sent to confirm a subscription. (Thanks to ziofix!)
+* New `stcr_notify_user_message` hook to modify the notification message that is sent to a user. (Thanks to ziofix!)
+* New plugin versioning format of YYMMDD.
+* Plugin development is now actively happening over at the new GitHub Repository for Subscribe to Comments Reloaded. If you have a bug to report or want to make a feature request, please post a new Issue over at GitHub. If you're a programmer, you're welcome to submit a Pull Request! See: <https://github.com/stcr/subscribe-to-comments-reloaded>
+* Added WPML language configuration file.
+* Added Raam Dev (`raamdev`) to the contributors list.
 
 = 2.0.6 =
 * Updated: Updated the contact information on every laguage file, some links were missing.
