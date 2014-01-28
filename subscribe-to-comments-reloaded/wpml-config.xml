@@ -1,0 +1,22 @@
+<wpml-config>
+	<admin-texts>
+		<key name="subscribe_reloaded_checkbox_label"/>
+		<key name="subscribe_reloaded_subscribed_label"/>
+		<key name="subscribe_reloaded_subscribed_waiting_label"/>
+		<key name="subscribe_reloaded_request_mgmt_link"/>
+		<key name="subscribe_reloaded_manager_page_title"/>
+		<key name="subscribe_reloaded_request_mgmt_link_thankyou"/>
+		<key name="subscribe_reloaded_subscribe_without_commenting"/>
+		<key name="subscribe_reloaded_subscription_confirmed"/>
+		<key name="subscribe_reloaded_author_label"/>
+		<key name="subscribe_reloaded_subscription_confirmed_dci"/>
+		<key name="subscribe_reloaded_author_text"/>
+		<key name="subscribe_reloaded_user_text"/>
+		<key name="subscribe_reloaded_notification_subject"/>
+		<key name="subscribe_reloaded_notification_content"/>
+		<key name="subscribe_reloaded_double_check_subject"/>
+		<key name="subscribe_reloaded_double_check_content"/>
+		<key name="subscribe_reloaded_management_subject"/>
+		<key name="subscribe_reloaded_management_content"/>
+	</admin-texts>
+</wpml-config>
