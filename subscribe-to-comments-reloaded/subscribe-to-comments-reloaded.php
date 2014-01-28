@@ -763,8 +763,8 @@ class wp_subscribe_reloaded {
 	public function add_subscription( $_post_id = 0, $_email = '', $_status = 'Y' ) {
 		global $wpdb;
 		// Does the post exist?
-		$target_post = get_post( $post_id );
-		if ( ( $post_id > 0 ) && ! is_object( $target_post ) ) {
+		$target_post = get_post( $_post_id );
+		if ( ( $_post_id > 0 ) && ! is_object( $target_post ) ) {
 			return;
 		}
 
