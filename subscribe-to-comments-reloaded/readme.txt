@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
 Tested up to: 3.8
-Stable tag: 140125
+Stable tag: 140128
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -64,7 +64,7 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 == Changelog ==
 
-= 140125 =
+= 140128 =
 
 * **New Feature**. There is now an option to BCC the admin on all Notifications. This is very useful when troubleshooting email delivery issues.
 * **New Option**. There is a new 'HTMLify links in emails' Option. When using HTML emails for messages you can now choose to have StCR automatically HTMLify the links for you (*Settings -> Subscribe to Comments -> Options -> HTMLify links in emails*). You can, of course, leave this option disabled and add your own HTML to the messages if you prefer.
@@ -79,6 +79,7 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 * New `stcr_notify_user_message` hook to modify the notification message that is sent to a user. (Thanks to ziofix!)
 * New plugin versioning format of YYMMDD.
 * Plugin development is now actively happening over at the new GitHub Repository for Subscribe to Comments Reloaded. If you have a bug to report or want to make a feature request, please post a new Issue over at GitHub. If you're a programmer, you're welcome to submit a Pull Request! See: <https://github.com/stcr/subscribe-to-comments-reloaded>
+* Added WPML language configuration file.
 * Added Raam Dev (`raamdev`) to the contributors list.
 
 = 2.0.6 =
