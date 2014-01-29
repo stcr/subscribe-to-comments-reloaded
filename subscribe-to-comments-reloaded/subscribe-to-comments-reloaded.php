@@ -2,14 +2,15 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 140128
-Stable tag: 14012
+Version: 140129
+Stable tag: 140129
 Requires at least: 2.9.2
 Tested up to: 3.8
 
 Plugin URI: http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/
 Description: Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notifications. It includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications.
 Contributors: camu, Reedyseth, andreasbo, raamdev
+Author: camu, Reedyseth, Raam Dev
 */
 
 // Avoid direct access to this piece of code
@@ -105,7 +106,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '140128';
+	public $current_version = '140129';
 
 	/**
 	 * Constructor -- Sets things up.
