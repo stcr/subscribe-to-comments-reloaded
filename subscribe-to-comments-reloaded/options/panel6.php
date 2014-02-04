@@ -26,6 +26,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 <h3><?php _e( "Sponsor's Corner", 'subscribe-reloaded' ) ?></h3>
 <p style="display:block"><?php _e( "If you want to sponsor this plugin, don't hesitate to <a href='http://behstant.com/negocio/contact.php' target='_blank'>contact me</a>.", 'subscribe-reloaded' ) ?></p>
 <p>
+	<a href="http://wpml.org/" target="ejejcsingle" title="The WordPress Multilingual Plugin"><img src="http://d2salfytceyqoe.cloudfront.net/wp-content/uploads/2013/04/wpml-ready-badge.png" alt="Multilingual Ready" width="85" height="85" /></a>
 	<a href="https://www.e-junkie.com/ecom/gb.php?cl=136641&c=ib&aff=152344" target="ejejcsingle" title="ThemeFuse"><img src="http://themefuse.com/banners/125x125.jpg" alt="ThemeFuse" width="85" height="85" /></a>
 	<a href="https://www.e-junkie.com/ecom/gb.php?cl=136641&c=ib&aff=152344" target="ejejcsingle" title="ThemeFuse"><img src="http://themefuse.com/wp-content/themes/themefuse/images/campaigns/themefuse.jpg" alt="ThemeFuse" width="375" height="85" /></a>
 </p>

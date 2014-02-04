@@ -26,6 +26,7 @@ delete_option( 'subscribe_reloaded_user_text' );
 delete_option( 'subscribe_reloaded_show_subscription_box' );
 delete_option( 'subscribe_reloaded_enable_advanced_subscriptions' );
 delete_option( 'subscribe_reloaded_default_subscription_type' );
+delete_option( 'subscribe_reloaded_checked_by_default_value' );
 delete_option( 'subscribe_reloaded_purge_days' );
 delete_option( 'subscribe_reloaded_from_name' );
 delete_option( 'subscribe_reloaded_from_email' );
