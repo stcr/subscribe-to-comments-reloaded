@@ -78,7 +78,10 @@ if ( isset( $_POST['options'] ) ) {
 				<div class="description"><?php _e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
-		<?php ?>
+<?php
+// This option will be visible only when the Checkbox option is enable
+if ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes') :
+?>
 			<tr>
 				<th scope="row">
 					<label for="checked_by_default_value"><?php _e( 'Default Checkbox Value', 'subscribe-reloaded' ) ?></label>
@@ -91,7 +94,9 @@ if ( isset( $_POST['options'] ) ) {
 					<div class="description"><?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-reloaded' ); ?></div>
 				</td>
 			</tr>
-		<?php ?>
+<?php else :
+	echo "<input type='hidden' name='options[checked_by_default_value]' value = '0'>";
+endif; ?>
 		<tr>
 			<th scope="row">
 				<label for="enable_advanced_subscriptions"><?php _e( 'Advanced subscription', 'subscribe-reloaded' ) ?></label>
@@ -119,7 +124,7 @@ if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' )
 					<div class="description"><?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-reloaded' ); ?></div>
 				</td>
 			</tr>
-		<?php endif; ?>
+<?php endif; ?>
 		<tr>
 			<th scope="row">
 				<label for="checkbox_inline_style"><?php _e( 'Custom inline style', 'subscribe-reloaded' ) ?></label>
