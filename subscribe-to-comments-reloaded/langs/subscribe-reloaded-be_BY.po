@@ -2,95 +2,143 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-22 08:12-0500\n"
-"PO-Revision-Date: 2011-11-22 08:12-0500\n"
-"Last-Translator: due chiacchiere <info@duechiacchiere.it>\n"
+"POT-Creation-Date: 2014-02-04 10:17-0700\n"
+"PO-Revision-Date: 2014-02-04 10:17-0700\n"
+"Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: Web Geeks\n"
+"Language: be_BY\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Belarusian\n"
-"X-Poedit-Country: BELARUS\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../\n"
-"Plural-Forms: s\n"
+"Plural-Forms: s;\n"
+"X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: subscribe-to-comments-reloaded.php:40
-#: subscribe-to-comments-reloaded.php:229
-msgid "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>."
-msgstr "Ваша падпіска на гэты артыкул мае патрэбу ў пацверджанні. <a href='[manager_link]'>Рэдагаваць</a> свае падпіскі."
+#: subscribe-to-comments-reloaded.php:50
+#: subscribe-to-comments-reloaded.php:290
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"Ваша падпіска на гэты артыкул мае патрэбу ў пацверджанні. <a "
+"href='[manager_link]'>Рэдагаваць</a> свае падпіскі."
 
-#: subscribe-to-comments-reloaded.php:45
-#: subscribe-to-comments-reloaded.php:228
-msgid "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions."
-msgstr "Вы падпісаны на гэты артыкул. <a href='[manager_link]'>Рэдагаваць</a> свае падпіскі."
+#: subscribe-to-comments-reloaded.php:56
+#: subscribe-to-comments-reloaded.php:289
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"Вы падпісаны на гэты артыкул. <a href='[manager_link]'>Рэдагаваць</a> свае "
+"падпіскі."
 
-#: subscribe-to-comments-reloaded.php:52
-#: subscribe-to-comments-reloaded.php:230
-msgid "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
-msgstr "Вы можаце <a href='[manager_link]'>кіраваць падпіскамі</a> на гэты запіс."
+#: subscribe-to-comments-reloaded.php:67
+#: subscribe-to-comments-reloaded.php:291
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr ""
+"Вы можаце <a href='[manager_link]'>кіраваць падпіскамі</a> на гэты запіс."
 
-#: subscribe-to-comments-reloaded.php:57
-#: subscribe-to-comments-reloaded.php:227
-msgid "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting."
-msgstr "Атрымліваць новыя каментары па электроннай пошце. Вы можаце <a href='[subscribe_link]'>падпісацца</a> без каментавання."
+#: subscribe-to-comments-reloaded.php:74
+#: subscribe-to-comments-reloaded.php:288
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"Атрымліваць новыя каментары па электроннай пошце. Вы можаце <a "
+"href='[subscribe_link]'>падпісацца</a> без каментавання."
 
-#: subscribe-to-comments-reloaded.php:66
+#: subscribe-to-comments-reloaded.php:93
 msgid "Don't subscribe"
 msgstr "Не падпісвацца"
 
-#: subscribe-to-comments-reloaded.php:67
+#: subscribe-to-comments-reloaded.php:94
 msgid "All"
 msgstr "Усё"
 
-#: subscribe-to-comments-reloaded.php:68
-#: templates/user.php:65
+#: subscribe-to-comments-reloaded.php:95 templates/user.php:67
 msgid "Replies to my comments"
 msgstr "Адказы на мае каментары"
 
-#: subscribe-to-comments-reloaded.php:69
-msgid "Daily digest"
-msgstr "Штодзённы дайджэст"
-
-#: subscribe-to-comments-reloaded.php:233
-#: options/index.php:46
+#: subscribe-to-comments-reloaded.php:294 options/index.php:54
 msgid "Manage subscriptions"
 msgstr "Рэдагаваць падпіскі"
 
-#: subscribe-to-comments-reloaded.php:235
-msgid "To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page."
-msgstr "Для кіравання сваімі падпіскамі, калі ласка, увядзіце свой электронны адрас у форму ніжэй. Мы адправім вам паведамленне са спасылкай на вашу персанальную старонку кіравання."
+#: subscribe-to-comments-reloaded.php:296
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"Для кіравання сваімі падпіскамі, калі ласка, увядзіце свой электронны адрас "
+"у форму ніжэй. Мы адправім вам паведамленне са спасылкай на вашу "
+"персанальную старонку кіравання."
 
-#: subscribe-to-comments-reloaded.php:236
-msgid "Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes."
-msgstr "Дзякуй, што карыстаецеся нашым сэрвісам падпісак. Ваш запыт выкананы. На працягу некалькіх хвілін вы павінны атрымаць ліст са спасылкай на старонку кіравання падпіскамі."
+#: subscribe-to-comments-reloaded.php:297
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"Дзякуй, што карыстаецеся нашым сэрвісам падпісак. Ваш запыт выкананы. На "
+"працягу некалькіх хвілін вы павінны атрымаць ліст са спасылкай на старонку "
+"кіравання падпіскамі."
 
-#: subscribe-to-comments-reloaded.php:237
-msgid "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set."
-msgstr "Вы можаце сачыць за абмеркаваннем артыкула <strong>[post_title]</strong>, не пакідаючы свайго каментара. Выдатна, ці не праўда? Проста ўвядзіце свой электронны адрас у форму ніжэй, і гатова!"
+#: subscribe-to-comments-reloaded.php:298
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"Вы можаце сачыць за абмеркаваннем артыкула <strong>[post_title]</strong>, не "
+"пакідаючы свайго каментара. Выдатна, ці не праўда? Проста ўвядзіце свой "
+"электронны адрас у форму ніжэй, і гатова!"
 
-#: subscribe-to-comments-reloaded.php:238
-msgid "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator."
-msgstr "Дзякуй, што карыстаецеся нашым сэрвісам падпісак. Ваш запыт выкананы. Вы будзеце атрымліваць апавяшчэнні кожных разоў, як новы каментар да гэты артыкулу будзе ўхвалены і апублікаваны адміністратарам сайта."
+#: subscribe-to-comments-reloaded.php:299
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"Дзякуй, што карыстаецеся нашым сэрвісам падпісак. Ваш запыт выкананы. Вы "
+"будзеце атрымліваць апавяшчэнні кожных разоў, як новы каментар да гэты "
+"артыкулу будзе ўхвалены і апублікаваны адміністратарам сайта."
 
-#: subscribe-to-comments-reloaded.php:239
-msgid "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions."
-msgstr "Дзякуй, што карыстаецеся нашым сэрвісам падпісак. Каб пацвердзіць свой запыт, калі ласка, праверце сваю пошту і вынікайце інструкцыям у лісце пра пацверджанне."
+#: subscribe-to-comments-reloaded.php:300
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"Дзякуй, што карыстаецеся нашым сэрвісам падпісак. Каб пацвердзіць свой "
+"запыт, калі ласка, праверце сваю пошту і вынікайце інструкцыям у лісце пра "
+"пацверджанне."
 
-#: subscribe-to-comments-reloaded.php:240
-msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list."
-msgstr "Каб адмяніць ці прыпыніць адно ці больш апавяшчэнняў, пстрыкніце ў адпаведным акенцы выбару і націсніце на кнопку ў канцы спісу."
+#: subscribe-to-comments-reloaded.php:301
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"Каб адмяніць ці прыпыніць адно ці больш апавяшчэнняў, пстрыкніце ў "
+"адпаведным акенцы выбару і націсніце на кнопку ў канцы спісу."
 
-#: subscribe-to-comments-reloaded.php:241
-msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:"
-msgstr "Каб адмяніць ці прыпыніць адно ці больш апавяшчэнняў, пстрыкніце ў адпаведным акенцы выбару і націсніце на кнопку ў канцы спісу. На дадзены момант вы падпісаны на:"
+#: subscribe-to-comments-reloaded.php:302
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"Каб адмяніць ці прыпыніць адно ці больш апавяшчэнняў, пстрыкніце ў "
+"адпаведным акенцы выбару і націсніце на кнопку ў канцы спісу. На дадзены "
+"момант вы падпісаны на:"
 
-#: subscribe-to-comments-reloaded.php:245
+#: subscribe-to-comments-reloaded.php:306
 msgid "There is a new comment to [post_title]"
 msgstr "З'явіўся новы каментар да артыкула [post_title]"
 
-#: subscribe-to-comments-reloaded.php:246
+#: subscribe-to-comments-reloaded.php:307
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -109,11 +157,11 @@ msgstr ""
 "Спасылка на артыкул: [post_permalink]\n"
 "Кіраванне падпіскамі: [manager_link]"
 
-#: subscribe-to-comments-reloaded.php:247
+#: subscribe-to-comments-reloaded.php:308
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Калі ласка, пацвердзіце сваю падпіску на артыкул [post_title]"
 
-#: subscribe-to-comments-reloaded.php:248
+#: subscribe-to-comments-reloaded.php:309
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -127,113 +175,173 @@ msgstr ""
 "Калі ласка, перайдзіце па наступнай спасылцы, каб пацвердзіць падпіску:\n"
 "[confirm_link]"
 
-#: subscribe-to-comments-reloaded.php:249
+#: subscribe-to-comments-reloaded.php:310
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Рэдагаваць свае падпіскі на сайце [blog_name]"
 
-#: subscribe-to-comments-reloaded.php:250
+#: subscribe-to-comments-reloaded.php:311
 msgid ""
-"You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n"
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
 "[manager_link]"
 msgstr ""
-"Вы зрабілі запыт на рэдагаванне сваіх падпісак на каментары да артыкулаў на сайце [blog_name]. Вось спасылка на вашу асабістую старонку кіравання падпіскамі:\n"
+"Вы зрабілі запыт на рэдагаванне сваіх падпісак на каментары да артыкулаў на "
+"сайце [blog_name]. Вось спасылка на вашу асабістую старонку кіравання "
+"падпіскамі:\n"
 "[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:1018
-#: options/panel2.php:42
-#: options/panel2.php:49
-#: options/panel2.php:56
-#: options/panel5.php:43
-#: options/panel5.php:50
-#: options/panel5.php:57
-#: options/panel5.php:64
-#: options/panel5.php:71
-#: options/panel5.php:78
+#: subscribe-to-comments-reloaded.php:366
+msgid "Settings"
+msgstr "Scegli ordine"
+
+#: subscribe-to-comments-reloaded.php:1283 options/panel2.php:67
+#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:66
+#: options/panel5.php:75 options/panel5.php:84 options/panel5.php:94
+#: options/panel5.php:103 options/panel5.php:113 options/panel5.php:122
+#: options/panel5.php:131
 msgid "No"
 msgstr "Не"
 
-#: subscribe-to-comments-reloaded.php:1042
-msgid "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
-msgstr "Патрэбна дапамога ў использовани убудовы Subscribe to Comments Reloaded? Наведаеце наш афіцыйны"
+#: subscribe-to-comments-reloaded.php:1310
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr ""
+"Патрэбна дапамога ў использовани убудовы Subscribe to Comments Reloaded? "
+"Наведаеце наш афіцыйны"
 
-#: subscribe-to-comments-reloaded.php:1042
+#: subscribe-to-comments-reloaded.php:1310
 msgid "support forum"
 msgstr "форум падтрымкі"
 
-#: subscribe-to-comments-reloaded.php:1043
+#: subscribe-to-comments-reloaded.php:1311
 msgid "Feeling generous?"
 msgstr "Жадаеце выявіць шчодрасць?"
 
-#: subscribe-to-comments-reloaded.php:1043
+#: subscribe-to-comments-reloaded.php:1311
 msgid "Donate a few bucks!"
 msgstr "Ахвяруйце пару баксаў!"
 
-#: options/index.php:47
+#: subscribe-to-comments-reloaded.php:1380
+#: subscribe-to-comments-reloaded.php:1526
+msgid "Important Notice"
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1381
+msgid ""
+"Comment subscription data from the <strong>Subscribe to Comments</strong> "
+"plugin was detected and automatically imported into <strong>Subscribe to "
+"Comments Reloaded</strong>."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1381
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1382
+msgid ""
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1383
+#: subscribe-to-comments-reloaded.php:1530
+msgid ""
+"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
+"your configuration."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1527
+msgid ""
+"Plugin options and comment subscription data from the <strong>WP Comment "
+"Subscriptions</strong> plugin were detected and automatically imported into "
+"<strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1527
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1528
+msgid ""
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1529
+msgid ""
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
+msgstr ""
+
+#: options/index.php:55
 msgid "Comment Form"
 msgstr "Форма каментара"
 
-#: options/index.php:48
+#: options/index.php:56
 msgid "Management Page"
 msgstr "Старонка кіравання"
 
-#: options/index.php:49
+#: options/index.php:57
 msgid "Notifications"
 msgstr "Апавяшчэнні"
 
-#: options/index.php:50
-#: options/panel2.php:35
-#: options/panel3.php:39
-#: options/panel4.php:36
+#: options/index.php:58 options/panel2.php:58 options/panel3.php:60
+#: options/panel4.php:51
 msgid "Options"
 msgstr "Параметры"
 
-#: options/index.php:51
+#: options/index.php:59
 msgid "You can help"
 msgstr "Вы можаце дапамагчы"
 
-#: options/panel1-business-logic.php:18
+#: options/panel1-business-logic.php:19
 msgid "Subscription added."
 msgstr "Падпіска дададзена."
 
-#: options/panel1-business-logic.php:30
+#: options/panel1-business-logic.php:31
 msgid "Subscriptions updated."
 msgstr "Падпіскі абноўлены."
 
-#: options/panel1-business-logic.php:39
+#: options/panel1-business-logic.php:40
 msgid "Subscription deleted."
 msgstr "Падпіска выдалена."
 
-#: options/panel1-business-logic.php:54
-#: templates/author.php:22
-#: templates/user.php:22
+#: options/panel1-business-logic.php:59 templates/author.php:23
+#: templates/user.php:23
 msgid "Subscriptions deleted:"
 msgstr "Падпіскі выдалены:"
 
-#: options/panel1-business-logic.php:58
-#: templates/author.php:26
-#: templates/user.php:26
+#: options/panel1-business-logic.php:63 templates/author.php:27
+#: templates/user.php:27
 msgid "Subscriptions suspended:"
 msgstr "Падпіскі прыпынены:"
 
-#: options/panel1-business-logic.php:62
-#: templates/author.php:30
-#: templates/user.php:30
+#: options/panel1-business-logic.php:67 templates/author.php:31
+#: templates/user.php:31
 msgid "Subscriptions activated:"
 msgstr "Падпіскі актываваны:"
 
-#: options/panel1-business-logic.php:66
-#: options/panel1-business-logic.php:70
-#: templates/author.php:34
-#: templates/author.php:38
-#: templates/user.php:34
+#: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
+#: templates/author.php:35 templates/author.php:39 templates/user.php:35
 msgid "Subscriptions updated:"
 msgstr "Падпіскі абноўлены:"
 
-#: options/panel1-business-logic.php:94
+#: options/panel1-business-logic.php:99
 msgid "&laquo; Previous"
 msgstr "&laquo; Зваротна"
 
-#: options/panel1-business-logic.php:98
+#: options/panel1-business-logic.php:103
 msgid "Next &raquo;"
 msgstr "Наперад &raquo;"
 
@@ -241,744 +349,837 @@ msgstr "Наперад &raquo;"
 msgid "Update Subscription"
 msgstr "Абнавіць падпіску"
 
-#: options/panel1-edit-subscription.php:10
-#: options/panel1-edit-subscription.php:14
-#: options/panel1-edit-subscription.php:15
-#: options/panel1-edit-subscription.php:16
-#: options/panel1.php:23
-#: options/panel1.php:24
-#: options/panel1.php:25
+#: options/panel1-edit-subscription.php:11
+#: options/panel1-edit-subscription.php:21
+#: options/panel1-edit-subscription.php:22
+#: options/panel1-edit-subscription.php:23 options/panel1.php:28
+#: options/panel1.php:29 options/panel1.php:30
 msgid "optional"
 msgstr "па выбары"
 
-#: options/panel1-edit-subscription.php:10
-#: options/panel1.php:19
-#: options/panel1.php:81
-#: options/panel1.php:117
-#: templates/author.php:50
-#: templates/user.php:46
-msgid "Please remember: this operation cannot be undone. Are you sure you want to proceed?"
-msgstr "Увага: гэту аперацыю нельга адмяніць. Вы ўпэўнены, што жадаеце працягнуць?"
+#: options/panel1-edit-subscription.php:11 options/panel1.php:22
+#: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
+#: templates/user.php:48
+msgid ""
+"Please remember: this operation cannot be undone. Are you sure you want to "
+"proceed?"
+msgstr ""
+"Увага: гэту аперацыю нельга адмяніць. Вы ўпэўнены, што жадаеце працягнуць?"
 
-#: options/panel1-edit-subscription.php:12
+#: options/panel1-edit-subscription.php:13
 msgid "Post:"
 msgstr "Запіс:"
 
-#: options/panel1-edit-subscription.php:13
-#: options/panel1.php:21
+#: options/panel1-edit-subscription.php:16 options/panel1.php:24
 msgid "From"
 msgstr "З"
 
-#: options/panel1-edit-subscription.php:14
-#: options/panel1.php:22
+#: options/panel1-edit-subscription.php:20 options/panel1.php:27
 msgid "To"
 msgstr "на"
 
-#: options/panel1-edit-subscription.php:17
-#: options/panel1.php:26
-#: options/panel1.php:45
-#: options/panel1.php:103
+#: options/panel1-edit-subscription.php:26 options/panel1.php:33
+#: options/panel1.php:59 options/panel1.php:124
 msgid "Status"
 msgstr "Статут"
 
-#: options/panel1-edit-subscription.php:19
-#: options/panel1.php:28
+#: options/panel1-edit-subscription.php:28 options/panel1.php:35
 msgid "Keep unchanged"
 msgstr "Пакінуць без змен"
 
-#: options/panel1-edit-subscription.php:20
-#: options/panel1.php:29
-#: options/panel1.php:47
+#: options/panel1-edit-subscription.php:29 options/panel1.php:36
+#: options/panel1.php:61
 msgid "Active"
 msgstr "Актыўна"
 
-#: options/panel1-edit-subscription.php:21
-#: options/panel1.php:30
-#: options/panel1.php:48
+#: options/panel1-edit-subscription.php:30 options/panel1.php:37
+#: options/panel1.php:62
 msgid "Replies only"
 msgstr "Толькі адказы"
 
-#: options/panel1-edit-subscription.php:22
-#: options/panel1.php:31
+#: options/panel1-edit-subscription.php:31 options/panel1.php:38
 msgid "Suspended"
 msgstr "Прыпынена"
 
-#: options/panel1-edit-subscription.php:23
-#: options/panel1.php:32
+#: options/panel1-edit-subscription.php:33 options/panel1.php:40
 msgid "Update"
 msgstr "Абнавіць"
 
-#: options/panel1.php:17
+#: options/panel1.php:19
 msgid "Mass Update Subscriptions"
 msgstr "Масава абнавіць падпіскі"
 
-#: options/panel1.php:39
+#: options/panel1.php:48
 msgid "Add New Subscription"
 msgstr "Дадаць новую падпіску"
 
-#: options/panel1.php:43
+#: options/panel1.php:53
 msgid "Post ID"
 msgstr "ID-нумар запісу"
 
-#: options/panel1.php:44
-#: options/panel1.php:90
-#: templates/request-management-link.php:65
-#: templates/subscribe.php:86
-#: templates/user.php:51
+#: options/panel1.php:56 options/panel1.php:111
+#: templates/request-management-link.php:75 templates/subscribe.php:89
+#: templates/user.php:53
 msgid "Email"
 msgstr "Эл. адрас"
 
-#: options/panel1.php:49
+#: options/panel1.php:63
 msgid "Ask user to confirm"
 msgstr "Прасіць подтвреждение ад карыстача"
 
-#: options/panel1.php:50
+#: options/panel1.php:65
 msgid "Add"
 msgstr "Дадаць"
 
-#: options/panel1.php:59
+#: options/panel1.php:76
 msgid "Search subscriptions"
 msgstr "Шукаць у падпісках"
 
-#: options/panel1.php:61
+#: options/panel1.php:80
 #, php-format
-msgid "You can either <a href=\"%s\">view all the subscriptions</a> or find those where the"
-msgstr "Вы можаце <a href=\"%s\">прагледзець усе падпіскі</a> ці знайсці тыя, дзе"
+msgid ""
+"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
+"where the"
+msgstr ""
+"Вы можаце <a href=\"%s\">прагледзець усе падпіскі</a> ці знайсці тыя, дзе"
 
-#: options/panel1.php:64
+#: options/panel1.php:84
 msgid "email"
 msgstr "эл. адрас"
 
-#: options/panel1.php:65
+#: options/panel1.php:85
 msgid "post ID"
 msgstr "ID-нумар запісу"
 
-#: options/panel1.php:66
+#: options/panel1.php:86
 msgid "status"
 msgstr "статут"
 
-#: options/panel1.php:69
+#: options/panel1.php:89
 msgid "equals"
 msgstr "раўназначна"
 
-#: options/panel1.php:70
+#: options/panel1.php:90
 msgid "contains"
 msgstr "утрымоўвае"
 
-#: options/panel1.php:71
+#: options/panel1.php:91
 msgid "does not contain"
 msgstr "не ўтрымоўвае"
 
-#: options/panel1.php:72
+#: options/panel1.php:92
 msgid "starts with"
 msgstr "пачынаецца з"
 
-#: options/panel1.php:73
+#: options/panel1.php:93
 msgid "ends with"
 msgstr "сканчаецца на"
 
-#: options/panel1.php:76
+#: options/panel1.php:96
 msgid "results per page:"
 msgstr "вынікі пастаронкава:"
 
-#: options/panel1.php:77
+#: options/panel1.php:98
 msgid "Search"
 msgstr "Шукаць"
 
-#: options/panel1.php:85
+#: options/panel1.php:106
 msgid "Reverse the order by Post ID"
 msgstr "Змяніць парадак па ID запісы"
 
-#: options/panel1.php:86
-#: options/panel1.php:87
+#: options/panel1.php:107 options/panel1.php:108
 msgid "Reverse the order by Date/Time"
 msgstr "Змяніць парадак па даце/чакай"
 
-#: options/panel1.php:89
+#: options/panel1.php:110
 msgid "Post (ID)"
 msgstr "Запіс (ID)"
 
-#: options/panel1.php:92
+#: options/panel1.php:113
 msgid "Search query:"
 msgstr "Пошукавы запыт:"
 
-#: options/panel1.php:92
+#: options/panel1.php:113
 msgid "Rows:"
 msgstr "Шэрагі:"
 
-#: options/panel1.php:92
+#: options/panel1.php:113
 msgid "of"
 msgstr " "
 
-#: options/panel1.php:93
-#: templates/author.php:56
-#: templates/user.php:52
+#: options/panel1.php:114 templates/author.php:58 templates/user.php:54
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr "Расшыфроўка: Y = усе каментары, R = толькі адказы, C = неактыўныя"
 
-#: options/panel1.php:102
+#: options/panel1.php:123
 msgid "Date and Time"
 msgstr "Дата і час"
 
-#: options/panel1.php:114
+#: options/panel1.php:135
 msgid "Subscription"
 msgstr "Падпіскі"
 
-#: options/panel1.php:116
+#: options/panel1.php:137
 msgid "Edit"
 msgstr "Рэдагаваць"
 
-#: options/panel1.php:117
-#: templates/author.php:69
-#: templates/user.php:63
+#: options/panel1.php:138 templates/author.php:72 templates/user.php:65
 msgid "Delete"
 msgstr "Выдаліць"
 
-#: options/panel1.php:125
-#: templates/author.php:68
-#: templates/user.php:62
+#: options/panel1.php:146 templates/author.php:71 templates/user.php:64
 msgid "Action:"
 msgstr "Дзеянне:"
 
-#: options/panel1.php:126
+#: options/panel1.php:147
 msgid "Delete forever"
 msgstr "Выдаліць назаўжды"
 
-#: options/panel1.php:127
-#: templates/author.php:70
-#: templates/user.php:64
+#: options/panel1.php:148 templates/author.php:73 templates/user.php:66
 msgid "Suspend"
 msgstr "Прыпыніць"
 
-#: options/panel1.php:128
+#: options/panel1.php:149
 msgid "Activate and set to Y"
 msgstr "Уключыць і ўсталяваць на Y"
 
-#: options/panel1.php:129
+#: options/panel1.php:150
 msgid "Activate and set to R"
 msgstr "Уключыць і ўсталяваць на R"
 
-#: options/panel1.php:130
-#: templates/author.php:72
-#: templates/user.php:66
+#: options/panel1.php:151 templates/author.php:75 templates/user.php:68
 msgid "Activate"
 msgstr "Уключыць"
 
-#: options/panel1.php:131
-#: templates/author.php:73
-#: templates/user.php:67
+#: options/panel1.php:152 templates/author.php:76 templates/user.php:69
 msgid "Update subscriptions"
 msgstr "Абнавіць падпіскі"
 
-#: options/panel1.php:135
+#: options/panel1.php:155
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr "Выбачыце, ніводная падпіска не адпавядае вашаму пошукаваму запыту."
 
-#: options/panel2.php:11
-#: options/panel2.php:39
+#: options/panel2.php:12 options/panel2.php:63
 msgid "Enable default checkbox"
 msgstr "Уключыць стандартнае акенца выбару"
 
-#: options/panel2.php:12
-#: options/panel2.php:46
+#: options/panel2.php:15 options/panel2.php:73
 msgid "Checked by default"
 msgstr "Абрана па змаўчанні"
 
-#: options/panel2.php:13
-#: options/panel2.php:53
+#: options/panel2.php:18
+msgid "Checked by default Value"
+msgstr "Абрана па змаўчанні"
+
+#: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
 msgid "Advanced subscription"
 msgstr "Пашыраная падпіска"
 
-#: options/panel2.php:14
-#: options/panel2.php:60
+#: options/panel2.php:27 options/panel2.php:130
 msgid "Custom inline style"
 msgstr "Змяняны стыль inline"
 
-#: options/panel2.php:15
-#: options/panel2.php:65
+#: options/panel2.php:30 options/panel2.php:139
 msgid "Custom HTML"
 msgstr "Уласны HTML"
 
-#: options/panel2.php:17
+#: options/panel2.php:34
 msgid "Checkbox label"
 msgstr "Цэтлік акенца выбару"
 
-#: options/panel2.php:18
-#: options/panel2.php:81
+#: options/panel2.php:37 options/panel2.php:163
 msgid "Subscribed label"
 msgstr "Цэтлік аформленай падпіскі"
 
-#: options/panel2.php:19
+#: options/panel2.php:40
 msgid "Awaiting label"
 msgstr "Цэтлік непацверджанай падпіскі"
 
-#: options/panel2.php:20
-#: options/panel2.php:91
+#: options/panel2.php:43 options/panel2.php:180
 msgid "Author label"
 msgstr "Цэтлік аўтара"
 
-#: options/panel2.php:25
-#: options/panel3.php:26
-#: options/panel4.php:25
-#: options/panel5.php:22
+#: options/panel2.php:49 options/panel3.php:48 options/panel4.php:41
+#: options/panel5.php:42
 msgid "Your settings have been successfully updated."
 msgstr "Вашы налады паспяхова абноўлены."
 
-#: options/panel2.php:28
-#: options/panel3.php:29
-#: options/panel4.php:28
-#: options/panel5.php:25
+#: options/panel2.php:51 options/panel3.php:50 options/panel4.php:43
+#: options/panel5.php:44
 msgid "There was an error updating the following fields:"
 msgstr "Адбылася памылка ў абнаўленні наступных палёў:"
 
-#: options/panel2.php:41
-#: options/panel2.php:48
-#: options/panel2.php:55
-#: options/panel5.php:42
-#: options/panel5.php:49
-#: options/panel5.php:56
-#: options/panel5.php:63
-#: options/panel5.php:70
-#: options/panel5.php:77
+#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
+#: options/panel5.php:65 options/panel5.php:74 options/panel5.php:83
+#: options/panel5.php:93 options/panel5.php:102 options/panel5.php:112
+#: options/panel5.php:121 options/panel5.php:130
 msgid "Yes"
 msgstr "Так"
 
-#: options/panel2.php:43
-msgid "Disable this option if you want to move the subscription checkbox to a different place on your page."
-msgstr "Адзначыце гэту опцыю, калі жадаеце змяніць становішча акенца выбару падпіскі на сваёй старонцы."
+#: options/panel2.php:68
+msgid ""
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
+msgstr ""
+"Адзначыце гэту опцыю, калі жадаеце змяніць становішча акенца выбару падпіскі "
+"на сваёй старонцы."
 
-#: options/panel2.php:50
+#: options/panel2.php:78
 msgid "Decide if the checkbox should be checked by default or not."
 msgstr "Ці павінна акенца выбару быць абраным па змаўчанні."
 
-#: options/panel2.php:57
-msgid "Allow users to choose from different subscription types (all, replies only)."
-msgstr "Дазволіць карыстачам выбар з розных тыпаў падпіскі (усё, толькі адказы)."
+#: options/panel2.php:87
+msgid "Default Checkbox Value"
+msgstr "Уключыць стандартнае акенца выбару"
 
-#: options/panel2.php:62
+#: options/panel2.php:91 options/panel2.php:120
+msgid "All new comments"
+msgstr ""
+
+#: options/panel2.php:92 options/panel2.php:121
+msgid "Replies to this comment"
+msgstr "Адказы на мае каментары"
+
+#: options/panel2.php:94
+msgid ""
+"Select the default option for the Checkbox. Be careful! Some users might "
+"like to be subscribed to all the post."
+msgstr ""
+
+#: options/panel2.php:107
+msgid ""
+"Allow users to choose from different subscription types (all, replies only)."
+msgstr ""
+"Дазволіць карыстачам выбар з розных тыпаў падпіскі (усё, толькі адказы)."
+
+#: options/panel2.php:115
+msgid "Advanced default"
+msgstr "Абрана па змаўчанні"
+
+#: options/panel2.php:119
+msgid "None"
+msgstr ""
+
+#: options/panel2.php:124
+msgid ""
+"The default subscription type that should be selected when Advanced "
+"subscriptions are enable."
+msgstr ""
+
+#: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
 msgstr "Змяняны Inline CSS для дадання да акенца выбару"
 
-#: options/panel2.php:67
-msgid "Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]"
-msgstr "Уласны код HTML для выкарыстання пры адлюстраванні акенца выбару. Дазволеныя тэгі: [checkbox_field], [checkbox_label]"
+#: options/panel2.php:143
+msgid ""
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
+msgstr ""
+"Уласны код HTML для выкарыстання пры адлюстраванні акенца выбару. Дазволеныя "
+"тэгі: [checkbox_field], [checkbox_label]"
 
-#: options/panel2.php:72
+#: options/panel2.php:149
 msgid "Messages for your visitors"
 msgstr "Паведамленні вашым наведвальнікам"
 
-#: options/panel2.php:76
+#: options/panel2.php:153
 msgid "Default label"
 msgstr "Стандартны цэтлік"
 
-#: options/panel2.php:78
+#: options/panel2.php:158
 msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
 msgstr "Тэкст побач з акенцам выбару. Дазволены тэг: [subscribe_link]"
 
-#: options/panel2.php:83
-msgid "Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]"
+#: options/panel2.php:167
+msgid ""
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
 msgstr "Тэкст, бачны якія падпісаліся чытачам. Дазволены тэг: [manager_link]"
 
-#: options/panel2.php:86
+#: options/panel2.php:172
 msgid "Pending label"
 msgstr "Цэтлік  \"У чаканні\" "
 
-#: options/panel2.php:88
-msgid "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]"
-msgstr "Тэкст, бачны чытачам, яшчэ не якія пацвердзілі сваю падпіску. Дазволены тэг: [manager_link]"
+#: options/panel2.php:176
+msgid ""
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
+msgstr ""
+"Тэкст, бачны чытачам, яшчэ не якія пацвердзілі сваю падпіску. Дазволены тэг: "
+"[manager_link]"
 
-#: options/panel2.php:93
-msgid "Label shown to authors (and administrators). Allowed tag: [manager_link]"
+#: options/panel2.php:184
+msgid ""
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
 msgstr "Тэст, бачны аўтарам і адміністратарам. Дазволены тэг: [manager_link]"
 
-#: options/panel2.php:97
-#: options/panel3.php:145
-#: options/panel4.php:105
-#: options/panel5.php:83
+#: options/panel2.php:189 options/panel3.php:210 options/panel4.php:152
+#: options/panel5.php:137
 msgid "Save Changes"
 msgstr "Захаваць змены"
 
-#: options/panel3.php:10
-#: options/panel3.php:43
+#: options/panel3.php:11 options/panel3.php:65
 msgid "Virtual Management Page"
 msgstr "Віртуальная старонка кіравання"
 
-#: options/panel3.php:11
-#: options/panel3.php:51
+#: options/panel3.php:14 options/panel3.php:74
 msgid "Page title"
 msgstr "Загаловак старонкі"
 
-#: options/panel3.php:12
-#: options/panel3.php:56
+#: options/panel3.php:17 options/panel3.php:83
 msgid "Management URL"
 msgstr "URL кіраванні"
 
-#: options/panel3.php:13
-#: options/panel3.php:63
+#: options/panel3.php:20 options/panel3.php:95
 msgid "Custom HEAD meta"
 msgstr "Уласны HEAD meta-тэг"
 
-#: options/panel3.php:15
-#: options/panel3.php:74
+#: options/panel3.php:24 options/panel3.php:109
 msgid "Request link"
 msgstr "Спасылка на запыт"
 
-#: options/panel3.php:16
-#: options/panel3.php:84
+#: options/panel3.php:27 options/panel3.php:124
 msgid "Request submitted"
 msgstr "Запыт адпраўлены"
 
-#: options/panel3.php:17
-#: options/panel3.php:94
+#: options/panel3.php:30 options/panel3.php:139
 msgid "Subscribe without commenting"
 msgstr "Падпіска без каментавання"
 
-#: options/panel3.php:18
-#: options/panel3.php:104
+#: options/panel3.php:33 options/panel3.php:154
 msgid "Subscription processed"
 msgstr "Падпіска аформлена"
 
-#: options/panel3.php:19
-#: options/panel3.php:114
+#: options/panel3.php:36 options/panel3.php:169
 msgid "Subscription processed (DCI)"
 msgstr "Падпіска аформлена (DCI)"
 
-#: options/panel3.php:20
-#: options/panel3.php:124
+#: options/panel3.php:39 options/panel3.php:183
 msgid "Authors"
 msgstr "Аўтары"
 
-#: options/panel3.php:21
-#: options/panel3.php:134
+#: options/panel3.php:42 options/panel3.php:196
 msgid "Users"
 msgstr "Карыстачы"
 
-#: options/panel3.php:45
+#: options/panel3.php:68
 msgid "Enabled"
 msgstr "Уключана"
 
-#: options/panel3.php:46
+#: options/panel3.php:69
 msgid "Disabled"
 msgstr "Выключана"
 
-#: options/panel3.php:47
-msgid "Disable the virtual management page if you need to create a <a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your theme happy."
-msgstr "Адменіце віртуальную старонку кіравання, калі вам трэба стварыць <a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">сапраўдную старонку</a> для карэктнай працы ўбудовы з вашай тэмай афармлення."
+#: options/panel3.php:70
+msgid ""
+"Disable the virtual management page if you need to create a <a href=\"http://"
+"lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
+"theme happy."
+msgstr ""
+"Адменіце віртуальную старонку кіравання, калі вам трэба стварыць <a href="
+"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">сапраўдную старонку</"
+"a> для карэктнай працы ўбудовы з вашай тэмай афармлення."
 
-#: options/panel3.php:53
+#: options/panel3.php:79
 msgid "Title of the page your visitors will use to manage their subscriptions."
 msgstr "Загаловак старонкі, на якой карыстачы будуць рэдагаваць свае падпіскі."
 
-#: options/panel3.php:58
-msgid "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure."
-msgstr "Сталая спасылка на вашу старонку кіравання (штосьці накшталт <code>/manage-subscriptions</code> ці <code>/page_id=345</code>). Гэта старонка фактычна <b>не існуе</b> у сістэме, але сталая спасылка на яе павінна адпавядаць вашым усталёўкам сталых спасылак у Wordpress."
+#: options/panel3.php:87
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"Сталая спасылка на вашу старонку кіравання (штосьці накшталт <code>/manage-"
+"subscriptions</code> ці <code>/page_id=345</code>). Гэта старонка фактычна "
+"<b>не існуе</b> у сістэме, але сталая спасылка на яе павінна адпавядаць "
+"вашым усталёўкам сталых спасылак у Wordpress."
 
-#: options/panel3.php:60
-msgid "Warning: it looks like the value you are using may be incompatible with your permalink structure"
-msgstr "Увага: магчыма, выкарыстоўванае вамі значэнне несумяшчальна з вашай структурай сталых спасылак"
+#: options/panel3.php:89
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
+msgstr ""
+"Увага: магчыма, выкарыстоўванае вамі значэнне несумяшчальна з вашай "
+"структурай сталых спасылак"
 
-#: options/panel3.php:65
-msgid "Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values."
-msgstr "Пакажыце свой код HTML для дадання ў HEAD старонкі. Выкарыстоўвайце <strong>адзінарныя</strong> двукоссі для значэнняў."
+#: options/panel3.php:99
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
+msgstr ""
+"Пакажыце свой код HTML для дадання ў HEAD старонкі. Выкарыстоўвайце "
+"<strong>адзінарныя</strong> двукоссі для значэнняў."
 
-#: options/panel3.php:70
-#: options/panel4.php:52
+#: options/panel3.php:105 options/panel4.php:74
 msgid "Messages"
 msgstr "Паведамленні"
 
-#: options/panel3.php:75
-#: options/panel3.php:85
-#: options/panel3.php:95
-#: options/panel3.php:105
-#: options/panel3.php:115
-#: options/panel3.php:125
-#: options/panel3.php:135
-#: options/panel4.php:63
-#: options/panel4.php:79
-#: options/panel4.php:95
+#: options/panel3.php:112 options/panel3.php:127 options/panel3.php:142
+#: options/panel3.php:157 options/panel3.php:172 options/panel3.php:185
+#: options/panel3.php:198 options/panel4.php:92 options/panel4.php:117
+#: options/panel4.php:140
 msgid "Bold"
 msgstr "Тоўсты"
 
-#: options/panel3.php:76
-#: options/panel3.php:86
-#: options/panel3.php:96
-#: options/panel3.php:106
-#: options/panel3.php:116
-#: options/panel3.php:126
-#: options/panel3.php:136
-#: options/panel4.php:64
-#: options/panel4.php:80
-#: options/panel4.php:96
+#: options/panel3.php:113 options/panel3.php:128 options/panel3.php:143
+#: options/panel3.php:158 options/panel3.php:173 options/panel3.php:186
+#: options/panel3.php:199 options/panel4.php:93 options/panel4.php:118
+#: options/panel4.php:141
 msgid "Italic"
 msgstr "З нахілам"
 
-#: options/panel3.php:77
-#: options/panel3.php:87
-#: options/panel3.php:97
-#: options/panel3.php:107
-#: options/panel3.php:117
-#: options/panel3.php:127
-#: options/panel3.php:137
-#: options/panel4.php:65
-#: options/panel4.php:81
-#: options/panel4.php:97
+#: options/panel3.php:114 options/panel3.php:129 options/panel3.php:144
+#: options/panel3.php:159 options/panel3.php:174 options/panel3.php:187
+#: options/panel3.php:200 options/panel4.php:94 options/panel4.php:119
+#: options/panel4.php:142
 msgid "Link"
 msgstr "Спасылка"
 
-#: options/panel3.php:78
-#: options/panel3.php:88
-#: options/panel3.php:98
-#: options/panel3.php:108
-#: options/panel3.php:118
-#: options/panel3.php:128
-#: options/panel3.php:138
-#: options/panel4.php:66
-#: options/panel4.php:82
-#: options/panel4.php:98
+#: options/panel3.php:115 options/panel3.php:130 options/panel3.php:145
+#: options/panel3.php:160 options/panel3.php:175 options/panel3.php:188
+#: options/panel3.php:201 options/panel4.php:95 options/panel4.php:120
+#: options/panel4.php:143
 msgid "Image"
 msgstr "Малюнак"
 
-#: options/panel3.php:81
+#: options/panel3.php:119
 msgid "Text shown to those who request to manage their subscriptions."
 msgstr "Тэкст, бачны якія зрабілі запыт на кіраванне падпіскамі."
 
-#: options/panel3.php:91
-msgid "Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]"
-msgstr "Тэкст падзякі, які выводзіцца пасля апрацоўкі зробленага запыту. Дазволены тэгі: [post_title], [post_permalink]"
+#: options/panel3.php:134
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Тэкст падзякі, які выводзіцца пасля апрацоўкі зробленага запыту. Дазволены "
+"тэгі: [post_title], [post_permalink]"
 
-#: options/panel3.php:101
-msgid "Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]"
-msgstr "Тэкст для ахвотнікаў падпісацца без каментавання. Дазволены тэгі: [post_title], [post_permalink]"
+#: options/panel3.php:149
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"Тэкст для ахвотнікаў падпісацца без каментавання. Дазволены тэгі: "
+"[post_title], [post_permalink]"
 
-#: options/panel3.php:111
-msgid "Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]"
-msgstr "Тэкст падзякі, які выводзіцца пасля апрацоўкі запыту на падпіску (падвойнае пацверджанне адключана). Дазволены тэгі: [post_title], [post_permalink]"
+#: options/panel3.php:164
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Тэкст падзякі, які выводзіцца пасля апрацоўкі запыту на падпіску (падвойнае "
+"пацверджанне адключана). Дазволены тэгі: [post_title], [post_permalink]"
 
-#: options/panel3.php:121
-msgid "Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]"
-msgstr "Тэкст падзякі, які выводзіцца пасля апрацоўкі запыту на падпіску (падвойнае пацверджанне ўключана). Дазволены тэгі: [post_title], [post_permalink]"
+#: options/panel3.php:179
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Тэкст падзякі, які выводзіцца пасля апрацоўкі запыту на падпіску (падвойнае "
+"пацверджанне ўключана). Дазволены тэгі: [post_title], [post_permalink]"
 
-#: options/panel3.php:131
+#: options/panel3.php:192
 msgid "Introductory text for the authors' management page."
 msgstr "Уступны тэкст на старонцы кіравання падпіскамі для аўтараў."
 
-#: options/panel3.php:141
+#: options/panel3.php:205
 msgid "Introductory text for the users' management page."
 msgstr "Уступны тэкст на старонцы кіравання падпіскамі для падпісантаў."
 
-#: options/panel4.php:13
-#: options/panel4.php:40
+#: options/panel4.php:14 options/panel4.php:55
 msgid "Sender name"
 msgstr "Імя адпраўніка"
 
-#: options/panel4.php:14
-#: options/panel4.php:45
+#: options/panel4.php:17 options/panel4.php:63
 msgid "Sender email address"
 msgstr "Эл. адрас адпраўніка"
 
-#: options/panel4.php:15
-#: options/panel4.php:56
+#: options/panel4.php:20 options/panel4.php:79
 msgid "Notification subject"
 msgstr "Тэма ліста з апавяшчэннем"
 
-#: options/panel4.php:16
-#: options/panel4.php:61
+#: options/panel4.php:23 options/panel4.php:89
 msgid "Notification message"
 msgstr "Тэкст апавяшчэння"
 
-#: options/panel4.php:17
-#: options/panel4.php:72
+#: options/panel4.php:26 options/panel4.php:104
 msgid "Double check subject"
 msgstr "Тэма ліста пра пацверджанне падпіскі"
 
-#: options/panel4.php:18
-#: options/panel4.php:77
+#: options/panel4.php:29 options/panel4.php:114
 msgid "Double check message"
 msgstr "Тэкст ліста пра пацверджанне падпіскі"
 
-#: options/panel4.php:19
-#: options/panel4.php:88
+#: options/panel4.php:32 options/panel4.php:129
 msgid "Management subject"
 msgstr "Тэма ліста пра кіраванне падпіскамі"
 
-#: options/panel4.php:20
-#: options/panel4.php:93
+#: options/panel4.php:35 options/panel4.php:138
 msgid "Management message"
 msgstr "Тэкст ліста пра кіраванне падпіскамі"
 
-#: options/panel4.php:42
-msgid "Name to use for the \"from\" field when sending a new notification to the user."
+#: options/panel4.php:59
+msgid ""
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
 msgstr "Імя ў поле \"Ад каго\" у новым апавяшчэнні карыстачу."
 
-#: options/panel4.php:47
-msgid "Email address to use for the \"from\" field when sending a new notification to the user."
+#: options/panel4.php:68
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
 msgstr "Эл. адрас у поле \"Ад каго\" у новым апавяшчэнні карыстачу."
 
-#: options/panel4.php:58
+#: options/panel4.php:84
 msgid "Subject of the notification email. Allowed tag: [post_title]"
 msgstr "Тэма ліста з апавяшчэннем. Дазволены тэг: [post_title]"
 
-#: options/panel4.php:69
-msgid "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
-msgstr "Тэкст апавяшчэння. Дазволеныя тэгі: [post_title],  [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
+#: options/panel4.php:99
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+msgstr ""
+"Тэкст апавяшчэння. Дазволеныя тэгі: [post_title],  [comment_permalink], "
+"[comment_author], [comment_content], [post_permalink], [manager_link]"
 
-#: options/panel4.php:74
+#: options/panel4.php:109
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
 msgstr "Тэма ліста пра пацверджанне. Дазволены тэг: [post_title]"
 
-#: options/panel4.php:85
-msgid "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]"
-msgstr "Тэкст ліста пра подтвеждении. Дазволеныя тэгі: [post_permalink], [confirm_link], [post_title], [manager_link]"
+#: options/panel4.php:124
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"Тэкст ліста пра подтвеждении. Дазволеныя тэгі: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
 
-#: options/panel4.php:90
-msgid "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]"
-msgstr "Тэма ліста падпісанту, які зрабіў запыт на доступ да старонкі кіравання падпіскамі. Дазволены тэг: [blog_name]"
+#: options/panel4.php:133
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
+msgstr ""
+"Тэма ліста падпісанту, які зрабіў запыт на доступ да старонкі кіравання "
+"падпіскамі. Дазволены тэг: [blog_name]"
 
-#: options/panel4.php:101
-msgid "Content of the management email. Allowed tags: [blog_name], [manager_link]"
-msgstr "Тэкст ліста пра кіраванне падпіскамі. Дазволеныя тэгі: [blog_name],[manager_link]"
+#: options/panel4.php:147
+msgid ""
+"Content of the management email. Allowed tags: [blog_name], [manager_link]"
+msgstr ""
+"Тэкст ліста пра кіраванне падпіскамі. Дазволеныя тэгі: [blog_name],"
+"[manager_link]"
 
-#: options/panel5.php:11
-#: options/panel5.php:35
+#: options/panel5.php:12 options/panel5.php:54
 msgid "Autopurge requests"
 msgstr "Аўтаматычна выдаляць запыты"
 
-#: options/panel5.php:12
-#: options/panel5.php:40
+#: options/panel5.php:15 options/panel5.php:63
 msgid "Enable double check"
 msgstr "Уключыць падвойнае пацверджанне"
 
-#: options/panel5.php:13
-#: options/panel5.php:47
+#: options/panel5.php:18 options/panel5.php:71
 msgid "Subscribe authors"
 msgstr ""
 
-#: options/panel5.php:14
-#: options/panel5.php:54
+#: options/panel5.php:21 options/panel5.php:81
 msgid "Enable HTML emails"
 msgstr "Выкарыстоўваць HTML лісты"
 
-#: options/panel5.php:15
+#: options/panel5.php:24
+msgid "HTMLify Links in HTML emails"
+msgstr ""
+
+#: options/panel5.php:27
 msgid "Send trackbacks"
 msgstr "Адпраўляць трэкбеки"
 
-#: options/panel5.php:16
+#: options/panel5.php:30
 msgid "Notify admin"
 msgstr "Апавясціць адміна"
 
-#: options/panel5.php:17
-#: options/panel5.php:75
+#: options/panel5.php:33 options/panel5.php:119
 msgid "Let admin subscribe"
 msgstr "Дазволіць адміну падпісвацца"
 
-#: options/panel5.php:36
+#: options/panel5.php:36 options/panel5.php:128
+msgid "BCC admin on Notifications"
+msgstr "Апавяшчэнні"
+
+#: options/panel5.php:57
 msgid "days"
 msgstr "дзён"
 
-#: options/panel5.php:37
-msgid "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature."
-msgstr "Выдаляць якія чакаюць пацверджанні (не пацверджаныя) падпіскі праз Х дзён. Нуль адключае гэту функцыю."
+#: options/panel5.php:58
+msgid ""
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
+msgstr ""
+"Выдаляць якія чакаюць пацверджанні (не пацверджаныя) падпіскі праз Х дзён. "
+"Нуль адключае гэту функцыю."
 
-#: options/panel5.php:44
-msgid "Send a notification email to confirm the subscription (to avoid addresses misuse)."
-msgstr "Адпраўляць ліст з просьбай пацвердзіць падпіску (каб пазбегнуць выкарыстанні эл. адрасы без вядзёная ўладальніка)"
+#: options/panel5.php:67
+msgid ""
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
+msgstr ""
+"Адпраўляць ліст з просьбай пацвердзіць падпіску (каб пазбегнуць выкарыстанні "
+"эл. адрасы без вядзёная ўладальніка)"
 
-#: options/panel5.php:51
-msgid "Automatically subscribe authors to their own articles (not retroactive)."
+#: options/panel5.php:76
+msgid ""
+"Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
 
-#: options/panel5.php:58
-msgid "If enabled, will send email messages with content-type = text/html instead of text/plain"
-msgstr "Пры выбары гэтай функцыі паведамлення будуць адпраўляцца ў фармаце тэкст/html замест звычайнага тэксту"
+#: options/panel5.php:85
+msgid ""
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
+msgstr ""
+"Пры выбары гэтай функцыі паведамлення будуць адпраўляцца ў фармаце тэкст/"
+"html замест звычайнага тэксту"
 
-#: options/panel5.php:61
+#: options/panel5.php:90
+msgid "HTMLify links in emails"
+msgstr ""
+
+#: options/panel5.php:95
+msgid ""
+"If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
+"&lt;/a&gt;</code> (only when HTML emails enabled)."
+msgstr ""
+
+#: options/panel5.php:100
 msgid "Process trackbacks"
 msgstr "Апрацоўваць трэкбеки"
 
-#: options/panel5.php:65
-msgid "Notify users when a new trackback or pingback is added to the discussion."
-msgstr "Апавяшчаць падпісантаў пра новыя трэкбеках ці пингбэках да абмеркавання"
+#: options/panel5.php:104
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
+msgstr ""
+"Апавяшчаць падпісантаў пра новыя трэкбеках ці пингбэках да абмеркавання"
 
-#: options/panel5.php:68
+#: options/panel5.php:109
 msgid "Track all subscriptions"
 msgstr "Адсачыць усе падпіскі"
 
-#: options/panel5.php:72
+#: options/panel5.php:114
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr "Апавяшчаць адміністратара, калі карыстачы падпісваюцца без каментара."
 
-#: options/panel5.php:79
+#: options/panel5.php:123
 msgid "Let the administrator subscribe to comments when logged in."
 msgstr "Дазволіць адміну падпісвацца, калі ён аўтарызаваны."
 
+#: options/panel5.php:132
+msgid "Send a copy of all Notifications to the administrator."
+msgstr ""
+
 #: options/panel6.php:8
-msgid "Support the author"
+msgid "Support the developer"
 msgstr "Падтрымаць аўтара"
 
-#: options/panel6.php:16
-msgid "How valuable is the feature offered by this plugin to your visitors? Subscribe to Comments Reloaded is and will always be free, but consider supporting the author if this plugin made your web site better, especially if you are making money out of it. Any donation received will be reinvested in the development of Subscribe to Comments Reloaded, and to buy some food for my hungry family."
-msgstr "Наколькі важная функцыя, якую падае гэта ўбудова для вашых наведвальнікаў? Убудова <b>Subscribe to Comments Reloaded</b> ёсць і заўсёды будзе бясплатным, але падумайце над тым, каб падтрымаць аўтара, калі гэта ўбудова зрабіла ваш сайт трохі лепш, асабліва калі вы зарабляеце грошы з дапамогай свайго сайта. Усе ахвяраванні будуць скарыстаны для развіцця ўбудовы <b>Subscribe to Comments Reloaded</b> і на тое, каб купіць трохі ежы маёй галоднай сям'і."
-
 #: options/panel6.php:18
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? "
+"Subscribe to Comments Reloaded is and will always be free, but consider "
+"supporting the author if this plugin made your web site better, especially "
+"if you are making money out of it. Any donation received will be reinvested "
+"in the development of Subscribe to Comments Reloaded, and to buy some food "
+"for my hungry family."
+msgstr ""
+"Наколькі важная функцыя, якую падае гэта ўбудова для вашых наведвальнікаў? "
+"Убудова <b>Subscribe to Comments Reloaded</b> ёсць і заўсёды будзе "
+"бясплатным, але падумайце над тым, каб падтрымаць аўтара, калі гэта ўбудова "
+"зрабіла ваш сайт трохі лепш, асабліва калі вы зарабляеце грошы з дапамогай "
+"свайго сайта. Усе ахвяраванні будуць скарыстаны для развіцця ўбудовы "
+"<b>Subscribe to Comments Reloaded</b> і на тое, каб купіць трохі ежы маёй "
+"галоднай сям'і."
+
+#: options/panel6.php:20
 msgid "Don't want to donate? You can still help"
 msgstr "Не жадаеце рабіць ахвяраванне? Вы ўсё адно можаце дапамагчы"
 
-#: options/panel6.php:19
-msgid "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks for using my plugin!"
-msgstr "Калі вы не жадаеце дапамагчы грашыма, калі ласка, разгледзіце магчымасць напісаць пра маю ўбудову ў сваім блогу і пакінуць спасылку на старонку ўбудовы. Калі ласка, распавядзіце сваім чытачам, што робіць ваш блог лепш. Вы можаце таксама ахвяраваць свой час: не саромейцеся адпраўляць мне справаздачы пра памылкі, свае файлы лакалізацыі, ідэі па паляпшэнні ўбудовы <b>Subscribe to Comments Reloaded</b> і гэтак далей. Што б вы ні абралі, дзякуй, што карыстаецеся маёй убудовай!"
-
 #: options/panel6.php:21
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
+"for using my plugin!"
+msgstr ""
+"Калі вы не жадаеце дапамагчы грашыма, калі ласка, разгледзіце магчымасць "
+"напісаць пра маю ўбудову ў сваім блогу і пакінуць спасылку на старонку "
+"ўбудовы. Калі ласка, распавядзіце сваім чытачам, што робіць ваш блог лепш. "
+"Вы можаце таксама ахвяраваць свой час: не саромейцеся адпраўляць мне "
+"справаздачы пра памылкі, свае файлы лакалізацыі, ідэі па паляпшэнні ўбудовы "
+"<b>Subscribe to Comments Reloaded</b> і гэтак далей. Што б вы ні абралі, "
+"дзякуй, што карыстаецеся маёй убудовай!"
+
+#: options/panel6.php:23
 msgid "Vote and show your appreciation"
 msgstr "Прагаласуйце і пакажыце сваю ўдзячнасць"
 
-#: options/panel6.php:22
-msgid "Tell other people if Subscribe to Comments Reloaded works for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
-msgstr "Калі вам падабаецца вам убудова <b>Subscribe to Comments Reloaded</b>, распавядзіце іншым людзям пра яго і пра тое, наколькі ён добры. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Ацэніце</a> яго ў частцы ўбудоў на сайце Wordpress."
-
 #: options/panel6.php:24
+msgid ""
+"Tell other people if Subscribe to Comments Reloaded works for you and how "
+"good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"Калі вам падабаецца вам убудова <b>Subscribe to Comments Reloaded</b>, "
+"распавядзіце іншым людзям пра яго і пра тое, наколькі ён добры. <a href="
+"\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/"
+"\">Ацэніце</a> яго ў частцы ўбудоў на сайце Wordpress."
+
+#: options/panel6.php:26
 msgid "Sponsor's Corner"
 msgstr "Куток фундатара"
 
-#: options/panel6.php:25
-msgid "If you want to sponsor this plugin, don't hesitate to <a href='http://behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
-msgstr "Калі вы жадаеце праспансаваць гэту ўбудову, не саромейцеся, <a href='http://behstant.com/negocio/contact.php' target='_blank'>звернецеся да мяне</a>."
+#: options/panel6.php:27
+msgid ""
+"If you want to sponsor this plugin, don't hesitate to <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+msgstr ""
+"Калі вы жадаеце праспансаваць гэту ўбудову, не саромейцеся, <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>звернецеся да мяне</a>."
 
-#: templates/author.php:55
+#: templates/author.php:57
 msgid "Title"
 msgstr "Загаловак"
 
-#: templates/author.php:66
-#: templates/user.php:60
+#: templates/author.php:69 templates/user.php:62
 msgid "Select all"
 msgstr "Абраць усё"
 
-#: templates/author.php:67
-#: templates/user.php:61
+#: templates/author.php:70 templates/user.php:63
 msgid "Invert selection"
 msgstr "Абраць зваротнае"
 
-#: templates/author.php:71
+#: templates/author.php:74
 msgid "Set to Y"
 msgstr "Усталявана на Y"
 
-#: templates/author.php:77
-#: templates/user.php:71
+#: templates/author.php:79 templates/user.php:72
 msgid "No subscriptions match your search criteria."
 msgstr "Ніводная падпіска не адпавядае пошукаваму запыту."
 
-#: templates/request-management-link.php:67
-#: templates/subscribe.php:87
+#: templates/request-management-link.php:77 templates/subscribe.php:91
 msgid "Send"
 msgstr "Адправіць"
 
-#: templates/subscribe.php:41
-#: templates/subscribe.php:42
+#: templates/subscribe.php:43 templates/subscribe.php:44
 msgid "New subscription to"
 msgstr "Новая падпіска на"
 
-#: templates/subscribe.php:42
+#: templates/subscribe.php:44
 msgid "User:"
 msgstr "Карыстач:"
+
+#~ msgid "Daily digest"
+#~ msgstr "Штодзённы дайджэст"
 
 #~ msgid "Notify authors"
 #~ msgstr "Апавяшчаць аўтараў"
@@ -1504,9 +1705,6 @@ msgstr "Карыстач:"
 
 #~ msgid "Language"
 #~ msgstr "Lingua"
-
-#~ msgid "Select sorting"
-#~ msgstr "Scegli ordine"
 
 #~ msgid "Descending"
 #~ msgstr "Decrescente"

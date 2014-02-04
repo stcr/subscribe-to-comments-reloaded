@@ -2,95 +2,131 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-22 08:12-0500\n"
+"POT-Creation-Date: 2014-02-04 10:34-0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: due chiacchiere <info@duechiacchiere.it>\n"
+"Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../\n"
-"Plural-Forms: s\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
+"Plural-Forms: s;\n"
+"X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: subscribe-to-comments-reloaded.php:40
-#: subscribe-to-comments-reloaded.php:229
-msgid "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>."
+#: subscribe-to-comments-reloaded.php:50
+#: subscribe-to-comments-reloaded.php:290
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
 msgstr "你需要激活你的订阅。<a href='[manager_link]'>管理你的订阅</a>。"
 
-#: subscribe-to-comments-reloaded.php:45
-#: subscribe-to-comments-reloaded.php:228
-msgid "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions."
+#: subscribe-to-comments-reloaded.php:56
+#: subscribe-to-comments-reloaded.php:289
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
 msgstr "你已经订阅过本篇文章。<a href='[manager_link]'>管理</a>你的订阅。"
 
-#: subscribe-to-comments-reloaded.php:52
-#: subscribe-to-comments-reloaded.php:230
-msgid "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+#: subscribe-to-comments-reloaded.php:67
+#: subscribe-to-comments-reloaded.php:291
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr "你可以<a href='[manager_link]'>管理</a>本篇文章的订阅。"
 
-#: subscribe-to-comments-reloaded.php:57
-#: subscribe-to-comments-reloaded.php:227
-msgid "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting."
-msgstr "有新评论,请电子邮件通知我。你也不需要留评论就可以<a href='[subscribe_link]'>订阅</a>。"
+#: subscribe-to-comments-reloaded.php:74
+#: subscribe-to-comments-reloaded.php:288
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"有新评论,请电子邮件通知我。你也不需要留评论就可以<a href='[subscribe_link]'>"
+"订阅</a>。"
 
-#: subscribe-to-comments-reloaded.php:66
+#: subscribe-to-comments-reloaded.php:93
 msgid "Don't subscribe"
 msgstr "不要 订阅 评论"
 
-#: subscribe-to-comments-reloaded.php:67
+#: subscribe-to-comments-reloaded.php:94
 msgid "All"
 msgstr "订阅 所有评论"
 
-#: subscribe-to-comments-reloaded.php:68
-#: templates/user.php:65
+#: subscribe-to-comments-reloaded.php:95 templates/user.php:67
 msgid "Replies to my comments"
 msgstr "订阅 我评论的回答"
 
-#: subscribe-to-comments-reloaded.php:69
-msgid "Daily digest"
-msgstr "每天的总结"
-
-#: subscribe-to-comments-reloaded.php:233
-#: options/index.php:46
+#: subscribe-to-comments-reloaded.php:294 options/index.php:54
 msgid "Manage subscriptions"
 msgstr "管理评论订阅"
 
-#: subscribe-to-comments-reloaded.php:235
-msgid "To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page."
-msgstr "为了管理你的评论订阅，请在这里输入你的邮箱地址。我们会把管理你个人订阅的链接发到你的邮箱。"
+#: subscribe-to-comments-reloaded.php:296
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"为了管理你的评论订阅，请在这里输入你的邮箱地址。我们会把管理你个人订阅的链接"
+"发到你的邮箱。"
 
-#: subscribe-to-comments-reloaded.php:236
-msgid "Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes."
-msgstr "谢谢你使用评论订阅。你的请求已处理完，过几分钟你就会收到有管理页面链接的邮件。"
+#: subscribe-to-comments-reloaded.php:297
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"谢谢你使用评论订阅。你的请求已处理完，过几分钟你就会收到有管理页面链接的邮"
+"件。"
 
-#: subscribe-to-comments-reloaded.php:237
-msgid "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set."
-msgstr "你不需要留评论就可以关注《<strong>[post_title]</strong>》的讨论。不错，啊？在下面输入你的邮箱地址就可以。"
+#: subscribe-to-comments-reloaded.php:298
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"你不需要留评论就可以关注《<strong>[post_title]</strong>》的讨论。不错，啊？在"
+"下面输入你的邮箱地址就可以。"
 
-#: subscribe-to-comments-reloaded.php:238
-msgid "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator."
-msgstr "谢谢你使用评论订阅。你的请求已处理完。每次管理员审核和发布新评论你就会收到邮件通知。"
+#: subscribe-to-comments-reloaded.php:299
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"谢谢你使用评论订阅。你的请求已处理完。每次管理员审核和发布新评论你就会收到邮"
+"件通知。"
 
-#: subscribe-to-comments-reloaded.php:239
-msgid "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions."
-msgstr "谢谢你使用评论订阅。为了确认你的请求，请查看你的电子邮箱，你会收到确认邮件和下一步的说明。"
+#: subscribe-to-comments-reloaded.php:300
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"谢谢你使用评论订阅。为了确认你的请求，请查看你的电子邮箱，你会收到确认邮件和"
+"下一步的说明。"
 
-#: subscribe-to-comments-reloaded.php:240
-msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list."
-msgstr "为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。"
+#: subscribe-to-comments-reloaded.php:301
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。"
 
-#: subscribe-to-comments-reloaded.php:241
-msgid "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:"
-msgstr "为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。你已经订阅了这些："
+#: subscribe-to-comments-reloaded.php:302
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。你"
+"已经订阅了这些："
 
-#: subscribe-to-comments-reloaded.php:245
+#: subscribe-to-comments-reloaded.php:306
 msgid "There is a new comment to [post_title]"
 msgstr "[post_title]有一条新的评论"
 
-#: subscribe-to-comments-reloaded.php:246
+#: subscribe-to-comments-reloaded.php:307
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -108,11 +144,11 @@ msgstr ""
 "评论链接：[comment_permalink]\n"
 "管理你的订阅：[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:247
+#: subscribe-to-comments-reloaded.php:308
 msgid "Please confirm your subscription to [post_title]"
 msgstr "请确认你要订阅《[post_title]》"
 
-#: subscribe-to-comments-reloaded.php:248
+#: subscribe-to-comments-reloaded.php:309
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -126,113 +162,169 @@ msgstr ""
 "请通过点击以下的链接确认：\n"
 "[confirm_link]"
 
-#: subscribe-to-comments-reloaded.php:249
+#: subscribe-to-comments-reloaded.php:310
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "管理你在[blog_name]上的订阅"
 
-#: subscribe-to-comments-reloaded.php:250
+#: subscribe-to-comments-reloaded.php:311
 msgid ""
-"You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n"
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
 "[manager_link]"
 msgstr ""
 "你申请过管理[blog_name]的评论订阅。请点击以下的链接去你的个人管理页面：\n"
 "[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:1018
-#: options/panel2.php:42
-#: options/panel2.php:49
-#: options/panel2.php:56
-#: options/panel5.php:43
-#: options/panel5.php:50
-#: options/panel5.php:57
-#: options/panel5.php:64
-#: options/panel5.php:71
-#: options/panel5.php:78
+#: subscribe-to-comments-reloaded.php:366
+msgid "Settings"
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1283 options/panel2.php:67
+#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:66
+#: options/panel5.php:75 options/panel5.php:84 options/panel5.php:94
+#: options/panel5.php:103 options/panel5.php:113 options/panel5.php:122
+#: options/panel5.php:131
 msgid "No"
 msgstr "No"
 
-#: subscribe-to-comments-reloaded.php:1042
-msgid "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+#: subscribe-to-comments-reloaded.php:1310
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr "需要帮忙如何使用Subscribe to Comments Reloaded？ 请访问官方"
 
-#: subscribe-to-comments-reloaded.php:1042
+#: subscribe-to-comments-reloaded.php:1310
 msgid "support forum"
 msgstr "技术论坛"
 
-#: subscribe-to-comments-reloaded.php:1043
+#: subscribe-to-comments-reloaded.php:1311
 msgid "Feeling generous?"
 msgstr "想做贡献"
 
-#: subscribe-to-comments-reloaded.php:1043
+#: subscribe-to-comments-reloaded.php:1311
 msgid "Donate a few bucks!"
 msgstr "捐赠几元！"
 
-#: options/index.php:47
+#: subscribe-to-comments-reloaded.php:1380
+#: subscribe-to-comments-reloaded.php:1526
+msgid "Important Notice"
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1381
+msgid ""
+"Comment subscription data from the <strong>Subscribe to Comments</strong> "
+"plugin was detected and automatically imported into <strong>Subscribe to "
+"Comments Reloaded</strong>."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1381
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1382
+msgid ""
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1383
+#: subscribe-to-comments-reloaded.php:1530
+msgid ""
+"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
+"your configuration."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1527
+msgid ""
+"Plugin options and comment subscription data from the <strong>WP Comment "
+"Subscriptions</strong> plugin were detected and automatically imported into "
+"<strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1527
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1528
+msgid ""
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
+msgstr ""
+
+#: subscribe-to-comments-reloaded.php:1529
+msgid ""
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
+msgstr ""
+
+#: options/index.php:55
 msgid "Comment Form"
 msgstr "评论form"
 
-#: options/index.php:48
+#: options/index.php:56
 msgid "Management Page"
 msgstr "管理页面"
 
-#: options/index.php:49
+#: options/index.php:57
 msgid "Notifications"
 msgstr "通知"
 
-#: options/index.php:50
-#: options/panel2.php:35
-#: options/panel3.php:39
-#: options/panel4.php:36
+#: options/index.php:58 options/panel2.php:58 options/panel3.php:60
+#: options/panel4.php:51
 msgid "Options"
 msgstr "设置"
 
-#: options/index.php:51
+#: options/index.php:59
 msgid "You can help"
 msgstr "你可以帮助"
 
-#: options/panel1-business-logic.php:18
+#: options/panel1-business-logic.php:19
 msgid "Subscription added."
 msgstr "增加了订阅。"
 
-#: options/panel1-business-logic.php:30
+#: options/panel1-business-logic.php:31
 msgid "Subscriptions updated."
 msgstr "更新了订阅。"
 
-#: options/panel1-business-logic.php:39
+#: options/panel1-business-logic.php:40
 msgid "Subscription deleted."
 msgstr "删除了订阅。"
 
-#: options/panel1-business-logic.php:54
-#: templates/author.php:22
-#: templates/user.php:22
+#: options/panel1-business-logic.php:59 templates/author.php:23
+#: templates/user.php:23
 msgid "Subscriptions deleted:"
 msgstr "删除了订阅："
 
-#: options/panel1-business-logic.php:58
-#: templates/author.php:26
-#: templates/user.php:26
+#: options/panel1-business-logic.php:63 templates/author.php:27
+#: templates/user.php:27
 msgid "Subscriptions suspended:"
 msgstr "停止了订阅："
 
-#: options/panel1-business-logic.php:62
-#: templates/author.php:30
-#: templates/user.php:30
+#: options/panel1-business-logic.php:67 templates/author.php:31
+#: templates/user.php:31
 msgid "Subscriptions activated:"
 msgstr "激活了订阅："
 
-#: options/panel1-business-logic.php:66
-#: options/panel1-business-logic.php:70
-#: templates/author.php:34
-#: templates/author.php:38
-#: templates/user.php:34
+#: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
+#: templates/author.php:35 templates/author.php:39 templates/user.php:35
 msgid "Subscriptions updated:"
 msgstr "更新了订阅："
 
-#: options/panel1-business-logic.php:94
+#: options/panel1-business-logic.php:99
 msgid "&laquo; Previous"
 msgstr "&laquo; 之前"
 
-#: options/panel1-business-logic.php:98
+#: options/panel1-business-logic.php:103
 msgid "Next &raquo;"
 msgstr "之后 &raquo;"
 
@@ -240,744 +332,807 @@ msgstr "之后 &raquo;"
 msgid "Update Subscription"
 msgstr "更新订阅"
 
-#: options/panel1-edit-subscription.php:10
-#: options/panel1-edit-subscription.php:14
-#: options/panel1-edit-subscription.php:15
-#: options/panel1-edit-subscription.php:16
-#: options/panel1.php:23
-#: options/panel1.php:24
-#: options/panel1.php:25
+#: options/panel1-edit-subscription.php:11
+#: options/panel1-edit-subscription.php:21
+#: options/panel1-edit-subscription.php:22
+#: options/panel1-edit-subscription.php:23 options/panel1.php:28
+#: options/panel1.php:29 options/panel1.php:30
 msgid "optional"
 msgstr "可选"
 
-#: options/panel1-edit-subscription.php:10
-#: options/panel1.php:19
-#: options/panel1.php:81
-#: options/panel1.php:117
-#: templates/author.php:50
-#: templates/user.php:46
-msgid "Please remember: this operation cannot be undone. Are you sure you want to proceed?"
+#: options/panel1-edit-subscription.php:11 options/panel1.php:22
+#: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
+#: templates/user.php:48
+msgid ""
+"Please remember: this operation cannot be undone. Are you sure you want to "
+"proceed?"
 msgstr "注意：这个请求是不可恢复的。你确定要这样做？"
 
-#: options/panel1-edit-subscription.php:12
+#: options/panel1-edit-subscription.php:13
 msgid "Post:"
 msgstr "文章："
 
-#: options/panel1-edit-subscription.php:13
-#: options/panel1.php:21
+#: options/panel1-edit-subscription.php:16 options/panel1.php:24
 msgid "From"
 msgstr "来自"
 
-#: options/panel1-edit-subscription.php:14
-#: options/panel1.php:22
+#: options/panel1-edit-subscription.php:20 options/panel1.php:27
 msgid "To"
 msgstr "To"
 
-#: options/panel1-edit-subscription.php:17
-#: options/panel1.php:26
-#: options/panel1.php:45
-#: options/panel1.php:103
+#: options/panel1-edit-subscription.php:26 options/panel1.php:33
+#: options/panel1.php:59 options/panel1.php:124
 msgid "Status"
 msgstr "情况"
 
-#: options/panel1-edit-subscription.php:19
-#: options/panel1.php:28
+#: options/panel1-edit-subscription.php:28 options/panel1.php:35
 msgid "Keep unchanged"
 msgstr "保持不变"
 
-#: options/panel1-edit-subscription.php:20
-#: options/panel1.php:29
-#: options/panel1.php:47
+#: options/panel1-edit-subscription.php:29 options/panel1.php:36
+#: options/panel1.php:61
 msgid "Active"
 msgstr "Active"
 
-#: options/panel1-edit-subscription.php:21
-#: options/panel1.php:30
-#: options/panel1.php:48
+#: options/panel1-edit-subscription.php:30 options/panel1.php:37
+#: options/panel1.php:62
 msgid "Replies only"
 msgstr "限制与回复"
 
-#: options/panel1-edit-subscription.php:22
-#: options/panel1.php:31
+#: options/panel1-edit-subscription.php:31 options/panel1.php:38
 msgid "Suspended"
 msgstr "停止"
 
-#: options/panel1-edit-subscription.php:23
-#: options/panel1.php:32
+#: options/panel1-edit-subscription.php:33 options/panel1.php:40
 msgid "Update"
 msgstr "更新"
 
-#: options/panel1.php:17
+#: options/panel1.php:19
 msgid "Mass Update Subscriptions"
 msgstr "批量更新订阅"
 
-#: options/panel1.php:39
+#: options/panel1.php:48
 msgid "Add New Subscription"
 msgstr "增加新的订阅"
 
-#: options/panel1.php:43
+#: options/panel1.php:53
 msgid "Post ID"
 msgstr "Post ID"
 
-#: options/panel1.php:44
-#: options/panel1.php:90
-#: templates/request-management-link.php:65
-#: templates/subscribe.php:86
-#: templates/user.php:51
+#: options/panel1.php:56 options/panel1.php:111
+#: templates/request-management-link.php:75 templates/subscribe.php:89
+#: templates/user.php:53
 msgid "Email"
 msgstr "Email"
 
-#: options/panel1.php:49
+#: options/panel1.php:63
 msgid "Ask user to confirm"
 msgstr "让用户确认"
 
-#: options/panel1.php:50
+#: options/panel1.php:65
 msgid "Add"
 msgstr "增加"
 
-#: options/panel1.php:59
+#: options/panel1.php:76
 msgid "Search subscriptions"
 msgstr "搜索订阅"
 
-#: options/panel1.php:61
+#: options/panel1.php:80
 #, php-format
-msgid "You can either <a href=\"%s\">view all the subscriptions</a> or find those where the"
+msgid ""
+"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
+"where the"
 msgstr "你可以<a href=\"%s\">所有的订阅</a>或者搜索在"
 
-#: options/panel1.php:64
+#: options/panel1.php:84
 msgid "email"
 msgstr "email"
 
-#: options/panel1.php:65
+#: options/panel1.php:85
 msgid "post ID"
 msgstr "post ID"
 
-#: options/panel1.php:66
+#: options/panel1.php:86
 msgid "status"
 msgstr "情况"
 
-#: options/panel1.php:69
+#: options/panel1.php:89
 msgid "equals"
 msgstr "等于"
 
-#: options/panel1.php:70
+#: options/panel1.php:90
 msgid "contains"
 msgstr "包含"
 
-#: options/panel1.php:71
+#: options/panel1.php:91
 msgid "does not contain"
 msgstr "不包含"
 
-#: options/panel1.php:72
+#: options/panel1.php:92
 msgid "starts with"
 msgstr "的开头是"
 
-#: options/panel1.php:73
+#: options/panel1.php:93
 msgid "ends with"
 msgstr "的结尾是"
 
-#: options/panel1.php:76
+#: options/panel1.php:96
 msgid "results per page:"
 msgstr "每页显示："
 
-#: options/panel1.php:77
+#: options/panel1.php:98
 msgid "Search"
 msgstr "搜索"
 
-#: options/panel1.php:85
+#: options/panel1.php:106
 msgid "Reverse the order by Post ID"
 msgstr "按照Post ID反过来排列"
 
-#: options/panel1.php:86
-#: options/panel1.php:87
+#: options/panel1.php:107 options/panel1.php:108
 msgid "Reverse the order by Date/Time"
 msgstr "按照日期和时间反过来排列"
 
-#: options/panel1.php:89
+#: options/panel1.php:110
 msgid "Post (ID)"
 msgstr "Post (ID)"
 
-#: options/panel1.php:92
+#: options/panel1.php:113
 msgid "Search query:"
 msgstr "搜索内容："
 
-#: options/panel1.php:92
+#: options/panel1.php:113
 msgid "Rows:"
 msgstr "行："
 
-#: options/panel1.php:92
+#: options/panel1.php:113
 msgid "of"
 msgstr "of"
 
-#: options/panel1.php:93
-#: templates/author.php:56
-#: templates/user.php:52
+#: options/panel1.php:114 templates/author.php:58 templates/user.php:54
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr "指南: Y = 所有评论, R = 限制与回答, C = 停止"
 
-#: options/panel1.php:102
+#: options/panel1.php:123
 msgid "Date and Time"
 msgstr "日期和时间"
 
-#: options/panel1.php:114
+#: options/panel1.php:135
 msgid "Subscription"
 msgstr ""
 
-#: options/panel1.php:116
+#: options/panel1.php:137
 msgid "Edit"
 msgstr "编辑"
 
-#: options/panel1.php:117
-#: templates/author.php:69
-#: templates/user.php:63
+#: options/panel1.php:138 templates/author.php:72 templates/user.php:65
 msgid "Delete"
 msgstr "删除"
 
-#: options/panel1.php:125
-#: templates/author.php:68
-#: templates/user.php:62
+#: options/panel1.php:146 templates/author.php:71 templates/user.php:64
 msgid "Action:"
 msgstr "命令："
 
-#: options/panel1.php:126
+#: options/panel1.php:147
 msgid "Delete forever"
 msgstr "永久删除"
 
-#: options/panel1.php:127
-#: templates/author.php:70
-#: templates/user.php:64
+#: options/panel1.php:148 templates/author.php:73 templates/user.php:66
 msgid "Suspend"
 msgstr "停止"
 
-#: options/panel1.php:128
+#: options/panel1.php:149
 msgid "Activate and set to Y"
 msgstr "启用并改为Y"
 
-#: options/panel1.php:129
+#: options/panel1.php:150
 msgid "Activate and set to R"
 msgstr "启用并改为R"
 
-#: options/panel1.php:130
-#: templates/author.php:72
-#: templates/user.php:66
+#: options/panel1.php:151 templates/author.php:75 templates/user.php:68
 msgid "Activate"
 msgstr "启用"
 
-#: options/panel1.php:131
-#: templates/author.php:73
-#: templates/user.php:67
+#: options/panel1.php:152 templates/author.php:76 templates/user.php:69
 msgid "Update subscriptions"
 msgstr "更新订阅"
 
-#: options/panel1.php:135
+#: options/panel1.php:155
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr "对不起，没有符合搜索条件的结果"
 
-#: options/panel2.php:11
-#: options/panel2.php:39
+#: options/panel2.php:12 options/panel2.php:63
 msgid "Enable default checkbox"
 msgstr "启用默认的复选框"
 
-#: options/panel2.php:12
-#: options/panel2.php:46
+#: options/panel2.php:15 options/panel2.php:73
 msgid "Checked by default"
 msgstr "默认打勾"
 
-#: options/panel2.php:13
-#: options/panel2.php:53
+#: options/panel2.php:18
+msgid "Checked by default Value"
+msgstr "默认打勾"
+
+#: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
 msgid "Advanced subscription"
 msgstr "高级订阅"
 
-#: options/panel2.php:14
-#: options/panel2.php:60
+#: options/panel2.php:27 options/panel2.php:130
 msgid "Custom inline style"
 msgstr "自定义inline样式"
 
-#: options/panel2.php:15
-#: options/panel2.php:65
+#: options/panel2.php:30 options/panel2.php:139
 msgid "Custom HTML"
 msgstr "自定义HTML"
 
-#: options/panel2.php:17
+#: options/panel2.php:34
 msgid "Checkbox label"
 msgstr "复选款的label"
 
-#: options/panel2.php:18
-#: options/panel2.php:81
+#: options/panel2.php:37 options/panel2.php:163
 msgid "Subscribed label"
 msgstr "订阅过的label"
 
-#: options/panel2.php:19
+#: options/panel2.php:40
 msgid "Awaiting label"
 msgstr "等待的label"
 
-#: options/panel2.php:20
-#: options/panel2.php:91
+#: options/panel2.php:43 options/panel2.php:180
 msgid "Author label"
 msgstr "作者的label"
 
-#: options/panel2.php:25
-#: options/panel3.php:26
-#: options/panel4.php:25
-#: options/panel5.php:22
+#: options/panel2.php:49 options/panel3.php:48 options/panel4.php:41
+#: options/panel5.php:42
 msgid "Your settings have been successfully updated."
 msgstr "你的设置已经成功更新了。"
 
-#: options/panel2.php:28
-#: options/panel3.php:29
-#: options/panel4.php:28
-#: options/panel5.php:25
+#: options/panel2.php:51 options/panel3.php:50 options/panel4.php:43
+#: options/panel5.php:44
 msgid "There was an error updating the following fields:"
 msgstr "更新以下内容时出现错误了："
 
-#: options/panel2.php:41
-#: options/panel2.php:48
-#: options/panel2.php:55
-#: options/panel5.php:42
-#: options/panel5.php:49
-#: options/panel5.php:56
-#: options/panel5.php:63
-#: options/panel5.php:70
-#: options/panel5.php:77
+#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
+#: options/panel5.php:65 options/panel5.php:74 options/panel5.php:83
+#: options/panel5.php:93 options/panel5.php:102 options/panel5.php:112
+#: options/panel5.php:121 options/panel5.php:130
 msgid "Yes"
 msgstr "Yes"
 
-#: options/panel2.php:43
-msgid "Disable this option if you want to move the subscription checkbox to a different place on your page."
+#: options/panel2.php:68
+msgid ""
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
 msgstr "如果你想自己安排订阅复选框，请禁用这个复选框。"
 
-#: options/panel2.php:50
+#: options/panel2.php:78
 msgid "Decide if the checkbox should be checked by default or not."
 msgstr "确定复选框是否默认的打勾。"
 
-#: options/panel2.php:57
-msgid "Allow users to choose from different subscription types (all, replies only)."
+#: options/panel2.php:87
+msgid "Default Checkbox Value"
+msgstr "启用默认的复选框"
+
+#: options/panel2.php:91 options/panel2.php:120
+msgid "All new comments"
+msgstr ""
+
+#: options/panel2.php:92 options/panel2.php:121
+msgid "Replies to this comment"
+msgstr "订阅 我评论的回答"
+
+#: options/panel2.php:94
+msgid ""
+"Select the default option for the Checkbox. Be careful! Some users might "
+"like to be subscribed to all the post."
+msgstr ""
+
+#: options/panel2.php:107
+msgid ""
+"Allow users to choose from different subscription types (all, replies only)."
 msgstr "允许用户选择不同订阅种类（所有评论，回答等）"
 
-#: options/panel2.php:62
+#: options/panel2.php:115
+msgid "Advanced default"
+msgstr "默认打勾"
+
+#: options/panel2.php:119
+msgid "None"
+msgstr ""
+
+#: options/panel2.php:124
+msgid ""
+"The default subscription type that should be selected when Advanced "
+"subscriptions are enable."
+msgstr ""
+
+#: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
 msgstr "为复选框增加的自定义inline CSS。"
 
-#: options/panel2.php:67
-msgid "Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]"
+#: options/panel2.php:143
+msgid ""
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
 msgstr "现实复选框的自定义HTML。允许的标签：[checkbox_field], [checkbox_label]"
 
-#: options/panel2.php:72
+#: options/panel2.php:149
 msgid "Messages for your visitors"
 msgstr "给访问者的信息"
 
-#: options/panel2.php:76
+#: options/panel2.php:153
 msgid "Default label"
 msgstr "默认的label解释"
 
-#: options/panel2.php:78
+#: options/panel2.php:158
 msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
 msgstr "给复选框的label解释。允许的标签：[subscribe_link]"
 
-#: options/panel2.php:83
-msgid "Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]"
+#: options/panel2.php:167
+msgid ""
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
 msgstr "给已经订阅的用户的label解释。允许的标签：[manager_link]"
 
-#: options/panel2.php:86
+#: options/panel2.php:172
 msgid "Pending label"
 msgstr "等待的label解释"
 
-#: options/panel2.php:88
-msgid "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]"
+#: options/panel2.php:176
+msgid ""
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
 msgstr "给已经订阅但没有激活的用户的label解释。允许的标签：[manager_link]"
 
-#: options/panel2.php:93
-msgid "Label shown to authors (and administrators). Allowed tag: [manager_link]"
+#: options/panel2.php:184
+msgid ""
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
 msgstr "给作者（和管理员）的label解释。允许的标签：[manager_link]"
 
-#: options/panel2.php:97
-#: options/panel3.php:145
-#: options/panel4.php:105
-#: options/panel5.php:83
+#: options/panel2.php:189 options/panel3.php:210 options/panel4.php:152
+#: options/panel5.php:137
 msgid "Save Changes"
 msgstr "保存更改"
 
-#: options/panel3.php:10
-#: options/panel3.php:43
+#: options/panel3.php:11 options/panel3.php:65
 msgid "Virtual Management Page"
 msgstr "虚拟管理页面"
 
-#: options/panel3.php:11
-#: options/panel3.php:51
+#: options/panel3.php:14 options/panel3.php:74
 msgid "Page title"
 msgstr "页面标题"
 
-#: options/panel3.php:12
-#: options/panel3.php:56
+#: options/panel3.php:17 options/panel3.php:83
 msgid "Management URL"
 msgstr "管理URL"
 
-#: options/panel3.php:13
-#: options/panel3.php:63
+#: options/panel3.php:20 options/panel3.php:95
 msgid "Custom HEAD meta"
 msgstr "自定义HEAD meta"
 
-#: options/panel3.php:15
-#: options/panel3.php:74
+#: options/panel3.php:24 options/panel3.php:109
 msgid "Request link"
 msgstr "请求链接"
 
-#: options/panel3.php:16
-#: options/panel3.php:84
+#: options/panel3.php:27 options/panel3.php:124
 msgid "Request submitted"
 msgstr "请求提交完成了"
 
-#: options/panel3.php:17
-#: options/panel3.php:94
+#: options/panel3.php:30 options/panel3.php:139
 msgid "Subscribe without commenting"
 msgstr "不留评论订阅"
 
-#: options/panel3.php:18
-#: options/panel3.php:104
+#: options/panel3.php:33 options/panel3.php:154
 msgid "Subscription processed"
 msgstr "订阅处理完了"
 
-#: options/panel3.php:19
-#: options/panel3.php:114
+#: options/panel3.php:36 options/panel3.php:169
 msgid "Subscription processed (DCI)"
 msgstr "订阅处理完了（需要确认）"
 
-#: options/panel3.php:20
-#: options/panel3.php:124
+#: options/panel3.php:39 options/panel3.php:183
 msgid "Authors"
 msgstr "作者"
 
-#: options/panel3.php:21
-#: options/panel3.php:134
+#: options/panel3.php:42 options/panel3.php:196
 msgid "Users"
 msgstr "用户"
 
-#: options/panel3.php:45
+#: options/panel3.php:68
 msgid "Enabled"
 msgstr "启用"
 
-#: options/panel3.php:46
+#: options/panel3.php:69
 msgid "Disabled"
 msgstr "禁用"
 
-#: options/panel3.php:47
-msgid "Disable the virtual management page if you need to create a <a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your theme happy."
-msgstr "如果你需要一个<a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">真正的页面</a>配合你的主体，要禁用虚拟管理页面。"
+#: options/panel3.php:70
+msgid ""
+"Disable the virtual management page if you need to create a <a href=\"http://"
+"lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
+"theme happy."
+msgstr ""
+"如果你需要一个<a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">"
+"真正的页面</a>配合你的主体，要禁用虚拟管理页面。"
 
-#: options/panel3.php:53
+#: options/panel3.php:79
 msgid "Title of the page your visitors will use to manage their subscriptions."
 msgstr "用户管理他们的订阅，那个页面的标题。"
 
-#: options/panel3.php:58
-msgid "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure."
-msgstr "管理页面的永久链接（比如 <code>/manage-subscriptions</code> 或者 <code>/?page_id=345</code> ）。你的系统<b>没有</b>这个页面，但他的形式需要和你系统的永久链接形式一致。"
+#: options/panel3.php:87
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"管理页面的永久链接（比如 <code>/manage-subscriptions</code> 或者 <code>/?"
+"page_id=345</code> ）。你的系统<b>没有</b>这个页面，但他的形式需要和你系统的"
+"永久链接形式一致。"
 
-#: options/panel3.php:60
-msgid "Warning: it looks like the value you are using may be incompatible with your permalink structure"
+#: options/panel3.php:89
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
 msgstr "注意：你用的内容可能不兼容你的永久链接形式。"
 
-#: options/panel3.php:65
-msgid "Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values."
+#: options/panel3.php:99
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
 msgstr "要加入到HEAD的自定义代码。要用<strong>单引号</strong>。"
 
-#: options/panel3.php:70
-#: options/panel4.php:52
+#: options/panel3.php:105 options/panel4.php:74
 msgid "Messages"
 msgstr "信息"
 
-#: options/panel3.php:75
-#: options/panel3.php:85
-#: options/panel3.php:95
-#: options/panel3.php:105
-#: options/panel3.php:115
-#: options/panel3.php:125
-#: options/panel3.php:135
-#: options/panel4.php:63
-#: options/panel4.php:79
-#: options/panel4.php:95
+#: options/panel3.php:112 options/panel3.php:127 options/panel3.php:142
+#: options/panel3.php:157 options/panel3.php:172 options/panel3.php:185
+#: options/panel3.php:198 options/panel4.php:92 options/panel4.php:117
+#: options/panel4.php:140
 msgid "Bold"
 msgstr "加黑"
 
-#: options/panel3.php:76
-#: options/panel3.php:86
-#: options/panel3.php:96
-#: options/panel3.php:106
-#: options/panel3.php:116
-#: options/panel3.php:126
-#: options/panel3.php:136
-#: options/panel4.php:64
-#: options/panel4.php:80
-#: options/panel4.php:96
+#: options/panel3.php:113 options/panel3.php:128 options/panel3.php:143
+#: options/panel3.php:158 options/panel3.php:173 options/panel3.php:186
+#: options/panel3.php:199 options/panel4.php:93 options/panel4.php:118
+#: options/panel4.php:141
 msgid "Italic"
 msgstr "斜体"
 
-#: options/panel3.php:77
-#: options/panel3.php:87
-#: options/panel3.php:97
-#: options/panel3.php:107
-#: options/panel3.php:117
-#: options/panel3.php:127
-#: options/panel3.php:137
-#: options/panel4.php:65
-#: options/panel4.php:81
-#: options/panel4.php:97
+#: options/panel3.php:114 options/panel3.php:129 options/panel3.php:144
+#: options/panel3.php:159 options/panel3.php:174 options/panel3.php:187
+#: options/panel3.php:200 options/panel4.php:94 options/panel4.php:119
+#: options/panel4.php:142
 msgid "Link"
 msgstr "链接"
 
-#: options/panel3.php:78
-#: options/panel3.php:88
-#: options/panel3.php:98
-#: options/panel3.php:108
-#: options/panel3.php:118
-#: options/panel3.php:128
-#: options/panel3.php:138
-#: options/panel4.php:66
-#: options/panel4.php:82
-#: options/panel4.php:98
+#: options/panel3.php:115 options/panel3.php:130 options/panel3.php:145
+#: options/panel3.php:160 options/panel3.php:175 options/panel3.php:188
+#: options/panel3.php:201 options/panel4.php:95 options/panel4.php:120
+#: options/panel4.php:143
 msgid "Image"
 msgstr "图片"
 
-#: options/panel3.php:81
+#: options/panel3.php:119
 msgid "Text shown to those who request to manage their subscriptions."
 msgstr "这些内容要显示给想管理自己的订阅的人。"
 
-#: options/panel3.php:91
-msgid "Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]"
-msgstr "感谢信在处理上面的请求完成之后。允许的标签：[post_title], [post_permalink]"
+#: options/panel3.php:134
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"感谢信在处理上面的请求完成之后。允许的标签：[post_title], [post_permalink]"
 
-#: options/panel3.php:101
-msgid "Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]"
-msgstr "这些内容要显示给想订阅但不想留言的人。允许的标签：[post_title], [post_permalink]"
+#: options/panel3.php:149
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"这些内容要显示给想订阅但不想留言的人。允许的标签：[post_title], "
+"[post_permalink]"
 
-#: options/panel3.php:111
-msgid "Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]"
-msgstr "感谢信在申请订阅处理完成之后（不需要激活的情况下）。允许的标签：[post_title], [post_permalink]"
+#: options/panel3.php:164
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"感谢信在申请订阅处理完成之后（不需要激活的情况下）。允许的标签："
+"[post_title], [post_permalink]"
 
-#: options/panel3.php:121
-msgid "Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]"
-msgstr "感谢信在申请订阅处理完成之后（需要激活的情况下）。允许的标签：[post_title], [post_permalink]"
+#: options/panel3.php:179
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"感谢信在申请订阅处理完成之后（需要激活的情况下）。允许的标签：[post_title], "
+"[post_permalink]"
 
-#: options/panel3.php:131
+#: options/panel3.php:192
 msgid "Introductory text for the authors' management page."
 msgstr "给作者的管理页面的介绍内容。"
 
-#: options/panel3.php:141
+#: options/panel3.php:205
 msgid "Introductory text for the users' management page."
 msgstr "给用户的管理页面的介绍内容。"
 
-#: options/panel4.php:13
-#: options/panel4.php:40
+#: options/panel4.php:14 options/panel4.php:55
 msgid "Sender name"
 msgstr "发送人的名字"
 
-#: options/panel4.php:14
-#: options/panel4.php:45
+#: options/panel4.php:17 options/panel4.php:63
 msgid "Sender email address"
 msgstr "发送人的邮件地址"
 
-#: options/panel4.php:15
-#: options/panel4.php:56
+#: options/panel4.php:20 options/panel4.php:79
 msgid "Notification subject"
 msgstr "通知标题"
 
-#: options/panel4.php:16
-#: options/panel4.php:61
+#: options/panel4.php:23 options/panel4.php:89
 msgid "Notification message"
 msgstr "通知内容"
 
-#: options/panel4.php:17
-#: options/panel4.php:72
+#: options/panel4.php:26 options/panel4.php:104
 msgid "Double check subject"
 msgstr "确认标题"
 
-#: options/panel4.php:18
-#: options/panel4.php:77
+#: options/panel4.php:29 options/panel4.php:114
 msgid "Double check message"
 msgstr "确认内容"
 
-#: options/panel4.php:19
-#: options/panel4.php:88
+#: options/panel4.php:32 options/panel4.php:129
 msgid "Management subject"
 msgstr "管理标题"
 
-#: options/panel4.php:20
-#: options/panel4.php:93
+#: options/panel4.php:35 options/panel4.php:138
 msgid "Management message"
 msgstr "管理内容"
 
-#: options/panel4.php:42
-msgid "Name to use for the \"from\" field when sending a new notification to the user."
+#: options/panel4.php:59
+msgid ""
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
 msgstr "给用户发送新的通知时，\"from\"要用的名字"
 
-#: options/panel4.php:47
-msgid "Email address to use for the \"from\" field when sending a new notification to the user."
+#: options/panel4.php:68
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
 msgstr "给用户发送新的通知时，\"from\"要用的电子邮箱"
 
-#: options/panel4.php:58
+#: options/panel4.php:84
 msgid "Subject of the notification email. Allowed tag: [post_title]"
 msgstr "通知邮件的标题。允许的标签：[post_title]"
 
-#: options/panel4.php:69
-msgid "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
-msgstr "通知邮件的内容。允许的标签：[post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]"
+#: options/panel4.php:99
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+msgstr ""
+"通知邮件的内容。允许的标签：[post_title], [comment_permalink], "
+"[comment_author], [comment_content], [post_permalink], [manager_link]"
 
-#: options/panel4.php:74
+#: options/panel4.php:109
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
 msgstr "确认邮件的标题。允许的标签：[post_title]"
 
-#: options/panel4.php:85
-msgid "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]"
-msgstr "确认邮件的内容。允许的标签：[post_permalink], [confirm_link], [post_title], [manager_link]"
+#: options/panel4.php:124
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"确认邮件的内容。允许的标签：[post_permalink], [confirm_link], [post_title], "
+"[manager_link]"
 
-#: options/panel4.php:90
-msgid "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]"
+#: options/panel4.php:133
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
 msgstr "用户想进入管理订阅页面后，邮件的标题。允许的标签：[blog_name]"
 
-#: options/panel4.php:101
-msgid "Content of the management email. Allowed tags: [blog_name], [manager_link]"
+#: options/panel4.php:147
+msgid ""
+"Content of the management email. Allowed tags: [blog_name], [manager_link]"
 msgstr "进入管理页面的邮件内容。允许的标签：[blog_name], [manager_link]"
 
-#: options/panel5.php:11
-#: options/panel5.php:35
+#: options/panel5.php:12 options/panel5.php:54
 msgid "Autopurge requests"
 msgstr "自动删除的请求"
 
-#: options/panel5.php:12
-#: options/panel5.php:40
+#: options/panel5.php:15 options/panel5.php:63
 msgid "Enable double check"
 msgstr "启用确认"
 
-#: options/panel5.php:13
-#: options/panel5.php:47
+#: options/panel5.php:18 options/panel5.php:71
 msgid "Subscribe authors"
 msgstr ""
 
-#: options/panel5.php:14
-#: options/panel5.php:54
+#: options/panel5.php:21 options/panel5.php:81
 msgid "Enable HTML emails"
 msgstr "启用HTML的邮件"
 
-#: options/panel5.php:15
+#: options/panel5.php:24
+msgid "HTMLify Links in HTML emails"
+msgstr ""
+
+#: options/panel5.php:27
 msgid "Send trackbacks"
 msgstr "发送trackback"
 
-#: options/panel5.php:16
+#: options/panel5.php:30
 msgid "Notify admin"
 msgstr "通知管理员"
 
-#: options/panel5.php:17
-#: options/panel5.php:75
+#: options/panel5.php:33 options/panel5.php:119
 msgid "Let admin subscribe"
 msgstr "让管理员订阅"
 
-#: options/panel5.php:36
+#: options/panel5.php:36 options/panel5.php:128
+msgid "BCC admin on Notifications"
+msgstr "通知"
+
+#: options/panel5.php:57
 msgid "days"
 msgstr "天"
 
-#: options/panel5.php:37
-msgid "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature."
+#: options/panel5.php:58
+msgid ""
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
 msgstr "在X天之后删除没有激活的订阅（没有确认）。0代表禁用此功能。"
 
-#: options/panel5.php:44
-msgid "Send a notification email to confirm the subscription (to avoid addresses misuse)."
+#: options/panel5.php:67
+msgid ""
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
 msgstr "发送激活邮件确认订阅（避免提交他人的邮箱）。"
 
-#: options/panel5.php:51
-msgid "Automatically subscribe authors to their own articles (not retroactive)."
+#: options/panel5.php:76
+msgid ""
+"Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
 
-#: options/panel5.php:58
-msgid "If enabled, will send email messages with content-type = text/html instead of text/plain"
+#: options/panel5.php:85
+msgid ""
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
 msgstr "如果启用的话，发送的邮件会content-type = text/html而不是text/plain"
 
-#: options/panel5.php:61
+#: options/panel5.php:90
+msgid "HTMLify links in emails"
+msgstr ""
+
+#: options/panel5.php:95
+msgid ""
+"If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
+"&lt;/a&gt;</code> (only when HTML emails enabled)."
+msgstr ""
+
+#: options/panel5.php:100
 msgid "Process trackbacks"
 msgstr "处理tackbacks"
 
-#: options/panel5.php:65
-msgid "Notify users when a new trackback or pingback is added to the discussion."
+#: options/panel5.php:104
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
 msgstr "收到新的trackback或pingback之后通知订阅者。"
 
-#: options/panel5.php:68
+#: options/panel5.php:109
 msgid "Track all subscriptions"
 msgstr "Track all subscriptions"
 
-#: options/panel5.php:72
+#: options/panel5.php:114
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr "人不留评论订阅时，通知管理员。"
 
-#: options/panel5.php:79
+#: options/panel5.php:123
 msgid "Let the administrator subscribe to comments when logged in."
 msgstr "让管理员登录后订阅评论。"
 
+#: options/panel5.php:132
+msgid "Send a copy of all Notifications to the administrator."
+msgstr ""
+
 #: options/panel6.php:8
-msgid "Support the author"
+msgid "Support the developer"
 msgstr "支持作者"
 
-#: options/panel6.php:16
-msgid "How valuable is the feature offered by this plugin to your visitors? Subscribe to Comments Reloaded is and will always be free, but consider supporting the author if this plugin made your web site better, especially if you are making money out of it. Any donation received will be reinvested in the development of Subscribe to Comments Reloaded, and to buy some food for my hungry family."
-msgstr "How valuable is the feature offered by this plugin to your visitors? Subscribe to Comments Reloaded is and will always be free, but consider supporting the author if this plugin made your web site better, especially if you are making money out of it. Any donation received will be reinvested in the development of Subscribe to Comments Reloaded, and to buy some food for my hungry family."
-
 #: options/panel6.php:18
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? "
+"Subscribe to Comments Reloaded is and will always be free, but consider "
+"supporting the author if this plugin made your web site better, especially "
+"if you are making money out of it. Any donation received will be reinvested "
+"in the development of Subscribe to Comments Reloaded, and to buy some food "
+"for my hungry family."
+msgstr ""
+"How valuable is the feature offered by this plugin to your visitors? "
+"Subscribe to Comments Reloaded is and will always be free, but consider "
+"supporting the author if this plugin made your web site better, especially "
+"if you are making money out of it. Any donation received will be reinvested "
+"in the development of Subscribe to Comments Reloaded, and to buy some food "
+"for my hungry family."
+
+#: options/panel6.php:20
 msgid "Don't want to donate? You can still help"
 msgstr "Don't want to donate? You can still help"
 
-#: options/panel6.php:19
-msgid "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks for using my plugin!"
-msgstr "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks for using my plugin!"
-
 #: options/panel6.php:21
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
+"for using my plugin!"
+msgstr ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
+"for using my plugin!"
+
+#: options/panel6.php:23
 msgid "Vote and show your appreciation"
 msgstr "Vote and show your appreciation"
 
-#: options/panel6.php:22
-msgid "Tell other people if Subscribe to Comments Reloaded works for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
-msgstr "Tell other people if Subscribe to Comments Reloaded works for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
-
 #: options/panel6.php:24
+msgid ""
+"Tell other people if Subscribe to Comments Reloaded works for you and how "
+"good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"Tell other people if Subscribe to Comments Reloaded works for you and how "
+"good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+
+#: options/panel6.php:26
 msgid "Sponsor's Corner"
 msgstr "Sponsor's Corner"
 
-#: options/panel6.php:25
-msgid "If you want to sponsor this plugin, don't hesitate to <a href='http://behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
-msgstr "If you want to sponsor this plugin, don't hesitate to <a href='http://behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+#: options/panel6.php:27
+msgid ""
+"If you want to sponsor this plugin, don't hesitate to <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+msgstr ""
+"If you want to sponsor this plugin, don't hesitate to <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
 
-#: templates/author.php:55
+#: templates/author.php:57
 msgid "Title"
 msgstr "标题"
 
-#: templates/author.php:66
-#: templates/user.php:60
+#: templates/author.php:69 templates/user.php:62
 msgid "Select all"
 msgstr "选择全部"
 
-#: templates/author.php:67
-#: templates/user.php:61
+#: templates/author.php:70 templates/user.php:63
 msgid "Invert selection"
 msgstr "反过来选择"
 
-#: templates/author.php:71
+#: templates/author.php:74
 msgid "Set to Y"
 msgstr "设为 Y (所有评论）"
 
-#: templates/author.php:77
-#: templates/user.php:71
+#: templates/author.php:79 templates/user.php:72
 msgid "No subscriptions match your search criteria."
 msgstr "没有符合搜索要求的订阅。"
 
-#: templates/request-management-link.php:67
-#: templates/subscribe.php:87
+#: templates/request-management-link.php:77 templates/subscribe.php:91
 msgid "Send"
 msgstr "发送"
 
-#: templates/subscribe.php:41
-#: templates/subscribe.php:42
+#: templates/subscribe.php:43 templates/subscribe.php:44
 msgid "New subscription to"
 msgstr "新订阅为"
 
-#: templates/subscribe.php:42
+#: templates/subscribe.php:44
 msgid "User:"
 msgstr "用户："
+
+#~ msgid "Daily digest"
+#~ msgstr "每天的总结"
 
 #~ msgid "Replies"
 #~ msgstr "回复"
