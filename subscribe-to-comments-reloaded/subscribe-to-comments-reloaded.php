@@ -115,7 +115,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '140129';
+	public $current_version = '140204';
 
 	/**
 	 * Constructor -- Sets things up.
