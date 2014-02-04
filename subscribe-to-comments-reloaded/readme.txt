@@ -66,6 +66,11 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 == Changelog ==
 
+= v140204 =
+
+* **New Feature**. There is a new Option that Sets the default Subscription Type when the Chechbox 'Checked by default' is enable *Settings -> Subscribe to Comments -> Comment Form -> Default Checkbox Value*.
+* Corrected reference to the language translation files. If you find something fuzzy please open a Issue on GitHub <https://github.com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description%3E&labels=bug>
+
 = v140129 =
 
 * **Bug Fix**. Fixed `Notice: Undefined variable: post_id` that was sometimes causing issues with creating a new subscription when WordPres Debug mode was enabled. See: <https://github.com/stcr/subscribe-to-comments-reloaded/issues/2>
@@ -146,7 +151,7 @@ and [contact me](http://behstant.com/negocio/contact.php) once your
 localization is ready. Currently, we support the following languages:
 
 * Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
-* Dutch - [Muratje](http://www.muromedia.nl/)
+* Dutch - [Martijn Chel],[Muratje](http://www.muromedia.nl/)
 * French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
 * German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
 * Indonesian - [The Masked Cat](http://themaskedcat.tk)
