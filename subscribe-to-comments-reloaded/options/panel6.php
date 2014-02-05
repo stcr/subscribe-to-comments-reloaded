@@ -22,4 +22,3 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 
 <h3><?php _e( "Vote and show your appreciation", 'subscribe-reloaded' ) ?></h3>
 <p><?php _e( 'Tell other people if Subscribe to Comments Reloaded works for you and how good it is. <a href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate it</a> on its Plugin Directory page.', 'subscribe-reloaded' ) ?></p>
-<p style="display:block"><?php _e( "If you want to sponsor this plugin, don't hesitate to <a href='http://behstant.com/negocio/contact.php' target='_blank'>contact us</a>.", 'subscribe-reloaded' ) ?></p>
