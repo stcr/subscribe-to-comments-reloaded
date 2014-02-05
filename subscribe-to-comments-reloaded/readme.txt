@@ -151,7 +151,7 @@ and [contact me](http://behstant.com/negocio/contact.php) once your
 localization is ready. Currently, we support the following languages:
 
 * Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
-* Dutch - [Martijn Chel],[Muratje](http://www.muromedia.nl/)
+* Dutch - [Martijn Chel](http://mcpnetwork.nl/),[Muratje](http://www.muromedia.nl/)
 * French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
 * German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
 * Indonesian - [The Masked Cat](http://themaskedcat.tk)
