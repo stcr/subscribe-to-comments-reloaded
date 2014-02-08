@@ -17,7 +17,7 @@ if ( ! empty( $email ) ) {
 	$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 	$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_COMPAT, 'UTF-8' );
 	$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_COMPAT, 'UTF-8' );
-	$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+	$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 	if ( function_exists( 'qtrans_convertURL' ) ) {
 		$manager_link = qtrans_convertURL( $manager_link );
 	}

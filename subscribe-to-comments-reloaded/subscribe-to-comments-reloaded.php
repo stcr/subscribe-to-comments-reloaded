@@ -128,12 +128,12 @@ class wp_subscribe_reloaded {
 
 		// Provide content for the management page using WP filters
 		if ( ! is_admin() ) {
-			$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+			$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 			if ( function_exists( 'qtrans_convertURL' ) ) {
 				$manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
 			}
 			if ( empty( $manager_page_permalink ) ) {
-				$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+				$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 			}
 			if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) && get_option( 'subscribe_reloaded_manager_page_enabled', 'yes' ) == 'yes' ) {
 				add_filter( 'the_posts', array( &$this, 'subscribe_reloaded_manage' ), 10, 2 );
@@ -275,7 +275,7 @@ class wp_subscribe_reloaded {
 		if ( empty( $wp_rewrite->permalink_structure ) ) {
 			add_option( 'subscribe_reloaded_manager_page', '/?page_id=99999', '', 'no' );
 		} else {
-			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions', '', 'no' );
+			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/', '', 'no' );
 		}
 
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'no' );
@@ -1046,7 +1046,7 @@ class wp_subscribe_reloaded {
 		$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_double_check_subject', 'Please confirm your subscribtion to [post_title]' ) ), ENT_COMPAT, 'UTF-8' );
 		$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_double_check_content', '' ) ), ENT_COMPAT, 'UTF-8' );
-		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 		if ( function_exists( 'qtrans_convertURL' ) ) {
 			$manager_link = qtrans_convertURL( $manager_link );
 		}
@@ -1097,7 +1097,7 @@ class wp_subscribe_reloaded {
 		$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_COMPAT, 'UTF-8' );
 		$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_COMPAT, 'UTF-8' );
-		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 		if ( function_exists( 'qtrans_convertURL' ) ) {
 			$manager_link = qtrans_convertURL( $manager_link );
 		}
