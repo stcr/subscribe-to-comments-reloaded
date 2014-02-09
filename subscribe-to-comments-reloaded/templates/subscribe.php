@@ -71,7 +71,7 @@ if ( ! empty( $email ) ) {
 ?>
 
 	<p><?php
-	$message = str_replace( '[post_permalink]', $post_permalink, html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_COMPAT, 'UTF-8' ) );
+	$message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' ) );
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );

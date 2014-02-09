@@ -42,18 +42,18 @@ function subscribe_reloaded_show() {
 	$manager_link = ( strpos( $user_link, '?' ) !== false ) ? "$user_link&amp;srp=$post->ID" : "$user_link?srp=$post->ID";
 
 	// Load localization files
-	load_plugin_textdomain( 'subscribe-reloaded', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs' );
+	load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 	if ( $wp_subscribe_reloaded->is_user_subscribed( $post->ID, '', 'C' ) ) {
 		$html_to_show          = str_replace(
 			'[manager_link]', $user_link,
-			html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-reloaded' ) ) ), ENT_COMPAT, 'UTF-8' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 		$show_subscription_box = false;
 	} elseif ( $wp_subscribe_reloaded->is_user_subscribed( $post->ID, '' ) ) {
 		$html_to_show          = str_replace(
 			'[manager_link]', $user_link,
-			html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', __( "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions.", 'subscribe-reloaded' ) ) ), ENT_COMPAT, 'UTF-8' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 		$show_subscription_box = false;
 	}
@@ -64,14 +64,14 @@ function subscribe_reloaded_show() {
 		}
 		$html_to_show .= str_replace(
 			'[manager_link]', $manager_link,
-			html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_author_label', __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-reloaded' ) ) ), ENT_COMPAT, 'UTF-8' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_author_label', "You can <a href='[manager_link]'>manage the subscriptions</a> of this post." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 	}
 
 	if ( $show_subscription_box ) {
 		$checkbox_label        = str_replace(
 			'[subscribe_link]', "$manager_link&amp;sra=s",
-			html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-reloaded' ) ) ), ENT_COMPAT, 'UTF-8' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 		$checkbox_inline_style = get_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px' );
 		if ( ! empty( $checkbox_inline_style ) ) {
@@ -128,12 +128,12 @@ class wp_subscribe_reloaded {
 
 		// Provide content for the management page using WP filters
 		if ( ! is_admin() ) {
-			$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+			$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 			if ( function_exists( 'qtrans_convertURL' ) ) {
 				$manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
 			}
 			if ( empty( $manager_page_permalink ) ) {
-				$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+				$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 			}
 			if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) && get_option( 'subscribe_reloaded_manager_page_enabled', 'yes' ) == 'yes' ) {
 				add_filter( 'the_posts', array( &$this, 'subscribe_reloaded_manage' ), 10, 2 );
@@ -258,7 +258,7 @@ class wp_subscribe_reloaded {
 	private function _activate() {
 
 		// Load localization files
-		load_plugin_textdomain( 'subscribe-reloaded', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs' );
+		load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 		// Import data from the WP Comment Subscriptions plugin, if needed
 		$this->_import_wpcs_data();
@@ -275,7 +275,7 @@ class wp_subscribe_reloaded {
 		if ( empty( $wp_rewrite->permalink_structure ) ) {
 			add_option( 'subscribe_reloaded_manager_page', '/?page_id=99999', '', 'no' );
 		} else {
-			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions', '', 'no' );
+			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/', '', 'no' );
 		}
 
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'no' );
@@ -610,7 +610,7 @@ class wp_subscribe_reloaded {
 		}
 
 		// Load localization files
-		load_plugin_textdomain( 'subscribe-reloaded', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs' );
+		load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 		$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 		$key    = ! empty( $_POST['srk'] ) ? $_POST['srk'] : ( ! empty( $_GET['srk'] ) ? $_GET['srk'] : 0 );
@@ -1046,7 +1046,7 @@ class wp_subscribe_reloaded {
 		$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_double_check_subject', 'Please confirm your subscribtion to [post_title]' ) ), ENT_COMPAT, 'UTF-8' );
 		$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_double_check_content', '' ) ), ENT_COMPAT, 'UTF-8' );
-		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 		if ( function_exists( 'qtrans_convertURL' ) ) {
 			$manager_link = qtrans_convertURL( $manager_link );
 		}
@@ -1097,7 +1097,7 @@ class wp_subscribe_reloaded {
 		$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_COMPAT, 'UTF-8' );
 		$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_COMPAT, 'UTF-8' );
-		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions' );
+		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 		if ( function_exists( 'qtrans_convertURL' ) ) {
 			$manager_link = qtrans_convertURL( $manager_link );
 		}
@@ -1296,7 +1296,7 @@ class wp_subscribe_reloaded {
 		}
 
 		global $post;
-		load_plugin_textdomain( 'subscribe-reloaded', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs' );
+		load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 		echo '<a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . $post->ID . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
 	}
 	// end add_column
@@ -1306,7 +1306,7 @@ class wp_subscribe_reloaded {
 	 */
 	public function contextual_help( $contextual_help, $screen_id, $screen ) {
 		if ( $screen_id == 'subscribe-to-comments-reloaded/options/index' ) {
-			load_plugin_textdomain( 'subscribe-reloaded', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/langs', '/subscribe-to-comments-reloaded/langs' );
+			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 			$contextual_help = __( 'Need help on how to use Subscribe to Comments Reloaded? Visit the official', 'subscribe-reloaded' ) . ' <a href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10" target="_blank">' . __( 'support forum', 'subscribe-reloaded' ) . '</a>. ';
 			$contextual_help .= __( 'Feeling generous?', 'subscribe-reloaded' ) . ' <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">' . __( 'Donate a few bucks!', 'subscribe-reloaded' ) . '</a>';
 		}
