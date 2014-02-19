@@ -9,6 +9,10 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 	if ( ! isset( $_value ) ) {
 		return true;
 	}
+
+	// Prevent XSS/CSRF attacks
+	$_value = esc_attr( $_value );
+
 	switch ( $_type ) {
 	case 'yesno':
 		if ( $_value == 'yes' || $_value == 'no' ) {
