@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
 Tested up to: 3.8.1
-Stable tag: 140219
+Stable tag: 140220
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -66,11 +66,15 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 == Upgrade Notice ==
 
-= v140219 =
+= v140220 =
 
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v140220 =
+
+**Bug Fix**. Fixes an encoding bug that broke HTML output after patching XSS vulnerability. If you started seeing raw HTML output at the bottom of your comment forms after upgrading to v140219, this update should fix that.
 
 = v140219 =
 
