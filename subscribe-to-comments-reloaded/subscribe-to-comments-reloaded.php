@@ -2,8 +2,8 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 140219
-Stable tag: 140219
+Version: 140220
+Stable tag: 140220
 Requires at least: 2.9.2
 Tested up to: 3.8.1
 
@@ -105,7 +105,7 @@ function subscribe_reloaded_show() {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 	}
-	echo "<!-- BEGIN: subscribe to comments reloaded -->$html_to_show<!-- END: subscribe to comments reloaded -->";
+	echo "<!-- BEGIN: subscribe to comments reloaded -->" . html_entity_decode( stripslashes( $html_to_show ), ENT_QUOTES, 'UTF-8' ) ."<!-- END: subscribe to comments reloaded -->";
 }
 
 // Show the checkbox - You can manually override this by adding the corresponding function in your template
@@ -115,7 +115,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '140219';
+	public $current_version = '140220';
 
 	/**
 	 * Constructor -- Sets things up.
