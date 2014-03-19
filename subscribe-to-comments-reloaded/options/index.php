@@ -35,7 +35,7 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 		break;
 
 	default:
-		update_option( 'subscribe_reloaded_' . $_option, htmlentities( $_value, ENT_COMPAT, 'UTF-8' ) );
+		update_option( 'subscribe_reloaded_' . $_option, htmlentities( $_value, ENT_QUOTES, 'UTF-8' ) );
 
 		return true;
 		break;
@@ -46,7 +46,7 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 
 function subscribe_reloaded_get_option( $_option = '', $_default = '' ) {
 	$value = get_option( 'subscribe_reloaded_' . $_option, $_default );
-	$value = html_entity_decode( stripslashes( $value ), ENT_COMPAT, 'UTF-8' );
+	$value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
 
 	return stripslashes( $value );
 }

@@ -47,13 +47,13 @@ function subscribe_reloaded_show() {
 	if ( $wp_subscribe_reloaded->is_user_subscribed( $post->ID, '', 'C' ) ) {
 		$html_to_show          = str_replace(
 			'[manager_link]', $user_link,
-			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 		$show_subscription_box = false;
 	} elseif ( $wp_subscribe_reloaded->is_user_subscribed( $post->ID, '' ) ) {
 		$html_to_show          = str_replace(
 			'[manager_link]', $user_link,
-			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 		$show_subscription_box = false;
 	}
@@ -64,20 +64,20 @@ function subscribe_reloaded_show() {
 		}
 		$html_to_show .= str_replace(
 			'[manager_link]', $manager_link,
-			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_author_label', "You can <a href='[manager_link]'>manage the subscriptions</a> of this post." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_author_label', "You can <a href='[manager_link]'>manage the subscriptions</a> of this post." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 	}
 
 	if ( $show_subscription_box ) {
 		$checkbox_label        = str_replace(
 			'[subscribe_link]', "$manager_link&amp;sra=s",
-			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting." ) ), ENT_COMPAT, 'UTF-8' ), 'subscribe-reloaded' )
+			__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 		);
 		$checkbox_inline_style = get_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px' );
 		if ( ! empty( $checkbox_inline_style ) ) {
 			$checkbox_inline_style = " style='$checkbox_inline_style'";
 		}
-		$checkbox_html_wrap = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_html', '' ) ), ENT_COMPAT, 'UTF-8' );
+		$checkbox_html_wrap = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_html', '' ) ), ENT_QUOTES, 'UTF-8' );
 		if ( get_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no' ) == 'no' ) {
 			switch ( get_option('subscribe_reloaded_checked_by_default_value') ) {
 				case '0':
@@ -647,6 +647,8 @@ class wp_subscribe_reloaded {
 		$manager_page_title = html_entity_decode( get_option( 'subscribe_reloaded_manager_page_title', 'Manage subscriptions' ), ENT_COMPAT, 'UTF-8' );
 		if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 			$manager_page_title = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $manager_page_title );
+		} else {
+			$manager_page_title = __( $manager_page_title,'subscribe-reloaded' );
 		}
 
 		$posts[] =
