@@ -2,10 +2,10 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 140220
-Stable tag: 140220
+Version: 140513
+Stable tag: 140513
 Requires at least: 2.9.2
-Tested up to: 3.8.1
+Tested up to: 3.9
 
 Plugin URI: http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/
 Description: Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notifications. It includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications.
@@ -79,7 +79,7 @@ function subscribe_reloaded_show() {
 		}
 		$checkbox_html_wrap = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_html', '' ) ), ENT_QUOTES, 'UTF-8' );
 		if ( get_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no' ) == 'no' ) {
-			switch ( get_option('subscribe_reloaded_checked_by_default_value') ) {
+			switch ( get_option( 'subscribe_reloaded_checked_by_default_value' ) ) {
 				case '0':
 					$checkbox_subscription_type = 'yes';
 					break;
@@ -105,7 +105,7 @@ function subscribe_reloaded_show() {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 	}
-	echo "<!-- BEGIN: subscribe to comments reloaded -->" . html_entity_decode( stripslashes( $html_to_show ), ENT_QUOTES, 'UTF-8' ) ."<!-- END: subscribe to comments reloaded -->";
+	echo "<!-- BEGIN: subscribe to comments reloaded -->" . html_entity_decode( stripslashes( $html_to_show ), ENT_QUOTES, 'UTF-8' ) . "<!-- END: subscribe to comments reloaded -->";
 }
 
 // Show the checkbox - You can manually override this by adding the corresponding function in your template
@@ -115,7 +115,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '140220';
+	public $current_version = '140513';
 
 	/**
 	 * Constructor -- Sets things up.
@@ -266,6 +266,9 @@ class wp_subscribe_reloaded {
 		// Import data from Subscribe to Comments & Co., if needed
 		$this->_import_stc_data();
 
+		// Import data from Comment Reply Notification, if needed
+		$this->_import_crn_data();
+
 		// Starting from version 2.0 StCR uses Wordpress' tables to store the information about subscriptions
 		$this->_update_db();
 
@@ -398,15 +401,15 @@ class wp_subscribe_reloaded {
 			}
 
 			switch ( $_POST['subscribe-reloaded'] ) {
-			case 'replies':
-				$status = 'R';
-				break;
-			case 'digest':
-				$status = 'D';
-				break;
-			default:
-				$status = 'Y';
-				break;
+				case 'replies':
+					$status = 'R';
+					break;
+				case 'digest':
+					$status = 'D';
+					break;
+				default:
+					$status = 'Y';
+					break;
 			}
 
 			if ( ! $this->is_user_subscribed( $info->comment_post_ID, $info->comment_author_email ) ) {
@@ -503,50 +506,50 @@ class wp_subscribe_reloaded {
 		}
 
 		switch ( $info->comment_approved ) {
-		case '0': // Unapproved: change the status of the corresponding subscription (if exists) to 'pending'
-			$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, 'C' );
-			break;
+			case '0': // Unapproved: change the status of the corresponding subscription (if exists) to 'pending'
+				$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, 'C' );
+				break;
 
-		case '1': // Approved
-			$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, '-C' );
-			$subscriptions = $this->get_subscriptions(
-				array(
-					'post_id',
-					'status'
-				), array(
-					'equals',
-					'equals'
-				), array(
-					$info->comment_post_ID,
-					'Y'
-				)
-			);
-			if ( ! empty( $info->comment_parent ) ) {
-				$subscriptions = array_merge(
-					$subscriptions, $this->get_subscriptions(
-						'parent', 'equals', array(
-							$info->comment_parent,
-							$info->comment_post_ID
-						)
+			case '1': // Approved
+				$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, '-C' );
+				$subscriptions = $this->get_subscriptions(
+					array(
+						'post_id',
+						'status'
+					), array(
+						'equals',
+						'equals'
+					), array(
+						$info->comment_post_ID,
+						'Y'
 					)
 				);
-			}
-
-			foreach ( $subscriptions as $a_subscription ) {
-				if ( $a_subscription->email != $info->comment_author_email ) // Skip the user who posted this new comment
-					{
-					$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
+				if ( ! empty( $info->comment_parent ) ) {
+					$subscriptions = array_merge(
+						$subscriptions, $this->get_subscriptions(
+							'parent', 'equals', array(
+								$info->comment_parent,
+								$info->comment_post_ID
+							)
+						)
+					);
 				}
-			}
-			break;
 
-		case 'trash':
-		case 'spam':
-			$this->comment_deleted( $_comment_ID );
-			break;
+				foreach ( $subscriptions as $a_subscription ) {
+					if ( $a_subscription->email != $info->comment_author_email ) // Skip the user who posted this new comment
+					{
+						$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
+					}
+				}
+				break;
 
-		default:
-			break;
+			case 'trash':
+			case 'spam':
+				$this->comment_deleted( $_comment_ID );
+				break;
+
+			default:
+				break;
 		}
 
 		return $_comment_ID;
@@ -648,38 +651,38 @@ class wp_subscribe_reloaded {
 		if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 			$manager_page_title = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $manager_page_title );
 		} else {
-			$manager_page_title = __( $manager_page_title,'subscribe-reloaded' );
+			$manager_page_title = __( $manager_page_title, 'subscribe-reloaded' );
 		}
 
 		$posts[] =
 			(object) array(
-			'ID'                    => '9999999',
-			'post_author'           => '1',
-			'post_date'             => '2001-01-01 11:38:56',
-			'post_date_gmt'         => '2001-01-01 00:38:56',
-			'post_content'          => $include_post_content,
-			'post_title'            => $manager_page_title,
-			'post_excerpt'          => '',
-			'post_status'           => 'publish',
-			'comment_status'        => 'closed',
-			'ping_status'           => 'closed',
-			'post_password'         => '',
-			'to_ping'               => '',
-			'pinged'                => '',
-			'post_modified'         => '2001-01-01 11:00:01',
-			'post_modified_gmt'     => '2001-01-01 00:00:01',
-			'post_content_filtered' => '',
-			'post_parent'           => '0',
-			'menu_order'            => '0',
-			'post_type'             => 'page',
-			'post_mime_type'        => '',
-			'post_category'         => '0',
-			'comment_count'         => '0',
-			'filter'                => 'raw',
-			'guid'                  => get_bloginfo( 'url' ) . '/?page_id=9999999',
-			'post_name'             => get_bloginfo( 'url' ) . '/?page_id=9999999',
-			'ancestors'             => array()
-		);
+				'ID'                    => '9999999',
+				'post_author'           => '1',
+				'post_date'             => '2001-01-01 11:38:56',
+				'post_date_gmt'         => '2001-01-01 00:38:56',
+				'post_content'          => $include_post_content,
+				'post_title'            => $manager_page_title,
+				'post_excerpt'          => '',
+				'post_status'           => 'publish',
+				'comment_status'        => 'closed',
+				'ping_status'           => 'closed',
+				'post_password'         => '',
+				'to_ping'               => '',
+				'pinged'                => '',
+				'post_modified'         => '2001-01-01 11:00:01',
+				'post_modified_gmt'     => '2001-01-01 00:00:01',
+				'post_content_filtered' => '',
+				'post_parent'           => '0',
+				'menu_order'            => '0',
+				'post_type'             => 'page',
+				'post_mime_type'        => '',
+				'post_category'         => '0',
+				'comment_count'         => '0',
+				'filter'                => 'raw',
+				'guid'                  => get_bloginfo( 'url' ) . '/?page_id=9999999',
+				'post_name'             => get_bloginfo( 'url' ) . '/?page_id=9999999',
+				'ancestors'             => array()
+			);
 
 		// Make WP believe this is a real page, with no comments attached
 		$wp_query->is_page   = true;
@@ -976,49 +979,49 @@ class wp_subscribe_reloaded {
 				$where_clause .= ' AND';
 				$offset_status = ( $a_field == 'status' && $search_values[$a_idx] == 'C' ) ? 22 : 21;
 				switch ( $a_field ) {
-				case 'status':
-					$where_clause .= " SUBSTRING(meta_value, $offset_status)";
-					break;
-				case 'post_id':
-					$where_clause .= ' post_id';
-					break;
-				default:
-					$where_clause .= ' SUBSTRING(meta_key, 8)';
+					case 'status':
+						$where_clause .= " SUBSTRING(meta_value, $offset_status)";
+						break;
+					case 'post_id':
+						$where_clause .= ' post_id';
+						break;
+					default:
+						$where_clause .= ' SUBSTRING(meta_key, 8)';
 				}
 				switch ( $operators[$a_idx] ) {
-				case 'equals':
-					$where_clause .= " = %s";
-					$where_values[] = $search_values[$a_idx];
-					break;
-				case 'does not contain':
-					$where_clause .= " NOT LIKE %s";
-					$where_values[] = "%{$search_values[$a_idx]}%";
-					break;
-				case 'starts with':
-					$where_clause .= " LIKE %s";
-					$where_values[] = "${$search_values[$a_idx]}%";
-					break;
-				case 'ends with':
-					$where_clause .= " LIKE %s";
-					$where_values[] = "%{$search_values[$a_idx]}";
-					break;
-				default: // contains
-					$where_clause .= " LIKE %s";
-					$where_values[] = "%{$search_values[$a_idx]}%";
+					case 'equals':
+						$where_clause .= " = %s";
+						$where_values[] = $search_values[$a_idx];
+						break;
+					case 'does not contain':
+						$where_clause .= " NOT LIKE %s";
+						$where_values[] = "%{$search_values[$a_idx]}%";
+						break;
+					case 'starts with':
+						$where_clause .= " LIKE %s";
+						$where_values[] = "${$search_values[$a_idx]}%";
+						break;
+					case 'ends with':
+						$where_clause .= " LIKE %s";
+						$where_values[] = "%{$search_values[$a_idx]}";
+						break;
+					default: // contains
+						$where_clause .= " LIKE %s";
+						$where_values[] = "%{$search_values[$a_idx]}%";
 				}
 			}
 			switch ( $_order_by ) {
-			case 'status':
-				$order_by = "status";
-				break;
-			case 'email':
-				$order_by = 'meta_key';
-				break;
-			case 'dt':
-				$order_by = 'dt';
-				break;
-			default:
-				$order_by = 'post_id';
+				case 'status':
+					$order_by = "status";
+					break;
+				case 'email':
+					$order_by = 'meta_key';
+					break;
+				case 'dt':
+					$order_by = 'dt';
+					break;
+				default:
+					$order_by = 'post_id';
 			}
 			$order = ( $_order != 'ASC' && $_order != 'DESC' ) ? 'DESC' : $_order;
 
@@ -1387,7 +1390,69 @@ class wp_subscribe_reloaded {
 		}
 	}
 	// end _import_stc_data
+	/**
+	 * Imports subscription data created with the Comment Reply Notification plugin
+	 * @since 13-May-2014
+	 */
+	private function _import_crn_data() {
+		global $wpdb;
+		$subscriptions_to_import = array();
 
+		// Import the information collected by Subscribe to Comments, if needed
+		$crn_data_count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_mail_notify = 1" );
+
+		if ( $crn_data_count > 0 ) {
+			// 1) If there are subscriptions Retrieve all of them from COMMENT_REPLY_NOTIFICATION
+			$crn_data             = $wpdb->get_results(
+				"
+									SELECT comment_post_ID, comment_author_email
+									FROM wp_comments WHERE comment_mail_notify = '1'
+									GROUP BY comment_author_email
+								", OBJECT
+			);
+			$stcr_data            = $wpdb->get_results(
+				"
+									SELECT post_id, SUBSTRING(meta_key,8) AS email
+									FROM wp_postmeta WHERE meta_key LIKE '_stcr@_%'
+								", ARRAY_N
+			);
+			$sctr_data_array_size = sizeof( $stcr_data );
+			// Lets make sure that there is not another subscription with the same compose key
+			foreach ( $crn_data as $row ) {
+				// Search the specific compose key in the array
+				for ( $i = 0; $i < $sctr_data_array_size; $i ++ ) {
+					$post_id_in_stcr = in_array( $row->comment_post_ID, $stcr_data[$i] );
+					$email_in_stcr   = in_array( $row->comment_author_email, $stcr_data[$i] );
+					// validate with an If
+					if ( $post_id_in_stcr && $email_in_stcr ) {
+						// If the same compose key is in StCR search for the next value.
+						continue 2; // the next subscription.
+					}
+				}
+				// 2) Until this point the compose key is not on StCR so is safe to import.				
+				$OK = $wpdb->insert(
+					$wpdb->postmeta,
+					array(
+						"post_id"    => $row->comment_post_ID,
+						"meta_key"   => "_stcr@_" . $row->comment_author_email,
+						"meta_value" => current_time( "mysql" ) . "|Y"
+					),
+					array(
+						"%d",
+						"%s",
+						"%s"
+					)
+				);
+
+			}
+			$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+			$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+				'<p>' . __( 'Comment subscription data from the <strong>Comment Reply Notification</strong> plugin was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded' ) . ( is_plugin_active( 'comment-reply-notification/comment-reply-notification.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> Comment Reply Notification to prevent confusion between the two plugins.', 'subscribe-reloaded' ) : '' ) . '</p>' .
+				'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded' ) . '</p></div>';
+			update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+		}
+	}
+	// end _import_crn_data
 	/**
 	 * Imports options and subscription data created with the WP Comment Subscriptions plugin
 	 */
