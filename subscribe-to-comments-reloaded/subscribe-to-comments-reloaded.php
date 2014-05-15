@@ -2,8 +2,8 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 140513
-Stable tag: 140513
+Version: 140515
+Stable tag: 140515
 Requires at least: 2.9.2
 Tested up to: 3.9
 
@@ -115,7 +115,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '140513';
+	public $current_version = '140515';
 
 	/**
 	 * Constructor -- Sets things up.
@@ -948,9 +948,7 @@ class wp_subscribe_reloaded {
 			$comment_post_id   = $search_values[1];
 
 			// Get the parent comment author email so we can search for any Replies Only subscriptions
-			$parent_comment_author_email_query = mysql_query( "SELECT `comment_author_email` FROM $wpdb->comments WHERE `comment_ID` = '$parent_comment_id'" );
-			$parent_comment_author_email       = mysql_fetch_row( $parent_comment_author_email_query );
-			$parent_comment_author_email       = "\_stcr@\_" . $parent_comment_author_email[0];
+			$parent_comment_author_email = "\_stcr@\_" . get_comment_author_email( $parent_comment_id );
 
 			// Check if $parent_comment_author_email has any Replies Only (R) subscriptions for $comment_post_id
 
@@ -1098,9 +1096,9 @@ class wp_subscribe_reloaded {
 	 */
 	public function notify_user( $_post_ID = 0, $_email = '', $_comment_ID = 0 ) {
 		// Retrieve the options from the database
-		$from_name    = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) ), ENT_COMPAT, 'UTF-8' );
+		$from_name    = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) ), ENT_QUOTES, 'UTF-8' );
 		$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
-		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_COMPAT, 'UTF-8' );
+		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_QUOTES, 'UTF-8' );
 		$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_COMPAT, 'UTF-8' );
 		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 		if ( function_exists( 'qtrans_convertURL' ) ) {
@@ -1429,7 +1427,7 @@ class wp_subscribe_reloaded {
 						continue 2; // the next subscription.
 					}
 				}
-				// 2) Until this point the compose key is not on StCR so is safe to import.				
+				// 2) Until this point the compose key is not on StCR so is safe to import.
 				$OK = $wpdb->insert(
 					$wpdb->postmeta,
 					array(
