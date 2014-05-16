@@ -67,17 +67,17 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 == Upgrade Notice ==
 
-= v140515 =
-
-* **New Feature** New import routine for Comment Reply Notification plugin. If subscription data is found for Comment Reply Notification, StCR will import those upon activation. Data is only imported if there is no existing StCR subscription data.
-* **Bug Fix** Fixed Raw HTML notification. When the send HTML email was enable the message was sent with raw HTML. **Important** After you update to this version go to the Notification panel and click the `Save Changes` button to update your HTML message.
-* **Change** `mysql_query() and mysql_query_row()` Deprecated functions for the WordPress `get_comment_author_email()`. Issues with PHP 5.5.x.
-
 = v140220 =
 
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v140515 =
+
+* **New Feature** New import routine for Comment Reply Notification plugin. If subscription data is found for Comment Reply Notification, StCR will import those upon activation. Data is only imported if there is no existing StCR subscription data.
+* **Bug Fix** Fixed Raw HTML notification. When the send HTML email was enable the message was sent with raw HTML. **Important** After you update to this version go to the Notification panel and click the `Save Changes` button to update your HTML message.
+* **Change** `mysql_query() and mysql_query_row()` Deprecated functions for the WordPress `get_comment_author_email()`. Issues with PHP 5.5.x.
 
 = v140220 =
 
