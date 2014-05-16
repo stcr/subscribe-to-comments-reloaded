@@ -4,8 +4,8 @@ Contributors: coolmann, Reedyseth, raamdev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 3.8.1
-Stable tag: 140220
+Tested up to: 3.9
+Stable tag: 140513
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -21,6 +21,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 * Does not modify Wordpress core tables
 * Easily manage and search among your subscriptions
 * Imports Mark Jaquith's Subscribe To Comments (and its clones) data
+* Imports comments from Comment Reply Notification plugin
 * Messages are fully customizable, no poEdit required (and you can use HTML!)
 * Disable subscriptions for specific posts
 * Compatible with [Fluency Admin](http://deanjrobinson.com/projects/fluency-admin/) and [QTranslate](http://wordpress.org/extend/plugins/qtranslate/)
@@ -40,7 +41,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure
 
 = How do I create a 'real' management page? =
-Please refer to [this page](http://lab.duechiacchiere.it/index.php?topic=71.0) for a detailed step-by-step description on how to do that
+Please refer to [this page](http://behstant.com/subscribe-reloaded/realMgnPage.php) for a detailed step-by-step description on how to do that
 
 = Can I customize the layout of the management page? =
 Yes, each HTML tag has a CSS class or ID that you can use to change its position or look-and-feel
@@ -65,6 +66,12 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 5. Customize the plugin's behavior
 
 == Upgrade Notice ==
+
+= v140515 =
+
+* **New Feature** New import routine for Comment Reply Notification plugin. If subscription data is found for Comment Reply Notification, StCR will import those upon activation. Data is only imported if there is no existing StCR subscription data.
+* **Bug Fix** Fixed Raw HTML notification. When the send HTML email was enable the message was sent with raw HTML. **Important** After you update to this version go to the Notification panel and click the `Save Changes` button to update your HTML message.
+* **Change** `mysql_query() and mysql_query_row()` Deprecated functions for the WordPress `get_comment_author_email()`. Issues with PHP 5.5.x.
 
 = v140220 =
 
