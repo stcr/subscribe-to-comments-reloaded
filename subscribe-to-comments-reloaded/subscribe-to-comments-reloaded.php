@@ -1433,7 +1433,7 @@ class wp_subscribe_reloaded {
 					array(
 						"post_id"    => $row->comment_post_ID,
 						"meta_key"   => "_stcr@_" . $row->comment_author_email,
-						"meta_value" => current_time( "mysql" ) . "|Y"
+						"meta_value" => current_time( "mysql" ) . "|R"
 					),
 					array(
 						"%d",
