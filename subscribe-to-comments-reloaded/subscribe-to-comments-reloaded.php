@@ -1399,20 +1399,20 @@ class wp_subscribe_reloaded {
 		// Import the information collected by Subscribe to Comments, if needed
 		$crn_data_count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_mail_notify = 1" );
 
-		if ( $crn_data_count > 0 ) {
+		if ( $crn_data_count != null && $crn_data_count > 0 ) { // if $crn_data_count is null there is no Comment Reply
+																// plugin installed and therefore no comment_mail_notify
+																// column.
 			// 1) If there are subscriptions Retrieve all of them from COMMENT_REPLY_NOTIFICATION
 			$crn_data             = $wpdb->get_results(
-				"
-									SELECT comment_post_ID, comment_author_email
-									FROM wp_comments WHERE comment_mail_notify = '1'
-									GROUP BY comment_author_email
-								", OBJECT
+									 " SELECT comment_post_ID, comment_author_email"
+									." FROM wp_comments WHERE comment_mail_notify = '1'"
+									." GROUP BY comment_author_email"
+									, OBJECT
 			);
 			$stcr_data            = $wpdb->get_results(
-				"
-									SELECT post_id, SUBSTRING(meta_key,8) AS email
-									FROM wp_postmeta WHERE meta_key LIKE '_stcr@_%'
-								", ARRAY_N
+									" SELECT post_id, SUBSTRING(meta_key,8) AS email"
+									."FROM wp_postmeta WHERE meta_key LIKE '_stcr@_%'"
+								 	, ARRAY_N
 			);
 			$sctr_data_array_size = sizeof( $stcr_data );
 			// Lets make sure that there is not another subscription with the same compose key
@@ -1433,7 +1433,7 @@ class wp_subscribe_reloaded {
 					array(
 						"post_id"    => $row->comment_post_ID,
 						"meta_key"   => "_stcr@_" . $row->comment_author_email,
-						"meta_value" => current_time( "mysql" ) . "|Y"
+						"meta_value" => current_time( "mysql" ) . "|R"
 					),
 					array(
 						"%d",
