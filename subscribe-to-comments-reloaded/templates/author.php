@@ -71,7 +71,8 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-reloaded' ) . '
 			<input type="radio" name="sra" value="delete" id="action_type_delete" /> <label for="action_type_delete">' . __( 'Delete', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" name="sra" value="suspend" id="action_type_suspend" checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" name="sra" value="force_y" id="action_type_force_y" /> <label for="action_type_force_y">' . __( 'Set to Y', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sra" value="force_y" id="action_type_force_y" /> <label for="action_type_force_y">' . __( 'All comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sra" value="force_r" id="action_type_force_r" /> <label for="action_type_force_r">' . __( 'Replies to my comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" name="sra" value="activate" id="action_type_activate" /> <label for="action_type_activate">' . __( 'Activate', 'subscribe-reloaded' ) . '</label></p>';
 	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /><input type="hidden" name="srp" value="' . intval( $post_ID ) . '"/></p>';
 
