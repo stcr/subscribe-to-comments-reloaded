@@ -874,7 +874,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Desabilite a página virtual de gerenciamento caso você precise criar uma "
-"<href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">página real</a> "
+"<href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">página real</a> "
 "para deixar o seu tema feliz."
 
 # @ subscribe-reloaded

@@ -779,7 +779,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Отмените виртуальную страницу управления, если вам нужно создать <a href="
-"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">настоящую страницу</a> "
+"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">настоящую страницу</a> "
 "для корректной работы плагина с вашей темой оформления."
 
 #: options/panel3.php:79

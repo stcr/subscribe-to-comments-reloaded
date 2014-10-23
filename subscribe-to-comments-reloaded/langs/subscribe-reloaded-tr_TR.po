@@ -779,7 +779,7 @@ msgid ""
 "lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
 "theme happy."
 msgstr ""
-"<a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">Gerçek</a> bir "
+"<a href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">Gerçek</a> bir "
 "sayfa oluşturmak istiyorsanız bu seçeneği devre dışı bırakın."
 
 #: options/panel3.php:79

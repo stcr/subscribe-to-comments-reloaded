@@ -777,7 +777,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Адменіце віртуальную старонку кіравання, калі вам трэба стварыць <a href="
-"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">сапраўдную старонку</"
+"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">сапраўдную старонку</"
 "a> для карэктнай працы ўбудовы з вашай тэмай афармлення."
 
 #: options/panel3.php:79

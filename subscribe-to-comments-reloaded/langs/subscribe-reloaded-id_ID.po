@@ -783,7 +783,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Matikan Halaman Pengaturan Virtual jika Anda ingin membuat sebuah <a href="
-"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">halaman riil</a> yang "
+"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">halaman riil</a> yang "
 "lebih bersahabat dengan tema."
 
 #: options/panel3.php:79

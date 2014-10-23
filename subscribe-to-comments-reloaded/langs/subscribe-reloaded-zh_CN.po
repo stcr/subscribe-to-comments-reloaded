@@ -750,7 +750,7 @@ msgid ""
 "lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
 "theme happy."
 msgstr ""
-"如果你需要一个<a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">"
+"如果你需要一个<a href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">"
 "真正的页面</a>配合你的主体，要禁用虚拟管理页面。"
 
 #: options/panel3.php:79

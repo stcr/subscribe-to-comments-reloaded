@@ -780,7 +780,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Inaktivera den virtuella administrationssidan om du behöver skapa en <a href="
-"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">riktig sida</a> för "
+"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">riktig sida</a> för "
 "att komma överens med ditt tema."
 
 #: options/panel3.php:79
