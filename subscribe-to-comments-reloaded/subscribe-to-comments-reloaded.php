@@ -135,7 +135,7 @@ class wp_subscribe_reloaded {
 			if ( empty( $manager_page_permalink ) ) {
 				$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 			}
-			if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) && get_option( 'subscribe_reloaded_manager_page_enabled', 'yes' ) == 'yes' ) {
+			if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
 				add_filter( 'the_posts', array( &$this, 'subscribe_reloaded_manage' ), 10, 2 );
 			}
 
@@ -294,6 +294,7 @@ class wp_subscribe_reloaded {
 		add_option( 'subscribe_reloaded_author_label', __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-reloaded' ), '', 'no' );
 
 		add_option( 'subscribe_reloaded_manager_page_enabled', 'yes', '', 'no' );
+		add_option( 'subscribe_reloaded_virtual_manager_page_enabled','yes', '', 'no' );
 		add_option( 'subscribe_reloaded_manager_page_title', __( 'Manage subscriptions', 'subscribe-reloaded' ), '', 'no' );
 		add_option( 'subscribe_reloaded_custom_header_meta', "<meta name='robots' content='noindex,nofollow'>", '', 'no' );
 		add_option( 'subscribe_reloaded_request_mgmt_link', __( 'To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page.', 'subscribe-reloaded' ), '', 'no' );
@@ -322,6 +323,7 @@ class wp_subscribe_reloaded {
 		add_option( 'subscribe_reloaded_enable_admin_messages', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_admin_subscribe', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_admin_bcc', 'no', '', 'no' );
+
 
 		// Schedule the autopurge hook
 		if ( ! wp_next_scheduled( 'subscribe_reloaded_purge' ) ) {
@@ -1395,7 +1397,16 @@ class wp_subscribe_reloaded {
 	private function _import_crn_data() {
 		global $wpdb;
 		$subscriptions_to_import = array();
-
+		// THIS QUERY wil make sure that the columns exist
+		/*  SHOW COLUMNS FROM wp_comments LIKE 'comment_mail_notify';
+				other one:
+		SELECT *
+		FROM information_schema.COLUMNS
+		WHERE
+			TABLE_SCHEMA = 'db_name'
+		AND TABLE_NAME = 'table_name'
+		AND COLUMN_NAME = 'column_name'
+		*/
 		// Import the information collected by Subscribe to Comments, if needed
 		$crn_data_count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_mail_notify = 1" );
 
