@@ -672,7 +672,7 @@ msgid "Disabled"
 msgstr ""
 
 #: options/panel3.php:47
-msgid "Disable the virtual management page if you need to create a <a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your theme happy."
+msgid "Disable the virtual management page if you need to create a <a href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your theme happy."
 msgstr ""
 
 #: options/panel3.php:53

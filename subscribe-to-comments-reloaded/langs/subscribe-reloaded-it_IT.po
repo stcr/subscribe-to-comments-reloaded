@@ -792,7 +792,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Disabilita la pagina virtuale di gestione se hai bisogno di creare una <a "
-"href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">pagina vera</a> "
+"href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">pagina vera</a> "
 "per far contento il tuo tema."
 
 #: options/panel3.php:79

@@ -145,7 +145,7 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 * Maintenance release: 2.0 shipped with a bunch of annoying bugs, sorry about that!
 * Added: option to not subscribe in 'advanced mode' (thank you [LincolnAdams](http://wordpress.org/support/topic/replies-only-broken))
 * Added: subscriptions count for each post (All Posts panel)
-* Added: option to disable the virtual management page, for those [having problems](http://lab.duechiacchiere.it/index.php?topic=71.0) with their theme
+* Added: option to disable the virtual management page, for those [having problems](http://behstant.com/subscribe-reloaded/realMgnPage.php) with their theme
 * Fixed: subscriptions to replies only were not working properly, fixed (thank you [LincolnAdams](http://wordpress.org/support/topic/replies-only-broken))
 * Fixed: some warning popping up with WP_DEBUG mode enabled
 * Updated: most localizations are now up-to-date, thank you everybody!

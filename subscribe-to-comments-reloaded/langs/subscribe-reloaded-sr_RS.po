@@ -780,7 +780,7 @@ msgid ""
 "theme happy."
 msgstr ""
 "Искључи управљање пријавама путем виртуелне странице, ако желите да креирате "
-"<a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">статичну "
+"<a href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">статичну "
 "страну</a> како би тема била лепша."
 
 #: options/panel3.php:79
