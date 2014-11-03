@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
 Tested up to: 4.0
-Stable tag: 141025
+Stable tag: 141103
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -71,6 +71,10 @@ where you have you messages with HTML.
 
 == Upgrade Notice ==
 
+== v141103 ==
+
+**Broken links and settings issue** Please upgrade to fix the URL creation on the Request Management link and to save the settings values correctly.
+
 = v141025 =
 
 v1410124 Fixed several issues reported on the support forum like broken links, raw HTML on the messages, clean user interface with buttons not needed. See the change log for details.
@@ -80,6 +84,10 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+== v141103=
+* **Fix** URL generation for the Request Management link.
+* **Fix** Saving of settings values. Settings with a single quote was not saving correcting. Every option with a single quote was broken, after update please save the settings on every tab where you have single quotes.
 
 = v141025 =
 * **Fix** Post variable missing on request_management_link.php.

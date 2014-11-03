@@ -11,6 +11,7 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 	}
 
 	// Prevent XSS/CSRF attacks
+	$_value = stripslashes( $_value );
 	$_value = esc_attr( $_value ); // esc_attr Will encode all the text.
 
 	switch ( $_type ) {
