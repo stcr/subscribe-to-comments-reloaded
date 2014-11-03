@@ -36,6 +36,8 @@ if ( ! empty( $email ) ) {
 	// Replace tags with their actual values
 	$subject = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
 	$message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
+	// Strip manager link tag for message output in site
+	$message_site = str_replace( '[manager_link]', '' , $message );
 	$message = str_replace( '[manager_link]', $manager_link, $message );
 
 	// QTranslate support
@@ -49,7 +51,10 @@ if ( ! empty( $email ) ) {
 
 	wp_mail( $clean_email, $subject, $message, $headers );
 
-	echo $message;
+	// Output Message and wrapped manager link 
+	echo $message_site;
+	echo '<a href="'. $manager_link .'">Link</a>';
+
 } else {
 	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_COMPAT, 'UTF-8' );
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
