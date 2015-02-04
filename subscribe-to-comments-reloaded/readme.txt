@@ -85,7 +85,7 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
-== v141103=
+== v141103 =
 * **Fix** URL generation for the Request Management link.
 * **Fix** Saving of settings values. Settings with a single quote was not saving correcting. Every option with a single quote was broken, after update please save the settings on every tab where you have single quotes.
 
