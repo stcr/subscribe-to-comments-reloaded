@@ -105,7 +105,7 @@ function subscribe_reloaded_show() {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 	}
-	echo "<!-- BEGIN: subscribe to comments reloaded -->" . html_entity_decode( stripslashes( $html_to_show ), ENT_QUOTES, 'UTF-8' ) . "<!-- END: subscribe to comments reloaded -->";
+	echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 }
 
 // Show the checkbox - You can manually override this by adding the corresponding function in your template
@@ -1246,7 +1246,8 @@ class wp_subscribe_reloaded {
 	 * Adds custom HTML code to the HEAD section of the management page
 	 */
 	public function add_custom_header_meta() {
-		echo html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_COMPAT, 'UTF-8' );
+		$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
+		echo $a;
 	}
 	// end add_custom_header_meta
 
