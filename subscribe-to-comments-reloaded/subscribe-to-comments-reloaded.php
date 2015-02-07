@@ -39,7 +39,9 @@ function subscribe_reloaded_show() {
 		$user_link = qtrans_convertURL( $user_link );
 	}
 
-	$manager_link = ( strpos( $user_link, '?' ) !== false ) ? "$user_link&amp;srp=$post->ID" : "$user_link?srp=$post->ID";
+	$manager_link = ( strpos( $user_link, '?' ) !== false ) ?
+		"$user_link&amp;srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' ) :
+		"$user_link?srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' );
 
 	// Load localization files
 	load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
@@ -640,7 +642,7 @@ class wp_subscribe_reloaded {
 		) {
 			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
 		} // Manage your subscriptions (user)
-		elseif ( ! empty( $email ) && ( ( ! empty( $key ) && $this->_is_valid_key( $key, $email ) ) || current_user_can( 'read' ) ) ) {
+		elseif ( ! empty( $email ) && ( ! empty( $key ) && $this->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) ) {
 			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
 		}
 
@@ -1058,7 +1060,7 @@ class wp_subscribe_reloaded {
 		}
 
 		$clean_email     = $this->clean_email( $_email );
-		$subscriber_salt = $this->generate_key( $clean_email );
+		$subscriber_salt = $this->generate_temp_key( $clean_email );
 
 		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
 		$confirm_link = "$manager_link&srp=$_post_ID&sra=c";
@@ -1109,7 +1111,7 @@ class wp_subscribe_reloaded {
 		}
 
 		$clean_email     = $this->clean_email( $_email );
-		$subscriber_salt = $this->generate_key( $clean_email );
+		$subscriber_salt = $this->generate_temp_key( $clean_email );
 
 		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
 
@@ -1186,6 +1188,13 @@ class wp_subscribe_reloaded {
 		$uniqueKey = md5( get_current_user_id() . $user->user_login . $salt . $_email );
 
 		return $uniqueKey;
+	}
+
+	public function generate_temp_key( $_email ) {
+		$uniqueKey = get_option( "subscribe_reloaded_unique_key" );
+		$key       = md5( $uniqueKey . $_email );
+
+		return $key;
 	}
 	// end generate_key
 
@@ -1630,7 +1639,11 @@ class wp_subscribe_reloaded {
 	 * Checks if a key is valid for a given email address
 	 */
 	private function _is_valid_key( $_key, $_email ) {
-		return $this->generate_key( $_email ) == $_key;
+		if ( $this->generate_temp_key( $_email ) === $_key ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	// end _is_valid_key
 }
