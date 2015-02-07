@@ -23,7 +23,7 @@ if ( ! empty( $email ) ) {
 	}
 
 	$clean_email     = $wp_subscribe_reloaded->clean_email( $email );
-	$subscriber_salt = $wp_subscribe_reloaded->generate_key( $clean_email );
+	$subscriber_salt = $wp_subscribe_reloaded->generate_temp_key( $clean_email );
 
 	$headers = "MIME-Version: 1.0\n";
 	$headers .= "From: $from_name <$from_email>\n";
@@ -36,7 +36,7 @@ if ( ! empty( $email ) ) {
 	// Replace tags with their actual values
 	$subject = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
 	$message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
-	$message = str_replace( '[manager_link]', $manager_link, $message );
+	$message = str_replace( '[manager_link]', '<a href="' . $manager_link . '">' . $manager_link . '</a>', $message );
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
@@ -55,7 +55,7 @@ if ( ! empty( $email ) ) {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
-?>
+	?>
 	<p><?php echo $message ?></p>
 	<form action="<?php if ( $helper->verifyXSS( $_SERVER['REQUEST_URI'] ) ) {
 		echo "#";
