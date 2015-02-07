@@ -5,47 +5,55 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	exit;
 }
 
-// Update options
-if ( isset( $_POST['options'] ) ) {
-	$faulty_fields = '';
-	if ( isset( $_POST['options']['purge_days'] ) && ! subscribe_reloaded_update_option( 'purge_days', $_POST['options']['purge_days'], 'integer' ) ) {
-		$faulty_fields = __( 'Autopurge requests', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['enable_double_check'] ) && ! subscribe_reloaded_update_option( 'enable_double_check', $_POST['options']['enable_double_check'], 'yesno' ) ) {
-		$faulty_fields = __( 'Enable double check', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['notify_authors'] ) && ! subscribe_reloaded_update_option( 'notify_authors', $_POST['options']['notify_authors'], 'yesno' ) ) {
-		$faulty_fields = __( 'Subscribe authors', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['enable_html_emails'] ) && ! subscribe_reloaded_update_option( 'enable_html_emails', $_POST['options']['enable_html_emails'], 'yesno' ) ) {
-		$faulty_fields = __( 'Enable HTML emails', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['htmlify_message_links'] ) && ! subscribe_reloaded_update_option( 'htmlify_message_links', $_POST['options']['htmlify_message_links'], 'yesno' ) ) {
-		$faulty_fields = __( 'HTMLify Links in HTML emails', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['process_trackbacks'] ) && ! subscribe_reloaded_update_option( 'process_trackbacks', $_POST['options']['process_trackbacks'], 'yesno' ) ) {
-		$faulty_fields = __( 'Send trackbacks', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['enable_admin_messages'] ) && ! subscribe_reloaded_update_option( 'enable_admin_messages', $_POST['options']['enable_admin_messages'], 'yesno' ) ) {
-		$faulty_fields = __( 'Notify admin', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['admin_subscribe'] ) && ! subscribe_reloaded_update_option( 'admin_subscribe', $_POST['options']['admin_subscribe'], 'yesno' ) ) {
-		$faulty_fields = __( 'Let admin subscribe', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['admin_bcc'] ) && ! subscribe_reloaded_update_option( 'admin_bcc', $_POST['options']['admin_bcc'], 'yesno' ) ) {
-		$faulty_fields = __( 'BCC admin on Notifications', 'subscribe-reloaded' ) . ', ';
-	}
+$faulty_fields = '';
 
-	// Display an alert in the admin interface if something went wrong
-	echo '<div class="updated fade"><p>';
-	if ( empty( $faulty_fields ) ) {
-		_e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
-	} else {
-		_e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
-		echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
+if ( array_key_exists( "generate_key", $_POST ) ) {
+	global $wp_subscribe_reloaded;
+	$unique_key = $wp_subscribe_reloaded->generate_key();
+	subscribe_reloaded_update_option( 'unique_key', $unique_key, 'text' );
+} else {
+	// Update options
+	if ( isset( $_POST['options'] ) ) {
+		if ( isset( $_POST['options']['purge_days'] ) && ! subscribe_reloaded_update_option( 'purge_days', $_POST['options']['purge_days'], 'integer' ) ) {
+			$faulty_fields = __( 'Autopurge requests', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['enable_double_check'] ) && ! subscribe_reloaded_update_option( 'enable_double_check', $_POST['options']['enable_double_check'], 'yesno' ) ) {
+			$faulty_fields = __( 'Enable double check', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['notify_authors'] ) && ! subscribe_reloaded_update_option( 'notify_authors', $_POST['options']['notify_authors'], 'yesno' ) ) {
+			$faulty_fields = __( 'Subscribe authors', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['enable_html_emails'] ) && ! subscribe_reloaded_update_option( 'enable_html_emails', $_POST['options']['enable_html_emails'], 'yesno' ) ) {
+			$faulty_fields = __( 'Enable HTML emails', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['htmlify_message_links'] ) && ! subscribe_reloaded_update_option( 'htmlify_message_links', $_POST['options']['htmlify_message_links'], 'yesno' ) ) {
+			$faulty_fields = __( 'HTMLify Links in HTML emails', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['process_trackbacks'] ) && ! subscribe_reloaded_update_option( 'process_trackbacks', $_POST['options']['process_trackbacks'], 'yesno' ) ) {
+			$faulty_fields = __( 'Send trackbacks', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['enable_admin_messages'] ) && ! subscribe_reloaded_update_option( 'enable_admin_messages', $_POST['options']['enable_admin_messages'], 'yesno' ) ) {
+			$faulty_fields = __( 'Notify admin', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['admin_subscribe'] ) && ! subscribe_reloaded_update_option( 'admin_subscribe', $_POST['options']['admin_subscribe'], 'yesno' ) ) {
+			$faulty_fields = __( 'Let admin subscribe', 'subscribe-reloaded' ) . ', ';
+		}
+		if ( isset( $_POST['options']['admin_bcc'] ) && ! subscribe_reloaded_update_option( 'admin_bcc', $_POST['options']['admin_bcc'], 'yesno' ) ) {
+			$faulty_fields = __( 'BCC admin on Notifications', 'subscribe-reloaded' ) . ', ';
+		}
 	}
-	echo "</p></div>\n";
 }
+
+// Display an alert in the admin interface if something went wrong
+echo '<div class="updated fade"><p>';
+if ( empty( $faulty_fields ) ) {
+	_e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+} else {
+	_e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
+	echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
+}
+echo "</p></div>\n";
+
 wp_print_scripts( 'quicktags' );
 ?>
 <form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
@@ -130,6 +138,35 @@ wp_print_scripts( 'quicktags' );
 				<input type="radio" name="options[admin_bcc]" id="admin_bcc" value="yes"<?php echo ( subscribe_reloaded_get_option( 'admin_bcc' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
 				<input type="radio" name="options[admin_bcc]" value="no" <?php echo ( subscribe_reloaded_get_option( 'admin_bcc' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
 				<div class="description"><?php _e( 'Send a copy of all Notifications to the administrator.', 'subscribe-reloaded' ); ?></div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<label for="admin_bcc"><?php _e( 'StCR Unique Key', 'subscribe-reloaded' ) ?></label></th>
+			<td>
+				<?php
+				if ( subscribe_reloaded_get_option( 'unique_key' ) == "" ) :
+					_e(
+						"This Unique Key is not set, please click the following button to ",
+						'subscribe-reloaded'
+					);
+					?>
+					<input type="submit" value="<?php _e( 'Generate' ) ?>" class="button-primary" size="6" name="generate_key">
+				<?php
+				else :
+					?>
+					<input type="text" name="options[uk_key]" id="uk_key"
+						   value="<?php echo subscribe_reloaded_get_option( 'unique_key' ); ?>" size="35" disabled>
+					<div class="description">
+						<?php _e(
+							"This Unique Key will be use to send the notification to your subscribers with more
+																security.",
+							'subscribe-reloaded'
+						); ?></div>
+					<input type="submit" value="<?php _e( 'Generate' ) ?>" class="button-primary" size="6" name="generate_key" style="background-color: #D54E21;border-color: #B34B28;">
+				<?php
+				endif;
+				?>
 			</td>
 		</tr>
 		</tbody>
