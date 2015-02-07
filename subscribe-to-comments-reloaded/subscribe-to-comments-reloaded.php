@@ -2,10 +2,10 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 141103
-Stable tag: 141103
+Version: 150207
+Stable tag: 150207
 Requires at least: 2.9.2
-Tested up to: 4.0
+Tested up to: 4.1
 
 Plugin URI: http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/
 Description: Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notifications. It includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications.
@@ -39,7 +39,9 @@ function subscribe_reloaded_show() {
 		$user_link = qtrans_convertURL( $user_link );
 	}
 
-	$manager_link = ( strpos( $user_link, '?' ) !== false ) ? "$user_link&amp;srp=$post->ID" : "$user_link?srp=$post->ID";
+	$manager_link = ( strpos( $user_link, '?' ) !== false ) ?
+		"$user_link&amp;srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' ) :
+		"$user_link?srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' );
 
 	// Load localization files
 	load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
@@ -115,7 +117,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '141103';
+	public $current_version = '150207';
 
 	/**
 	 * Constructor -- Sets things up.
@@ -281,6 +283,7 @@ class wp_subscribe_reloaded {
 			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/', '', 'no' );
 		}
 
+		add_option( 'subscribe_reloaded_unique_key', $this->generate_key(), '', 'no' );
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'no' );
 		add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'no' );
@@ -639,7 +642,7 @@ class wp_subscribe_reloaded {
 		) {
 			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
 		} // Manage your subscriptions (user)
-		elseif ( ! empty( $email ) && ( ( ! empty( $key ) && $this->_is_valid_key( $key, $email ) ) || current_user_can( 'read' ) ) ) {
+		elseif ( ! empty( $email ) && ( ! empty( $key ) && $this->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) ) {
 			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
 		}
 
@@ -1057,7 +1060,7 @@ class wp_subscribe_reloaded {
 		}
 
 		$clean_email     = $this->clean_email( $_email );
-		$subscriber_salt = $this->generate_key( $clean_email );
+		$subscriber_salt = $this->generate_temp_key( $clean_email );
 
 		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
 		$confirm_link = "$manager_link&srp=$_post_ID&sra=c";
@@ -1108,7 +1111,7 @@ class wp_subscribe_reloaded {
 		}
 
 		$clean_email     = $this->clean_email( $_email );
-		$subscriber_salt = $this->generate_key( $clean_email );
+		$subscriber_salt = $this->generate_temp_key( $clean_email );
 
 		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
 
@@ -1179,8 +1182,19 @@ class wp_subscribe_reloaded {
 	/**
 	 * Generate a unique key to allow users to manage their subscriptions
 	 */
-	public function generate_key( $_email ) {
-		return md5( $this->salt . $_email );
+	public function generate_key( $_email = "" ) {
+		$salt      = time();
+		$user      = wp_get_current_user();
+		$uniqueKey = md5( get_current_user_id() . $user->user_login . $salt . $_email );
+
+		return $uniqueKey;
+	}
+
+	public function generate_temp_key( $_email ) {
+		$uniqueKey = get_option( "subscribe_reloaded_unique_key" );
+		$key       = md5( $uniqueKey . $_email );
+
+		return $key;
 	}
 	// end generate_key
 
@@ -1625,7 +1639,11 @@ class wp_subscribe_reloaded {
 	 * Checks if a key is valid for a given email address
 	 */
 	private function _is_valid_key( $_key, $_email ) {
-		return $this->generate_key( $_email ) == $_key;
+		if ( $this->generate_temp_key( $_email ) === $_key ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	// end _is_valid_key
 }
