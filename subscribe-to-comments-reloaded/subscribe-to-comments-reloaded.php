@@ -281,6 +281,7 @@ class wp_subscribe_reloaded {
 			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/', '', 'no' );
 		}
 
+		add_option( 'subscribe_reloaded_unique_key', $this->generate_key(), '', 'no' );
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'no' );
 		add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'no' );
@@ -1179,8 +1180,12 @@ class wp_subscribe_reloaded {
 	/**
 	 * Generate a unique key to allow users to manage their subscriptions
 	 */
-	public function generate_key( $_email ) {
-		return md5( $this->salt . $_email );
+	public function generate_key( $_email = "" ) {
+		$salt      = time();
+		$user      = wp_get_current_user();
+		$uniqueKey = md5( get_current_user_id() . $user->user_login . $salt . $_email );
+
+		return $uniqueKey;
 	}
 	// end generate_key
 
