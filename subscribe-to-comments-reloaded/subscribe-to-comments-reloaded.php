@@ -1202,6 +1202,7 @@ class wp_subscribe_reloaded {
 	 * Creates the HTML structure to properly handle HTML messages
 	 */
 	public function wrap_html_message( $_message = '', $_subject = '' ) {
+		$_message = apply_filters('stcr_wrap_html_message', $_message );
 		return "<html><head><title>$_subject</title></head><body>$_message</body></html>";
 	}
 	// end _wrap_html_message
