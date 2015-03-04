@@ -1300,7 +1300,7 @@ class wp_subscribe_reloaded {
 						break;
 					case 'starts with':
 						$where_clause .= " LIKE %s";
-						$where_values[] = "${$search_values[$a_idx]}%";
+						$where_values[] = "{$search_values[$a_idx]}%";
 						break;
 					case 'ends with':
 						$where_clause .= " LIKE %s";
