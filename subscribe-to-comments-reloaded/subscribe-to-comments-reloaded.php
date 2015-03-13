@@ -92,9 +92,9 @@ function subscribe_reloaded_show() {
 			$checkbox_field = "<input$checkbox_inline_style type='checkbox' name='subscribe-reloaded' id='subscribe-reloaded' value='$checkbox_subscription_type'" . ( ( get_option( 'subscribe_reloaded_checked_by_default', 'no' ) == 'yes' ) ? " checked='checked'" : '' ) . " />";
 		} else {
 			$checkbox_field = "<select name='subscribe-reloaded' id='subscribe-reloaded'>
-									<option value='none'" . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '0' ) ? "selected='selected'" : '' ) . ">" . __( "Don't subscribe", 'subscribe-reloaded' ) . "</option>
-									<option value='yes'" . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '1' ) ? "selected='selected'" : '' ) . ">" . __( "All", 'subscribe-reloaded' ) . "</option>
-									<option value='replies'" . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '2' ) ? "selected='selected'" : '' ) . ">" . __( "Replies to my comments", 'subscribe-reloaded' ) . "</option>
+									<option value='none' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '0' ) ? "selected='selected'" : '' ) . ">" . __( "Don't subscribe", 'subscribe-reloaded' ) . "</option>
+									<option value='yes' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '1' ) ? "selected='selected'" : '' ) . ">" . __( "All", 'subscribe-reloaded' ) . "</option>
+									<option value='replies' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '2' ) ? "selected='selected'" : '' ) . ">" . __( "Replies to my comments", 'subscribe-reloaded' ) . "</option>
 								</select>";
 		}
 		if ( empty( $checkbox_html_wrap ) ) {
