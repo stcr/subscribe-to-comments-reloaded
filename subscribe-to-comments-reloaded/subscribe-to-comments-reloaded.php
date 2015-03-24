@@ -288,6 +288,7 @@ class wp_subscribe_reloaded {
 		}
 
 		add_option( 'subscribe_reloaded_unique_key', $this->generate_key(), '', 'no' );
+		add_option( 'subscribe_reloaded_subscriber_table', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_data_sanitized', 'yes', '', 'no' );
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'no' );
 		add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'no' );
@@ -332,6 +333,9 @@ class wp_subscribe_reloaded {
 		add_option( 'subscribe_reloaded_admin_subscribe', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_admin_bcc', 'no', '', 'no' );
 
+		// Create a new table if not exists to manage the subscribers safer
+		$this->_create_subscriber_table();
+
 
 		// Schedule the autopurge hook
 		if ( ! wp_next_scheduled( 'subscribe_reloaded_purge' ) ) {
@@ -371,6 +375,72 @@ class wp_subscribe_reloaded {
 	}
 
 	// end deactivate
+
+	private function _create_subscriber_table() {
+		global $wpdb;
+		$charset_collate = $wpdb->get_charset_collate();
+		$errorMsg        = '';
+
+		// If the update option is set to false
+		if ( get_option('subscribe_reloaded_subscriber_table') == 'no' ) {
+			// Creation of table and subscribers.
+			$sqlCreateTable = " CREATE TABLE " . $wpdb->prefix . "subscribe_reloaded_subscribers (
+							  stcr_id int(11) NOT NULL AUTO_INCREMENT,
+							  subscriber_email varchar(100) NOT NULL,
+							  salt int(15) NOT NULL,
+							  subscriber_unique_id varchar(50) NULL,
+							  add_date timestamp NOT NULL DEFAULT NOW(),
+							  PRIMARY KEY  (stcr_id),
+							  UNIQUE KEY uk_subscriber_email (subscriber_email))
+							ENGINE = InnoDB
+							$charset_collate";
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			// dbDelta Will create or update the table safety
+			// Ref: https://codex.wordpress.org/Creating_Tables_with_Plugins
+			$result = dbDelta( $sqlCreateTable );
+
+			$retrieveNumberOfSubscribers = "SELECT COUNT(subscriber_email) FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers";
+			$numSubscribers              = $wpdb->get_var( $retrieveNumberOfSubscribers );
+			// If subscribers not found then the create routine.
+			if ( $numSubscribers == 0 ) {
+				// Get list of emails to be imported.
+				$retrieveEmails = "SELECT DISTINCT REPLACE(meta_key, '_stcr@_', '') AS email FROM " . $wpdb->postmeta
+					. " WHERE meta_key LIKE '\_stcr@\_%'";
+				$emails         = $wpdb->get_results( $retrieveEmails, OBJECT );
+				// insert the records on the new table.
+				foreach ( $emails as $email ) {
+					$salt = time();
+					// Insert query
+					$OK = $wpdb->insert(
+						$wpdb->prefix . "subscribe_reloaded_subscribers",
+						array(
+							"subscriber_email"     => $email->email,
+							"salt"                 => $salt,
+							"subscriber_unique_id" => $this->generate_temp_key( $salt . $email->email )
+						),
+						array(
+							"%s",
+							"%d",
+							"%s"
+						)
+					);
+					if ( ! $OK) {
+						$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+						$notices[] = '<div class="error"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+							'<p>The creation of of the table <strong>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</strong> failed</p></div>';
+						update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+						break 1;
+					}
+				}
+				$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+				$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+					'<p>The creation of table <strong>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</strong> was successful.</p>'.
+					'<p>This new table will help to add your subscribers email address safer and prevent the Google PII violation.</p></div>';
+				update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+				update_option('subscribe_reloaded_subscriber_table', 'yes');
+			}
+		}
+	}
 
 	private function _sanitize_db_information() {
 		global $wpdb;
@@ -921,7 +991,7 @@ class wp_subscribe_reloaded {
 		$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 		$key    = ! empty( $_POST['srk'] ) ? $_POST['srk'] : ( ! empty( $_GET['srk'] ) ? $_GET['srk'] : 0 );
 
-		$email = $this->clean_email( ! empty( $_POST['sre'] ) ? urldecode( $_POST['sre'] ) : ( ! empty( $_GET['sre'] ) ? $_GET['sre'] : '' ) );
+		$email = $this->clean_email( ! empty( $_POST['sre'] ) ? $this->generate_temp_key( urldecode( $_POST['sre'] ) ) : ( ! empty( $_GET['sre'] ) ? $this->generate_temp_key( $_GET['sre'] ) : '' ) );
 		if ( empty( $email ) && ! empty( $current_user->user_email ) ) {
 			$email = $this->clean_email( $current_user->user_email );
 		}
@@ -1500,7 +1570,8 @@ class wp_subscribe_reloaded {
 	 * Creates the HTML structure to properly handle HTML messages
 	 */
 	public function wrap_html_message( $_message = '', $_subject = '' ) {
-		$_message = apply_filters('stcr_wrap_html_message', $_message );
+		$_message = apply_filters( 'stcr_wrap_html_message', $_message );
+
 		return "<html><head><title>$_subject</title></head><body>$_message</body></html>";
 	}
 	// end _wrap_html_message
