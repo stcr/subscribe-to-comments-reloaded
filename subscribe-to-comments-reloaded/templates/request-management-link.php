@@ -31,7 +31,7 @@ if ( ! empty( $email ) ) {
 	$headers .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' );
 
 	$manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
-	$manager_link .= "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
+	$manager_link .= "sre=" . $wp_subscribe_reloaded->get_subscriber_key($clean_email) . "&srk=$subscriber_salt";
 
 	// Replace tags with their actual values
 	$subject = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );

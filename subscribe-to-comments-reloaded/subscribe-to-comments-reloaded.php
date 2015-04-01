@@ -339,7 +339,18 @@ class wp_subscribe_reloaded {
 
 		// Schedule the autopurge hook
 		if ( ! wp_next_scheduled( 'subscribe_reloaded_purge' ) ) {
-			wp_schedule_event( time(), 'daily', 'subscribe_reloaded_purge' );
+			// For testing purposes
+			add_filter( 'cron_schedules','cron_add_seconds' );
+
+			function cron_add_seconds() {
+				$schedules['seconds'] = array(
+					'interval' => 10,
+					'display'  => __( 'Every 10 seconds' )
+				);
+			}
+
+//			wp_schedule_event( time(), 'daily', 'subscribe_reloaded_purge' );
+			wp_schedule_event( time(), 'seconds', 'subscribe_reloaded_purge' );
 		}
 	}
 	// end _activate
@@ -409,21 +420,9 @@ class wp_subscribe_reloaded {
 				$emails         = $wpdb->get_results( $retrieveEmails, OBJECT );
 				// insert the records on the new table.
 				foreach ( $emails as $email ) {
-					$salt = time();
-					// Insert query
-					$OK = $wpdb->insert(
-						$wpdb->prefix . "subscribe_reloaded_subscribers",
-						array(
-							"subscriber_email"     => $email->email,
-							"salt"                 => $salt,
-							"subscriber_unique_id" => $this->generate_temp_key( $salt . $email->email )
-						),
-						array(
-							"%s",
-							"%d",
-							"%s"
-						)
-					);
+					// Insert email
+					$OK = $this->add_user_subscriber_table( $email->email );
+
 					if ( ! $OK) {
 						$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
 						$notices[] = '<div class="error"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
@@ -440,6 +439,64 @@ class wp_subscribe_reloaded {
 				update_option('subscribe_reloaded_subscriber_table', 'yes');
 			}
 		}
+	}
+
+	/*
+	 * This will add an user/email to the prefix_subscribe_reloaded_subscribers table.
+	 * @param String $email email to be added.
+	 * @return Boolean true|false true on success, false on failure
+	 * */
+	function remove_user_subscriber_table($_email) {
+		global $wpdb;
+
+		$OK = $wpdb->query(
+			"DELETE FROM ".$wpdb->prefix."subscribe_reloaded_subscribers WHERE subscriber_email = '$_email'"
+		);
+		return $OK === false ? false : true;
+	}
+	// TODO: Creation of function to add the subcriber to the prefix_subscribe_reloaded_subscribers table. DONE, NEEDS TEST
+	/*
+	 * This will add an user/email to the prefix_subscribe_reloaded_subscribers table.
+	 * @param String $email email to be added.
+	 * @return Boolean true|false true on success, false on failure
+	 * */
+	function add_user_subscriber_table($_email) {
+		global $wpdb;
+		$salt = time();
+
+		$OK = $wpdb->insert(
+			$wpdb->prefix . "subscribe_reloaded_subscribers",
+			array(
+				"subscriber_email"     => $_email,
+				"salt"                 => $salt,
+				"subscriber_unique_id" => $this->generate_temp_key( $salt . $_email )
+			),
+			array(
+				"%s",
+				"%d",
+				"%s"
+			)
+		);
+		return $OK === false ? false : true;
+	}
+	// TODO: Creation of function to RETRIEVE from prefix_subscribe_reloaded_subscribers table. DONE
+	/*
+	 * This will retrieve an user/email from the prefix_subscribe_reloaded_subscribers table.
+	 * @param String $email email to be added.
+	 * @return Mix false|unique_key false on failure, key un success
+	 * */
+	public function get_subscriber_key( $email = null) {
+		global $wpdb;
+		$subscriber = null;
+		// Check if the user is register and the unique key
+		$retrieveEmail = "SELECT salt, subscriber_unique_id FROM ".$wpdb->prefix."subscribe_reloaded_subscribers WHERE subscriber_email = %s";
+		if( $email != null ) {
+			$subscriber = $wpdb->get_row($wpdb->prepare($retrieveEmail,$email), OBJECT);
+			if( ! empty( $subscriber ) ) {
+				return $this->generate_temp_key($subscriber->salt.$email);
+			}
+		}
+		return false;
 	}
 
 	private function _sanitize_db_information() {
@@ -990,8 +1047,12 @@ class wp_subscribe_reloaded {
 
 		$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 		$key    = ! empty( $_POST['srk'] ) ? $_POST['srk'] : ( ! empty( $_GET['srk'] ) ? $_GET['srk'] : 0 );
+		$subcriber_email_key = ! empty( $_POST['sre'] ) ? $_POST['sre']  : ( ! empty( $_GET['sre'] ) ?  $_GET['sre']  : '' );
 
-		$email = $this->clean_email( ! empty( $_POST['sre'] ) ? $this->generate_temp_key( urldecode( $_POST['sre'] ) ) : ( ! empty( $_GET['sre'] ) ? $this->generate_temp_key( $_GET['sre'] ) : '' ) );
+		// Since sre is define it means that the key might the encrypted one and therefore we need to get
+		// the current email from the user.
+		$email = $this->get_subscriber_email_by_key( $subcriber_email_key );
+
 		if ( empty( $email ) && ! empty( $current_user->user_email ) ) {
 			$email = $this->clean_email( $current_user->user_email );
 		}
@@ -1085,8 +1146,21 @@ class wp_subscribe_reloaded {
 		if ( ( $autopurge_interval = intval( get_option( 'subscribe_reloaded_purge_days', 0 ) ) ) <= 0 ) {
 			return true;
 		}
+		// TODO: Delete also the emails from the subscribers table, thes is no point to have it there since there is not confirmation. DONE NOW TEST
+		// First retrieve the emails to be deleted
+		$emailsToPurge = "SELECT DISTINCT REPLACE(meta_key, '_stcr@_', '') AS email FROM $wpdb->postmeta
+						  WHERE meta_key LIKE '\_stcr@\_%'
+						  AND STR_TO_DATE(meta_value, '%Y-%m-%d %H:%i:%s') <= DATE_SUB(NOW(),
+						  INTERVAL $autopurge_interval DAY) AND meta_value LIKE '%C'";
 
-		// Delete old entries
+		$emails = $wpdb->get_results( $emailsToPurge, OBJECT );
+		// Now if there are emails go ahead and delete them
+		if ( ! empty( $emails ) && is_array( $emails ) ) {
+			foreach( $emails as $row ) {
+				$this->remove_user_subscriber_table($row->subscriber_email);
+			}
+		}
+		// Delete old entries on the post_meta table
 		$wpdb->query(
 			"
 			DELETE FROM $wpdb->postmeta
@@ -1095,6 +1169,25 @@ class wp_subscribe_reloaded {
 		);
 	}
 	// end subscribe_reloaded_purge
+
+	public function get_subscriber_email_by_key( $key = null) {
+		global $wpdb;
+
+		if( $key != null ) {
+			// Sanitize the key just for precaution.
+			$key = trim( esc_attr($key) );
+			// Check if the user is register and the unique key
+			$retrieveEmail = "SELECT subscriber_email FROM "
+							.$wpdb->prefix."subscribe_reloaded_subscribers WHERE subscriber_unique_id = %s";
+
+			$subscriber = $wpdb->get_row($wpdb->prepare($retrieveEmail,$key), OBJECT);
+
+			if( ! empty( $subscriber->subscriber_email ) ) {
+				return $subscriber->subscriber_email;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Checks if current logged in user is the author of this post
@@ -1181,6 +1274,18 @@ class wp_subscribe_reloaded {
 				)", $_post_id, "_stcr@_$clean_email", "$dt|$_status", $_post_id, "_stcr@_$clean_email"
 			)
 		);
+		// TODO: Insert the user into the new database, check if the subscriber already exists. DONE THE CODE NOW TEST
+		$checkEmailSql = "SELECT COUNT(subscriber_email) FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers WHERE subscriber_email = %s";
+		$numSubscribers = $wpdb->get_var( $wpdb->prepare($checkEmailSql, $clean_email) );
+		// If subscribers not found then add it to the subscribers table.
+		if ( $numSubscribers > 0 ) {
+			$salt = time();
+			// Insert query
+			$OK = $this->add_user_subscriber_table( $clean_email );
+			if ( ! $OK) {
+				// Catch the error
+			}
+		}
 	}
 	// end add_subscription
 
@@ -1204,19 +1309,22 @@ class wp_subscribe_reloaded {
 
 			$posts_where = substr( $posts_where, 0, - 4 );
 		}
-
+		// TODO: Add routine for deletion on the subscribers table. DONE NOW TEST
 		if ( ! empty( $_email ) ) {
 			$emails_where = '';
 			if ( ! is_array( $_email ) ) {
 				$emails_where = "meta_key = '_stcr@_" . $this->clean_email( $_email ) . "'";
+				// Only delete one email
+				$this->remove_user_subscriber_table( $_email );
 			} else {
 				foreach ( $_email as $a_email ) {
 					$emails_where .= "meta_key = '_stcr@_" . $this->clean_email( $a_email ) . "' OR ";
+					// Deletion on every email on the subscribers table.
+					$this->remove_user_subscriber_table( $a_email );
 				}
 
 				$emails_where = substr( $emails_where, 0, - 4 );
 			}
-
 			return $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE ($posts_where) AND ($emails_where)" );
 		} else {
 			return $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%' AND ($posts_where)" );
@@ -1291,15 +1399,24 @@ class wp_subscribe_reloaded {
 			$post_where     = ' AND post_id = %d';
 			$clean_values[] = $_post_id;
 		}
+		// TODO: Update subcriber email on new table. DONE THE CODE NOW TEST
+		$rowsAffected = $wpdb->query(
+							$wpdb->prepare("UPDATE $wpdb->postmeta SET meta_key = %s  WHERE meta_key = %s $post_where",
+							$clean_values )
+						);
 
-		return $wpdb->query(
-			$wpdb->prepare(
-				"
-			UPDATE $wpdb->postmeta
-			SET meta_key = %s
-			WHERE meta_key = %s $post_where", $clean_values
-			)
-		);
+		if ( $rowsAffected > 0  || $rowsAffected !== false) {
+			$salt = time();
+			$rowsAffected = $wpdb->query(
+				$wpdb->prepare("UPDATE ". $wpdb->prefix .
+							   "subscribe_reloaded_subscribers SET subscriber_email = %s,
+							    salt = %d,
+							    subscriber_unique_id = %s
+				 				WHERE subscriber_email = %s",
+								$_new_email, $salt, $this->generate_temp_key( $salt . $_new_email ),$_email )
+			);
+		}
+		return false;
 	}
 	// end update_subscription_email
 
@@ -1429,8 +1546,10 @@ class wp_subscribe_reloaded {
 
 		$clean_email     = $this->clean_email( $_email );
 		$subscriber_salt = $this->generate_temp_key( $clean_email );
+		// TODO: Encrypt the user email. on this point we can add the user to the subs table, if the user did not confirm, then we use the email did not confirm to purge it with the cron task, meaning that we search the email to be deleted on the subs table. DONE NOW TEST
+		$this->add_user_subscriber_table( $clean_email );
 
-		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
+		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
 		$confirm_link = "$manager_link&srp=$_post_ID&sra=c";
 
 		$headers      = "From: $from_name <$from_email>\n";
@@ -1480,8 +1599,8 @@ class wp_subscribe_reloaded {
 
 		$clean_email     = $this->clean_email( $_email );
 		$subscriber_salt = $this->generate_temp_key( $clean_email );
-
-		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . urlencode( $clean_email ) . "&srk=$subscriber_salt";
+		// TODO: Encrypted the user sre key. DONE NOW TEST
+		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
 
 		$headers      = "From: $from_name <$from_email>\n";
 		$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';

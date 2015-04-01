@@ -4,8 +4,8 @@ Contributors: coolmann, reedyseth, raamdev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 4.1
-Stable tag: 150207
+Tested up to: 4.1.1
+Stable tag: 150331
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -91,6 +91,8 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= 150331 =
 
 = 150207 =
 
@@ -229,3 +231,5 @@ localization is ready. Currently, we support the following languages:
 * Serbian - [Anna Swedziol](http://www.sneg.iz.rs/)
 * Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/)
 * Turkish - [MaD, Kali](http://www.dusunsel.com/)
+* Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
+* Hungarian - [László Tavaszi]
