@@ -338,19 +338,24 @@ class wp_subscribe_reloaded {
 
 
 		// Schedule the autopurge hook
-		if ( ! wp_next_scheduled( 'subscribe_reloaded_purge' ) ) {
+		if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_purge' ) ) {
 			// For testing purposes
 			add_filter( 'cron_schedules','cron_add_seconds' );
 
 			function cron_add_seconds() {
 				$schedules['seconds'] = array(
 					'interval' => 10,
-					'display'  => __( 'Every 10 seconds' )
+					'display'  => __( 'Every 10 seconds','subscribe-reloaded' )
 				);
+				return $schedules;
 			}
 
 //			wp_schedule_event( time(), 'daily', 'subscribe_reloaded_purge' );
-			wp_schedule_event( time(), 'seconds', 'subscribe_reloaded_purge' );
+			wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
+			wp_schedule_event( time() + 60, 'seconds', '_cron_subscribe_reloaded_purge' );
+
+			// Let us bind the schedule event with our desire action.
+			add_action('_cron_subscribe_reloaded_purge','subscribe_reloaded_purge');
 		}
 	}
 	// end _activate
@@ -374,11 +379,11 @@ class wp_subscribe_reloaded {
 
 			foreach ( $blogids as $blog_id ) {
 				switch_to_blog( $blog_id );
-				wp_clear_scheduled_hook( 'subscribe_reloaded_purge' );
+				wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
 			}
 			restore_current_blog();
 		} else {
-			wp_clear_scheduled_hook( 'subscribe_reloaded_purge' );
+			wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
 		}
 
 		delete_option( 'subscribe_reloaded_version' );
@@ -1157,7 +1162,7 @@ class wp_subscribe_reloaded {
 		// Now if there are emails go ahead and delete them
 		if ( ! empty( $emails ) && is_array( $emails ) ) {
 			foreach( $emails as $row ) {
-				$this->remove_user_subscriber_table($row->subscriber_email);
+				$this->remove_user_subscriber_table($row->email);
 			}
 		}
 		// Delete old entries on the post_meta table
