@@ -36,12 +36,15 @@ if ( ! empty( $email ) ) {
 	// Replace tags with their actual values
 	$subject = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
 	$message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
+	$page_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
+	$page_message = str_replace( '[manager_link]', '', $message );
 	$message = str_replace( '[manager_link]', '<a href="' . $manager_link . '">' . $manager_link . '</a>', $message );
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$subject = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
+		$page_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
 	}
 	if ( $content_type == 'text/html' ) {
 		$message = $wp_subscribe_reloaded->wrap_html_message( $message, $subject );
@@ -49,7 +52,7 @@ if ( ! empty( $email ) ) {
 
 	wp_mail( $clean_email, $subject, $message, $headers );
 
-	echo $message;
+	echo $page_message;
 } else {
 	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_COMPAT, 'UTF-8' );
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
