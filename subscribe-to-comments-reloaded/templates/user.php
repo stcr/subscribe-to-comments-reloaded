@@ -66,7 +66,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 			<input type="radio" name="sra" value="suspend" id="action_type_suspend" checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" name="sra" value="force_r" id="action_type_force_y" /> <label for="action_type_force_y">' . __( 'Replies to my comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" name="sra" value="activate" id="action_type_activate" /> <label for="action_type_activate">' . __( 'Activate', 'subscribe-reloaded' ) . '</label></p>';
-	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /><input type="hidden" name="sre" value="' . urlencode( $email ) . '"/></p>';
+	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="'
+			. __( 'Update subscriptions', 'subscribe-reloaded' )
+			. '" /><input type="hidden" name="sre" value="' . $wp_subscribe_reloaded->get_subscriber_key( $email ) . '"/></p>';
+			//  TODO: Add the user subscriber key on the hidden value
 
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';
