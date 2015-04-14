@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
 Tested up to: 4.1.1
-Stable tag: 150331
+Stable tag: 150414
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -74,6 +74,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+== v150414 ==
+
+**Security Fix; PLEASE UPGRADE IMMEDIATELY** Google PII issue with AdWords. Protect user email Address and uses an encrypted key instead on URL. Several issues are fix, see the change log.
+
 == v150207 ==
 
 Improvements on the links security. Now you get a Unique Key for your site. Check the Options Panel.
@@ -92,9 +96,20 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
-= 150331 =
+= v150414 =
 
-= 150207 =
+**Fix** Google PII complaint. See bug/#79 on GitHub.
+**Fix** The ability to manage any subscription is remove, the manage link will only appear on the subscriber email address. bug/#81.
+**Fix** Fix wrong html markup on the advance subscription dropdown.
+**Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. bug/#82
+**Fix** HTML email label for for screen readers. reported on bug/#76.
+**Fix** Database information with correct encoding. A new routine to clean the database information encoding. This was outputting raw HTML.
+**Add** New table to store every subscriber email.
+**Add** Czech translation file.
+**Add** Hungarian translation file.
+**Add** Hebrew translation file.
+
+= v150207 =
 
 * **Fix** The output link for the manage subscriptions.
 * **Fix** Display of URL to use escape characters.
@@ -233,3 +248,4 @@ localization is ready. Currently, we support the following languages:
 * Turkish - [MaD, Kali](http://www.dusunsel.com/)
 * Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
 * Hungarian - [László Tavaszi]
+* Czech - [Daniel Král](http://www.danielkral.cz/)
