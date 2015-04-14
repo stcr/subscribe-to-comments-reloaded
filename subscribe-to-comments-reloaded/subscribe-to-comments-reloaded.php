@@ -454,21 +454,27 @@ class wp_subscribe_reloaded {
 	 * */
 	function add_user_subscriber_table($_email) {
 		global $wpdb;
-		$salt = time();
-
-		$OK = $wpdb->insert(
-			$wpdb->prefix . "subscribe_reloaded_subscribers",
-			array(
-				"subscriber_email"     => $_email,
-				"salt"                 => $salt,
-				"subscriber_unique_id" => $this->generate_temp_key( $salt . $_email )
-			),
-			array(
-				"%s",
-				"%d",
-				"%s"
-			)
-		);
+		$OK = false;
+		$checkEmailSql = "SELECT COUNT(subscriber_email) FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers WHERE subscriber_email = %s";
+		$numSubscribers = $wpdb->get_var( $wpdb->prepare($checkEmailSql, $_email) );
+		// If subscribers not found then add it to the subscribers table.
+		if ( (int)$numSubscribers == 0 ) {
+			$salt = time();
+			// Insert query
+			$OK = $wpdb->insert(
+				$wpdb->prefix . "subscribe_reloaded_subscribers",
+				array(
+					"subscriber_email"     => $_email,
+					"salt"                 => $salt,
+					"subscriber_unique_id" => $this->generate_temp_key( $salt . $_email )
+				),
+				array(
+					"%s",
+					"%d",
+					"%s"
+				)
+			);
+		}
 		return $OK === false || $OK == 0 || empty( $OK ) ? false : $OK;
 	}
 
@@ -1274,16 +1280,9 @@ class wp_subscribe_reloaded {
 			)
 		);
 
-		$checkEmailSql = "SELECT COUNT(subscriber_email) FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers WHERE subscriber_email = %s";
-		$numSubscribers = $wpdb->get_var( $wpdb->prepare($checkEmailSql, $clean_email) );
-		// If subscribers not found then add it to the subscribers table.
-		if ( (int)$numSubscribers == 0 ) {
-			$salt = time();
-			// Insert query
-			$OK = $this->add_user_subscriber_table( $clean_email );
-			if ( ! $OK) {
-				// Catch the error
-			}
+		$OK = $this->add_user_subscriber_table( $clean_email );
+		if ( ! $OK) {
+			// Catch the error
 		}
 	}
 	// end add_subscription
