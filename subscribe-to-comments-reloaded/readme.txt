@@ -104,6 +104,7 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. bug/#82
 **Fix** HTML email label for for screen readers. reported on bug/#76.
 **Fix** Database information with correct encoding. A new routine to clean the database information encoding. This was outputting raw HTML.
+**New Feature** Update subscription status to 'All Comments' on user Management Page.
 **Add** New table to store every subscriber email.
 **Add** Czech translation file.
 **Add** Hungarian translation file.
