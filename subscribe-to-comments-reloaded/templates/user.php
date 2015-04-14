@@ -69,8 +69,6 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="'
 			. __( 'Update subscriptions', 'subscribe-reloaded' )
 			. '" /><input type="hidden" name="sre" value="' . $wp_subscribe_reloaded->get_subscriber_key( $email ) . '"/></p>';
-			//  TODO: Add the user subscriber key on the hidden value
-
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';
 }
