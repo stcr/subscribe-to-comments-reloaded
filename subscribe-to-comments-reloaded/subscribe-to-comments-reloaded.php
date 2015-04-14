@@ -107,6 +107,7 @@ function subscribe_reloaded_show() {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 	}
+	echo "<!-- Subscribe to Comments Reloaded version $wp_subscribe_reloaded->current_version -->";
 	echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 }
 
