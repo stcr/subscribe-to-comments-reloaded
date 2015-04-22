@@ -291,7 +291,10 @@ class wp_subscribe_reloaded {
 			add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/', '', 'no' );
 		}
 
+		// Let us make sure that the Unique Key is created
+		delete_option('subscribe_reloaded_unique_key');
 		add_option( 'subscribe_reloaded_unique_key', $this->generate_key(), '', 'no' );
+
 		add_option( 'subscribe_reloaded_subscriber_table', 'no', '', 'no' );
 		add_option( 'subscribe_reloaded_data_sanitized', 'yes', '', 'no' );
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'no' );
