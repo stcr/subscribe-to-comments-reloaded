@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-04 10:24-0700\n"
-"PO-Revision-Date: 2014-02-04 10:24-0700\n"
+"POT-Creation-Date: 2015-04-22 10:35-0700\n"
+"PO-Revision-Date: 2015-04-22 10:35-0700\n"
 "Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -16,34 +16,20 @@ msgstr ""
 "X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: subscribe-to-comments-reloaded.php:50
-#: subscribe-to-comments-reloaded.php:290
-msgid ""
-"Your subscription to this post needs to be confirmed. <a "
-"href='[manager_link]'>Manage your subscriptions</a>."
-msgstr ""
-"Je abonnement op dit bericht moet eerst worden bevestigd. <a "
-"href='[manager_link]'>Beheer je abonnementen</a>."
+#: subscribe-to-comments-reloaded.php:95
+msgid "Don't subscribe"
+msgstr "Meld niet aan"
 
-#: subscribe-to-comments-reloaded.php:56
-#: subscribe-to-comments-reloaded.php:289
-msgid ""
-"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
-"subscriptions."
-msgstr ""
-"Je hebt een abonnement op dit bericht. Beheer je abonnementen <a "
-"href='[manager_link]'>op deze pagina</a>. "
+#: subscribe-to-comments-reloaded.php:96
+msgid "All"
+msgstr "Alles"
 
-#: subscribe-to-comments-reloaded.php:67
-#: subscribe-to-comments-reloaded.php:291
-msgid ""
-"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
-msgstr ""
-"Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit "
-"bericht beheren."
+#: subscribe-to-comments-reloaded.php:97 templates/author.php:75
+#: templates/user.php:72
+msgid "Replies to my comments"
+msgstr "Reacties op mijn reacties"
 
-#: subscribe-to-comments-reloaded.php:74
-#: subscribe-to-comments-reloaded.php:288
+#: subscribe-to-comments-reloaded.php:307
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -52,23 +38,34 @@ msgstr ""
 "href='[subscribe_link]'>abonneer jezelf</a> op deze discussie zonder te "
 "reageren."
 
-#: subscribe-to-comments-reloaded.php:93
-msgid "Don't subscribe"
-msgstr "Meld niet aan"
+#: subscribe-to-comments-reloaded.php:308
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"Je hebt een abonnement op dit bericht. Beheer je abonnementen <a "
+"href='[manager_link]'>op deze pagina</a>. "
 
-#: subscribe-to-comments-reloaded.php:94
-msgid "All"
-msgstr "Alles"
+#: subscribe-to-comments-reloaded.php:309
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"Je abonnement op dit bericht moet eerst worden bevestigd. <a "
+"href='[manager_link]'>Beheer je abonnementen</a>."
 
-#: subscribe-to-comments-reloaded.php:95 templates/user.php:67
-msgid "Replies to my comments"
-msgstr "Reacties op mijn reacties"
+#: subscribe-to-comments-reloaded.php:310
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr ""
+"Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit "
+"bericht beheren."
 
-#: subscribe-to-comments-reloaded.php:294 options/index.php:54
+#: subscribe-to-comments-reloaded.php:314 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "Beheer Abonnementen"
 
-#: subscribe-to-comments-reloaded.php:296
+#: subscribe-to-comments-reloaded.php:316
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -77,7 +74,7 @@ msgstr ""
 "Om je abonnementen te beheren moet je hieronder je e-mail adres invullen. We "
 "sturen je dan een persoonlijk link waar je je abonnementen aan kunt passen."
 
-#: subscribe-to-comments-reloaded.php:297
+#: subscribe-to-comments-reloaded.php:317
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -87,7 +84,7 @@ msgstr ""
 "voltooid en je ontvangt binnen enkele ogenblikken een e-mail met een link "
 "naar je persoonlijk beheerpagina."
 
-#: subscribe-to-comments-reloaded.php:298
+#: subscribe-to-comments-reloaded.php:318
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -96,7 +93,7 @@ msgstr ""
 "Je wilt je abonneren op de discussie <strong>[post_title]</strong> zonder "
 "zelf te reageren? Vul je e-mail adres hieronder in en de rest gaat vanzelf."
 
-#: subscribe-to-comments-reloaded.php:299
+#: subscribe-to-comments-reloaded.php:319
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -106,7 +103,7 @@ msgstr ""
 "voltooid. Je ontvangt iedere keer een e-mail als er een nieuwe reactie is "
 "geplaatst."
 
-#: subscribe-to-comments-reloaded.php:300
+#: subscribe-to-comments-reloaded.php:320
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -116,7 +113,7 @@ msgstr ""
 "te voltooien moet je deze eerst bevestigen. Je ontvangt hierover binnen "
 "enkele ogenblikken een e-mail bericht."
 
-#: subscribe-to-comments-reloaded.php:301
+#: subscribe-to-comments-reloaded.php:321
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -124,7 +121,7 @@ msgstr ""
 "Om je abonnementen aan te passen vink je het gewenste abonnement aan en klik "
 "je op de desgewenst actie."
 
-#: subscribe-to-comments-reloaded.php:302
+#: subscribe-to-comments-reloaded.php:322
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -134,11 +131,11 @@ msgstr ""
 "je op de desgewenst actie. Momenteel ben je geabonneerd op de volgende "
 "berichten:"
 
-#: subscribe-to-comments-reloaded.php:306
+#: subscribe-to-comments-reloaded.php:326
 msgid "There is a new comment to [post_title]"
 msgstr "Er is een nieuwe reactie geplaatst bij [post_title]"
 
-#: subscribe-to-comments-reloaded.php:307
+#: subscribe-to-comments-reloaded.php:327
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -156,11 +153,11 @@ msgstr ""
 "Permalink: [post_permalink]\n"
 "Beheer je abonnementen: [manager_link]"
 
-#: subscribe-to-comments-reloaded.php:308
+#: subscribe-to-comments-reloaded.php:328
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Bevestig je abonnement op [post_title]"
 
-#: subscribe-to-comments-reloaded.php:309
+#: subscribe-to-comments-reloaded.php:329
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -175,11 +172,11 @@ msgstr ""
 "Bevestig je aanmelding door op deze link te klikken:\n"
 "[confirm_link]"
 
-#: subscribe-to-comments-reloaded.php:310
+#: subscribe-to-comments-reloaded.php:330
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Beheer je abonnementen op [blog_name]"
 
-#: subscribe-to-comments-reloaded.php:311
+#: subscribe-to-comments-reloaded.php:331
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -190,43 +187,28 @@ msgstr ""
 "pagina te gaan:\n"
 "[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:366
-msgid "Settings"
-msgstr "Instellingen"
+#: subscribe-to-comments-reloaded.php:424
+#: subscribe-to-comments-reloaded.php:431
+#: subscribe-to-comments-reloaded.php:574
+#: subscribe-to-comments-reloaded.php:643
+#: subscribe-to-comments-reloaded.php:787
+msgid "Important Notice"
+msgstr "Belangrijke melding"
 
-#: subscribe-to-comments-reloaded.php:1283 options/panel2.php:67
-#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:66
-#: options/panel5.php:75 options/panel5.php:84 options/panel5.php:94
-#: options/panel5.php:103 options/panel5.php:113 options/panel5.php:122
-#: options/panel5.php:131
-msgid "No"
-msgstr "Nee"
-
-#: subscribe-to-comments-reloaded.php:1310
-msgid ""
-"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+#: subscribe-to-comments-reloaded.php:522
+#, fuzzy
+msgid "Subscribe to Comments Reloaded Important Notice"
 msgstr ""
 "Hulp nodig bij het gebruik van de Subscribe to Comments Reloaded plugin? "
 "Bezoek de officiële"
 
-#: subscribe-to-comments-reloaded.php:1310
-msgid "support forum"
-msgstr "support forum"
+#: subscribe-to-comments-reloaded.php:523
+msgid ""
+"The information in your database has been sanitize to prevent the raw html "
+"messages."
+msgstr ""
 
-#: subscribe-to-comments-reloaded.php:1311
-msgid "Feeling generous?"
-msgstr "Wees eens gul!"
-
-#: subscribe-to-comments-reloaded.php:1311
-msgid "Donate a few bucks!"
-msgstr "Doneer een paar centen!"
-
-#: subscribe-to-comments-reloaded.php:1380
-#: subscribe-to-comments-reloaded.php:1526
-msgid "Important Notice"
-msgstr "Belangrijke melding"
-
-#: subscribe-to-comments-reloaded.php:1381
+#: subscribe-to-comments-reloaded.php:575
 msgid ""
 "Comment subscription data from the <strong>Subscribe to Comments</strong> "
 "plugin was detected and automatically imported into <strong>Subscribe to "
@@ -236,7 +218,7 @@ msgstr ""
 "gevonden en automatisch geïmporteerd in <strong>Subscribe to Comments "
 "Reloaded</strong>."
 
-#: subscribe-to-comments-reloaded.php:1381
+#: subscribe-to-comments-reloaded.php:575
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Subscribe to "
 "Comments to prevent confusion between the two plugins."
@@ -244,7 +226,7 @@ msgstr ""
 "Het is aan te raden Subscribe to Comments te <strong>deactiveren</strong> om "
 "problemen te voorkomen."
 
-#: subscribe-to-comments-reloaded.php:1382
+#: subscribe-to-comments-reloaded.php:576
 msgid ""
 "If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
 "that you want to import, you'll need to import that data manually, as only "
@@ -253,8 +235,9 @@ msgstr ""
 "Als je data van Subscribe to Comments Reloaded < v2.0 wilt importeren moet "
 "je dit handmatig doen."
 
-#: subscribe-to-comments-reloaded.php:1383
-#: subscribe-to-comments-reloaded.php:1530
+#: subscribe-to-comments-reloaded.php:577
+#: subscribe-to-comments-reloaded.php:645
+#: subscribe-to-comments-reloaded.php:791
 msgid ""
 "Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
 "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
@@ -264,7 +247,27 @@ msgstr ""
 "options/index.php\">Instellingen -> Subscribe to Comments</a> om je "
 "configuratie aan te passen."
 
-#: subscribe-to-comments-reloaded.php:1527
+#: subscribe-to-comments-reloaded.php:644
+#, fuzzy
+msgid ""
+"Comment subscription data from the <strong>Comment Reply Notification</"
+"strong> plugin was detected and automatically imported into "
+"<strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+"Inschrijvingen van de <strong>Subscribe to Comments</strong> plugin zijn "
+"gevonden en automatisch geïmporteerd in <strong>Subscribe to Comments "
+"Reloaded</strong>."
+
+#: subscribe-to-comments-reloaded.php:644
+#, fuzzy
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Comment Reply "
+"Notification to prevent confusion between the two plugins."
+msgstr ""
+"Het is aan te raden Subscribe to Comments te <strong>deactiveren</strong> om "
+"problemen te voorkomen."
+
+#: subscribe-to-comments-reloaded.php:788
 msgid ""
 "Plugin options and comment subscription data from the <strong>WP Comment "
 "Subscriptions</strong> plugin were detected and automatically imported into "
@@ -274,7 +277,7 @@ msgstr ""
 "zijn gevonden en automatisch geïmporteerd in <strong>Subscribe to Comments "
 "Reloaded</strong>."
 
-#: subscribe-to-comments-reloaded.php:1527
+#: subscribe-to-comments-reloaded.php:788
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> WP Comment "
 "Subscriptions to prevent confusion between the two plugins."
@@ -282,7 +285,7 @@ msgstr ""
 "Het is aan te raden Subscribe to Comments te <strong>deactiveren</strong> om "
 "problemen te voorkomen."
 
-#: subscribe-to-comments-reloaded.php:1528
+#: subscribe-to-comments-reloaded.php:789
 msgid ""
 "If you have subscription data from another plugin (such as Subscribe to "
 "Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
@@ -293,7 +296,7 @@ msgstr ""
 "to Comments Reloaded < v2.0) hebt die je wilt importeren dan moet je dit "
 "handmatig doen."
 
-#: subscribe-to-comments-reloaded.php:1529
+#: subscribe-to-comments-reloaded.php:790
 msgid ""
 "<strong>Note:</strong> If you were previously using the "
 "<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
@@ -307,26 +310,61 @@ msgstr ""
 "respectievelijk <code>subscribe_reloaded_show()</code> en <code>[subscribe-"
 "url]</code>."
 
-#: options/index.php:55
+#: subscribe-to-comments-reloaded.php:801
+msgid "Settings"
+msgstr "Instellingen"
+
+#: subscribe-to-comments-reloaded.php:1840 options/panel2.php:67
+#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:74
+#: options/panel5.php:83 options/panel5.php:92 options/panel5.php:102
+#: options/panel5.php:111 options/panel5.php:121 options/panel5.php:130
+#: options/panel5.php:139
+msgid "No"
+msgstr "Nee"
+
+#: subscribe-to-comments-reloaded.php:1867
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr ""
+"Hulp nodig bij het gebruik van de Subscribe to Comments Reloaded plugin? "
+"Bezoek de officiële"
+
+#: subscribe-to-comments-reloaded.php:1867
+msgid "support forum"
+msgstr "support forum"
+
+#: subscribe-to-comments-reloaded.php:1868
+msgid "Feeling generous?"
+msgstr "Wees eens gul!"
+
+#: subscribe-to-comments-reloaded.php:1868
+msgid "Donate a few bucks!"
+msgstr "Doneer een paar centen!"
+
+#: options/index.php:58
 msgid "Comment Form"
 msgstr "Reactie formulier"
 
-#: options/index.php:56
+#: options/index.php:59
 msgid "Management Page"
 msgstr "Beheerpagina"
 
-#: options/index.php:57
+#: options/index.php:60
 msgid "Notifications"
 msgstr "Notificaties"
 
-#: options/index.php:58 options/panel2.php:58 options/panel3.php:60
-#: options/panel4.php:51
+#: options/index.php:61 options/panel2.php:58 options/panel3.php:82
+#: options/panel4.php:67
 msgid "Options"
 msgstr "Opties"
 
-#: options/index.php:59
+#: options/index.php:62
 msgid "You can help"
 msgstr "Je kunt helpen"
+
+#: options/index.php:63
+msgid "Support"
+msgstr "Ondersteuning"
 
 #: options/panel1-business-logic.php:19
 msgid "Subscription added."
@@ -357,6 +395,7 @@ msgstr "Abonnementen geactiveerd:"
 
 #: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
 #: templates/author.php:35 templates/author.php:39 templates/user.php:35
+#: templates/user.php:39
 msgid "Subscriptions updated:"
 msgstr "Abonnementen bijgewerkt:"
 
@@ -382,7 +421,7 @@ msgstr "optioneel"
 
 #: options/panel1-edit-subscription.php:11 options/panel1.php:22
 #: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
-#: templates/user.php:48
+#: templates/user.php:52
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
@@ -442,8 +481,8 @@ msgid "Post ID"
 msgstr "Post (ID)"
 
 #: options/panel1.php:56 options/panel1.php:111
-#: templates/request-management-link.php:75 templates/subscribe.php:89
-#: templates/user.php:53
+#: templates/request-management-link.php:69 templates/subscribe.php:89
+#: templates/user.php:57
 msgid "Email"
 msgstr "E-mail"
 
@@ -532,7 +571,7 @@ msgstr "Rijen:"
 msgid "of"
 msgstr "van"
 
-#: options/panel1.php:114 templates/author.php:58 templates/user.php:54
+#: options/panel1.php:114 templates/author.php:58 templates/user.php:58
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr ""
 "Legenda: Y = alle reacties, R = alleen reacties op je reacties, C = inactief"
@@ -549,11 +588,11 @@ msgstr "Abonnement"
 msgid "Edit"
 msgstr "Bewerk"
 
-#: options/panel1.php:138 templates/author.php:72 templates/user.php:65
+#: options/panel1.php:138 templates/author.php:72 templates/user.php:69
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: options/panel1.php:146 templates/author.php:71 templates/user.php:64
+#: options/panel1.php:146 templates/author.php:71 templates/user.php:68
 msgid "Action:"
 msgstr "Actie:"
 
@@ -561,7 +600,7 @@ msgstr "Actie:"
 msgid "Delete forever"
 msgstr "Voor altijd verwijderen"
 
-#: options/panel1.php:148 templates/author.php:73 templates/user.php:66
+#: options/panel1.php:148 templates/author.php:73 templates/user.php:70
 msgid "Suspend"
 msgstr "Pauzeren"
 
@@ -573,11 +612,11 @@ msgstr "Activeer en verander naar Y"
 msgid "Activate and set to R"
 msgstr "Activeer en verander naar R"
 
-#: options/panel1.php:151 templates/author.php:75 templates/user.php:68
+#: options/panel1.php:151 templates/author.php:76 templates/user.php:73
 msgid "Activate"
 msgstr "Activeer"
 
-#: options/panel1.php:152 templates/author.php:76 templates/user.php:69
+#: options/panel1.php:152 templates/author.php:77 templates/user.php:75
 msgid "Update subscriptions"
 msgstr "Abonnementen bijwerken"
 
@@ -625,21 +664,21 @@ msgstr "Confirmatie label"
 msgid "Author label"
 msgstr "Auteur label"
 
-#: options/panel2.php:49 options/panel3.php:48 options/panel4.php:41
-#: options/panel5.php:42
+#: options/panel2.php:49 options/panel3.php:70 options/panel4.php:57
+#: options/panel5.php:50
 msgid "Your settings have been successfully updated."
 msgstr "De instellingen zijn succesvol bijgewerkt."
 
-#: options/panel2.php:51 options/panel3.php:50 options/panel4.php:43
-#: options/panel5.php:44
+#: options/panel2.php:51 options/panel3.php:72 options/panel4.php:59
+#: options/panel5.php:52
 msgid "There was an error updating the following fields:"
 msgstr ""
 "Er deed zich een probleem voor tijdens het bijwerken van de volgende velden:"
 
 #: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
-#: options/panel5.php:65 options/panel5.php:74 options/panel5.php:83
-#: options/panel5.php:93 options/panel5.php:102 options/panel5.php:112
-#: options/panel5.php:121 options/panel5.php:130
+#: options/panel5.php:73 options/panel5.php:82 options/panel5.php:91
+#: options/panel5.php:101 options/panel5.php:110 options/panel5.php:120
+#: options/panel5.php:129 options/panel5.php:138
 msgid "Yes"
 msgstr "Ja"
 
@@ -745,78 +784,79 @@ msgstr ""
 "Label dat wordt getoond aan auteurs (en beheerders). Beschikbare tag: "
 "[manager_link]"
 
-#: options/panel2.php:189 options/panel3.php:210 options/panel4.php:152
-#: options/panel5.php:137
+#: options/panel2.php:189 options/panel3.php:197 options/panel4.php:182
+#: options/panel5.php:174
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: options/panel3.php:11 options/panel3.php:65
+#: options/panel3.php:13 options/panel3.php:87
 msgid "Virtual Management Page"
 msgstr "Virtuele beheerpagina"
 
-#: options/panel3.php:14 options/panel3.php:74
+#: options/panel3.php:18 options/panel3.php:96
 msgid "Page title"
 msgstr "Pagina titel"
 
-#: options/panel3.php:17 options/panel3.php:83
+#: options/panel3.php:23 options/panel3.php:105
 msgid "Management URL"
 msgstr "Beheerpagina URL"
 
-#: options/panel3.php:20 options/panel3.php:95
+#: options/panel3.php:28 options/panel3.php:117
 msgid "Custom HEAD meta"
 msgstr "Custom HEAD meta"
 
-#: options/panel3.php:24 options/panel3.php:109
+#: options/panel3.php:34 options/panel3.php:131
 msgid "Request link"
 msgstr "Aanvraag link"
 
-#: options/panel3.php:27 options/panel3.php:124
+#: options/panel3.php:39 options/panel3.php:141
 msgid "Request submitted"
 msgstr "Aanvraag verzonden"
 
-#: options/panel3.php:30 options/panel3.php:139
+#: options/panel3.php:44 options/panel3.php:151
 msgid "Subscribe without commenting"
 msgstr "Abonneer zonder te reageren"
 
-#: options/panel3.php:33 options/panel3.php:154
+#: options/panel3.php:49 options/panel3.php:161
 msgid "Subscription processed"
 msgstr "Aanvraag verwerkt"
 
-#: options/panel3.php:36 options/panel3.php:169
+#: options/panel3.php:54 options/panel3.php:171
 msgid "Subscription processed (DCI)"
 msgstr "Aanvraag verwerkt (DCI)"
 
-#: options/panel3.php:39 options/panel3.php:183
+#: options/panel3.php:59 options/panel3.php:180
 msgid "Authors"
 msgstr "Auteurs"
 
-#: options/panel3.php:42 options/panel3.php:196
+#: options/panel3.php:64 options/panel3.php:188
 msgid "Users"
 msgstr "Gebruikers"
 
-#: options/panel3.php:68
+#: options/panel3.php:90
 msgid "Enabled"
 msgstr "Geactiveerd"
 
-#: options/panel3.php:69
+#: options/panel3.php:91
 msgid "Disabled"
 msgstr "Dedeactiveerd"
 
-#: options/panel3.php:70
+#: options/panel3.php:92
+#, fuzzy
 msgid ""
 "Disable the virtual management page if you need to create a <a href=\"http://"
-"lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
+"behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
 "theme happy."
 msgstr ""
 "Zet de virtuele management pagina uit als je een <a href=\"http://lab."
 "duechiacchiere.it/index.php?topic=71.0\">echte pagina</a> moet creëren."
 
-#: options/panel3.php:79
+#: options/panel3.php:101
 msgid "Title of the page your visitors will use to manage their subscriptions."
 msgstr ""
 "Titel van de pagina waar gebruikers hun abonnementen aan kunnen passen."
 
-#: options/panel3.php:87
+#: options/panel3.php:109
 msgid ""
 "The permalink for your management page (something like <code>/manage-"
 "subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
@@ -828,7 +868,7 @@ msgstr ""
 "niet</b> daadwerkelijk in het systeem, maar de permalink moet wel voldoen "
 "aan je Wordpress permalink instellingen."
 
-#: options/panel3.php:89
+#: options/panel3.php:111
 msgid ""
 "Warning: it looks like the value you are using may be incompatible with your "
 "permalink structure"
@@ -836,7 +876,7 @@ msgstr ""
 "Let op: het lijkt erop dat de waarde die je gebruikt niet compatibel is met "
 "jouw permalink structuur."
 
-#: options/panel3.php:99
+#: options/panel3.php:121
 msgid ""
 "Specify your custom HTML code to be added to the HEAD section of the page. "
 "Use <strong>single</strong> quotes for values."
@@ -844,44 +884,16 @@ msgstr ""
 "Specificeer je eigen HTML-code die aan de HEAD van je pagina toegevoegd moet "
 "worden. Gebruik <strong>enkele</strong> quotes voor waarden."
 
-#: options/panel3.php:105 options/panel4.php:74
+#: options/panel3.php:127 options/panel4.php:100
 msgid "Messages"
 msgstr "Berichten"
 
-#: options/panel3.php:112 options/panel3.php:127 options/panel3.php:142
-#: options/panel3.php:157 options/panel3.php:172 options/panel3.php:185
-#: options/panel3.php:198 options/panel4.php:92 options/panel4.php:117
-#: options/panel4.php:140
-msgid "Bold"
-msgstr "Dik gedrukt"
-
-#: options/panel3.php:113 options/panel3.php:128 options/panel3.php:143
-#: options/panel3.php:158 options/panel3.php:173 options/panel3.php:186
-#: options/panel3.php:199 options/panel4.php:93 options/panel4.php:118
-#: options/panel4.php:141
-msgid "Italic"
-msgstr "Schuin gedrukt"
-
-#: options/panel3.php:114 options/panel3.php:129 options/panel3.php:144
-#: options/panel3.php:159 options/panel3.php:174 options/panel3.php:187
-#: options/panel3.php:200 options/panel4.php:94 options/panel4.php:119
-#: options/panel4.php:142
-msgid "Link"
-msgstr "Link"
-
-#: options/panel3.php:115 options/panel3.php:130 options/panel3.php:145
-#: options/panel3.php:160 options/panel3.php:175 options/panel3.php:188
-#: options/panel3.php:201 options/panel4.php:95 options/panel4.php:120
-#: options/panel4.php:143
-msgid "Image"
-msgstr "Afbeelding"
-
-#: options/panel3.php:119
+#: options/panel3.php:136
 msgid "Text shown to those who request to manage their subscriptions."
 msgstr ""
 "Tekst die verschijnt voor gebruikers die hun abonnementen willen aanpassen."
 
-#: options/panel3.php:134
+#: options/panel3.php:146
 msgid ""
 "Thank you note shown after the request here above has been processed. "
 "Allowed tags: [post_title], [post_permalink]"
@@ -889,7 +901,7 @@ msgstr ""
 "Het bedankberichtje dat wordt getoond als bovenstaande aanvragen zijn "
 "doorgevoerd. Beschikbare tags: [post_title], [post_permalink]"
 
-#: options/panel3.php:149
+#: options/panel3.php:156
 msgid ""
 "Text shown to those who want to subscribe without commenting. Allowed tags: "
 "[post_title], [post_permalink]"
@@ -897,7 +909,7 @@ msgstr ""
 "Tekst die wordt getoond aan gebruikers die willen abonneren zonder eerst "
 "zelf te reageren. Beschikbare tags: [post_title], [post_permalink]"
 
-#: options/panel3.php:164
+#: options/panel3.php:166
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
@@ -906,7 +918,7 @@ msgstr ""
 "(als double check-in uit staat). Beschikbare tags: [post_title], "
 "[post_permalink]"
 
-#: options/panel3.php:179
+#: options/panel3.php:176
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
@@ -915,47 +927,47 @@ msgstr ""
 "aangevraagd (double check-in moet aan staan). Beschikbare tags: "
 "[post_title], [post_permalink]"
 
-#: options/panel3.php:192
+#: options/panel3.php:184
 msgid "Introductory text for the authors' management page."
 msgstr "Intoductietekst voor de beheerpagina van auteurs."
 
-#: options/panel3.php:205
+#: options/panel3.php:192
 msgid "Introductory text for the users' management page."
 msgstr "Intoductietekst voor de beheerpagina van de gebruikers."
 
-#: options/panel4.php:14 options/panel4.php:55
+#: options/panel4.php:16 options/panel4.php:72
 msgid "Sender name"
 msgstr "Afzender"
 
-#: options/panel4.php:17 options/panel4.php:63
+#: options/panel4.php:21 options/panel4.php:85
 msgid "Sender email address"
 msgstr "E-mail adres van afzender"
 
-#: options/panel4.php:20 options/panel4.php:79
+#: options/panel4.php:26 options/panel4.php:105
 msgid "Notification subject"
 msgstr "Onderwerp"
 
-#: options/panel4.php:23 options/panel4.php:89
+#: options/panel4.php:31 options/panel4.php:118
 msgid "Notification message"
 msgstr "Bericht"
 
-#: options/panel4.php:26 options/panel4.php:104
+#: options/panel4.php:36 options/panel4.php:132
 msgid "Double check subject"
 msgstr "Onderwerp dubbel checken"
 
-#: options/panel4.php:29 options/panel4.php:114
+#: options/panel4.php:41 options/panel4.php:145
 msgid "Double check message"
 msgstr "Bericht dubbel checken"
 
-#: options/panel4.php:32 options/panel4.php:129
+#: options/panel4.php:46 options/panel4.php:157
 msgid "Management subject"
 msgstr "Beheer onderwerp"
 
-#: options/panel4.php:35 options/panel4.php:138
+#: options/panel4.php:51 options/panel4.php:170
 msgid "Management message"
 msgstr "Beheer bericht"
 
-#: options/panel4.php:59
+#: options/panel4.php:79
 msgid ""
 "Name to use for the \"from\" field when sending a new notification to the "
 "user."
@@ -963,7 +975,7 @@ msgstr ""
 "Naam die voor het \"from\" veld gebruikt moet worden bij het versturen van "
 "notificaties naar de gebruiker."
 
-#: options/panel4.php:68
+#: options/panel4.php:93
 msgid ""
 "Email address to use for the \"from\" field when sending a new notification "
 "to the user."
@@ -971,11 +983,11 @@ msgstr ""
 "E-mail adres dat gebruikt moet worden voor het \"from\" veld tijdens het "
 "versturen van notificaties naar de gebruiker."
 
-#: options/panel4.php:84
+#: options/panel4.php:112
 msgid "Subject of the notification email. Allowed tag: [post_title]"
 msgstr "Onderwerp van de notificatie e-mail. Beschikbare tags: [post_title]"
 
-#: options/panel4.php:99
+#: options/panel4.php:126
 msgid ""
 "Content of the notification email. Allowed tags: [post_title], "
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
@@ -985,11 +997,11 @@ msgstr ""
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
 "[manager_link]"
 
-#: options/panel4.php:109
+#: options/panel4.php:139
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
 msgstr "Onderwerp van bevestigings e-mail. Beschikbare tag: [post_title]"
 
-#: options/panel4.php:124
+#: options/panel4.php:151
 msgid ""
 "Content of the confirmation email. Allowed tags: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
@@ -997,7 +1009,7 @@ msgstr ""
 "Inhoud van bevestigings e-mail. Beschikbare tags: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
 
-#: options/panel4.php:133
+#: options/panel4.php:164
 msgid ""
 "Subject of the mail sent to those who request to access their management "
 "page. Allowed tag: [blog_name]"
@@ -1005,53 +1017,53 @@ msgstr ""
 "Onderwerp van de e-mail die gebruikers ontvangen met de persoonlijk link "
 "naar hun beheerpagina. Beschikbare tags: [blog_name]"
 
-#: options/panel4.php:147
+#: options/panel4.php:176
 msgid ""
 "Content of the management email. Allowed tags: [blog_name], [manager_link]"
 msgstr ""
 "Inhoud van de beheer e-mail. Beschikbare tags: [blog_name], [manager_link]"
 
-#: options/panel5.php:12 options/panel5.php:54
+#: options/panel5.php:18 options/panel5.php:62
 msgid "Autopurge requests"
 msgstr "Automatisch verwerpen van aanvragen"
 
-#: options/panel5.php:15 options/panel5.php:63
+#: options/panel5.php:21 options/panel5.php:71
 msgid "Enable double check"
 msgstr "Dubbele check activeren"
 
-#: options/panel5.php:18 options/panel5.php:71
+#: options/panel5.php:24 options/panel5.php:79
 msgid "Subscribe authors"
 msgstr "Abonneer auteurs"
 
-#: options/panel5.php:21 options/panel5.php:81
+#: options/panel5.php:27 options/panel5.php:89
 msgid "Enable HTML emails"
 msgstr "Activeer HTML e-mails"
 
-#: options/panel5.php:24
+#: options/panel5.php:30
 msgid "HTMLify Links in HTML emails"
 msgstr "HTMLify Links in HTML e-mails"
 
-#: options/panel5.php:27
+#: options/panel5.php:33
 msgid "Send trackbacks"
 msgstr "Verstuur trackbacks"
 
-#: options/panel5.php:30
+#: options/panel5.php:36
 msgid "Notify admin"
 msgstr "Notificeer beheerder"
 
-#: options/panel5.php:33 options/panel5.php:119
+#: options/panel5.php:39 options/panel5.php:127
 msgid "Let admin subscribe"
 msgstr "Laat beheerder abonneren"
 
-#: options/panel5.php:36 options/panel5.php:128
+#: options/panel5.php:42 options/panel5.php:136
 msgid "BCC admin on Notifications"
 msgstr "BCC admin bij alle notificaties"
 
-#: options/panel5.php:57
+#: options/panel5.php:65
 msgid "days"
 msgstr "dagen"
 
-#: options/panel5.php:58
+#: options/panel5.php:66
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
@@ -1059,7 +1071,7 @@ msgstr ""
 "Verwijder abonnementen die niet bevestigd zijn na X dagen. 0 deactiveert "
 "deze functie."
 
-#: options/panel5.php:67
+#: options/panel5.php:75
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
@@ -1067,12 +1079,12 @@ msgstr ""
 "Verstuur een notificatie e-mail om het abonnement te bevestigen en misbruik "
 "te voorkomen."
 
-#: options/panel5.php:76
+#: options/panel5.php:84
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr "Abonneer auteurs automatisch op hun eigen artikelen."
 
-#: options/panel5.php:85
+#: options/panel5.php:93
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
@@ -1080,11 +1092,11 @@ msgstr ""
 "Als dit aan staat dan zullen emails verstuurd worden met content-type text/"
 "html in plaats van text/plain."
 
-#: options/panel5.php:90
+#: options/panel5.php:98
 msgid "HTMLify links in emails"
 msgstr "HTMLify Links in HTML e-mails"
 
-#: options/panel5.php:95
+#: options/panel5.php:103
 msgid ""
 "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
 "&lt;/a&gt;</code> (only when HTML emails enabled)."
@@ -1093,48 +1105,68 @@ msgstr ""
 "<code>&lt;a href=\"\"&gt;&lt;/a&gt;</code> samengepakt worden (alleen "
 "wanneer HTML e-mails gebruikt worden)."
 
-#: options/panel5.php:100
+#: options/panel5.php:108
 msgid "Process trackbacks"
 msgstr "Verwerk trackbacks"
 
-#: options/panel5.php:104
+#: options/panel5.php:112
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
 msgstr ""
 "Stel de gebruikers op de hoogte als er nieuwe trackbacks of pingbacks bij "
 "een bericht geplaatst worden."
 
-#: options/panel5.php:109
+#: options/panel5.php:117
 msgid "Track all subscriptions"
 msgstr "Bekijk alle abonnementen"
 
-#: options/panel5.php:114
+#: options/panel5.php:122
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr ""
 "Stel beheerders op de hoogte als iemand een abonnement neemt zonder eerst "
 "zelf te reageren."
 
-#: options/panel5.php:123
+#: options/panel5.php:131
 msgid "Let the administrator subscribe to comments when logged in."
 msgstr ""
 "Moet de beheerder zich kunnen abonneren op berichten als deze is ingelogd?"
 
-#: options/panel5.php:132
+#: options/panel5.php:140
 msgid "Send a copy of all Notifications to the administrator."
 msgstr "Verstuur een kopie van alle notificaties naar de admin."
 
-#: options/panel6.php:8
-msgid "Support the developer"
+#: options/panel5.php:145
+msgid "StCR Unique Key"
+msgstr ""
+
+#: options/panel5.php:150
+msgid "This Unique Key is not set, please click the following button to "
+msgstr ""
+
+#: options/panel5.php:154 options/panel5.php:166
+msgid "Generate"
+msgstr ""
+
+#: options/panel5.php:162
+msgid ""
+"This Unique Key will be use to send the notification to your subscribers "
+"with more\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tsecurity."
+msgstr ""
+
+#: options/panel6.php:8 options/panel7.php:8
+#, fuzzy
+msgid "Support the developers"
 msgstr "Support de ontwikkelaar"
 
 #: options/panel6.php:18
+#, fuzzy
 msgid ""
-"How valuable is the feature offered by this plugin to your visitors? "
-"Subscribe to Comments Reloaded is and will always be free, but consider "
-"supporting the author if this plugin made your web site better, especially "
-"if you are making money out of it. Any donation received will be reinvested "
-"in the development of Subscribe to Comments Reloaded, and to buy some food "
-"for my hungry family."
+"How valuable is the feature offered by this plugin to your visitors? please "
+"consider supporting the author if this plugin made your web site better, "
+"especially if you are making money out of it. Any donation received will be "
+"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
+"strong>, and to buy some food for my hungry family."
 msgstr ""
 "Hoe belangrijk is deze plugin voor jou en je gebruikers? Subscribe to "
 "Comments Reloaded is gratis en zal altijd gratis blijven, maar denk er eens "
@@ -1148,13 +1180,14 @@ msgid "Don't want to donate? You can still help"
 msgstr "Wil je niet doneren? Je kunt toch helpen"
 
 #: options/panel6.php:21
+#, fuzzy
 msgid ""
 "If you don't want to donate money, please consider blogging about my plugin "
 "with a link to the plugin's page. Please let your readers know what makes "
 "your blog better. You can also contribute donating your time: do not "
 "hesitate to send me bug reports, your localization files, ideas on how to "
-"improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
-"for using my plugin!"
+"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
+"you do, thanks for using my plugin!"
 msgstr ""
 "Wil je geen geld doneren maar toch helpen? Denk er dan eens over om over "
 "mijn plugin te bloggen. Laat de lezers van je blog weten waarom deze plugin "
@@ -1168,49 +1201,51 @@ msgid "Vote and show your appreciation"
 msgstr "Ondersteun ons door te stemmen"
 
 #: options/panel6.php:24
+#, fuzzy
 msgid ""
-"Tell other people if Subscribe to Comments Reloaded works for you and how "
-"good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
-"comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
+"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
+"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
 msgstr ""
 "Vertel anderen dat jij Subscribe to Comments Reloaded gebruikt en hoe goed "
 "jij het vindt. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
 "comments-reloaded/\">Stem hier</a> op onze plugin in de WordPress Plugin "
 "Directory."
 
-#: options/panel6.php:26
-msgid "Sponsor's Corner"
-msgstr "Sponsorhoek"
-
-#: options/panel6.php:27
-msgid ""
-"If you want to sponsor this plugin, don't hesitate to <a href='http://"
-"behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+#: options/panel7.php:18
+msgid "Did you find a Bug on the plugin?"
 msgstr ""
-"Als je deze plugin wilt sponsoren, neem dan <a href='http://behstant.com/"
-"negocio/contact.php' target='_blank'>contact met me op</a>."
+
+#: options/panel7.php:19
+msgid ""
+"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
+"%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
+"WordPress Support page."
+msgstr ""
 
 #: templates/author.php:57
 msgid "Title"
 msgstr "Titel"
 
-#: templates/author.php:69 templates/user.php:62
+#: templates/author.php:69 templates/user.php:66
 msgid "Select all"
 msgstr "Selecteer alles"
 
-#: templates/author.php:70 templates/user.php:63
+#: templates/author.php:70 templates/user.php:67
 msgid "Invert selection"
 msgstr "Selectie omkeren"
 
-#: templates/author.php:74
-msgid "Set to Y"
-msgstr "Verander naar Y"
+#: templates/author.php:74 templates/user.php:71
+#, fuzzy
+msgid "All comments"
+msgstr "Alle nieuwe reacties"
 
-#: templates/author.php:79 templates/user.php:72
+#: templates/author.php:80 templates/user.php:78
 msgid "No subscriptions match your search criteria."
 msgstr "Geen abonnementen voldoen aan je zoekcriteria."
 
-#: templates/request-management-link.php:77 templates/subscribe.php:91
+#: templates/request-management-link.php:71 templates/subscribe.php:91
 msgid "Send"
 msgstr "Verstuur"
 
@@ -1221,6 +1256,31 @@ msgstr "Nieuw abonnement voor"
 #: templates/subscribe.php:44
 msgid "User:"
 msgstr "Gebruiker:"
+
+#~ msgid "Bold"
+#~ msgstr "Dik gedrukt"
+
+#~ msgid "Italic"
+#~ msgstr "Schuin gedrukt"
+
+#~ msgid "Link"
+#~ msgstr "Link"
+
+#~ msgid "Image"
+#~ msgstr "Afbeelding"
+
+#~ msgid "Sponsor's Corner"
+#~ msgstr "Sponsorhoek"
+
+#~ msgid ""
+#~ "If you want to sponsor this plugin, don't hesitate to <a href='http://"
+#~ "behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+#~ msgstr ""
+#~ "Als je deze plugin wilt sponsoren, neem dan <a href='http://behstant.com/"
+#~ "negocio/contact.php' target='_blank'>contact met me op</a>."
+
+#~ msgid "Set to Y"
+#~ msgstr "Verander naar Y"
 
 #~ msgid "Replies"
 #~ msgstr "Reacties op je reacties"
@@ -1249,9 +1309,6 @@ msgstr "Gebruiker:"
 
 #~ msgid "Other Messages"
 #~ msgstr "Andere Berichten"
-
-#~ msgid "Support"
-#~ msgstr "Ondersteuning"
 
 #~ msgid "The status has been successfully updated. Rows affected:"
 #~ msgstr "De status is succesvol bijgewerkt. Aangepaste rijen:"

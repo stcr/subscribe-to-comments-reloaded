@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 09:05-0700\n"
-"PO-Revision-Date: 2015-03-17 09:05-0700\n"
+"POT-Creation-Date: 2015-04-22 10:35-0700\n"
+"PO-Revision-Date: 2015-04-22 10:35-0700\n"
 "Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: Web Geeks <epoxhun@gmail.com>\n"
 "Language: hu\n"
@@ -16,7 +16,20 @@ msgstr ""
 "X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp_subscribe_reloaded.php:196
+#: subscribe-to-comments-reloaded.php:95
+msgid "Don't subscribe"
+msgstr "Nem iratkozom fel"
+
+#: subscribe-to-comments-reloaded.php:96
+msgid "All"
+msgstr "Mindenre"
+
+#: subscribe-to-comments-reloaded.php:97 templates/author.php:75
+#: templates/user.php:72
+msgid "Replies to my comments"
+msgstr "Csak a válaszokra"
+
+#: subscribe-to-comments-reloaded.php:307
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -24,7 +37,7 @@ msgstr ""
 "A hozzászólásokról email-ben kérek értesítést.  <a "
 "href='[subscribe_link]'>Feliratkozás</a> hozzászólás nélkül is lehetséges."
 
-#: wp_subscribe_reloaded.php:197
+#: subscribe-to-comments-reloaded.php:308
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
@@ -32,7 +45,7 @@ msgstr ""
 "Feliratkozva ehhez a bejegyzéshez.  <a href='[manager_link]'Saját "
 "feliratkozásaink kezelése</a>."
 
-#: wp_subscribe_reloaded.php:198
+#: subscribe-to-comments-reloaded.php:309
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
@@ -40,18 +53,18 @@ msgstr ""
 "A feliratkozási szándékot meg kell erősíteni: <a "
 "href='[manager_link]'>Feliratkozás kezelése</a>."
 
-#: wp_subscribe_reloaded.php:199
+#: subscribe-to-comments-reloaded.php:310
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "<a href='[manager_link]'>Saját feliratkozásunk kezelése</a>  ennél a "
 "bejegyzésnél."
 
-#: wp_subscribe_reloaded.php:203 options/index.php:57
+#: subscribe-to-comments-reloaded.php:314 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "Feliratkozás kezelése"
 
-#: wp_subscribe_reloaded.php:205
+#: subscribe-to-comments-reloaded.php:316
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -60,7 +73,7 @@ msgstr ""
 "A feliratkozások kezeléséhez alul meg kell adni az email címet, amelyre "
 "elküldjük azt a hivatkozást, amellyel a saját kezelési oldalra lehet belépni."
 
-#: wp_subscribe_reloaded.php:206
+#: subscribe-to-comments-reloaded.php:317
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -69,7 +82,7 @@ msgstr ""
 "Köszönjük, hogy használod az értesítőket. Néhány percen belül e-mailben "
 "megkapot a beállításokhoz szükséges linked."
 
-#: wp_subscribe_reloaded.php:207
+#: subscribe-to-comments-reloaded.php:318
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -80,7 +93,7 @@ msgstr ""
 "Csak meg kell adni a saját email címet az alul található mezőbe, és máris "
 "minden készen áll."
 
-#: wp_subscribe_reloaded.php:208
+#: subscribe-to-comments-reloaded.php:319
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -90,7 +103,7 @@ msgstr ""
 "strong><br /> A kérést rögzítettük; minden egyes alkalommal küldünk egy "
 "értesítést email címedre, amikor a bejegyzéshez új hozzászólás érkezik."
 
-#: wp_subscribe_reloaded.php:209
+#: subscribe-to-comments-reloaded.php:320
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -99,7 +112,7 @@ msgstr ""
 "Köszönjük, hogy használtad a feliratkozás szolgáltatásunkat! A kérésed "
 "megerősítéséhez, kérjük ellenőrizd e-mailcímed, és kövesd az instrukciókat."
 
-#: wp_subscribe_reloaded.php:210
+#: subscribe-to-comments-reloaded.php:321
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -108,7 +121,7 @@ msgstr ""
 "értesítést, majd a megfelelő állapotot és kattints az Értesítés frissítése "
 "gombra."
 
-#: wp_subscribe_reloaded.php:211
+#: subscribe-to-comments-reloaded.php:322
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -117,11 +130,11 @@ msgstr ""
 "Az értesítések kikapcsolásához, megszűntetéséhez, válassz jelölőnégyzetet és "
 "a lista végén kattints a megfelelő gombra. Jelenleg ezek az értesítéseid:"
 
-#: wp_subscribe_reloaded.php:215
+#: subscribe-to-comments-reloaded.php:326
 msgid "There is a new comment to [post_title]"
 msgstr "Új hozzászólás ehhez [post_title]"
 
-#: wp_subscribe_reloaded.php:216
+#: subscribe-to-comments-reloaded.php:327
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -139,11 +152,11 @@ msgstr ""
 "Permalink: [post_permalink]\n"
 "Értesítési beállítások: [manager_link]"
 
-#: wp_subscribe_reloaded.php:217
+#: subscribe-to-comments-reloaded.php:328
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Kérlek, erősítsd meg feliratkozásod erre [post_title]"
 
-#: wp_subscribe_reloaded.php:218
+#: subscribe-to-comments-reloaded.php:329
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -157,11 +170,11 @@ msgstr ""
 "Kérlek, erősítsd meg a feliratkozást az alábbi linkre kattintva:\n"
 "[confirm_link]"
 
-#: wp_subscribe_reloaded.php:219
+#: subscribe-to-comments-reloaded.php:330
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Ártesítés beállítások - [blog_name]"
 
-#: wp_subscribe_reloaded.php:220
+#: subscribe-to-comments-reloaded.php:331
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -170,11 +183,19 @@ msgstr ""
 "A [blog_name] oldal értesítési beállításainak elérése:\n"
 "[manager_link]"
 
-#: wp_subscribe_reloaded.php:290
+#: subscribe-to-comments-reloaded.php:424
+#: subscribe-to-comments-reloaded.php:431
+#: subscribe-to-comments-reloaded.php:574
+#: subscribe-to-comments-reloaded.php:643
+#: subscribe-to-comments-reloaded.php:787
+msgid "Important Notice"
+msgstr "Fontos Közlendő"
+
+#: subscribe-to-comments-reloaded.php:522
 msgid "Subscribe to Comments Reloaded Important Notice"
 msgstr "Subscribe to Comments Reloaded Fontos Közlendő"
 
-#: wp_subscribe_reloaded.php:291
+#: subscribe-to-comments-reloaded.php:523
 msgid ""
 "The information in your database has been sanitize to prevent the raw html "
 "messages."
@@ -182,12 +203,7 @@ msgstr ""
 "Az adatbázisban található információ tisztításra kerül, a html tartalom "
 "elkerüléséhez."
 
-#: wp_subscribe_reloaded.php:342 wp_subscribe_reloaded.php:411
-#: wp_subscribe_reloaded.php:555
-msgid "Important Notice"
-msgstr "Fontos Közlendő"
-
-#: wp_subscribe_reloaded.php:343
+#: subscribe-to-comments-reloaded.php:575
 msgid ""
 "Comment subscription data from the <strong>Subscribe to Comments</strong> "
 "plugin was detected and automatically imported into <strong>Subscribe to "
@@ -197,7 +213,7 @@ msgstr ""
 "találtunk és importáltunk is őket a <strong>Subscribe to Comments Reloaded</"
 "strong>-be."
 
-#: wp_subscribe_reloaded.php:343
+#: subscribe-to-comments-reloaded.php:575
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Subscribe to "
 "Comments to prevent confusion between the two plugins."
@@ -205,7 +221,7 @@ msgstr ""
 "Javasoljuk, hogy most <strong>kapcsold ki</strong> a Subscribe to Comments-"
 "et, hogy megelőzzük a két plugin összeakadását."
 
-#: wp_subscribe_reloaded.php:344
+#: subscribe-to-comments-reloaded.php:576
 msgid ""
 "If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
 "that you want to import, you'll need to import that data manually, as only "
@@ -216,8 +232,9 @@ msgstr ""
 "az adatvesztés megelőzése érdekében csak egyetlen importálási folyamatot "
 "alkalmazunk."
 
-#: wp_subscribe_reloaded.php:345 wp_subscribe_reloaded.php:413
-#: wp_subscribe_reloaded.php:559
+#: subscribe-to-comments-reloaded.php:577
+#: subscribe-to-comments-reloaded.php:645
+#: subscribe-to-comments-reloaded.php:791
 msgid ""
 "Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
 "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
@@ -227,7 +244,7 @@ msgstr ""
 "reloaded/options/index.php\">Beállítások -> Subscribe to Comments</a> "
 "oldalra a beállítások ellenőrzéséhez."
 
-#: wp_subscribe_reloaded.php:412
+#: subscribe-to-comments-reloaded.php:644
 msgid ""
 "Comment subscription data from the <strong>Comment Reply Notification</"
 "strong> plugin was detected and automatically imported into "
@@ -237,7 +254,7 @@ msgstr ""
 "adatokat találtunk és importáltunk is őket a <strong>Subscribe to Comments "
 "Reloaded</strong>-be."
 
-#: wp_subscribe_reloaded.php:412
+#: subscribe-to-comments-reloaded.php:644
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Comment Reply "
 "Notification to prevent confusion between the two plugins."
@@ -245,7 +262,7 @@ msgstr ""
 "Javasoljuk, hogy most <strong>kapcsold ki</strong> a Comment Reply "
 "Notification-t, hogy megelőzzük a két plugin összeakadását."
 
-#: wp_subscribe_reloaded.php:556
+#: subscribe-to-comments-reloaded.php:788
 msgid ""
 "Plugin options and comment subscription data from the <strong>WP Comment "
 "Subscriptions</strong> plugin were detected and automatically imported into "
@@ -255,7 +272,7 @@ msgstr ""
 "adatokat és beállításokat találtunk és importáltunk is őket a "
 "<strong>Subscribe to Comments Reloaded</strong>-be."
 
-#: wp_subscribe_reloaded.php:556
+#: subscribe-to-comments-reloaded.php:788
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> WP Comment "
 "Subscriptions to prevent confusion between the two plugins."
@@ -263,7 +280,7 @@ msgstr ""
 "Javasoljuk, hogy most <strong>kapcsold ki</strong> a WP Comment "
 "Subscriptions-t, hogy megelőzzük a két plugin összeakadását."
 
-#: wp_subscribe_reloaded.php:557
+#: subscribe-to-comments-reloaded.php:789
 msgid ""
 "If you have subscription data from another plugin (such as Subscribe to "
 "Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
@@ -276,7 +293,7 @@ msgstr ""
 "adatvesztés megelőzése érdekében csak egyetlen importálási folyamatot "
 "alkalmazunk."
 
-#: wp_subscribe_reloaded.php:558
+#: subscribe-to-comments-reloaded.php:790
 msgid ""
 "<strong>Note:</strong> If you were previously using the "
 "<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
@@ -290,47 +307,36 @@ msgstr ""
 "<code>subscribe_reloaded_show()</code> funkcióra és a <code>[subscribe-url]</"
 "code> shortcode-ra."
 
-#: wp_subscribe_reloaded.php:569
+#: subscribe-to-comments-reloaded.php:801
 msgid "Settings"
 msgstr "Beállítások"
 
-#: wp_subscribe_reloaded.php:1497 options/panel2.php:67 options/panel2.php:77
-#: options/panel2.php:106 options/panel5.php:74 options/panel5.php:83
-#: options/panel5.php:92 options/panel5.php:102 options/panel5.php:111
-#: options/panel5.php:121 options/panel5.php:130 options/panel5.php:139
+#: subscribe-to-comments-reloaded.php:1840 options/panel2.php:67
+#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:74
+#: options/panel5.php:83 options/panel5.php:92 options/panel5.php:102
+#: options/panel5.php:111 options/panel5.php:121 options/panel5.php:130
+#: options/panel5.php:139
 msgid "No"
 msgstr "Nem"
 
-#: wp_subscribe_reloaded.php:1524
+#: subscribe-to-comments-reloaded.php:1867
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
 "Segítségre van szükséged, a Subscribe to Comments Reloaded használatához? "
 "Látogasson el a hivatalos"
 
-#: wp_subscribe_reloaded.php:1524
+#: subscribe-to-comments-reloaded.php:1867
 msgid "support forum"
 msgstr "támogatói fórumra"
 
-#: wp_subscribe_reloaded.php:1525
+#: subscribe-to-comments-reloaded.php:1868
 msgid "Feeling generous?"
 msgstr "Nagylelkű napod van?"
 
-#: wp_subscribe_reloaded.php:1525
+#: subscribe-to-comments-reloaded.php:1868
 msgid "Donate a few bucks!"
 msgstr "Adakozz egy pár dolcsit!"
-
-#: wp_subscribe_reloaded.php:1652
-msgid "Don't subscribe"
-msgstr "Nem iratkozom fel"
-
-#: wp_subscribe_reloaded.php:1653
-msgid "All"
-msgstr "Mindenre"
-
-#: wp_subscribe_reloaded.php:1654 templates/user.php:67
-msgid "Replies to my comments"
-msgstr "Csak a válaszokra"
 
 #: options/index.php:58
 msgid "Comment Form"
@@ -352,6 +358,10 @@ msgstr "Beállítások"
 #: options/index.php:62
 msgid "You can help"
 msgstr "Segíthetsz"
+
+#: options/index.php:63
+msgid "Support"
+msgstr "Падтрымка"
 
 #: options/panel1-business-logic.php:19
 msgid "Subscription added."
@@ -382,6 +392,7 @@ msgstr "Feliratkozások bekapcsolva:"
 
 #: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
 #: templates/author.php:35 templates/author.php:39 templates/user.php:35
+#: templates/user.php:39
 msgid "Subscriptions updated:"
 msgstr "Feliratkozások frissítva:"
 
@@ -407,7 +418,7 @@ msgstr "nem kötelező"
 
 #: options/panel1-edit-subscription.php:11 options/panel1.php:22
 #: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
-#: templates/user.php:48
+#: templates/user.php:52
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
@@ -466,8 +477,8 @@ msgid "Post ID"
 msgstr "Post ID"
 
 #: options/panel1.php:56 options/panel1.php:111
-#: templates/request-management-link.php:66 templates/subscribe.php:89
-#: templates/user.php:53
+#: templates/request-management-link.php:69 templates/subscribe.php:89
+#: templates/user.php:57
 msgid "Email"
 msgstr "Email"
 
@@ -556,7 +567,7 @@ msgstr "Oszlopok:"
 msgid "of"
 msgstr "ennyiből"
 
-#: options/panel1.php:114 templates/author.php:58 templates/user.php:54
+#: options/panel1.php:114 templates/author.php:58 templates/user.php:58
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr ""
 "Magyarázat: Y = minden hozzászólás, R = csak az enyémre adott válaszok, C = "
@@ -574,11 +585,11 @@ msgstr "Feliratkozás"
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: options/panel1.php:138 templates/author.php:72 templates/user.php:65
+#: options/panel1.php:138 templates/author.php:72 templates/user.php:69
 msgid "Delete"
 msgstr "Törlés"
 
-#: options/panel1.php:146 templates/author.php:71 templates/user.php:64
+#: options/panel1.php:146 templates/author.php:71 templates/user.php:68
 msgid "Action:"
 msgstr "Tevékenység:"
 
@@ -586,7 +597,7 @@ msgstr "Tevékenység:"
 msgid "Delete forever"
 msgstr "Végleges törlés"
 
-#: options/panel1.php:148 templates/author.php:73 templates/user.php:66
+#: options/panel1.php:148 templates/author.php:73 templates/user.php:70
 msgid "Suspend"
 msgstr "Kikapcsolás"
 
@@ -598,11 +609,11 @@ msgstr "Aktiválás és Y-ra állítás"
 msgid "Activate and set to R"
 msgstr "Aktiválás és R-re állítás"
 
-#: options/panel1.php:151 templates/author.php:75 templates/user.php:68
+#: options/panel1.php:151 templates/author.php:76 templates/user.php:73
 msgid "Activate"
 msgstr "Aktiválás"
 
-#: options/panel1.php:152 templates/author.php:76 templates/user.php:69
+#: options/panel1.php:152 templates/author.php:77 templates/user.php:75
 msgid "Update subscriptions"
 msgstr "Feliratkozások frissítése"
 
@@ -1142,15 +1153,15 @@ msgstr ""
 "nagyobb\n"
 "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tbiztonsággal menjenek ki."
 
-#: options/panel6.php:8
+#: options/panel6.php:8 options/panel7.php:8
 msgid "Support the developers"
 msgstr "Támogasd a fejlesztőt"
 
 #: options/panel6.php:18
+#, fuzzy
 msgid ""
-"How valuable is the feature offered by this plugin to your visitors? "
-"<strong>Subscribe to Comments Reloaded</strong> is and will always be free, "
-"but consider supporting the author if this plugin made your web site better, "
+"How valuable is the feature offered by this plugin to your visitors? please "
+"consider supporting the author if this plugin made your web site better, "
 "especially if you are making money out of it. Any donation received will be "
 "reinvested in the development of <strong>Subscribe to Comments Reloaded</"
 "strong>, and to buy some food for my hungry family."
@@ -1181,24 +1192,10 @@ msgstr ""
 "emet használod!"
 
 #: options/panel6.php:23
-msgid "Did you find a Bug on the plugin?"
-msgstr "Hibát találtál a plugin-ben?"
-
-#: options/panel6.php:24
-msgid ""
-"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
-"comments-reloaded/issues/\" target=\"_blank\">GitHub</a> Page rather than on "
-"the WordPress Support page."
-msgstr ""
-"Kérlek a hibát a <a href=\"https://github.com/stcr/subscribe-to-comments-"
-"reloaded/issues/\" target=\"_blank\">GitHub</a> oldalon jelezd a WordPress "
-"támogatás oldal helyett."
-
-#: options/panel6.php:26
 msgid "Vote and show your appreciation"
 msgstr "Szavazz és mutasd meg, ha tetszik"
 
-#: options/panel6.php:27
+#: options/panel6.php:24
 msgid ""
 "Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
 "for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
@@ -1208,27 +1205,44 @@ msgstr ""
 "oldalodon. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
 "comments-reloaded/\">Értékeld</a> a Plugin oldalon."
 
+#: options/panel7.php:18
+msgid "Did you find a Bug on the plugin?"
+msgstr "Hibát találtál a plugin-ben?"
+
+#: options/panel7.php:19
+#, fuzzy
+msgid ""
+"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
+"%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
+"WordPress Support page."
+msgstr ""
+"Kérlek a hibát a <a href=\"https://github.com/stcr/subscribe-to-comments-"
+"reloaded/issues/\" target=\"_blank\">GitHub</a> oldalon jelezd a WordPress "
+"támogatás oldal helyett."
+
 #: templates/author.php:57
 msgid "Title"
 msgstr "Cím"
 
-#: templates/author.php:69 templates/user.php:62
+#: templates/author.php:69 templates/user.php:66
 msgid "Select all"
 msgstr "Mind kiválasztása"
 
-#: templates/author.php:70 templates/user.php:63
+#: templates/author.php:70 templates/user.php:67
 msgid "Invert selection"
 msgstr "Fordított kiválasztás"
 
-#: templates/author.php:74
-msgid "Set to Y"
-msgstr "Beállítás Y-ra"
+#: templates/author.php:74 templates/user.php:71
+#, fuzzy
+msgid "All comments"
+msgstr "Minden új hozzászólás"
 
-#: templates/author.php:79 templates/user.php:72
+#: templates/author.php:80 templates/user.php:78
 msgid "No subscriptions match your search criteria."
 msgstr "Nincs a keresésnek megfelelő feliratkozás."
 
-#: templates/request-management-link.php:68 templates/subscribe.php:91
+#: templates/request-management-link.php:71 templates/subscribe.php:91
 msgid "Send"
 msgstr "Küldés"
 
@@ -1239,6 +1253,9 @@ msgstr "Új feliratkozás erre"
 #: templates/subscribe.php:44
 msgid "User:"
 msgstr "Felhasználó:"
+
+#~ msgid "Set to Y"
+#~ msgstr "Beállítás Y-ra"
 
 #~ msgid "Daily digest"
 #~ msgstr "Napi legjobb"
@@ -1297,9 +1314,6 @@ msgstr "Felhasználó:"
 
 #~ msgid "Other Messages"
 #~ msgstr "Іншыя паведамленні"
-
-#~ msgid "Support"
-#~ msgstr "Падтрымка"
 
 #~ msgid "The status has been successfully updated. Rows affected:"
 #~ msgstr "Статут паспяхова абноўлены. Зменены радкі:"
