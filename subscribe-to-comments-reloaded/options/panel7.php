@@ -15,10 +15,8 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 </form>
 <hr>
 
-<p><?php _e( 'How valuable is the feature offered by this plugin to your visitors? please consider supporting the author if this plugin made your web site better, especially if you are making money out of it. Any donation received will be reinvested in the development of <strong>Subscribe to Comments Reloaded</strong>, and to buy some food for my hungry family.', 'subscribe-reloaded' ) ?></p>
+<h3><?php _e( "Did you find a Bug on the plugin?", 'subscribe-reloaded' ) ?></h3>
+<p><?php _e( 'Please report any bug on the <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description%3E&labels=bug" target="_blank">GitHub</a> Page rather than on the WordPress Support page.', 'subscribe-reloaded' ) ?>
+</p>
 
-<h3><?php _e( "Don't want to donate? You can still help", 'subscribe-reloaded' ) ?></h3>
-<p><?php _e( "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever you do, thanks for using my plugin!", 'subscribe-reloaded' ) ?></p>
-
-<h3><?php _e( "Vote and show your appreciation", 'subscribe-reloaded' ) ?></h3>
-<p><?php _e( 'Tell other people if <strong>Subscribe to Comments Reloaded</strong> works for you and how good it is. <a href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate it</a> on its Plugin Directory page.', 'subscribe-reloaded' ) ?></p>
+<hr>

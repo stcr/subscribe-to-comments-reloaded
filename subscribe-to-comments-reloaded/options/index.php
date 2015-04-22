@@ -59,7 +59,8 @@ $array_panels = array(
 	__( 'Management Page', 'subscribe-reloaded' ),
 	__( 'Notifications', 'subscribe-reloaded' ),
 	__( 'Options', 'subscribe-reloaded' ),
-	__( 'You can help', 'subscribe-reloaded' )
+	__( 'You can help', 'subscribe-reloaded' ),
+	__( 'Support', 'subscribe-reloaded' )
 );
 
 // What panel to display
