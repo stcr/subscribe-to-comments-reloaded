@@ -11,7 +11,8 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 	}
 
 	// Prevent XSS/CSRF attacks
-	$_value = esc_attr( $_value );
+	$_value = stripslashes( $_value );
+	$_value = esc_attr( $_value ); // esc_attr Will encode all the text.
 
 	switch ( $_type ) {
 		case 'yesno':
@@ -21,21 +22,18 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 				return true;
 			}
 			break;
-
 		case 'integer':
 			update_option( 'subscribe_reloaded_' . $_option, abs( intval( $_value ) ) );
 
 			return true;
 			break;
-
-		case 'text-no-encode':
-			update_option( 'subscribe_reloaded_' . $_option, $_value );
+		case 'text-html-encode':
+			update_option( 'subscribe_reloaded_' . $_option, htmlentities( $_value, ENT_QUOTES, 'UTF-8' ) );
 
 			return true;
 			break;
-
 		default:
-			update_option( 'subscribe_reloaded_' . $_option, htmlentities( $_value, ENT_QUOTES, 'UTF-8' ) );
+			update_option( 'subscribe_reloaded_' . $_option, $_value );
 
 			return true;
 			break;
@@ -61,7 +59,8 @@ $array_panels = array(
 	__( 'Management Page', 'subscribe-reloaded' ),
 	__( 'Notifications', 'subscribe-reloaded' ),
 	__( 'Options', 'subscribe-reloaded' ),
-	__( 'You can help', 'subscribe-reloaded' )
+	__( 'You can help', 'subscribe-reloaded' ),
+	__( 'Support', 'subscribe-reloaded' )
 );
 
 // What panel to display

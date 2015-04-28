@@ -1,11 +1,11 @@
 === Subscribe To Comments Reloaded ===
-Author: camu, Reedyseth, andreasbo, raamdev
-Contributors: coolmann, Reedyseth, raamdev
+Author: camu, reedyseth, andreasbo, raamdev
+Contributors: coolmann, reedyseth, raamdev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 3.9
-Stable tag: 140515
+Tested up to: 4.1.3
+Stable tag: 150428
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -57,6 +57,13 @@ Use the shortcode `[subscribe-url]`, or use the following code in your theme:
 Yes! Just disable the corresponding option under Settings > Comment Form and then add the following code where you want to display the checkbox:
 `<?php if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show(); ?>`
 
+= What if after update to the version 141024 I still see plain HTML messages? =
+The information of your configuration needs to be updated. Go to the Subscribe to Comments Reloaded settings and click the `Save Changes` button on the tab
+where you have you messages with HTML.
+
+= How to generate a new Key for my Site? =
+Just go to the Options Panel and click the generate button. By generating a new key you prevent the spam bots to steal your links.
+
 == Screenshots ==
 
 1. Manage your subscriptions
@@ -67,11 +74,72 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 == Upgrade Notice ==
 
+== v150428 ==
+
+**Bug Fix; PLEASE UPGRADE IMMEDIATELY** This Update will fix a critical issue on the creation of the new subscribers table in case that is not created.
+
+== v150422 ==
+
+**Security Fix; PLEASE UPGRADE IMMEDIATELY** Google PII issue with AdWords. Protect user email Address and uses an encrypted key instead on URL. Several issues are fix, see the change log.
+
+== v150207 ==
+
+Improvements on the links security. Now you get a Unique Key for your site. Check the Options Panel.
+
+== v141103 ==
+
+**Broken links and settings issue** Please upgrade to fix the URL creation on the Request Management link and to save the settings values correctly.
+
+= v141025 =
+
+v1410124 Fixed several issues reported on the support forum like broken links, raw HTML on the messages, clean user interface with buttons not needed. See the change log for details.
+
 = v140220 =
 
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v150428 =
+
+* **Fix** Upgrade routine since the activation hooks was not triggering on the upgrade process.
+* **Add** Fixed French translation(thanks to Jean-Michel Meyer)
+
+= v150422 =
+
+* **Fix** Google PII complaint. See bug/#79 on GitHub.
+* **Fix** The ability to manage any subscription is remove, the manage link will only appear on the subscriber email address. bug/#81.
+* **Fix** Fix wrong html markup on the advance subscription dropdown.
+* **Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. bug/#82
+* **Fix** HTML email label for for screen readers. reported on bug/#76.
+* **Fix** Database information with correct encoding. A new routine to clean the database information encoding. This was outputting raw HTML.
+* **New Feature** Update subscription status to 'All Comments' on user Management Page.
+* **Add** New table to store every subscriber email.
+* **Add** Czech translation file.
+* **Add** Hungarian translation file.
+* **Add** Hebrew translation file.
+
+= v150207 =
+
+* **Fix** The output link for the manage subscriptions.
+* **Fix** Display of URL to use escape characters.
+* **New Feature** a Unique Key to the plugin. This Key will help to prevent spam bots to hijack your links.
+* **Add** Plugin GitHub link for bug reporting. Check the "You can Help" panel.
+* **See** the commit history on (GitHub)[https://github.com/stcr/subscribe-to-comments-reloaded]
+
+= v141103 =
+
+* **Fix** URL generation for the Request Management link.
+* **Fix** Saving of settings values. Settings with a single quote was not saving correcting. Every option with a single quote was broken, after update please save the settings on every tab where you have single quotes.
+
+= v141025 =
+* **Fix** Post variable missing on request_management_link.php.
+* **Change** the helper class for the function esc_attr( $_value ) to safety add the URL.
+* **Fix** data overflow when the comment reply column is not available and when the plugin is activated.
+* **Fix** the raw HTML input on the messages. The messages where encoding twice, the fix is on index.php
+* **Fix** broken link when Virtual Management Page is disabled.
+* **Remove** bold, italic, link and image buttons, currently they don't work, right now this feature is not supported for the plugin.
+* **Update** Virtual Management link, old one was broken. The new link points to the the Virtual Management Page documentation.
 
 = v140515 =
 
@@ -145,7 +213,7 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 * Maintenance release: 2.0 shipped with a bunch of annoying bugs, sorry about that!
 * Added: option to not subscribe in 'advanced mode' (thank you [LincolnAdams](http://wordpress.org/support/topic/replies-only-broken))
 * Added: subscriptions count for each post (All Posts panel)
-* Added: option to disable the virtual management page, for those [having problems](http://lab.duechiacchiere.it/index.php?topic=71.0) with their theme
+* Added: option to disable the virtual management page, for those [having problems](http://behstant.com/subscribe-reloaded/realMgnPage.php) with their theme
 * Fixed: subscriptions to replies only were not working properly, fixed (thank you [LincolnAdams](http://wordpress.org/support/topic/replies-only-broken))
 * Fixed: some warning popping up with WP_DEBUG mode enabled
 * Updated: most localizations are now up-to-date, thank you everybody!
@@ -176,7 +244,7 @@ localization is ready. Currently, we support the following languages:
 
 * Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
 * Dutch - [Martijn Chel](http://mcpnetwork.nl/),[Muratje](http://www.muromedia.nl/)
-* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
+* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime, [Jean-Michel Meyer]
 * German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
 * Indonesian - [The Masked Cat](http://themaskedcat.tk)
 * Italian - myself
@@ -188,3 +256,6 @@ localization is ready. Currently, we support the following languages:
 * Serbian - [Anna Swedziol](http://www.sneg.iz.rs/)
 * Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/)
 * Turkish - [MaD, Kali](http://www.dusunsel.com/)
+* Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
+* Hungarian - [László Tavaszi]
+* Czech - [Daniel Král](http://www.danielkral.cz/)

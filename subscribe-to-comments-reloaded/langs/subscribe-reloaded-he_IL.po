@@ -1,0 +1,2034 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: subscribe-to-comments-reloaded\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
+"Language-Team: Ahrale | Atar4U.com <contact@atar4u.com>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: $subject = __( 'New subscription to', 'subscribe-reloaded' ) . "
+#: $target_post->post_title"; $message $target_post->post_title\n" 'User:',
+#: $clean_email";
+msgctxt "85bf10ae31395bb944c2f7f267c564d1"
+msgid "User:"
+msgstr "משתמש:"
+
+#: $subject = __( 'New subscription to', 'subscribe-reloaded' ) . "
+#: $target_post->post_title"; $message $target_post->post_title\n" 'User:',
+#: $clean_email";
+msgctxt "7640c8ef772a560d0e6dff27e7a3f6d3"
+msgid "New subscription to"
+msgstr "הרשמה חדשה ל"
+
+#: <input type="text" class="subscribe-form-field" name="sre" value="<?php
+#: echo $email ?>" size="22"
+#: onfocus="if(this.value==this.defaultValue)this.value=''"
+#: onblur="if(this.value=='')this.value=this.defaultValue" /> name="submit"
+#: type="submit" class="subscribe-form-button" _e( 'Send',
+#: 'subscribe-reloaded' ) </p>
+msgctxt "2dae8e5bffb937dee2d5dd47a8939ba0"
+msgid "Send"
+msgstr "שלח"
+
+#: } else { echo '<p>' . __( 'No subscriptions match your search criteria.',
+#: 'subscribe-reloaded' ) '</p>';
+msgctxt "3bf34892a2ec8fa88d0663a5d2c001d1"
+msgid "No subscriptions match your search criteria."
+msgstr "אין הרשמה התואמת את קריטריון החיפוש שלך."
+
+#: <input type="radio" name="sra" value="suspend" id="action_type_suspend"
+#: checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend',
+#: 'subscribe-reloaded' ) '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="force_y"
+#: id="action_type_force_y" for="action_type_force_y">' 'Set to Y',
+#: value="activate" id="action_type_activate" for="action_type_activate">'
+#: 'Activate', '</label></p>';
+msgctxt "f69c23e39b07d4faea7c8848ec56b291"
+msgid "Set to Y"
+msgstr "הגדר כ Y"
+
+#: echo '<p id="subscribe-reloaded-select-all-p"><a
+#: class="subscribe-reloaded-small-button" href="#"
+#: onclick="t=document.forms[\'post_list_form\'].elements[\'post_list[]\'];c=t.length;if(!c){t.checked=true}else{for(var
+#: i=0;i<c;i++){t[i].checked=true}};return false;">' . __( 'Select all',
+#: 'subscribe-reloaded' ) '</a> '; '<a
+#: onclick="t=document.forms[\'post_list_form\'].elements[\'post_list[]\'];c=t.length;if(!c){t.checked=!t.checked}else{for(var
+#: i=0;i<c;i++){t[i].checked=false}};return 'Invert selection', '</a></p>';
+#: id="subscribe-reloaded-action-p">' 'Action:', '
+msgctxt "93b6d701c9267312e15855f426150676"
+msgid "Invert selection"
+msgstr "היפוך הבחירה"
+
+#: echo '</ul>'; '<p id="subscribe-reloaded-select-all-p"><a
+#: class="subscribe-reloaded-small-button" href="#"
+#: onclick="t=document.forms[\'post_list_form\'].elements[\'post_list[]\'];c=t.length;if(!c){t.checked=true}else{for(var
+#: i=0;i<c;i++){t[i].checked=true}};return false;">' . __( 'Select all',
+#: 'subscribe-reloaded' ) '</a> '; '<a
+#: onclick="t=document.forms[\'post_list_form\'].elements[\'post_list[]\'];c=t.length;if(!c){t.checked=!t.checked}else{for(var
+#: i=0;i<c;i++){t[i].checked=false}};return 'Invert selection', '</a></p>';
+msgctxt "fd37d9fc84ad3db33c5d2dc0687e6709"
+msgid "Select all"
+msgstr "הכל"
+
+#: if ( is_array( $subscriptions ) && ! empty( { echo '<p
+#: id="subscribe-reloaded-title-p">' . __( 'Title', 'subscribe-reloaded' ':
+#: <strong>' $target_post->post_title '</strong></p>';
+#: id="subscribe-reloaded-legend-p">' 'Legend: Y = all comments, R replies
+#: only, C inactive', '</p>';
+msgctxt "ca751034fa365c3891ee9e55369a1d09"
+msgid "Title"
+msgstr "כותרת"
+
+#: '<p>' . __( 'If you have subscription data from another plugin (such as
+#: Subscribe to Comments or Reloaded < v2.0) that want import, you\'ll need
+#: import manually, only one routine will ever run prevent loss.',
+#: 'subscribe-reloaded' ) '</p>' '<strong>Note:</strong> If were previously
+#: using the <code>wp_comment_subscriptions_show()</code> function
+#: <code>[wpcs-subscribe-url]</code> shortcode, replace those with
+#: <code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code>
+#: respectively.', 'Please visit <a
+#: href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings
+#: -> Comments</a> review your configuration.', '</p></div>';
+msgctxt "ed828767fd5781fd8c010e26090b7645"
+msgid ""
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
+msgstr ""
+"<strong>הערה:</strong> אם השתמשת קודם בפונקציית "
+"<code>wp_comment_subscriptions_show()</code> או בפונקציית קיצור הקוד "
+"<code>[wpcs-subscribe-url]</code> , תצטרך להחליף אותו ב "
+"<code>subscribe_reloaded_show()</code> וב <code>[subscribe-url]</code> "
+"בהתאמה."
+
+#: '<p>' . __( 'Plugin options and comment subscription data from the
+#: <strong>WP Comment Subscriptions</strong> plugin were detected
+#: automatically imported into <strong>Subscribe to Comments
+#: Reloaded</strong>.', 'subscribe-reloaded' ) ( is_plugin_active(
+#: 'wp-comment-subscriptions/wp-comment-subscriptions.php' ? ' It is
+#: recommended that you now <strong>deactivate</strong> WP Subscriptions
+#: prevent confusion between two plugins.', : '' '</p>' 'If have another (such
+#: as Subscribe or Reloaded < v2.0) want import, you\'ll need import manually,
+#: only one routine will ever run loss.', '<strong>Note:</strong> If
+#: previously using <code>wp_comment_subscriptions_show()</code> function
+#: <code>[wpcs-subscribe-url]</code> shortcode, replace those with
+#: <code>subscribe_reloaded_show()</code> <code>[subscribe-url]</code>
+#: respectively.',
+msgctxt "76e680144467dc070157099f4c34f844"
+msgid ""
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
+msgstr ""
+"אם יש לך מידע הרשמה מתוסף אחר (כמו Subscribe to Comments או Subscribe to "
+"Comments Reloaded < v2.0) שתרצה לייבא, יהיה צורך לייבא את הנתונים באופן "
+"ידני, כי תמיד תפעל רק שגרת יבוא אחת כדי למנוע אבדן נתונים."
+
+#: $notices[] = '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Plugin options and comment
+#: subscription data from the <strong>WP Comment Subscriptions</strong> plugin
+#: were detected automatically imported into <strong>Subscribe to Comments
+#: Reloaded</strong>.', ( is_plugin_active(
+#: 'wp-comment-subscriptions/wp-comment-subscriptions.php' ? ' It is
+#: recommended that you now <strong>deactivate</strong> WP Subscriptions
+#: prevent confusion between two plugins.', : '' '</p>' 'If have another (such
+#: as Subscribe or Reloaded < v2.0) want import, you\'ll need import manually,
+#: only one routine will ever run loss.',
+msgctxt "534416ff73454d17fa558870069a0f88"
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
+msgstr ""
+" מומלץ כעת <strong>לכבות</strong> את WP Comment Subscriptions כדי למנוע "
+"בלבול בין שני התוספים."
+
+#: $notices[] = '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Plugin options and comment
+#: subscription data from the <strong>WP Comment Subscriptions</strong> plugin
+#: were detected automatically imported into <strong>Subscribe to Comments
+#: Reloaded</strong>.', ( is_plugin_active(
+#: 'wp-comment-subscriptions/wp-comment-subscriptions.php' ? ' It is
+#: recommended that you now <strong>deactivate</strong> WP Subscriptions
+#: prevent confusion between two plugins.', : '' '</p>' 'If have another (such
+#: as Subscribe or Reloaded < v2.0) want import, you\'ll need import manually,
+#: only one routine will ever run loss.',
+msgctxt "db8ac9ddb5f61a69e1ff7c266dc2a43e"
+msgid ""
+"Plugin options and comment subscription data from the <strong>WP Comment "
+"Subscriptions</strong> plugin were detected and automatically imported into "
+"<strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+"אפשרויות התוסף ונתוני הרשמה מתוסף <strong>WP Comment Subscriptions</strong> "
+"זוהו ויובאו אוטומטית אל <strong>Subscribe to Comments Reloaded</strong>."
+
+#: $notices[] = '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Comment subscription data from the
+#: <strong>Comment Reply Notification</strong> plugin was detected and
+#: automatically imported into <strong>Subscribe to Comments
+#: Reloaded</strong>.', ( is_plugin_active(
+#: 'comment-reply-notification/comment-reply-notification.php' ? ' It is
+#: recommended that you now <strong>deactivate</strong> Comment Notification
+#: prevent confusion between two plugins.', : '' '</p>' 'Please visit <a
+#: href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings
+#: -> Subscribe Comments</a> review your configuration.', '</p></div>';
+msgctxt "90a1cbf2d625becc7e79754e6707bf84"
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Comment Reply "
+"Notification to prevent confusion between the two plugins."
+msgstr ""
+" מומלץ כעת <strong>לכבות</strong> את Comment Reply Notification כדי למנוע "
+"בלבול בין התוספים."
+
+#: $notices[] = '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Comment subscription data from the
+#: <strong>Comment Reply Notification</strong> plugin was detected and
+#: automatically imported into <strong>Subscribe to Comments
+#: Reloaded</strong>.', ( is_plugin_active(
+#: 'comment-reply-notification/comment-reply-notification.php' ? ' It is
+#: recommended that you now <strong>deactivate</strong> Comment Notification
+#: prevent confusion between two plugins.', : '' '</p>' 'Please visit <a
+#: href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings
+#: -> Subscribe Comments</a> review your configuration.', '</p></div>';
+msgctxt "9245ce1d680abc90d16cf24759748794"
+msgid ""
+"Comment subscription data from the <strong>Comment Reply Notification</"
+"strong> plugin was detected and automatically imported into "
+"<strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+"נתוני הרשמה מתוסף <strong>Comment Reply Notification</strong> זוהו ויובאו "
+"אוטומטית ל <strong>Subscribe to Comments Reloaded</strong>."
+
+#: '<p>' . __( '<strong>Note:</strong> If you were previously using the
+#: <code>wp_comment_subscriptions_show()</code> function or
+#: <code>[wpcs-subscribe-url]</code> shortcode, you\'ll need to replace those
+#: with <code>subscribe_reloaded_show()</code> and
+#: <code>[subscribe-url]</code> respectively.', 'subscribe-reloaded' ) '</p>'
+#: 'Please visit <a
+#: href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings
+#: -> Subscribe Comments</a> review your configuration.', '</p></div>';
+#: update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+msgctxt "22deb9bb4627baad52367692523bbba8"
+msgid ""
+"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
+"your configuration."
+msgstr ""
+"נא לבקר ב <a href=\"options-general.php?page=subscribe-to-comments-reloaded/"
+"options/index.php\">Settings -> Subscribe to Comments</a> כדי לסקור את "
+"ההגדרה שלך."
+
+#: '<p>' . __( 'Comment subscription data from the <strong>Subscribe to
+#: Comments</strong> plugin was detected and automatically imported into
+#: Comments Reloaded</strong>.', 'subscribe-reloaded' ) ( is_plugin_active(
+#: 'subscribe-to-comments/subscribe-to-comments.php' ? ' It is recommended
+#: that you now <strong>deactivate</strong> Subscribe prevent confusion
+#: between two plugins.', : '' '</p>' 'If have Reloaded < v2.0 want import,
+#: you\'ll need import manually, as only one routine will ever run loss.',
+#: 'Please visit <a
+#: href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings
+#: -> Comments</a> review your configuration.', '</p></div>';
+msgctxt "9c2641edddbd0f0572a574b5333af6a3"
+msgid ""
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
+msgstr ""
+"אם יש לך נתוני הרשמה מ Subscribe to Comments Reloaded < v2.0 ליבוא, יהיה "
+"צורך לייבא אותם ידנית, כי רק שגרת יבוא אחת תפעל, כדי למנוע אבדן נתונים."
+
+#: $notices[] = '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Comment subscription data from the
+#: <strong>Subscribe to Comments</strong> plugin was detected and
+#: automatically imported into Comments Reloaded</strong>.', (
+#: is_plugin_active( 'subscribe-to-comments/subscribe-to-comments.php' ? ' It
+#: is recommended that you now <strong>deactivate</strong> Subscribe prevent
+#: confusion between two plugins.', : '' '</p>' 'If have Reloaded < v2.0 want
+#: import, you\'ll need import manually, as only one routine will ever run
+#: loss.',
+msgctxt "d588b2fe9db9c4689d9f001d5637cf10"
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
+msgstr ""
+" מומלץ כעת <strong>לכבות</strong> את Subscribe to Comments כדי למנוע בלבול "
+"בין שני התוספים."
+
+#: $notices[] = '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Comment subscription data from the
+#: <strong>Subscribe to Comments</strong> plugin was detected and
+#: automatically imported into Comments Reloaded</strong>.', (
+#: is_plugin_active( 'subscribe-to-comments/subscribe-to-comments.php' ? ' It
+#: is recommended that you now <strong>deactivate</strong> Subscribe prevent
+#: confusion between two plugins.', : '' '</p>' 'If have Reloaded < v2.0 want
+#: import, you\'ll need import manually, as only one routine will ever run
+#: loss.',
+msgctxt "71d5690da617660f9cea95c5d16bf7e1"
+msgid ""
+"Comment subscription data from the <strong>Subscribe to Comments</strong> "
+"plugin was detected and automatically imported into <strong>Subscribe to "
+"Comments Reloaded</strong>."
+msgstr ""
+"נתוני הרשמה מתוסף <strong>Subscribe to Comments</strong> זוהו ויובאו "
+"אוטומטית ל <strong>Subscribe to Comments Reloaded</strong>."
+
+#: $notices = get_option( 'subscribe_reloaded_deferred_admin_notices', array()
+#: ); $notices[] '<div class="updated"><h3>' . __( 'Important Notice',
+#: 'subscribe-reloaded' ) '</h3>' '<p>' 'Plugin options and comment
+#: subscription data from the <strong>WP Comment Subscriptions</strong> plugin
+#: were detected automatically imported into <strong>Subscribe to Comments
+#: Reloaded</strong>.', ( is_plugin_active(
+#: 'wp-comment-subscriptions/wp-comment-subscriptions.php' ? ' It is
+#: recommended that you now <strong>deactivate</strong> WP Subscriptions
+#: prevent confusion between two plugins.', : '' '</p>'
+msgctxt "6326fca7e1808b1c6b6c35141171d6ad"
+msgid "Important Notice"
+msgstr "הודעה חשובה"
+
+#: $contextual_help = __( 'Need help on how to use Subscribe Comments
+#: Reloaded? Visit the official', 'subscribe-reloaded' ) . ' <a
+#: href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10"
+#: target="_blank">' 'support forum', '</a>. '; .= 'Feeling generous?',
+#: href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"
+#: 'Donate a few bucks!', '</a>'; }
+msgctxt "fdadb49a9b90bd2ac4cd2b9807376a02"
+msgid "Donate a few bucks!"
+msgstr "תרום קצת!"
+
+#: $contextual_help = __( 'Need help on how to use Subscribe Comments
+#: Reloaded? Visit the official', 'subscribe-reloaded' ) . ' <a
+#: href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10"
+#: target="_blank">' 'support forum', '</a>. '; .= 'Feeling generous?',
+#: href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"
+#: 'Donate a few bucks!', '</a>'; }
+msgctxt "6bcafad87c99a595913b3dd6737c4c26"
+msgid "Feeling generous?"
+msgstr "מרגיש נדיב?"
+
+#: load_plugin_textdomain( 'subscribe-reloaded', false, dirname(
+#: plugin_basename( __FILE__ ) . '/langs/' ); $contextual_help = __( 'Need
+#: help on how to use Subscribe Comments Reloaded? Visit the official',
+#: 'subscribe-reloaded' ' <a
+#: href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10"
+#: target="_blank">' 'support forum', '</a>. '; .= 'Feeling generous?',
+#: href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"
+#: 'Donate a few bucks!', '</a>';
+msgctxt "daab3a51d4e2498af6efa7af01514b90"
+msgid "support forum"
+msgstr "פורום התמיכה הרשמי"
+
+#: load_plugin_textdomain( 'subscribe-reloaded', false, dirname(
+#: plugin_basename( __FILE__ ) . '/langs/' ); $contextual_help = __( 'Need
+#: help on how to use Subscribe Comments Reloaded? Visit the official',
+#: 'subscribe-reloaded' ' <a
+#: href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10"
+#: target="_blank">' 'support forum', '</a>. '; .= 'Feeling generous?',
+#: href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"
+#: 'Donate a few bucks!', '</a>';
+msgctxt "542d173f945fab2a0f48558ebbd22f76"
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr "זקוק לעזרה ב כיצד להירשם ל Comments Reloaded? בקר ב"
+
+#: if ( $file ==
+#: 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' ) {
+#: $links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url(
+#: 'options-general.php?page=subscribe-to-comments-reloaded/options/index.php'
+#: ), __( 'Settings', 'subscribe-reloaded' ); }
+msgctxt "d9e51772b38723c6da09f3d3a7b31d1c"
+msgid "Settings"
+msgstr "הגדרות"
+
+#: add_option( 'subscribe_reloaded_management_subject', __( 'Manage your
+#: subscriptions on [blog_name]', 'subscribe-reloaded' ) );
+#: 'subscribe_reloaded_management_content', "You have requested to manage the
+#: articles [blog_name]. Follow this link access personal
+#: page:\n[manager_link]",
+msgctxt "6cc2e2e898de563e387f1b1d23e82b89"
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
+"[manager_link]"
+msgstr ""
+"ביקשת לנהל את ההרשמות שלך למאמרים ב [blog_name]. קישור זה יוביל אותך לעמוד "
+"הניהול שלך:\n"
+"[manager_link]"
+
+#: add_option( 'subscribe_reloaded_double_check_content', __( "You have
+#: requested to be notified every time a new comment is added
+#: to:\n[post_permalink]\n\nPlease confirm your request by clicking on this
+#: link:\n[confirm_link]", 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_management_subject', 'Manage subscriptions
+#: [blog_name]', ) 'subscribe_reloaded_management_content', manage the
+#: articles [blog_name]. Follow link access personal page:\n[manager_link]",
+msgctxt "28db1d7a163ec73bc60af3076dcc67c4"
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "ניהול ההרשמות שלך ב [blog_name]"
+
+#: add_option( 'subscribe_reloaded_double_check_subject', __( 'Please confirm
+#: your subscription to [post_title]', 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_double_check_content', "You have requested be notified
+#: every time a new comment is added to:\n[post_permalink]\n\nPlease request
+#: by clicking on this link:\n[confirm_link]",
+#: 'subscribe_reloaded_management_subject', 'Manage subscriptions
+#: [blog_name]', )
+msgctxt "c370e401e9d7a8b939f74ccbe0fbfe87"
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"[post_permalink]\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"[confirm_link]"
+msgstr ""
+"ביקשת לקבל הודעות על הוספת תגובות חדשות ל:\n"
+"[post_permalink]\n"
+"\n"
+"נא לאמת את הבקשה באמצעות לחיצה על הקישור:\n"
+"[confirm_link]"
+
+#: add_option( 'subscribe_reloaded_notification_content', __( "There is a new
+#: comment to [post_title].\nComment Link: [comment_permalink]\nAuthor:
+#: [comment_author]\nComment:\n[comment_content]\nPermalink:
+#: [post_permalink]\nManage your subscriptions: [manager_link]",
+#: 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_double_check_subject', 'Please confirm subscription
+#: [post_title]', 'subscribe_reloaded_double_check_content', "You have
+#: requested be notified every time added to:\n[post_permalink]\n\nPlease
+#: request by clicking on this link:\n[confirm_link]",
+msgctxt "17b45f3c9d0441f46eb903f3d84cacba"
+msgid "Please confirm your subscription to [post_title]"
+msgstr "נא לאשר את ההרשמה שלך ל [post_title]"
+
+#: add_option( 'subscribe_reloaded_notification_subject', __( 'There is a new
+#: comment to [post_title]', 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_notification_content', "There [post_title].\nComment
+#: Link: [comment_permalink]\nAuthor:
+#: [comment_author]\nComment:\n[comment_content]\nPermalink:
+#: [post_permalink]\nManage your subscriptions: [manager_link]",
+#: 'subscribe_reloaded_double_check_subject', 'Please confirm subscription
+msgctxt "f7fa65e8ab479ce63708a3e68b502499"
+msgid ""
+"There is a new comment to [post_title].\n"
+"Comment Link: [comment_permalink]\n"
+"Author: [comment_author]\n"
+"Comment:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Manage your subscriptions: [manager_link]"
+msgstr ""
+"יש תגובה חדשה ל [post_title].\n"
+"קישור לתגובה: [comment_permalink]\n"
+"מחבר: [comment_author]\n"
+"תגובה:\n"
+"[comment_content]\n"
+"מבנה קישור: [post_permalink]\n"
+"ניהול ההרשמות שלך: [manager_link]"
+
+#: add_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ),
+#: '', 'no' ); 'subscribe_reloaded_notification_subject', __( 'There is a new
+#: comment to [post_title]', 'subscribe-reloaded'
+#: 'subscribe_reloaded_notification_content', "There [post_title].\nComment
+#: Link: [comment_permalink]\nAuthor:
+#: [comment_author]\nComment:\n[comment_content]\nPermalink:
+#: [post_permalink]\nManage your subscriptions: [manager_link]",
+msgctxt "153d0dbce34ac368f93ee6c1b8a23c0e"
+msgid "There is a new comment to [post_title]"
+msgstr "יש תגובה חדשה ל [post_title]"
+
+#: add_option( 'subscribe_reloaded_author_text', __( "In order to cancel or
+#: suspend one more notifications, select the corresponding checkbox(es) and
+#: click on button at end of list.", 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_user_text', list. You are currently subscribed to:",
+msgctxt "88a0b6b663425430287d6b1d1284ec06"
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"כדי לבטל או להשעות התראה אחת או יותר, נא לבחור בתיבת(ות) הסימון המתאימה(ות) "
+"וללחוץ על הכפתור שבסוף הרשימה. כעת יש הרשמות ל:"
+
+#: add_option( 'subscribe_reloaded_subscription_confirmed_dci', __( "Thank you
+#: for using our subscription service. In order to confirm your request,
+#: please check email the verification message and follow instructions.",
+#: 'subscribe-reloaded' ), '', 'no' ); 'subscribe_reloaded_author_text', "In
+#: cancel or suspend one more notifications, select corresponding checkbox(es)
+#: click on button at end of list.", 'subscribe_reloaded_user_text', list. You
+#: are currently subscribed to:",
+msgctxt "0ff58e920045cbfdc2881e15b66a7873"
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"כדי לבטל או להשעות הודעה אחת או יותר נא לבחור תיבת(ות) סימון בהתאמה וללחוץ "
+"על הכפתור שבסוף הרשימה."
+
+#: add_option( 'subscribe_reloaded_subscription_confirmed', __( "Thank you for
+#: using our subscription service. Your request has been completed. You will
+#: receive a notification email every time new comment to this article is
+#: approved and posted by the administrator.", 'subscribe-reloaded' ), '',
+#: 'no' ); 'subscribe_reloaded_subscription_confirmed_dci', In order confirm
+#: your request, please check verification message follow instructions.",
+#: 'subscribe_reloaded_author_text', "In cancel or suspend one more
+#: notifications, select corresponding checkbox(es) click on button at end of
+#: list.",
+msgctxt "f7e639154da1cbfbd1fdc6ca0c35e4f3"
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"תודה על השימוש בשירות ההרשמה שלנו. כדי לאשר את הבקשה שלך, נא לבדוק ת האימייל "
+"שלך כדי לאשר את ההרשמה לפי ההנחיות במייל ."
+
+#: add_option( 'subscribe_reloaded_subscribe_without_commenting', __( "You can
+#: follow the discussion on <strong>[post_title]</strong> without having to
+#: leave a comment. Cool, huh? Just enter your email address in form here
+#: below and you're all set.", 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_subscription_confirmed', "Thank you for using our
+#: subscription service. Your request has been completed. You will receive
+#: notification every time new comment this article is approved posted by
+#: administrator.", 'subscribe_reloaded_subscription_confirmed_dci', In order
+#: confirm request, please check verification message instructions.",
+msgctxt "f66af7491afccd08e553d7e1eee562f1"
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"תודה שהשתמש בשירות ההרשמה שלנו. בקשתך הושלמה. התראה באימייל תישלח על כל "
+"תגובה חדשה שתאושר על-ידי ההנהלה לפוסט זה."
+
+#: add_option( 'subscribe_reloaded_request_mgmt_link_thankyou', __( 'Thank you
+#: for using our subscription service. Your request has been completed, and
+#: should receive an email with the management link in a few minutes.',
+#: 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_subscribe_without_commenting', "You can follow
+#: discussion on <strong>[post_title]</strong> without having to leave
+#: comment. Cool, huh? Just enter your address form here below you're all
+#: set.", 'subscribe_reloaded_subscription_confirmed', "Thank completed. You
+#: will notification every time new comment this article is approved posted by
+#: administrator.",
+msgctxt "978c993c79c5fd9c5afb92bdee777da0"
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"אפשר לעקוב אחר הדיון ב <strong>[post_title]</strong> ללא צורך לשלוח תגובה. "
+"מגניב, אה? רק להזין את כתובת האימייל שלך בשדה שלהלן."
+
+#: add_option( 'subscribe_reloaded_request_mgmt_link', __( 'To manage your
+#: subscriptions, please enter email address here below. We will send you a
+#: message containing the link to access personal management page.',
+#: 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_request_mgmt_link_thankyou', 'Thank for using our
+#: subscription service. Your request has been completed, and should receive
+#: an with in few minutes.',
+#: 'subscribe_reloaded_subscribe_without_commenting', "You can follow
+#: discussion on <strong>[post_title]</strong> without having leave comment.
+#: Cool, huh? Just form below you're all set.",
+msgctxt "bfba6a11178bc3b84c9edf9f65144a94"
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"תודה שהשתמשת בשירות ההרשמה שלנו. בקשתך הושלמה ותוך דקות יישלח אליך אימייל עם "
+"קישור ניהול הרשמה שלך."
+
+#: add_option( 'subscribe_reloaded_custom_header_meta', "<meta name='robots'
+#: content='noindex,nofollow'>", '', 'no' );
+#: 'subscribe_reloaded_request_mgmt_link', __( 'To manage your subscriptions,
+#: please enter email address here below. We will send you a message
+#: containing the link to access personal management page.',
+#: 'subscribe-reloaded' ), 'subscribe_reloaded_request_mgmt_link_thankyou',
+#: 'Thank for using our subscription service. Your request has been completed,
+#: and should receive an with in few minutes.',
+msgctxt "da77e8634b248366d19c6fc115b174e0"
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"כדי לנהל את ההרשמות שלך, נא להזין את האימייל שלך להלן. נשלח לך הודעה המכילה "
+"קישור לעמוד הניהול האישי שלך."
+
+#: add_option( 'subscribe_reloaded_subscribed_waiting_label', __( "Your
+#: subscription to this post needs be confirmed. <a
+#: href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-reloaded'
+#: ), '', 'no' ); 'subscribe_reloaded_author_label', "You can
+#: href='[manager_link]'>manage the subscriptions</a> of post.",
+msgctxt "c1a7f8d96f28b060ba5d9d6cfb9c7192"
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr "אפשר <a href='[manager_link]'>לנהל את ההרשמה</a> של פוסט זה."
+
+#: add_option( 'subscribe_reloaded_subscribed_label', __( "You are subscribed
+#: to this post. <a href='[manager_link]'>Manage</a> your subscriptions.",
+#: 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_subscribed_waiting_label', "Your subscription post
+#: needs be confirmed. href='[manager_link]'>Manage subscriptions</a>.",
+#: 'subscribe_reloaded_author_label', can href='[manager_link]'>manage the
+#: subscriptions</a> of post.",
+msgctxt "d88019033a786345c4e81a269cadd16a"
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"ההרשמה שלך לפוסט זה צריכה אישור. <a href='[manager_link]'>לניהול ההרשמות "
+"שלך</a>."
+
+#: add_option( 'subscribe_reloaded_checkbox_label', __( "Notify me of followup
+#: comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a>
+#: without commenting.", 'subscribe-reloaded' ), '', 'no' );
+#: 'subscribe_reloaded_subscribed_label', "You are subscribed to this post.
+#: href='[manager_link]'>Manage</a> your subscriptions.",
+#: 'subscribe_reloaded_subscribed_waiting_label', "Your subscription post
+#: needs be confirmed. href='[manager_link]'>Manage subscriptions</a>.",
+msgctxt "2db65996df15fc8b97252ae14e09e837"
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"ההרשמה שלך לפוסט זה פעילה. <a href='[manager_link]'>ניהול ההרשמות שלך</a>.  "
+
+#: add_option( 'subscribe_reloaded_checkbox_html', "<p
+#: class='comment-form-subscriptions'><label
+#: for='subscribe-reloaded'>[checkbox_field] [checkbox_label]</label></p>",
+#: '', 'no' ); 'subscribe_reloaded_checkbox_label', __( "Notify me of followup
+#: comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a>
+#: without commenting.", 'subscribe-reloaded' ),
+#: 'subscribe_reloaded_subscribed_label', "You are subscribed to this post.
+#: href='[manager_link]'>Manage</a> your subscriptions.",
+msgctxt "d3a33a693541f54c393d2a12070162f4"
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"נא לעדכן אותי במייל על תגובות נוספות. אפשר גם <a "
+"href='[subscribe_link]'>להירשם</a> מבלי להגיב."
+
+#: <input type="radio" name="sra" value="suspend" id="action_type_suspend"
+#: checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend',
+#: 'subscribe-reloaded' ) '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="force_r"
+#: id="action_type_force_y" for="action_type_force_y">' 'Replies to my
+#: comments', value="activate" id="action_type_activate"
+#: for="action_type_activate">' 'Activate', '</label></p>';
+msgctxt "591ddaff8d846357e3cd35facf0a577b"
+msgid "Replies to my comments"
+msgstr "תגובות להערות שלי"
+
+#: <option value='none'" . ( get_option(
+#: 'subscribe_reloaded_default_subscription_type' ) === '0' ?
+#: "selected='selected'" : '' ">" __( "Don't subscribe", 'subscribe-reloaded'
+#: "</option> value='yes'" '1' "All", value='replies'" '2' "Replies to my
+#: comments",
+msgctxt "efa1fb8216b5f6d2b76c9fc617f48b38"
+msgid "All"
+msgstr "הכול"
+
+#: $checkbox_field = "<select name='subscribe-reloaded'
+#: id='subscribe-reloaded'> <option value='none'" . ( get_option(
+#: 'subscribe_reloaded_default_subscription_type' ) === '0' ?
+#: "selected='selected'" : '' ">" __( "Don't subscribe", 'subscribe-reloaded'
+#: "</option> value='yes'" '1' "All",
+msgctxt "0689b4df5a69e4539fe17ca8d1f3dc1b"
+msgid "Don't subscribe"
+msgstr "א להירשם"
+
+#: <h3><?php _e( "Vote and show your appreciation", 'subscribe-reloaded' )
+#: ?></h3> <p><?php 'Tell other people if <strong>Subscribe to Comments
+#: Reloaded</strong> works for you how good it is. <a
+#: href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate
+#: it</a> on its Plugin Directory page.', ?></p>
+msgctxt "27e517f889061bfb247fc6c1654e9a8c"
+msgid ""
+"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
+"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
+"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"שתף אנשים נוספים  איך <strong>Subscribe to Comments Reloaded</strong> פועל "
+"עבורך וכמה הוא טוב. <a href=\"http://wordpress.org/extend/plugins/subscribe-"
+"to-comments-reloaded/\">דרג אותו</a> בעמוד התוסף."
+
+#: <h3><?php _e( "Vote and show your appreciation", 'subscribe-reloaded' )
+#: ?></h3> <p><?php 'Tell other people if <strong>Subscribe to Comments
+#: Reloaded</strong> works for you how good it is. <a
+#: href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate
+#: it</a> on its Plugin Directory page.', ?></p>
+msgctxt "c519aff97f9156087a89e70b81d05a53"
+msgid "Vote and show your appreciation"
+msgstr "דרגו והראו הערכה"
+
+#: <h3><?php _e( "Did you find a Bug on the plugin?", 'subscribe-reloaded' )
+#: ?></h3> <p><?php 'Please report any bug <a
+#: href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/"
+#: target="_blank">GitHub</a> Page rather than WordPress Support page.',
+#: ?></p>
+msgctxt "8bbfc9ccb03bf1b6704279d41462421c"
+msgid ""
+"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/\" target=\"_blank\">GitHub</a> Page rather than on "
+"the WordPress Support page."
+msgstr ""
+"נא לדווח על כל באג בעמוד <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/\" target=\"_blank\">GitHub</a> עדיף על עמוד התמיכה "
+"בוורדפרס."
+
+#: <h3><?php _e( "Did you find a Bug on the plugin?", 'subscribe-reloaded' )
+#: ?></h3> <p><?php 'Please report any bug <a
+#: href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/"
+#: target="_blank">GitHub</a> Page rather than WordPress Support page.',
+#: ?></p>
+msgctxt "c93815cd22d9cf80381cef6c0e1bf717"
+msgid "Did you find a Bug on the plugin?"
+msgstr "מצאתם באג בתוסף?"
+
+#: <h3><?php _e( "Don't want to donate? You can still help",
+#: 'subscribe-reloaded' ) ?></h3> <p><?php "If you don't donate money, please
+#: consider blogging about my plugin with a link the plugin's page. Please let
+#: your readers know what makes blog better. also contribute donating time: do
+#: not hesitate send me bug reports, localization files, ideas on how improve
+#: <strong>Subscribe Comments Reloaded</strong> and so on. Whatever do, thanks
+#: for using plugin!", ?></p>
+msgctxt "33d19f4e4a5df6e4330a361db514fbc4"
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
+"you do, thanks for using my plugin!"
+msgstr ""
+"אם אינך מעוניין לתרום כסף,. נא לשקול לפרסם אותו לקוראים שלך בבלוג עם קישור "
+"לעמוד התוסף. אפשר גם לתרום זמן: לא להסס לשלוח לי דיווחי באגים, קבצי תרגום, "
+"רעיונות לשיפור, איך לשפר את <strong>Subscribe to Comments Reloaded</strong> "
+"וכו'. בכל מקרה, תודה שבחרת להשתמש בתוסף שלי!"
+
+#: <h3><?php _e( "Don't want to donate? You can still help",
+#: 'subscribe-reloaded' ) ?></h3> <p><?php "If you don't donate money, please
+#: consider blogging about my plugin with a link the plugin's page. Please let
+#: your readers know what makes blog better. also contribute donating time: do
+#: not hesitate send me bug reports, localization files, ideas on how improve
+#: <strong>Subscribe Comments Reloaded</strong> and so on. Whatever do, thanks
+#: for using plugin!", ?></p>
+msgctxt "1f49a255f26833a0472c4f855f26f030"
+msgid "Don't want to donate? You can still help"
+msgstr "לא רוצה לתרום? עדיין אפשר לעזור"
+
+#: <p><?php _e( 'How valuable is the feature offered by this plugin to your
+#: visitors? <strong>Subscribe Comments Reloaded</strong> and will always be
+#: free, but consider supporting author if made web site better, especially
+#: you are making money out of it. Any donation received reinvested in
+#: development Reloaded</strong>, buy some food for my hungry family.',
+#: 'subscribe-reloaded' ) ?></p>
+msgctxt "20529f09abef85eca16fc441243fee5d"
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? "
+"<strong>Subscribe to Comments Reloaded</strong> is and will always be free, "
+"but consider supporting the author if this plugin made your web site better, "
+"especially if you are making money out of it. Any donation received will be "
+"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
+"strong>, and to buy some food for my hungry family."
+msgstr ""
+"כמה ערך מוסיף התוסף למבקרים באתר שלך? <strong>הירשם ל Comments Reloaded</"
+"strong> תהיה תמיד ללא תשלום, אבל שקול לתמוך במחבר אם התוסף הזה שיפר את האתר "
+"שלך, במיוחד אם אתה מרוויח ממנו. כל תרומה שתתקבל תושקע מחדש בפיתוח של "
+"<strong>Subscribe to Comments Reloaded</strong>, ותקנה קצת אוכל למשפחתי "
+"הרעבה."
+
+#: ?> <h3><?php _e( 'Support the developers', 'subscribe-reloaded' ) ?></h3>
+#: <form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+#: target="_blank">
+msgctxt "02f34c7bd6589504d9496bfc3ec65f13"
+msgid "Support the developers"
+msgstr "תמיכה במפתחים"
+
+#: <div class="description"> <?php _e( "This Unique Key will be use to send
+#: the notification your subscribers with more
+msgctxt "258e6c6566acb3d22318b868f179debc"
+msgid ""
+"This Unique Key will be use to send the notification to your subscribers "
+"with more\r\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tsecurity."
+msgstr ""
+"זהו מפתח ייחודי שישמש כדי לשלוח את ההודעה עבור הנרשמים שלך עם יותר\r\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tאבטחה."
+
+#: if ( subscribe_reloaded_get_option( 'unique_key' ) == "" : _e( "This Unique
+#: Key is not set, please click the following button to ",
+msgctxt "6133aa5100cfefddf6f6a0bd4a5d73c5"
+msgid "This Unique Key is not set, please click the following button to "
+msgstr "מפתח ייחודי זה אינו מוגדר, נא ללחוץ על הכפתור שלהלן כדי "
+
+#: <th scope="row"> <label for="admin_bcc"><?php _e( 'StCR Unique Key',
+#: 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "e1d28223819bb1c8d2b98acd66fd1649"
+msgid "StCR Unique Key"
+msgstr "מפתח StCR ייחודי"
+
+#: <input type="radio" name="options[admin_bcc]" value="no" <?php echo (
+#: subscribe_reloaded_get_option( 'admin_bcc' ) == 'no' ? ' checked="checked"'
+#: : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div class="description"><?php
+#: 'Send a copy of all Notifications to the administrator.', ); ?></div> </td>
+msgctxt "fb29302729266922c377a56e04486241"
+msgid "Send a copy of all Notifications to the administrator."
+msgstr "שלח למנהל עותק של כל ההודעות."
+
+#: <input type="radio" name="options[admin_subscribe]" value="no" <?php echo (
+#: subscribe_reloaded_get_option( 'admin_subscribe' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Let the administrator subscribe to comments when
+#: logged in.', ); ?></div> </td>
+msgctxt "7828878996c6c4a681c0962ed3113621"
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr "אפשר למנהל להירשם לתגובות כאשר הוא מחובר."
+
+#: <input type="radio" name="options[enable_admin_messages]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'enable_admin_messages' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Notify the administrator when users subscribe
+#: without commenting.', ); ?></div> </td>
+msgctxt "3ec6609407fdc45a0de4049986676050"
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr "הודע למנהל כאשר משתמשים נרשמים ללא כתיבת תגובה."
+
+#: <th scope="row"> <label for="enable_admin_messages"><?php _e( 'Track all
+#: subscriptions', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "2d00f24e3cf37085024047053ddf7ca1"
+msgid "Track all subscriptions"
+msgstr "מעקב אחר כל הרשמות"
+
+#: <input type="radio" name="options[process_trackbacks]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'process_trackbacks' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Notify users when a new trackback or pingback is
+#: added to the discussion.', ); ?></div> </td>
+msgctxt "763b79d4cda57279d8348787b493dfa7"
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
+msgstr "שלח הודעה למשתמשים כאשר נוסף טראקבאק או פינגאק לדיון."
+
+#: <th scope="row"> <label for="process_trackbacks"><?php _e( 'Process
+#: trackbacks', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "83df549cac8945e539df0e989427dc4a"
+msgid "Process trackbacks"
+msgstr "עיבוד טראקבקים"
+
+#: <input type="radio" name="options[htmlify_message_links]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'htmlify_message_links' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'If enabled, will wrap all links in messages with
+#: <code>&lt;a href=""&gt;&lt;/a&gt;</code> (only when HTML emails enabled).',
+#: ); ?></div> </td>
+msgctxt "78cfed1ea6bb39efb95ad96654a25848"
+msgid ""
+"If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
+"&lt;/a&gt;</code> (only when HTML emails enabled)."
+msgstr ""
+"אם מופעל, יעטוף את כל הקישורים בהודעות ב <code><a href=\"\"></a></code> (רק "
+"כאשר מופעל HTML באימיילים)."
+
+#: <th scope="row"> <label for="htmlify_message_links"><?php _e( 'HTMLify
+#: links in emails', 'wp-comment-subscriptions' ) ?></label> </th>
+msgctxt "45a614988aa4525861385ae0ad83ec08"
+msgid "HTMLify links in emails"
+msgstr "אפשר שימוש ב HTML באימיילים"
+
+#: <input type="radio" name="options[enable_html_emails]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'enable_html_emails' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'If enabled, will send email messages with
+#: content-type = text/html instead of text/plain', ); ?></div> </td>
+msgctxt "a14b5741e59b567185b53c4f7488d776"
+msgid ""
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
+msgstr "אם מופעל, ישלח הודעת מייל עם סוג תוכן = text/html בקום טקסט פשוט"
+
+#: <input type="radio" name="options[notify_authors]" value="no" <?php echo (
+#: subscribe_reloaded_get_option( 'notify_authors' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Automatically subscribe authors to their own
+#: articles (not retroactive).', ); ?></div> </td>
+msgctxt "5f6e5213f586205b0c66503c23545464"
+msgid ""
+"Automatically subscribe authors to their own articles (not retroactive)."
+msgstr "רשום מחברים באופן אוטומטי למאמרים שלהם (לא רטרואקטיבי)."
+
+#: <input type="radio" name="options[enable_double_check]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'enable_double_check' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Send a notification email to confirm the
+#: subscription (to avoid addresses misuse).', ); ?></div> </td>
+msgctxt "5d6aa846a7bb7c9eed252c86433e0026"
+msgid ""
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
+msgstr "שלח הודעת מייל לאישור ההרשמה (כדי למנוע שימוש בכתובות שגויות)."
+
+#: <input type="text" name="options[purge_days]" id="purge_days" value="<?php
+#: echo subscribe_reloaded_get_option( 'purge_days' ); ?>" size="10"> <?php
+#: _e( 'days', 'subscribe-reloaded' ) ?> <div class="description"><?php
+#: "Delete pending subscriptions (not confirmed) after X days. Zero disables
+#: this feature.", ?></div> </td>
+msgctxt "08c7d7a8cf35ba63f0217bc56b412c97"
+msgid ""
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
+msgstr "מחק הרשמות בהמתנה (שלא אושרו) לאחר X ימים. אפס מבטל אפשרות זו."
+
+#: <td> <input type="text" name="options[purge_days]" id="purge_days"
+#: value="<?php echo subscribe_reloaded_get_option( 'purge_days' ); ?>"
+#: size="10"> <?php _e( 'days', 'subscribe-reloaded' ) ?> <div
+#: class="description"><?php "Delete pending subscriptions (not confirmed)
+#: after X days. Zero disables this feature.", ?></div>
+msgctxt "a44bb8a5cd7349ba7fb8fd7b4b6c81bf"
+msgid "days"
+msgstr "ימים"
+
+#: <th scope="row"> <label for="admin_bcc"><?php _e( 'BCC admin on
+#: Notifications', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "fb49d1e721bc7c4843d642aebd31d728"
+msgid "BCC admin on Notifications"
+msgstr "שלח עותק נסתר של הוהודעות להנהלה"
+
+#: <th scope="row"> <label for="admin_subscribe"><?php _e( 'Let admin
+#: subscribe', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "8bbde4c2535241448c9cfd2bfe2560ff"
+msgid "Let admin subscribe"
+msgstr "אפשר למנהל להירשם"
+
+#: if ( isset( $_POST['options']['enable_admin_messages'] ) && !
+#: subscribe_reloaded_update_option( 'enable_admin_messages',
+#: $_POST['options']['enable_admin_messages'], 'yesno' { $faulty_fields = __(
+#: 'Notify admin', 'subscribe-reloaded' . ', '; }
+msgctxt "c4c24e3077758fa02b0976a0c4b038fa"
+msgid "Notify admin"
+msgstr "הודע למנהל"
+
+#: if ( isset( $_POST['options']['process_trackbacks'] ) && !
+#: subscribe_reloaded_update_option( 'process_trackbacks',
+#: $_POST['options']['process_trackbacks'], 'yesno' { $faulty_fields = __(
+#: 'Send trackbacks', 'subscribe-reloaded' . ', '; }
+msgctxt "b1f324294d9e8f20c14fa92a86677069"
+msgid "Send trackbacks"
+msgstr "שלח טראקבקים"
+
+#: if ( isset( $_POST['options']['htmlify_message_links'] ) && !
+#: subscribe_reloaded_update_option( 'htmlify_message_links',
+#: $_POST['options']['htmlify_message_links'], 'yesno' { $faulty_fields = __(
+#: 'HTMLify Links in HTML emails', 'subscribe-reloaded' . ', '; }
+msgctxt "ef0de68ae26cfefa83b1b7cd2245cf30"
+msgid "HTMLify Links in HTML emails"
+msgstr "הפעל קישורי HTML באימיילים עם HTML"
+
+#: <th scope="row"> <label for="enable_html_emails"><?php _e( 'Enable HTML
+#: emails', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "a9df5e91f072e935e1282705b412b2e6"
+msgid "Enable HTML emails"
+msgstr "הפעל HTML בהודעות מייל"
+
+#: <tr> <th scope="row"><label for="notify_authors"><?php _e( 'Subscribe
+#: authors', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "22b73efe316621857d13e28bdc6b846c"
+msgid "Subscribe authors"
+msgstr "רשום את המחברים"
+
+#: <th scope="row"> <label for="enable_double_check"><?php _e( 'Enable double
+#: check', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "2fbedf414e419fe399cde17a1cc2b9af"
+msgid "Enable double check"
+msgstr "הפעל בדיקה כפולה"
+
+#: <tr> <th scope="row"><label for="purge_days"><?php _e( 'Autopurge
+#: requests', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "ad090953ee0652358fa3a6dd2efe2bc6"
+msgid "Autopurge requests"
+msgstr "ניקוי אוטומטי של בקשות"
+
+#: <div class="description" style="padding-top:0"> <?php _e( 'Content of the
+#: management email. Allowed tags: [blog_name], [manager_link]',
+#: 'subscribe-reloaded' ); ?> </div>
+msgctxt "3cf4b116261f538f59f149d714fee407"
+msgid ""
+"Content of the management email. Allowed tags: [blog_name], [manager_link]"
+msgstr "תוכן אימייל הניהול l.תגיות מותרות: [blog_name], [manager_link]"
+
+#: <div class="description" style="padding-top:0"> <?php _e( 'Subject of the
+#: mail sent to those who request access their management page. Allowed tag:
+#: [blog_name]', 'subscribe-reloaded' ); ?> </div>
+msgctxt "44a16187cce78c69eedc90c86f3bc3bb"
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
+msgstr "נושא המייל שיישלח למבקשים גישה לדף הניהול. תגית אפשרית: [blog_name]"
+
+#: <div class="description" style="padding-top:0"> <?php _e( 'Content of the
+#: confirmation email. Allowed tags: [post_permalink], [confirm_link],
+#: [post_title], [manager_link]', 'subscribe-reloaded' ); ?> </div>
+msgctxt "fbc1d131c1988ba8f647bd0305b64e9d"
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"תוכן מייל האישור. תגיות מותרות: [post_permalink], [confirm_link], "
+"[post_title], [manager_link]"
+
+#: <div class="description" style="padding-top:0"> <?php _e( 'Subject of the
+#: confirmation email. Allowed tag: [post_title]', 'subscribe-reloaded' ); ?>
+#: </div>
+msgctxt "57325cf34264082ec201f5d9b3bfe003"
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr "נושא מייל האישור. תגית אפשרית: [post_title]"
+
+#: <div class="description" style="padding-top:0"> <?php _e( 'Content of the
+#: notification email. Allowed tags: [post_title], [comment_permalink],
+#: [comment_author], [comment_content], [post_permalink], [manager_link]',
+#: 'subscribe-reloaded' ); ?> </div>
+msgctxt "c8e11f7d38be164ecbf0670a03d238e6"
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+msgstr ""
+"תוכן מייל ההתראה. תגיות אפשריות: [post_title], [comment_permalink], "
+"[comment_author], [comment_content], [post_permalink], [manager_link]"
+
+#: <div class="description"> <?php _e( 'Subject of the notification email.
+#: Allowed tag: [post_title]', 'subscribe-reloaded' ); ?> </div>
+msgctxt "89e80c6aa298c68cf8c17cd4e9f9f480"
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr "נושא מייל ההתראה. תגית אפשרית: [post_title]"
+
+#: <div class="description"> <?php _e( 'Email address to use for the "from"
+#: field when sending a new notification user.', 'subscribe-reloaded' ); ?>
+#: </div>
+msgctxt "e9d2713cfce5d7f0312a17d418b10962"
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
+msgstr "כתובת אימייל לשימוש עבור שדה \"מאת\" בשליחת התראה הודעה חדשה למשתמש."
+
+#: <div class="description"> <?php _e( 'Name to use for the "from" field when
+#: sending a new notification user.', 'subscribe-reloaded' ); ?> </div>
+msgctxt "1e43b556754ce6602561199f3dbdcb95"
+msgid ""
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
+msgstr "השם לשימוש בשדה \"מאת\" בשליחת הודעה חדשה למשתמש."
+
+#: <th scope="row"> <label for="management_content"><?php _e( 'Management
+#: message', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "b158ac45c7e7a04ab5cdf07f0f136a52"
+msgid "Management message"
+msgstr "הודעת הניהול"
+
+#: <th scope="row"> <label for="management_subject"><?php _e( 'Management
+#: subject', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "246cc1de37c12825203635d98926575d"
+msgid "Management subject"
+msgstr "נושא הניהול"
+
+#: <th scope="row"> <label for="double_check_content"><?php _e( 'Double check
+#: message', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "bb3c023d8848a864853fb8731563ab10"
+msgid "Double check message"
+msgstr "בדיקה כפולה של ההודעה"
+
+#: <th scope="row"> <label for="double_check_subject"><?php _e( 'Double check
+#: subject', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "6b1dc0bc670d25a9a34ba7f3eda8074f"
+msgid "Double check subject"
+msgstr "בדיקה כפולה של הנושא"
+
+#: <th scope="row"> <label for="notification_content"><?php _e( 'Notification
+#: message', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "df99ea0d9c5edce961170e6c10c2a32f"
+msgid "Notification message"
+msgstr "הודעת התראה"
+
+#: <th scope="row"> <label for="notification_subject"><?php _e( 'Notification
+#: subject', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "bb30c8180b2913ad6aee7567864fdb5f"
+msgid "Notification subject"
+msgstr "נושא ההתראה"
+
+#: <th scope="row"> <label for="from_email"><?php _e( 'Sender email address',
+#: 'subscribe-reloaded' ) ?> </label>
+msgctxt "7e0f030a4c7cadbddb86abf9ce2c213b"
+msgid "Sender email address"
+msgstr "כתובת המייל של השולח"
+
+#: <th scope="row"> <label for="from_name"><?php _e( 'Sender name',
+#: 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "fa43af01b9405baf231559eb79108c4c"
+msgid "Sender name"
+msgstr "שם השולח"
+
+#: <div class="description"><?php _e( "Introductory text for the users'
+#: management page.", 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "a4ae3ed9251574f2e69d277b3ad5c57e"
+msgid "Introductory text for the users' management page."
+msgstr "טקסט היכרות למשתמשים בעמוד הניהול."
+
+#: <div class="description"><?php _e( "Introductory text for the authors'
+#: management page.", 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "641c76d3542b137855f5228245da855e"
+msgid "Introductory text for the authors' management page."
+msgstr "טקסט היכרות למחברים בעמוד הניהול."
+
+#: <div class="description"><?php _e( 'Thank you note shown after the
+#: subscription request has been processed (double check-in enabled). Allowed
+#: tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?></div>
+#: </td>
+msgctxt "f165dd1fbc1f374d1ac8d7cd7afcb875"
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"הודעת תודה המוצגת לאחר עיבוד בקשת הרשמה (כאשר מופעל אימות כפול). תגיות "
+"מותרות: [post_title], [post_permalink]"
+
+#: <div class="description"><?php _e( 'Thank you note shown after the
+#: subscription request has been processed (double check-in disabled). Allowed
+#: tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?></div>
+#: </td>
+msgctxt "cd19400a6ed6ae638f53eaf9bb70c703"
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"הודעת תודה המוצגת לאחר שעובדה בקשת ההרשמה (ללא אימות כפול). תגיות מותרות: "
+"[post_title], [post_permalink]"
+
+#: <div class="description"><?php _e( 'Text shown to those who want subscribe
+#: without commenting. Allowed tags: [post_title], [post_permalink]',
+#: 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "c76309da1c29c346cdb49e124296fbbb"
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"טקסט המוצג לאלו המבקשים להירשם מבלי להגיב. תגיות מותרות: [post_title], "
+"[post_permalink]"
+
+#: <div class="description"><?php _e( 'Thank you note shown after the request
+#: here above has been processed. Allowed tags: [post_title],
+#: [post_permalink]', 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "3753f76d59e6c318cef32849f1de45b9"
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"הודעת תודה המוצגת לאחר שהבקשה עובדה. תגיות מותרות: [post_title], "
+"[post_permalink]"
+
+#: <div class="description"><?php _e( 'Text shown to those who request manage
+#: their subscriptions.', 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "906f0c353c50b9640210bcfaf93cea73"
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr "טקסט המוצג לאלו המבקשים לנהל את ההרשמות שלהם."
+
+#: <h3><?php _e( 'Messages', 'subscribe-reloaded' ) ?></h3> <table
+#: class="form-table <?php echo $wp_locale->text_direction ?>">
+msgctxt "dcb38b25d6940f9f572734c3aa5dfbef"
+msgid "Messages"
+msgstr "הודעות"
+
+#: <div class="description"><?php _e( 'Specify your custom HTML code to be
+#: added the HEAD section of page. Use <strong>single</strong> quotes for
+#: values.', 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "b46af5b0cd3f4184c3ff72b45bac63e3"
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
+msgstr ""
+"ציין קוד HTML משלך להוספה למקטע HEAD של העמוד. השתמש כערכים בציטוט "
+"<strong>יחיד</strong>."
+
+#: <div class="description"><?php _e( 'The permalink for your management page
+#: (something like <code>/manage-subscriptions</code> or
+#: <code>/?page_id=345</code>). This <b>does not</b> actually exist in the
+#: system, but its link must follow structure.', 'subscribe-reloaded' ); if (
+#: get_option( 'permalink_structure', '' ) == && strpos(
+#: subscribe_reloaded_get_option( 'manager_page' ), '?page_id=' === false {
+msgctxt "4d42d543c88dc2331e8ca0a55b8cb426"
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"מבנה הקישור של של דף הניהול שלך (משהו כמו <code>/ניהול-הרשמות</code> או "
+"<code>/?page_id=345</code>). עמוד זה <b>אינו</b> קיים באמת במערכת שלך, אבל "
+"הקישור שלו חייב לתאום את מבנה הקישורים שלך."
+
+#: <div class="description"><?php _e( 'Title of the page your visitors will
+#: use to manage their subscriptions.', 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "7ec2af7246740befab6af57f73f4b32f"
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr "כותרת העמוד בו ישתמשו המבקרים שלך לניהול הרשמות שלהם."
+
+#: <input type="radio" name="options[manager_page_enabled]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'manager_page_enabled', 'no' ) == ? '
+#: checked="checked"' : ''; ?>> _e( 'Disabled', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Disable the virtual management page if you need
+#: to create a <a
+#: href="http://behstant.com/subscribe-reloaded/realMgnPage.php">real page</a>
+#: make your theme happy.', ?></div> </td>
+msgctxt "29cf3409a762724b065244b97f791819"
+msgid ""
+"Disable the virtual management page if you need to create a <a href=\"http://"
+"behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
+"theme happy."
+msgstr ""
+"בטל את עמוד הניהול הוירטואלי עם יצירת <a href=\"http://behstant.com/"
+"subscribe-reloaded/realMgnPage.php\">עמוד אמתי</a> כדי לשמח את ערכת הנושא "
+"שלך."
+
+#: <input type="radio" name="options[manager_page_enabled]"
+#: id="manager_page_enabled" value="yes"<?php echo (
+#: subscribe_reloaded_get_option( 'manager_page_enabled', 'no' ) == 'yes' ? '
+#: checked="checked"' : ''; ?>> <?php _e( 'Enabled', 'subscribe-reloaded' ?>
+#: &nbsp; value="no" 'Disabled', <div class="description"><?php 'Disable the
+#: virtual management page if you need to create a <a
+#: href="http://behstant.com/subscribe-reloaded/realMgnPage.php">real page</a>
+#: make your theme happy.', ?></div>
+msgctxt "6c9ba595d89cb311a153f1cd11430f67"
+msgid "Disabled"
+msgstr "כבוי"
+
+#: <td> <input type="radio" name="options[manager_page_enabled]"
+#: id="manager_page_enabled" value="yes"<?php echo (
+#: subscribe_reloaded_get_option( 'manager_page_enabled', 'no' ) == 'yes' ? '
+#: checked="checked"' : ''; ?>> <?php _e( 'Enabled', 'subscribe-reloaded' ?>
+#: &nbsp; value="no" 'Disabled',
+msgctxt "0b9dd6257f98c7287bd918bbefa405d0"
+msgid "Enabled"
+msgstr "מופעל"
+
+#: if ( get_option( 'permalink_structure', '' ) == && strpos(
+#: subscribe_reloaded_get_option( 'manager_page' ), '?page_id=' === false {
+#: echo '<br/><strong>' . __( "Warning: it looks like the value you are using
+#: may be incompatible with your permalink structure", 'subscribe-reloaded'
+#: '</strong>'; } ?></div>
+msgctxt "28103c518b4a8376ed3336d39aaa5861"
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
+msgstr "אזהרה: נראה שהערך בשימוש אינו מתאים למבנה הקישורים שלך"
+
+#: <tr> <th scope="row"><label for="user_text"><?php _e( 'Users',
+#: 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "d73624dda31605d261cdd76d8fcc29a0"
+msgid "Users"
+msgstr "משתמשים"
+
+#: <tr> <th scope="row"><label for="author_text"><?php _e( 'Authors',
+#: 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "6f5b53d139086d0e6ce9b24f8b7d4d0d"
+msgid "Authors"
+msgstr "מחברים"
+
+#: <th scope="row"> <label for="subscription_confirmed_dci"><?php _e(
+#: 'Subscription processed (DCI)', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "9a9f152b1f6fd784671488b2b22e2256"
+msgid "Subscription processed (DCI)"
+msgstr "ההרשמה עובדה(DCI)"
+
+#: <th scope="row"> <label for="subscription_confirmed"><?php _e(
+#: 'Subscription processed', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "081d7629e57bd13a3cd31872bda16e02"
+msgid "Subscription processed"
+msgstr "ההרשמה עובדה"
+
+#: <th scope="row"> <label for="subscribe_without_commenting"><?php _e(
+#: 'Subscribe without commenting', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "5e9a29bb667190ce72021cf0192b7f1c"
+msgid "Subscribe without commenting"
+msgstr "הרשמה ללא כתיבת תגובה"
+
+#: <th scope="row"> <label for="request_mgmt_link_thankyou"><?php _e( 'Request
+#: submitted', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "a1dc692f92b4b4e7ae2b2e864ba25d51"
+msgid "Request submitted"
+msgstr "הבקשה נשלחה"
+
+#: <tr> <th scope="row"><label for="request_mgmt_link"><?php _e( 'Request
+#: link', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "08527e8003ef7c1ec9fa06ee170d9615"
+msgid "Request link"
+msgstr "קישור הבקשה"
+
+#: <th scope="row"> <label for="custom_header_meta"><?php _e( 'Custom HEAD
+#: meta', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "c6676f9ba4b7c8ba95a7b633b1712d6f"
+msgid "Custom HEAD meta"
+msgstr "תיאור"
+
+#: <tr> <th scope="row"><label for="manager_page"><?php _e( 'Management URL',
+#: 'subscribe-reloaded' ) ?></label></th> <td><?php echo get_bloginfo( 'url'
+#: ?>
+msgctxt "bae4a5bada23f66129a07abf959c4b38"
+msgid "Management URL"
+msgstr "כתובת ה URL של הניהול"
+
+#: <tr> <th scope="row"><label for="manager_page_title"><?php _e( 'Page
+#: title', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "175137c9f7886e151e008a911f7f30c6"
+msgid "Page title"
+msgstr "כותרת העמוד"
+
+#: <th scope="row"> <label for="manager_page_enabled"><?php _e( 'Virtual
+#: Management Page', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "30f776e0d313a6ddce5f4051ff74a732"
+msgid "Virtual Management Page"
+msgstr "עמוד הניהול הויזואלי"
+
+#: <div class="description"><?php _e( 'Label shown to authors (and
+#: administrators). Allowed tag: [manager_link]', 'subscribe-reloaded' );
+#: ?></div> </td>
+msgctxt "427083afc52fba71c2ff1943140ff5e9"
+msgid ""
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
+msgstr "תווית המוצגת למחברים (ולמנהלים). תגית אפשרית: [manager_link]"
+
+#: <div class="description"><?php _e( "Label shown to those who are already
+#: subscribed, but haven't clicked on the confirmation link yet. Allowed tag:
+#: [manager_link]", 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "e7c560f577f45f7edd745ac42c66ec39"
+msgid ""
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
+msgstr ""
+"תווית המוצגת לאלו שכבר נרשמו, אבל עדיין לא לחצו על קישור האישור. תגית "
+"אפשרית: [manager_link]"
+
+#: <th scope="row"> <label for="subscribed_waiting_label"><?php _e( 'Pending
+#: label', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "41687364c545bccc021fd628bc6af473"
+msgid "Pending label"
+msgstr "תווית בהמתנה"
+
+#: <div class="description"><?php _e( 'Label shown to those who are already
+#: subscribed a post. Allowed tag: [manager_link]', 'subscribe-reloaded' );
+#: ?></div> </td>
+msgctxt "fe3bdffdd9257f3ecdf8e7b1fac4862e"
+msgid ""
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
+msgstr "תווית המוצגת לאלו שכבר רשומים לפוסט. תגית אפשרית: [manager_link]"
+
+#: <div class="description"><?php _e( 'Label associated to the checkbox.
+#: Allowed tag: [subscribe_link]', 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "307237f322c444a1f898a7cca721008b"
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr "תווית המקושרת לתיבת הסימון. תגיות מותרות: [subscribe_link]"
+
+#: <tr> <th scope="row"><label for="checkbox_label"><?php _e( 'Default label',
+#: 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "0a7ce5e4d313a83b0ec958a215cc92b6"
+msgid "Default label"
+msgstr "תווית ברירת המחדל"
+
+#: <h3><?php _e( 'Messages for your visitors', 'subscribe-reloaded' ) ?></h3>
+#: <table class="form-table <?php echo $wp_locale->text_direction ?>">
+msgctxt "79f50c07c0741267da1579a9964303b1"
+msgid "Messages for your visitors"
+msgstr "הודעות למשתמשים שלך"
+
+#: <div class="description"><?php _e( 'Custom HTML code to be used when
+#: displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]',
+#: 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "54044ce8db331ceb90b5b5b3505788e9"
+msgid ""
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
+msgstr ""
+"קוד HTML לשימוש בהצגת תיבת הסימון. תגיות מותרות: [checkbox_field], "
+"[checkbox_label]"
+
+#: <div class="description"><?php _e( 'Custom inline CSS to add the
+#: checkbox.', 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "aeccf1f8dcd0a060eec7276f559f80ad"
+msgid "Custom inline CSS to add to the checkbox."
+msgstr "הוספת עיצוב CSS בשורה לתיבת הסימון."
+
+#: <div class="description"><?php _e( 'The default subscription type that
+#: should be selected when Advanced subscriptions are enable.',
+#: 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "294fa04995d5521ac92a3bf8466a01f7"
+msgid ""
+"The default subscription type that should be selected when Advanced "
+"subscriptions are enable."
+msgstr "ברירת המחדל לסוג ההרשמה כאשר מופעל הרשמה מתקדמת."
+
+#: <select name="options[default_subscription_type]"
+#: id="default_subscription_type"> <option value="0" <?php echo (
+#: subscribe_reloaded_get_option( 'default_subscription_type' ) === '0' ?
+#: "selected='selected'" : ''; ?>><?php _e( 'None', 'subscribe-reloaded' );
+#: ?></option> value="1" '1' 'All new comments',
+msgctxt "02f9e1bfd41533b3055962f8a124d649"
+msgid "None"
+msgstr "ללא"
+
+#: <th scope="row"> <label for="default_subscription_type"><?php _e( 'Advanced
+#: default', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "472f6015b8c1485056e2634aec82691f"
+msgid "Advanced default"
+msgstr "ברירת מחדל מתקדמת"
+
+#: <input type="radio" name="options[enable_advanced_subscriptions]"
+#: value="no" <?php echo ( subscribe_reloaded_get_option(
+#: 'enable_advanced_subscriptions' ) == 'no' ? ' checked="checked"' : ''; ?>>
+#: _e( 'No', 'subscribe-reloaded' ?> <div class="description"><?php 'Allow
+#: users to choose from different subscription types (all, replies only).', );
+#: ?></div> </td>
+msgctxt "8a3ececadd68b58a768cd4fd7c247031"
+msgid ""
+"Allow users to choose from different subscription types (all, replies only)."
+msgstr "אפשר למשתמשים לבחור בין סוגי הרשמה שונים (הכל, תגובות בלבד)."
+
+#: </select> <div class="description"><?php _e( 'Select the default option for
+#: Checkbox. Be careful! Some users might like to be subscribed all post.',
+#: 'subscribe-reloaded' ); ?></div> </td>
+msgctxt "8d34cdc3ac8c5e06587f38286791c8da"
+msgid ""
+"Select the default option for the Checkbox. Be careful! Some users might "
+"like to be subscribed to all the post."
+msgstr ""
+"בחירת אפשרות ברירת מחדל עבור תיבת הסימון. יתכן שחלק מן המשתמשים יעדיפו "
+"להירשם לכל התגובות לפוסט."
+
+#: <option value="1" <?php echo ( subscribe_reloaded_get_option(
+#: 'default_subscription_type' ) === '1' ? "selected='selected'" : '';
+#: ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
+#: value="2" '2' 'Replies to this comment', </select>
+msgctxt "1a723735a62ab09a6e4ec6784fb4aa72"
+msgid "Replies to this comment"
+msgstr "תגובות לתגובה זו"
+
+#: <option value="0" <?php echo ( subscribe_reloaded_get_option(
+#: 'default_subscription_type' ) === '0' ? "selected='selected'" : '';
+#: ?>><?php _e( 'None', 'subscribe-reloaded' ); ?></option> value="1" '1' 'All
+#: new comments', value="2" '2' 'Replies to this comment',
+msgctxt "682e4da3d0deadcfd591d443e702c630"
+msgid "All new comments"
+msgstr "כל התגובות החדשות"
+
+#: <th scope="row"> <label for="checked_by_default_value"><?php _e( 'Default
+#: Checkbox Value', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "95c74a579de9bb9d45d98e1bd424c997"
+msgid "Default Checkbox Value"
+msgstr "ערך ברירת המחדל של תיבת הסימון"
+
+#: <input type="radio" name="options[checked_by_default]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Decide if the checkbox should be checked by
+#: default or not.', ); ?></div> </td>
+msgctxt "e5a2a6abda0e1f5ee071a35b9ec74492"
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr "האם לסמן את תיבת הסימון הזו כברירת מחדל או לא."
+
+#: <input type="radio" name="options[show_subscription_box]" value="no" <?php
+#: echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'no' ? '
+#: checked="checked"' : ''; ?>> _e( 'No', 'subscribe-reloaded' ?> <div
+#: class="description"><?php 'Disable this option if you want to move the
+#: subscription checkbox a different place on your page.', ); ?></div> </td>
+msgctxt "02e15b81a171984d47be8865c8c0a832"
+msgid ""
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
+msgstr "בטל אפשרות זו כדי להעביר את תיבת סימון ההרשמה למקום אחר בעמוד שלך."
+
+#: <input type="radio" name="options[notify_authors]" id="notify_authors"
+#: value="yes"<?php echo ( subscribe_reloaded_get_option( 'notify_authors' )
+#: == 'yes' ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes',
+#: 'subscribe-reloaded' ?> &nbsp; value="no" 'no' 'No', <div
+#: class="description"><?php 'Automatically subscribe authors to their own
+#: articles (not retroactive).', ); ?></div>
+msgctxt "6bbdc3280f0d637369032b54f4ecc9b7"
+msgid "No"
+msgstr "לא"
+
+#: <td> <input type="radio" name="options[notify_authors]" id="notify_authors"
+#: value="yes"<?php echo ( subscribe_reloaded_get_option( 'notify_authors' )
+#: == 'yes' ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes',
+#: 'subscribe-reloaded' ?> &nbsp; value="no" 'no' 'No',
+msgctxt "70b296eea5eccace04b102eb8d47030d"
+msgid "Yes"
+msgstr "כן"
+
+#: } else { _e( 'There was an error updating the following fields:',
+#: 'subscribe-reloaded' ); echo ' <strong>' . substr( $faulty_fields, 0, - 2 )
+#: '</strong>';
+msgctxt "89b1531e7b41d84027e3622c2e7c317e"
+msgid "There was an error updating the following fields:"
+msgstr "היתה שגיאה בעדכון השדות שלהלן:"
+
+#: if ( empty( $faulty_fields ) { _e( 'Your settings have been successfully
+#: updated.', 'subscribe-reloaded' ); } else
+msgctxt "1339f853a5b718a5bcf909f3a5edcf72"
+msgid "Your settings have been successfully updated."
+msgstr "ההגדרות שלך עודכנו בהצלחה"
+
+#: <tr> <th scope="row"><label for="author_label"><?php _e( 'Author label',
+#: 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "ee9de7f29fa8aa6995ec04bc1222abc2"
+msgid "Author label"
+msgstr "תווית מחבר"
+
+#: if ( isset( $_POST['options']['subscribed_waiting_label'] ) && !
+#: subscribe_reloaded_update_option( 'subscribed_waiting_label',
+#: $_POST['options']['subscribed_waiting_label'], 'text-no-encode' {
+#: $faulty_fields = __( 'Awaiting label', 'subscribe-reloaded' . ', '; }
+msgctxt "f0f44d0cd6559ad02e43690d5c117166"
+msgid "Awaiting label"
+msgstr "תווית בהמתנה"
+
+#: <th scope="row"> <label for="subscribed_label"><?php _e( 'Subscribed
+#: label', 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "d83af90214b8e2aa2dbd2cf2017cf178"
+msgid "Subscribed label"
+msgstr "תווית רשום"
+
+#: if ( isset( $_POST['options']['checkbox_label'] ) && !
+#: subscribe_reloaded_update_option( 'checkbox_label',
+#: $_POST['options']['checkbox_label'], 'text-no-encode' { $faulty_fields =
+#: __( 'Checkbox label', 'subscribe-reloaded' . ', '; }
+msgctxt "a41c0e3bfa4ec2ed9679c825926ffa98"
+msgid "Checkbox label"
+msgstr "תווית תיבת הסימון"
+
+#: <tr> <th scope="row"><label for="checkbox_html"><?php _e( 'Custom HTML',
+#: 'subscribe-reloaded' ) ?></label></th> <td>
+msgctxt "c0e195fe756e8c7b377f528ab4ec6d7b"
+msgid "Custom HTML"
+msgstr "התאמת HTML"
+
+#: <th scope="row"> <label for="checkbox_inline_style"><?php _e( 'Custom
+#: inline style', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "38c5a46fc7a30fb973277a050af2a86e"
+msgid "Custom inline style"
+msgstr "עיצוב בשורה"
+
+#: <th scope="row"> <label for="enable_advanced_subscriptions"><?php _e(
+#: 'Advanced subscription', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "62790a28580ad09df8bd9a0f184aa37a"
+msgid "Advanced subscription"
+msgstr "הרשמה מתקדמת"
+
+#: if ( isset( $_POST['options']['checked_by_default_value'] ) && !
+#: subscribe_reloaded_update_option( 'checked_by_default_value',
+#: $_POST['options']['checked_by_default_value'], 'integer' { $faulty_fields =
+#: __( 'Checked by default Value', 'subscribe-reloaded' . ', '; }
+msgctxt "8a4a890b1fffd0dc2cc7851f2bc54935"
+msgid "Checked by default Value"
+msgstr "מסומנות כברירת מחדל"
+
+#: <th scope="row"> <label for="checked_by_default"><?php _e( 'Checked by
+#: default', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "c72b41aa774f33543db288599a6fefc6"
+msgid "Checked by default"
+msgstr "מסומן כברירת מחדל"
+
+#: <th scope="row"> <label for="show_subscription_box"><?php _e( 'Enable
+#: default checkbox', 'subscribe-reloaded' ) ?></label> </th>
+msgctxt "5bd30faba69d43c4455e47b81db27ce5"
+msgid "Enable default checkbox"
+msgstr "הפעל תיבת סימון כברירת מחדל"
+
+#: <input type="text" size="2" name="srrp" value="25" /> type="submit"
+#: class="subscribe-form-button" value="<?php _e( 'Search',
+#: 'subscribe-reloaded' ) ?>" </form>
+msgctxt "d01d786975b03fb02136f790780b37a1"
+msgid "Search"
+msgstr "חפש"
+
+#: <input type="text" size="20" name="srv" value="" />, <?php _e( 'results per
+#: page:', 'subscribe-reloaded' ) ?> size="2" name="srrp" value="25" />
+msgctxt "dcccdf9fb30843763c457bc2a99c2701"
+msgid "results per page:"
+msgstr "תוצאות לעמוד"
+
+#: <option value='starts with'><?php _e( 'starts with', 'subscribe-reloaded' )
+#: ?></option> value='ends 'ends </select>
+msgctxt "b812bd117e6c5ee333472b33d77a2e33"
+msgid "ends with"
+msgstr "מסתיים ב"
+
+#: <option value='does not contain'><?php _e( 'does contain',
+#: 'subscribe-reloaded' ) ?></option> value='starts with'><?php 'starts with',
+#: value='ends 'ends
+msgctxt "b4e1087433f2771a8e561428dd2c8b52"
+msgid "starts with"
+msgstr "מתחיל ב"
+
+#: <option value='contains'><?php _e( 'contains', 'subscribe-reloaded' )
+#: ?></option> value='does not contain'><?php 'does contain', value='starts
+#: with'><?php 'starts with',
+msgctxt "aaabb2e050126755a58f8b8d0752ac27"
+msgid "does not contain"
+msgstr "אינו מכיל"
+
+#: <option value='equals'><?php _e( 'equals', 'subscribe-reloaded' )
+#: ?></option> value='contains'><?php 'contains', value='does not
+#: contain'><?php 'does contain',
+msgctxt "ed3562ea890bf8002f7bbe28010e17eb"
+msgid "contains"
+msgstr "מכיל"
+
+#: <select name="srt"> <option value='equals'><?php _e( 'equals',
+#: 'subscribe-reloaded' ) ?></option> value='contains'><?php 'contains',
+msgctxt "2241b919c078a4dc6ced6441b3bb28f8"
+msgid "equals"
+msgstr "שווה"
+
+#: <option value='post_id'><?php _e( 'post ID', 'subscribe-reloaded' )
+#: ?></option> value='status'><?php 'status', </select>
+msgctxt "26d651e576fbc838eb7254932688039f"
+msgid "status"
+msgstr "מצב"
+
+#: <option value='email'><?php _e( 'email', 'subscribe-reloaded' ) ?></option>
+#: value='post_id'><?php 'post ID', value='status'><?php 'status',
+msgctxt "e41e90db5a2e8789ffea12f0ac9a66d0"
+msgid "post ID"
+msgstr "מזהה פוסט"
+
+#: if ( is_array( $subscriptions ) && ! empty( { echo '<p
+#: id="subscribe-reloaded-email-p">' . __( 'Email', 'subscribe-reloaded' ':
+#: <strong>' $email '</strong></p>'; id="subscribe-reloaded-legend-p">'
+#: 'Legend: Y = all comments, R replies only, C inactive', '</p>';
+msgctxt "7002ef9728ed3e352891c87ffcab8e0a"
+msgid "email"
+msgstr "אימייל"
+
+#: <h3><?php _e( 'Search subscriptions', 'subscribe-reloaded' ) ?></h3>
+msgctxt "b2cd96159cd905e552c30e1822529aae"
+msgid "Search subscriptions"
+msgstr "חיפוש הרשמות"
+
+#: </select> <input type='submit' class='subscribe-form-button' value='<?php
+#: _e( 'Add', 'subscribe-reloaded' ) ?>' /> </p>
+msgctxt "36900bd6d7a8d64ce589ac759b895eba"
+msgid "Add"
+msgstr "הוסף"
+
+#: <option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' )
+#: ?></option> value='YC'><?php 'Ask user to confirm', </select>
+msgctxt "8f78c2688ecf4ad155bd26e61ecb9f37"
+msgid "Ask user to confirm"
+msgstr "בקשת המשתמש לאשר"
+
+#: <fieldset style="border:0"> <p class="liquid"><?php _e( 'Post ID',
+#: 'subscribe-reloaded' ) ?> <input type='text' size='30' name='srp' value=''
+#: /></p>
+msgctxt "6be56eb1ee51276f5a5b50399f61afd8"
+msgid "Post ID"
+msgstr "מזהה פוסט"
+
+#: <div class="postbox small"> <h3><?php _e( 'Add New Subscription',
+#: 'subscribe-reloaded' ) ?></h3>
+msgctxt "b0a051f13e85782f05f87b7cb960168d"
+msgid "Add New Subscription"
+msgstr "הוספת הרשמה חדשה"
+
+#: <div class="postbox small"> <h3><?php _e( 'Mass Update Subscriptions',
+#: 'subscribe-reloaded' ) ?></h3>
+msgctxt "863a08f651a468695845d06fc8b42f77"
+msgid "Mass Update Subscriptions"
+msgstr "עדכון כמותי של הרשמות"
+
+#: } elseif ( $action == 'search' ) { echo '<p>' . __( 'Sorry, no
+#: subscriptions match your search criteria.', 'subscribe-reloaded' "</p>";
+msgctxt "d32f6d876f8f1972ed1b5ae16da48e37"
+msgid "Sorry, no subscriptions match your search criteria."
+msgstr "מצטערים, אין הרשמות התואמות את קריטריון החיפוש שלך."
+
+#: <input type="radio" name="sra" value="activate" id="action_type_activate"
+#: /> <label for="action_type_activate">' . __( 'Activate',
+#: 'subscribe-reloaded' ) '</label></p>'; echo '<p
+#: id="subscribe-reloaded-update-p"><input type="submit"
+#: class="subscribe-form-button" value="' 'Update subscriptions', '" /><input
+#: type="hidden" name="sre" urlencode( $email '"/></p>';
+msgctxt "ac066fa433b04d99cf91b90b9e5f7ade"
+msgid "Update subscriptions"
+msgstr "עדכון ההרשמות"
+
+#: <input type="radio" name="sra" value="force_r" id="action_type_force_y" />
+#: <label for="action_type_force_y">' . __( 'Replies to my comments',
+#: 'subscribe-reloaded' ) '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="activate"
+#: id="action_type_activate" for="action_type_activate">' 'Activate',
+#: '</label></p>'; echo '<p id="subscribe-reloaded-update-p"><input
+#: type="submit" class="subscribe-form-button" value="' 'Update
+#: subscriptions', '" /><input type="hidden" name="sre" urlencode( $email
+#: '"/></p>';
+msgctxt "78782569a055fa59bcded85b1f305506"
+msgid "Activate"
+msgstr "הפעל"
+
+#: <input type="radio" name="sra" value="force_y" id="action_type_force_y" />
+#: <label for="action_type_force_y">' . __( 'Activate and set to Y',
+#: 'subscribe-reloaded' ) '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="force_r"
+#: id="action_type_force_r" for="action_type_force_r">' R', value="activate"
+#: id="action_type_activate" for="action_type_activate">' 'Activate',
+#: '</label></p>';
+msgctxt "7d0bae30bd55483b3961058967333c68"
+msgid "Activate and set to R"
+msgstr "הפעלה והגדרה ל R"
+
+#: <input type="radio" name="sra" value="suspend" id="action_type_suspend"
+#: checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend',
+#: 'subscribe-reloaded' ) '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="force_y"
+#: id="action_type_force_y" for="action_type_force_y">' 'Activate and set to
+#: Y', value="force_r" id="action_type_force_r" for="action_type_force_r">'
+#: R',
+msgctxt "43153ef54bb57cf59a96e322276cd03f"
+msgid "Activate and set to Y"
+msgstr "הפעלה והגדרה ל Y"
+
+#: <input type="radio" name="sra" value="delete" id="action_type_delete" />
+#: <label for="action_type_delete">' . __( 'Delete', 'subscribe-reloaded' )
+#: '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="suspend" id="action_type_suspend"
+#: checked="checked" for="action_type_suspend">' 'Suspend', value="force_r"
+#: id="action_type_force_y" for="action_type_force_y">' 'Replies to my
+#: comments',
+msgctxt "fe78f54cc3e484db0176ada656bdfef4"
+msgid "Suspend"
+msgstr "השעה"
+
+#: echo '<p>' . __( 'Action:', 'subscribe-reloaded' ) ' <input type="radio"
+#: name="sra" value="delete" id="action_type_delete" /> <label
+#: for="action_type_delete">' 'Delete forever', '</label>
+#: &nbsp;&nbsp;&nbsp;&nbsp; value="suspend" id="action_type_suspend"
+#: checked="checked" for="action_type_suspend">' 'Suspend',
+msgctxt "791b6ea1ec0bd47b26d60caf1dee4fcf"
+msgid "Delete forever"
+msgstr "למחוק לצמיתות"
+
+#: echo '<a class="subscribe-reloaded-small-button" href="#"
+#: onclick="t=document.forms[\'post_list_form\'].elements[\'post_list[]\'];c=t.length;if(!c){t.checked=!t.checked}else{for(var
+#: i=0;i<c;i++){t[i].checked=false}};return false;">' . __( 'Invert
+#: selection', 'subscribe-reloaded' ) '</a></p>'; '<p
+#: id="subscribe-reloaded-action-p">' 'Action:', ' <input type="radio"
+#: name="sra" value="delete" id="action_type_delete" /> <label
+#: for="action_type_delete">' 'Delete', '</label> &nbsp;&nbsp;&nbsp;&nbsp;
+msgctxt "2edeac0114fb1bf2dadfb25293ef453f"
+msgid "Action:"
+msgstr "פעולה:"
+
+#: echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:',
+#: 'subscribe-reloaded' ) ' <input type="radio" name="sra" value="delete"
+#: id="action_type_delete" /> <label for="action_type_delete">' 'Delete',
+#: '</label> &nbsp;&nbsp;&nbsp;&nbsp; value="suspend" id="action_type_suspend"
+#: checked="checked" for="action_type_suspend">' 'Suspend',
+msgctxt "4d0584684ccdac2521618ba1e095f2f3"
+msgid "Delete"
+msgstr "מחק"
+
+#: <input class='checkbox' type='checkbox' name='subscriptions_list[]'
+#: value='$a_subscription->post_id," . urlencode( $a_subscription->email ) "'
+#: id='sub_{$a_subscription->meta_id}' /> <a class='subscribe-column'
+#: href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;sra=edit-subscription&amp;srp="
+#: $a_subscription->post_id "&amp;sre=" "'><img src='" WP_PLUGIN_URL
+#: "/subscribe-to-comments-reloaded/images/edit.png' alt='" __( 'Edit',
+#: 'subscribe-reloaded' width='16' height='16' /></a>
+#: href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;sra=delete-subscription&amp;srp="
+#: onclick='return confirm(\"" 'Please remember: this operation cannot be
+#: undone. Are you sure want to proceed?', "\");'><img
+#: "/subscribe-to-comments-reloaded/images/delete.png' 'Delete',
+msgctxt "4f32ee5868f87be168a7ddc548601a8b"
+msgid "Edit"
+msgstr "ערוך"
+
+#: echo "<li$alternate> <label for='sub_{$a_subscription->meta_id}'
+#: class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) "
+#: {$a_subscription->meta_id}</label> <input class='checkbox' type='checkbox'
+#: name='subscriptions_list[]' value='$a_subscription->post_id," urlencode(
+#: $a_subscription->email "' id='sub_{$a_subscription->meta_id}' />
+msgctxt "bffc8cc114b3d0499969f87d0446446b"
+msgid "Subscription"
+msgstr "הרשמה"
+
+#: $show_email_column <span class='subscribe-column subscribe-column-3'>" .
+#: __( 'Date and Time', 'subscribe-reloaded' ) " &nbsp;&nbsp;$order_dt</span>
+#: subscribe-column-4'>" 'Status', &nbsp;&nbsp;$order_status</span></li>\n";
+msgctxt "a9a8a45a360e372f7574e148031085c2"
+msgid "Date and Time"
+msgstr "תאריך ושעה"
+
+#: echo '<p id="subscribe-reloaded-email-p">' . __( 'Email',
+#: 'subscribe-reloaded' ) ': <strong>' $email '</strong></p>';
+#: id="subscribe-reloaded-legend-p">' 'Legend: Y = all comments, R replies
+#: only, C inactive', '</p>'; '<ul id="subscribe-reloaded-list">';
+msgctxt "d7d22142df5ce4a7d8ba37701ebd95f0"
+msgid "Legend: Y = all comments, R = replies only, C = inactive"
+msgstr "מקרא: Y = כל ההערות, R = תגובות בלבד, C = לא פעיל"
+
+#: echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) "
+#: <code>$search_field $operator <strong>$search_value</strong> ORDER BY
+#: $order_by $order</code>. 'Rows:', ' ( $offset + 1 - $ending_to 'of',
+#: $count_total</p>"; 'Legend: Y = all comments, R replies only, C inactive',
+#: '</p>';
+msgctxt "50cfb3f4ee60c524816a73f5b2b11fb3"
+msgid "of"
+msgstr "של"
+
+#: echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) "
+#: <code>$search_field $operator <strong>$search_value</strong> ORDER BY
+#: $order_by $order</code>. 'Rows:', ' ( $offset + 1 - $ending_to 'of',
+#: $count_total</p>"; 'Legend: Y = all comments, R replies only, C inactive',
+#: '</p>';
+msgctxt "4a2773ef04e22a9a2b749ac302f8b205"
+msgid "Rows:"
+msgstr "שורות:"
+
+#: echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) "
+#: <code>$search_field $operator <strong>$search_value</strong> ORDER BY
+#: $order_by $order</code>. 'Rows:', ' ( $offset + 1 - $ending_to 'of',
+#: $count_total</p>"; 'Legend: Y = all comments, R replies only, C inactive',
+#: '</p>';
+msgctxt "8d6bc6cc8db620e39f37d18c4f4c29c1"
+msgid "Search query:"
+msgstr "שאילתת חיפוש"
+
+#: <p class="liquid"><?php _e( 'Email', 'subscribe-reloaded' ) ?> <input
+#: type='text' size='30' name='sre' value='' /></p>
+msgctxt "f79896b40370dc0693932026b2503b60"
+msgid "Email"
+msgstr "אימייל"
+
+#: $show_post_column = ( $operator != 'equals' || $search_field 'post_id' ) ?
+#: "<span class='subscribe-column subscribe-column-1'>" . __( 'Post (ID)',
+#: 'subscribe-reloaded' "&nbsp;&nbsp;$order_post_id</span>" : '';
+#: $show_email_column 'email' subscribe-column-2'>" 'Email', "</span>"
+msgctxt "06070a05c68cdcbb76c5faf7280db8e4"
+msgid "Post (ID)"
+msgstr "מזהה פוסט"
+
+#: $order_dt = "<a style='text-decoration:none' title='" . __( 'Reverse the
+#: order by Date/Time', 'subscribe-reloaded' ) "'
+#: href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv="
+#: urlencode( $search_value "&amp;srt=" $operator "&amp;srob=dt&amp;sro=" (
+#: $order == 'ASC' ? "DESC'>&or;" : "ASC'>&and;" "</a>"; $order_status
+#: "&amp;srob=status&amp;sro="
+msgctxt "a8a3d6067832eb3099e42c58714a1daa"
+msgid "Reverse the order by Date/Time"
+msgstr "הפוך את הסדר לפי תאריך/שעה"
+
+#: if ( ! empty( $subscriptions ) && is_array( { $order_post_id = "<a
+#: style='text-decoration:none' title='" . __( 'Reverse the order by Post ID',
+#: 'subscribe-reloaded' "'
+#: href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv="
+#: urlencode( $search_value "&amp;srt=" $operator "&amp;srob=post_id&amp;sro="
+#: $order == 'ASC' ? "DESC'>&or;" : "ASC'>&and;" "</a>"; $order_dt Date/Time',
+#: "&amp;srob=dt&amp;sro="
+msgctxt "5b9332effcf7d0581df69d47e899ede5"
+msgid "Reverse the order by Post ID"
+msgstr "הפוך את הסדר הנוכחי לפי מזהה פוסט"
+
+#: <p><?php printf( __( 'You can either <a href="%s">view all the
+#: subscriptions</a> or find those where the', 'subscribe-reloaded' ),
+#: 'options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv=@&amp;srt=contains'
+msgctxt "2ceeb84a3bbd4b371122105b032f9f2e"
+msgid ""
+"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
+"where the"
+msgstr "אפשר <a href=\"%s\">להציג את כל ההרשמות שלך</a> או למצוא את אלו ש"
+
+#: </select> <input type='submit' class='subscribe-form-button' value='<?php
+#: _e( 'Update', 'subscribe-reloaded' ) ?>' /> </p>
+msgctxt "8454c1523b65867f7c51aae116ad5210"
+msgid "Update"
+msgstr "עדכן"
+
+#: <option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' )
+#: ?></option> value='C'><?php 'Suspended', </select>
+msgctxt "f8a8d615d92571766b968932187a44da"
+msgid "Suspended"
+msgstr "מושעה"
+
+#: <option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
+#: value='R'><?php 'Replies only', value='YC'><?php 'Ask user to confirm',
+msgctxt "cfc441893b37c14b695d6949522cd703"
+msgid "Replies only"
+msgstr "תגובות בלבד"
+
+#: <select name="srs"> <option value='Y'><?php _e( 'Active',
+#: 'subscribe-reloaded' ) ?></option> value='R'><?php 'Replies only',
+msgctxt "78ce397f0b46d2f3a7287dd47af0a25a"
+msgid "Active"
+msgstr "פעיל"
+
+#: <select name="srs" id="srs"> <option value=''><?php _e( 'Keep unchanged',
+#: 'subscribe-reloaded' ) ?></option> value='Y'><?php 'Active',
+msgctxt "0d7418e22de8d03ce2554f40f2ce50fd"
+msgid "Keep unchanged"
+msgstr "השאר ללא שינוי"
+
+#: <p class="liquid"><?php _e( 'Status', 'subscribe-reloaded' ) ?> <select
+#: name="srs">
+msgctxt "ae87cd56d11102266d03494f2a53b616"
+msgid "Status"
+msgstr "מצב"
+
+#: <p class="liquid"><label for='sre'><?php _e( 'To', 'subscribe-reloaded' )
+#: ?></label> <input type='text' size='30' name='sre' id='sre' value='<?php
+#: 'optional', ?>' style="color:#ccc"
+msgctxt "e36a52d3e3d92cc69aa0224297a0296b"
+msgid "To"
+msgstr "אל"
+
+#: <fieldset style="border:0"> <p class="liquid"><label for='oldsre'><?php _e(
+#: 'From', 'subscribe-reloaded' ) ?></label> <input type='text' size='30'
+#: name='oldsre' id='oldsre' value='' /></p>
+msgctxt "ffa8ba1f9b94a2356746f830a7619ed5"
+msgid "From"
+msgstr "מאת"
+
+#: <fieldset style="border:0"> <p><?php _e( 'Post:', 'subscribe-reloaded' );
+#: echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) "
+#: ({$_GET['srp']})"; ?></strong></p>
+msgctxt "b0349c10929ec906b7c1d21749a5559f"
+msgid "Post:"
+msgstr "פוסט:"
+
+#: <form action="<?php echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ?>"
+#: method="post" id="email_list_form" name="email_list_form"
+#: onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please
+#: remember: this operation cannot be undone. Are you sure want to proceed?',
+#: 'subscribe-reloaded' ?>')"> <fieldset style="border:0">
+msgctxt "a193b3d74426d02479443915b64213a1"
+msgid ""
+"Please remember: this operation cannot be undone. Are you sure you want to "
+"proceed?"
+msgstr "נא לזכור: פעולה זו אינה הפיכה. בטוח שרוצה להמשיך?"
+
+#: <p class="liquid"><label for='sre'><?php _e( 'To', 'subscribe-reloaded' )
+#: ?></label> <input type='text' size='30' name='sre' id='sre' value='<?php
+#: 'optional', ?>' style="color:#ccc" onfocus='if (this.value == "<?php ?>")
+#: this.value="";this.style.color="#000"'
+msgctxt "a7dc21e4fd52e2cfa0651c160b4a1ef4"
+msgid "optional"
+msgstr "רשות"
+
+#: <div class="postbox"> <h3><?php _e( 'Update Subscription',
+#: 'subscribe-reloaded' ) ?></h3>
+msgctxt "d00e8649c79ed64a520ad9fd18ca5e45"
+msgid "Update Subscription"
+msgstr "עדכון ההרשמה"
+
+#: $new_starting = $offset + $limit_results; $next_link "<a
+#: href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srf=$search_field&amp;srt="
+#: . urlencode( $operator )
+#: "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>"
+#: __( 'Next &raquo;', 'subscribe-reloaded' "</a> "; }
+msgctxt "332271aa984cb91c7531e313d9058d77"
+msgid "Next »"
+msgstr "הבא »"
+
+#: $new_starting = ( $offset > $limit_results ) ? - : 0; $previous_link "<a
+#: href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srf=$search_field&amp;srt="
+#: . urlencode( $operator
+#: "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>"
+#: __( '&laquo; Previous', 'subscribe-reloaded' "</a> "; }
+msgctxt "ae752f636b28a1075b32898315fca566"
+msgid "« Previous"
+msgstr "« הקודם"
+
+#: $rows_affected = $wp_subscribe_reloaded->update_subscription_status(
+#: $post_list, $email, 'R' ); echo '<p class="updated">' . __( 'Subscriptions
+#: updated:', 'subscribe-reloaded' ) " $rows_affected</p>"; break;
+msgctxt "78faaf610e03702c975909426594c7aa"
+msgid "Subscriptions updated:"
+msgstr "ההרשמה עודכנה:"
+
+#: $rows_affected = $wp_subscribe_reloaded->update_subscription_status(
+#: $post_list, $email, '-C' ); echo '<p class="updated">' . __( 'Subscriptions
+#: activated:', 'subscribe-reloaded' ) " $rows_affected</p>"; break;
+msgctxt "3c8c5fd84e6f983cb891da279f36c1c0"
+msgid "Subscriptions activated:"
+msgstr "הרשמות שהופעלו:"
+
+#: $rows_affected = $wp_subscribe_reloaded->update_subscription_status(
+#: $post_list, $email, 'C' ); echo '<p class="updated">' . __( 'Subscriptions
+#: suspended:', 'subscribe-reloaded' ) " $rows_affected</p>"; break;
+msgctxt "43e240bf91802139a5ca5dc35cef262a"
+msgid "Subscriptions suspended:"
+msgstr "הרשמות שהושעו:"
+
+#: $rows_affected = $wp_subscribe_reloaded->delete_subscriptions( $post_list,
+#: $email ); echo '<p class="updated">' . __( 'Subscriptions deleted:',
+#: 'subscribe-reloaded' ) " $rows_affected</p>"; break;
+msgctxt "c0712d3e6af825e2fc420114f94db60d"
+msgid "Subscriptions deleted:"
+msgstr "הרשמות שנמחקו:"
+
+#: echo '<div class="updated"><p>' . __( 'Subscription deleted.',
+#: 'subscribe-reloaded' ) '</p></div>'; break;
+msgctxt "a711e042d362abce0baf839baf453687"
+msgid "Subscription deleted."
+msgstr "ההרשמה נמחקה."
+
+#: echo '<div class="updated"><p>' . __( 'Subscriptions updated.',
+#: 'subscribe-reloaded' ) '</p></div>'; break;
+msgctxt "8a14fcecb540f91a447843428adc6d0b"
+msgid "Subscriptions updated."
+msgstr "ההרשמה עודכנה."
+
+#: echo '<div class="updated"><p>' . __( 'Subscription added.',
+#: 'subscribe-reloaded' ) '</p></div>'; break;
+msgctxt "304a546add2bc5b0fd7d4b91fa51cb56"
+msgid "Subscription added."
+msgstr "ההרשמה נוספה."
+
+#: __( 'Options', 'subscribe-reloaded' ), 'You can help', ) );
+msgctxt "656bb596c6b2ee34f63f815efe2150a7"
+msgid "You can help"
+msgstr "אפשר לעזור"
+
+#: <form
+#: action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php
+#: echo $current_panel ?>" method="post"> <h3><?php _e( 'Options',
+#: 'subscribe-reloaded' ) ?></h3> <table class="form-table <?php
+#: $wp_locale->text_direction ?>">
+msgctxt "19c357a60bd967e4080dae03ad157749"
+msgid "Options"
+msgstr "אפשרויות"
+
+#: __( 'Management Page', 'subscribe-reloaded' ), 'Notifications', 'Options',
+msgctxt "361e8f492824392c7f75cba61f24475b"
+msgid "Notifications"
+msgstr "הודעות"
+
+#: __( 'Comment Form', 'subscribe-reloaded' ), 'Management Page',
+#: 'Notifications',
+msgctxt "0db76b3139a71b8bf15e3927048c0a5f"
+msgid "Management Page"
+msgstr "עמוד הניהול"
+
+#: __( 'Manage subscriptions', 'subscribe-reloaded' ), 'Comment Form',
+#: 'Management Page',
+msgctxt "945f1bffe67a8f629ac7c96aeb5151f4"
+msgid "Comment Form"
+msgstr "טופס תגובה"
+
+#: add_option( 'subscribe_reloaded_virtual_manager_page_enabled', 'yes', '',
+#: 'no' ); 'subscribe_reloaded_manager_page_title', __( 'Manage
+#: subscriptions', 'subscribe-reloaded' ),
+#: 'subscribe_reloaded_custom_header_meta', "<meta name='robots'
+#: content='noindex,nofollow'>",
+msgctxt "b699af060e59bad96d433f9ce8a11700"
+msgid "Manage subscriptions"
+msgstr "Manage subscriptions"

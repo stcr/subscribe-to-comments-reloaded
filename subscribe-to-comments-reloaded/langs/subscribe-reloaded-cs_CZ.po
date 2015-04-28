@@ -1,0 +1,1203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: subscribe-reloaded\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-25 16:01-0500\n"
+"PO-Revision-Date: 2015-04-22 10:34-0700\n"
+"Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: subscribe-to-comments-reloaded.php:41
+#: subscribe-to-comments-reloaded.php:248
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"Vaše žádost k odběru upozornění na nové komentáře čeká na schválení. <a "
+"href='[manager_link]'>Upravit vaše žádosti</a>."
+
+#: subscribe-to-comments-reloaded.php:46
+#: subscribe-to-comments-reloaded.php:247
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"Jste přihlášen k odběru upozornění na nové komentáře k tomuto článku. Můžete "
+"<a href='[manager_link]'>upravit</a> vaše odběry."
+
+#: subscribe-to-comments-reloaded.php:53
+#: subscribe-to-comments-reloaded.php:249
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr ""
+"<a href='[manager_link]'>Zde můžete spravovat</a> odběry upozornění na nové "
+"komentáře k tomuto článku."
+
+#: subscribe-to-comments-reloaded.php:58
+#: subscribe-to-comments-reloaded.php:244
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"<span class='comment_label_afterselect'> upozornění na nové komentáře k "
+"tomuto článku.</span> <span class='comment_label_nocom'> Chcete dostávat "
+"upozornění na nové komentáře a sami článek nekomentovat? <a "
+"href='[subscribe_link]'>Přihlaste se k odběru</a>.</span>"
+
+#: subscribe-to-comments-reloaded.php:67
+msgid "Don't subscribe"
+msgstr "Neodebírat"
+
+#: subscribe-to-comments-reloaded.php:68
+msgid "All"
+msgstr "Odebírat (na všechny komentáře)"
+
+#: subscribe-to-comments-reloaded.php:69 templates/user.php:65
+msgid "Replies to my comments"
+msgstr "Odebírat (jen na moje komentáře)"
+
+#: subscribe-to-comments-reloaded.php:70
+msgid "Daily digest"
+msgstr "Denní přehled"
+
+#: subscribe-to-comments-reloaded.php:221 options/index.php:41
+msgid "Manage subscriptions"
+msgstr "Správa odběrů"
+
+#: subscribe-to-comments-reloaded.php:222
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"Pro správu vašich upozornění zadejte e-mailovou adresu do pole níže. Bude "
+"vám zaslán editační odkaz."
+
+#: subscribe-to-comments-reloaded.php:223
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"Váš požadavek byl zpracován. V nejbližší době by jste měli obdržet odkaz v "
+"emailu."
+
+#: subscribe-to-comments-reloaded.php:224
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"Zasílat upozornění na nové komentáře k článku » [post_title] « .\n"
+" E-mailovou adresu vyplňte do pole níže. Bude vám zaslán potvrzovací odkaz. "
+
+#: subscribe-to-comments-reloaded.php:225
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"Váš požadavek byl zpracován. Váš odběr upozornění na nové komentáře k tomuto "
+"článku je aktivní."
+
+#: subscribe-to-comments-reloaded.php:226
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"Váš požadavek byl zpracován.  Pro potvrzení požadavku naleznete ve vašem "
+"emailu potvrzovací odkaz."
+
+#: subscribe-to-comments-reloaded.php:227
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"Pro editaci upozornění vyberte odpovídající odběr, zaškrtněte volbu a "
+"potvrďte."
+
+#: subscribe-to-comments-reloaded.php:228
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"Aktuálně odebíráte upozornění na nové komentáře k těmto článkům (pokud je "
+"chcete změnit či zrušit zaškrtněte volbu a klikntěte na tlačítko "
+"aktualizovat, pokud změnu nechcete pokračujte třeba přes menu):"
+
+#: subscribe-to-comments-reloaded.php:242
+msgid "There is a new comment to [post_title]"
+msgstr "Nový komentář k článku: [post_title]"
+
+#: subscribe-to-comments-reloaded.php:243
+msgid ""
+"There is a new comment to [post_title].\n"
+"Comment Link: [comment_permalink]\n"
+"Author: [comment_author]\n"
+"Comment:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Manage your subscriptions: [manager_link]"
+msgstr ""
+"Nový komentář k článku: [post_title].\n"
+"Odkaz na komentář: [comment_permalink]\n"
+"Autor: [comment_author]\n"
+"Znění komentáře:\n"
+"[comment_content]\n"
+"Odkaz na článek: [post_permalink]\n"
+"Upravit odběry upozornění: [manager_link]\n"
+"\t\t\t\t\t"
+
+#: subscribe-to-comments-reloaded.php:250
+msgid "Please confirm your subscription to [post_title]"
+msgstr "Potvrďte odběr upozornění na nové komentáře k článku [post_title]"
+
+#: subscribe-to-comments-reloaded.php:251
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"[post_permalink]\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"[confirm_link]"
+msgstr ""
+"Dobrý den, přihlásili jste se k odběru upozornění na nové komentáře k "
+"článku: \n"
+" [post_permalink] .\n"
+"\n"
+"Požadavek potvrďte prosím kliknutím na odkaz:\n"
+"[confirm_link] "
+
+#: subscribe-to-comments-reloaded.php:252
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "Upravit odběr upozornění na nové komentáře z [blog_name]"
+
+#: subscribe-to-comments-reloaded.php:253
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
+"[manager_link]"
+msgstr ""
+"Váš požadavek spravovat odběr upozornění na nové komentáře článků na "
+"[blog_name] byl zpracován. Klikněte prosím zde pro úpravy:\n"
+" [manager_link]"
+
+#: subscribe-to-comments-reloaded.php:986
+msgid "Subscribed"
+msgstr "Odebíráno"
+
+#: subscribe-to-comments-reloaded.php:1000 options/panel2.php:41
+#: options/panel2.php:48 options/panel2.php:55 options/panel5.php:42
+#: options/panel5.php:49 options/panel5.php:56 options/panel5.php:63
+#: options/panel5.php:70 options/panel5.php:77
+msgid "Yes"
+msgstr "Ano"
+
+#: subscribe-to-comments-reloaded.php:1002
+msgid "Replies"
+msgstr "Reakce"
+
+#: subscribe-to-comments-reloaded.php:1004
+msgid "Digest"
+msgstr "Přehled"
+
+#: subscribe-to-comments-reloaded.php:1006
+msgid "Pending"
+msgstr "Čekající"
+
+#: subscribe-to-comments-reloaded.php:1007 options/panel2.php:42
+#: options/panel2.php:49 options/panel2.php:56 options/panel5.php:43
+#: options/panel5.php:50 options/panel5.php:57 options/panel5.php:64
+#: options/panel5.php:71 options/panel5.php:78
+msgid "No"
+msgstr "Ne"
+
+#: subscribe-to-comments-reloaded.php:1016
+msgid "Subscriptions"
+msgstr "Odběry "
+
+#: subscribe-to-comments-reloaded.php:1039
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr "Potřebujete pomoci? Navštivte oficiální"
+
+#: subscribe-to-comments-reloaded.php:1039
+msgid "support forum"
+msgstr "fórum podpory"
+
+#: subscribe-to-comments-reloaded.php:1040
+msgid "Feeling generous?"
+msgstr "Chcete být štědrý?"
+
+#: subscribe-to-comments-reloaded.php:1040
+msgid "Donate a few bucks!"
+msgstr "Přispět několika chechtáky!"
+
+#: options/index.php:42
+msgid "Comment Form"
+msgstr "Formulář komentářů"
+
+#: options/index.php:43
+msgid "Management Page"
+msgstr "Nastavení"
+
+#: options/index.php:44
+msgid "Notifications"
+msgstr "Oznámení"
+
+#: options/index.php:45 options/panel2.php:35 options/panel3.php:39
+#: options/panel4.php:34
+msgid "Options"
+msgstr "Možnosti"
+
+#: options/index.php:46
+msgid "You can help"
+msgstr "Jak nám pomoci?"
+
+#: options/panel1-business-logic.php:18
+msgid "Subscription added."
+msgstr "Odběr přidán."
+
+#: options/panel1-business-logic.php:30
+msgid "Subscriptions updated."
+msgstr "Odběry aktualizovány."
+
+#: options/panel1-business-logic.php:39
+msgid "Subscription deleted."
+msgstr "Odběr vymazán."
+
+#: options/panel1-business-logic.php:54 templates/author.php:22
+#: templates/user.php:22
+msgid "Subscriptions deleted:"
+msgstr "Vymazáno odběrů:"
+
+#: options/panel1-business-logic.php:58 templates/author.php:26
+#: templates/user.php:26
+msgid "Subscriptions suspended:"
+msgstr "Odběry pozastaveny."
+
+#: options/panel1-business-logic.php:62 templates/author.php:30
+#: templates/user.php:30
+msgid "Subscriptions activated:"
+msgstr "Odběry aktivovány."
+
+#: options/panel1-business-logic.php:66 options/panel1-business-logic.php:70
+#: templates/author.php:34 templates/author.php:38 templates/user.php:34
+msgid "Subscriptions updated:"
+msgstr "Odběry aktualizovány."
+
+#: options/panel1-business-logic.php:94
+msgid "&laquo; Previous"
+msgstr "&laquo; Předchozí"
+
+#: options/panel1-business-logic.php:98
+msgid "Next &raquo;"
+msgstr "další &raquo;"
+
+#: options/panel1-edit-subscription.php:8
+msgid "Update Subscription"
+msgstr "Aktualizovat odběry."
+
+#: options/panel1-edit-subscription.php:10 options/panel1.php:19
+#: options/panel1.php:81 options/panel1.php:113 templates/author.php:50
+#: templates/user.php:46
+msgid ""
+"Please remember: this operation cannot be undone. Are you sure you want to "
+"proceed?"
+msgstr "Tuto akci nelze vzít zpět, provést?"
+
+#: options/panel1-edit-subscription.php:12
+msgid "Post:"
+msgstr "Příspěvek:"
+
+#: options/panel1-edit-subscription.php:13 options/panel1.php:21
+msgid "From"
+msgstr "Od"
+
+#: options/panel1-edit-subscription.php:14 options/panel1.php:22
+msgid "To"
+msgstr "Komu"
+
+#: options/panel1-edit-subscription.php:15 options/panel1.php:26
+#: options/panel1.php:45 options/panel1.php:103
+msgid "Status"
+msgstr "Status"
+
+#: options/panel1-edit-subscription.php:17 options/panel1.php:28
+msgid "Keep unchanged"
+msgstr "Neměnit"
+
+#: options/panel1-edit-subscription.php:18 options/panel1.php:29
+#: options/panel1.php:47
+msgid "Active"
+msgstr "Aktivní"
+
+#: options/panel1-edit-subscription.php:19 options/panel1.php:30
+#: options/panel1.php:48
+msgid "Replies only"
+msgstr "Pouze reakce"
+
+#: options/panel1-edit-subscription.php:20 options/panel1.php:31
+msgid "Suspended"
+msgstr "Pozastaveno"
+
+#: options/panel1-edit-subscription.php:21 options/panel1.php:32
+msgid "Update"
+msgstr "Aktualizovat "
+
+#: options/panel1.php:17
+msgid "Mass Update Subscriptions"
+msgstr "Hromadné úpravy"
+
+#: options/panel1.php:23 options/panel1.php:24 options/panel1.php:25
+msgid "optional"
+msgstr "volitelné"
+
+#: options/panel1.php:39
+msgid "Add New Subscription"
+msgstr "Přidat nový odběr (podle ID článku)"
+
+#: options/panel1.php:43
+msgid "Post ID"
+msgstr "Příspěvek"
+
+#: options/panel1.php:44 options/panel1.php:90
+#: templates/request-management-link.php:65 templates/subscribe.php:87
+#: templates/user.php:51
+msgid "Email"
+msgstr "E-mail"
+
+#: options/panel1.php:49
+msgid "Ask user to confirm"
+msgstr "Zeptat se uživatele na pozvrzení"
+
+#: options/panel1.php:50
+msgid "Add"
+msgstr "Přidat "
+
+#: options/panel1.php:59
+msgid "Search subscriptions"
+msgstr "Hledat odběry"
+
+#: options/panel1.php:61
+#, php-format
+msgid ""
+"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
+"where the"
+msgstr ""
+"Můžete zobrazit <a href=\"%s\">přehled všech odběrů</a> nebo najít podle"
+
+#: options/panel1.php:64
+msgid "email"
+msgstr "Email"
+
+#: options/panel1.php:65
+msgid "post ID"
+msgstr "Příspěvek"
+
+#: options/panel1.php:66
+msgid "status"
+msgstr "status"
+
+#: options/panel1.php:69
+msgid "equals"
+msgstr "rovnající se"
+
+#: options/panel1.php:70
+msgid "contains"
+msgstr "obsahuje"
+
+#: options/panel1.php:71
+msgid "does not contain"
+msgstr "neobsahuje"
+
+#: options/panel1.php:72
+msgid "starts with"
+msgstr "začíná na"
+
+#: options/panel1.php:73
+msgid "ends with"
+msgstr "končí na"
+
+#: options/panel1.php:76
+msgid "results per page:"
+msgstr "výsledků na stránku"
+
+#: options/panel1.php:77
+msgid "Search"
+msgstr "Hledat"
+
+#: options/panel1.php:85
+msgid "Reverse the order by Post ID"
+msgstr "Obrátit pořadí dle ID příspěvku"
+
+#: options/panel1.php:86 options/panel1.php:87
+msgid "Reverse the order by Date/Time"
+msgstr "Obrátit pořadí dle data"
+
+#: options/panel1.php:89
+msgid "Post (ID)"
+msgstr "Post ID"
+
+#: options/panel1.php:92
+msgid "Search query:"
+msgstr "vyhledávací řetězec"
+
+#: options/panel1.php:92
+msgid "Rows:"
+msgstr "Řádky:"
+
+#: options/panel1.php:92
+msgid "of"
+msgstr "z"
+
+#: options/panel1.php:93 templates/author.php:56 templates/user.php:52
+msgid "Legend: Y = all comments, R = replies only, C = inactive"
+msgstr ""
+"Legenda: Y = odebírat vše, R = odebírat pouze vlastní komentáře, C = "
+"neaktivní"
+
+#: options/panel1.php:102
+msgid "Date and Time"
+msgstr "Datum a čas"
+
+#: options/panel1.php:112
+msgid "Edit"
+msgstr "Editovat"
+
+#: options/panel1.php:113 templates/author.php:69 templates/user.php:63
+msgid "Delete"
+msgstr "Vymazat"
+
+#: options/panel1.php:121 templates/author.php:68 templates/user.php:62
+msgid "Action:"
+msgstr "Akce:"
+
+#: options/panel1.php:122
+msgid "Delete forever"
+msgstr "Vymazat navždy"
+
+#: options/panel1.php:123 templates/author.php:70 templates/user.php:64
+msgid "Suspend"
+msgstr "Pozastavit"
+
+#: options/panel1.php:124
+msgid "Activate and set to Y"
+msgstr "Nastavit a aktivovat na Y"
+
+#: options/panel1.php:125
+msgid "Activate and set to R"
+msgstr "Nastavit a aktivovat na R"
+
+#: options/panel1.php:126 templates/author.php:72 templates/user.php:66
+msgid "Activate"
+msgstr "Aktivovat"
+
+#: options/panel1.php:127 templates/author.php:73 templates/user.php:67
+msgid "Update subscriptions"
+msgstr "Aktualizovat odběry"
+
+#: options/panel1.php:131
+msgid "Sorry, no subscriptions match your search criteria."
+msgstr "Nenalezeny žádné odběry."
+
+#: options/panel2.php:11 options/panel2.php:39
+msgid "Enable default checkbox"
+msgstr "Povolit výchozí umístění volby odběru (checkbox nebo roletka)"
+
+#: options/panel2.php:12 options/panel2.php:46
+msgid "Checked by default"
+msgstr "Checkbox zaškrtnut ve výchozím stavu"
+
+#: options/panel2.php:13 options/panel2.php:53
+msgid "Advanced subscription"
+msgstr "Rozšířené odběry"
+
+#: options/panel2.php:14 options/panel2.php:60
+msgid "Custom inline style"
+msgstr "Změna css checkboxu"
+
+#: options/panel2.php:15 options/panel2.php:65
+msgid "Custom HTML"
+msgstr "Upravené HTML"
+
+#: options/panel2.php:17
+msgid "Checkbox label"
+msgstr "Popisek checkboxu"
+
+#: options/panel2.php:18 options/panel2.php:81
+msgid "Subscribed label"
+msgstr "Popisek checkboxu (odběratel)"
+
+#: options/panel2.php:19
+msgid "Awaiting label"
+msgstr "Popisek checkboxu (čekající)"
+
+#: options/panel2.php:20 options/panel2.php:91
+msgid "Author label"
+msgstr "Popisek checkboxu (autor)"
+
+#: options/panel2.php:25 options/panel3.php:26 options/panel4.php:23
+#: options/panel5.php:22
+msgid "Your settings have been successfully updated."
+msgstr "Vaše nastavení bylo úspěšně aktualizováno."
+
+#: options/panel2.php:28 options/panel3.php:29 options/panel4.php:26
+#: options/panel5.php:25
+msgid "There was an error updating the following fields:"
+msgstr "Chyba při aktualizaci těchto polí:"
+
+#: options/panel2.php:43
+msgid ""
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
+msgstr ""
+"Vypněte tuto volbu, pokud chcete zaškrtávací políčko (checkbox, roletku) "
+"volby odběrů umístit na jiné místo na stránkách.\n"
+"<br/>( jak to udělat naleznete zde: https://wordpress.org/plugins/subscribe-"
+"to-comments-reloaded/faq )"
+
+#: options/panel2.php:50
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr "Volba zda má být checkbox ve výchozím stavu žaškrtnut či nikoli."
+
+#: options/panel2.php:57
+msgid ""
+"Allow users to choose from different subscription types (all, replies only)."
+msgstr ""
+"Pokud zaškrtnete ANO, uživatelé uvidí roletku, kde si mohou vybrat zda "
+"odebírat všechna nebo jen upozornění na vlastní komentáře."
+
+#: options/panel2.php:62
+msgid "Custom inline CSS to add to the checkbox."
+msgstr "Uživatelský CSS inline styl který se přiřadí k checkboxu."
+
+#: options/panel2.php:67
+msgid ""
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
+msgstr ""
+"Můžete nadefinovat vlastní HTML kód který se použije pro checkbox. Povolené "
+"tagy: [checkbox_field], [checkbox_label]"
+
+#: options/panel2.php:72
+msgid "Messages for your visitors"
+msgstr "Popisky u roletky nebo checkboxu dle situace:"
+
+#: options/panel2.php:76
+msgid "Default label"
+msgstr "Popisek (výchozí)"
+
+#: options/panel2.php:78
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr "Popisek checkboxu. Povelené tagy: [subscribe_link]"
+
+#: options/panel2.php:83
+msgid ""
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
+msgstr ""
+"Popisek který vidí ti, jenž se již přihlásili k odběru. Povolené tagy: "
+"[manager_link]"
+
+#: options/panel2.php:86
+msgid "Pending label"
+msgstr "Popisek (čekající)"
+
+#: options/panel2.php:88
+msgid ""
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
+msgstr ""
+"Popisek vidí ti, co se již přihlásili ,ale ještě neklikli v emailu na "
+"potvrzení. Povolené tagy: [manager_link]"
+
+#: options/panel2.php:93
+msgid ""
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
+msgstr "Popisek vidí autoři a administrátoři. Povolené tagy: [manager_link]"
+
+#: options/panel2.php:97 options/panel3.php:145 options/panel4.php:103
+#: options/panel5.php:83
+msgid "Save Changes"
+msgstr "Uložit změny"
+
+#: options/panel3.php:10 options/panel3.php:43
+msgid "Virtual Management Page"
+msgstr "Virtuální stránka správy"
+
+#: options/panel3.php:11 options/panel3.php:51
+msgid "Page title"
+msgstr "Titulek stránky"
+
+#: options/panel3.php:12 options/panel3.php:56
+msgid "Management URL"
+msgstr "Správa URL"
+
+#: options/panel3.php:13 options/panel3.php:63
+msgid "Custom HEAD meta"
+msgstr "Uživatelské HEAD meta tagy"
+
+#: options/panel3.php:15 options/panel3.php:74
+msgid "Request link"
+msgstr "Požadavek na odkaz pro odběr"
+
+#: options/panel3.php:16 options/panel3.php:84
+msgid "Request submitted"
+msgstr "Požadavek odeslán"
+
+#: options/panel3.php:17 options/panel3.php:94
+msgid "Subscribe without commenting"
+msgstr "Odebírat bez komentování"
+
+#: options/panel3.php:18 options/panel3.php:104
+msgid "Subscription processed"
+msgstr "Odběr zpracován"
+
+#: options/panel3.php:19 options/panel3.php:114
+msgid "Subscription processed (DCI)"
+msgstr "Odběr zpracován (DCI)"
+
+#: options/panel3.php:20 options/panel3.php:124
+msgid "Authors"
+msgstr "Autoři"
+
+#: options/panel3.php:21 options/panel3.php:134
+msgid "Users"
+msgstr "Uživatelé"
+
+#: options/panel3.php:45
+msgid "Enabled"
+msgstr "Povoleno"
+
+#: options/panel3.php:46
+msgid "Disabled"
+msgstr "Zakázáno"
+
+#: options/panel3.php:47
+#, fuzzy
+msgid ""
+"Disable the virtual management page if you need to create a <a href=\"http://"
+"behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
+"theme happy."
+msgstr ""
+"Zakázat virtuální stránku pokud chcete vytvořit reálnou <a href=\"http://lab."
+"duechiacchiere.it/index.php?topic=71.0\">stránku</a> pro větší využitelnost "
+"vaší šablony."
+
+#: options/panel3.php:53
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr ""
+"Titulek stránky, kterou vaši odběratelé budou používat ke správě odběrů."
+
+#: options/panel3.php:58
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"Permalink k vaší virtuální stránce správy odběrů (například <code>/manage-"
+"subscriptions</code> nebo <code>/?page_id=345</code>). Tato stránka "
+"fyzicky(není vytvořena jako soubor) neexistuje v systému, avšak aby "
+"funguvala musí být podle pravidel struktury vašich permalinků."
+
+#: options/panel3.php:60
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
+msgstr ""
+"Varování: vypadá to že vámi zadaná hodnota není kompatibilní se strukturou "
+"vašich permalinků"
+
+#: options/panel3.php:65
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
+msgstr ""
+"Specifikujte HTML kód který se přidá do sekce HEAD stránky. Pro hodnoty "
+"použijte <strong>jednoduché</strong> uvozovky <code>'příklad'</code>."
+
+#: options/panel3.php:70 options/panel4.php:50
+msgid "Messages"
+msgstr "Zprávy"
+
+#: options/panel3.php:75 options/panel3.php:85 options/panel3.php:95
+#: options/panel3.php:105 options/panel3.php:115 options/panel3.php:125
+#: options/panel3.php:135 options/panel4.php:61 options/panel4.php:77
+#: options/panel4.php:93
+msgid "Bold"
+msgstr "Tučné"
+
+#: options/panel3.php:76 options/panel3.php:86 options/panel3.php:96
+#: options/panel3.php:106 options/panel3.php:116 options/panel3.php:126
+#: options/panel3.php:136 options/panel4.php:62 options/panel4.php:78
+#: options/panel4.php:94
+msgid "Italic"
+msgstr "Kurzíva"
+
+#: options/panel3.php:77 options/panel3.php:87 options/panel3.php:97
+#: options/panel3.php:107 options/panel3.php:117 options/panel3.php:127
+#: options/panel3.php:137 options/panel4.php:63 options/panel4.php:79
+#: options/panel4.php:95
+msgid "Link"
+msgstr "Odkaz"
+
+#: options/panel3.php:78 options/panel3.php:88 options/panel3.php:98
+#: options/panel3.php:108 options/panel3.php:118 options/panel3.php:128
+#: options/panel3.php:138 options/panel4.php:64 options/panel4.php:80
+#: options/panel4.php:96
+msgid "Image"
+msgstr "Obrázek"
+
+#: options/panel3.php:81
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr "Text co uvidí ti, kteří požádali o správu jejich odběrů."
+
+#: options/panel3.php:91
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Text zobrazený po zpracování výše uvedeného požadavku. Povolené tagy: "
+"[post_title], [post_permalink]"
+
+#: options/panel3.php:101
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"Text zobrazen těm, co chtějí odebírat upozornění bez komentování. Povolené "
+"tagy: [post_title], [post_permalink]"
+
+#: options/panel3.php:111
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Text zobrazen po zpracování požadavku na odběr (bez dvojí kontroly emailu). "
+"Povolené tagy: [post_title], [post_permalink]"
+
+#: options/panel3.php:121
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Text zobrazen po zpracování požadavku na odběr (s dvojí kontrolou emailu). "
+"Povolené tagy: [post_title], [post_permalink]"
+
+#: options/panel3.php:131
+msgid "Introductory text for the authors' management page."
+msgstr "Text pro stránku správy odběrů autorů."
+
+#: options/panel3.php:141
+msgid "Introductory text for the users' management page."
+msgstr "Text pro stránku správy odběrů uživatelů."
+
+#: options/panel4.php:11 options/panel4.php:38
+msgid "Sender name"
+msgstr "Jméno odesílatele"
+
+#: options/panel4.php:12 options/panel4.php:43
+msgid "Sender email address"
+msgstr "Email odesílatele"
+
+#: options/panel4.php:13 options/panel4.php:54
+msgid "Notification subject"
+msgstr "Předmět emailu upozornění"
+
+#: options/panel4.php:14 options/panel4.php:59
+msgid "Notification message"
+msgstr "Text emailu upozornění"
+
+#: options/panel4.php:15 options/panel4.php:70
+msgid "Double check subject"
+msgstr "Předmět emailu upozornění při dvojí kontrole emailu"
+
+#: options/panel4.php:16 options/panel4.php:75
+msgid "Double check message"
+msgstr "Text emailu upozornění při dvojí kontrole emailu"
+
+#: options/panel4.php:17 options/panel4.php:86
+msgid "Management subject"
+msgstr "Předmět emailu o odkazu na správu odběrů"
+
+#: options/panel4.php:18 options/panel4.php:91
+msgid "Management message"
+msgstr "Text emailu s odkazem na správu odběrů"
+
+#: options/panel4.php:40
+msgid ""
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
+msgstr ""
+"Jméno použité jako \"Od\" v emailu pro uživatele přihlášeného k odběru."
+
+#: options/panel4.php:45
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
+msgstr ""
+"Emailová adresa použitá jako \"Od\" v emailu pro uživatele přihlášeného k "
+"odběru."
+
+#: options/panel4.php:56
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr "Předmět emailu s upozorněním. Povolené tagy: [post_title]"
+
+#: options/panel4.php:67
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+msgstr ""
+"Obsah emailu s upozorněním. Povolené tagy: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+
+#: options/panel4.php:72
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr "Předmět potvrzujícího emailu. Povolené tagy: [post_title]"
+
+#: options/panel4.php:83
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"Obsah potvrzujícího emailu. Povolené tagy: [post_permalink], [confirm_link], "
+"[post_title], [manager_link]"
+
+#: options/panel4.php:88
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
+msgstr ""
+"Předmět emailu s odkazem na stránku správy odběrů. Povolené tagy: [blog_name]"
+
+#: options/panel4.php:99
+msgid ""
+"Content of the management email. Allowed tags: [blog_name], [manager_link]"
+msgstr ""
+"Obsah emailu s odkazem na stránku správy odběrů. Povolené tagy: [blog_name], "
+"[manager_link]"
+
+#: options/panel5.php:11 options/panel5.php:35
+msgid "Autopurge requests"
+msgstr "Autočištění požadavků"
+
+#: options/panel5.php:12 options/panel5.php:40
+msgid "Enable double check"
+msgstr "Povolit dvojí kontrolu emailu"
+
+#: options/panel5.php:13
+msgid "Notify authors"
+msgstr "Upozornit autory"
+
+#: options/panel5.php:14 options/panel5.php:54
+msgid "Enable HTML emails"
+msgstr "Povolit HTML formát emailů"
+
+#: options/panel5.php:15
+msgid "Send trackbacks"
+msgstr "Odeslat trackacky"
+
+#: options/panel5.php:16 options/panel5.php:47
+msgid "Notify admin"
+msgstr "Upozornit administrátora"
+
+#: options/panel5.php:17 options/panel5.php:75
+msgid "Let admin subscribe"
+msgstr "Povolit odběry pro  administrátora"
+
+#: options/panel5.php:36
+msgid "days"
+msgstr "dní"
+
+#: options/panel5.php:37
+msgid ""
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
+msgstr ""
+"Vymazat požadavky na odběry (neschválené) po X dnech. 0 znamená vypnuto. "
+
+#: options/panel5.php:44
+msgid ""
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
+msgstr ""
+"Zašle upozorňovací email pro potvrzení odběru aby se zamezilo zneužití adres."
+
+#: options/panel5.php:51
+msgid "Notify the administrator when a new comment is posted."
+msgstr "Upozorní administrátora na nový komentář."
+
+#: options/panel5.php:58
+msgid ""
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
+msgstr ""
+"Pokud je povoleno, budou emaily zasílány ve formátu <code>content-type = "
+"text/html</code> namísto <code>content-type = text/plain</code>"
+
+#: options/panel5.php:61
+msgid "Process trackbacks"
+msgstr "Zpracovat trackbacky"
+
+#: options/panel5.php:65
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
+msgstr ""
+"Upozornit odběratele pokud je do diskuse zapojen nový trackback nebo "
+"pingback."
+
+#: options/panel5.php:68
+msgid "Track all subscriptions"
+msgstr "Sledovat všechny odběry"
+
+#: options/panel5.php:72
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr ""
+"Upozornit administrátora pokud se uživatel přihlásí k odběrům a sám "
+"nekomentuje."
+
+#: options/panel5.php:79
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr "Povolit odběry pro administrátora pokud je přihlášen."
+
+#: options/panel6.php:8
+msgid "Support the author"
+msgstr "Podpořte autora"
+
+#: options/panel6.php:16
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? "
+"Subscribe to Comments Reloaded is and will always be free, but consider "
+"supporting the author if this plugin made your web site better, especially "
+"if you are making money out of it. Any donation received will be reinvested "
+"in the development of Subscribe to Comments Reloaded, and to buy some food "
+"for my hungry family."
+msgstr ""
+"Jak si ceníte tohoto pluginu? Plugin  Subscribe to Comments Reloaded je a "
+"bude vždy zadarmo avšak zvažte přispění pokud tento plugin váš web vylepšil, "
+"zvláště pak pokud je váš web výdělečný.Veškeré příspěvky budou reinvestovány "
+"do vývoje pluginu a jídla pro moji rodinu."
+
+#: options/panel6.php:18
+msgid "Don't want to donate? You can still help"
+msgstr "Nechcete zrovna přispět penězi? Stále můžete pomoci!"
+
+#: options/panel6.php:19
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
+"for using my plugin!"
+msgstr ""
+"Pokud nechcete přispět penězi, máte pořád možnost přispět tím, že budete o "
+"mém pluginu blogovat a odakážete na stránku pluginu. Rozšíříte tak povědomí "
+"o pluginu.Také můžete přispět i vaším časem: zašlete mi reporty o chybách, "
+"můžete také plugin přeložit a nebo také zaslat nápady na jeho vylepšení. Ať "
+"už uděláte cokoli děkuji za to že používáte můj plugin!"
+
+#: options/panel6.php:21
+msgid "Vote and show your appreciation"
+msgstr "Hlasovat pro plugin"
+
+#: options/panel6.php:22
+msgid ""
+"Tell other people if Subscribe to Comments Reloaded works for you and how "
+"good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"Sdílejte pokud se vám plugin Subscribe to Comments Reloaded líbí. <a href="
+"\"http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/"
+"\">Ohodnotit plugin</a> na stránce pluginu."
+
+#: options/panel6.php:24
+msgid "Sponsor's Corner"
+msgstr "Sponzorský koutek"
+
+#: options/panel6.php:25
+msgid ""
+"If you want to sponsor this plugin, don't hesitate to <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+msgstr ""
+"Pokud chcete být sponzorem pluginu <a href='http://behstant.com/negocio/"
+"contact.php' target='_blank'>kontaktujte mne</a>."
+
+#: templates/author.php:55
+msgid "Title"
+msgstr "Titulek"
+
+#: templates/author.php:66 templates/user.php:60
+msgid "Select all"
+msgstr "Vybrat vše"
+
+#: templates/author.php:67 templates/user.php:61
+msgid "Invert selection"
+msgstr "Obrátit výběr"
+
+#: templates/author.php:71
+msgid "Set to Y"
+msgstr "Nastavit na Y"
+
+#: templates/author.php:77 templates/user.php:71
+msgid "No subscriptions match your search criteria."
+msgstr "Žádné odběry."
+
+#: templates/request-management-link.php:68 templates/subscribe.php:89
+msgid "Send"
+msgstr "Odeslat"
+
+#: templates/subscribe.php:42 templates/subscribe.php:43
+msgid "New subscription to"
+msgstr "Nový odběr k"
+
+#: templates/subscribe.php:43
+msgid "User:"
+msgstr "Uživatel:"
+
+msgid ""
+"Update the email address associated to a specific subscription (by post ID)."
+msgstr ""
+"Aktualizovat emailovou adresu asociovanou se specifickým odběrem (dle post "
+"ID)"
+
+msgid ""
+"Change the status of an email address or permanently delete all its "
+"subscriptions."
+msgstr ""
+"Změna statusu(asi typ odběru?) emailové adresy nebo vymazat všechny odběry "
+"této adresy"
+
+msgid ""
+"You can \"mass update\" all the occurrences of a given email address (exact "
+"matches only)."
+msgstr ""
+
+msgid "Engine"
+msgstr ""
+
+msgid "Approximate Overhead"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Management Page ID"
+#~ msgstr "Nastavení"
+
+#, fuzzy
+#~ msgid "Management page"
+#~ msgstr "Nastavení"
+
+#~ msgid "Awaiting confirmation"
+#~ msgstr "Čeká na schválení"
+
+#, fuzzy
+#~ msgid "Stats"
+#~ msgstr "Status"
+
+#, fuzzy
+#~ msgid "Other Messages"
+#~ msgstr "Zprávy"
+
+#, fuzzy
+#~ msgid "Support"
+#~ msgstr "fórum podpory"
+
+#, fuzzy
+#~ msgid "The status has been successfully updated. Rows affected:"
+#~ msgstr "Vaše nastavení bylo úspěšně aktualizováno."
+
+#, fuzzy
+#~ msgid "PID"
+#~ msgstr "Příspěvek"
+
+#~ msgid "Change status"
+#~ msgstr "Změnit status"
+
+#~ msgid "Resume"
+#~ msgstr "Obnovit"
+
+#~ msgid "Update email address"
+#~ msgstr "Aktualizovat emailovou adresu"
+
+#~ msgid "Search email address"
+#~ msgstr "Hledat email"
+
+#~ msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
+#~ msgstr "Legenda: Y-odebíráno, N-neodebíráno, C- čeká na schválení"
+
+#, fuzzy
+#~ msgid "StCR table has been successfully optimized."
+#~ msgstr "Vaše nastavení bylo úspěšně aktualizováno."
+
+#~ msgid "Filter by date"
+#~ msgstr "Filtrovat dle data"
+
+#~ msgid "Month"
+#~ msgstr "Měsíc"
+
+#~ msgid "Year"
+#~ msgstr "Rok"
+
+#~ msgid "No data to display"
+#~ msgstr "Nic k zobrazení"
+
+#~ msgid "optimize"
+#~ msgstr "Optimalizace"
+
+#~ msgid "Database"
+#~ msgstr "Databáze"
+
+#~ msgid "Created on"
+#~ msgstr "Vytvořeno"
+
+#~ msgid "Index length"
+#~ msgstr "Délka indexu"
+
+#~ msgid "Records"
+#~ msgstr "Záznamy"
+
+#~ msgid "Average Record Length"
+#~ msgstr "Průměrná délka záznamu"
+
+#~ msgid "Analysis for"
+#~ msgstr "Anylýza pro"
+
+#~ msgid "Most active users"
+#~ msgstr "Nejaktivnější uživatelé"
+
+#~ msgid "Popular posts"
+#~ msgstr "Populární články"
+
+#~ msgid "Custom CSS Class"
+#~ msgstr "Změna CSS class"
+
+#~ msgid ""
+#~ "Custom CSS class to associate to the checkbox, if you want to customize "
+#~ "its style."
+#~ msgstr ""
+#~ "Můžete změnit css třídu checkboxu, pak si ho můžete stylovat dle svého. "
+#~ "(což můžete i tak pokud víte jak)"
+
+#~ msgid "Official Sponsors"
+#~ msgstr "Oficiální sponzoři"
+
+#~ msgid "Subscriptions have been successfully updated."
+#~ msgstr "Odběry byly úspěšně aktualizovány."
+
+#~ msgid "Sorry, no subscriptions found."
+#~ msgstr "Žádné odběry nenalezeny."
+
+#~ msgid "All the subscriptions have been successfully updated."
+#~ msgstr "Všechny  odběry byly úspěšně aktualizovány."

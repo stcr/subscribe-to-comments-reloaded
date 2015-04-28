@@ -117,16 +117,7 @@ wp_print_scripts( 'quicktags' );
 			<th scope="row">
 				<label for="notification_content"><?php _e( 'Notification message', 'subscribe-reloaded' ) ?></label>
 			</th>
-			<td><?php if ( $is_html_enabled ): ?>
-					<input type="button" id="qtbold1" class="button-secondary"
-						   onclick="edInsertTag(document.getElementById('notification_content'), 0);" value="<?php _e( 'Bold' ) ?>" />
-					<input type="button" id="qtitalics1" class="button-secondary"
-						   onclick="edInsertTag(document.getElementById('notification_content'), 1);" value="<?php _e( 'Italic' ) ?>" />
-					<input type="button" id="qtlink1" class="button-secondary"
-						   onclick="edInsertLink(document.getElementById('notification_content'), 2);" value="<?php _e( 'Link' ) ?>" />
-					<input type="button" id="qtimg1" class="button-secondary"
-						   onclick="edInsertImage(document.getElementById('notification_content'));" value="<?php _e( 'Image' ) ?>" />
-					<br /><?php endif ?>
+			<td>
 				<textarea name="options[notification_content]" id="notification_content"
 						  cols="70" rows="5"><?php echo subscribe_reloaded_get_option( 'notification_content' ); ?>
 				</textarea>
@@ -153,16 +144,7 @@ wp_print_scripts( 'quicktags' );
 			<th scope="row">
 				<label for="double_check_content"><?php _e( 'Double check message', 'subscribe-reloaded' ) ?></label>
 			</th>
-			<td><?php if ( $is_html_enabled ): ?>
-					<input type="button" id="qtbold2" class="button-secondary"
-						   onclick="edInsertTag(document.getElementById('double_check_content'), 0);" value="<?php _e( 'Bold' ) ?>" />
-					<input type="button" id="qtitalics2" class="button-secondary"
-						   onclick="edInsertTag(document.getElementById('double_check_content'), 1);" value="<?php _e( 'Italic' ) ?>" />
-					<input type="button" id="qtlink2" class="button-secondary"
-						   onclick="edInsertLink(document.getElementById('double_check_content'), 2);" value="<?php _e( 'Link' ) ?>" />
-					<input type="button" id="qtimg2" class="button-secondary"
-						   onclick="edInsertImage(document.getElementById('double_check_content'));" value="<?php _e( 'Image' ) ?>" />
-					<br /><?php endif ?>
+			<td>
 				<textarea name="options[double_check_content]" id="double_check_content" cols="70" rows="5"><?php echo subscribe_reloaded_get_option( 'double_check_content' ); ?></textarea>
 
 				<div class="description" style="padding-top:0">
@@ -187,16 +169,7 @@ wp_print_scripts( 'quicktags' );
 			<th scope="row">
 				<label for="management_content"><?php _e( 'Management message', 'subscribe-reloaded' ) ?></label>
 			</th>
-			<td><?php if ( $is_html_enabled ): ?>
-					<input type="button" id="qtbold3" class="button-secondary"
-						   onclick="edInsertTag(document.getElementById('management_content'), 0);" value="<?php _e( 'Bold' ) ?>" />
-					<input type="button" id="qtitalics3" class="button-secondary"
-						   onclick="edInsertTag(document.getElementById('management_content'), 1);" value="<?php _e( 'Italic' ) ?>" />
-					<input type="button" id="qtlink3" class="button-secondary"
-						   onclick="edInsertLink(document.getElementById('management_content'), 2);" value="<?php _e( 'Link' ) ?>" />
-					<input type="button" id="qtimg3" class="button-secondary"
-						   onclick="edInsertImage(document.getElementById('management_content'));" value="<?php _e( 'Image' ) ?>" />
-					<br /><?php endif ?>
+			<td>
 				<textarea name="options[management_content]" id="management_content" cols="70" rows="5"><?php echo subscribe_reloaded_get_option( 'management_content' ); ?></textarea>
 
 				<div class="description" style="padding-top:0">

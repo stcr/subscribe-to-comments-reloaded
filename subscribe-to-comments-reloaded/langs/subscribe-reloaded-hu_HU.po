@@ -2,66 +2,67 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-22 10:36-0700\n"
-"PO-Revision-Date: 2015-04-22 10:36-0700\n"
+"POT-Creation-Date: 2015-04-22 10:35-0700\n"
+"PO-Revision-Date: 2015-04-22 10:35-0700\n"
 "Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
-"Language-Team: due chiacchiere <info@duechiacchiere.it>\n"
-"Language: ru_RU\n"
+"Language-Team: Web Geeks <epoxhun@gmail.com>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../\n"
-"Plural-Forms: s;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: subscribe-to-comments-reloaded.php:95
 msgid "Don't subscribe"
-msgstr "Не подписываться"
+msgstr "Nem iratkozom fel"
 
 #: subscribe-to-comments-reloaded.php:96
 msgid "All"
-msgstr "Все"
+msgstr "Mindenre"
 
 #: subscribe-to-comments-reloaded.php:97 templates/author.php:75
 #: templates/user.php:72
 msgid "Replies to my comments"
-msgstr "Ответы на мои комментарии"
+msgstr "Csak a válaszokra"
 
 #: subscribe-to-comments-reloaded.php:307
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
 msgstr ""
-"Получать новые комментарии по электронной почте. Вы можете <a "
-"href='[subscribe_link]'>подписаться</a> без комментирования."
+"A hozzászólásokról email-ben kérek értesítést.  <a "
+"href='[subscribe_link]'>Feliratkozás</a> hozzászólás nélkül is lehetséges."
 
 #: subscribe-to-comments-reloaded.php:308
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr ""
-"Вы подписаны на эту статью. <a href='[manager_link]'>Редактировать</a> свои "
-"подписки."
+"Feliratkozva ehhez a bejegyzéshez.  <a href='[manager_link]'Saját "
+"feliratkozásaink kezelése</a>."
 
 #: subscribe-to-comments-reloaded.php:309
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
 msgstr ""
-"Ваша подписка на эту статью нуждается в подтверждении. <a "
-"href='[manager_link]'>Редактировать</a> свои подписки."
+"A feliratkozási szándékot meg kell erősíteni: <a "
+"href='[manager_link]'>Feliratkozás kezelése</a>."
 
 #: subscribe-to-comments-reloaded.php:310
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
-"Вы можете <a href='[manager_link]'>управлять подписками</a> на эту запись."
+"<a href='[manager_link]'>Saját feliratkozásunk kezelése</a>  ennél a "
+"bejegyzésnél."
 
 #: subscribe-to-comments-reloaded.php:314 options/index.php:57
 msgid "Manage subscriptions"
-msgstr "Редактировать подписки"
+msgstr "Feliratkozás kezelése"
 
 #: subscribe-to-comments-reloaded.php:316
 msgid ""
@@ -69,9 +70,8 @@ msgid ""
 "will send you a message containing the link to access your personal "
 "management page."
 msgstr ""
-"Для управления своими подписками, пожалуйста, введите свой электронный адрес "
-"в форму ниже. Мы отправим вам сообщение со ссылкой на вашу персональную "
-"страницу управления."
+"A feliratkozások kezeléséhez alul meg kell adni az email címet, amelyre "
+"elküldjük azt a hivatkozást, amellyel a saját kezelési oldalra lehet belépni."
 
 #: subscribe-to-comments-reloaded.php:317
 msgid ""
@@ -79,9 +79,8 @@ msgid ""
 "completed, and you should receive an email with the management link in a few "
 "minutes."
 msgstr ""
-"Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. В "
-"течение нескольких минут вы должны получить письмо со ссылкой на страницу "
-"управления подписками."
+"Köszönjük, hogy használod az értesítőket. Néhány percen belül e-mailben "
+"megkapot a beállításokhoz szükséges linked."
 
 #: subscribe-to-comments-reloaded.php:318
 msgid ""
@@ -89,9 +88,10 @@ msgid ""
 "having to leave a comment. Cool, huh? Just enter your email address in the "
 "form here below and you're all set."
 msgstr ""
-"Вы можете следить за обсуждением статьи <strong>[post_title]</strong>, не "
-"оставляя своего комментария. Здорово, не правда ли? Просто введите свой "
-"электронный адрес в форму ниже, и готово!"
+"<strong>[post_title]</strong> című bejegyzésünkhöz történő hozzászólásokat "
+"úgy is figyelemmel lehet kísérni, ha az olvasó nem szól hozzá a témához. "
+"Csak meg kell adni a saját email címet az alul található mezőbe, és máris "
+"minden készen áll."
 
 #: subscribe-to-comments-reloaded.php:319
 msgid ""
@@ -99,9 +99,9 @@ msgid ""
 "completed. You will receive a notification email every time a new comment to "
 "this article is approved and posted by the administrator."
 msgstr ""
-"Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. Вы "
-"будете получать уведомления каждый раз, как новый комментарий к этот статье "
-"будет одобрен и опубликован администратором сайта."
+"<strong>Köszönjük, hogy használtad a feliratkozás szolgáltatásunkat!</"
+"strong><br /> A kérést rögzítettük; minden egyes alkalommal küldünk egy "
+"értesítést email címedre, amikor a bejegyzéshez új hozzászólás érkezik."
 
 #: subscribe-to-comments-reloaded.php:320
 msgid ""
@@ -109,17 +109,17 @@ msgid ""
 "request, please check your email for the verification message and follow the "
 "instructions."
 msgstr ""
-"Спасибо, что пользуетесь нашим сервисом подписок. Чтобы подтвердить свой "
-"запрос, пожалуйста, проверьте свою почту и следуйте инструкциям в письме о "
-"подтверждении."
+"Köszönjük, hogy használtad a feliratkozás szolgáltatásunkat! A kérésed "
+"megerősítéséhez, kérjük ellenőrizd e-mailcímed, és kövesd az instrukciókat."
 
 #: subscribe-to-comments-reloaded.php:321
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
 msgstr ""
-"Чтобы отменить или приостановить одно или более уведомлений, щелкните в "
-"соответствующем окошке выбора и нажмите на кнопку в конце списка."
+"Az értesítések kikapcsolásához, vagy törléséhez válaszd ki a kívánt "
+"értesítést, majd a megfelelő állapotot és kattints az Értesítés frissítése "
+"gombra."
 
 #: subscribe-to-comments-reloaded.php:322
 msgid ""
@@ -127,13 +127,12 @@ msgid ""
 "corresponding checkbox(es) and click on the button at the end of the list. "
 "You are currently subscribed to:"
 msgstr ""
-"Чтобы отменить или приостановить одно или более уведомлений, щелкните в "
-"соответствующем окошке выбора и нажмите на кнопку в конце списка. На данный "
-"момент вы подписаны на:"
+"Az értesítések kikapcsolásához, megszűntetéséhez, válassz jelölőnégyzetet és "
+"a lista végén kattints a megfelelő gombra. Jelenleg ezek az értesítéseid:"
 
 #: subscribe-to-comments-reloaded.php:326
 msgid "There is a new comment to [post_title]"
-msgstr "Появился новый комментарий к статье [post_title]"
+msgstr "Új hozzászólás ehhez [post_title]"
 
 #: subscribe-to-comments-reloaded.php:327
 msgid ""
@@ -145,18 +144,17 @@ msgid ""
 "Permalink: [post_permalink]\n"
 "Manage your subscriptions: [manager_link]"
 msgstr ""
-"Появился новый комментарий к статье [post_title].\n"
-"Ссылка на комментарий: [comment_permalink]\n"
-"Автор: [comment_author]\n"
-"Комментарий:\n"
+"Új hozzászólás érkezett ehhez: [post_title].\n"
+"Hozzászólás Link: [comment_permalink]\n"
+"Írta: [comment_author]\n"
+"Hozzászólás:\n"
 "[comment_content]\n"
-"\n"
-"Ссылка на статью: [post_permalink]\n"
-"Управление подписками: [manager_link]"
+"Permalink: [post_permalink]\n"
+"Értesítési beállítások: [manager_link]"
 
 #: subscribe-to-comments-reloaded.php:328
 msgid "Please confirm your subscription to [post_title]"
-msgstr "Пожалуйста, подтвердите свою подписку на статью [post_title]"
+msgstr "Kérlek, erősítsd meg feliratkozásod erre [post_title]"
 
 #: subscribe-to-comments-reloaded.php:329
 msgid ""
@@ -166,15 +164,15 @@ msgid ""
 "Please confirm your request by clicking on this link:\n"
 "[confirm_link]"
 msgstr ""
-"Вы сделали запрос на получение новых комментариев к статье:\n"
+"Azt kérted, értesítsünk, amikor új hozzászólás érkezik ehhez:\n"
 "[post_permalink]\n"
 "\n"
-"Пожалуйста, перейдите по следующей ссылке, чтобы подтвердить подписку:\n"
+"Kérlek, erősítsd meg a feliratkozást az alábbi linkre kattintva:\n"
 "[confirm_link]"
 
 #: subscribe-to-comments-reloaded.php:330
 msgid "Manage your subscriptions on [blog_name]"
-msgstr "Редактировать свои подписки на сайте [blog_name]"
+msgstr "Ártesítés beállítások - [blog_name]"
 
 #: subscribe-to-comments-reloaded.php:331
 msgid ""
@@ -182,9 +180,7 @@ msgid ""
 "[blog_name]. Follow this link to access your personal page:\n"
 "[manager_link]"
 msgstr ""
-"Вы сделали запрос на редактирование своих подписок на комментарии к статьям "
-"на сайте [blog_name]. Вот ссылка на вашу личную страницу управления "
-"подписками:\n"
+"A [blog_name] oldal értesítési beállításainak elérése:\n"
 "[manager_link]"
 
 #: subscribe-to-comments-reloaded.php:424
@@ -193,20 +189,19 @@ msgstr ""
 #: subscribe-to-comments-reloaded.php:643
 #: subscribe-to-comments-reloaded.php:787
 msgid "Important Notice"
-msgstr ""
+msgstr "Fontos Közlendő"
 
 #: subscribe-to-comments-reloaded.php:522
-#, fuzzy
 msgid "Subscribe to Comments Reloaded Important Notice"
-msgstr ""
-"Нужна помощь в использовани плагина Subscribe to Comments Reloaded? Посетите "
-"наш официальный"
+msgstr "Subscribe to Comments Reloaded Fontos Közlendő"
 
 #: subscribe-to-comments-reloaded.php:523
 msgid ""
 "The information in your database has been sanitize to prevent the raw html "
 "messages."
 msgstr ""
+"Az adatbázisban található információ tisztításra kerül, a html tartalom "
+"elkerüléséhez."
 
 #: subscribe-to-comments-reloaded.php:575
 msgid ""
@@ -214,12 +209,17 @@ msgid ""
 "plugin was detected and automatically imported into <strong>Subscribe to "
 "Comments Reloaded</strong>."
 msgstr ""
+"<strong>Subscribe to Comments</strong> által kezelt feliratkozási adatokat "
+"találtunk és importáltunk is őket a <strong>Subscribe to Comments Reloaded</"
+"strong>-be."
 
 #: subscribe-to-comments-reloaded.php:575
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Subscribe to "
 "Comments to prevent confusion between the two plugins."
 msgstr ""
+"Javasoljuk, hogy most <strong>kapcsold ki</strong> a Subscribe to Comments-"
+"et, hogy megelőzzük a két plugin összeakadását."
 
 #: subscribe-to-comments-reloaded.php:576
 msgid ""
@@ -227,6 +227,10 @@ msgid ""
 "that you want to import, you'll need to import that data manually, as only "
 "one import routine will ever run to prevent data loss."
 msgstr ""
+"Ha a Subscribe to Comments Reloaded v2.0 előtti verzióban vannak "
+"importálandó feliratkozási adataid, ezeket manuálisan kell importálnod, mert "
+"az adatvesztés megelőzése érdekében csak egyetlen importálási folyamatot "
+"alkalmazunk."
 
 #: subscribe-to-comments-reloaded.php:577
 #: subscribe-to-comments-reloaded.php:645
@@ -236,6 +240,9 @@ msgid ""
 "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
 "your configuration."
 msgstr ""
+"Látogass el a <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Beállítások -> Subscribe to Comments</a> "
+"oldalra a beállítások ellenőrzéséhez."
 
 #: subscribe-to-comments-reloaded.php:644
 msgid ""
@@ -243,12 +250,17 @@ msgid ""
 "strong> plugin was detected and automatically imported into "
 "<strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
+"<strong>Comment Reply Notification</strong> által kezelt feliratkozási "
+"adatokat találtunk és importáltunk is őket a <strong>Subscribe to Comments "
+"Reloaded</strong>-be."
 
 #: subscribe-to-comments-reloaded.php:644
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Comment Reply "
 "Notification to prevent confusion between the two plugins."
 msgstr ""
+"Javasoljuk, hogy most <strong>kapcsold ki</strong> a Comment Reply "
+"Notification-t, hogy megelőzzük a két plugin összeakadását."
 
 #: subscribe-to-comments-reloaded.php:788
 msgid ""
@@ -256,12 +268,17 @@ msgid ""
 "Subscriptions</strong> plugin were detected and automatically imported into "
 "<strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
+"<strong>WP Comment Subscriptions</strong> által kezelt feliratkozási "
+"adatokat és beállításokat találtunk és importáltunk is őket a "
+"<strong>Subscribe to Comments Reloaded</strong>-be."
 
 #: subscribe-to-comments-reloaded.php:788
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> WP Comment "
 "Subscriptions to prevent confusion between the two plugins."
 msgstr ""
+"Javasoljuk, hogy most <strong>kapcsold ki</strong> a WP Comment "
+"Subscriptions-t, hogy megelőzzük a két plugin összeakadását."
 
 #: subscribe-to-comments-reloaded.php:789
 msgid ""
@@ -270,6 +287,11 @@ msgid ""
 "you'll need to import that data manually, as only one import routine will "
 "ever run to prevent data loss."
 msgstr ""
+"Ha feliratkozási adataid vannak másik pluginban (mind például a Subscribe to "
+"Comments vagy a Subscribe to Comments Reloaded v2.0-nél régebbi verziói) és "
+"ezeket szeretnéd importálni, ezeket manuálisan kell importálnod, mert az "
+"adatvesztés megelőzése érdekében csak egyetlen importálási folyamatot "
+"alkalmazunk."
 
 #: subscribe-to-comments-reloaded.php:790
 msgid ""
@@ -279,10 +301,15 @@ msgid ""
 "<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
 "respectively."
 msgstr ""
+"<strong>Megjegyzés:</strong> Ha korábban a "
+"<code>wp_comment_subscriptions_show()</code> funkciót vagy a <code>[wpcs-"
+"subscribe-url]</code> shortcode-ot használtad, ezeket le kell cserélned a "
+"<code>subscribe_reloaded_show()</code> funkcióra és a <code>[subscribe-url]</"
+"code> shortcode-ra."
 
 #: subscribe-to-comments-reloaded.php:801
 msgid "Settings"
-msgstr "Scegli ordine"
+msgstr "Beállítások"
 
 #: subscribe-to-comments-reloaded.php:1840 options/panel2.php:67
 #: options/panel2.php:77 options/panel2.php:106 options/panel5.php:74
@@ -290,96 +317,96 @@ msgstr "Scegli ordine"
 #: options/panel5.php:111 options/panel5.php:121 options/panel5.php:130
 #: options/panel5.php:139
 msgid "No"
-msgstr "Нет"
+msgstr "Nem"
 
 #: subscribe-to-comments-reloaded.php:1867
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
-"Нужна помощь в использовани плагина Subscribe to Comments Reloaded? Посетите "
-"наш официальный"
+"Segítségre van szükséged, a Subscribe to Comments Reloaded használatához? "
+"Látogasson el a hivatalos"
 
 #: subscribe-to-comments-reloaded.php:1867
 msgid "support forum"
-msgstr "форум поддержки"
+msgstr "támogatói fórumra"
 
 #: subscribe-to-comments-reloaded.php:1868
 msgid "Feeling generous?"
-msgstr "Хотите проявить щедрость?"
+msgstr "Nagylelkű napod van?"
 
 #: subscribe-to-comments-reloaded.php:1868
 msgid "Donate a few bucks!"
-msgstr "Пожертвуйте пару баксов!"
+msgstr "Adakozz egy pár dolcsit!"
 
 #: options/index.php:58
 msgid "Comment Form"
-msgstr "Форма комментария"
+msgstr "Hozzászólás Űrlap"
 
 #: options/index.php:59
 msgid "Management Page"
-msgstr "Страница управления"
+msgstr "Feliratkozás Kezelés Oldal"
 
 #: options/index.php:60
 msgid "Notifications"
-msgstr "Уведомления"
+msgstr "Értesítések"
 
 #: options/index.php:61 options/panel2.php:58 options/panel3.php:82
 #: options/panel4.php:67
 msgid "Options"
-msgstr "Параметры"
+msgstr "Beállítások"
 
 #: options/index.php:62
 msgid "You can help"
-msgstr "Вы можете помочь"
+msgstr "Segíthetsz"
 
 #: options/index.php:63
 msgid "Support"
-msgstr "Поддержка"
+msgstr "Падтрымка"
 
 #: options/panel1-business-logic.php:19
 msgid "Subscription added."
-msgstr "Подписка добавлена."
+msgstr "Feliratkozás hozzáadva."
 
 #: options/panel1-business-logic.php:31
 msgid "Subscriptions updated."
-msgstr "Подписки обновлены."
+msgstr "Feliratkozás frissítve."
 
 #: options/panel1-business-logic.php:40
 msgid "Subscription deleted."
-msgstr "Подписка удалена."
+msgstr "Feliratkozás törölve."
 
 #: options/panel1-business-logic.php:59 templates/author.php:23
 #: templates/user.php:23
 msgid "Subscriptions deleted:"
-msgstr "Подписки удалены:"
+msgstr "Feliratkozások törölve:"
 
 #: options/panel1-business-logic.php:63 templates/author.php:27
 #: templates/user.php:27
 msgid "Subscriptions suspended:"
-msgstr "Подписки приостановлены:"
+msgstr "Feliratkozások kikapcsolva:"
 
 #: options/panel1-business-logic.php:67 templates/author.php:31
 #: templates/user.php:31
 msgid "Subscriptions activated:"
-msgstr "Подписки активированы:"
+msgstr "Feliratkozások bekapcsolva:"
 
 #: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
 #: templates/author.php:35 templates/author.php:39 templates/user.php:35
 #: templates/user.php:39
 msgid "Subscriptions updated:"
-msgstr "Подписки обновлены:"
+msgstr "Feliratkozások frissítva:"
 
 #: options/panel1-business-logic.php:99
 msgid "&laquo; Previous"
-msgstr "&laquo; Обратно"
+msgstr "&laquo; Előző"
 
 #: options/panel1-business-logic.php:103
 msgid "Next &raquo;"
-msgstr "Вперед &raquo;"
+msgstr "Következő &raquo;"
 
 #: options/panel1-edit-subscription.php:8
 msgid "Update Subscription"
-msgstr "Обновить подписку"
+msgstr "Értesítés frissítése"
 
 #: options/panel1-edit-subscription.php:11
 #: options/panel1-edit-subscription.php:21
@@ -387,7 +414,7 @@ msgstr "Обновить подписку"
 #: options/panel1-edit-subscription.php:23 options/panel1.php:28
 #: options/panel1.php:29 options/panel1.php:30
 msgid "optional"
-msgstr "по выбору"
+msgstr "nem kötelező"
 
 #: options/panel1-edit-subscription.php:11 options/panel1.php:22
 #: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
@@ -396,76 +423,76 @@ msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
 msgstr ""
-"Внимание: эту операцию нельзя отменить. Вы уверены, что хотите продолжить?"
+"Kérlek vedd figyelembe, hogy ezt nem tudod visszavonni. Biztos folytatod?"
 
 #: options/panel1-edit-subscription.php:13
 msgid "Post:"
-msgstr "Запись:"
+msgstr "Bejegyzés:"
 
 #: options/panel1-edit-subscription.php:16 options/panel1.php:24
 msgid "From"
-msgstr "С"
+msgstr "Feladó"
 
 #: options/panel1-edit-subscription.php:20 options/panel1.php:27
 msgid "To"
-msgstr "на"
+msgstr "Címzett"
 
 #: options/panel1-edit-subscription.php:26 options/panel1.php:33
 #: options/panel1.php:59 options/panel1.php:124
 msgid "Status"
-msgstr "Статус"
+msgstr "Státusz"
 
 #: options/panel1-edit-subscription.php:28 options/panel1.php:35
 msgid "Keep unchanged"
-msgstr "Оставить без изменений"
+msgstr "Maradjon változatlan"
 
 #: options/panel1-edit-subscription.php:29 options/panel1.php:36
 #: options/panel1.php:61
 msgid "Active"
-msgstr "Активно"
+msgstr "Aktív"
 
 #: options/panel1-edit-subscription.php:30 options/panel1.php:37
 #: options/panel1.php:62
 msgid "Replies only"
-msgstr "Только ответы"
+msgstr "Csak a válaszokra"
 
 #: options/panel1-edit-subscription.php:31 options/panel1.php:38
 msgid "Suspended"
-msgstr "Приостановлено"
+msgstr "Kikapcsolva"
 
 #: options/panel1-edit-subscription.php:33 options/panel1.php:40
 msgid "Update"
-msgstr "Обновить"
+msgstr "Frissítés"
 
 #: options/panel1.php:19
 msgid "Mass Update Subscriptions"
-msgstr "Массово обновить подписки"
+msgstr "Feliratkozások csoportos frissítése"
 
 #: options/panel1.php:48
 msgid "Add New Subscription"
-msgstr "Добавить новую подписку"
+msgstr "Új Feliratkozás hozzáadása "
 
 #: options/panel1.php:53
 msgid "Post ID"
-msgstr "ID-номер записи"
+msgstr "Post ID"
 
 #: options/panel1.php:56 options/panel1.php:111
 #: templates/request-management-link.php:69 templates/subscribe.php:89
 #: templates/user.php:57
 msgid "Email"
-msgstr "Эл. адрес"
+msgstr "Email"
 
 #: options/panel1.php:63
 msgid "Ask user to confirm"
-msgstr "Просить подтвреждение от пользователя"
+msgstr "Megerősítés kérés"
 
 #: options/panel1.php:65
 msgid "Add"
-msgstr "Добавить"
+msgstr "Hozzáadás"
 
 #: options/panel1.php:76
 msgid "Search subscriptions"
-msgstr "Искать в подписках"
+msgstr "Feliratkozás keresés"
 
 #: options/panel1.php:80
 #, php-format
@@ -473,353 +500,362 @@ msgid ""
 "You can either <a href=\"%s\">view all the subscriptions</a> or find those "
 "where the"
 msgstr ""
-"Вы можете <a href=\"%s\">просмотреть все подписки</a> или найти те, где"
+"Megnézheted <a href=\"%s\">az összes feliratkozást</a> vagy megkeresheted, "
+"ahol"
 
 #: options/panel1.php:84
 msgid "email"
-msgstr "эл. адрес"
+msgstr "email"
 
 #: options/panel1.php:85
 msgid "post ID"
-msgstr "ID-номер записи"
+msgstr "post ID"
 
 #: options/panel1.php:86
 msgid "status"
-msgstr "статус"
+msgstr "státusz"
 
 #: options/panel1.php:89
 msgid "equals"
-msgstr "равнозначно"
+msgstr "egyenlő"
 
 #: options/panel1.php:90
 msgid "contains"
-msgstr "содержит"
+msgstr "tartalmazza"
 
 #: options/panel1.php:91
 msgid "does not contain"
-msgstr "не содержит"
+msgstr "nem tartalmazza"
 
 #: options/panel1.php:92
 msgid "starts with"
-msgstr "начинается с"
+msgstr "ezzel kezdődik"
 
 #: options/panel1.php:93
 msgid "ends with"
-msgstr "заканчивается на"
+msgstr "ezzel végződik"
 
 #: options/panel1.php:96
 msgid "results per page:"
-msgstr "результаты постранично:"
+msgstr "eredmény oldal:"
 
 #: options/panel1.php:98
 msgid "Search"
-msgstr "Искать"
+msgstr "Keresés"
 
 #: options/panel1.php:106
 msgid "Reverse the order by Post ID"
-msgstr "Изменить порядок по ID записи"
+msgstr "Fordított sorrend Post ID alapján"
 
 #: options/panel1.php:107 options/panel1.php:108
 msgid "Reverse the order by Date/Time"
-msgstr "Изменить порядок по дате/времени"
+msgstr "Fordított sorrend Dátum/Idő szerint"
 
 #: options/panel1.php:110
 msgid "Post (ID)"
-msgstr "Запись (ID)"
+msgstr "Post (ID)"
 
 #: options/panel1.php:113
 msgid "Search query:"
-msgstr "Поисковый запрос:"
+msgstr "Keresett kifejezés:"
 
 #: options/panel1.php:113
 msgid "Rows:"
-msgstr "Ряды:"
+msgstr "Oszlopok:"
 
 #: options/panel1.php:113
 msgid "of"
-msgstr " "
+msgstr "ennyiből"
 
 #: options/panel1.php:114 templates/author.php:58 templates/user.php:58
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
-msgstr "Расшифровка: Y = все комментарии, R = только ответы, C = неактивные"
+msgstr ""
+"Magyarázat: Y = minden hozzászólás, R = csak az enyémre adott válaszok, C = "
+"kikapcsolva"
 
 #: options/panel1.php:123
 msgid "Date and Time"
-msgstr "Дата и время"
+msgstr "Dátum és Idő"
 
 #: options/panel1.php:135
 msgid "Subscription"
-msgstr "Подписки"
+msgstr "Feliratkozás"
 
 #: options/panel1.php:137
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Szerkesztés"
 
 #: options/panel1.php:138 templates/author.php:72 templates/user.php:69
 msgid "Delete"
-msgstr "Удалить"
+msgstr "Törlés"
 
 #: options/panel1.php:146 templates/author.php:71 templates/user.php:68
 msgid "Action:"
-msgstr "Действие:"
+msgstr "Tevékenység:"
 
 #: options/panel1.php:147
 msgid "Delete forever"
-msgstr "Удалить навсегда"
+msgstr "Végleges törlés"
 
 #: options/panel1.php:148 templates/author.php:73 templates/user.php:70
 msgid "Suspend"
-msgstr "Приостановить"
+msgstr "Kikapcsolás"
 
 #: options/panel1.php:149
 msgid "Activate and set to Y"
-msgstr "Включить и установить на Y"
+msgstr "Aktiválás és Y-ra állítás"
 
 #: options/panel1.php:150
 msgid "Activate and set to R"
-msgstr "Включить и установить на R"
+msgstr "Aktiválás és R-re állítás"
 
 #: options/panel1.php:151 templates/author.php:76 templates/user.php:73
 msgid "Activate"
-msgstr "Включить"
+msgstr "Aktiválás"
 
 #: options/panel1.php:152 templates/author.php:77 templates/user.php:75
 msgid "Update subscriptions"
-msgstr "Обновить подписки"
+msgstr "Feliratkozások frissítése"
 
 #: options/panel1.php:155
 msgid "Sorry, no subscriptions match your search criteria."
-msgstr "Извините, ни одна подписка не соответствует вашему поисковому запросу."
+msgstr "Bocsi, nincs a keresésnek megfelelő feliratkozás."
 
 #: options/panel2.php:12 options/panel2.php:63
 msgid "Enable default checkbox"
-msgstr "Включить стандартное окошко выбора"
+msgstr "Alapértelmezett jelölőnégyzet bekapcsolás"
 
 #: options/panel2.php:15 options/panel2.php:73
 msgid "Checked by default"
-msgstr "Выбрано по умолчанию"
+msgstr "Alapértelmezettként bepipálva"
 
 #: options/panel2.php:18
 msgid "Checked by default Value"
-msgstr "Выбрано по умолчанию"
+msgstr "Alapértelmezettként bepipálva"
 
 #: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
 msgid "Advanced subscription"
-msgstr "Расширенная подписка"
+msgstr "Haladó feliratkozás"
 
 #: options/panel2.php:27 options/panel2.php:130
 msgid "Custom inline style"
-msgstr "Изменяемый стиль inline"
+msgstr "Egyedi inline style"
 
 #: options/panel2.php:30 options/panel2.php:139
 msgid "Custom HTML"
-msgstr "Собственный HTML"
+msgstr "Egyedi HTML"
 
 #: options/panel2.php:34
 msgid "Checkbox label"
-msgstr "Ярлык окошка выбора"
+msgstr "Jelölőnégyzet címke"
 
 #: options/panel2.php:37 options/panel2.php:163
 msgid "Subscribed label"
-msgstr "Ярлык оформленной подписки"
+msgstr "Feliratkozott címke"
 
 #: options/panel2.php:40
 msgid "Awaiting label"
-msgstr "Ярлык неподтвержденной подписки"
+msgstr "Várakozás címke"
 
 #: options/panel2.php:43 options/panel2.php:180
 msgid "Author label"
-msgstr "Ярлык автора"
+msgstr "Szerző címke"
 
 #: options/panel2.php:49 options/panel3.php:70 options/panel4.php:57
 #: options/panel5.php:50
 msgid "Your settings have been successfully updated."
-msgstr "Ваши настройки успешно обновлены."
+msgstr "Beállításaid sikeresen frissítve."
 
 #: options/panel2.php:51 options/panel3.php:72 options/panel4.php:59
 #: options/panel5.php:52
 msgid "There was an error updating the following fields:"
-msgstr "Произошла ошибка в обновлении следующих полей:"
+msgstr "Hiba volt az alábbi mezők frissítésekor."
 
 #: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
 #: options/panel5.php:73 options/panel5.php:82 options/panel5.php:91
 #: options/panel5.php:101 options/panel5.php:110 options/panel5.php:120
 #: options/panel5.php:129 options/panel5.php:138
 msgid "Yes"
-msgstr "Да"
+msgstr "Igen"
 
 #: options/panel2.php:68
 msgid ""
 "Disable this option if you want to move the subscription checkbox to a "
 "different place on your page."
 msgstr ""
-"Отметите эту опцию, если хотите изменить положение окошка выбора подписки на "
-"своей странице."
+"Kapcsolt ki ezt a lehetőséget, ha a feliratkozás jelölőnégyzetet az oldalon "
+"máshol akarod elhelyezni."
 
 #: options/panel2.php:78
 msgid "Decide if the checkbox should be checked by default or not."
-msgstr "Должно ли окошко выбора быть выбранным по умолчанию."
+msgstr "Döntsd el, a jelölőnégyzet alaphelyzetben be van jelölve vagy nem."
 
 #: options/panel2.php:87
 msgid "Default Checkbox Value"
-msgstr "Включить стандартное окошко выбора"
+msgstr "Alapértelmezett jelölőnégyzet bekapcsolás"
 
 #: options/panel2.php:91 options/panel2.php:120
 msgid "All new comments"
-msgstr ""
+msgstr "Minden új hozzászólás"
 
 #: options/panel2.php:92 options/panel2.php:121
 msgid "Replies to this comment"
-msgstr "Ответы на мои комментарии"
+msgstr "Csak a válaszokra"
 
 #: options/panel2.php:94
 msgid ""
 "Select the default option for the Checkbox. Be careful! Some users might "
 "like to be subscribed to all the post."
 msgstr ""
+"Választd ki az alapértéket. Vigyázz! Néhány felhasználó minden "
+"hozzászólásról értesülni akar."
 
 #: options/panel2.php:107
 msgid ""
 "Allow users to choose from different subscription types (all, replies only)."
 msgstr ""
-"Разрешить пользователям выбор из разных типов подписки (все, только ответы)."
+"Lehetőséget ad a felhasználóknak a feliratkozási szinek használatára "
+"(minden, csak saját hozzászólásukra érkező)."
 
 #: options/panel2.php:115
 msgid "Advanced default"
-msgstr "Выбрано по умолчанию"
+msgstr "Alapértelmezettként bepipálva"
 
 #: options/panel2.php:119
 msgid "None"
-msgstr ""
+msgstr "Egyik sem"
 
 #: options/panel2.php:124
 msgid ""
 "The default subscription type that should be selected when Advanced "
 "subscriptions are enable."
 msgstr ""
+"Az alapértelmezett feliratkozási mód, amikor a Haladó feliratkozás be van "
+"kapcsolva."
 
 #: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
-msgstr "Изменяемый Inline CSS для добавления к окошку выбора"
+msgstr "Egyedi inline CSS a jelölőnégyzethez."
 
 #: options/panel2.php:143
 msgid ""
 "Custom HTML code to be used when displaying the checkbox. Allowed tags: "
 "[checkbox_field], [checkbox_label]"
 msgstr ""
-"Собственный код HTML для использования при отображении окошка выбора. "
-"Разрешенные теги: [checkbox_field], [checkbox_label]"
+"Egyedi HTML kód a jelölőnégyzet meellett. Használható címkék: "
+"[checkbox_field], [checkbox_label]"
 
 #: options/panel2.php:149
 msgid "Messages for your visitors"
-msgstr "Сообщения вашим посетителям"
+msgstr "Üzenetek a látogatóknak"
 
 #: options/panel2.php:153
 msgid "Default label"
-msgstr "Стандартный ярлык"
+msgstr "Alapértelmezett címke"
 
 #: options/panel2.php:158
 msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
-msgstr "Текст рядом с окошком выбора. Разрешенный тег: [subscribe_link]"
+msgstr "A jelölőnégyzethez tartozó címke. Használható címkék: [subscribe_link]"
 
 #: options/panel2.php:167
 msgid ""
 "Label shown to those who are already subscribed to a post. Allowed tag: "
 "[manager_link]"
 msgstr ""
-"Текст, видимый подписавшимся читателям. Разрешенный тег: [manager_link]"
+"Címke azoknak, akik már feliratkoztak a bejegyzéshez. Használható címkék: "
+"[manager_link]"
 
 #: options/panel2.php:172
 msgid "Pending label"
-msgstr "Ярлык  \"В ожидании\" "
+msgstr "Megerősítésre vár címke"
 
 #: options/panel2.php:176
 msgid ""
 "Label shown to those who are already subscribed, but haven't clicked on the "
 "confirmation link yet. Allowed tag: [manager_link]"
 msgstr ""
-"Текст, видимый читателям, еще не подтвердившим свою подписку. Разрешенный "
-"тег: [manager_link]"
+"Címke azoknak, akik feliratkoztak, de még nem erősítették meg. Használható "
+"címkék: [manager_link]"
 
 #: options/panel2.php:184
 msgid ""
 "Label shown to authors (and administrators). Allowed tag: [manager_link]"
 msgstr ""
-"Тест, видимый авторам и администраторам. Разрешенный тег: [manager_link]"
+"Címke a szerzőknek (és adminisztrátoroknak). Használható címkék: "
+"[manager_link]"
 
 #: options/panel2.php:189 options/panel3.php:197 options/panel4.php:182
 #: options/panel5.php:174
 msgid "Save Changes"
-msgstr "Сохранить изменения"
+msgstr "Változások Mentése"
 
 #: options/panel3.php:13 options/panel3.php:87
 msgid "Virtual Management Page"
-msgstr "Виртуальная страница управления"
+msgstr "Virtuális Feliratkozások Kezelés Oldal"
 
 #: options/panel3.php:18 options/panel3.php:96
 msgid "Page title"
-msgstr "Заголовок страницы"
+msgstr "Oldal cím"
 
 #: options/panel3.php:23 options/panel3.php:105
 msgid "Management URL"
-msgstr "URL управления"
+msgstr "Feliratkozás Kezelése URL"
 
 #: options/panel3.php:28 options/panel3.php:117
 msgid "Custom HEAD meta"
-msgstr "Собственный HEAD meta-тег"
+msgstr "Egyedi HEAD meta"
 
 #: options/panel3.php:34 options/panel3.php:131
 msgid "Request link"
-msgstr "Ссылка на запрос"
+msgstr "Kérés link"
 
 #: options/panel3.php:39 options/panel3.php:141
 msgid "Request submitted"
-msgstr "Запрос отправлен"
+msgstr "Kérés beküldve"
 
 #: options/panel3.php:44 options/panel3.php:151
 msgid "Subscribe without commenting"
-msgstr "Подписка без комментирования"
+msgstr "Feliratkozás hozzászólás nélkül"
 
 #: options/panel3.php:49 options/panel3.php:161
 msgid "Subscription processed"
-msgstr "Подписка оформлена"
+msgstr "Feliratkozás feldolgozva"
 
 #: options/panel3.php:54 options/panel3.php:171
 msgid "Subscription processed (DCI)"
-msgstr "Подписка оформлена (DCI)"
+msgstr "Feliratkozás feldolgozva (DCI)"
 
 #: options/panel3.php:59 options/panel3.php:180
 msgid "Authors"
-msgstr "Авторы"
+msgstr "Szerzők"
 
 #: options/panel3.php:64 options/panel3.php:188
 msgid "Users"
-msgstr "Пользователи"
+msgstr "Felhasználók"
 
 #: options/panel3.php:90
 msgid "Enabled"
-msgstr "Включено"
+msgstr "Bekapcsolva"
 
 #: options/panel3.php:91
 msgid "Disabled"
-msgstr "Выключено"
+msgstr "Kikapcsolva"
 
 #: options/panel3.php:92
-#, fuzzy
 msgid ""
 "Disable the virtual management page if you need to create a <a href=\"http://"
 "behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
 "theme happy."
 msgstr ""
-"Отмените виртуальную страницу управления, если вам нужно создать <a href="
-"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">настоящую "
-"страницу</a> для корректной работы плагина с вашей темой оформления."
+"Kikapcsolja a Virtuális Feliratkozások Kezelés Oldalt, ha <a href=\"http://"
+"behstant.com/subscribe-reloaded/realMgnPage.php\">igazi oldalt</a> kell "
+"létrehoznod, a weboldalsablonod miatt."
 
 #: options/panel3.php:101
 msgid "Title of the page your visitors will use to manage their subscriptions."
 msgstr ""
-"Заголовок страницы, на которой пользователи будут редактировать свои "
-"подписки."
+"Az oldal címe, melyet a felhasználók a feliratkozás kezeléshez fognak "
+"használni."
 
 #: options/panel3.php:109
 msgid ""
@@ -828,122 +864,124 @@ msgid ""
 "b> actually exist in the system, but its link must follow your permalink "
 "structure."
 msgstr ""
-"Постоянная ссылка на вашу страницу управления (что-то вроде <code>/manage-"
-"subscriptions</code> или <code>/page_id=345</code>). Эта страница фактически "
-"<b>не существует</b> в системе, но постоянная ссылка на нее должна "
-"соответствовать вашим установкам постоянных ссылок в Wordpress."
+"A feliratkozás kezelés oldal barátságos url-je (valami ilyesmi <code>/"
+"feliratkozas-kezeles</code> vagy <code>/?page_id=345</code>). Ez az oldal "
+"jelenleg <b>nem létezik</b> a weboldaladon, de a linknek követnei kell az "
+"oldaladon használt barátságos url struktúrát."
 
 #: options/panel3.php:111
 msgid ""
 "Warning: it looks like the value you are using may be incompatible with your "
 "permalink structure"
 msgstr ""
-"Внимание: возможно, используемое вами значение несовместимо с вашей "
-"структурой постоянных ссылок"
+"Figyelem: úgy néz ki a megadott érték nem kompatibilis a barátságos url "
+"struktúráddal"
 
 #: options/panel3.php:121
 msgid ""
 "Specify your custom HTML code to be added to the HEAD section of the page. "
 "Use <strong>single</strong> quotes for values."
 msgstr ""
-"Укажите свой код HTML для добавления в HEAD страницы. Используйте "
-"<strong>одинарные</strong> кавычки для значений."
+"Add meg az egyedi HTML kódot, amit az oldal HEAD részében jelenítünk meg. "
+"Használj <strong>aposztrofot</strong> az értékekhez."
 
 #: options/panel3.php:127 options/panel4.php:100
 msgid "Messages"
-msgstr "Сообщения"
+msgstr "Üzenetek"
 
 #: options/panel3.php:136
 msgid "Text shown to those who request to manage their subscriptions."
-msgstr "Текст, видимый сделавшим запрос на управление подписками."
+msgstr "Szöveg azoknak, akik kérik a feliratkozás kezelés linket."
 
 #: options/panel3.php:146
 msgid ""
 "Thank you note shown after the request here above has been processed. "
 "Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Текст благодарности, выводимый после обработки сделанного запроса. Разрешены "
-"теги: [post_title], [post_permalink]"
+"Köszönet szöveg, amit akkor mutatunk, amikor a fenti kérés feldolgozásra "
+"került. Használható címkék: [post_title], [post_permalink]"
 
 #: options/panel3.php:156
 msgid ""
 "Text shown to those who want to subscribe without commenting. Allowed tags: "
 "[post_title], [post_permalink]"
 msgstr ""
-"Текст для желающих подписаться без комментирования. Разрешены теги: "
-"[post_title], [post_permalink]"
+"Szöveg azoknak, akik hozzászólás nélkül akarnak feliratkozni. Használható "
+"címkék: [post_title], [post_permalink]"
 
 #: options/panel3.php:166
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Текст благодарности, выводимый после обработки запроса на подписку (двойное "
-"подтверждение отключено). Разрешены теги: [post_title], [post_permalink]"
+"Köszönet szöveg, amit akkor mutatunk, amikor a fenti kérés feldolgozásra "
+"került (dupla ellenőrzés kikapcsolva). Használható címkék: [post_title], "
+"[post_permalink]"
 
 #: options/panel3.php:176
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Текст благодарности, выводимый после обработки запроса на подписку (двойное "
-"подтверждение включено). Разрешены теги: [post_title], [post_permalink]"
+"Köszönet szöveg, amit akkor mutatunk, amikor a fenti kérés feldolgozásra "
+"került (dupla ellenőrzés bekapcsolva). Használható címkék: [post_title], "
+"[post_permalink]"
 
 #: options/panel3.php:184
 msgid "Introductory text for the authors' management page."
-msgstr "Вводный текст на странице управления подписками для авторов."
+msgstr "Bevezető szöveg a szerzők kezelő oldalához."
 
 #: options/panel3.php:192
 msgid "Introductory text for the users' management page."
-msgstr "Вводный текст на странице управления подписками для подписчиков."
+msgstr "Bevezető szöveg a felhasználók kezelőoldalához."
 
 #: options/panel4.php:16 options/panel4.php:72
 msgid "Sender name"
-msgstr "Имя отправителя"
+msgstr "Küldő neve"
 
 #: options/panel4.php:21 options/panel4.php:85
 msgid "Sender email address"
-msgstr "Эл. адрес отправителя"
+msgstr "Küldő e-mail címe"
 
 #: options/panel4.php:26 options/panel4.php:105
 msgid "Notification subject"
-msgstr "Тема письма с уведомлением"
+msgstr "Értesítés tárgya"
 
 #: options/panel4.php:31 options/panel4.php:118
 msgid "Notification message"
-msgstr "Текст уведомления"
+msgstr "Értesítés szövege"
 
 #: options/panel4.php:36 options/panel4.php:132
 msgid "Double check subject"
-msgstr "Тема письма о подтверждении подписки"
+msgstr "Dupla ellenőrzés tárgya"
 
 #: options/panel4.php:41 options/panel4.php:145
 msgid "Double check message"
-msgstr "Текст письма о подтверждении подписки"
+msgstr "Dupla ellenőrzés szövege"
 
 #: options/panel4.php:46 options/panel4.php:157
 msgid "Management subject"
-msgstr "Тема письма об управлении подписками"
+msgstr "Feliratkozás Kezelés tárgya"
 
 #: options/panel4.php:51 options/panel4.php:170
 msgid "Management message"
-msgstr "Текст письма об управлении подписками"
+msgstr "Feliratkozás Kezelés szövege"
 
 #: options/panel4.php:79
 msgid ""
 "Name to use for the \"from\" field when sending a new notification to the "
 "user."
-msgstr "Имя в поле \"От кого\" в новом уведомлении пользователю."
+msgstr "Feladó név (az értesítő \"from\" mezőhöz)."
 
 #: options/panel4.php:93
 msgid ""
 "Email address to use for the \"from\" field when sending a new notification "
 "to the user."
-msgstr "Эл. адрес в поле \"От кого\" в новом уведомлении пользователю."
+msgstr "Feladó e-mail cím (az értesítő \"from\" mezőhöz)."
 
 #: options/panel4.php:112
 msgid "Subject of the notification email. Allowed tag: [post_title]"
-msgstr "Тема письма с уведомлением. Разрешенный тег: [post_title]"
+msgstr "Értesítő e-mail tárgya. Használható címkék: [post_title]"
 
 #: options/panel4.php:126
 msgid ""
@@ -951,19 +989,20 @@ msgid ""
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
 "[manager_link]"
 msgstr ""
-"Текст уведомления. Разрешенные теги: [post_title],  [comment_permalink], "
-"[comment_author], [comment_content], [post_permalink], [manager_link]"
+"Az értesítő e-mail szövege. Használható címkék: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
 
 #: options/panel4.php:139
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
-msgstr "Тема письма о подтверждении. Разрешенный тег: [post_title]"
+msgstr "A megerősítő e-mail tárgya. Használható címkék: [post_title]"
 
 #: options/panel4.php:151
 msgid ""
 "Content of the confirmation email. Allowed tags: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
 msgstr ""
-"Текст письма о подтвеждении. Разрешенные теги: [post_permalink], "
+"A megerősítő e-mail szövege. Használható címkék: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
 
 #: options/panel4.php:164
@@ -971,133 +1010,138 @@ msgid ""
 "Subject of the mail sent to those who request to access their management "
 "page. Allowed tag: [blog_name]"
 msgstr ""
-"Тема письма подписчику, сделавшему запрос на доступ к странице управления "
-"подписками. Разрешенный тег: [blog_name]"
+"Feliratkozás Kezelés linket kérők e-mailjének tárgya. Használható címkék: "
+"[blog_name]"
 
 #: options/panel4.php:176
 msgid ""
 "Content of the management email. Allowed tags: [blog_name], [manager_link]"
 msgstr ""
-"Текст письма об управлении подписками. Разрешенные теги: [blog_name],"
+"Feliratkozás Kezelés e-mail szövege. Használható címkék: [blog_name], "
 "[manager_link]"
 
 #: options/panel5.php:18 options/panel5.php:62
 msgid "Autopurge requests"
-msgstr "Автоматически удалять запросы"
+msgstr "Kérések automatikus ürítése"
 
 #: options/panel5.php:21 options/panel5.php:71
 msgid "Enable double check"
-msgstr "Включить двойное подтверждение"
+msgstr "Dupla ellenőrzés bekapcsolása"
 
 #: options/panel5.php:24 options/panel5.php:79
 msgid "Subscribe authors"
-msgstr "Ярлык оформленной подписки"
+msgstr "Subscribe authors"
 
 #: options/panel5.php:27 options/panel5.php:89
 msgid "Enable HTML emails"
-msgstr "Использовать HTML письма"
+msgstr "HTML e-mailek bekapcsolása"
 
 #: options/panel5.php:30
 msgid "HTMLify Links in HTML emails"
-msgstr ""
+msgstr "HTML linkekké alakítás a HTML e-mailekben"
 
 #: options/panel5.php:33
 msgid "Send trackbacks"
-msgstr "Отправлять трэкбеки"
+msgstr "Trackback küldés"
 
 #: options/panel5.php:36
 msgid "Notify admin"
-msgstr "Уведомить админа"
+msgstr "Admin értesítés"
 
 #: options/panel5.php:39 options/panel5.php:127
 msgid "Let admin subscribe"
-msgstr "Позволить админу подписываться"
+msgstr "Az admin is feliratkozhat"
 
 #: options/panel5.php:42 options/panel5.php:136
 msgid "BCC admin on Notifications"
-msgstr "Уведомления"
+msgstr "Titkos másolat az adminisztrátornak az értesítésekről"
 
 #: options/panel5.php:65
 msgid "days"
-msgstr "дней"
+msgstr "nap"
 
 #: options/panel5.php:66
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
 msgstr ""
-"Удалять ожидающие подтверждения (не подтвержденные) подписки через Х дней. "
-"Ноль отключает эту функцию."
+"Meg nem erősített feliratkozások törlése X nap után. Nulla érték esetén "
+"nincs törlés."
 
 #: options/panel5.php:75
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
 msgstr ""
-"Отправлять письмо с просьбой подтвердить подписку (чтобы избежать "
-"использования эл. адреса без ведома владельца)"
+"Megerősítő email küldés a feliratkozáshoz (helytelen email cím elkerüléshez)."
 
 #: options/panel5.php:84
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
+"Automatically subscribe authors to their own articles (not retroactive)."
 
 #: options/panel5.php:93
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
 msgstr ""
-"При выборе этой функции сообщения будут отправляться в формате текст/html "
-"вместо обычного текста"
+"Bekapcsolva az e-mail értesítéseknél a content-type = text/html lesz text/"
+"plain helyett"
 
 #: options/panel5.php:98
 msgid "HTMLify links in emails"
-msgstr ""
+msgstr "HTML linkekké alakítás az e-mailekben"
 
 #: options/panel5.php:103
 msgid ""
 "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
 "&lt;/a&gt;</code> (only when HTML emails enabled)."
 msgstr ""
+"Ha bekapcsolod, a szövegben található linkeket ilyen linkké alakítja "
+"<code>&lt;a href=\"\"&gt;&lt;/a&gt;</code> (csak ha a HTML e-mail be van "
+"kapcsolva)."
 
 #: options/panel5.php:108
 msgid "Process trackbacks"
-msgstr "Обрабатывать трэкбеки"
+msgstr "Trackback-ek feldolgozása"
 
 #: options/panel5.php:112
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
-msgstr "Уведомлять подписчиков о новых трэкбеках или пингбэках к обсуждению"
+msgstr ""
+"Felhasználó értesítése, ha új trackback vagy pingback érkezik egy "
+"beszélgetéshez."
 
 #: options/panel5.php:117
 msgid "Track all subscriptions"
-msgstr "Отследить все подписки"
+msgstr "Minden feliratkozás követése"
 
 #: options/panel5.php:122
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr ""
-"Уведомлять администратора, когда пользователи подписываются без комментария."
+"Adminisztrátori értesítés, ha valaki hozzászólás nélkül iratkozik fel "
+"értesítésre."
 
 #: options/panel5.php:131
 msgid "Let the administrator subscribe to comments when logged in."
-msgstr "Позволить админу подписываться, когда он авторизован."
+msgstr "Az adminisztrátor bejelentkezve fel tudjon iratkoznu."
 
 #: options/panel5.php:140
 msgid "Send a copy of all Notifications to the administrator."
-msgstr ""
+msgstr "Másolat küldés minden értesítésről az adminisztrátornak."
 
 #: options/panel5.php:145
 msgid "StCR Unique Key"
-msgstr ""
+msgstr "StCR Unique Key"
 
 #: options/panel5.php:150
 msgid "This Unique Key is not set, please click the following button to "
-msgstr ""
+msgstr "Nincs Unique Key (egyedi kulcs) beállítva. Kattints a következő gombra"
 
 #: options/panel5.php:154 options/panel5.php:166
-#, fuzzy
 msgid "Generate"
-msgstr "Tasso di rimbalzo"
+msgstr "Generálás"
 
 #: options/panel5.php:162
 msgid ""
@@ -1105,11 +1149,13 @@ msgid ""
 "with more\n"
 "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tsecurity."
 msgstr ""
+"Ezt a Unique Key-t használjuk, hogy a feliratkozóknak az értesítések "
+"nagyobb\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tbiztonsággal menjenek ki."
 
 #: options/panel6.php:8 options/panel7.php:8
-#, fuzzy
 msgid "Support the developers"
-msgstr "Поддержать автора"
+msgstr "Támogasd a fejlesztőt"
 
 #: options/panel6.php:18
 #, fuzzy
@@ -1120,20 +1166,17 @@ msgid ""
 "reinvested in the development of <strong>Subscribe to Comments Reloaded</"
 "strong>, and to buy some food for my hungry family."
 msgstr ""
-"Насколько важна функция, которую предоставляет этот плагин для ваших "
-"посетителей? Плагин <b>Subscribe to Comments Reloaded</b> есть и всегда "
-"будет бесплатным, но подумайте над тем, чтобы поддержать автора, если этот "
-"плагин сделал ваш сайт немного лучше, особенно если вы зарабатываете деньги "
-"с помощью своего сайта. Все пожертвования будут использованы для развития "
-"плагина <b>Subscribe to Comments Reloaded</b> и на то, чтобы купить немного "
-"еды моей голодной семье."
+"Mennyire hasznos ezen plugin szolgáltatása a látogatóidnak? Subscribe to "
+"Comments Reloaded most és mindig ingyenes lesz, de kérlek fontold meg, a "
+"fejlesztő támogatását, főleg, ha oldaladdal pénzt is keresel. Minden "
+"beérkező támogatást a Subscribe to Comments Reloaded plugin "
+"továbbfejlesztésére, no meg egy kis ételre fordítok - éhes családom számára."
 
 #: options/panel6.php:20
 msgid "Don't want to donate? You can still help"
-msgstr "Не хотите делать пожертвование? Вы все равно можете помочь"
+msgstr "Nem akarsz adakozni? Akkor is segíthetsz"
 
 #: options/panel6.php:21
-#, fuzzy
 msgid ""
 "If you don't want to donate money, please consider blogging about my plugin "
 "with a link to the plugin's page. Please let your readers know what makes "
@@ -1142,179 +1185,177 @@ msgid ""
 "improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
 "you do, thanks for using my plugin!"
 msgstr ""
-"Если вы не хотите помочь деньгами, пожалуйста, рассмотрите возможность "
-"написать о моем плагине в своем блоге и оставить ссылку на страницу плагина. "
-"Пожалуйста, расскажите своим читателям, что делает ваш блог лучше. Вы можете "
-"также пожертвовать свое время: не стесняйтесь отправлять мне отчеты об "
-"ошибках, свои файлы локализации, идеи по улучшению плагина <b>Subscribe to "
-"Comments Reloaded</b> и так далее. Что бы вы ни выбрали, спасибо, что "
-"пользуетесь моим плагином!"
+"Ha nem akarsz pénzzel támogatni, kérlek írj a plugin-ról, és helyezd el a "
+"plugin linkjét benne. Írd meg, hogyan tette blogodat jobbá ez a megoldás. "
+"Segíthetsz az időddel is: ne habozz, küldj hibajelentést, fordítás fájlokat, "
+"fejlesztési ötleteket, stb. Bármit is teszel, köszönöm hogy az én plugin-"
+"emet használod!"
 
 #: options/panel6.php:23
 msgid "Vote and show your appreciation"
-msgstr "Проголосуйте и покажите свою признательность"
+msgstr "Szavazz és mutasd meg, ha tetszik"
 
 #: options/panel6.php:24
-#, fuzzy
 msgid ""
 "Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
 "for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
 "subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
 msgstr ""
-"Если вам нравится вам плагин <b>Subscribe to Comments Reloaded</b>, "
-"расскажите другим людям о нем и о том, насколько он хорош. <a href=\"http://"
-"wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Оцените</a> "
-"его в разделе плагинов на сайте Wordpress."
+"Mondd el másoknak is, ha a Subscribe to Comments Reloaded jól szolgál az "
+"oldalodon. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Értékeld</a> a Plugin oldalon."
 
 #: options/panel7.php:18
 msgid "Did you find a Bug on the plugin?"
-msgstr ""
+msgstr "Hibát találtál a plugin-ben?"
 
 #: options/panel7.php:19
+#, fuzzy
 msgid ""
 "Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
 "comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
 "%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
 "WordPress Support page."
 msgstr ""
+"Kérlek a hibát a <a href=\"https://github.com/stcr/subscribe-to-comments-"
+"reloaded/issues/\" target=\"_blank\">GitHub</a> oldalon jelezd a WordPress "
+"támogatás oldal helyett."
 
 #: templates/author.php:57
 msgid "Title"
-msgstr "Заголовок"
+msgstr "Cím"
 
 #: templates/author.php:69 templates/user.php:66
 msgid "Select all"
-msgstr "Выбрать все"
+msgstr "Mind kiválasztása"
 
 #: templates/author.php:70 templates/user.php:67
 msgid "Invert selection"
-msgstr "Выбрать обратное"
+msgstr "Fordított kiválasztás"
 
 #: templates/author.php:74 templates/user.php:71
+#, fuzzy
 msgid "All comments"
-msgstr ""
+msgstr "Minden új hozzászólás"
 
 #: templates/author.php:80 templates/user.php:78
 msgid "No subscriptions match your search criteria."
-msgstr "Ни одна подписка не соответствует поисковому запросу."
+msgstr "Nincs a keresésnek megfelelő feliratkozás."
 
 #: templates/request-management-link.php:71 templates/subscribe.php:91
 msgid "Send"
-msgstr "Отправить"
+msgstr "Küldés"
 
 #: templates/subscribe.php:43 templates/subscribe.php:44
 msgid "New subscription to"
-msgstr "Новая подписка на"
+msgstr "Új feliratkozás erre"
 
 #: templates/subscribe.php:44
 msgid "User:"
-msgstr "Пользователь:"
+msgstr "Felhasználó:"
+
+#~ msgid "Set to Y"
+#~ msgstr "Beállítás Y-ra"
+
+#~ msgid "Daily digest"
+#~ msgstr "Napi legjobb"
+
+#~ msgid "Subscribed"
+#~ msgstr "Feliratkozva"
+
+#~ msgid "Replies"
+#~ msgstr "Válaszok"
+
+#~ msgid "Digest"
+#~ msgstr "Kivonat"
+
+#~ msgid "Pending"
+#~ msgstr "Függőben"
 
 #~ msgid "Bold"
-#~ msgstr "Жирный"
+#~ msgstr "Kövér"
 
 #~ msgid "Italic"
-#~ msgstr "С наклоном"
+#~ msgstr "Dőlt"
 
 #~ msgid "Link"
-#~ msgstr "Ссылка"
+#~ msgstr "Link"
 
 #~ msgid "Image"
-#~ msgstr "Изображение"
+#~ msgstr "Kép"
+
+#~ msgid "Notify authors"
+#~ msgstr "Szerzők értesítése"
+
+#~ msgid "Notify the administrator when a new comment is posted."
+#~ msgstr "Adminisztrátor értesítése, ha új hozzászólás érkezik."
 
 #~ msgid "Sponsor's Corner"
-#~ msgstr "Уголок спонсора"
+#~ msgstr "Szponzor Sarok"
 
 #~ msgid ""
 #~ "If you want to sponsor this plugin, don't hesitate to <a href='http://"
 #~ "behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
 #~ msgstr ""
-#~ "Если вы хотите проспонсировать этот плагин, не стесняйтесь, <a "
-#~ "href='http://behstant.com/negocio/contact.php' target='_blank'>обратитесь "
-#~ "ко мне</a>."
-
-#~ msgid "Set to Y"
-#~ msgstr "Установлено на Y"
-
-#~ msgid "Daily digest"
-#~ msgstr "Ежедневный дайджест"
-
-#~ msgid "Notify authors"
-#~ msgstr "Уведомлять авторов"
-
-#~ msgid "Notify the administrator when a new comment is posted."
-#~ msgstr "Уведомлять администратора о новом комментарии."
-
-#~ msgid "Subscribed"
-#~ msgstr "Подписано"
-
-#~ msgid "Replies"
-#~ msgstr "Ответы"
-
-#~ msgid "Digest"
-#~ msgstr "Дайджест"
-
-#~ msgid "Pending"
-#~ msgstr "В ожидании"
+#~ "Ha támogatni akarod ezt a plugin-t, ne habozz <a href='http://www."
+#~ "duechiacchiere.it/contatto'>keress meg</a>."
 
 #~ msgid "Management Page ID"
-#~ msgstr "ID страницы управления"
+#~ msgstr "ID старонкі кіравання"
 
 #~ msgid "Management page"
-#~ msgstr "Страница управления"
+#~ msgstr "Старонка кіравання"
 
 #~ msgid "Awaiting confirmation"
-#~ msgstr "Ожидает подтверждения"
+#~ msgstr "Чакае пацверджання"
 
 #~ msgid "Stats"
-#~ msgstr "Статистика"
+#~ msgstr "Статыстыка"
 
 #~ msgid "Other Messages"
-#~ msgstr "Другие сообщения"
+#~ msgstr "Іншыя паведамленні"
 
 #~ msgid "The status has been successfully updated. Rows affected:"
-#~ msgstr "Статус успешно обновлен. Изменены строки:"
+#~ msgstr "Статут паспяхова абноўлены. Зменены радкі:"
 
 #~ msgid ""
 #~ "Update the email address associated to a specific subscription (by post "
 #~ "ID)."
-#~ msgstr "Обновить эл. адрес определенной подписки (по ID записи)."
+#~ msgstr "Абнавіць эл. адрас вызначанай падпіскі (па ID запісы)."
 
 #~ msgid "PID"
-#~ msgstr "ID записи"
+#~ msgstr "ID запісы"
 
 #~ msgid "Change status"
-#~ msgstr "Изменить статус"
+#~ msgstr "Змяніць статут"
 
 #~ msgid ""
 #~ "Change the status of an email address or permanently delete all its "
 #~ "subscriptions."
 #~ msgstr ""
-#~ "Изменить статус электронного адреса или полностью удалить все его "
-#~ "подписки."
+#~ "Змяніць статут электроннага адрасу ці цалкам выдаліць усё яго падпіскі."
 
 #~ msgid "Resume"
-#~ msgstr "Восстановить"
+#~ msgstr "Аднавіць"
 
 #~ msgid "Update email address"
-#~ msgstr "Обновить электронный адрес"
+#~ msgstr "Абнавіць электронны адрас"
 
 #~ msgid ""
 #~ "You can \"mass update\" all the occurrences of a given email address "
 #~ "(exact matches only)."
 #~ msgstr ""
-#~ "Вы можете изменить все использования определенного электронного адреса в "
-#~ "базе данных на новый (только для точных совпадений)."
+#~ "Вы можаце змяніць усе выкарыстанні вызначанага электроннага адрасу ў базе "
+#~ "дадзеных на новы (толькі для дакладных супадзенняў)."
 
 #~ msgid "Search email address"
-#~ msgstr "Искать электронный адрес"
+#~ msgstr "Шукаць электронны адрас"
 
 #~ msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
-#~ msgstr ""
-#~ "(Расшифровка: Y: подписано, N: приостановлено, C: ожидает подтверждения)"
+#~ msgstr "(Расшыфроўка: Y: падпісана, N: прыпынена, C: чакае пацверджання)"
 
 #~ msgid "StCR table has been successfully optimized."
-#~ msgstr "Таблица StCR успешно обновлена."
+#~ msgstr "Табліца StCR паспяхова абноўлена."
 
 #~ msgid "Filter by date"
 #~ msgstr "Filtra per data"
@@ -1329,46 +1370,55 @@ msgstr "Пользователь:"
 #~ msgstr "Nessun dato da visualizzare"
 
 #~ msgid "optimize"
-#~ msgstr "оптимизировать"
+#~ msgstr "аптымізаваць"
 
 #~ msgid "Database"
-#~ msgstr "База данных"
+#~ msgstr "База дадзеных"
 
 #~ msgid "Engine"
-#~ msgstr "Устройство"
+#~ msgstr "Прылада"
 
 #~ msgid "Created on"
-#~ msgstr "Создано"
+#~ msgstr "Створана"
 
 #~ msgid "Records"
-#~ msgstr "Записи"
+#~ msgstr "Запісы"
 
 #~ msgid "Average Record Length"
-#~ msgstr "Средняя длина записи"
+#~ msgstr "Сярэдняя даўжыня запісу"
 
 #~ msgid "Approximate Overhead"
-#~ msgstr "Прибл. объем пользовательских данных"
+#~ msgstr "Прибл. аб'ём карыстацкіх дадзеных"
 
 #~ msgid "Custom CSS Class"
-#~ msgstr "Класс изменяемого CSS"
+#~ msgstr "Клас змянянага CSS"
 
 #~ msgid ""
 #~ "Custom CSS class to associate to the checkbox, if you want to customize "
 #~ "its style."
 #~ msgstr ""
-#~ "Класс изменяемого CSS для окошка выбора, если вы хотите изменить его стиль"
+#~ "Клас змянянага CSS для акенца выбару, калі вы жадаеце змяніць яго стыль"
 
 #~ msgid "Subscriptions have been successfully updated."
-#~ msgstr "Подписки успешно обновлены."
+#~ msgstr "Падпіскі паспяхова абноўлены."
 
 #~ msgid "Sorry, no subscriptions found."
-#~ msgstr "Извините, подписки не найдены."
+#~ msgstr "Выбачыце, падпіскі не знойдзены."
 
 #~ msgid "All the subscriptions have been successfully updated."
-#~ msgstr "Все подписки успешно обновлены."
+#~ msgstr "Усе падпіскі паспяхова абноўлены."
+
+#~ msgid ""
+#~ "Disable the virtual management page if you need to create a <a href="
+#~ "\"http://lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to "
+#~ "make your theme happy."
+#~ msgstr ""
+#~ "Disable the virtual management page if you need to create a <a href="
+#~ "\"http://lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to "
+#~ "make your theme happy."
 
 #~ msgid "Remove or suspend email address"
-#~ msgstr "Удалить или приостановить электронный адрес"
+#~ msgstr "Выдаліць ці прыпыніць электронны адрас"
 
 #~ msgid ""
 #~ "Your subscription has been successfully confirmed. Thank you for using "
