@@ -2,8 +2,8 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 150422
-Stable tag: 150422
+Version: 150428
+Stable tag: 150428
 Requires at least: 2.9.2
 Tested up to: 4.1.3
 
@@ -118,7 +118,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '150422';
+	public $current_version = '150428';
 
 	/**
 	 * Constructor -- Sets things up.
@@ -126,6 +126,11 @@ class wp_subscribe_reloaded {
 	public function __construct() {
 		$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
 
+		// Let us check if there is a newer version
+		// See: https://make.wordpress.org/core/2010/10/27/plugin-activation-hooks-no-longer-fire-for-updates/
+		if( ! isset($this->current_version) || $this->current_version != get_option( 'subscribe_reloaded_version' ) ) {
+			$this->activate();
+		}
 		// What to do when a new comment is posted
 		add_action( 'comment_post', array( &$this, 'new_comment_posted' ), 12, 2 );
 		// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
@@ -295,8 +300,9 @@ class wp_subscribe_reloaded {
 		delete_option('subscribe_reloaded_unique_key');
 		add_option( 'subscribe_reloaded_unique_key', $this->generate_key(), '', 'yes' );
 
+		add_option( 'subscribe_reloaded_notice_unique_key', 'no', '', 'yes' );
 		add_option( 'subscribe_reloaded_subscriber_table', 'no', '', 'yes' );
-		add_option( 'subscribe_reloaded_data_sanitized', 'yes', '', 'yes' );
+		add_option( 'subscribe_reloaded_data_sanitized', 'no', '', 'yes' );
 		add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'yes' );
 		add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'yes' );
 		add_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'yes' );
@@ -343,6 +349,9 @@ class wp_subscribe_reloaded {
 		// Create a new table if not exists to manage the subscribers safer
 		$this->_create_subscriber_table();
 
+		// Notices
+		$this->_notices();
+
 		// Schedule the autopurge hook
 		if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_purge' ) ) {
 			wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
@@ -382,6 +391,24 @@ class wp_subscribe_reloaded {
 	}
 
 	// end deactivate
+	/**
+	 * This function will trigger notices to the users if needed.
+	 */
+	private function _notices() {
+		$notices = array();
+
+		if( ! get_option( "subscribe_reloaded_notice_unique_key" ) || get_option( "subscribe_reloaded_notice_unique_key" ) == "no" ) {
+
+			$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+			$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+				'<p>Hey! Subscribe to Comments Reloaded has an option called <strong>Unique Key</strong></p>'.
+				'<p>This options allows you to have a Unique URL for the Subscribe to Comments Reloaded page, you can change this Unique Key any time</p>'.
+				'<p>Visit the <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=5">Options</a> Panel</p></div>';
+		}
+
+		update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+		update_option('subscribe_reloaded_notice_unique_key', 'yes');
+	}
 
 	private function _create_subscriber_table() {
 		global $wpdb;
@@ -1721,8 +1748,8 @@ class wp_subscribe_reloaded {
 	 */
 	public function generate_key( $_email = "" ) {
 		$salt      = time();
-		$user      = wp_get_current_user();
-		$uniqueKey = md5( get_current_user_id() . $user->user_login . $salt . $_email );
+		$dd_salt   = md5( $salt );
+		$uniqueKey = md5( $dd_salt . $salt . $_email );
 
 		return $uniqueKey;
 	}

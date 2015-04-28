@@ -12,6 +12,9 @@ $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}subscribe_reloaded" ); // Com
 $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'" );
 
 // Goodbye options...
+delete_option( 'subscribe_reloaded_subscriber_table' );
+delete_option( 'subscribe_reloaded_data_sanitized' );
+delete_option( 'subscribe_reloaded_notice_unique_key' );
 delete_option( 'subscribe_reloaded_unique_key' );
 delete_option( 'subscribe_reloaded_manager_page_enabled' );
 delete_option( 'subscribe_reloaded_manager_page' );

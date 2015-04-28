@@ -20,5 +20,8 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 <h3><?php _e( "Don't want to donate? You can still help", 'subscribe-reloaded' ) ?></h3>
 <p><?php _e( "If you don't want to donate money, please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever you do, thanks for using my plugin!", 'subscribe-reloaded' ) ?></p>
 
+<h3><?php _e( "Subscribe to the Beta testers", 'subscribe-reloaded' ) ?></h3>
+<p><?php _e( "Before a new Update we release a Beta version so that our current users can give us feedback if they find a bug, If you want to join the tester list you can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</a>", 'subscribe-reloaded' ) ?></h3></p>
+
 <h3><?php _e( "Vote and show your appreciation", 'subscribe-reloaded' ) ?></h3>
 <p><?php _e( 'Tell other people if <strong>Subscribe to Comments Reloaded</strong> works for you and how good it is. <a href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate it</a> on its Plugin Directory page.', 'subscribe-reloaded' ) ?></p>
