@@ -11,6 +11,16 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 	global $wp_subscribe_reloaded;
 	$unique_key = $wp_subscribe_reloaded->generate_key();
 	subscribe_reloaded_update_option( 'unique_key', $unique_key, 'text' );
+
+	// Display an alert in the admin interface if something went wrong
+	echo '<div class="updated fade"><p>';
+	if ( empty( $faulty_fields ) ) {
+		_e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+	} else {
+		_e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
+		echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
+	}
+	echo "</p></div>\n";
 } else {
 	// Update options
 	if ( isset( $_POST['options'] ) ) {
@@ -41,18 +51,18 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 		if ( isset( $_POST['options']['admin_bcc'] ) && ! subscribe_reloaded_update_option( 'admin_bcc', $_POST['options']['admin_bcc'], 'yesno' ) ) {
 			$faulty_fields = __( 'BCC admin on Notifications', 'subscribe-reloaded' ) . ', ';
 		}
+		// Display an alert in the admin interface if something went wrong
+		echo '<div class="updated fade"><p>';
+		if ( empty( $faulty_fields ) ) {
+			_e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+		} else {
+			_e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
+			echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
+		}
+		echo "</p></div>\n";
 	}
 }
 
-// Display an alert in the admin interface if something went wrong
-echo '<div class="updated fade"><p>';
-if ( empty( $faulty_fields ) ) {
-	_e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
-} else {
-	_e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
-	echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
-}
-echo "</p></div>\n";
 
 wp_print_scripts( 'quicktags' );
 ?>

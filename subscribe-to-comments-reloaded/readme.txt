@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
 Tested up to: 4.1.3
-Stable tag: 150422
+Stable tag: 150428
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -74,6 +74,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+== v150428 ==
+
+**Bug Fix; PLEASE UPGRADE IMMEDIATELY** This Update will fix a critical issue on the creation of the new subscribers table in case that is not created.
+
 == v150422 ==
 
 **Security Fix; PLEASE UPGRADE IMMEDIATELY** Google PII issue with AdWords. Protect user email Address and uses an encrypted key instead on URL. Several issues are fix, see the change log.
@@ -96,19 +100,24 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
+= v150428 =
+
+* **Fix** Upgrade routine since the activation hooks was not triggering on the upgrade process.
+* **Add** Fixed French translation(thanks to Jean-Michel Meyer)
+
 = v150422 =
 
-**Fix** Google PII complaint. See bug/#79 on GitHub.
-**Fix** The ability to manage any subscription is remove, the manage link will only appear on the subscriber email address. bug/#81.
-**Fix** Fix wrong html markup on the advance subscription dropdown.
-**Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. bug/#82
-**Fix** HTML email label for for screen readers. reported on bug/#76.
-**Fix** Database information with correct encoding. A new routine to clean the database information encoding. This was outputting raw HTML.
-**New Feature** Update subscription status to 'All Comments' on user Management Page.
-**Add** New table to store every subscriber email.
-**Add** Czech translation file.
-**Add** Hungarian translation file.
-**Add** Hebrew translation file.
+* **Fix** Google PII complaint. See bug/#79 on GitHub.
+* **Fix** The ability to manage any subscription is remove, the manage link will only appear on the subscriber email address. bug/#81.
+* **Fix** Fix wrong html markup on the advance subscription dropdown.
+* **Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. bug/#82
+* **Fix** HTML email label for for screen readers. reported on bug/#76.
+* **Fix** Database information with correct encoding. A new routine to clean the database information encoding. This was outputting raw HTML.
+* **New Feature** Update subscription status to 'All Comments' on user Management Page.
+* **Add** New table to store every subscriber email.
+* **Add** Czech translation file.
+* **Add** Hungarian translation file.
+* **Add** Hebrew translation file.
 
 = v150207 =
 
@@ -235,7 +244,7 @@ localization is ready. Currently, we support the following languages:
 
 * Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
 * Dutch - [Martijn Chel](http://mcpnetwork.nl/),[Muratje](http://www.muromedia.nl/)
-* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
+* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime, [Jean-Michel Meyer]
 * German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
 * Indonesian - [The Masked Cat](http://themaskedcat.tk)
 * Italian - myself
