@@ -4,8 +4,8 @@ Contributors: coolmann, reedyseth, raamdev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 4.1.3
-Stable tag: 150428
+Tested up to: 4.2.2
+Stable tag: 150611
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -74,9 +74,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
-== v150428 ==
+== v150611 ==
 
-**Bug Fix; PLEASE UPGRADE IMMEDIATELY** This Update will fix a critical issue on the creation of the new subscribers table in case that is not created.
+v150611 Fix the creation of the new table realated to the Google PII issue with AdWords, see v150422 Change log for details.
 
 == v150422 ==
 
@@ -100,9 +100,10 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
-= v150428 =
+= v150611 =
 
-* **Fix** Upgrade routine since the activation hooks was not triggering on the upgrade process.
+* **Fix** The creation of the new table realated to the Google PII issue with AdWords, see bug/#100
+* **Fix** The manage subscription link broke due to a wrong SRE key generation, see bug/#102
 * **Add** Fixed French translation(thanks to Jean-Michel Meyer)
 
 = v150422 =
@@ -244,7 +245,7 @@ localization is ready. Currently, we support the following languages:
 
 * Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
 * Dutch - [Martijn Chel](http://mcpnetwork.nl/),[Muratje](http://www.muromedia.nl/)
-* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime, [Jean-Michel Meyer]
+* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
 * German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
 * Indonesian - [The Masked Cat](http://themaskedcat.tk)
 * Italian - myself
