@@ -131,6 +131,7 @@ class wp_subscribe_reloaded {
 		// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
 		add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
 
+
 		// Provide content for the management page using WP filters
 		if ( ! is_admin() ) {
 			$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
@@ -194,6 +195,10 @@ class wp_subscribe_reloaded {
 
 			// Settings link for plugin on plugins page
 			add_filter( 'plugin_action_links', array( &$this, 'plugin_settings_link' ), 10, 2 );
+			// Check if the subscribers table is created otherwise create it.
+			if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
+				$this->_create_subscriber_table();
+			}
 		}
 
 
@@ -389,7 +394,7 @@ class wp_subscribe_reloaded {
 		$errorMsg        = '';
 
 		// If the update option is set to false
-		if ( get_option('subscribe_reloaded_subscriber_table') == 'no' ) {
+		if ( ! get_option('subscribe_reloaded_subscriber_table') ||  get_option('subscribe_reloaded_subscriber_table') == 'no' ) {
 			// Creation of table and subscribers.
 			$sqlCreateTable = " CREATE TABLE " . $wpdb->prefix . "subscribe_reloaded_subscribers (
 							  stcr_id int(11) NOT NULL AUTO_INCREMENT,
