@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-22 10:36-0700\n"
-"PO-Revision-Date: 2015-04-22 10:36-0700\n"
+"POT-Creation-Date: 2015-06-11 16:22-0700\n"
+"PO-Revision-Date: 2015-06-11 16:22-0700\n"
 "Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -33,7 +33,7 @@ msgid "Replies to my comments"
 msgstr "Apenas respostas a meus comentários"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:307
+#: subscribe-to-comments-reloaded.php:312
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -42,7 +42,7 @@ msgstr ""
 "href='[subscribe_link]'>se inscrever</a> sem comentar."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:308
+#: subscribe-to-comments-reloaded.php:313
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
@@ -51,7 +51,7 @@ msgstr ""
 "inscrições."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:309
+#: subscribe-to-comments-reloaded.php:314
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
@@ -60,19 +60,19 @@ msgstr ""
 "href='[manager_link]'>Gerencie as suas inscrições</a>."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:310
+#: subscribe-to-comments-reloaded.php:315
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "Você pode <a href='[manager_link]'>gerenciar as inscrições</a> deste post."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:314 options/index.php:57
+#: subscribe-to-comments-reloaded.php:319 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "Gerenciar inscrições"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:316
+#: subscribe-to-comments-reloaded.php:321
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -83,7 +83,7 @@ msgstr ""
 "página pessoal de gerenciamento."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:317
+#: subscribe-to-comments-reloaded.php:322
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -93,7 +93,7 @@ msgstr ""
 "você deverá receber um email com o link de gerenciamento em poucos minutos."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:318
+#: subscribe-to-comments-reloaded.php:323
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -104,7 +104,7 @@ msgstr ""
 "no formulário abaixo."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:319
+#: subscribe-to-comments-reloaded.php:324
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -115,7 +115,7 @@ msgstr ""
 "este artigo for aprovado e publicado pelo administrador."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:320
+#: subscribe-to-comments-reloaded.php:325
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -125,7 +125,7 @@ msgstr ""
 "verifique seu e-mail para a mensagem de confirmação e siga as instruções."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:321
+#: subscribe-to-comments-reloaded.php:326
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -134,7 +134,7 @@ msgstr ""
 "correspondente (s) e clique no botão no final da lista."
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:322
+#: subscribe-to-comments-reloaded.php:327
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -145,12 +145,12 @@ msgstr ""
 "em:"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:326
+#: subscribe-to-comments-reloaded.php:331
 msgid "There is a new comment to [post_title]"
 msgstr "Há um novo comentário para [post_title]"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:327
+#: subscribe-to-comments-reloaded.php:332
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -169,12 +169,12 @@ msgstr ""
 "Gerencie suas inscrições: [manager_link]"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:328
+#: subscribe-to-comments-reloaded.php:333
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Por favor, confirme sua inscrição para [post_title]"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:329
+#: subscribe-to-comments-reloaded.php:334
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -190,12 +190,12 @@ msgstr ""
 "[confirm_link]"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:330
+#: subscribe-to-comments-reloaded.php:335
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Gerenciar as suas inscrições em [blog_name]"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:331
+#: subscribe-to-comments-reloaded.php:336
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -205,83 +205,83 @@ msgstr ""
 "[blog_name]. Siga este link para acessar sua página pessoal de inscrições:\n"
 "[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:424
-#: subscribe-to-comments-reloaded.php:431
-#: subscribe-to-comments-reloaded.php:574
-#: subscribe-to-comments-reloaded.php:643
-#: subscribe-to-comments-reloaded.php:787
+#: subscribe-to-comments-reloaded.php:429
+#: subscribe-to-comments-reloaded.php:436
+#: subscribe-to-comments-reloaded.php:579
+#: subscribe-to-comments-reloaded.php:648
+#: subscribe-to-comments-reloaded.php:792
 msgid "Important Notice"
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:522
+#: subscribe-to-comments-reloaded.php:527
 #, fuzzy
 msgid "Subscribe to Comments Reloaded Important Notice"
 msgstr ""
 "Precisa de ajuda sobre como usar Subscribe to Comments Reloaded? Visite o "
 "oficial"
 
-#: subscribe-to-comments-reloaded.php:523
+#: subscribe-to-comments-reloaded.php:528
 msgid ""
 "The information in your database has been sanitize to prevent the raw html "
 "messages."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:575
+#: subscribe-to-comments-reloaded.php:580
 msgid ""
 "Comment subscription data from the <strong>Subscribe to Comments</strong> "
 "plugin was detected and automatically imported into <strong>Subscribe to "
 "Comments Reloaded</strong>."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:575
+#: subscribe-to-comments-reloaded.php:580
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Subscribe to "
 "Comments to prevent confusion between the two plugins."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:576
+#: subscribe-to-comments-reloaded.php:581
 msgid ""
 "If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
 "that you want to import, you'll need to import that data manually, as only "
 "one import routine will ever run to prevent data loss."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:577
-#: subscribe-to-comments-reloaded.php:645
-#: subscribe-to-comments-reloaded.php:791
+#: subscribe-to-comments-reloaded.php:582
+#: subscribe-to-comments-reloaded.php:650
+#: subscribe-to-comments-reloaded.php:796
 msgid ""
 "Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
 "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
 "your configuration."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:644
+#: subscribe-to-comments-reloaded.php:649
 msgid ""
 "Comment subscription data from the <strong>Comment Reply Notification</"
 "strong> plugin was detected and automatically imported into "
 "<strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:644
+#: subscribe-to-comments-reloaded.php:649
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Comment Reply "
 "Notification to prevent confusion between the two plugins."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:788
+#: subscribe-to-comments-reloaded.php:793
 msgid ""
 "Plugin options and comment subscription data from the <strong>WP Comment "
 "Subscriptions</strong> plugin were detected and automatically imported into "
 "<strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:788
+#: subscribe-to-comments-reloaded.php:793
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> WP Comment "
 "Subscriptions to prevent confusion between the two plugins."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:789
+#: subscribe-to-comments-reloaded.php:794
 msgid ""
 "If you have subscription data from another plugin (such as Subscribe to "
 "Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
@@ -289,7 +289,7 @@ msgid ""
 "ever run to prevent data loss."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:790
+#: subscribe-to-comments-reloaded.php:795
 msgid ""
 "<strong>Note:</strong> If you were previously using the "
 "<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
@@ -298,20 +298,20 @@ msgid ""
 "respectively."
 msgstr ""
 
-#: subscribe-to-comments-reloaded.php:801
+#: subscribe-to-comments-reloaded.php:806
 msgid "Settings"
 msgstr ""
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:1840 options/panel2.php:67
-#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:74
-#: options/panel5.php:83 options/panel5.php:92 options/panel5.php:102
-#: options/panel5.php:111 options/panel5.php:121 options/panel5.php:130
-#: options/panel5.php:139
+#: subscribe-to-comments-reloaded.php:1845 options/panel2.php:67
+#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:84
+#: options/panel5.php:93 options/panel5.php:102 options/panel5.php:112
+#: options/panel5.php:121 options/panel5.php:131 options/panel5.php:140
+#: options/panel5.php:149
 msgid "No"
 msgstr "Não"
 
-#: subscribe-to-comments-reloaded.php:1867
+#: subscribe-to-comments-reloaded.php:1872
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
@@ -319,15 +319,15 @@ msgstr ""
 "oficial"
 
 # @ subscribe-reloaded
-#: subscribe-to-comments-reloaded.php:1867
+#: subscribe-to-comments-reloaded.php:1872
 msgid "support forum"
 msgstr "fórum de suporte"
 
-#: subscribe-to-comments-reloaded.php:1868
+#: subscribe-to-comments-reloaded.php:1873
 msgid "Feeling generous?"
 msgstr "Sentindo-se generoso(a)?"
 
-#: subscribe-to-comments-reloaded.php:1868
+#: subscribe-to-comments-reloaded.php:1873
 msgid "Donate a few bucks!"
 msgstr "Doe alguns trocados!"
 
@@ -703,21 +703,21 @@ msgstr "Descrição para &quot;Autor&quot;"
 
 # @ subscribe-reloaded
 #: options/panel2.php:49 options/panel3.php:70 options/panel4.php:57
-#: options/panel5.php:50
+#: options/panel5.php:18 options/panel5.php:57
 msgid "Your settings have been successfully updated."
 msgstr "Suas configurações foram atualizadas"
 
 # @ subscribe-reloaded
 #: options/panel2.php:51 options/panel3.php:72 options/panel4.php:59
-#: options/panel5.php:52
+#: options/panel5.php:20 options/panel5.php:59
 msgid "There was an error updating the following fields:"
 msgstr "Houve um erro ao atualizar os seguintes campos:"
 
 # @ subscribe-reloaded
 #: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
-#: options/panel5.php:73 options/panel5.php:82 options/panel5.php:91
-#: options/panel5.php:101 options/panel5.php:110 options/panel5.php:120
-#: options/panel5.php:129 options/panel5.php:138
+#: options/panel5.php:83 options/panel5.php:92 options/panel5.php:101
+#: options/panel5.php:111 options/panel5.php:120 options/panel5.php:130
+#: options/panel5.php:139 options/panel5.php:148
 msgid "Yes"
 msgstr "Sim"
 
@@ -834,7 +834,7 @@ msgstr ""
 
 # @ default
 #: options/panel2.php:189 options/panel3.php:197 options/panel4.php:182
-#: options/panel5.php:174
+#: options/panel5.php:184
 msgid "Save Changes"
 msgstr "Salvar Alterações"
 
@@ -1111,53 +1111,53 @@ msgstr ""
 "[manager_link]"
 
 # @ subscribe-reloaded
-#: options/panel5.php:18 options/panel5.php:62
+#: options/panel5.php:28 options/panel5.php:72
 msgid "Autopurge requests"
 msgstr "Pedidos de auto remoção"
 
 # @ subscribe-reloaded
-#: options/panel5.php:21 options/panel5.php:71
+#: options/panel5.php:31 options/panel5.php:81
 msgid "Enable double check"
 msgstr "Habilitar confirmação"
 
 # @ subscribe-reloaded
-#: options/panel5.php:24 options/panel5.php:79
+#: options/panel5.php:34 options/panel5.php:89
 msgid "Subscribe authors"
 msgstr "Inscrito"
 
-#: options/panel5.php:27 options/panel5.php:89
+#: options/panel5.php:37 options/panel5.php:99
 msgid "Enable HTML emails"
 msgstr "Habilitar e-mails HTML"
 
-#: options/panel5.php:30
+#: options/panel5.php:40
 msgid "HTMLify Links in HTML emails"
 msgstr ""
 
 # @ subscribe-reloaded
-#: options/panel5.php:33
+#: options/panel5.php:43
 msgid "Send trackbacks"
 msgstr "Enviar trackbacks"
 
 # @ subscribe-reloaded
-#: options/panel5.php:36
+#: options/panel5.php:46
 msgid "Notify admin"
 msgstr "Notificar Administrador"
 
-#: options/panel5.php:39 options/panel5.php:127
+#: options/panel5.php:49 options/panel5.php:137
 msgid "Let admin subscribe"
 msgstr "Permitir inscrições do Admin"
 
 # @ subscribe-reloaded
-#: options/panel5.php:42 options/panel5.php:136
+#: options/panel5.php:52 options/panel5.php:146
 msgid "BCC admin on Notifications"
 msgstr "Notificações"
 
-#: options/panel5.php:65
+#: options/panel5.php:75
 msgid "days"
 msgstr "dias"
 
 # @ subscribe-reloaded
-#: options/panel5.php:66
+#: options/panel5.php:76
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
@@ -1166,7 +1166,7 @@ msgstr ""
 "esse recurso."
 
 # @ subscribe-reloaded
-#: options/panel5.php:75
+#: options/panel5.php:85
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
@@ -1174,12 +1174,12 @@ msgstr ""
 "Enviar um e-mail de notificação para confirmar a inscrição (para evitar "
 "abusos de endereços)."
 
-#: options/panel5.php:84
+#: options/panel5.php:94
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
 
-#: options/panel5.php:93
+#: options/panel5.php:103
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
@@ -1187,23 +1187,23 @@ msgstr ""
 "Se ativado envia mensagens de e-mail com o content-type = text/html, em vez "
 "de text/plain"
 
-#: options/panel5.php:98
+#: options/panel5.php:108
 msgid "HTMLify links in emails"
 msgstr ""
 
-#: options/panel5.php:103
+#: options/panel5.php:113
 msgid ""
 "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
 "&lt;/a&gt;</code> (only when HTML emails enabled)."
 msgstr ""
 
 # @ subscribe-reloaded
-#: options/panel5.php:108
+#: options/panel5.php:118
 msgid "Process trackbacks"
 msgstr "Enviar trackbacks"
 
 # @ subscribe-reloaded
-#: options/panel5.php:112
+#: options/panel5.php:122
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
 msgstr ""
@@ -1211,39 +1211,39 @@ msgstr ""
 "discussão."
 
 # @ subscribe-reloaded
-#: options/panel5.php:117
+#: options/panel5.php:127
 msgid "Track all subscriptions"
 msgstr "Acompanhe todas as inscrições"
 
 # @ subscribe-reloaded
-#: options/panel5.php:122
+#: options/panel5.php:132
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr ""
 "Notificar o administrador quando os usuários se inscrever sem comentar."
 
 # @ subscribe-reloaded
-#: options/panel5.php:131
+#: options/panel5.php:141
 msgid "Let the administrator subscribe to comments when logged in."
 msgstr ""
 "Deixe o administrador inscrever-se em comentários, quando estiver logado."
 
-#: options/panel5.php:140
+#: options/panel5.php:150
 msgid "Send a copy of all Notifications to the administrator."
 msgstr ""
 
-#: options/panel5.php:145
+#: options/panel5.php:155
 msgid "StCR Unique Key"
 msgstr ""
 
-#: options/panel5.php:150
+#: options/panel5.php:160
 msgid "This Unique Key is not set, please click the following button to "
 msgstr ""
 
-#: options/panel5.php:154 options/panel5.php:166
+#: options/panel5.php:164 options/panel5.php:176
 msgid "Generate"
 msgstr ""
 
-#: options/panel5.php:162
+#: options/panel5.php:172
 msgid ""
 "This Unique Key will be use to send the notification to your subscribers "
 "with more\n"
@@ -1297,11 +1297,25 @@ msgstr ""
 
 # @ subscribe-reloaded
 #: options/panel6.php:23
+#, fuzzy
+msgid "Subscribe to the Beta testers"
+msgstr "Inscrito"
+
+#: options/panel6.php:24
+msgid ""
+"Before a new Update we release a Beta version so that our current users can "
+"give us feedback if they find a bug, If you want to join the tester list you "
+"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
+"a>"
+msgstr ""
+
+# @ subscribe-reloaded
+#: options/panel6.php:26
 msgid "Vote and show your appreciation"
 msgstr "Vote e mostre o seu apreço"
 
 # @ subscribe-reloaded
-#: options/panel6.php:24
+#: options/panel6.php:27
 #, fuzzy
 msgid ""
 "Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
