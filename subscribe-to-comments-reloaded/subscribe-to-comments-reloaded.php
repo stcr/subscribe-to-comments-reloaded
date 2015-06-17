@@ -517,10 +517,12 @@ class wp_subscribe_reloaded {
 			$sctr_data_array_size = sizeof( $stcr_data );
 			// Lets make sure that there is not another subscription with the same compose key
 			foreach ( $stcr_data as $row ) {
-				$optionValue = $row->option_value;
-				$optionValue = html_entity_decode( stripslashes( $optionValue ), ENT_QUOTES, 'UTF-8' );
-				$optionValue = esc_attr( $optionValue );
-				update_option( $row->option_name, $optionValue );
+				if ( $row->option_name != 'subscribe_reloaded_deferred_admin_notices' ) {
+					$optionValue = $row->option_value;
+					$optionValue = html_entity_decode( stripslashes( $optionValue ), ENT_QUOTES, 'UTF-8' );
+					$optionValue = esc_attr( $optionValue );
+					update_option( $row->option_name, $optionValue );
+				}
 			}
 			update_option( "subscribe_reloaded_data_sanitized", "yes" );
 			$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
