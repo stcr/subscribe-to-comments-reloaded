@@ -1081,7 +1081,14 @@ class wp_subscribe_reloaded {
 			( $action == 'c' )
 		) {
 			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
-		} // Manage your subscriptions (user)
+		}
+		elseif ( ( $post_ID > 0 ) && ! empty( $email ) && ! empty( $key ) && ! empty( $action ) &&
+			$this->_is_valid_key( $key, $email ) &&
+			( $action == 'u' )
+		) {
+			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
+		}
+		// Manage your subscriptions (user)
 		elseif ( ! empty( $email ) && ( ! empty( $key ) && $this->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) ) {
 			$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
 		}
@@ -1650,6 +1657,7 @@ class wp_subscribe_reloaded {
 		$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_QUOTES, 'UTF-8' );
 		$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_COMPAT, 'UTF-8' );
 		$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+		$one_click_unsubscribe_link = $manager_link;
 		if ( function_exists( 'qtrans_convertURL' ) ) {
 			$manager_link = qtrans_convertURL( $manager_link );
 		}
@@ -1658,6 +1666,7 @@ class wp_subscribe_reloaded {
 		$subscriber_salt = $this->generate_temp_key( $clean_email );
 
 		$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
+		$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
 
 		$headers      = "From: $from_name <$from_email>\n";
 		$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
@@ -1690,6 +1699,7 @@ class wp_subscribe_reloaded {
 		$message = str_replace( '[comment_author]', $comment->comment_author, $message );
 		$message = str_replace( '[comment_content]', $comment_content, $message );
 		$message = str_replace( '[manager_link]', $manager_link, $message );
+		$message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
 
 		// QTranslate support
 		if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
