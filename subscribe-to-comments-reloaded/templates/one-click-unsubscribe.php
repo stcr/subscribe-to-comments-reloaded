@@ -18,7 +18,7 @@ if ( is_object( $post ) ) {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
-	echo "<p>$message</p>";
+	echo "<p>$message</p>"; // TODO: Add management link with number of subscriptions.
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';
 }
