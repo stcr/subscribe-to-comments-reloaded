@@ -150,7 +150,7 @@ namespace stcr {
 			/**
 			 * Checks if a key is valid for a given email address
 			 */
-			private function _is_valid_key( $_key, $_email ) {
+			public function _is_valid_key( $_key, $_email ) {
 				if ( $this->generate_temp_key( $_email ) === $_key ) {
 					return true;
 				} else {

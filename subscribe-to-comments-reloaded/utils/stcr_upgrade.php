@@ -13,9 +13,60 @@ namespace stcr {
 	}
 
 	if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
-		class stcr_upgrade {
+		class stcr_upgrade extends stcr_utils {
 
-			public function _sanitize_db_information() { // TODO: implement function.
+			public function _create_subscriber_table() {
+				global $wpdb;
+				$charset_collate = $wpdb->get_charset_collate();
+				$errorMsg        = '';
+				// If the update option is set to false
+				if ( ! get_option('subscribe_reloaded_subscriber_table') ||  get_option('subscribe_reloaded_subscriber_table') == 'no' ) {
+					// Creation of table and subscribers.
+					$sqlCreateTable = " CREATE TABLE " . $wpdb->prefix . "subscribe_reloaded_subscribers (
+							  stcr_id int(11) NOT NULL AUTO_INCREMENT,
+							  subscriber_email varchar(100) NOT NULL,
+							  salt int(15) NOT NULL,
+							  subscriber_unique_id varchar(50) NULL,
+							  add_date timestamp NOT NULL DEFAULT NOW(),
+							  PRIMARY KEY  (stcr_id),
+							  UNIQUE KEY uk_subscriber_email (subscriber_email))
+							ENGINE = InnoDB
+							$charset_collate";
+					require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+					// dbDelta Will create or update the table safety
+					// Ref: https://codex.wordpress.org/Creating_Tables_with_Plugins
+					$result = dbDelta( $sqlCreateTable );
+					$retrieveNumberOfSubscribers = "SELECT COUNT(subscriber_email) FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers";
+					$numSubscribers              = $wpdb->get_var( $retrieveNumberOfSubscribers );
+					// If subscribers not found then the create routine.
+					if ( $numSubscribers == 0 ) {
+						// Get list of emails to be imported.
+						$retrieveEmails = "SELECT DISTINCT REPLACE(meta_key, '_stcr@_', '') AS email FROM " . $wpdb->postmeta
+							. " WHERE meta_key LIKE '\_stcr@\_%'";
+						$emails         = $wpdb->get_results( $retrieveEmails, OBJECT );
+						// insert the records on the new table.
+						foreach ( $emails as $email ) {
+							// Insert email
+							$OK = $this->add_user_subscriber_table( $email->email );
+							if ( ! $OK) {
+								$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+								$notices[] = '<div class="error"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+									'<p>The creation of of the table <strong>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</strong> failed</p></div>';
+								update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+								break 1;
+							}
+						}
+						$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+						$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+							'<p>The creation of table <strong>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</strong> was successful.</p>'.
+							'<p>This new table will help to add your subscribers email address safer and prevent the Google PII violation.</p></div>';
+						update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+						update_option('subscribe_reloaded_subscriber_table', 'yes');
+					}
+				}
+			}
+
+			public function _sanitize_db_information() {
 				global $wpdb;
 
 				if ( ! get_option( "subscribe_reloaded_data_sanitized" ) || get_option( "subscribe_reloaded_data_sanitized" ) == "no" ) {
