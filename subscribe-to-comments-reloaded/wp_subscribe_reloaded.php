@@ -596,7 +596,7 @@ namespace stcr {
 				if ( ! empty( $_email ) ) {
 					$emails_where = '';
 					if ( ! is_array( $_email ) ) {
-						$emails_where = "meta_key = '_stcr@_" . $this->clean_email( $_email ) . "'";
+						$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
 						$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $_email );
 						if( $has_subscriptions === false) {
 							$this->utils->remove_user_subscriber_table( $_email );
@@ -924,7 +924,7 @@ namespace stcr {
 					if ( get_option( 'subscribe_reloaded_htmlify_message_links' ) == 'yes' ) {
 						$message = $this->htmlify_message_links( $message );
 					}
-					$message = $this->wrap_html_message( $message, $subject );
+					$message = $this->utils->wrap_html_message( $message, $subject );
 				}
 
 				wp_mail( $clean_email, $subject, $message, $headers );

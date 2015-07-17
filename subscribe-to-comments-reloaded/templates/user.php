@@ -73,7 +73,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 			<input type="radio" name="sra" value="activate" id="action_type_activate"> <label for="action_type_activate">' . __( 'Activate', 'subscribe-reloaded' ) . '</label></p>';
 	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="'
 			. __( 'Update subscriptions', 'subscribe-reloaded' )
-			. '" /><input type="hidden" name="sre" value="' . $wp_subscribe_reloaded->get_subscriber_key( $email ) . '"></p>';
+			. '" /><input type="hidden" name="sre" value="' . $wp_subscribe_reloaded->utils->get_subscriber_key( $email ) . '"></p>';
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';
 }
