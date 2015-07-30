@@ -60,13 +60,14 @@ $array_panels = array(
 	__( 'Notifications', 'subscribe-reloaded' ),
 	__( 'Options', 'subscribe-reloaded' ),
 	__( 'You can help', 'subscribe-reloaded' ),
-	__( 'Support', 'subscribe-reloaded' )
+	__( 'Support', 'subscribe-reloaded' ),
+	__( 'Donate', 'subscribe-reloaded' )
 );
 
 // What panel to display
 $current_panel = empty( $_GET['subscribepanel'] ) ? 1 : intval( $_GET['subscribepanel'] );
 
-// Text direction
+// Text direction button-primary
 if ( $wp_locale->text_direction != 'ltr' ) {
 	$array_panels = array_reverse( $array_panels, true );
 }
@@ -79,6 +80,10 @@ if ( $wp_locale->text_direction != 'ltr' ) {
 		foreach ( $array_panels as $a_panel_id => $a_panel_details ) {
 			echo '<a class="nav-tab nav-tab';
 			echo ( $current_panel == $a_panel_id + 1 ) ? '-active' : '-inactive';
+			echo ( $current_panel == $a_panel_id + 1 &&  $a_panel_id + 1 == 8) ? ' donate-tab-active' : '';
+			if ( $a_panel_id + 1 == 8){
+				echo ' donate-tab ';
+			}
 			echo '" href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=' . ( $a_panel_id + 1 ) . '">' . $a_panel_details . '</a>';
 		}
 		?>
