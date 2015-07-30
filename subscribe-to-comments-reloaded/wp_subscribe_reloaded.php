@@ -15,6 +15,7 @@ namespace stcr {
 			 * Constructor -- Sets things up.
 			 */
 			public function __construct() {
+
 				parent::__construct(); // Run parent constructor.
 
 
@@ -26,7 +27,7 @@ namespace stcr {
 				}
 
 				// What to do when a new comment is posted
-				add_action( 'comment_post', array( &$this, 'new_comment_posted' ), 12, 2 );
+				add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 				// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
 				add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
 
@@ -41,59 +42,57 @@ namespace stcr {
 						$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 					}
 					if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
-						add_filter( 'the_posts', array( &$this, 'subscribe_reloaded_manage' ), 10, 2 );
+						add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
 					}
 
 					// removing action hook because it was redundant
 				} else {
-					// Initialization routines that should be executed on activation/deactivation
-					register_activation_hook( __FILE__, array( &$this, 'activate' ) );
-					register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
+
 
 					// Hook for WPMU - New blog created
-					add_action( 'wpmu_new_blog', array( &$this, 'new_blog' ), 10, 1 );
+					add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
 
 					// Remove subscriptions attached to a post that is being deleted
-					add_action( 'delete_post', array( &$this, 'delete_subscriptions' ), 10, 2 );
+					add_action( 'delete_post', array( $this, 'delete_subscriptions' ), 10, 2 );
 
 					// Monitor actions on existing comments
-					add_action( 'deleted_comment', array( &$this, 'comment_deleted' ) );
-					add_action( 'wp_set_comment_status', array( &$this, 'comment_status_changed' ) );
+					add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
+					add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
 
 					// Subscribe post authors, if the case
 					if ( get_option( 'subscribe_reloaded_notify_authors', 'no' ) == 'yes' ) {
-						add_action( 'publish_post', array( &$this, 'subscribe_post_author' ) );
+						add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
 					}
 
 					// Add a new column to the Edit Comments panel
-					add_filter( 'manage_edit-comments_columns', array( &$this, 'add_column_header' ) );
-					add_filter( 'manage_posts_columns', array( &$this, 'add_column_header' ) );
-					add_action( 'manage_comments_custom_column', array( &$this, 'add_comment_column' ) );
-					add_action( 'manage_posts_custom_column', array( &$this, 'add_post_column' ) );
+					add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
+					add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
+					add_action( 'manage_comments_custom_column', array( $this, 'add_comment_column' ) );
+					add_action( 'manage_posts_custom_column', array( $this, 'add_post_column' ) );
 
 					// Add appropriate entries in the admin menu
-					add_action( 'admin_menu', array( &$this, 'add_config_menu' ) );
+					add_action( 'admin_menu', array( $this, 'add_config_menu' ) );
 					add_action(
 						'admin_print_styles-subscribe-to-comments-reloaded/options/index.php', array(
-							&$this,
+							$this,
 							'add_options_stylesheet'
 						)
 					);
-					add_action( 'admin_print_styles-edit-comments.php', array( &$this, 'add_post_comments_stylesheet' ) );
-					add_action( 'admin_print_styles-edit.php', array( &$this, 'add_post_comments_stylesheet' ) );
+					add_action( 'admin_print_styles-edit-comments.php', array( $this, 'add_post_comments_stylesheet' ) );
+					add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
 
 					// Admin notices
-					add_action( 'admin_init', array( &$this, 'admin_init' ) );
-					add_action( 'admin_notices', array( &$this, 'admin_notices' ) );
+					add_action( 'admin_init', array( $this, 'admin_init' ) );
+					add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 					// Contextual help
-					add_action( 'contextual_help', array( &$this, 'contextual_help' ), 10, 3 );
+					add_action( 'contextual_help', array( $this, 'contextual_help' ), 10, 3 );
 
 					// Shortcodes to use the management URL sitewide
-					add_shortcode( 'subscribe-url', array( &$this, 'subscribe_url_shortcode' ) );
+					add_shortcode( 'subscribe-url', array( $this, 'subscribe_url_shortcode' ) );
 
 					// Settings link for plugin on plugins page
-					add_filter( 'plugin_action_links', array( &$this, 'plugin_settings_link' ), 10, 2 );
+					add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
 					// Check if the subscribers table is created otherwise create it.
 					if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
 						$this->utils->_create_subscriber_table();
@@ -468,7 +467,7 @@ namespace stcr {
 
 				// Seems like WP adds its own HTML formatting code to the content, we don't need that here
 				remove_filter( 'the_content', 'wpautop' );
-				add_action( 'wp_head', array( &$this, 'add_custom_header_meta' ) );
+				add_action( 'wp_head', array( $this, 'add_custom_header_meta' ) );
 
 				return $posts;
 			}
@@ -902,6 +901,7 @@ namespace stcr {
 
 				// Replace tags with their actual values
 				$subject = str_replace( '[post_title]', $post->post_title, $subject );
+				$subject = str_replace( '[blog_name]' , get_bloginfo('name'), $subject );
 
 				$message = str_replace( '[post_permalink]', $post_permalink, $message );
 				$message = str_replace( '[comment_permalink]', $comment_permalink, $message );
@@ -962,13 +962,13 @@ namespace stcr {
 				// Load localization files
 				load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
-				if ( $wp_subscribe_reloaded->is_user_subscribed( $post->ID, '', 'C' ) ) {
+				if ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '', 'C' ) ) {
 					$html_to_show          = str_replace(
 						'[manager_link]', $user_link,
 						__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 					);
 					$show_subscription_box = false;
-				} elseif ( $wp_subscribe_reloaded->is_user_subscribed( $post->ID, '' ) ) {
+				} elseif ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '' ) ) {
 					$html_to_show          = str_replace(
 						'[manager_link]', $user_link,
 						__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
@@ -976,7 +976,7 @@ namespace stcr {
 					$show_subscription_box = false;
 				}
 
-				if ( $wp_subscribe_reloaded->is_author( $post->post_author ) ) { // when the second parameter is empty, cookie value will be used
+				if ( $wp_subscribe_reloaded->stcr->is_author( $post->post_author ) ) { // when the second parameter is empty, cookie value will be used
 					if ( get_option( 'subscribe_reloaded_admin_subscribe', 'no' ) == 'no' ) {
 						$show_subscription_box = false;
 					}
@@ -1023,7 +1023,7 @@ namespace stcr {
 				if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 					$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 				}
-				echo "<!-- Subscribe to Comments Reloaded version $wp_subscribe_reloaded->current_version -->";
+				echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
 				echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 			} // end subscribe_reloaded_show
 

@@ -50,6 +50,11 @@ if ( isset( $_POST['options'] ) ) {
 	) {
 		$faulty_fields = __( 'Management message', 'subscribe-reloaded' ) . ', ';
 	}
+	if ( isset( $_POST['options']['oneclick_text'] ) &&
+		! subscribe_reloaded_update_option( 'oneclick_text', $_POST['options']['oneclick_text'], 'text' )
+	) {
+		$faulty_fields = __( 'Management message', 'subscribe-reloaded' ) . ', ';
+	}
 
 	// Display an alert in the admin interface if something went wrong
 	echo '<div class="updated fade"><p>';
@@ -119,7 +124,7 @@ wp_print_scripts( 'quicktags' );
 			</th>
 			<td>
 				<textarea name="options[notification_content]" id="notification_content"
-						  cols="70" rows="5"><?php echo subscribe_reloaded_get_option( 'notification_content' ); ?>
+						  cols="140" rows="25"><?php echo subscribe_reloaded_get_option( 'notification_content' ); ?>
 				</textarea>
 
 				<div class="description" style="padding-top:0">
@@ -145,7 +150,7 @@ wp_print_scripts( 'quicktags' );
 				<label for="double_check_content"><?php _e( 'Double check message', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
-				<textarea name="options[double_check_content]" id="double_check_content" cols="70" rows="5"><?php echo subscribe_reloaded_get_option( 'double_check_content' ); ?></textarea>
+				<textarea name="options[double_check_content]" id="double_check_content" cols="70" rows="10"><?php echo subscribe_reloaded_get_option( 'double_check_content' ); ?></textarea>
 
 				<div class="description" style="padding-top:0">
 					<?php _e( 'Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]', 'subscribe-reloaded' ); ?>
@@ -174,6 +179,18 @@ wp_print_scripts( 'quicktags' );
 
 				<div class="description" style="padding-top:0">
 					<?php _e( 'Content of the management email. Allowed tags: [blog_name], [manager_link]', 'subscribe-reloaded' ); ?>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<label for="oneclick_text"><?php _e( 'One Click Unsubscribe', 'subscribe-reloaded' ) ?></label>
+			</th>
+			<td>
+				<textarea name="options[oneclick_text]" id="oneclick_text" cols="70" rows="8"><?php echo subscribe_reloaded_get_option( 'oneclick_text' ); ?></textarea>
+
+				<div class="description" style="padding-top:0">
+					<?php _e( 'Content of the One Click confirmation. Allowed tags: [blog_name]', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

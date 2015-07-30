@@ -21,25 +21,31 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post" id="update_address_form"
 		  onsubmit="if (this.oldsre.value == '') return false;return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
-			<p class="liquid"><label for='oldsre'><?php _e( 'From', 'subscribe-reloaded' ) ?></label>
-				<input type='text' size='30' name='oldsre' id='oldsre' value='' /></p>
-
-			<p class="liquid"><label for='sre'><?php _e( 'To', 'subscribe-reloaded' ) ?></label>
-				<input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional', 'subscribe-reloaded' ) ?>' style="color:#ccc"
-					   onfocus='if (this.value == "<?php _e( 'optional', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
-					   onblur='if (this.value == ""){this.value="<?php _e( 'optional', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}' />
-			</p>
-
-			<p class="liquid"><label for='srs'><?php _e( 'Status', 'subscribe-reloaded' ) ?></label>
-				<select name="srs" id="srs">
-					<option value=''><?php _e( 'Keep unchanged', 'subscribe-reloaded' ) ?></option>
-					<option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
-					<option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' ) ?></option>
-					<option value='C'><?php _e( 'Suspended', 'subscribe-reloaded' ) ?></option>
-				</select>
-				<input type='submit' class='subscribe-form-button' value='<?php _e( 'Update', 'subscribe-reloaded' ) ?>' />
-			</p>
-			<input type='hidden' name='sra' value='edit' />
+			<table>
+				<tr>
+					<td><label for='oldsre'><?php _e( 'From', 'subscribe-reloaded' ) ?></label></td>
+					<td><input type='text' size='30' name='oldsre' id='oldsre' value='' ></td>
+				</tr>
+				<tr>
+					<td><label for='sre'><?php _e( 'To', 'subscribe-reloaded' ) ?></label></td>
+					<td><input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional', 'subscribe-reloaded' ) ?>' style="color:#ccc"
+							   onfocus='if (this.value == "<?php _e( 'optional', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
+							   onblur='if (this.value == ""){this.value="<?php _e( 'optional', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}' ></td>
+				</tr>
+				<tr>
+					<td><label for='srs'><?php _e( 'Status', 'subscribe-reloaded' ) ?></label></td>
+					<td><select name="srs" id="srs">
+							<option value=''><?php _e( 'Keep unchanged', 'subscribe-reloaded' ) ?></option>
+							<option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
+							<option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' ) ?></option>
+							<option value='C'><?php _e( 'Suspended', 'subscribe-reloaded' ) ?></option>
+						</select>
+						<input type='submit' class='subscribe-form-button' value='<?php _e( 'Update', 'subscribe-reloaded' ) ?>' ></td>
+				</tr>
+				<tr>
+					<td><input type='hidden' name='sra' value='edit' /></td>
+				</tr>
+			</table>
 		</fieldset>
 	</form>
 </div>
@@ -50,21 +56,30 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post" id="update_address_form"
 		  onsubmit="if (this.srp.value == '' || this.sre.value == '') return false;">
 		<fieldset style="border:0">
-			<p class="liquid"><?php _e( 'Post ID', 'subscribe-reloaded' ) ?>
-				<input type='text' size='30' name='srp' value='' /></p>
-
-			<p class="liquid"><?php _e( 'Email', 'subscribe-reloaded' ) ?>
-				<input type='text' size='30' name='sre' value='' /></p>
-
-			<p class="liquid"><?php _e( 'Status', 'subscribe-reloaded' ) ?>
-				<select name="srs">
-					<option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
-					<option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' ) ?></option>
-					<option value='YC'><?php _e( 'Ask user to confirm', 'subscribe-reloaded' ) ?></option>
-				</select>
-				<input type='submit' class='subscribe-form-button' value='<?php _e( 'Add', 'subscribe-reloaded' ) ?>' />
-			</p>
-			<input type='hidden' name='sra' value='add' />
+			<table>
+				<tr>
+					<td><?php _e( 'Post ID', 'subscribe-reloaded' ) ?></td>
+					<td><input type='text' size='30' name='srp' value='' ></td>
+				</tr>
+				<tr>
+					<td><?php _e( 'Email', 'subscribe-reloaded' ) ?></td>
+					<td><input type='text' size='30' name='sre' value='' ></td>
+				</tr>
+				<tr>
+					<td><?php _e( 'Status', 'subscribe-reloaded' ) ?></td>
+					<td>
+						<select name="srs">
+							<option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
+							<option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' ) ?></option>
+							<option value='YC'><?php _e( 'Ask user to confirm', 'subscribe-reloaded' ) ?></option>
+						</select>
+						<input type='submit' class='subscribe-form-button' value='<?php _e( 'Add', 'subscribe-reloaded' ) ?>' >
+					</td>
+				</tr>
+				<tr>
+					<td><input type='hidden' name='sra' value='add' ></td>
+				</tr>
+			</table>
 		</fieldset>
 	</form>
 </div>
@@ -158,3 +173,4 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 		</fieldset>
 	</form>
 </div>
+

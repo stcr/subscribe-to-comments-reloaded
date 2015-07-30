@@ -19,23 +19,23 @@ if ( ! empty( $_POST['email_list'] ) ) {
 	$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' );
 	switch ( $action ) {
 	case 'delete':
-		$rows_affected = $wp_subscribe_reloaded->delete_subscriptions( $post_ID, $email_list );
+		$rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_ID, $email_list );
 		echo '<p class="updated">' . __( 'Subscriptions deleted:', 'subscribe-reloaded' ) . " $rows_affected</p>";
 		break;
 	case 'suspend':
-		$rows_affected = $wp_subscribe_reloaded->update_subscription_status( $post_ID, $email_list, 'C' );
+		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, 'C' );
 		echo '<p class="updated">' . __( 'Subscriptions suspended:', 'subscribe-reloaded' ) . " $rows_affected</p>";
 		break;
 	case 'activate':
-		$rows_affected = $wp_subscribe_reloaded->update_subscription_status( $post_ID, $email_list, '-C' );
+		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, '-C' );
 		echo '<p class="updated">' . __( 'Subscriptions activated:', 'subscribe-reloaded' ) . " $rows_affected</p>";
 		break;
 	case 'force_y':
-		$rows_affected = $wp_subscribe_reloaded->update_subscription_status( $post_ID, $email_list, 'Y' );
+		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, 'Y' );
 		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-reloaded' ) . " $rows_affected</p>";
 		break;
 	case 'force_r':
-		$rows_affected = $wp_subscribe_reloaded->update_subscription_status( $post_ID, $email_list, 'R' );
+		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, 'R' );
 		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-reloaded' ) . " $rows_affected</p>";
 		break;
 	default:
@@ -52,7 +52,7 @@ echo "<p>$message</p>";
 	<form action="<?php echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ?>" method="post" id="email_list_form" name="email_list_form" onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
 			<?php
-$subscriptions = $wp_subscribe_reloaded->get_subscriptions( 'post_id', 'equals', $post_ID, 'dt', 'ASC' );
+$subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( 'post_id', 'equals', $post_ID, 'dt', 'ASC' );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-title-p">' . __( 'Title', 'subscribe-reloaded' ) . ': <strong>' . $target_post->post_title . '</strong></p>';
 	echo '<p id="subscribe-reloaded-legend-p">' . __( 'Legend: Y = all comments, R = replies only, C = inactive', 'subscribe-reloaded' ) . '</p>';

@@ -15,7 +15,7 @@ if ( ! empty( $email ) ) {
 	if ( function_exists( 'akismet_http_post' ) ) {
 		global $akismet_api_host, $akismet_api_port;
 
-		$akismet_query_string = "user_ip={$_SERVER['REMOTE_ADDR']}";
+		$akismet_query_string  = "user_ip={$_SERVER['REMOTE_ADDR']}";
 		$akismet_query_string .= "&user_agent=" . urlencode( stripslashes( $_SERVER['HTTP_USER_AGENT'] ) );
 		$akismet_query_string .= "&blog=" . urlencode( get_option( 'home' ) );
 		$akismet_query_string .= "&blog_lang=" . get_locale();
@@ -33,7 +33,7 @@ if ( ! empty( $email ) ) {
 		}
 	}
 
-	$clean_email = $wp_subscribe_reloaded->clean_email( $email );
+	$clean_email = $wp_subscribe_reloaded->stcr->clean_email( $email );
 
 	// If the case, send a message to the administrator
 	if ( get_option( 'subscribe_reloaded_enable_admin_messages', 'no' ) == 'yes' ) {
@@ -48,9 +48,9 @@ if ( ! empty( $email ) ) {
 		$headers .= "Content-Type: text/plain; charset=" . get_bloginfo( 'charset' ) . "\n";
 		wp_mail( get_bloginfo( 'admin_email' ), $subject, $message, $headers );
 	}
-	if ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' && ! $wp_subscribe_reloaded->is_user_subscribed( $post_ID, $clean_email, 'C' ) ) {
-		$wp_subscribe_reloaded->add_subscription( $post_ID, $clean_email, 'YC' );
-		$wp_subscribe_reloaded->confirmation_email( $post_ID, $clean_email );
+	if ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' && ! $wp_subscribe_reloaded->stcr->is_user_subscribed( $post_ID, $clean_email, 'C' ) ) {
+		$wp_subscribe_reloaded->stcr->add_subscription( $post_ID, $clean_email, 'YC' );
+		$wp_subscribe_reloaded->stcr->confirmation_email( $post_ID, $clean_email );
 		$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscription_confirmed_dci' ) ), ENT_QUOTES, 'UTF-8' );
 	} else {
 		$this->add_subscription( $post_ID, $clean_email, 'Y' );
