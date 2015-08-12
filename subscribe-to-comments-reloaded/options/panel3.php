@@ -4,6 +4,9 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	header( 'Location: /' );
 	exit;
 }
+// Enable RTE.
+$wp_subscribe_reloaded->stcr->utils->add_ritch_editor_textarea();
+
 // Update options
 if ( isset( $_POST['options'] ) ) {
 	$faulty_fields = '';
@@ -141,7 +144,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 				<label for="request_mgmt_link_thankyou"><?php _e( 'Request submitted', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
-				<textarea name="options[request_mgmt_link_thankyou]" id="request_mgmt_link_thankyou" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'request_mgmt_link_thankyou' ); ?></textarea>
+				<textarea class="rte" name="options[request_mgmt_link_thankyou]" id="request_mgmt_link_thankyou" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'request_mgmt_link_thankyou' ); ?></textarea>
 
 				<div class="description"><?php _e( 'Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?></div>
 			</td>
@@ -151,7 +154,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 				<label for="subscribe_without_commenting"><?php _e( 'Subscribe without commenting', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
-				<textarea name="options[subscribe_without_commenting]" id="subscribe_without_commenting" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'subscribe_without_commenting' ); ?></textarea>
+				<textarea class="rte" name="options[subscribe_without_commenting]" id="subscribe_without_commenting" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'subscribe_without_commenting' ); ?></textarea>
 
 				<div class="description"><?php _e( 'Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?></div>
 			</td>
@@ -161,7 +164,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 				<label for="subscription_confirmed"><?php _e( 'Subscription processed', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
-				<textarea name="options[subscription_confirmed]" id="subscription_confirmed" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'subscription_confirmed' ); ?></textarea>
+				<textarea class="rte" name="options[subscription_confirmed]" id="subscription_confirmed" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'subscription_confirmed' ); ?></textarea>
 
 				<div class="description"><?php _e( 'Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?></div>
 			</td>
@@ -171,7 +174,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 				<label for="subscription_confirmed_dci"><?php _e( 'Subscription processed (DCI)', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
-				<textarea name="options[subscription_confirmed_dci]" id="subscription_confirmed_dci" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'subscription_confirmed_dci' ); ?></textarea>
+				<textarea class="rte" name="options[subscription_confirmed_dci]" id="subscription_confirmed_dci" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'subscription_confirmed_dci' ); ?></textarea>
 
 				<div class="description"><?php _e( 'Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?></div>
 			</td>
@@ -179,7 +182,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 		<tr>
 			<th scope="row"><label for="author_text"><?php _e( 'Authors', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<textarea name="options[author_text]" id="author_text" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'author_text' ); ?></textarea>
+				<textarea class="rte" name="options[author_text]" id="author_text" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'author_text' ); ?></textarea>
 
 				<div class="description"><?php _e( "Introductory text for the authors' management page.", 'subscribe-reloaded' ); ?></div>
 			</td>
@@ -187,7 +190,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 		<tr>
 			<th scope="row"><label for="user_text"><?php _e( 'Users', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<textarea name="options[user_text]" id="user_text" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'user_text' ); ?></textarea>
+				<textarea class="rte" name="options[user_text]" id="user_text" rows="3" cols="70"><?php echo subscribe_reloaded_get_option( 'user_text' ); ?></textarea>
 
 				<div class="description"><?php _e( "Introductory text for the users' management page.", 'subscribe-reloaded' ); ?></div>
 			</td>

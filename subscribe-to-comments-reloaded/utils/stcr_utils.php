@@ -158,6 +158,39 @@ namespace stcr {
 				}
 			}
 			// end _is_valid_key
+			/**
+			 * Enqueue scripts to load the TinyMCE ritch editor. I could use the hook `after_wp_tiny_mce` but I will
+			 * controll the tinyMCE version within my plugin instead of using the WordPress embedded one.
+			 * @since 03-Agu-2015
+			 * @author reedyseth
+			 */
+			public function add_ritch_editor_textarea() {
+				wp_enqueue_script('stcr-tinyMCE');
+				wp_enqueue_script('stcr-tinyMCE-js');
+			}
+			/**
+			 * Register scripts for admin pages. I could use the hook `after_wp_tiny_mce` but I will
+			 * controll the tinyMCE version within my plugin instead of using the WordPress embedded one.
+			 * @since 03-Agu-2015
+			 * @author reedyseth
+			 */
+			public function register_admin_scripts() {
+				$tinyMCE_url    = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/tinymce-lite/tinymce.min.js';
+				$tinyMCE_url_js = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-tinyMCE.js';
+
+				wp_register_script('stcr-tinyMCE', $tinyMCE_url);
+				wp_register_script('stcr-tinyMCE-js', $tinyMCE_url_js);
+			}
+			/**
+			 * Hooking scripts for admin pagess.
+			 * @since 03-Agu-2015
+			 * @author reedyseth
+			 */
+			public function hook_admin_scripts() {
+				// link the hooks
+				add_action('admin_enqueue_scripts',array( $this, 'register_admin_scripts') );
+
+			}
 		}
 	}
 }

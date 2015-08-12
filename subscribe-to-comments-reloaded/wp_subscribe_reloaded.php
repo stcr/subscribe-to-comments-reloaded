@@ -97,6 +97,7 @@ namespace stcr {
 					if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
 						$this->utils->_create_subscriber_table();
 					}
+					$this->utils->hook_admin_scripts();
 				}
 
 
