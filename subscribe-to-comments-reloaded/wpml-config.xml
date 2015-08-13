@@ -18,5 +18,6 @@
 		<key name="subscribe_reloaded_double_check_content"/>
 		<key name="subscribe_reloaded_management_subject"/>
 		<key name="subscribe_reloaded_management_content"/>
+		<key name="subscribe_reloaded_from_name"/>
 	</admin-texts>
 </wpml-config>

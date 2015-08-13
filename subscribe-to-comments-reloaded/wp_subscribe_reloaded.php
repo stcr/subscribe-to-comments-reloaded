@@ -860,6 +860,20 @@ namespace stcr {
 			 * Sends the notification message to a given user
 			 */
 			public function notify_user( $_post_ID = 0, $_email = '', $_comment_ID = 0 ) {
+				$post                    = get_post( $_post_ID );
+				$comment                 = get_comment( $_comment_ID );
+				$post_permalink          = get_permalink( $_post_ID );
+				$comment_permalink       = get_comment_link( $_comment_ID );
+				$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
+				
+				// WPML compatibility
+				if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
+					// Switch language
+					global $sitepress;
+					$language = $sitepress->get_language_for_element( $_post_ID, 'post_' . $post->post_type );
+					$sitepress->switch_lang($language);
+				}
+				
 				// Retrieve the options from the database
 				$from_name    = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) ), ENT_QUOTES, 'UTF-8' );
 				$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
@@ -884,12 +898,6 @@ namespace stcr {
 				if ( get_option( 'subscribe_reloaded_admin_bcc', 'no' ) == 'yes' ) {
 					$headers .= "Bcc: $from_name <$from_email>\n";
 				}
-
-				$post                    = get_post( $_post_ID );
-				$comment                 = get_comment( $_comment_ID );
-				$post_permalink          = get_permalink( $_post_ID );
-				$comment_permalink       = get_comment_link( $_comment_ID );
-				$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
 
 				$comment_content = $comment->comment_content;
 
