@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-11 16:19-0700\n"
-"PO-Revision-Date: 2015-08-13 19:40-0300\n"
+"PO-Revision-Date: 2015-08-20 21:35-0300\n"
 "Last-Translator: Ivan Ridao Freitas <info@ivanrf.com>\n"
 "Language-Team: TodoWordPress, Juan Luis Perez, Iván Ridao Freitas "
 "<juanluperez@gmail.com>\n"
@@ -314,7 +314,7 @@ msgstr ""
 
 #: subscribe-to-comments-reloaded.php:806
 msgid "Settings"
-msgstr "Configuraciön"
+msgstr "Configuración"
 
 #: subscribe-to-comments-reloaded.php:1845 options/panel2.php:67
 #: options/panel2.php:77 options/panel2.php:106 options/panel5.php:84
