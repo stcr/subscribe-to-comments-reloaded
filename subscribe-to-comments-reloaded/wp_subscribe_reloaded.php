@@ -47,8 +47,6 @@ namespace stcr {
 
 					// removing action hook because it was redundant
 				} else {
-
-
 					// Hook for WPMU - New blog created
 					add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
 
@@ -93,11 +91,16 @@ namespace stcr {
 
 					// Settings link for plugin on plugins page
 					add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
+
+					// Enqueue admin scripts
+					$this->utils->hook_admin_scripts();
+
 					// Check if the subscribers table is created otherwise create it.
 					if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
-						$this->utils->_create_subscriber_table();
+						$this->upgrade->_create_subscriber_table();
 					}
-					$this->utils->hook_admin_scripts();
+					// Add the AJAX Action
+					$this->utils->stcr_create_ajax_notices();
 				}
 
 

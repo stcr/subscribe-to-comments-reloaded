@@ -177,19 +177,144 @@ namespace stcr {
 			public function register_admin_scripts() {
 				$tinyMCE_url    = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/tinymce-lite/tinymce.min.js';
 				$tinyMCE_url_js = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-tinyMCE.js';
-
+				$stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
+				$stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
+				// Javascript
 				wp_register_script('stcr-tinyMCE', $tinyMCE_url);
 				wp_register_script('stcr-tinyMCE-js', $tinyMCE_url_js);
+				wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+				// Styles
+				wp_register_style( 'stcr-admin-style', $stcr_admin_css );
 			}
 			/**
-			 * Hooking scripts for admin pagess.
+			 * Hooking scripts for admin pages.
 			 * @since 03-Agu-2015
 			 * @author reedyseth
 			 */
 			public function hook_admin_scripts() {
 				// link the hooks
 				add_action('admin_enqueue_scripts',array( $this, 'register_admin_scripts') );
+			}
+			/**
+			 * Create a notice array with its settings and add it to the subscribe_reloaded_deferred_admin_notices
+			 * option.
+			 *
+			 * @since 14-Agu-2015
+			 * @author reedyseth
+			 *
+			 * @param string $_name Name of the notice.
+			 * @param string $_status status read/unread. This will determine if the notice is display or not.
+			 * @param string $_message Message that you want to show.
+			 * @param string $_type What kind of notice you can use updated/error.
+			 */
+			public function stcr_create_admin_notice( $_name = '', $_status = 'unread', $_message = '', $_type = 'updated' ) {
+				$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
+				$notices[ $_name ] = array(
+					"status" => $_status,
+					"message" => $_message,
+					"type"	=> $_type
+				);
+				update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+			}
 
+			/**
+			 * Update a given notice with the given arguments.
+			 *
+			 * @since 14-Agu-2015
+			 * @author reedyseth
+			 *
+			 * @param string $_name Name of the notice.
+			 * @param string $_status status read/unread. This will determine if the notice is display or not.
+			 * @param string $_message Message that you want to show.
+			 * @param string $_type What kind of notice you can use updated/error.
+			 */
+			public function stcr_update_admin_notice( $_name = '', $_status = 'unread', $_message = '', $_type = 'updated', $_nonce = 'nonce-key' ) {
+				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
+				foreach ( $notices as $key => $notice ) {
+					if ( $key == $_name ) {
+						$notices[ $key ] = array(
+							"status" => $_status,
+							"message" => $_message,
+							"type"	=> $_type,
+							"nonce" => $_nonce
+						);
+					}
+				}
+				update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+			}
+			/**
+			 * Update a given notice status.
+			 *
+			 * @since 18-Agu-2015
+			 * @author reedyseth
+			 *
+			 * @param string $_name Name of the notice.
+			 * @param string $_status status read/unread. This will determine if the notice is display or not.
+			 * @param string $_nonce Optional parameter to update the nonce key.
+			 */
+			public function stcr_update_admin_notice_status( $_name = '', $_status = 'unread', $_nonce = 0 ) {
+				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
+				foreach ( $notices as $key => $notice ) {
+					if ( $key == $_name ) {
+						$notices[ $key ] = array(
+							"status" => $_status,
+							"message" => $notice['message'],
+							"type"	=> $notice['type'],
+							"nonce" => $_nonce
+						);
+					}
+				}
+				update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+			}
+			/**
+			 * Delete a given notice with the given arguments.
+			 *
+			 * @since 14-Agu-2015
+			 * @author reedyseth
+			 *
+			 * @param string $_name Name of the notice to be deleted.
+			 */
+			public function stcr_remove_admin_notice( $_name = '' ) {
+				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
+				foreach ( $notices as $key => $notice ) {
+					if ( $key == $_name ) {
+						unset( $notices[ $key ] );
+					}
+				}
+				update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+			}
+			/**
+			 * Bind the notices to the ajax hook.
+			 *
+			 * @since 14-Agu-2015
+			 * @author reedyseth
+			 */
+			public function stcr_create_ajax_notices() {
+				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
+
+				if ( $notices ) {
+					foreach ( $notices as $key => $notice ) {
+						add_action( 'wp_ajax_' . $key, array( $this, 'stcr_ajax_update_notification') );
+					}
+				}
+				return;
+			}
+			/**
+			 * Update a StCR notification status
+			 *
+			 * @since 21-Sep-2015
+			 * @author reedyseth
+			 *
+			 */
+			public function stcr_ajax_update_notification () {
+				$_notification = $_POST['action'];
+				// Check Nonce
+				check_ajax_referer( $_notification, 'security' );
+				// Update status
+				$this->stcr_update_admin_notice_status(  sanitize_text_field( $_notification ), 'read' ) ;
+				// Send success message
+				wp_send_json_success( 'Notification status updated for "' . $_notification . '"' );
+				die();
 			}
 		}
 	}
