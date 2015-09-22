@@ -56,11 +56,18 @@ namespace stcr {
 								break 1;
 							}
 						}
-						$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
-						$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+
+						$this->stcr_create_admin_notice(
+							'notify_create_subscriber_table',
+							'unread',
+							'<h3>' . __( 'Subscribe to Comments Reloaded Important Notice', 'subscribe-reloaded' ) . '</h3>' .
 							'<p>The creation of table <strong>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</strong> was successful.</p>'.
-							'<p>This new table will help to add your subscribers email address safer and prevent the Google PII violation.</p></div>';
-						update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+							'<p>This new table will help to add your subscribers email address safer and prevent the Google PII violation.'
+							 . '<a class="dismiss" href="#">Got it.  </a>'
+								. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'
+							. '</p>',
+							'updated'
+						);
 						update_option('subscribe_reloaded_subscriber_table', 'yes');
 					}
 				}
@@ -84,12 +91,17 @@ namespace stcr {
 							update_option( $row->option_name, $optionValue );
 						}
 					}
+					$this->stcr_create_admin_notice(
+						'notify_update_sanitize_db_options',
+						'unread',
+						'<h3>' . __( 'Subscribe to Comments Reloaded Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+						'<p>' . __( 'The information in your database has been sanitize to prevent the raw html messages.
+									<a class="dismiss" href="#">Got it.  </a>'
+							  . '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'  , 'subscribe-reloaded' )
+						. '</p>',
+						'updated'
+					);
 					update_option( "subscribe_reloaded_data_sanitized", "yes" );
-					$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
-					$notices[] = '<div class="updated"><h3>' . __( 'Subscribe to Comments Reloaded Important Notice', 'subscribe-reloaded' ) . '</h3>' .
-						'<p>' . __( 'The information in your database has been sanitize to prevent the raw html messages.', 'subscribe-reloaded' )
-						. '</p></div>';
-					update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
 				}
 			} // end _sanitize_db_information
 
@@ -136,13 +148,17 @@ namespace stcr {
 						WHERE comment_author_email LIKE '%@%.%' AND comment_subscribe = 'Y'
 						GROUP BY comment_post_ID, comment_author_email"
 					);
-
-					$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
-					$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+					$this->stcr_create_admin_notice(
+						'notify_import_stc_data',
+						'unread',
+						'<h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
 						'<p>' . __( 'Comment subscription data from the <strong>Subscribe to Comments</strong> plugin was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded' ) . ( is_plugin_active( 'subscribe-to-comments/subscribe-to-comments.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> Subscribe to Comments to prevent confusion between the two plugins.', 'subscribe-reloaded' ) : '' ) . '</p>' .
 						'<p>' . __( 'If you have subscription data from Subscribe to Comments Reloaded < v2.0 that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded' ) . '</p>' .
-						'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded' ) . '</p></div>';
-					update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+						'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
+							. '<a class="dismiss" href="#">Got it.  </a>'
+							. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-reloaded' ) . '</p>',
+						'updated'
+					);
 				}
 			}
 			// end _import_stc_data
@@ -206,11 +222,16 @@ namespace stcr {
 						);
 
 					}
-					$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
-					$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+					$this->stcr_create_admin_notice(
+						'notify_import_comment_reply',
+						'unread',
+						'<h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
 						'<p>' . __( 'Comment subscription data from the <strong>Comment Reply Notification</strong> plugin was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded' ) . ( is_plugin_active( 'comment-reply-notification/comment-reply-notification.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> Comment Reply Notification to prevent confusion between the two plugins.', 'subscribe-reloaded' ) : '' ) . '</p>' .
-						'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded' ) . '</p></div>';
-					update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+						'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
+							. '<a class="dismiss" href="#">Got it.  </a>'
+							. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-reloaded' ) . '</p>',
+						'updated'
+					);
 				}
 			}
 			// end _import_crn_data
@@ -349,14 +370,18 @@ namespace stcr {
 					if ( $option = get_option( 'wp_comment_subscriptions_admin_bcc' ) ) {
 						add_option( 'subscribe_reloaded_admin_bcc', $option );
 					}
-
-					$notices   = get_option( 'subscribe_reloaded_deferred_admin_notices', array() );
-					$notices[] = '<div class="updated"><h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
+					$this->stcr_create_admin_notice(
+						'notify_import_wpcs_data',
+						'unread',
+						'<h3>' . __( 'Important Notice', 'subscribe-reloaded' ) . '</h3>' .
 						'<p>' . __( 'Plugin options and comment subscription data from the <strong>WP Comment Subscriptions</strong> plugin were detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded' ) . ( is_plugin_active( 'wp-comment-subscriptions/wp-comment-subscriptions.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> WP Comment Subscriptions to prevent confusion between the two plugins.', 'subscribe-reloaded' ) : '' ) . '</p>' .
 						'<p>' . __( 'If you have subscription data from another plugin (such as Subscribe to Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded' ) . '</p>' .
 						'<p>' . __( '<strong>Note:</strong> If you were previously using the <code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-subscribe-url]</code> shortcode, you\'ll need to replace those with <code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> respectively.', 'subscribe-reloaded' ) . '</p>' .
-						'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.', 'subscribe-reloaded' ) . '</p></div>';
-					update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
+						'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
+							. '<a class="dismiss" href="#">Got it.  </a>'
+							. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-reloaded' ) . '</p>',
+						'updated'
+					);
 				}
 			}
 			// end _import_wpcs_data

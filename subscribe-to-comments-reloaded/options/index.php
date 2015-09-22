@@ -66,6 +66,13 @@ $array_panels = array(
 
 // What panel to display
 $current_panel = empty( $_GET['subscribepanel'] ) ? 1 : intval( $_GET['subscribepanel'] );
+// Check for any notification to mark as read
+$notification =  isset( $_GET['n'] )      ? $_GET['n'] : '';
+$status       =  isset( $_GET['status'] ) ? $_GET['status'] : '';
+
+if ( ! empty( $notification ) && ! empty( $status ) && ( $status == 'unread' || $status == 'read' ) ) {
+	$wp_subscribe_reloaded->stcr->utils->stcr_update_admin_notice_status( $notification, $status  );
+}
 
 // Text direction button-primary
 if ( $wp_locale->text_direction != 'ltr' ) {
