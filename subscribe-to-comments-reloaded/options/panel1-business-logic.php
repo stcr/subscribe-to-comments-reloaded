@@ -11,7 +11,11 @@ case 'add':
 	$email   = ! empty( $_POST['sre'] ) ? $_POST['sre'] : ( ! empty( $_GET['sre'] ) ? $_GET['sre'] : '' );
 	$status  = ! empty( $_POST['srs'] ) ? $_POST['srs'] : ( ! empty( $_GET['srs'] ) ? $_GET['srs'] : '' );
 
+	$post_id = esc_attr( $post_id ); // Let us make sure that there is not XSS exploits.
+	$email   = esc_attr( $email ); // Let us make sure that there is not XSS exploits.
+
 	$wp_subscribe_reloaded->stcr->add_subscription( $post_id, $email, $status );
+
 	if ( strpos( $status, 'C' ) !== false ) {
 		$wp_subscribe_reloaded->stcr->confirmation_email( $post_id, $email );
 	}
@@ -25,6 +29,10 @@ case 'edit':
 	$new_email = ! empty( $_POST['sre'] ) ? $_POST['sre'] : ( ! empty( $_GET['sre'] ) ? $_GET['sre'] : '' );
 	$status    = ! empty( $_POST['srs'] ) ? $_POST['srs'] : ( ! empty( $_GET['srs'] ) ? $_GET['srs'] : '' );
 
+	$post_id     = esc_attr( $post_id ); // Let us make sure that there is not XSS exploits.
+	$old_email   = esc_attr( $old_email ); // Let us make sure that there is not XSS exploits.
+	$new_email   = esc_attr( $new_email ); // Let us make sure that there is not XSS exploits.
+
 	$wp_subscribe_reloaded->stcr->update_subscription_status( $post_id, $old_email, $status );
 	$wp_subscribe_reloaded->stcr->update_subscription_email( $post_id, $old_email, $new_email );
 
@@ -34,6 +42,9 @@ case 'edit':
 case 'delete-subscription':
 	$post_id = ! empty( $_POST['srp'] ) ? $_POST['srp'] : ( ! empty( $_GET['srp'] ) ? $_GET['srp'] : 0 );
 	$email   = ! empty( $_POST['sre'] ) ? $_POST['sre'] : ( ! empty( $_GET['sre'] ) ? $_GET['sre'] : '' );
+
+	$post_id = esc_attr( $post_id ); // Let us make sure that there is not XSS exploits.
+	$email   = esc_attr( $email ); // Let us make sure that there is not XSS exploits.
 
 	$wp_subscribe_reloaded->stcr->delete_subscriptions( $post_id, $email );
 
