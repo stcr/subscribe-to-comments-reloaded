@@ -95,8 +95,7 @@ namespace stcr {
 						'notify_update_sanitize_db_options',
 						'unread',
 						'<h3>' . __( 'Subscribe to Comments Reloaded Important Notice', 'subscribe-reloaded' ) . '</h3>' .
-						'<p>' . __( 'The information in your database has been sanitize to prevent the raw html messages.
-									<a class="dismiss" href="#">Got it.  </a>'
+						'<p>' . __( 'The information in your database has been sanitize to prevent the raw html messages. <a class="dismiss" href="#">Got it.  </a>'
 							  . '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'  , 'subscribe-reloaded' )
 						. '</p>',
 						'updated'
