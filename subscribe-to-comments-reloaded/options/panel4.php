@@ -129,7 +129,7 @@ wp_print_scripts( 'quicktags' );
 				</textarea>
 
 				<div class="description" style="padding-top:0">
-					<?php _e( 'Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link]', 'subscribe-reloaded' ); ?>
+					<?php _e( 'Content of the notification email. Allowed tags: [post_title], [blog_name], [post_permalink], [comment_permalink], [comment_reply_permalink], [comment_author], [comment_content], [manager_link], [oneclick_link]', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>
