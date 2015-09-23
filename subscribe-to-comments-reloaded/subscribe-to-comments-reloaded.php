@@ -19,7 +19,7 @@ namespace stcr {
 		header( 'Location: /' );
 		exit;
 	}
-	require_once dirname(__FILE__).'\\wp_subscribe_reloaded.php';
+	require_once dirname(__FILE__).'/wp_subscribe_reloaded.php';
 	if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded'))
 	{
 		class stcr_subscribe_reloaded {

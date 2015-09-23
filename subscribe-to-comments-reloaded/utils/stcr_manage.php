@@ -26,14 +26,9 @@ namespace stcr {
 			public function __construct() {
 				$this->upgrade = new stcr_upgrade();
 				$this->utils = new stcr_utils();
-
-				if( is_admin() ) {
-
-				}
 			}
 
 			public function admin_init() {
-
 				$version = get_option( 'subscribe_reloaded_version' );
 				if ( $version != $this->current_version ) {
 					// Do whatever upgrades needed here.
@@ -42,11 +37,25 @@ namespace stcr {
 			}
 
 			public function admin_notices() {
-				if ( $notices = get_option( 'subscribe_reloaded_deferred_admin_notices' ) ) {
-					foreach ( $notices as $notice ) {
-						echo $notice;
+				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
+				$nonce = null;
+
+				if ( $notices ) {
+					// Add JS script
+					wp_enqueue_script( 'stcr-admin-js' );
+					wp_enqueue_style( 'stcr-admin-style' );
+
+					foreach ( $notices as $key => $notice ) {
+						if( $notice['status'] == 'unread' ) {
+							$nonce = wp_create_nonce( $key );
+							// Set the a fresh nonce
+							$this->utils->stcr_update_admin_notice_status( $key, 'unread', $nonce );
+							echo "<div class='notice is-dismissible stcr-dismiss-notice  {$notice['type']}' data-nonce='{$nonce}|{$key}'>";
+								echo $notice['message'];
+							echo "</div>";
+						}
 					}
-					delete_option( 'subscribe_reloaded_deferred_admin_notices' );
+					update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
 				}
 			}
 
