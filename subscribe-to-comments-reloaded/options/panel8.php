@@ -9,8 +9,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 <div class="donate-panel">
 
 <h3><?php _e( 'Support Subscribe to Comments Reloaded', 'subscribe-reloaded' ) ?></h3>
-<p style="font-size: 14px;"><?php _e( "Every contribution that you make is high valuable, so if you consider this plugin a helpful tool we will use your donation to
-				invested on support and developing time.", 'subscribe-reloaded' ) ?></p>
+<p style="font-size: 14px;"><?php _e( "Every contribution that you make is high valuable, so if you consider this plugin a helpful tool we will use your donation to invest on support and developing time.", 'subscribe-reloaded' ) ?></p>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 	<input type="hidden" name="cmd" value="_s-xclick">

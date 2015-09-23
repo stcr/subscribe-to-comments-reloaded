@@ -169,8 +169,7 @@ wp_print_scripts( 'quicktags' );
 						   value="<?php echo subscribe_reloaded_get_option( 'unique_key' ); ?>" size="35" disabled>
 					<div class="description">
 						<?php _e(
-							"This Unique Key will be use to send the notification to your subscribers with more
-																security.",
+							"This Unique Key will be use to send the notification to your subscribers with more security.",
 							'subscribe-reloaded'
 						); ?></div>
 					<input type="submit" value="<?php _e( 'Generate' ) ?>" class="button-primary" size="6" name="generate_key" style="background-color: #D54E21;border-color: #B34B28;">
