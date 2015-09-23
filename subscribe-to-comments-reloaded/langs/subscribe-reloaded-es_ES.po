@@ -3,18 +3,19 @@ msgstr ""
 "Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-11 16:19-0700\n"
-"PO-Revision-Date: 2015-06-11 16:19-0700\n"
-"Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
-"Language-Team:  <juanluperez@gmail.com>\n"
+"PO-Revision-Date: 2015-08-20 21:35-0300\n"
+"Last-Translator: Ivan Ridao Freitas <info@ivanrf.com>\n"
+"Language-Team: TodoWordPress, Juan Luis Perez, Iván Ridao Freitas "
+"<juanluperez@gmail.com>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n !=1;\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: subscribe-to-comments-reloaded.php:95
@@ -43,7 +44,7 @@ msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr ""
-"Te has suscrito a esta entrada. <a href='[manager_link]'>Gestionarr</a> tus "
+"Te has suscrito a esta entrada. <a href='[manager_link]'>Gestionar</a> tus "
 "suscripciones."
 
 #: subscribe-to-comments-reloaded.php:314
@@ -92,8 +93,8 @@ msgid ""
 "form here below and you're all set."
 msgstr ""
 "Puedes seguir la discusión de <strong>[post_title]</strong> sin tener que "
-"dejar un comentario. Introduce tu dirección de correo-e en el siguiente "
-"formulario y listo."
+"dejar un comentario. Introduce tu dirección de correo electrónico en el "
+"siguiente formulario y listo."
 
 #: subscribe-to-comments-reloaded.php:324
 msgid ""
@@ -113,7 +114,7 @@ msgid ""
 msgstr ""
 "Gracias por usar nuestro servicio de suscripción. Para confirmar tu "
 "petición, por favor comprueba si has recibido un mensaje en tu buzón de "
-"correo-e y sigue las instrucciones."
+"correo electrónico y sigue las instrucciones."
 
 #: subscribe-to-comments-reloaded.php:326
 msgid ""
@@ -198,17 +199,16 @@ msgid "Important Notice"
 msgstr "Nota Importante"
 
 #: subscribe-to-comments-reloaded.php:527
-#, fuzzy
 msgid "Subscribe to Comments Reloaded Important Notice"
-msgstr ""
-"¿Necesitas ayuda sobre como usar \"Subscribe to Comments Reloaded\"? Visita "
-"el"
+msgstr "Aviso Importante de Subscribe to Comments Reloaded"
 
 #: subscribe-to-comments-reloaded.php:528
 msgid ""
 "The information in your database has been sanitize to prevent the raw html "
 "messages."
 msgstr ""
+"La información contenida en su base de datos ha sido corregida para evitar "
+"mensajes HTML sin procesar."
 
 #: subscribe-to-comments-reloaded.php:580
 msgid ""
@@ -216,12 +216,17 @@ msgid ""
 "plugin was detected and automatically imported into <strong>Subscribe to "
 "Comments Reloaded</strong>."
 msgstr ""
+"Se detectaron datos de suscripción a comentarios del plugin "
+"<strong>Subscribe to Comments</strong> y se importaron automáticamente en "
+"<strong>Subscribe to Comments Reloaded</strong>."
 
 #: subscribe-to-comments-reloaded.php:580
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Subscribe to "
 "Comments to prevent confusion between the two plugins."
 msgstr ""
+"Se recomienda que <strong>desactive</strong> ahora Subscribe to Comments "
+"para prevenir conflictos entre ambos plugins."
 
 #: subscribe-to-comments-reloaded.php:581
 msgid ""
@@ -229,6 +234,9 @@ msgid ""
 "that you want to import, you'll need to import that data manually, as only "
 "one import routine will ever run to prevent data loss."
 msgstr ""
+"Si tienes datos de suscripción de Subscribe to Comments Reloaded < v2.0 que "
+"quieres importar, necesitaras importar esos datos manualmente, ya que sólo "
+"se ejecutará una rutina de importación para evitar la pérdida de datos."
 
 #: subscribe-to-comments-reloaded.php:582
 #: subscribe-to-comments-reloaded.php:650
@@ -238,6 +246,9 @@ msgid ""
 "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
 "your configuration."
 msgstr ""
+"Por favor visita <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Configuración -> Subscribe to Comments</a> para "
+"revisar tu configuración."
 
 #: subscribe-to-comments-reloaded.php:649
 msgid ""
@@ -245,12 +256,17 @@ msgid ""
 "strong> plugin was detected and automatically imported into "
 "<strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
+"Se detectaron datos de suscripción a comentarios del plugin <strong>Comment "
+"Reply Notification</strong> y se importaron automáticamente en "
+"<strong>Subscribe to Comments Reloaded</strong>."
 
 #: subscribe-to-comments-reloaded.php:649
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Comment Reply "
 "Notification to prevent confusion between the two plugins."
 msgstr ""
+"Se recomienda que <strong>desactive</strong> ahora Comment Reply "
+"Notification para prevenir conflictos entre ambos plugins."
 
 #: subscribe-to-comments-reloaded.php:793
 msgid ""
@@ -258,12 +274,17 @@ msgid ""
 "Subscriptions</strong> plugin were detected and automatically imported into "
 "<strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
+"Se detectaron opciones y datos de suscripción a comentarios del plugin "
+"<strong>WP Comment Subscriptions</strong> y se importaron automáticamente en "
+"<strong>Subscribe to Comments Reloaded</strong>."
 
 #: subscribe-to-comments-reloaded.php:793
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> WP Comment "
 "Subscriptions to prevent confusion between the two plugins."
 msgstr ""
+"Se recomienda que <strong>desactive</strong> ahora WP Comment Subscriptions "
+"para prevenir conflictos entre ambos plugins."
 
 #: subscribe-to-comments-reloaded.php:794
 msgid ""
@@ -272,6 +293,10 @@ msgid ""
 "you'll need to import that data manually, as only one import routine will "
 "ever run to prevent data loss."
 msgstr ""
+"Si tienes datos de suscripción de otro plugin (como Subscribe to Comments o "
+"Subscribe to Comments Reloaded < v2.0) que quieres importar, necesitaras "
+"importar esos datos manualmente, ya que sólo se ejecutará una rutina de "
+"importación para evitar la pérdida de datos."
 
 #: subscribe-to-comments-reloaded.php:795
 msgid ""
@@ -281,10 +306,15 @@ msgid ""
 "<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
 "respectively."
 msgstr ""
+"<strong>Nota:</strong> Si estaba utilizando previamente la función "
+"<code>wp_comment_subscriptions_show()</code> o el shortcode <code>[wpcs-"
+"subscribe-url]</code>, deberá reemplazar ambos con "
+"<code>subscribe_reloaded_show()</code> y <code>[subscribe-url]</code> "
+"respectivamente."
 
 #: subscribe-to-comments-reloaded.php:806
 msgid "Settings"
-msgstr "Configuraciön"
+msgstr "Configuración"
 
 #: subscribe-to-comments-reloaded.php:1845 options/panel2.php:67
 #: options/panel2.php:77 options/panel2.php:106 options/panel5.php:84
@@ -456,7 +486,7 @@ msgstr "ID de entrada"
 #: templates/request-management-link.php:69 templates/subscribe.php:89
 #: templates/user.php:57
 msgid "Email"
-msgstr "Correo-e"
+msgstr "Email"
 
 #: options/panel1.php:63
 msgid "Ask user to confirm"
@@ -481,7 +511,7 @@ msgstr ""
 
 #: options/panel1.php:84
 msgid "email"
-msgstr "correo-e"
+msgstr "email"
 
 #: options/panel1.php:85
 msgid "post ID"
@@ -681,6 +711,8 @@ msgid ""
 "Select the default option for the Checkbox. Be careful! Some users might "
 "like to be subscribed to all the post."
 msgstr ""
+"Selecciona la opción predeterminada para la casilla de verificación. ¡Sé "
+"cuidadoso! Algunos usuarios pueden preferir estar suscritos a todo el post."
 
 #: options/panel2.php:107
 msgid ""
@@ -702,6 +734,8 @@ msgid ""
 "The default subscription type that should be selected when Advanced "
 "subscriptions are enable."
 msgstr ""
+"El tipo de suscripción por defecto que debe ser seleccionado cuando se "
+"activa Suscripción avanzada."
 
 #: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
@@ -764,7 +798,7 @@ msgstr "Guardar cambios"
 
 #: options/panel3.php:13 options/panel3.php:87
 msgid "Virtual Management Page"
-msgstr "Gestión Virtual  de Página"
+msgstr "Página de Administración virtual"
 
 #: options/panel3.php:18 options/panel3.php:96
 msgid "Page title"
@@ -815,15 +849,14 @@ msgid "Disabled"
 msgstr "Deshabilitado"
 
 #: options/panel3.php:92
-#, fuzzy
 msgid ""
 "Disable the virtual management page if you need to create a <a href=\"http://"
 "behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
 "theme happy."
 msgstr ""
-" si necesitas crear una pagina realSi necesitas crear una <a href=\"http://"
-"lab.duechiacchiere.it/index.php?topic=71.0\">Página real</a> para hacer tu "
-"tema feliz deshabilita deshabilita la Gestión Virtual de tu Página."
+"Deshabilita la página de administración virtual si necesitas crear una <a "
+"href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">página real</"
+"a> para hacer tu tema feliz."
 
 #: options/panel3.php:101
 msgid "Title of the page your visitors will use to manage their subscriptions."
@@ -918,7 +951,7 @@ msgstr "Nombre del remitente"
 
 #: options/panel4.php:21 options/panel4.php:85
 msgid "Sender email address"
-msgstr "Dirección de correo-e del remitente"
+msgstr "Dirección de correo electrónico del remitente"
 
 #: options/panel4.php:26 options/panel4.php:105
 msgid "Notification subject"
@@ -1019,11 +1052,11 @@ msgstr "Suscrito"
 
 #: options/panel5.php:37 options/panel5.php:99
 msgid "Enable HTML emails"
-msgstr "Activar correo-e en HTML"
+msgstr "Activar HTML en emails"
 
 #: options/panel5.php:40
 msgid "HTMLify Links in HTML emails"
-msgstr ""
+msgstr "Convertir enlaces HTML en emails HTML"
 
 #: options/panel5.php:43
 msgid "Send trackbacks"
@@ -1071,18 +1104,20 @@ msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
 msgstr ""
-"Si está activado, enviará mensajes de correo-e con content-type = text/html "
-"en lugar de text/plain"
+"Si está activado, enviará mensajes de correo electrónico con content-type = "
+"text/html en lugar de text/plain"
 
 #: options/panel5.php:108
 msgid "HTMLify links in emails"
-msgstr ""
+msgstr "Convertir enlaces HTML"
 
 #: options/panel5.php:113
 msgid ""
 "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
 "&lt;/a&gt;</code> (only when HTML emails enabled)."
 msgstr ""
+"Si está activado, agregará <code>&lt;a href=\"\"&gt;&lt;/a&gt;</code> en "
+"todos los enlaces de los mensajes (sólo si se activó HTML en emails)."
 
 #: options/panel5.php:118
 msgid "Process trackbacks"
@@ -1112,19 +1147,21 @@ msgstr ""
 
 #: options/panel5.php:150
 msgid "Send a copy of all Notifications to the administrator."
-msgstr ""
+msgstr "Enviar una copia de todas las Notificaciones al administrador."
 
 #: options/panel5.php:155
 msgid "StCR Unique Key"
-msgstr ""
+msgstr "StCR Clave Única"
 
 #: options/panel5.php:160
 msgid "This Unique Key is not set, please click the following button to "
 msgstr ""
+"Esta Clave Única no se ha establecido, por favor haga clic en el siguiente "
+"botón para"
 
 #: options/panel5.php:164 options/panel5.php:176
 msgid "Generate"
-msgstr ""
+msgstr "Generar"
 
 #: options/panel5.php:172
 msgid ""
@@ -1132,14 +1169,14 @@ msgid ""
 "with more\n"
 "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tsecurity."
 msgstr ""
+"Esta Clave Única se utiliza para enviar notificaciones a sus suscriptores "
+"con más seguridad."
 
 #: options/panel6.php:8 options/panel7.php:8
-#, fuzzy
 msgid "Support the developers"
-msgstr "Apoya al autor"
+msgstr "Apoya a los desarrolladores"
 
 #: options/panel6.php:18
-#, fuzzy
 msgid ""
 "How valuable is the feature offered by this plugin to your visitors? please "
 "consider supporting the author if this plugin made your web site better, "
@@ -1148,18 +1185,16 @@ msgid ""
 "strong>, and to buy some food for my hungry family."
 msgstr ""
 "¿Qué valor tienen las características que ofrece este plugin para tus "
-"visitantes? \"Subscribe to Comments Reloaded\" es y siempre será gratuito, "
-"pero considera apoyar al autor si este plugin hace tu web mejor, "
-"especialmente si estás haciendo dinero con ella. Cualquier donación es bien "
-"recibida y será invertida en el desarrollo del plugin y en comprar algo de "
-"comida para mi familia hambrienta."
+"visitantes? Por favor, considera apoyar al autor si este plugin hace tu web "
+"mejor, especialmente si estás haciendo dinero con ella. Cualquier donación "
+"recibida será reinvertida en el desarrollo de <strong>Subscribe to Comments "
+"Reloaded</strong>, y en comprar algo de comida para mi familia hambrienta."
 
 #: options/panel6.php:20
 msgid "Don't want to donate? You can still help"
 msgstr "¿No quieres donar? Todavía puedes ayudar"
 
 #: options/panel6.php:21
-#, fuzzy
 msgid ""
 "If you don't want to donate money, please consider blogging about my plugin "
 "with a link to the plugin's page. Please let your readers know what makes "
@@ -1168,17 +1203,16 @@ msgid ""
 "improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
 "you do, thanks for using my plugin!"
 msgstr ""
-"Si no quieres donar dinero, considera escribir una entrada en tu sitio "
-"acerca de mi plugin con un enlace hacia la página del plugin. Por favor, "
-"deja que tus lectores sepan lo que hace tu blog mejor. También puedes "
-"contribuir donando tu tiempo: no dudes en enviarme informes de fallos en el "
-"plugin, traducciones, ideas para mejorar el \"Subscribe to Comments Reloaded"
-"\" y demás. Hagas lo que hagas, ¡gracias por usar mi plugin!"
+"Si no quieres donar dinero, por favor considera escribir una entrada en tu "
+"sitio acerca de mi plugin con un enlace hacia la página del plugin. Deja que "
+"tus lectores sepan lo que hace tu blog mejor. También puedes contribuir "
+"donando tu tiempo: no dudes en enviarme informes de fallos en el plugin, "
+"traducciones, ideas sobre cómo mejorar <strong>Subscribe to Comments "
+"Reloaded</strong> y más. Hagas lo que hagas, ¡gracias por usar mi plugin!"
 
 #: options/panel6.php:23
-#, fuzzy
 msgid "Subscribe to the Beta testers"
-msgstr "Suscrito"
+msgstr "Suscribirse a los Beta testers"
 
 #: options/panel6.php:24
 msgid ""
@@ -1187,26 +1221,29 @@ msgid ""
 "can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
 "a>"
 msgstr ""
+"Previo a una nueva Actualización, lanzamos una versión Beta para que "
+"nuestros usuarios actuales nos pueden dar información si encuentran un "
+"error. Si quieres unirte a la lista de testers, puedes agregar tu correo "
+"electrónico <a href='http://eepurl.com/biCk1b' target='_blank'>aquí</a>."
 
 #: options/panel6.php:26
 msgid "Vote and show your appreciation"
 msgstr "Vota y muestra tu agradecimiento"
 
 #: options/panel6.php:27
-#, fuzzy
 msgid ""
 "Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
 "for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
 "subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
 msgstr ""
-"Dile a otras personas si \"Subscribe to Comments Reloaded\" funciona para ti "
-"y cómo es de bueno. <a href=\"http://wordpress.org/extend/plugins/subscribe-"
-"to-comments-reloaded/\">Valóralo</a> en la página directorio de plugins de "
-"WordPress."
+"Dile a otras personas si <strong>Subscribe to Comments Reloaded</strong> "
+"funciona para ti y cómo es de bueno. <a href=\"http://wordpress.org/extend/"
+"plugins/subscribe-to-comments-reloaded/\">Valóralo</a> en la página de "
+"plugins de WordPress."
 
 #: options/panel7.php:18
 msgid "Did you find a Bug on the plugin?"
-msgstr ""
+msgstr "Encontraste un Error en el plugin?"
 
 #: options/panel7.php:19
 msgid ""
@@ -1215,6 +1252,10 @@ msgid ""
 "%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
 "WordPress Support page."
 msgstr ""
+"Por favor, reporta cualquier error en la página de <a href=\"https://github."
+"com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:"
+"%20%3Cshort%20description%3E&labels=bug\" target=\"_blank\">GitHub</a> en "
+"lugar de hacerlo en la página de soporte de WordPress."
 
 #: templates/author.php:57
 msgid "Title"
@@ -1229,9 +1270,8 @@ msgid "Invert selection"
 msgstr "Invertir selección"
 
 #: templates/author.php:74 templates/user.php:71
-#, fuzzy
 msgid "All comments"
-msgstr "Todos los comentarios nuevos"
+msgstr "Todos los comentarios"
 
 #: templates/author.php:80 templates/user.php:78
 msgid "No subscriptions match your search criteria."
