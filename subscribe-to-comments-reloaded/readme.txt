@@ -255,7 +255,7 @@ localization is ready. Currently, we support the following languages:
 * Portuguese, Portugal
 * Russian - [Marika Bukvonka](http://violetnotes.com)
 * Serbian - [Anna Swedziol](http://www.sneg.iz.rs/)
-* Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/)
+* Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/), [Iván Ridao Freitas](http://ivanrf.com/)
 * Turkish - [MaD, Kali](http://www.dusunsel.com/)
 * Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
 * Hungarian - [László Tavaszi]
