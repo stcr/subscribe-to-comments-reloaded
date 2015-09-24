@@ -44,8 +44,8 @@ namespace stcr {
 					if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
 						add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
 					}
-
-					// removing action hook because it was redundant
+					// Enqueue plugin scripts
+					$this->utils->hook_plugin_scripts();
 				} else {
 					// Hook for WPMU - New blog created
 					add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
@@ -869,7 +869,7 @@ namespace stcr {
 				$post_permalink          = get_permalink( $_post_ID );
 				$comment_permalink       = get_comment_link( $_comment_ID );
 				$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
-				
+
 				// WPML compatibility
 				if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
 					// Switch language
@@ -877,7 +877,7 @@ namespace stcr {
 					$language = $sitepress->get_language_for_element( $_post_ID, 'post_' . $post->post_type );
 					$sitepress->switch_lang($language);
 				}
-				
+
 				// Retrieve the options from the database
 				$from_name    = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) ), ENT_QUOTES, 'UTF-8' );
 				$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
@@ -953,6 +953,10 @@ namespace stcr {
 			function subscribe_reloaded_show() {
 				global $post, $wp_subscribe_reloaded;
 				$checkbox_subscription_type;
+
+				// Enable JS scripts.
+				$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
+				wp_enqueue_style( 'stcr-plugin-style' );
 
 				$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 				if ( ! empty( $is_disabled ) ) {
@@ -1035,8 +1039,10 @@ namespace stcr {
 				if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 					$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 				}
+				echo "<div class='stcr-form hidden'>";
 				echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
 				echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+				echo "</div>";
 			} // end subscribe_reloaded_show
 
 			public function setUserCoookie() {
