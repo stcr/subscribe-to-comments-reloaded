@@ -1,0 +1,9 @@
+/**
+ * Styles for the StCR plugin
+ * @since 23-Sep-2015
+ * @author reedyseth
+ */
+
+.hidden {
+	display: none !important;
+}

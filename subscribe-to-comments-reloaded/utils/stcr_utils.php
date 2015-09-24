@@ -196,6 +196,36 @@ namespace stcr {
 				add_action('admin_enqueue_scripts',array( $this, 'register_admin_scripts') );
 			}
 			/**
+			 * Register scripts for plugin pages.
+			 * @since 22-Sep-2015
+			 * @author reedyseth
+			 */
+			public function register_plugin_scripts() {
+				$stcr_plugin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-plugin.js';
+				// Javascript
+				wp_register_script('stcr-plugin-js', $stcr_plugin_js, array( 'jquery' ) );
+				// Styles
+				$stcr_plugin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css';
+				wp_register_style( 'stcr-plugin-style', $stcr_plugin_css );
+			}
+			/**
+			 * Hooking scripts for plugin pages.
+			 * @since 22-Sep-2015
+			 * @author reedyseth
+			 */
+			public function hook_plugin_scripts() {
+				// link the hooks
+				add_action('wp_enqueue_scripts',array( $this, 'register_plugin_scripts') );
+			}
+			/**
+			 * Enqueue `style for plugin pages
+			 * @since 22-Sep-2015
+			 * @author reedyseth
+			 */
+			public function add_plugin_js_scripts() {
+				wp_enqueue_script('stcr-plugin-js');
+			}
+			/**
 			 * Create a notice array with its settings and add it to the subscribe_reloaded_deferred_admin_notices
 			 * option.
 			 *
@@ -250,7 +280,6 @@ namespace stcr {
 			 *
 			 * @param string $_name Name of the notice.
 			 * @param string $_status status read/unread. This will determine if the notice is display or not.
-			 * @param string $_nonce Optional parameter to update the nonce key.
 			 */
 			public function stcr_update_admin_notice_status( $_name = '', $_status = 'unread', $_nonce = 0 ) {
 				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
@@ -288,6 +317,8 @@ namespace stcr {
 			 *
 			 * @since 14-Agu-2015
 			 * @author reedyseth
+			 *
+			 * @param string $_notices The notifice to be binded.
 			 */
 			public function stcr_create_ajax_notices() {
 				$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
@@ -302,9 +333,10 @@ namespace stcr {
 			/**
 			 * Update a StCR notification status
 			 *
-			 * @since 21-Sep-2015
+			 * @since 14-Agu-2015
 			 * @author reedyseth
 			 *
+			 * @param string $_notification The notification Name of the notice to be deleted.
 			 */
 			public function stcr_ajax_update_notification () {
 				$_notification = $_POST['action'];
