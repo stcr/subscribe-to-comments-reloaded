@@ -375,7 +375,8 @@ namespace stcr {
 			 */
 			public function add_column_header( $_columns ) {
 				$image_url                      = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/images';
-				$_columns['subscribe-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='Subscriptions' />";
+				$image_tooltip                  = __( 'Subscriptions', 'subscribe-reloaded' );
+				$_columns['subscribe-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
 				return $_columns;
 			}
