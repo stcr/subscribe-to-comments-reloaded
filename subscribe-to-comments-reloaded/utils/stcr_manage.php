@@ -404,7 +404,7 @@ namespace stcr {
 				), 'dt', 'DESC', 0, 1
 				);
 				if ( count( $subscription ) == 0 ) {
-					_e( 'No', 'subscribe-reloaded' );
+					echo '<a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-reloaded' ) . '</a>';
 				} else {
 					echo '<a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . $subscription[0]->status . '</a>';
 				}
