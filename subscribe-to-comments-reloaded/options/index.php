@@ -94,6 +94,7 @@ if ( $wp_locale->text_direction != 'ltr' ) {
 			echo '" href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=' . ( $a_panel_id + 1 ) . '">' . $a_panel_details . '</a>';
 		}
 		?>
+		<div class="clearFix"></div>
 	</h2>
 
 	<?php if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php" ) ) {

@@ -167,3 +167,7 @@ input.checkbox {
 	width: 90%;
 }
 
+
+.clearFix {
+	clear: both;
+}
