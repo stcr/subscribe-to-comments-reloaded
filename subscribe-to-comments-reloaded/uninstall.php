@@ -13,6 +13,7 @@ $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'" );
 
 // Goodbye options...
 delete_option( 'subscribe_reloaded_oneclick_text' );
+delete_option( 'subscribe_reloaded_commentbox_place' );
 delete_option( 'subscribe_reloaded_subscriber_table' );
 delete_option( 'subscribe_reloaded_data_sanitized' );
 delete_option( 'subscribe_reloaded_notice_unique_key' );
