@@ -19,7 +19,7 @@ namespace stcr {
 	{
 		class stcr_manage {
 
-			public $current_version = '150611';
+			public $current_version = '150820';
 			public $utils = null;
 			public $upgrade = null;
 
@@ -28,11 +28,17 @@ namespace stcr {
 				$this->utils = new stcr_utils();
 			}
 
+			/**
+			 * Search for a new version of code for a possible update
+			 */
 			public function admin_init() {
 				$version = get_option( 'subscribe_reloaded_version' );
-				if ( $version != $this->current_version ) {
+				if ( (int) $version < (int) $this->current_version ) {
 					// Do whatever upgrades needed here.
+					$this->_activate();
 					update_option( 'subscribe_reloaded_version', $this->current_version );
+				} else {
+					return;
 				}
 			}
 
