@@ -3,7 +3,7 @@
  * Class with utility functions to upgrade the plugin.
  * @author reedyseth
  * @since 15-Jul-2015
- * @version 160103
+ * @version 160106
  */
 namespace stcr {
 	// Avoid direct access to this piece of code
@@ -384,6 +384,46 @@ namespace stcr {
 				}
 			}
 			// end _import_wpcs_data
+			public function upgrade_notification( $_version, $_db_version ) {
+				if( empty( $_db_version ) ) {
+					$this->stcr_create_admin_notice(
+						'notify_update_new_install',
+						'unread',
+						'<h3>' . __('Important Notice', 'subscribe-reloaded') . '</h3>' .
+						'<p>' . __('Thank you for installing <strong>Subscribe to Comments Reloaded</strong>', 'subscribe-reloaded') . '</p>' .
+						'<p>' . __('If you find a bug or issue you can report it <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues" target="_blank">here</a>', 'subscribe-reloaded') . '</p>' .
+						'<p>' . __('If you want to donate you can do it by <a href="
+https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">Paypal</a>', 'subscribe-reloaded') . '</p>' .
+						'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> to review a detail information on the plugin changes.'
+							. '<a class="dismiss" href="#">Got it.  </a>'
+							. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
+						'updated'
+					);
+				} else {
+					switch ($_version) {
+						case '160106':
+							$this->stcr_create_admin_notice(
+								'notify_update_' . $_version,
+								'unread',
+								'<h3>' . __('Important Notice', 'subscribe-reloaded') . '</h3>' .
+								'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to the version 160106', 'subscribe-reloaded') . '</p>' .
+								'<p>' . __('On this version you will find many changes and fixes that they will improve your experience with the plugin, just to mention a few changes:', 'subscribe-reloaded') . '</p>' .
+								'<p>' . __('<ul><li>Important change on the Plugin core codebase</li><li>One Click Unsubscribe</li>' .
+									'<li>Subscription Checkbox position, now you can move the subscription box above the submit button in your comment form.</li>' .
+									'<li>Improve notification System on the Admin areas.</li>' .
+									'<li>Updates on translation files</li>' .
+									'<li>A new rich editor to create HTML email messages.</li>' .
+									'<li>And more...</li>' .
+									'</ul>', 'subscribe-reloaded') . '</p>' .
+								'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> to review a detail information on the update.'
+									. '<a class="dismiss" href="#">Got it.  </a>'
+									. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
+								'updated'
+							);
+							brake;
+					}
+				}
+			}
 		}
 	}
 }

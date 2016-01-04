@@ -3,7 +3,7 @@
  * Class with management functions for Subscribe to Comments Reloaded
  * @author reedyseth
  * @since 16-Jul-2015
- * @version 160103
+ * @version 160106
  */
 namespace stcr {
 	// Avoid direct access to this piece of code
@@ -19,21 +19,23 @@ namespace stcr {
 	{
 		class stcr_manage {
 
-			public $current_version = '150820';
+			public $current_version = '160106';
 			public $utils = null;
 			public $upgrade = null;
+			public $db_version = null;
 
 			public function __construct() {
 				$this->upgrade = new stcr_upgrade();
 				$this->utils = new stcr_utils();
+				$this->db_version = get_option( 'subscribe_reloaded_version' );
 			}
 
 			/**
 			 * Search for a new version of code for a possible update
 			 */
 			public function admin_init() {
-				$version = get_option( 'subscribe_reloaded_version' );
-				if ( (int) $version < (int) $this->current_version ) {
+
+				if ( empty ( $this->db_version ) || (int) $this->db_version < (int) $this->current_version ) {
 					// Do whatever upgrades needed here.
 					$this->_activate();
 					update_option( 'subscribe_reloaded_version', $this->current_version );
@@ -249,6 +251,8 @@ namespace stcr {
 
 				// Create a new table if not exists to manage the subscribers safer
 				$this->upgrade->_create_subscriber_table();
+				// Send the current version to display the appropiate message
+				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version );
 
 				// Schedule the autopurge hook
 				if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_purge' ) ) {
