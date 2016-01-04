@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 150820
+Stable tag: 160103
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 

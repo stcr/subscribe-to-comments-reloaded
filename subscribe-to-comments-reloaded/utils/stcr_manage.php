@@ -3,7 +3,7 @@
  * Class with management functions for Subscribe to Comments Reloaded
  * @author reedyseth
  * @since 16-Jul-2015
- * @version 150715
+ * @version 160103
  */
 namespace stcr {
 	// Avoid direct access to this piece of code

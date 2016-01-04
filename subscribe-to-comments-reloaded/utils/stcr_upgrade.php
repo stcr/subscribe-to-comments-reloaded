@@ -3,7 +3,7 @@
  * Class with utility functions to upgrade the plugin.
  * @author reedyseth
  * @since 15-Jul-2015
- * @version 150715
+ * @version 160103
  */
 namespace stcr {
 	// Avoid direct access to this piece of code
