@@ -2,8 +2,8 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 150611
-Stable tag: 150611
+Version: 150820
+Stable tag: 150820
 Requires at least: 2.9.2
 Tested up to: 4.2.2
 
@@ -118,7 +118,7 @@ if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) 
 
 class wp_subscribe_reloaded {
 
-	public $current_version = '150611';
+	public $current_version = '150820';
 
 	/**
 	 * Constructor -- Sets things up.
