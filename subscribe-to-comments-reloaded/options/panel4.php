@@ -191,7 +191,7 @@ wp_print_scripts( 'quicktags' );
 				<textarea class="rte" name="options[oneclick_text]" id="oneclick_text" cols="70" rows="8"><?php echo subscribe_reloaded_get_option( 'oneclick_text' ); ?></textarea>
 
 				<div class="description" style="padding-top:0">
-					<?php _e( 'Content of the One Click confirmation. Allowed tags: [blog_name]', 'subscribe-reloaded' ); ?>
+					<?php _e( 'Content of the One Click confirmation. Allowed tags: [post_title]', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

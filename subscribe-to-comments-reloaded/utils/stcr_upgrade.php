@@ -380,6 +380,7 @@ namespace stcr {
 			}
 			// end _import_wpcs_data
 			public function upgrade_notification( $_version, $_db_version ) {
+				global $wpdb;
 				if( empty( $_db_version ) ) {
 					$this->stcr_create_admin_notice(
 						'notify_update_new_install',
@@ -406,6 +407,26 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 									. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
 								'updated'
 							);
+							// Update the links tags for actual links, needed because of the new rich text editor.
+							$retrieve_options_links = "SELECT option_name, option_value FROM {$wpdb->prefix}options WHERE option_name IN (
+														'subscribe_reloaded_notification_content',
+														'subscribe_reloaded_double_check_content',
+														'subscribe_reloaded_management_content',
+														'subscribe_reloaded_oneclick_text',
+														'subscribe_reloaded_request_mgmt_link_thankyou',
+														'subscribe_reloaded_subscribe_without_commenting',
+														'subscribe_reloaded_subscription_confirmed','subscribe_reloaded_subscription_confirmed_dci')";
+							$options = $wpdb->get_results( $retrieve_options_links );
+							foreach( $options as $option ) {
+								$value = $option->option_value;
+								$value = str_replace( '[post_permalink]',htmlentities( '<a href="[post_permalink]">[post_permalink]</a>',ENT_QUOTES, 'UTF-8' ), $value );
+								$value = str_replace( '[comment_permalink]',htmlentities( '<a href="[comment_permalink]">[comment_permalink]</a>',ENT_QUOTES, 'UTF-8' ), $value );
+								$value = str_replace( '[manager_link]',htmlentities( '<a href="[manager_link]">[manager_link]</a>',ENT_QUOTES, 'UTF-8' ), $value );
+								$value = str_replace( '[confirm_link]',htmlentities( '<a href="[confirm_link]">[confirm_link]</a>',ENT_QUOTES, 'UTF-8' ), $value );
+								update_option( $option->option_name, $value );
+							}
+							// Update the HTML emails option
+							update_option( 'subscribe_reloaded_htmlify_message_links', 'yes' );
 							break;
 					}
 				}
