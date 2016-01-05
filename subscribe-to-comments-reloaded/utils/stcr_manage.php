@@ -38,7 +38,6 @@ namespace stcr {
 				if ( empty ( $this->db_version ) || (int) $this->db_version < (int) $this->current_version ) {
 					// Do whatever upgrades needed here.
 					$this->_activate();
-					update_option( 'subscribe_reloaded_version', $this->current_version );
 				} else {
 					return;
 				}
@@ -254,6 +253,8 @@ namespace stcr {
 				// Send the current version to display the appropiate message
 				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version );
 
+				update_option( 'subscribe_reloaded_version', $this->current_version );
+
 				// Schedule the autopurge hook
 				if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_purge' ) ) {
 					wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
@@ -286,9 +287,6 @@ namespace stcr {
 				} else {
 					wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
 				}
-
-				delete_option( 'subscribe_reloaded_version' );
-				delete_option( 'subscribe_reloaded_deferred_admin_notices' );
 			}
 
 			// end deactivate
