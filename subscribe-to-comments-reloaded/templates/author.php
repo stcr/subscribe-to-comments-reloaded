@@ -58,7 +58,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-legend-p">' . __( 'Legend: Y = all comments, R = replies only, C = inactive', 'subscribe-reloaded' ) . '</p>';
 	echo '<ul id="subscribe-reloaded-list">';
 	foreach ( $subscriptions as $i => $a_subscription ) {
-		echo "<li><input type='checkbox' name='email_list[]' value='" . urlencode( $a_subscription->email ) . "' id='e_$i'>
+		echo "<li><input type='checkbox' name='email_list[]' value='" . urlencode( $a_subscription->email ) . "' id='e_$i'/>
 				<label for='e_$i'><span class='subscribe-column-1'>$a_subscription->dt</span>
 					<span class='subscribe-separator subscribe-separator-1'>&mdash;</span>
 					<span class='subscribe-column-2'>$a_subscription->status</span>
@@ -69,12 +69,12 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-select-all-p"><a class="subscribe-reloaded-small-button" href="#" onclick="t=document.forms[\'email_list_form\'].elements[\'email_list[]\'];c=t.length;if(!c){t.checked=true}else{for(var i=0;i<c;i++){t[i].checked=true}};return false;">' . __( 'Select all', 'subscribe-reloaded' ) . '</a> ';
 	echo '<a class="subscribe-reloaded-small-button" href="#" onclick="t=document.forms[\'email_list_form\'].elements[\'email_list[]\'];c=t.length;if(!c){t.checked=!t.checked}else{for(var i=0;i<c;i++){t[i].checked=false}};return false;">' . __( 'Invert selection', 'subscribe-reloaded' ) . '</a></p>';
 	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-reloaded' ) . '
-			<input type="radio" name="sra" value="delete" id="action_type_delete"> <label for="action_type_delete">' . __( 'Delete', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sra" value="delete" id="action_type_delete" /> <label for="action_type_delete">' . __( 'Delete', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="radio" name="sra" value="suspend" id="action_type_suspend" checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" name="sra" value="force_y" id="action_type_force_y"> <label for="action_type_force_y">' . __( 'All comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" name="sra" value="force_r" id="action_type_force_r"> <label for="action_type_force_r">' . __( 'Replies to my comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" name="sra" value="activate" id="action_type_activate"> <label for="action_type_activate">' . __( 'Activate', 'subscribe-reloaded' ) . '</label></p>';
-	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /><input type="hidden" name="srp" value="' . intval( $post_ID ) . '"></p>';
+			<input type="radio" name="sra" value="force_y" id="action_type_force_y" /> <label for="action_type_force_y">' . __( 'All comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sra" value="force_r" id="action_type_force_r" /> <label for="action_type_force_r">' . __( 'Replies to my comments', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sra" value="activate" id="action_type_activate" /> <label for="action_type_activate">' . __( 'Activate', 'subscribe-reloaded' ) . '</label></p>';
+	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /><input type="hidden" name="srp" value="' . intval( $post_ID ) . '"/></p>';
 
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';

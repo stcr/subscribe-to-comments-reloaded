@@ -74,6 +74,12 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+== v150820 ==
+
+**Security Fix; PLEASE UPGRADE IMMEDIATELY**. v150820 fixes an XSS/CSRF vulnerability that was reported by a WordPress Plugin Repository moderator.
+
+v150611 Fix the creation of the new table realated to the Google PII issue with AdWords, see v150422 Change log for details.
+
 == v150611 ==
 
 v150611 Fix the creation of the new table realated to the Google PII issue with AdWords, see v150422 Change log for details.
@@ -99,6 +105,10 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v150820 =
+
+**Security Fix** Fix an XSS/CSRF vulnerability that was reported by a WordPress Plugin Repository moderator.
 
 = v150611 =
 
