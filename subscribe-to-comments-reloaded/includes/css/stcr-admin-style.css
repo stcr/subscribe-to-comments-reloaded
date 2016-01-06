@@ -45,3 +45,7 @@
 .clearFix {
 	clear: both;
 }
+
+.hidden {
+	display: none;
+}

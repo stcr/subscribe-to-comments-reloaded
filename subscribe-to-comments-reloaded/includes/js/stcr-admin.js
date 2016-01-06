@@ -37,8 +37,7 @@
 				complete: function() {
 					_this.find(".stcr-loading-animation").hide();
 				}
-			}); //close jQuery.ajax(
-			// TODO: create action on the server side, since is dynamic the action has to be performe with a foreach.
+			}); //close jQuery.ajax
 		});
 	});
 } )( jQuery );
