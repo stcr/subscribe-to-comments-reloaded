@@ -41,7 +41,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure
 
 = How do I create a 'real' management page? =
-Please refer to [this page](http://behstant.com/subscribe-reloaded/realMgnPage.php) for a detailed step-by-step description on how to do that
+Please refer to [this page](https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page) for a detailed step-by-step description on how to do that
 
 = Can I customize the layout of the management page? =
 Yes, each HTML tag has a CSS class or ID that you can use to change its position or look-and-feel
@@ -73,6 +73,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 5. Customize the plugin's behavior
 
 == Upgrade Notice ==
+
+== v160106 ==
+
+This version is a mayor version change on StCR. It includes many changes and features like One Click Unsubscribe, A Rich editor for the notifications templates, Subscription Checkbox position, Huge code refactor just to mention a few.
 
 == v150820 ==
 
@@ -106,23 +110,48 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
+= v160106 =
+
+* **Fix** The correct calling to the update function when a new version is available.
+* **Fix** Minor string bugs, In the code there is a new line before closing ". So, the text has several \t and it is not getting the spanhis translations submitted by @IvanRF.
+* **Fix** HTML input markup by removing ending slash on the input tags. See [issue#106](https://github.com/stcr/subscribe-to-comments-reloaded/issues/106).
+* **Fix** Unique Key is empty after update [issue#88](https://github.com/stcr/subscribe-to-comments-reloaded/issues/88). Reset the unique key if exist by deleting it and add it again. See [fc31da](https://github.com/stcr/subscribe-to-comments-reloaded/commit/fc31dae41a4513ee269f3a2daaad877045e9f25f)
+* **Fix** A critical issue on upgrade. Fix Upgrade routine since the activation hooks was not triggering on the upgrade process.
+* **Fix** error on Manage Subscription Page. Change the function get_subscriber_key( $email = null) to return the unique key of the user instead of generate it.
+* **Fix** Style on the generate key button.
+* **Add** A donate Panel so that you can donate to the plugin and help keeping the support active.
+* **Add** Ritch editor to admin page. Add a wysiwyg editor to the plugin to boost the HTML email. Please disable the option `HTMLify links in emails` to work correctly with the links.
+* **Add** The class clearFix to clear any floating style. Implement this class in the menu tabs to fix an issue with Comment Mail. See issue#158.
+* **Add** Scripts and Style to manage the plugin with jQuery.
+* **Add** French language file with correction by Jean-Michel Meyer(@Li-An).
+* **Add** Persian language, submitted  by Javad Hoseini-Nopendar.
+* **Add** Mail messages localization support for WPML by @IvanRF.
+* **Add** option to create a default template on the Notification tab of the settings.
+* **Move** The subscription Checkbox above the submit button, a new option is added to enable/disable the Comment Box Position, it could be above the submit button or after. See [issue#118](https://github.com/stcr/subscribe-to-comments-reloaded/issues/118).
+* **Update** Core code of StCR.
+* **Update** Optimizing get_option calls. Change the option autoload to yes so that the values are store in the object cache for a faster load. See [issue#86](https://github.com/stcr/subscribe-to-comments-reloaded/issues/86)
+* **Update** Panel Messages. Add new Support panel and move the support information from panel6.php to panel7.php on the StCR Settings.
+* **Update** transalation references on new German Translation file provided by @maffi91 and @konus1. See issue#114 and [issue#135](https://github.com/stcr/subscribe-to-comments-reloaded/issues/135).
+* **Update** Various notice style and spelling improvements. See [issue#135](https://github.com/stcr/subscribe-to-comments-reloaded/issues/135)
+* **Remove** Manager Page translation support for WPML by @IvanRF.
+
 = v150820 =
 
 **Security Fix** Fix an XSS/CSRF vulnerability that was reported by a WordPress Plugin Repository moderator.
 
 = v150611 =
 
-* **Fix** The creation of the new table realated to the Google PII issue with AdWords, see bug/#100
-* **Fix** The manage subscription link broke due to a wrong SRE key generation, see bug/#102
+* **Fix** The creation of the new table realated to the Google PII issue with AdWords, see [issue#100](https://github.com/stcr/subscribe-to-comments-reloaded/issues/100)
+* **Fix** The manage subscription link broke due to a wrong SRE key generation, see [issue#102](https://github.com/stcr/subscribe-to-comments-reloaded/issues/102)
 * **Add** Fixed French translation(thanks to Jean-Michel Meyer)
 
 = v150422 =
 
-* **Fix** Google PII complaint. See bug/#79 on GitHub.
-* **Fix** The ability to manage any subscription is remove, the manage link will only appear on the subscriber email address. bug/#81.
+* **Fix** Google PII complaint. See [issue#79](https://github.com/stcr/subscribe-to-comments-reloaded/issues/79) on GitHub.
+* **Fix** The ability to manage any subscription is remove, the manage link will only appear on the subscriber email address. [issue#81](https://github.com/stcr/subscribe-to-comments-reloaded/issues/81).
 * **Fix** Fix wrong html markup on the advance subscription dropdown.
-* **Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. bug/#82
-* **Fix** HTML email label for for screen readers. reported on bug/#76.
+* **Fix** Subscription List filter using the "start with" option on the Manage Subscription Panel. [issue#82](https://github.com/stcr/subscribe-to-comments-reloaded/issues/82)
+* **Fix** HTML email label for for screen readers. reported on [issue#76](https://github.com/stcr/subscribe-to-comments-reloaded/issues/76).
 * **Fix** Database information with correct encoding. A new routine to clean the database information encoding. This was outputting raw HTML.
 * **New Feature** Update subscription status to 'All Comments' on user Management Page.
 * **Add** New table to store every subscriber email.
@@ -270,3 +299,4 @@ localization is ready. Currently, we support the following languages:
 * Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
 * Hungarian - [László Tavaszi]
 * Czech - [Daniel Král](http://www.danielkral.cz/)
+* Persian - [Javad Hoseini-Nopendar](http://www.irannopendar.com/)
