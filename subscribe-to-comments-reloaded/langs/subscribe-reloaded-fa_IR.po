@@ -2,107 +2,110 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-07 00:15+0330\n"
+"POT-Creation-Date: 2016-01-08 04:10-0600\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
+"Language-Team: \n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: \n"
-"Language-Team: \n"
-"X-Generator: Poedit 1.8.4\n"
-"Last-Translator: \n"
-"Language: fa\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: subscribe-to-comments-reloaded.php:41 subscribe-to-comments-reloaded.php:248
-msgid ""
-"Your subscription to this post needs to be confirmed. <a "
-"href='[manager_link]'>Manage your subscriptions</a>."
+#: wp_subscribe_reloaded.php:116
+msgid "Settings"
 msgstr ""
-"اشتراک شما در این پست منتظر تایید است.  <a href='[manager_link]'> تغییر اشتراک "
-"</a>"
 
-#: subscribe-to-comments-reloaded.php:46 subscribe-to-comments-reloaded.php:247
+#: wp_subscribe_reloaded.php:1028
+msgid "Don't subscribe"
+msgstr "مشترک نشدن "
+
+#: wp_subscribe_reloaded.php:1029
+msgid "All"
+msgstr "دریافت همه دیدگاه های این نوشته"
+
+#: wp_subscribe_reloaded.php:1030 templates/user.php:72
+#: templates/author.php:75
+msgid "Replies to my comments"
+msgstr "فقط دریافت پاسخ دیدگاه های خودم "
+
+#: utils/stcr_manage.php:215
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"مرا با ایمیل از دیدگاه های آتی این نوشته مطلع کن. همچنین می توانید بدون "
+"ارسال دیدگاه <a href='[subscribe_link]'>مشترک شوید.</a>"
+
+#: utils/stcr_manage.php:216
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr ""
 "شما در این نوشته مشترک شده اید. <a href='[manager_link]'> تغییر اشتراک </a>"
 
-#: subscribe-to-comments-reloaded.php:53 subscribe-to-comments-reloaded.php:249
+#: utils/stcr_manage.php:217
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"اشتراک شما در این پست منتظر تایید است.  <a href='[manager_link]'> تغییر "
+"اشتراک </a>"
+
+#: utils/stcr_manage.php:218
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "با کلیک روی <a href='[manager_link]'> این لینک </a> می توانید اشتراک خود در "
 "پست جاری را تغییر دهید."
 
-#: subscribe-to-comments-reloaded.php:58 subscribe-to-comments-reloaded.php:244
-msgid ""
-"Notify me of followup comments via e-mail. You can also <a "
-"href='[subscribe_link]'>subscribe</a> without commenting."
-msgstr ""
-"مرا با ایمیل از دیدگاه های آتی این نوشته مطلع کن. همچنین می توانید بدون ارسال "
-"دیدگاه <a href='[subscribe_link]'>مشترک شوید.</a>"
-
-#: subscribe-to-comments-reloaded.php:67
-msgid "Don't subscribe"
-msgstr "مشترک نشدن "
-
-#: subscribe-to-comments-reloaded.php:68
-msgid "All"
-msgstr "دریافت همه دیدگاه های این نوشته"
-
-#: subscribe-to-comments-reloaded.php:69 templates/user.php:65
-msgid "Replies to my comments"
-msgstr "فقط دریافت پاسخ دیدگاه های خودم "
-
-#: subscribe-to-comments-reloaded.php:70
-msgid "Daily digest"
-msgstr "به صورت یکجا روزانه"
-
-#: subscribe-to-comments-reloaded.php:221 options/index.php:41
+#: utils/stcr_manage.php:222 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "مدیریت اشتراک ها"
 
-#: subscribe-to-comments-reloaded.php:222
+#: utils/stcr_manage.php:224
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
-"will send you a message containing the link to access your personal management "
-"page."
+"will send you a message containing the link to access your personal "
+"management page."
 msgstr ""
 "جهت مدیریت اشتراک هایتان لطفاً نشانی رایان‌نامه ی خود را در زیر وارد کنید. سپس "
 "یک ایمیل برایتان می فرستیم که حاوی لینک دسترسی به صفحه ی شخصی مدیریت شما است."
 
-#: subscribe-to-comments-reloaded.php:223
+#: utils/stcr_manage.php:225
 msgid ""
-"Thank you for using our subscription service. Your request has been completed, "
-"and you should receive an email with the management link in a few minutes."
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
 msgstr ""
-"ممنون که سرویس اشتراک ما را مورد استفاده قرار دادید. درخواست شما تکمیل شد و طی "
-"حداکثر چند دقیقه یک ایمیل حاوی پیوند صفحه ی مدیریت اشتراک ها دریافت می کنید."
+"ممنون که سرویس اشتراک ما را مورد استفاده قرار دادید. درخواست شما تکمیل شد و "
+"طی حداکثر چند دقیقه یک ایمیل حاوی پیوند صفحه ی مدیریت اشتراک ها دریافت می "
+"کنید."
 
-#: subscribe-to-comments-reloaded.php:224
+#: utils/stcr_manage.php:226
 msgid ""
-"You can follow the discussion on <strong>[post_title]</strong> without having "
-"to leave a comment. Cool, huh? Just enter your email address in the form here "
-"below and you're all set."
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
 msgstr ""
 "می تونی بحث درباره <strong>[post_title]</strong> را بدون گذاشتن هیچ دیدگاهی "
 "دنبال کنی. خوشت اومد، هان؟! فقط آدرس ایمیلتو در کادر زیر بنویس و تمام! "
 
-#: subscribe-to-comments-reloaded.php:225
+#: utils/stcr_manage.php:227
 msgid ""
-"Thank you for using our subscription service. Your request has been completed. "
-"You will receive a notification email every time a new comment to this article "
-"is approved and posted by the administrator."
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
 msgstr ""
 "ممنون که از سرویس اشتراک ما استفاده کردید. درخواست شما تکمیل شد. هر گاه "
 "دیدگاهی راجع به این مقاله توسط سرپرست تایید یا منتشر شود با ایمیل از آن مطلع "
 "می گردید."
 
-#: subscribe-to-comments-reloaded.php:226
+#: utils/stcr_manage.php:228
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -111,7 +114,7 @@ msgstr ""
 "ممنون که از سرویس اشتراک ما استفاده کردید. برای تایید درخواست خود لطفاً صندوق "
 "اینباکس یا اسپم ایمیلتان را ببینید و دستورالعمل پیام تاییدیه را دنبال نمایید."
 
-#: subscribe-to-comments-reloaded.php:227
+#: utils/stcr_manage.php:229
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -119,20 +122,20 @@ msgstr ""
 "برای لغو یک یا چند پیام رسان خودکار، کادرهای مربوط را تیک بزنید یا غیرفعال "
 "کنید و دکمه ی پایین صفحه را کلیک نمایید."
 
-#: subscribe-to-comments-reloaded.php:228
+#: utils/stcr_manage.php:230
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
-"corresponding checkbox(es) and click on the button at the end of the list. You "
-"are currently subscribed to:"
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
 msgstr ""
 "برای لغو یک یا چند پیام رسان خودکار، کادرهای مربوط را تیک بزنید یا غیرفعال "
 "کنید و دکمه ی پایین صفحه را کلیک نمایید. شما هم اکنون در اینجاها مشترک هستید:"
 
-#: subscribe-to-comments-reloaded.php:242
+#: utils/stcr_manage.php:234
 msgid "There is a new comment to [post_title]"
 msgstr "دیدگاه تازه در نوشته [post_title]"
 
-#: subscribe-to-comments-reloaded.php:243
+#: utils/stcr_manage.php:235
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -152,11 +155,11 @@ msgstr ""
 "مدیریت اشتراک های شما: \n"
 "[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:250
+#: utils/stcr_manage.php:236
 msgid "Please confirm your subscription to [post_title]"
 msgstr "لطفاً اشتراک خود در این نوشته را تایید کنید: [post_title]"
 
-#: subscribe-to-comments-reloaded.php:251
+#: utils/stcr_manage.php:237
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -171,547 +174,646 @@ msgstr ""
 "لطفاً با کلیک روی لینک زیر، درخواست خود را تایید کنید:\n"
 "[confirm_link]"
 
-#: subscribe-to-comments-reloaded.php:252
+#: utils/stcr_manage.php:238
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "اشتراک های خود را در [blog_name] مدیریت کنید."
 
-#: subscribe-to-comments-reloaded.php:253
+#: utils/stcr_manage.php:239
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
 "[manager_link]"
 msgstr ""
-"شما درخواست مدیریت اشتراک های خود را در مقالات [blog_name] کرده اید. روی لینک "
-"زیر کلیک نمایید تا به صفحه ی شخصی خود بروید:\n"
+"شما درخواست مدیریت اشتراک های خود را در مقالات [blog_name] کرده اید. روی "
+"لینک زیر کلیک نمایید تا به صفحه ی شخصی خود بروید:\n"
 "[manager_link]"
 
-#: subscribe-to-comments-reloaded.php:986
-msgid "Subscribed"
-msgstr "مشترک شده"
-
-#: subscribe-to-comments-reloaded.php:1000 options/panel2.php:41
-#: options/panel2.php:48 options/panel2.php:55 options/panel5.php:42
-#: options/panel5.php:49 options/panel5.php:56 options/panel5.php:63
-#: options/panel5.php:70 options/panel5.php:77
-msgid "Yes"
-msgstr "بله"
-
-#: subscribe-to-comments-reloaded.php:1002
-msgid "Replies"
-msgstr "پاسخ ها"
-
-#: subscribe-to-comments-reloaded.php:1004
-msgid "Digest"
-msgstr "حالت یکجا"
-
-#: subscribe-to-comments-reloaded.php:1006
-msgid "Pending"
-msgstr "در انتظار"
-
-#: subscribe-to-comments-reloaded.php:1007 options/panel2.php:42
-#: options/panel2.php:49 options/panel2.php:56 options/panel5.php:43
-#: options/panel5.php:50 options/panel5.php:57 options/panel5.php:64
-#: options/panel5.php:71 options/panel5.php:78
+#: utils/stcr_manage.php:414 options/panel5.php:87 options/panel5.php:96
+#: options/panel5.php:105 options/panel5.php:115 options/panel5.php:124
+#: options/panel5.php:134 options/panel5.php:143 options/panel5.php:152
+#: options/panel5.php:161 options/panel2.php:67 options/panel2.php:77
+#: options/panel2.php:106
 msgid "No"
 msgstr "نه"
 
-#: subscribe-to-comments-reloaded.php:1016
-msgid "Subscriptions"
-msgstr "اشتراک‌ها"
-
-#: subscribe-to-comments-reloaded.php:1039
+#: utils/stcr_manage.php:441
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
 "آیا برای استفاده از افزونه ی «اشتراک در دیدگاه‌ها نسخه ی جدید» نیاز به کمک "
 "دارید؟  سایت رسمی را ببینید."
 
-#: subscribe-to-comments-reloaded.php:1039
+#: utils/stcr_manage.php:441
 msgid "support forum"
 msgstr "تالار گفتگوی پشتیبانی"
 
-#: subscribe-to-comments-reloaded.php:1040
+#: utils/stcr_manage.php:442
 msgid "Feeling generous?"
 msgstr "احساس دست و دلبازی می کنید؟"
 
-#: subscribe-to-comments-reloaded.php:1040
+#: utils/stcr_manage.php:442
 msgid "Donate a few bucks!"
 msgstr "چند دلار اهدا نمایید!"
 
-#: options/index.php:42
-msgid "Comment Form"
-msgstr "فرم دیدگاه‌ها"
+#: utils/stcr_upgrade.php:53
+msgid "Important Notice"
+msgstr ""
 
-#: options/index.php:43
-msgid "Management Page"
-msgstr "صفحه‌ی مدیریت"
+#: utils/stcr_upgrade.php:96
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> The information in your "
+"database has been sanitized to prevent the raw html messages. <a class="
+"\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-animation\" "
+"src=\""
+msgstr ""
 
-#: options/index.php:44
-msgid "Notifications"
-msgstr "یادآور‌ها"
+#: utils/stcr_upgrade.php:151
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Subscribe to Comments</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
 
-#: options/index.php:45 options/panel2.php:35 options/panel3.php:39
-#: options/panel4.php:34
-msgid "Options"
-msgstr "تنظیمات"
+#: utils/stcr_upgrade.php:151
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
+msgstr ""
 
-#: options/index.php:46
-msgid "You can help"
-msgstr "شما هم می توانید کمک کنید"
+#: utils/stcr_upgrade.php:152
+msgid ""
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
+msgstr ""
 
-#: options/panel1-business-logic.php:18
-msgid "Subscription added."
-msgstr "اشتراک افزوده شد. "
+#: utils/stcr_upgrade.php:153 utils/stcr_upgrade.php:225
+#: utils/stcr_upgrade.php:374
+msgid ""
+"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
+"your configuration.<a class=\"dismiss\" href=\"#\">Got it.  </a><img class="
+"\"stcr-loading-animation\" src=\""
+msgstr ""
 
-#: options/panel1-business-logic.php:30
-msgid "Subscriptions updated."
-msgstr "اشتراک ها به روزرسانی شد."
+#: utils/stcr_upgrade.php:224
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Comment Reply Notification</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
 
-#: options/panel1-business-logic.php:39
-msgid "Subscription deleted."
-msgstr "اشتراک حذف شد. "
+#: utils/stcr_upgrade.php:224
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Comment Reply "
+"Notification to prevent confusion between the two plugins."
+msgstr ""
 
-#: options/panel1-business-logic.php:54 templates/author.php:22
-#: templates/user.php:22
+#: utils/stcr_upgrade.php:371
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
+"subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
+"were detected and automatically imported into <strong>Subscribe to Comments "
+"Reloaded</strong>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:371
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
+msgstr ""
+
+#: utils/stcr_upgrade.php:372
+msgid ""
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
+msgstr ""
+
+#: utils/stcr_upgrade.php:373
+msgid ""
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
+msgstr ""
+
+#: utils/stcr_upgrade.php:387
+msgid ""
+"<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:388
+msgid ""
+"If you find a bug or an issue you can report it <a href=\"https://github.com/"
+"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:389
+msgid ""
+"If you want to donate you can do it via <a href=\"\n"
+"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:391
+msgid ""
+"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for detailed "
+"information on plugin changes.<a class=\"dismiss\" href=\"#\">Got it.  </"
+"a><img class=\"stcr-loading-animation\" src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:403
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160106."
+msgstr ""
+
+#: utils/stcr_upgrade.php:404
+msgid ""
+"This version includes many changes and fixes to improve your experience with "
+"the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
+"email templates, Subscription Checkbox position, and more!"
+msgstr ""
+
+#: utils/stcr_upgrade.php:405
+msgid ""
+"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
+"complete list of changes.<a class=\"dismiss\" href=\"#\">Got it.  </a><img "
+"class=\"stcr-loading-animation\" src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:419
+msgid "Announcement: Introducing Comment Mail"
+msgstr ""
+
+#: utils/stcr_upgrade.php:420
+msgid ""
+"<strong><a href=\"http://comment-mail.com/r/stcr-to-cm/\" target=\"_blank"
+"\">Comment Mail</strong></a> is a new free plugin based on the original "
+"<strong>Subscribe to Comments Reloaded</strong> and includes all of the core "
+"StCR features."
+msgstr ""
+
+#: utils/stcr_upgrade.php:421
+msgid ""
+"A powerful StCR importer lets you import your StCR settings and "
+"subscriptions into Comment Mail, allowing for a seamless transition."
+msgstr ""
+
+#: utils/stcr_upgrade.php:422
+msgid ""
+"Need more powerful features to manage your subscriptions but can't wait for "
+"StCR? <a href=\"http://comment-mail.com/r/stcr-to-cm/\" target=\"_blank"
+"\">Take a look at Comment Mail!</a>"
+msgstr ""
+
+#: utils/stcr_upgrade.php:423
+msgid ""
+"<em>Note: Subscribe to Comments Reloaded remains in active development.</"
+"em><a class=\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-"
+"animation\" src=\""
+msgstr ""
+
+#: templates/user.php:23 templates/author.php:23
+#: options/panel1-business-logic.php:70
 msgid "Subscriptions deleted:"
 msgstr "این اشتراک ها حذف شدند: "
 
-#: options/panel1-business-logic.php:58 templates/author.php:26
-#: templates/user.php:26
+#: templates/user.php:27 templates/author.php:27
+#: options/panel1-business-logic.php:74
 msgid "Subscriptions suspended:"
 msgstr "این اشتراک ها معلق گشتند: "
 
-#: options/panel1-business-logic.php:62 templates/author.php:30
-#: templates/user.php:30
+#: templates/user.php:31 templates/author.php:31
+#: options/panel1-business-logic.php:78
 msgid "Subscriptions activated:"
 msgstr "این اشتراک ها فعال شده اند: "
 
-#: options/panel1-business-logic.php:66 options/panel1-business-logic.php:70
-#: templates/author.php:34 templates/author.php:38 templates/user.php:34
+#: templates/user.php:35 templates/user.php:39 templates/author.php:35
+#: templates/author.php:39 options/panel1-business-logic.php:82
+#: options/panel1-business-logic.php:86
 msgid "Subscriptions updated:"
 msgstr "این اشتراک ها به روزرسانی شدند: "
 
-#: options/panel1-business-logic.php:94
-msgid "&laquo; Previous"
-msgstr "&laquo;  قبلی"
-
-#: options/panel1-business-logic.php:98
-msgid "Next &raquo;"
-msgstr "بعدی &raquo;"
-
-#: options/panel1-edit-subscription.php:8
-msgid "Update Subscription"
-msgstr "به روزرسانی اشتراک"
-
-#: options/panel1-edit-subscription.php:10 options/panel1.php:19
-#: options/panel1.php:81 options/panel1.php:113 templates/author.php:50
-#: templates/user.php:46
+#: templates/user.php:52 templates/author.php:52
+#: options/panel1-edit-subscription.php:11 options/panel1.php:22
+#: options/panel1.php:117 options/panel1.php:153
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
 msgstr ""
-"به خاطر داشته باشید این عملیات غیرقابل برگشت است. آیا مطمئنید می خواهید انجام "
-"شود؟"
+"به خاطر داشته باشید این عملیات غیرقابل برگشت است. آیا مطمئنید می خواهید "
+"انجام شود؟"
 
-#: options/panel1-edit-subscription.php:12
-msgid "Post:"
-msgstr "نوشته:"
-
-#: options/panel1-edit-subscription.php:13 options/panel1.php:21
-msgid "From"
-msgstr "از"
-
-#: options/panel1-edit-subscription.php:14 options/panel1.php:22
-msgid "To"
-msgstr "تا"
-
-#: options/panel1-edit-subscription.php:15 options/panel1.php:26
-#: options/panel1.php:45 options/panel1.php:103
-msgid "Status"
-msgstr "وضعیت"
-
-#: options/panel1-edit-subscription.php:17 options/panel1.php:28
-msgid "Keep unchanged"
-msgstr "بدون تغییر رها کن"
-
-#: options/panel1-edit-subscription.php:18 options/panel1.php:29
-#: options/panel1.php:47
-msgid "Active"
-msgstr "فعال"
-
-#: options/panel1-edit-subscription.php:19 options/panel1.php:30
-#: options/panel1.php:48
-msgid "Replies only"
-msgstr "فقط پاسخ ها"
-
-#: options/panel1-edit-subscription.php:20 options/panel1.php:31
-msgid "Suspended"
-msgstr "معلق"
-
-#: options/panel1-edit-subscription.php:21 options/panel1.php:32
-msgid "Update"
-msgstr "به روزرسانی"
-
-#: options/panel1.php:17
-msgid "Mass Update Subscriptions"
-msgstr "به روزرسانی اشتراک ها به صورت انبوه"
-
-#: options/panel1.php:23 options/panel1.php:24 options/panel1.php:25
-msgid "optional"
-msgstr "دلبخواهی"
-
-#: options/panel1.php:39
-msgid "Add New Subscription"
-msgstr "افزودن اشتراک جدید"
-
-#: options/panel1.php:43
-msgid "Post ID"
-msgstr "شناسه‌ی نوشته"
-
-#: options/panel1.php:44 options/panel1.php:90
-#: templates/request-management-link.php:65 templates/subscribe.php:87
-#: templates/user.php:51
+#: templates/user.php:57 templates/request-management-link.php:73
+#: templates/subscribe.php:89 options/panel1.php:65 options/panel1.php:126
 msgid "Email"
 msgstr "ایمیل"
 
-#: options/panel1.php:49
-msgid "Ask user to confirm"
-msgstr "پرسش از کاربر برای تایید"
-
-#: options/panel1.php:50
-msgid "Add"
-msgstr "افزودن"
-
-#: options/panel1.php:59
-msgid "Search subscriptions"
-msgstr "جستجوی اشتراک ها"
-
-#: options/panel1.php:61
-#, php-format
-msgid ""
-"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
-"where the"
-msgstr ""
-"می توانید یا <a href=\"%s\">تمام اشتراک ها را ببینید</a> یا فقط مواردی را پیدا "
-"کنید که "
-
-#: options/panel1.php:64
-msgid "email"
-msgstr "ایمیل"
-
-#: options/panel1.php:65
-msgid "post ID"
-msgstr "شناسه ی نوشته"
-
-#: options/panel1.php:66
-msgid "status"
-msgstr "وضعیت"
-
-#: options/panel1.php:69
-msgid "equals"
-msgstr "مساوی است با"
-
-#: options/panel1.php:70
-msgid "contains"
-msgstr "محتوی"
-
-#: options/panel1.php:71
-msgid "does not contain"
-msgstr "غیرمحتوی"
-
-#: options/panel1.php:72
-msgid "starts with"
-msgstr "شروع می شود با"
-
-#: options/panel1.php:73
-msgid "ends with"
-msgstr "پایان می یابد با"
-
-#: options/panel1.php:76
-msgid "results per page:"
-msgstr "نتایج در هر صفحه"
-
-#: options/panel1.php:77
-msgid "Search"
-msgstr "جستجو"
-
-#: options/panel1.php:85
-msgid "Reverse the order by Post ID"
-msgstr "ترتیب را بر اساس شناسه ی نوشته ها برعکس کن"
-
-#: options/panel1.php:86 options/panel1.php:87
-msgid "Reverse the order by Date/Time"
-msgstr "ترتیب را بر اساس تاریخ و ساعت برعکس کن"
-
-#: options/panel1.php:89
-msgid "Post (ID)"
-msgstr "نوشته (شناسه)"
-
-#: options/panel1.php:92
-msgid "Search query:"
-msgstr "عبارت مورد جستجو: "
-
-#: options/panel1.php:92
-msgid "Rows:"
-msgstr "ردیف ها:"
-
-#: options/panel1.php:92
-msgid "of"
-msgstr "از"
-
-#: options/panel1.php:93 templates/author.php:56 templates/user.php:52
+#: templates/user.php:58 templates/author.php:58 options/panel1.php:129
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr "راهنما: Y= همه ی دیدگاه ها، R=فقط پاسخ ها، C= غیرفعال "
 
-#: options/panel1.php:102
-msgid "Date and Time"
-msgstr "تاریخ و ساعت"
+#: templates/user.php:66 templates/author.php:69
+msgid "Select all"
+msgstr "انتخاب همه"
 
-#: options/panel1.php:112
-msgid "Edit"
-msgstr "ویرایش"
+#: templates/user.php:67 templates/author.php:70
+msgid "Invert selection"
+msgstr "معکوس کردن انتخاب"
 
-#: options/panel1.php:113 templates/author.php:69 templates/user.php:63
-msgid "Delete"
-msgstr "پاک کردن"
-
-#: options/panel1.php:121 templates/author.php:68 templates/user.php:62
+#: templates/user.php:68 templates/author.php:71 options/panel1.php:161
 msgid "Action:"
 msgstr "اقدام"
 
-#: options/panel1.php:122
-msgid "Delete forever"
-msgstr "پاک کردن برای همیشه"
+#: templates/user.php:69 templates/author.php:72 options/panel1.php:153
+msgid "Delete"
+msgstr "پاک کردن"
 
-#: options/panel1.php:123 templates/author.php:70 templates/user.php:64
+#: templates/user.php:70 templates/author.php:73 options/panel1.php:163
 msgid "Suspend"
 msgstr "تعلیق"
 
-#: options/panel1.php:124
-msgid "Activate and set to Y"
-msgstr "فعال کن و روی حالت Y بگذار"
+#: templates/user.php:71 templates/author.php:74
+msgid "All comments"
+msgstr ""
 
-#: options/panel1.php:125
-msgid "Activate and set to R"
-msgstr "فعال کن و روی حالت R بگذار"
-
-#: options/panel1.php:126 templates/author.php:72 templates/user.php:66
+#: templates/user.php:73 templates/author.php:76 options/panel1.php:166
 msgid "Activate"
 msgstr "فعال کن"
 
-#: options/panel1.php:127 templates/author.php:73 templates/user.php:67
+#: templates/user.php:75 templates/author.php:77 options/panel1.php:167
 msgid "Update subscriptions"
 msgstr "به روزرسانی اشتراک ها"
 
-#: options/panel1.php:131
-msgid "Sorry, no subscriptions match your search criteria."
-msgstr "متاسفانه هیچ اشتراکی با معیار شما انطباق نداشت."
+#: templates/user.php:78 templates/author.php:80
+#: templates/one-click-unsubscribe.php:28
+msgid "No subscriptions match your search criteria."
+msgstr "هیچ اشتراکی با معیار جستجوی شما انطباق ندارد."
 
-#: options/panel2.php:11 options/panel2.php:39
-msgid "Enable default checkbox"
-msgstr "کادر تیک زدنی را در مکان پیشفرض یعنی زیر دکمه ی ارسال نشان بده"
+#: templates/request-management-link.php:75 templates/subscribe.php:91
+msgid "Send"
+msgstr "ارسال"
 
-#: options/panel2.php:12 options/panel2.php:46
-msgid "Checked by default"
-msgstr "به طور پیشفرض تیک خورده باشد"
+#: templates/author.php:57
+msgid "Title"
+msgstr "عنوان"
 
-#: options/panel2.php:13 options/panel2.php:53
-msgid "Advanced subscription"
-msgstr "اشتراک پیشرفته"
+#: templates/subscribe.php:43 templates/subscribe.php:44
+msgid "New subscription to"
+msgstr "اشتراک جدید در"
 
-#: options/panel2.php:14 options/panel2.php:60
-msgid "Custom inline style"
-msgstr "جلوه ی سفارشی برای نوشته ی اشتراک"
+#: templates/subscribe.php:44
+msgid "User:"
+msgstr "کاربر:"
 
-#: options/panel2.php:15 options/panel2.php:65
-msgid "Custom HTML"
-msgstr "HTML سفارشی"
+#: options/panel6.php:8 options/panel7.php:8
+#, fuzzy
+msgid "Support the developers"
+msgstr "پشتیبانی از نویسنده"
 
-#: options/panel2.php:17
-msgid "Checkbox label"
-msgstr "برچسب کادر تیک دار"
+#: options/panel6.php:18
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? please "
+"consider supporting the author if this plugin made your web site better, "
+"especially if you are making money out of it. Any donation received will be "
+"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
+"strong>, and to buy some food for my hungry family."
+msgstr ""
 
-#: options/panel2.php:18 options/panel2.php:81
-msgid "Subscribed label"
-msgstr "برچسب حالت مشترک شده"
+#: options/panel6.php:20
+msgid "Don't want to donate? You can still help"
+msgstr "تمایل به اهدا ندارید؟ هنوز هم می توانید کمک کنید"
 
-#: options/panel2.php:19
-msgid "Awaiting label"
-msgstr "برچسب حالت در انتظار"
+#: options/panel6.php:21
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
+"you do, thanks for using my plugin!"
+msgstr ""
 
-#: options/panel2.php:20 options/panel2.php:91
-msgid "Author label"
-msgstr "برچسب مخصوص نویسنده ی نوشته "
+#: options/panel6.php:23
+msgid "Subscribe to the Beta testers"
+msgstr ""
 
-#: options/panel2.php:25 options/panel3.php:26 options/panel4.php:23
-#: options/panel5.php:22
+#: options/panel6.php:24
+msgid ""
+"Before a new Update we release a Beta version so that our current users can "
+"give us feedback if they find a bug, If you want to join the tester list you "
+"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
+"a>"
+msgstr ""
+
+#: options/panel6.php:26
+msgid "Vote and show your appreciation"
+msgstr "با رای دادن قدردانی کنید"
+
+#: options/panel6.php:27
+msgid ""
+"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
+"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
+"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+
+#: options/panel1-business-logic.php:23
+msgid "Subscription added."
+msgstr "اشتراک افزوده شد. "
+
+#: options/panel1-business-logic.php:39
+msgid "Subscriptions updated."
+msgstr "اشتراک ها به روزرسانی شد."
+
+#: options/panel1-business-logic.php:51
+msgid "Subscription deleted."
+msgstr "اشتراک حذف شد. "
+
+#: options/panel1-business-logic.php:110
+msgid "&laquo; Previous"
+msgstr "&laquo;  قبلی"
+
+#: options/panel1-business-logic.php:114
+msgid "Next &raquo;"
+msgstr "بعدی &raquo;"
+
+#: options/panel5.php:18 options/panel5.php:60 options/panel3.php:73
+#: options/panel4.php:70 options/panel2.php:49
 msgid "Your settings have been successfully updated."
 msgstr "تنظیمات شما با موفقیت به روز شد."
 
-#: options/panel2.php:28 options/panel3.php:29 options/panel4.php:26
-#: options/panel5.php:25
+#: options/panel5.php:20 options/panel5.php:62 options/panel3.php:75
+#: options/panel4.php:72 options/panel2.php:51
 msgid "There was an error updating the following fields:"
 msgstr "یک خطا در به روزرسانی فیلدهای زیر رخ داد:"
 
-#: options/panel2.php:43
+#: options/panel5.php:28 options/panel5.php:75
+msgid "Autopurge requests"
+msgstr ""
+"زوال خودکار درخواست های اشتراک که طی مدت معین مورد تایید کاربر قرار نگرفته"
+
+#: options/panel5.php:31 options/panel5.php:84
+msgid "Enable double check"
+msgstr "حالت بررسی مضاعف را فعال کن"
+
+#: options/panel5.php:34 options/panel5.php:92
+#, fuzzy
+msgid "Subscribe authors"
+msgstr "مشترک شده"
+
+#: options/panel5.php:37 options/panel5.php:102
+msgid "Enable HTML emails"
+msgstr "فعال کردن ایمیل های HTML"
+
+#: options/panel5.php:40
+msgid "HTMLify Links in HTML emails"
+msgstr ""
+
+#: options/panel5.php:43
+msgid "Send trackbacks"
+msgstr ""
+
+#: options/panel5.php:46
+msgid "Notify admin"
+msgstr "سرپرست را مطلع کن"
+
+#: options/panel5.php:49 options/panel5.php:140
+msgid "Let admin subscribe"
+msgstr "به سرپرست اجازه ی مشترک شدن بده"
+
+#: options/panel5.php:52 options/panel5.php:149
+#, fuzzy
+msgid "BCC admin on Notifications"
+msgstr "یادآور‌ها"
+
+#: options/panel5.php:55
+#, fuzzy
+msgid "StCR Subscription Box Position"
+msgstr "اشتراک جدید در"
+
+#: options/panel5.php:78
+msgid "days"
+msgstr "روز"
+
+#: options/panel5.php:79
 msgid ""
-"Disable this option if you want to move the subscription checkbox to a "
-"different place on your page."
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
 msgstr ""
-"اگر می خواهید کادر تیک زدنی را به قسمت دیگری از صفحه ی خود انتقال دهید این "
-"گزینه را غیرفعال نمایید. برای انتقال کادر تیک زدنی به بالای دکمه ی ارسال می "
-"توانید کد زیر را به خط 2355 از فایل Wordpress> WP-includes> comments_template."
-"php اضافه کنید. شماره ی خط شاید عوض شود لذا دنبال تابع با اسم comment_form "
-"بگردید.\n"
-"if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show();"
+"اشتراک هایی که بیش از این تعداد روز منتظر تایید مانده و پاسخی نگرفته اند را "
+"حذف کن. عدد 0 به معنای عدم استفاده از این قابلیت است."
 
-#: options/panel2.php:50
-msgid "Decide if the checkbox should be checked by default or not."
-msgstr ""
-"تصمیم بگیرید که آیا کادر تیک زدنی باید به طور پیشفرض تیک دار باشد یا نه؟!"
+#: options/panel5.php:86 options/panel5.php:95 options/panel5.php:104
+#: options/panel5.php:114 options/panel5.php:123 options/panel5.php:133
+#: options/panel5.php:142 options/panel5.php:151 options/panel5.php:160
+#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
+msgid "Yes"
+msgstr "بله"
 
-#: options/panel2.php:57
+#: options/panel5.php:88
 msgid ""
-"Allow users to choose from different subscription types (all, replies only)."
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
 msgstr ""
-"به کاربران امکان می دهد گزینه های مختلف اشتراک مثلاً دریافت همه ی دیدگاه ها یا "
-"فقط دریافت پاسخ به دیدگاه های خود را انتخاب نمایند."
 
-#: options/panel2.php:62
-msgid "Custom inline CSS to add to the checkbox."
-msgstr "جلوه ی CSS سفارشی که فقط برای خط مربوط به کادر تیک زدنی استفاده می شود."
-
-#: options/panel2.php:67
+#: options/panel5.php:97
 msgid ""
-"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
-"[checkbox_field], [checkbox_label]"
+"Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
-"کد HTML سفارشی  برای استفاده هنگام نمایش کادر تیک زدنی! تگ های مجاز: "
-"[checkbox_field], [checkbox_label]"
 
-#: options/panel2.php:72
-msgid "Messages for your visitors"
-msgstr "پیغام برای بازدیدکنندگان شما"
-
-#: options/panel2.php:76
-msgid "Default label"
-msgstr "برچسب پیشفرض"
-
-#: options/panel2.php:78
-msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
-msgstr ""
-"برچسبی که به کادر تیک زدنی اختصاص داده می شود. تگ های مجاز: [subscribe_link]"
-
-#: options/panel2.php:83
+#: options/panel5.php:106
 msgid ""
-"Label shown to those who are already subscribed to a post. Allowed tag: "
-"[manager_link]"
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
 msgstr ""
-"برچسبی که به افراد پیشاپیش مشترک شده در یک نوشته نشان داده می شود. تگ های "
-"مجاز: [manager_link]"
 
-#: options/panel2.php:86
-msgid "Pending label"
-msgstr "برچسب حالت منتظر در صف"
+#: options/panel5.php:111
+msgid "HTMLify links in emails"
+msgstr ""
 
-#: options/panel2.php:88
+#: options/panel5.php:116
 msgid ""
-"Label shown to those who are already subscribed, but haven't clicked on the "
-"confirmation link yet. Allowed tag: [manager_link]"
+"If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
+"&lt;/a&gt;</code> (only when HTML emails enabled)."
 msgstr ""
-"این برچسب به افرادی نشان داده می شود که درخواست مشترک شدن کرده ولی هنوز لینک "
-"تایید را در ایمیل خود کلیک ننموده اند. تگ های مجاز: [manager_link]"
 
-#: options/panel2.php:93
-msgid "Label shown to authors (and administrators). Allowed tag: [manager_link]"
+#: options/panel5.php:121
+msgid "Process trackbacks"
 msgstr ""
-"این برچسب به نویسندگان و مدیران نشان داده می شود. تگ های مجاز: [manager_link]"
 
-#: options/panel2.php:97 options/panel3.php:145 options/panel4.php:103
-#: options/panel5.php:83
+#: options/panel5.php:125
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
+msgstr ""
+
+#: options/panel5.php:130
+msgid "Track all subscriptions"
+msgstr "تمام اشتراک ها را رهگیری کن"
+
+#: options/panel5.php:135
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr "وقتی کاربران بدون دیدگاه گذاری مشترک می شوند سرپرست را مطلع کن."
+
+#: options/panel5.php:144
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr ""
+"وقتی سرپرست وارد سایت می گردد به او اجازه ی مشترک شدن در دیدگاه ها را بده."
+
+#: options/panel5.php:153
+msgid "Send a copy of all Notifications to the administrator."
+msgstr ""
+
+#: options/panel5.php:158
+msgid "StCR Box Position"
+msgstr ""
+
+#: options/panel5.php:162
+msgid ""
+"If this option is enable the subscriptioin box will be above the submit "
+"button in your comment form."
+msgstr ""
+
+#: options/panel5.php:167
+msgid "StCR Unique Key"
+msgstr ""
+
+#: options/panel5.php:172
+msgid "This Unique Key is not set, please click the following button to "
+msgstr ""
+
+#: options/panel5.php:176 options/panel5.php:187
+msgid "Generate"
+msgstr ""
+
+#: options/panel5.php:184
+msgid ""
+"This Unique Key will be use to send the notification to your subscribers "
+"with more security."
+msgstr ""
+
+#: options/panel5.php:195 options/panel3.php:200 options/panel4.php:207
+#: options/panel2.php:189
 msgid "Save Changes"
 msgstr "ذخیره ی تغییرات"
 
-#: options/panel3.php:10 options/panel3.php:43
+#: options/index.php:58
+msgid "Comment Form"
+msgstr "فرم دیدگاه‌ها"
+
+#: options/index.php:59
+msgid "Management Page"
+msgstr "صفحه‌ی مدیریت"
+
+#: options/index.php:60
+msgid "Notifications"
+msgstr "یادآور‌ها"
+
+#: options/index.php:61 options/panel3.php:85 options/panel4.php:80
+#: options/panel2.php:58
+msgid "Options"
+msgstr "تنظیمات"
+
+#: options/index.php:62
+msgid "You can help"
+msgstr "شما هم می توانید کمک کنید"
+
+#: options/index.php:63
+#, fuzzy
+msgid "Support"
+msgstr "تالار گفتگوی پشتیبانی"
+
+#: options/index.php:64
+msgid "Donate"
+msgstr ""
+
+#: options/panel3.php:16 options/panel3.php:90
 msgid "Virtual Management Page"
 msgstr "صفحه ی مدیریت مجازی"
 
-#: options/panel3.php:11 options/panel3.php:51
+#: options/panel3.php:21 options/panel3.php:99
 msgid "Page title"
 msgstr "عنوان صفحه"
 
-#: options/panel3.php:12 options/panel3.php:56
+#: options/panel3.php:26 options/panel3.php:108
 msgid "Management URL"
 msgstr "پیوند به صفحه مدیریت"
 
-#: options/panel3.php:13 options/panel3.php:63
+#: options/panel3.php:31 options/panel3.php:120
 msgid "Custom HEAD meta"
 msgstr "تگ های متا به صورت سفارشی برای قسمت سربرگ"
 
-#: options/panel3.php:15 options/panel3.php:74
+#: options/panel3.php:37 options/panel3.php:134
 msgid "Request link"
 msgstr "پیوند درخواست"
 
-#: options/panel3.php:16 options/panel3.php:84
+#: options/panel3.php:42 options/panel3.php:144
 msgid "Request submitted"
 msgstr "درخواست ارسال شد"
 
-#: options/panel3.php:17 options/panel3.php:94
+#: options/panel3.php:47 options/panel3.php:154
 msgid "Subscribe without commenting"
 msgstr "اشتراک بدون دیدگاه نویسی"
 
-#: options/panel3.php:18 options/panel3.php:104
+#: options/panel3.php:52 options/panel3.php:164
 msgid "Subscription processed"
 msgstr "عملیات اشتراک انجام شد"
 
-#: options/panel3.php:19 options/panel3.php:114
+#: options/panel3.php:57 options/panel3.php:174
 msgid "Subscription processed (DCI)"
 msgstr "اشتراک پردازش شده (dcI)"
 
-#: options/panel3.php:20 options/panel3.php:124
+#: options/panel3.php:62 options/panel3.php:183
 msgid "Authors"
 msgstr "نویسندگان"
 
-#: options/panel3.php:21 options/panel3.php:134
+#: options/panel3.php:67 options/panel3.php:191
 msgid "Users"
 msgstr "کاربران"
 
-#: options/panel3.php:45
+#: options/panel3.php:93
 msgid "Enabled"
 msgstr "فعال"
 
-#: options/panel3.php:46
+#: options/panel3.php:94
 msgid "Disabled"
 msgstr "غیرفعال"
 
-#: options/panel3.php:47
+#: options/panel3.php:95
 msgid ""
 "Disable the virtual management page if you need to create a <a href=\"http://"
 "behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
 "theme happy."
 msgstr ""
-"اگر می خواهید یک <a href=\"http://behstant.com/subscribe-reloaded/realMgnPage."
-"php\"> صفحه ی واقعی </a> به وجود آورید و پوسته ی خود را خوشحال کنید صفحه ی "
-"مجازی مدیریت را غیر فعال نمایید."
+"اگر می خواهید یک <a href=\"http://behstant.com/subscribe-reloaded/"
+"realMgnPage.php\"> صفحه ی واقعی </a> به وجود آورید و پوسته ی خود را خوشحال "
+"کنید صفحه ی مجازی مدیریت را غیر فعال نمایید."
 
-#: options/panel3.php:53
+#: options/panel3.php:104
 msgid "Title of the page your visitors will use to manage their subscriptions."
 msgstr ""
 "عنوان صفحه ای که بازدیدکنندگان شما برای مدیریت اشتراک های خود استفاده می "
 "نمایند."
 
-#: options/panel3.php:58
+#: options/panel3.php:112
 msgid ""
 "The permalink for your management page (something like <code>/manage-"
-"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> "
-"actually exist in the system, but its link must follow your permalink "
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
 "structure."
 msgstr ""
 "پیوند یکتا به صفحه ی مدیریت شما، (چیزی شبیه <code>/manage-subscriptions</"
 "code>  یا <code>/?page_id=345</code>). این صفحه واقعاً در سیستم شما وجود "
 "<b>ندارد</b> ولی باید از ساختار پیوندهای یکتای سایت تبعیت کند."
 
-#: options/panel3.php:60
+#: options/panel3.php:114
 msgid ""
 "Warning: it looks like the value you are using may be incompatible with your "
 "permalink structure"
@@ -719,140 +821,178 @@ msgstr ""
 "هشدار: شاید مقداری که قرار داده اید با ساختار پیوندهای یکتای سایت همخوانی "
 "نداشته باشد."
 
-#: options/panel3.php:65
+#: options/panel3.php:124
 msgid ""
-"Specify your custom HTML code to be added to the HEAD section of the page. Use "
-"<strong>single</strong> quotes for values."
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
 msgstr ""
 "کدهای HTML سفارشی را که  می خواهید به بخش head در صفحه اضافه شود تعیین کنید. "
 "برای مقادیر پارامترها فقط از کوتیشن <strong>تکی </strong> استفاده نمایید."
 
-#: options/panel3.php:70 options/panel4.php:50
+#: options/panel3.php:130 options/panel4.php:113
 msgid "Messages"
 msgstr "پیام ها"
 
-#: options/panel3.php:75 options/panel3.php:85 options/panel3.php:95
-#: options/panel3.php:105 options/panel3.php:115 options/panel3.php:125
-#: options/panel3.php:135 options/panel4.php:61 options/panel4.php:77
-#: options/panel4.php:93
-msgid "Bold"
-msgstr "پررنگ"
-
-#: options/panel3.php:76 options/panel3.php:86 options/panel3.php:96
-#: options/panel3.php:106 options/panel3.php:116 options/panel3.php:126
-#: options/panel3.php:136 options/panel4.php:62 options/panel4.php:78
-#: options/panel4.php:94
-msgid "Italic"
-msgstr "اریب"
-
-#: options/panel3.php:77 options/panel3.php:87 options/panel3.php:97
-#: options/panel3.php:107 options/panel3.php:117 options/panel3.php:127
-#: options/panel3.php:137 options/panel4.php:63 options/panel4.php:79
-#: options/panel4.php:95
-msgid "Link"
-msgstr "پیوند"
-
-#: options/panel3.php:78 options/panel3.php:88 options/panel3.php:98
-#: options/panel3.php:108 options/panel3.php:118 options/panel3.php:128
-#: options/panel3.php:138 options/panel4.php:64 options/panel4.php:80
-#: options/panel4.php:96
-msgid "Image"
-msgstr "تصویر"
-
-#: options/panel3.php:81
+#: options/panel3.php:139
 msgid "Text shown to those who request to manage their subscriptions."
 msgstr "متن نمایش داده شده به کسانی که درخواست مدیریت اشتراک های خود را دارند"
 
-#: options/panel3.php:91
+#: options/panel3.php:149
 msgid ""
-"Thank you note shown after the request here above has been processed. Allowed "
-"tags: [post_title], [post_permalink]"
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
 msgstr ""
 "پیام تشکر پس از تایید شدن درخواست مشروح در بالا! تگ های مجاز: [post_title], "
 "[post_permalink]"
 
-#: options/panel3.php:101
+#: options/panel3.php:159
 msgid ""
 "Text shown to those who want to subscribe without commenting. Allowed tags: "
 "[post_title], [post_permalink]"
 msgstr ""
-"این متن به کسانی که می خواهند بدون دیدگاه نویسی مشترک گردند نشان داده می شود. "
-"تگ های مجاز: [post_title], [post_permalink]"
+"این متن به کسانی که می خواهند بدون دیدگاه نویسی مشترک گردند نشان داده می "
+"شود. تگ های مجاز: [post_title], [post_permalink]"
 
-#: options/panel3.php:111
+#: options/panel3.php:169
 msgid ""
-"Thank you note shown after the subscription request has been processed (double "
-"check-in disabled). Allowed tags: [post_title], [post_permalink]"
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"پیام تشکر پس از این که درخواست اشتراک پردازش شد (در حالت غیرفعال بودن نیاز به "
-"تایید ایمیلی). برچسب های مجاز: [post_title], [post_permalink]"
+"پیام تشکر پس از این که درخواست اشتراک پردازش شد (در حالت غیرفعال بودن نیاز "
+"به تایید ایمیلی). برچسب های مجاز: [post_title], [post_permalink]"
 
-#: options/panel3.php:121
+#: options/panel3.php:179
 msgid ""
-"Thank you note shown after the subscription request has been processed (double "
-"check-in enabled). Allowed tags: [post_title], [post_permalink]"
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
 "پیام تشکر پس از این که درخواست اشتراک پردازش شد (در حالت فعال بودن نیاز به "
 "تایید ایمیلی). تگ های مجاز: [post_title], [post_permalink]"
 
-#: options/panel3.php:131
+#: options/panel3.php:187
 msgid "Introductory text for the authors' management page."
 msgstr "متن معرفی برای صفحه ی مدیریت نویسندگان."
 
-#: options/panel3.php:141
+#: options/panel3.php:195
 msgid "Introductory text for the users' management page."
 msgstr "متن معرفی برای صفحه ی مدیریت کاربران."
 
-#: options/panel4.php:11 options/panel4.php:38
+#: options/panel1-edit-subscription.php:8
+msgid "Update Subscription"
+msgstr "به روزرسانی اشتراک"
+
+#: options/panel1-edit-subscription.php:11
+#: options/panel1-edit-subscription.php:21
+#: options/panel1-edit-subscription.php:22
+#: options/panel1-edit-subscription.php:23 options/panel1.php:31
+#: options/panel1.php:32 options/panel1.php:33
+msgid "optional"
+msgstr "دلبخواهی"
+
+#: options/panel1-edit-subscription.php:13
+msgid "Post:"
+msgstr "نوشته:"
+
+#: options/panel1-edit-subscription.php:16 options/panel1.php:26
+msgid "From"
+msgstr "از"
+
+#: options/panel1-edit-subscription.php:20 options/panel1.php:30
+msgid "To"
+msgstr "تا"
+
+#: options/panel1-edit-subscription.php:26 options/panel1.php:36
+#: options/panel1.php:69 options/panel1.php:139
+msgid "Status"
+msgstr "وضعیت"
+
+#: options/panel1-edit-subscription.php:28 options/panel1.php:38
+msgid "Keep unchanged"
+msgstr "بدون تغییر رها کن"
+
+#: options/panel1-edit-subscription.php:29 options/panel1.php:39
+#: options/panel1.php:72
+msgid "Active"
+msgstr "فعال"
+
+#: options/panel1-edit-subscription.php:30 options/panel1.php:40
+#: options/panel1.php:73
+msgid "Replies only"
+msgstr "فقط پاسخ ها"
+
+#: options/panel1-edit-subscription.php:31 options/panel1.php:41
+msgid "Suspended"
+msgstr "معلق"
+
+#: options/panel1-edit-subscription.php:33 options/panel1.php:43
+msgid "Update"
+msgstr "به روزرسانی"
+
+#: options/panel8.php:11
+#, fuzzy
+msgid "Support Subscribe to Comments Reloaded"
+msgstr ""
+"آیا برای استفاده از افزونه ی «اشتراک در دیدگاه‌ها نسخه ی جدید» نیاز به کمک "
+"دارید؟  سایت رسمی را ببینید."
+
+#: options/panel8.php:12
+msgid ""
+"Every contribution that you make is high valuable, so if you consider this "
+"plugin a helpful tool we will use your donation to invest on support and "
+"developing time."
+msgstr ""
+
+#: options/panel4.php:17 options/panel4.php:85
 msgid "Sender name"
 msgstr "نام فرستنده"
 
-#: options/panel4.php:12 options/panel4.php:43
+#: options/panel4.php:22 options/panel4.php:98
 msgid "Sender email address"
 msgstr "نشانی رایان‌نامه فرستنده"
 
-#: options/panel4.php:13 options/panel4.php:54
+#: options/panel4.php:27 options/panel4.php:118
 msgid "Notification subject"
 msgstr "موضوع پیام یادآور"
 
-#: options/panel4.php:14 options/panel4.php:59
+#: options/panel4.php:33 options/panel4.php:39 options/panel4.php:131
 msgid "Notification message"
 msgstr "متن پیام یادآور"
 
-#: options/panel4.php:15 options/panel4.php:70
+#: options/panel4.php:44 options/panel4.php:145
 msgid "Double check subject"
 msgstr "موضوع ایمیل درخواست تایید مجدد"
 
-#: options/panel4.php:16 options/panel4.php:75
+#: options/panel4.php:49 options/panel4.php:158
 msgid "Double check message"
 msgstr "متن پیام درخواست تایید مجدد"
 
-#: options/panel4.php:17 options/panel4.php:86
+#: options/panel4.php:54 options/panel4.php:170
 msgid "Management subject"
 msgstr "موضوع مدیریت"
 
-#: options/panel4.php:18 options/panel4.php:91
+#: options/panel4.php:59 options/panel4.php:64 options/panel4.php:183
 msgid "Management message"
 msgstr "پیام مدیریت"
 
-#: options/panel4.php:40
+#: options/panel4.php:92
 msgid ""
-"Name to use for the \"from\" field when sending a new notification to the user."
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
 msgstr "نام فرستنده هنگام ارسال یادآور جدید به کاربران"
 
-#: options/panel4.php:45
+#: options/panel4.php:106
 msgid ""
-"Email address to use for the \"from\" field when sending a new notification to "
-"the user."
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
 msgstr "نشانی رایان نامه ی فرستنده هنگام ارسال یادآور جدید به کاربران"
 
-#: options/panel4.php:56
+#: options/panel4.php:125
 msgid "Subject of the notification email. Allowed tag: [post_title]"
 msgstr ""
 "موضوع ایمیل یادآور. توجه شود که تگ مربوط به نام نویسنده را نمی توان در موضوع "
 "ایمیل نوشت. تگ های مجاز: [post_title] "
 
-#: options/panel4.php:67
+#: options/panel4.php:138
 msgid ""
 "Content of the notification email. Allowed tags: [post_title], "
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
@@ -861,11 +1001,17 @@ msgstr ""
 "محتوای ایمیل یادآور. تگ های مجاز: [post_title], [comment_permalink], "
 "[comment_author], [comment_content], [post_permalink], [manager_link]"
 
-#: options/panel4.php:72
+#: options/panel4.php:139
+msgid ""
+"<p><strong>Note: To get a default template clear all the content and save "
+"the options.</strong></p>"
+msgstr ""
+
+#: options/panel4.php:152
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
 msgstr "موضوع ایمیل تاییدیه. تگ های مجاز: [post_title]"
 
-#: options/panel4.php:83
+#: options/panel4.php:164
 msgid ""
 "Content of the confirmation email. Allowed tags: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
@@ -873,201 +1019,380 @@ msgstr ""
 "محتوای ایمیل تاییدیه. تگ های مجاز: [post_permalink], [confirm_link], "
 "[post_title], [manager_link]"
 
-#: options/panel4.php:88
+#: options/panel4.php:177
 msgid ""
-"Subject of the mail sent to those who request to access their management page. "
-"Allowed tag: [blog_name]"
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
 msgstr ""
 
-#: options/panel4.php:99
+#: options/panel4.php:189
 msgid ""
 "Content of the management email. Allowed tags: [blog_name], [manager_link]"
 msgstr ""
 
-#: options/panel5.php:11 options/panel5.php:35
-msgid "Autopurge requests"
-msgstr ""
-"زوال خودکار درخواست های اشتراک که طی مدت معین مورد تایید کاربر قرار نگرفته"
-
-#: options/panel5.php:12 options/panel5.php:40
-msgid "Enable double check"
-msgstr "حالت بررسی مضاعف را فعال کن"
-
-#: options/panel5.php:13
-msgid "Notify authors"
-msgstr "به نویسندگان پیام یادآور بفرست"
-
-#: options/panel5.php:14 options/panel5.php:54
-msgid "Enable HTML emails"
-msgstr "فعال کردن ایمیل های HTML"
-
-#: options/panel5.php:15
-msgid "Send trackbacks"
-msgstr ""
-
-#: options/panel5.php:16 options/panel5.php:47
-msgid "Notify admin"
-msgstr "سرپرست را مطلع کن"
-
-#: options/panel5.php:17 options/panel5.php:75
-msgid "Let admin subscribe"
+#: options/panel4.php:195
+#, fuzzy
+msgid "One Click Unsubscribe"
 msgstr "به سرپرست اجازه ی مشترک شدن بده"
 
-#: options/panel5.php:36
-msgid "days"
-msgstr "روز"
+#: options/panel4.php:201
+#, fuzzy
+msgid "Content of the One Click confirmation. Allowed tags: [post_title]"
+msgstr "موضوع ایمیل تاییدیه. تگ های مجاز: [post_title]"
 
-#: options/panel5.php:37
+#: options/panel2.php:12 options/panel2.php:63
+msgid "Enable default checkbox"
+msgstr "کادر تیک زدنی را در مکان پیشفرض یعنی زیر دکمه ی ارسال نشان بده"
+
+#: options/panel2.php:15 options/panel2.php:73
+msgid "Checked by default"
+msgstr "به طور پیشفرض تیک خورده باشد"
+
+#: options/panel2.php:18
+#, fuzzy
+msgid "Checked by default Value"
+msgstr "به طور پیشفرض تیک خورده باشد"
+
+#: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
+msgid "Advanced subscription"
+msgstr "اشتراک پیشرفته"
+
+#: options/panel2.php:27 options/panel2.php:130
+msgid "Custom inline style"
+msgstr "جلوه ی سفارشی برای نوشته ی اشتراک"
+
+#: options/panel2.php:30 options/panel2.php:139
+msgid "Custom HTML"
+msgstr "HTML سفارشی"
+
+#: options/panel2.php:34
+msgid "Checkbox label"
+msgstr "برچسب کادر تیک دار"
+
+#: options/panel2.php:37 options/panel2.php:163
+msgid "Subscribed label"
+msgstr "برچسب حالت مشترک شده"
+
+#: options/panel2.php:40
+msgid "Awaiting label"
+msgstr "برچسب حالت در انتظار"
+
+#: options/panel2.php:43 options/panel2.php:180
+msgid "Author label"
+msgstr "برچسب مخصوص نویسنده ی نوشته "
+
+#: options/panel2.php:68
 msgid ""
-"Delete pending subscriptions (not confirmed) after X days. Zero disables this "
-"feature."
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
 msgstr ""
-"اشتراک هایی که بیش از این تعداد روز منتظر تایید مانده و پاسخی نگرفته اند را "
-"حذف کن. عدد 0 به معنای عدم استفاده از این قابلیت است."
+"اگر می خواهید کادر تیک زدنی را به قسمت دیگری از صفحه ی خود انتقال دهید این "
+"گزینه را غیرفعال نمایید. برای انتقال کادر تیک زدنی به بالای دکمه ی ارسال می "
+"توانید کد زیر را به خط 2355 از فایل Wordpress> WP-includes> "
+"comments_template.php اضافه کنید. شماره ی خط شاید عوض شود لذا دنبال تابع با "
+"اسم comment_form بگردید.\n"
+"if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show();"
 
-#: options/panel5.php:44
+#: options/panel2.php:78
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr ""
+"تصمیم بگیرید که آیا کادر تیک زدنی باید به طور پیشفرض تیک دار باشد یا نه؟!"
+
+#: options/panel2.php:87
+#, fuzzy
+msgid "Default Checkbox Value"
+msgstr "کادر تیک زدنی را در مکان پیشفرض یعنی زیر دکمه ی ارسال نشان بده"
+
+#: options/panel2.php:91 options/panel2.php:120
+msgid "All new comments"
+msgstr ""
+
+#: options/panel2.php:92 options/panel2.php:121
+#, fuzzy
+msgid "Replies to this comment"
+msgstr "فقط دریافت پاسخ دیدگاه های خودم "
+
+#: options/panel2.php:94
 msgid ""
-"Send a notification email to confirm the subscription (to avoid addresses "
-"misuse)."
+"Select the default option for the Checkbox. Be careful! Some users might "
+"like to be subscribed to all the post."
 msgstr ""
 
-#: options/panel5.php:51
-msgid "Notify the administrator when a new comment is posted."
-msgstr "وقتی دیدگاه جدیدی فرستاده می شود سرپرست را مطلع کن."
-
-#: options/panel5.php:58
+#: options/panel2.php:107
 msgid ""
-"If enabled, will send email messages with content-type = text/html instead of "
-"text/plain"
+"Allow users to choose from different subscription types (all, replies only)."
+msgstr ""
+"به کاربران امکان می دهد گزینه های مختلف اشتراک مثلاً دریافت همه ی دیدگاه ها "
+"یا فقط دریافت پاسخ به دیدگاه های خود را انتخاب نمایند."
+
+#: options/panel2.php:115
+#, fuzzy
+msgid "Advanced default"
+msgstr "به طور پیشفرض تیک خورده باشد"
+
+#: options/panel2.php:119
+msgid "None"
 msgstr ""
 
-#: options/panel5.php:61
-msgid "Process trackbacks"
-msgstr ""
-
-#: options/panel5.php:65
-msgid "Notify users when a new trackback or pingback is added to the discussion."
-msgstr ""
-
-#: options/panel5.php:68
-msgid "Track all subscriptions"
-msgstr "تمام اشتراک ها را رهگیری کن"
-
-#: options/panel5.php:72
-msgid "Notify the administrator when users subscribe without commenting."
-msgstr "وقتی کاربران بدون دیدگاه گذاری مشترک می شوند سرپرست را مطلع کن."
-
-#: options/panel5.php:79
-msgid "Let the administrator subscribe to comments when logged in."
-msgstr ""
-"وقتی سرپرست وارد سایت می گردد به او اجازه ی مشترک شدن در دیدگاه ها را بده."
-
-#: options/panel6.php:8
-msgid "Support the author"
-msgstr "پشتیبانی از نویسنده"
-
-#: options/panel6.php:16
+#: options/panel2.php:124
 msgid ""
-"How valuable is the feature offered by this plugin to your visitors? Subscribe "
-"to Comments Reloaded is and will always be free, but consider supporting the "
-"author if this plugin made your web site better, especially if you are making "
-"money out of it. Any donation received will be reinvested in the development "
-"of Subscribe to Comments Reloaded, and to buy some food for my hungry family."
+"The default subscription type that should be selected when Advanced "
+"subscriptions are enable."
 msgstr ""
 
-#: options/panel6.php:18
-msgid "Don't want to donate? You can still help"
-msgstr "تمایل به اهدا ندارید؟ هنوز هم می توانید کمک کنید"
+#: options/panel2.php:135
+msgid "Custom inline CSS to add to the checkbox."
+msgstr ""
+"جلوه ی CSS سفارشی که فقط برای خط مربوط به کادر تیک زدنی استفاده می شود."
 
-#: options/panel6.php:19
+#: options/panel2.php:143
 msgid ""
-"If you don't want to donate money, please consider blogging about my plugin "
-"with a link to the plugin's page. Please let your readers know what makes your "
-"blog better. You can also contribute donating your time: do not hesitate to "
-"send me bug reports, your localization files, ideas on how to improve "
-"Subscribe to Comments Reloaded and so on. Whatever you do, thanks for using my "
-"plugin!"
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
 msgstr ""
+"کد HTML سفارشی  برای استفاده هنگام نمایش کادر تیک زدنی! تگ های مجاز: "
+"[checkbox_field], [checkbox_label]"
 
-#: options/panel6.php:21
-msgid "Vote and show your appreciation"
-msgstr "با رای دادن قدردانی کنید"
+#: options/panel2.php:149
+msgid "Messages for your visitors"
+msgstr "پیغام برای بازدیدکنندگان شما"
 
-#: options/panel6.php:22
+#: options/panel2.php:153
+msgid "Default label"
+msgstr "برچسب پیشفرض"
+
+#: options/panel2.php:158
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr ""
+"برچسبی که به کادر تیک زدنی اختصاص داده می شود. تگ های مجاز: [subscribe_link]"
+
+#: options/panel2.php:167
 msgid ""
-"Tell other people if Subscribe to Comments Reloaded works for you and how good "
-"it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-comments-"
-"reloaded/\">Rate it</a> on its Plugin Directory page."
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
 msgstr ""
+"برچسبی که به افراد پیشاپیش مشترک شده در یک نوشته نشان داده می شود. تگ های "
+"مجاز: [manager_link]"
 
-#: options/panel6.php:24
-msgid "Sponsor's Corner"
-msgstr "پاتوق حامیان"
+#: options/panel2.php:172
+msgid "Pending label"
+msgstr "برچسب حالت منتظر در صف"
 
-#: options/panel6.php:25
+#: options/panel2.php:176
 msgid ""
-"If you want to sponsor this plugin, don't hesitate to <a href='http://behstant."
-"com/negocio/contact.php' target='_blank'>contact me</a>."
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
 msgstr ""
+"این برچسب به افرادی نشان داده می شود که درخواست مشترک شدن کرده ولی هنوز لینک "
+"تایید را در ایمیل خود کلیک ننموده اند. تگ های مجاز: [manager_link]"
 
-#: templates/author.php:55
-msgid "Title"
-msgstr "عنوان"
-
-#: templates/author.php:66 templates/user.php:60
-msgid "Select all"
-msgstr "انتخاب همه"
-
-#: templates/author.php:67 templates/user.php:61
-msgid "Invert selection"
-msgstr "معکوس کردن انتخاب"
-
-#: templates/author.php:71
-msgid "Set to Y"
-msgstr "به حالت Y تنظیم کن"
-
-#: templates/author.php:77 templates/user.php:71
-msgid "No subscriptions match your search criteria."
-msgstr "هیچ اشتراکی با معیار جستجوی شما انطباق ندارد."
-
-#: templates/request-management-link.php:68 templates/subscribe.php:89
-msgid "Send"
-msgstr "ارسال"
-
-#: templates/subscribe.php:42 templates/subscribe.php:43
-msgid "New subscription to"
-msgstr "اشتراک جدید در"
-
-#: templates/subscribe.php:43
-msgid "User:"
-msgstr "کاربر:"
-
+#: options/panel2.php:184
 msgid ""
-"Update the email address associated to a specific subscription (by post ID)."
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
 msgstr ""
-"Aggiorna l'indirizzo email associato ad una specifica iscrizione (necessita "
-"l'ID dell'articolo)."
+"این برچسب به نویسندگان و مدیران نشان داده می شود. تگ های مجاز: [manager_link]"
 
+#: options/panel7.php:18
+msgid "Did you find a Bug on the plugin?"
+msgstr ""
+
+#: options/panel7.php:19
 msgid ""
-"Change the status of an email address or permanently delete all its "
-"subscriptions."
+"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
+"%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
+"WordPress Support page."
 msgstr ""
-"Cambia lo stato o cancella tutte le sottoscrizioni associate ad un dato "
-"indirizzo email."
 
+#: options/panel1.php:19
+msgid "Mass Update Subscriptions"
+msgstr "به روزرسانی اشتراک ها به صورت انبوه"
+
+#: options/panel1.php:54
+msgid "Add New Subscription"
+msgstr "افزودن اشتراک جدید"
+
+#: options/panel1.php:61
+msgid "Post ID"
+msgstr "شناسه‌ی نوشته"
+
+#: options/panel1.php:74
+msgid "Ask user to confirm"
+msgstr "پرسش از کاربر برای تایید"
+
+#: options/panel1.php:76
+msgid "Add"
+msgstr "افزودن"
+
+#: options/panel1.php:91
+msgid "Search subscriptions"
+msgstr "جستجوی اشتراک ها"
+
+#: options/panel1.php:95
+#, php-format
 msgid ""
-"You can \"mass update\" all the occurrences of a given email address (exact "
-"matches only)."
+"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
+"where the"
 msgstr ""
-"می توانید تمام موارد مربوط به یک آدرس ایمیل خاص را \"آپدیت یکجا\" بکنید (فقط "
-"برای مواردی که انطباق دقیق داشته باشد)."
+"می توانید یا <a href=\"%s\">تمام اشتراک ها را ببینید</a> یا فقط مواردی را "
+"پیدا کنید که "
 
-msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
-msgstr "راهنما: Y: مشترک شده، N: اشتراک معلق شده، C: در انتظار تایید"
+#: options/panel1.php:99
+msgid "email"
+msgstr "ایمیل"
 
-msgid ""
-"Custom CSS class to associate to the checkbox, if you want to customize its "
-"style."
-msgstr ""
-"کلاس CSS سفارشی برای افزودن به کادر تیک زدنی در صورتی که بخواهید جلوه ی آن را "
-"تغییر دهید."
+#: options/panel1.php:100
+msgid "post ID"
+msgstr "شناسه ی نوشته"
+
+#: options/panel1.php:101
+msgid "status"
+msgstr "وضعیت"
+
+#: options/panel1.php:104
+msgid "equals"
+msgstr "مساوی است با"
+
+#: options/panel1.php:105
+msgid "contains"
+msgstr "محتوی"
+
+#: options/panel1.php:106
+msgid "does not contain"
+msgstr "غیرمحتوی"
+
+#: options/panel1.php:107
+msgid "starts with"
+msgstr "شروع می شود با"
+
+#: options/panel1.php:108
+msgid "ends with"
+msgstr "پایان می یابد با"
+
+#: options/panel1.php:111
+msgid "results per page:"
+msgstr "نتایج در هر صفحه"
+
+#: options/panel1.php:113
+msgid "Search"
+msgstr "جستجو"
+
+#: options/panel1.php:121
+msgid "Reverse the order by Post ID"
+msgstr "ترتیب را بر اساس شناسه ی نوشته ها برعکس کن"
+
+#: options/panel1.php:122 options/panel1.php:123
+msgid "Reverse the order by Date/Time"
+msgstr "ترتیب را بر اساس تاریخ و ساعت برعکس کن"
+
+#: options/panel1.php:125
+msgid "Post (ID)"
+msgstr "نوشته (شناسه)"
+
+#: options/panel1.php:128
+msgid "Search query:"
+msgstr "عبارت مورد جستجو: "
+
+#: options/panel1.php:128
+msgid "Rows:"
+msgstr "ردیف ها:"
+
+#: options/panel1.php:128
+msgid "of"
+msgstr "از"
+
+#: options/panel1.php:138
+msgid "Date and Time"
+msgstr "تاریخ و ساعت"
+
+#: options/panel1.php:150
+#, fuzzy
+msgid "Subscription"
+msgstr "اشتراک‌ها"
+
+#: options/panel1.php:152
+msgid "Edit"
+msgstr "ویرایش"
+
+#: options/panel1.php:162
+msgid "Delete forever"
+msgstr "پاک کردن برای همیشه"
+
+#: options/panel1.php:164
+msgid "Activate and set to Y"
+msgstr "فعال کن و روی حالت Y بگذار"
+
+#: options/panel1.php:165
+msgid "Activate and set to R"
+msgstr "فعال کن و روی حالت R بگذار"
+
+#: options/panel1.php:170
+msgid "Sorry, no subscriptions match your search criteria."
+msgstr "متاسفانه هیچ اشتراکی با معیار شما انطباق نداشت."
+
+#~ msgid "Daily digest"
+#~ msgstr "به صورت یکجا روزانه"
+
+#~ msgid "Replies"
+#~ msgstr "پاسخ ها"
+
+#~ msgid "Digest"
+#~ msgstr "حالت یکجا"
+
+#~ msgid "Pending"
+#~ msgstr "در انتظار"
+
+#~ msgid "Bold"
+#~ msgstr "پررنگ"
+
+#~ msgid "Italic"
+#~ msgstr "اریب"
+
+#~ msgid "Link"
+#~ msgstr "پیوند"
+
+#~ msgid "Image"
+#~ msgstr "تصویر"
+
+#~ msgid "Notify authors"
+#~ msgstr "به نویسندگان پیام یادآور بفرست"
+
+#~ msgid "Notify the administrator when a new comment is posted."
+#~ msgstr "وقتی دیدگاه جدیدی فرستاده می شود سرپرست را مطلع کن."
+
+#~ msgid "Sponsor's Corner"
+#~ msgstr "پاتوق حامیان"
+
+#~ msgid "Set to Y"
+#~ msgstr "به حالت Y تنظیم کن"
+
+#~ msgid ""
+#~ "Update the email address associated to a specific subscription (by post "
+#~ "ID)."
+#~ msgstr ""
+#~ "Aggiorna l'indirizzo email associato ad una specifica iscrizione "
+#~ "(necessita l'ID dell'articolo)."
+
+#~ msgid ""
+#~ "Change the status of an email address or permanently delete all its "
+#~ "subscriptions."
+#~ msgstr ""
+#~ "Cambia lo stato o cancella tutte le sottoscrizioni associate ad un dato "
+#~ "indirizzo email."
+
+#~ msgid ""
+#~ "You can \"mass update\" all the occurrences of a given email address "
+#~ "(exact matches only)."
+#~ msgstr ""
+#~ "می توانید تمام موارد مربوط به یک آدرس ایمیل خاص را \"آپدیت یکجا\" بکنید "
+#~ "(فقط برای مواردی که انطباق دقیق داشته باشد)."
+
+#~ msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
+#~ msgstr "راهنما: Y: مشترک شده، N: اشتراک معلق شده، C: در انتظار تایید"
+
+#~ msgid ""
+#~ "Custom CSS class to associate to the checkbox, if you want to customize "
+#~ "its style."
+#~ msgstr ""
+#~ "کلاس CSS سفارشی برای افزودن به کادر تیک زدنی در صورتی که بخواهید جلوه ی "
+#~ "آن را تغییر دهید."
