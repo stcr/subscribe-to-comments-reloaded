@@ -11,10 +11,10 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 		  onsubmit="if (this.sre.value != '<?php _e( 'optional', 'subscribe-reloaded' ) ?>') return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
 			<p><?php _e( 'Post:', 'subscribe-reloaded' );
-echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " ({$_GET['srp']})"; ?></strong></p>
+echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " (" . intval( $_GET['srp'] ) . ")"; ?></strong></p>
 
 			<p class="liquid"><label for='oldsre'><?php _e( 'From', 'subscribe-reloaded' ) ?></label>
-				<input readonly='readonly' type='text' size='30' name='oldsre' id='oldsre' value='<?php echo $_GET['sre'] ?>' />
+				<input readonly='readonly' type='text' size='30' name='oldsre' id='oldsre' value='<?php echo esc_attr($_GET['sre']) ?>' />
 			</p>
 
 			<p class="liquid"><label for='sre'><?php _e( 'To', 'subscribe-reloaded' ) ?></label>

@@ -4,9 +4,9 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	header( 'Location: /' );
 	exit;
 }
-$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' );
-if ( $action == 'edit-subscription' ) {
-	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-edit-subscription.php';
+$action = esc_attr( ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' ) );
+if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
+	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-' . $action . '.php';
 
 	return;
 }
