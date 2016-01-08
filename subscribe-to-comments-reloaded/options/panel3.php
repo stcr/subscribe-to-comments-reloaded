@@ -92,7 +92,7 @@ $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' )
 			<td>
 				<input type="radio" name="options[manager_page_enabled]" id="manager_page_enabled" value="yes"<?php echo ( subscribe_reloaded_get_option( 'manager_page_enabled', 'no' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Enabled', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
 				<input type="radio" name="options[manager_page_enabled]" value="no" <?php echo ( subscribe_reloaded_get_option( 'manager_page_enabled', 'no' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'Disabled', 'subscribe-reloaded' ) ?>
-				<div class="description"><?php _e( 'Disable the virtual management page if you need to create a <a href="http://behstant.com/subscribe-reloaded/realMgnPage.php">real page</a> to make your theme happy.', 'subscribe-reloaded' ) ?></div>
+				<div class="description"><?php _e( 'Disable the virtual management page if you need to create a <a href="https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page">real page</a> to make your theme happy.', 'subscribe-reloaded' ) ?></div>
 			</td>
 		</tr>
 		<tr>
