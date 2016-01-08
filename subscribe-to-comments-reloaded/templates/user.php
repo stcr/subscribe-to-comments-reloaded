@@ -60,7 +60,8 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	foreach ( $subscriptions as $a_subscription ) {
 		$permalink = get_permalink( $a_subscription->post_id );
 		$title     = get_the_title( $a_subscription->post_id );
-		echo "<li><label for='post_{$a_subscription->post_id}'><input type='checkbox' name='post_list[]' value='{$a_subscription->post_id}' id='post_{$a_subscription->post_id}'/> <span class='subscribe-column-1'>$a_subscription->dt</span> <span class='subscribe-separator subscribe-separator-1'>&mdash;</span> <span class='subscribe-column-2'>{$a_subscription->status}</span> <span class='subscribe-separator subscribe-separator-2'>&mdash;</span> <a class='subscribe-column-3' href='$permalink'>$title</a></label></li>\n";
+		$date      = date_i18n( __('F j, Y'), strtotime( $a_subscription->dt ) );
+		echo "<li><label for='post_{$a_subscription->post_id}'><input type='checkbox' name='post_list[]' value='{$a_subscription->post_id}' id='post_{$a_subscription->post_id}'/> <span class='subscribe-column-1'>$date</span> <span class='subscribe-separator subscribe-separator-1'>&mdash;</span> <span class='subscribe-column-2'>{$a_subscription->status}</span> <span class='subscribe-separator subscribe-separator-2'>&mdash;</span> <a class='subscribe-column-3' href='$permalink'>$title</a></label></li>\n";
 	}
 	echo '</ul>';
 	echo '<p id="subscribe-reloaded-select-all-p"><a class="subscribe-reloaded-small-button" href="#" onclick="t=document.forms[\'post_list_form\'].elements[\'post_list[]\'];c=t.length;if(!c){t.checked=true}else{for(var i=0;i<c;i++){t[i].checked=true}};return false;">' . __( 'Select all', 'subscribe-reloaded' ) . '</a> ';

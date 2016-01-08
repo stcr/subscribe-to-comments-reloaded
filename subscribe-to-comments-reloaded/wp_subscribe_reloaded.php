@@ -30,7 +30,9 @@ namespace stcr {
 				add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 				// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
 				add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
-
+				
+				// Load Text Domain
+				add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
 
 				// Provide content for the management page using WP filters
 				if ( ! is_admin() ) {
@@ -105,9 +107,15 @@ namespace stcr {
 
 
 			}
-
 			// end __construct
-
+			
+			/**
+			 * Load localization files
+			 */
+			function subscribe_reloaded_load_plugin_textdomain() {
+				load_plugin_textdomain( 'subscribe-reloaded', FALSE, basename( dirname( __FILE__ ) ) . '/langs/' );
+			}
+			
 			/*
 			 * Add Settings link to plugin on plugins page
 			 */
@@ -372,9 +380,6 @@ namespace stcr {
 				if ( ( $post_ID > 0 ) && ! is_object( $target_post ) ) {
 					return $_posts;
 				}
-
-				// Load localization files
-				load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 				$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 				$key    = ! empty( $_POST['srk'] ) ? $_POST['srk'] : ( ! empty( $_GET['srk'] ) ? $_GET['srk'] : 0 );
@@ -975,9 +980,6 @@ namespace stcr {
 				$manager_link = ( strpos( $user_link, '?' ) !== false ) ?
 					"$user_link&amp;srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' ) :
 					"$user_link?srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' );
-
-				// Load localization files
-				load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 				if ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '', 'C' ) ) {
 					$html_to_show          = str_replace(
