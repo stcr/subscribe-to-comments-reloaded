@@ -38,6 +38,9 @@ namespace stcr {
 				if ( empty ( $this->db_version ) || (int) $this->db_version < (int) $this->current_version ) {
 					// Do whatever upgrades needed here.
 					$this->_activate();
+					// Send the current version to display the appropiate message
+					// The notification will only be visible once there is an update not a activation.
+					$this->upgrade->upgrade_notification( $this->current_version, $this->db_version );
 				} else {
 					return;
 				}
@@ -250,8 +253,6 @@ namespace stcr {
 
 				// Create a new table if not exists to manage the subscribers safer
 				$this->upgrade->_create_subscriber_table();
-				// Send the current version to display the appropiate message
-				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version );
 
 				update_option( 'subscribe_reloaded_version', $this->current_version );
 
