@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 04:15-0600\n"
-"PO-Revision-Date: 2016-01-08 04:15-0600\n"
+"POT-Creation-Date: 2016-01-11 02:06-0600\n"
+"PO-Revision-Date: 2016-01-11 02:06-0600\n"
 "Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: tr_TR\n"
@@ -17,24 +17,24 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp_subscribe_reloaded.php:116
+#: wp_subscribe_reloaded.php:124
 msgid "Settings"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1028
+#: wp_subscribe_reloaded.php:1030
 msgid "Don't subscribe"
 msgstr "Abone olma"
 
-#: wp_subscribe_reloaded.php:1029
+#: wp_subscribe_reloaded.php:1031
 msgid "All"
 msgstr "Tümü"
 
-#: wp_subscribe_reloaded.php:1030 templates/user.php:72
+#: wp_subscribe_reloaded.php:1032 templates/user.php:73
 #: templates/author.php:75
 msgid "Replies to my comments"
 msgstr "Yorumlarıma gönderilen yanıtlar"
 
-#: utils/stcr_manage.php:215
+#: utils/stcr_manage.php:218
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -42,7 +42,7 @@ msgstr ""
 "Yeni yorumları e-posta aracılığıyla bana bildir. Ayrıca yorum yapmadan da <a "
 "href='[subscribe_link]'>abone</a> olabilirsiniz."
 
-#: utils/stcr_manage.php:216
+#: utils/stcr_manage.php:219
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
@@ -50,7 +50,7 @@ msgstr ""
 "Bu yazıya abone oldunuz. Aboneliklerinizi incelemek için <a "
 "href='[manager_link]'>tıklayınız</a>."
 
-#: utils/stcr_manage.php:217
+#: utils/stcr_manage.php:220
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
@@ -58,18 +58,18 @@ msgstr ""
 "Bu yazıya olan aboneliğinizin doğrulanması gerekiyor. Aboneliklerinizi "
 "incelemek için <a href='[manager_link]'>tıklayın</a>."
 
-#: utils/stcr_manage.php:218
+#: utils/stcr_manage.php:221
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "Bu yazıya olan aboneliklerinizi <a href='[manager_link]'>buradan</a> "
 "inceleyebilirsiniz."
 
-#: utils/stcr_manage.php:222 options/index.php:57
+#: utils/stcr_manage.php:225 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "Abonelikler"
 
-#: utils/stcr_manage.php:224
+#: utils/stcr_manage.php:227
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -78,7 +78,7 @@ msgstr ""
 "Aboneliklerinizi incelemek için aşağıya e-posta adresinizi girin. Biz de "
 "size aboneliklerinizi listeyebileceğiniz bir link gönderelim."
 
-#: utils/stcr_manage.php:225
+#: utils/stcr_manage.php:228
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -88,7 +88,7 @@ msgstr ""
 "ve aboneliğinizi yönetebileceğiniz bir link bir kaç dakika içerisinde e-"
 "posta adresinize gelmek üzere yola çıktı :) . "
 
-#: utils/stcr_manage.php:226
+#: utils/stcr_manage.php:229
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -98,7 +98,7 @@ msgstr ""
 "takip edebilirsiniz. Havalı değil mi? Aşağıdaki kutuya e-posta adresinizi "
 "girmeniz yeterli."
 
-#: utils/stcr_manage.php:227
+#: utils/stcr_manage.php:230
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -108,7 +108,7 @@ msgstr ""
 "Bu yazıya yapılan, yöneticilerin onaylayıp yayınladığı her yorum için e-"
 "posta alıcaksınız."
 
-#: utils/stcr_manage.php:228
+#: utils/stcr_manage.php:231
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -118,7 +118,7 @@ msgstr ""
 "için lütfen e-posta adresinize gelen doğrulama mesajına bakın ve talimatları "
 "izleyin."
 
-#: utils/stcr_manage.php:229
+#: utils/stcr_manage.php:232
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -126,7 +126,7 @@ msgstr ""
 "Bir ya da daha fazla aboneliğinizi iptal etmek ya da dondurmak için ilgili "
 "kutucukları düzenleyin ve listenin sonundaki düğmeye basın."
 
-#: utils/stcr_manage.php:230
+#: utils/stcr_manage.php:233
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -136,11 +136,11 @@ msgstr ""
 "kutucukları düzenleyin ve listenin sonundaki düğmeye basın. Şu an ki "
 "abonelikleriniz:"
 
-#: utils/stcr_manage.php:234
+#: utils/stcr_manage.php:237
 msgid "There is a new comment to [post_title]"
 msgstr "[post_title] yazısı için yeni yorum yapıldı."
 
-#: utils/stcr_manage.php:235
+#: utils/stcr_manage.php:238
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -154,12 +154,12 @@ msgstr ""
 "[comment_permalink]Yazar: [comment_author]Yorum:[comment_content]Kalıcı "
 "Bağlantı: [post_permalink]Aboneliklerinizi İnceleme: [manager_link]"
 
-#: utils/stcr_manage.php:236
+#: utils/stcr_manage.php:239
 msgid "Please confirm your subscription to [post_title]"
 msgstr ""
 "Lütfen [post_title] yazısı için başvurduğunuz aboneliğinizi doğrulayın."
 
-#: utils/stcr_manage.php:237
+#: utils/stcr_manage.php:240
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -171,11 +171,11 @@ msgstr ""
 "[post_permalink]Aşağıdaki linke tıklayarak isteğinizi doğrulayın."
 "[confirm_link]"
 
-#: utils/stcr_manage.php:238
+#: utils/stcr_manage.php:241
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "[blog_name] üzerindeki aboneliklerinizi inceleyin"
 
-#: utils/stcr_manage.php:239
+#: utils/stcr_manage.php:242
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -184,7 +184,12 @@ msgstr ""
 "[blog_name] üzerindeki aboneliklerinizi incelemek istediniz. Kişisel "
 "sayfanıza ulaşmak için aşağıdaki linke tıklayın: [manager_link]"
 
-#: utils/stcr_manage.php:414 options/panel5.php:87 options/panel5.php:96
+#: utils/stcr_manage.php:387
+#, fuzzy
+msgid "Subscriptions"
+msgstr "Abonelikler"
+
+#: utils/stcr_manage.php:416 options/panel5.php:87 options/panel5.php:96
 #: options/panel5.php:105 options/panel5.php:115 options/panel5.php:124
 #: options/panel5.php:134 options/panel5.php:143 options/panel5.php:152
 #: options/panel5.php:161 options/panel2.php:67 options/panel2.php:77
@@ -192,22 +197,22 @@ msgstr ""
 msgid "No"
 msgstr "Hayır"
 
-#: utils/stcr_manage.php:441
+#: utils/stcr_manage.php:443
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
 "Subscribe to Comments Reloaded 'ı nasıl kullanacağınızı bilmiyor musunuz? "
 "Şurayı ziyaret edin"
 
-#: utils/stcr_manage.php:441
+#: utils/stcr_manage.php:443
 msgid "support forum"
 msgstr "destek forumları"
 
-#: utils/stcr_manage.php:442
+#: utils/stcr_manage.php:444
 msgid "Feeling generous?"
 msgstr "Cömert mi hissediyorsunuz?"
 
-#: utils/stcr_manage.php:442
+#: utils/stcr_manage.php:444
 msgid "Donate a few bucks!"
 msgstr "Bir kaç dolar bağışlayın!"
 
@@ -409,7 +414,8 @@ msgstr ""
 "misiniz?"
 
 #: templates/user.php:57 templates/request-management-link.php:73
-#: templates/subscribe.php:89 options/panel1.php:65 options/panel1.php:126
+#: templates/subscribe.php:89 options/panel1-add-subscription.php:16
+#: options/panel1.php:65 options/panel1.php:126
 msgid "Email"
 msgstr "Eposta"
 
@@ -417,39 +423,43 @@ msgstr "Eposta"
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr "Açıklama: Y = tüm yorumlar, R = yalnızca yanıtlar, C = pasif"
 
-#: templates/user.php:66 templates/author.php:69
+#: templates/user.php:63
+msgid "F j, Y"
+msgstr ""
+
+#: templates/user.php:67 templates/author.php:69
 msgid "Select all"
 msgstr "Hepsini seç"
 
-#: templates/user.php:67 templates/author.php:70
+#: templates/user.php:68 templates/author.php:70
 msgid "Invert selection"
 msgstr "Seçimi ters çevir"
 
-#: templates/user.php:68 templates/author.php:71 options/panel1.php:161
+#: templates/user.php:69 templates/author.php:71 options/panel1.php:161
 msgid "Action:"
 msgstr "Eylem:"
 
-#: templates/user.php:69 templates/author.php:72 options/panel1.php:153
+#: templates/user.php:70 templates/author.php:72 options/panel1.php:153
 msgid "Delete"
 msgstr "Sil"
 
-#: templates/user.php:70 templates/author.php:73 options/panel1.php:163
+#: templates/user.php:71 templates/author.php:73 options/panel1.php:163
 msgid "Suspend"
 msgstr "Dondur"
 
-#: templates/user.php:71 templates/author.php:74
+#: templates/user.php:72 templates/author.php:74
 msgid "All comments"
 msgstr ""
 
-#: templates/user.php:73 templates/author.php:76 options/panel1.php:166
+#: templates/user.php:74 templates/author.php:76 options/panel1.php:166
 msgid "Activate"
 msgstr "Aktifleştir"
 
-#: templates/user.php:75 templates/author.php:77 options/panel1.php:167
+#: templates/user.php:76 templates/author.php:77 options/panel1.php:167
 msgid "Update subscriptions"
 msgstr "Abonelikleri güncelle"
 
-#: templates/user.php:78 templates/author.php:80
+#: templates/user.php:79 templates/author.php:80
 #: templates/one-click-unsubscribe.php:28
 msgid "No subscriptions match your search criteria."
 msgstr "Arama kriterlerinize uygun abonelik bulunamadı."
@@ -803,9 +813,9 @@ msgstr "Devre dışı"
 #: options/panel3.php:95
 #, fuzzy
 msgid ""
-"Disable the virtual management page if you need to create a <a href=\"http://"
-"behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
-"theme happy."
+"Disable the virtual management page if you need to create a <a href="
+"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
+"real-management-page\">real page</a> to make your theme happy."
 msgstr ""
 "<a href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">Gerçek</"
 "a> bir sayfa oluşturmak istiyorsanız bu seçeneği devre dışı bırakın."
@@ -900,6 +910,7 @@ msgid "optional"
 msgstr "isteğe bağlı"
 
 #: options/panel1-edit-subscription.php:13
+#: options/panel1-add-subscription.php:13
 msgid "Post:"
 msgstr "Yazı:"
 
@@ -911,7 +922,8 @@ msgstr "Kimden"
 msgid "To"
 msgstr "Kime"
 
-#: options/panel1-edit-subscription.php:26 options/panel1.php:36
+#: options/panel1-edit-subscription.php:26
+#: options/panel1-add-subscription.php:20 options/panel1.php:36
 #: options/panel1.php:69 options/panel1.php:139
 msgid "Status"
 msgstr "Durum"
@@ -920,12 +932,14 @@ msgstr "Durum"
 msgid "Keep unchanged"
 msgstr "Değişmeden kalsın"
 
-#: options/panel1-edit-subscription.php:29 options/panel1.php:39
+#: options/panel1-edit-subscription.php:29
+#: options/panel1-add-subscription.php:22 options/panel1.php:39
 #: options/panel1.php:72
 msgid "Active"
 msgstr "Aktif"
 
-#: options/panel1-edit-subscription.php:30 options/panel1.php:40
+#: options/panel1-edit-subscription.php:30
+#: options/panel1-add-subscription.php:23 options/panel1.php:40
 #: options/panel1.php:73
 msgid "Replies only"
 msgstr "Yalnızca yanıtlar"
@@ -934,9 +948,18 @@ msgstr "Yalnızca yanıtlar"
 msgid "Suspended"
 msgstr "Donduruldu"
 
-#: options/panel1-edit-subscription.php:33 options/panel1.php:43
+#: options/panel1-edit-subscription.php:33
+#: options/panel1-add-subscription.php:26 options/panel1.php:43
 msgid "Update"
 msgstr "Güncelle"
+
+#: options/panel1-add-subscription.php:8 options/panel1.php:54
+msgid "Add New Subscription"
+msgstr "Yeni Abonelik Ekle"
+
+#: options/panel1-add-subscription.php:24 options/panel1.php:74
+msgid "Ask user to confirm"
+msgstr "Kullanıcının onayını iste"
 
 #: options/panel8.php:11
 #, fuzzy
@@ -1214,17 +1237,9 @@ msgstr ""
 msgid "Mass Update Subscriptions"
 msgstr "Toplu Abonelik Güncelleme"
 
-#: options/panel1.php:54
-msgid "Add New Subscription"
-msgstr "Yeni Abonelik Ekle"
-
 #: options/panel1.php:61
 msgid "Post ID"
 msgstr "Yazı ID"
-
-#: options/panel1.php:74
-msgid "Ask user to confirm"
-msgstr "Kullanıcının onayını iste"
 
 #: options/panel1.php:76
 msgid "Add"

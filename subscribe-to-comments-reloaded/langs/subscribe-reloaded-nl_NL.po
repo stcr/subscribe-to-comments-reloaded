@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 04:13-0600\n"
-"PO-Revision-Date: 2016-01-08 04:13-0600\n"
+"POT-Creation-Date: 2016-01-11 02:03-0600\n"
+"PO-Revision-Date: 2016-01-11 02:04-0600\n"
 "Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -16,24 +16,24 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp_subscribe_reloaded.php:116
+#: wp_subscribe_reloaded.php:124
 msgid "Settings"
 msgstr "Instellingen"
 
-#: wp_subscribe_reloaded.php:1028
+#: wp_subscribe_reloaded.php:1030
 msgid "Don't subscribe"
 msgstr "Meld niet aan"
 
-#: wp_subscribe_reloaded.php:1029
+#: wp_subscribe_reloaded.php:1031
 msgid "All"
 msgstr "Alles"
 
-#: wp_subscribe_reloaded.php:1030 templates/user.php:72
+#: wp_subscribe_reloaded.php:1032 templates/user.php:73
 #: templates/author.php:75
 msgid "Replies to my comments"
 msgstr "Reacties op mijn reacties"
 
-#: utils/stcr_manage.php:215
+#: utils/stcr_manage.php:218
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -42,7 +42,7 @@ msgstr ""
 "href='[subscribe_link]'>abonneer jezelf</a> op deze discussie zonder te "
 "reageren."
 
-#: utils/stcr_manage.php:216
+#: utils/stcr_manage.php:219
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
@@ -50,7 +50,7 @@ msgstr ""
 "Je hebt een abonnement op dit bericht. Beheer je abonnementen <a "
 "href='[manager_link]'>op deze pagina</a>. "
 
-#: utils/stcr_manage.php:217
+#: utils/stcr_manage.php:220
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
@@ -58,18 +58,18 @@ msgstr ""
 "Je abonnement op dit bericht moet eerst worden bevestigd. <a "
 "href='[manager_link]'>Beheer je abonnementen</a>."
 
-#: utils/stcr_manage.php:218
+#: utils/stcr_manage.php:221
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "Op <a href='[manager_link]'>deze pagina</a> kun je de abonnementen van dit "
 "bericht beheren."
 
-#: utils/stcr_manage.php:222 options/index.php:57
+#: utils/stcr_manage.php:225 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "Beheer Abonnementen"
 
-#: utils/stcr_manage.php:224
+#: utils/stcr_manage.php:227
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -78,7 +78,7 @@ msgstr ""
 "Om je abonnementen te beheren moet je hieronder je e-mail adres invullen. We "
 "sturen je dan een persoonlijk link waar je je abonnementen aan kunt passen."
 
-#: utils/stcr_manage.php:225
+#: utils/stcr_manage.php:228
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -88,7 +88,7 @@ msgstr ""
 "voltooid en je ontvangt binnen enkele ogenblikken een e-mail met een link "
 "naar je persoonlijk beheerpagina."
 
-#: utils/stcr_manage.php:226
+#: utils/stcr_manage.php:229
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -97,7 +97,7 @@ msgstr ""
 "Je wilt je abonneren op de discussie <strong>[post_title]</strong> zonder "
 "zelf te reageren? Vul je e-mail adres hieronder in en de rest gaat vanzelf."
 
-#: utils/stcr_manage.php:227
+#: utils/stcr_manage.php:230
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -107,7 +107,7 @@ msgstr ""
 "voltooid. Je ontvangt iedere keer een e-mail als er een nieuwe reactie is "
 "geplaatst."
 
-#: utils/stcr_manage.php:228
+#: utils/stcr_manage.php:231
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -117,7 +117,7 @@ msgstr ""
 "te voltooien moet je deze eerst bevestigen. Je ontvangt hierover binnen "
 "enkele ogenblikken een e-mail bericht."
 
-#: utils/stcr_manage.php:229
+#: utils/stcr_manage.php:232
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -125,7 +125,7 @@ msgstr ""
 "Om je abonnementen aan te passen vink je het gewenste abonnement aan en klik "
 "je op de desgewenst actie."
 
-#: utils/stcr_manage.php:230
+#: utils/stcr_manage.php:233
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -135,11 +135,11 @@ msgstr ""
 "je op de desgewenst actie. Momenteel ben je geabonneerd op de volgende "
 "berichten:"
 
-#: utils/stcr_manage.php:234
+#: utils/stcr_manage.php:237
 msgid "There is a new comment to [post_title]"
 msgstr "Er is een nieuwe reactie geplaatst bij [post_title]"
 
-#: utils/stcr_manage.php:235
+#: utils/stcr_manage.php:238
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -157,11 +157,11 @@ msgstr ""
 "Permalink: [post_permalink]\n"
 "Beheer je abonnementen: [manager_link]"
 
-#: utils/stcr_manage.php:236
+#: utils/stcr_manage.php:239
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Bevestig je abonnement op [post_title]"
 
-#: utils/stcr_manage.php:237
+#: utils/stcr_manage.php:240
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -176,11 +176,11 @@ msgstr ""
 "Bevestig je aanmelding door op deze link te klikken:\n"
 "[confirm_link]"
 
-#: utils/stcr_manage.php:238
+#: utils/stcr_manage.php:241
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Beheer je abonnementen op [blog_name]"
 
-#: utils/stcr_manage.php:239
+#: utils/stcr_manage.php:242
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -191,7 +191,12 @@ msgstr ""
 "pagina te gaan:\n"
 "[manager_link]"
 
-#: utils/stcr_manage.php:414 options/panel5.php:87 options/panel5.php:96
+#: utils/stcr_manage.php:387
+#, fuzzy
+msgid "Subscriptions"
+msgstr "Abonnement"
+
+#: utils/stcr_manage.php:416 options/panel5.php:87 options/panel5.php:96
 #: options/panel5.php:105 options/panel5.php:115 options/panel5.php:124
 #: options/panel5.php:134 options/panel5.php:143 options/panel5.php:152
 #: options/panel5.php:161 options/panel2.php:67 options/panel2.php:77
@@ -199,22 +204,22 @@ msgstr ""
 msgid "No"
 msgstr "Nee"
 
-#: utils/stcr_manage.php:441
+#: utils/stcr_manage.php:443
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
 "Hulp nodig bij het gebruik van de Subscribe to Comments Reloaded plugin? "
 "Bezoek de officiële"
 
-#: utils/stcr_manage.php:441
+#: utils/stcr_manage.php:443
 msgid "support forum"
 msgstr "support forum"
 
-#: utils/stcr_manage.php:442
+#: utils/stcr_manage.php:444
 msgid "Feeling generous?"
 msgstr "Wees eens gul!"
 
-#: utils/stcr_manage.php:442
+#: utils/stcr_manage.php:444
 msgid "Donate a few bucks!"
 msgstr "Doneer een paar centen!"
 
@@ -449,7 +454,8 @@ msgstr ""
 "je door wilt gaan?"
 
 #: templates/user.php:57 templates/request-management-link.php:73
-#: templates/subscribe.php:89 options/panel1.php:65 options/panel1.php:126
+#: templates/subscribe.php:89 options/panel1-add-subscription.php:16
+#: options/panel1.php:65 options/panel1.php:126
 msgid "Email"
 msgstr "E-mail"
 
@@ -458,40 +464,44 @@ msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr ""
 "Legenda: Y = alle reacties, R = alleen reacties op je reacties, C = inactief"
 
-#: templates/user.php:66 templates/author.php:69
+#: templates/user.php:63
+msgid "F j, Y"
+msgstr ""
+
+#: templates/user.php:67 templates/author.php:69
 msgid "Select all"
 msgstr "Selecteer alles"
 
-#: templates/user.php:67 templates/author.php:70
+#: templates/user.php:68 templates/author.php:70
 msgid "Invert selection"
 msgstr "Selectie omkeren"
 
-#: templates/user.php:68 templates/author.php:71 options/panel1.php:161
+#: templates/user.php:69 templates/author.php:71 options/panel1.php:161
 msgid "Action:"
 msgstr "Actie:"
 
-#: templates/user.php:69 templates/author.php:72 options/panel1.php:153
+#: templates/user.php:70 templates/author.php:72 options/panel1.php:153
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: templates/user.php:70 templates/author.php:73 options/panel1.php:163
+#: templates/user.php:71 templates/author.php:73 options/panel1.php:163
 msgid "Suspend"
 msgstr "Pauzeren"
 
-#: templates/user.php:71 templates/author.php:74
+#: templates/user.php:72 templates/author.php:74
 #, fuzzy
 msgid "All comments"
 msgstr "Alle nieuwe reacties"
 
-#: templates/user.php:73 templates/author.php:76 options/panel1.php:166
+#: templates/user.php:74 templates/author.php:76 options/panel1.php:166
 msgid "Activate"
 msgstr "Activeer"
 
-#: templates/user.php:75 templates/author.php:77 options/panel1.php:167
+#: templates/user.php:76 templates/author.php:77 options/panel1.php:167
 msgid "Update subscriptions"
 msgstr "Abonnementen bijwerken"
 
-#: templates/user.php:78 templates/author.php:80
+#: templates/user.php:79 templates/author.php:80
 #: templates/one-click-unsubscribe.php:28
 msgid "No subscriptions match your search criteria."
 msgstr "Geen abonnementen voldoen aan je zoekcriteria."
@@ -855,9 +865,9 @@ msgstr "Dedeactiveerd"
 #: options/panel3.php:95
 #, fuzzy
 msgid ""
-"Disable the virtual management page if you need to create a <a href=\"http://"
-"behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
-"theme happy."
+"Disable the virtual management page if you need to create a <a href="
+"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
+"real-management-page\">real page</a> to make your theme happy."
 msgstr ""
 "Zet de virtuele management pagina uit als je een <a href=\"http://lab."
 "duechiacchiere.it/index.php?topic=71.0\">echte pagina</a> moet creëren."
@@ -959,6 +969,7 @@ msgid "optional"
 msgstr "optioneel"
 
 #: options/panel1-edit-subscription.php:13
+#: options/panel1-add-subscription.php:13
 msgid "Post:"
 msgstr "Post:"
 
@@ -970,7 +981,8 @@ msgstr "Van"
 msgid "To"
 msgstr "Naar"
 
-#: options/panel1-edit-subscription.php:26 options/panel1.php:36
+#: options/panel1-edit-subscription.php:26
+#: options/panel1-add-subscription.php:20 options/panel1.php:36
 #: options/panel1.php:69 options/panel1.php:139
 msgid "Status"
 msgstr "Status"
@@ -979,12 +991,14 @@ msgstr "Status"
 msgid "Keep unchanged"
 msgstr "Laat onveranderd"
 
-#: options/panel1-edit-subscription.php:29 options/panel1.php:39
+#: options/panel1-edit-subscription.php:29
+#: options/panel1-add-subscription.php:22 options/panel1.php:39
 #: options/panel1.php:72
 msgid "Active"
 msgstr "Actie"
 
-#: options/panel1-edit-subscription.php:30 options/panel1.php:40
+#: options/panel1-edit-subscription.php:30
+#: options/panel1-add-subscription.php:23 options/panel1.php:40
 #: options/panel1.php:73
 msgid "Replies only"
 msgstr "Alleen reacties op mijn reactie"
@@ -993,9 +1007,18 @@ msgstr "Alleen reacties op mijn reactie"
 msgid "Suspended"
 msgstr "Pauzeren"
 
-#: options/panel1-edit-subscription.php:33 options/panel1.php:43
+#: options/panel1-edit-subscription.php:33
+#: options/panel1-add-subscription.php:26 options/panel1.php:43
 msgid "Update"
 msgstr "Bijwerken"
+
+#: options/panel1-add-subscription.php:8 options/panel1.php:54
+msgid "Add New Subscription"
+msgstr "Nieuw abonnement toevoegen"
+
+#: options/panel1-add-subscription.php:24 options/panel1.php:74
+msgid "Ask user to confirm"
+msgstr "Vraag gebruiker te bevestigen"
 
 #: options/panel8.php:11
 #, fuzzy
@@ -1273,17 +1296,9 @@ msgstr ""
 msgid "Mass Update Subscriptions"
 msgstr "Abonnementen bijwerken"
 
-#: options/panel1.php:54
-msgid "Add New Subscription"
-msgstr "Nieuw abonnement toevoegen"
-
 #: options/panel1.php:61
 msgid "Post ID"
 msgstr "Post (ID)"
-
-#: options/panel1.php:74
-msgid "Ask user to confirm"
-msgstr "Vraag gebruiker te bevestigen"
 
 #: options/panel1.php:76
 msgid "Add"

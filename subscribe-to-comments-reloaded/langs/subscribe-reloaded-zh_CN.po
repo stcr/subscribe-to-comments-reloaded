@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 04:16-0600\n"
+"POT-Creation-Date: 2016-01-11 02:06-0600\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
 "Language-Team: \n"
@@ -16,24 +16,24 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp_subscribe_reloaded.php:116
+#: wp_subscribe_reloaded.php:124
 msgid "Settings"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1028
+#: wp_subscribe_reloaded.php:1030
 msgid "Don't subscribe"
 msgstr "不要 订阅 评论"
 
-#: wp_subscribe_reloaded.php:1029
+#: wp_subscribe_reloaded.php:1031
 msgid "All"
 msgstr "订阅 所有评论"
 
-#: wp_subscribe_reloaded.php:1030 templates/user.php:72
+#: wp_subscribe_reloaded.php:1032 templates/user.php:73
 #: templates/author.php:75
 msgid "Replies to my comments"
 msgstr "订阅 我评论的回答"
 
-#: utils/stcr_manage.php:215
+#: utils/stcr_manage.php:218
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -41,28 +41,28 @@ msgstr ""
 "有新评论,请电子邮件通知我。你也不需要留评论就可以<a href='[subscribe_link]'>"
 "订阅</a>。"
 
-#: utils/stcr_manage.php:216
+#: utils/stcr_manage.php:219
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr "你已经订阅过本篇文章。<a href='[manager_link]'>管理</a>你的订阅。"
 
-#: utils/stcr_manage.php:217
+#: utils/stcr_manage.php:220
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
 msgstr "你需要激活你的订阅。<a href='[manager_link]'>管理你的订阅</a>。"
 
-#: utils/stcr_manage.php:218
+#: utils/stcr_manage.php:221
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr "你可以<a href='[manager_link]'>管理</a>本篇文章的订阅。"
 
-#: utils/stcr_manage.php:222 options/index.php:57
+#: utils/stcr_manage.php:225 options/index.php:57
 msgid "Manage subscriptions"
 msgstr "管理评论订阅"
 
-#: utils/stcr_manage.php:224
+#: utils/stcr_manage.php:227
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -71,7 +71,7 @@ msgstr ""
 "为了管理你的评论订阅，请在这里输入你的邮箱地址。我们会把管理你个人订阅的链接"
 "发到你的邮箱。"
 
-#: utils/stcr_manage.php:225
+#: utils/stcr_manage.php:228
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -80,7 +80,7 @@ msgstr ""
 "谢谢你使用评论订阅。你的请求已处理完，过几分钟你就会收到有管理页面链接的邮"
 "件。"
 
-#: utils/stcr_manage.php:226
+#: utils/stcr_manage.php:229
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -89,7 +89,7 @@ msgstr ""
 "你不需要留评论就可以关注《<strong>[post_title]</strong>》的讨论。不错，啊？在"
 "下面输入你的邮箱地址就可以。"
 
-#: utils/stcr_manage.php:227
+#: utils/stcr_manage.php:230
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -98,7 +98,7 @@ msgstr ""
 "谢谢你使用评论订阅。你的请求已处理完。每次管理员审核和发布新评论你就会收到邮"
 "件通知。"
 
-#: utils/stcr_manage.php:228
+#: utils/stcr_manage.php:231
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -107,14 +107,14 @@ msgstr ""
 "谢谢你使用评论订阅。为了确认你的请求，请查看你的电子邮箱，你会收到确认邮件和"
 "下一步的说明。"
 
-#: utils/stcr_manage.php:229
+#: utils/stcr_manage.php:232
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
 msgstr ""
 "为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。"
 
-#: utils/stcr_manage.php:230
+#: utils/stcr_manage.php:233
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -123,11 +123,11 @@ msgstr ""
 "为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。你"
 "已经订阅了这些："
 
-#: utils/stcr_manage.php:234
+#: utils/stcr_manage.php:237
 msgid "There is a new comment to [post_title]"
 msgstr "[post_title]有一条新的评论"
 
-#: utils/stcr_manage.php:235
+#: utils/stcr_manage.php:238
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -145,11 +145,11 @@ msgstr ""
 "评论链接：[comment_permalink]\n"
 "管理你的订阅：[manager_link]"
 
-#: utils/stcr_manage.php:236
+#: utils/stcr_manage.php:239
 msgid "Please confirm your subscription to [post_title]"
 msgstr "请确认你要订阅《[post_title]》"
 
-#: utils/stcr_manage.php:237
+#: utils/stcr_manage.php:240
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -163,11 +163,11 @@ msgstr ""
 "请通过点击以下的链接确认：\n"
 "[confirm_link]"
 
-#: utils/stcr_manage.php:238
+#: utils/stcr_manage.php:241
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "管理你在[blog_name]上的订阅"
 
-#: utils/stcr_manage.php:239
+#: utils/stcr_manage.php:242
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -176,7 +176,12 @@ msgstr ""
 "你申请过管理[blog_name]的评论订阅。请点击以下的链接去你的个人管理页面：\n"
 "[manager_link]"
 
-#: utils/stcr_manage.php:414 options/panel5.php:87 options/panel5.php:96
+#: utils/stcr_manage.php:387
+#, fuzzy
+msgid "Subscriptions"
+msgstr "搜索订阅"
+
+#: utils/stcr_manage.php:416 options/panel5.php:87 options/panel5.php:96
 #: options/panel5.php:105 options/panel5.php:115 options/panel5.php:124
 #: options/panel5.php:134 options/panel5.php:143 options/panel5.php:152
 #: options/panel5.php:161 options/panel2.php:67 options/panel2.php:77
@@ -184,20 +189,20 @@ msgstr ""
 msgid "No"
 msgstr "No"
 
-#: utils/stcr_manage.php:441
+#: utils/stcr_manage.php:443
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr "需要帮忙如何使用Subscribe to Comments Reloaded？ 请访问官方"
 
-#: utils/stcr_manage.php:441
+#: utils/stcr_manage.php:443
 msgid "support forum"
 msgstr "技术论坛"
 
-#: utils/stcr_manage.php:442
+#: utils/stcr_manage.php:444
 msgid "Feeling generous?"
 msgstr "想做贡献"
 
-#: utils/stcr_manage.php:442
+#: utils/stcr_manage.php:444
 msgid "Donate a few bucks!"
 msgstr "捐赠几元！"
 
@@ -397,7 +402,8 @@ msgid ""
 msgstr "注意：这个请求是不可恢复的。你确定要这样做？"
 
 #: templates/user.php:57 templates/request-management-link.php:73
-#: templates/subscribe.php:89 options/panel1.php:65 options/panel1.php:126
+#: templates/subscribe.php:89 options/panel1-add-subscription.php:16
+#: options/panel1.php:65 options/panel1.php:126
 msgid "Email"
 msgstr "Email"
 
@@ -405,39 +411,43 @@ msgstr "Email"
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr "指南: Y = 所有评论, R = 限制与回答, C = 停止"
 
-#: templates/user.php:66 templates/author.php:69
+#: templates/user.php:63
+msgid "F j, Y"
+msgstr ""
+
+#: templates/user.php:67 templates/author.php:69
 msgid "Select all"
 msgstr "选择全部"
 
-#: templates/user.php:67 templates/author.php:70
+#: templates/user.php:68 templates/author.php:70
 msgid "Invert selection"
 msgstr "反过来选择"
 
-#: templates/user.php:68 templates/author.php:71 options/panel1.php:161
+#: templates/user.php:69 templates/author.php:71 options/panel1.php:161
 msgid "Action:"
 msgstr "命令："
 
-#: templates/user.php:69 templates/author.php:72 options/panel1.php:153
+#: templates/user.php:70 templates/author.php:72 options/panel1.php:153
 msgid "Delete"
 msgstr "删除"
 
-#: templates/user.php:70 templates/author.php:73 options/panel1.php:163
+#: templates/user.php:71 templates/author.php:73 options/panel1.php:163
 msgid "Suspend"
 msgstr "停止"
 
-#: templates/user.php:71 templates/author.php:74
+#: templates/user.php:72 templates/author.php:74
 msgid "All comments"
 msgstr ""
 
-#: templates/user.php:73 templates/author.php:76 options/panel1.php:166
+#: templates/user.php:74 templates/author.php:76 options/panel1.php:166
 msgid "Activate"
 msgstr "启用"
 
-#: templates/user.php:75 templates/author.php:77 options/panel1.php:167
+#: templates/user.php:76 templates/author.php:77 options/panel1.php:167
 msgid "Update subscriptions"
 msgstr "更新订阅"
 
-#: templates/user.php:78 templates/author.php:80
+#: templates/user.php:79 templates/author.php:80
 #: templates/one-click-unsubscribe.php:28
 msgid "No subscriptions match your search criteria."
 msgstr "没有符合搜索要求的订阅。"
@@ -785,9 +795,9 @@ msgstr "禁用"
 #: options/panel3.php:95
 #, fuzzy
 msgid ""
-"Disable the virtual management page if you need to create a <a href=\"http://"
-"behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
-"theme happy."
+"Disable the virtual management page if you need to create a <a href="
+"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
+"real-management-page\">real page</a> to make your theme happy."
 msgstr ""
 "如果你需要一个<a href=\"http://behstant.com/subscribe-reloaded/realMgnPage."
 "php\">真正的页面</a>配合你的主体，要禁用虚拟管理页面。"
@@ -879,6 +889,7 @@ msgid "optional"
 msgstr "可选"
 
 #: options/panel1-edit-subscription.php:13
+#: options/panel1-add-subscription.php:13
 msgid "Post:"
 msgstr "文章："
 
@@ -890,7 +901,8 @@ msgstr "来自"
 msgid "To"
 msgstr "To"
 
-#: options/panel1-edit-subscription.php:26 options/panel1.php:36
+#: options/panel1-edit-subscription.php:26
+#: options/panel1-add-subscription.php:20 options/panel1.php:36
 #: options/panel1.php:69 options/panel1.php:139
 msgid "Status"
 msgstr "情况"
@@ -899,12 +911,14 @@ msgstr "情况"
 msgid "Keep unchanged"
 msgstr "保持不变"
 
-#: options/panel1-edit-subscription.php:29 options/panel1.php:39
+#: options/panel1-edit-subscription.php:29
+#: options/panel1-add-subscription.php:22 options/panel1.php:39
 #: options/panel1.php:72
 msgid "Active"
 msgstr "Active"
 
-#: options/panel1-edit-subscription.php:30 options/panel1.php:40
+#: options/panel1-edit-subscription.php:30
+#: options/panel1-add-subscription.php:23 options/panel1.php:40
 #: options/panel1.php:73
 msgid "Replies only"
 msgstr "限制与回复"
@@ -913,9 +927,18 @@ msgstr "限制与回复"
 msgid "Suspended"
 msgstr "停止"
 
-#: options/panel1-edit-subscription.php:33 options/panel1.php:43
+#: options/panel1-edit-subscription.php:33
+#: options/panel1-add-subscription.php:26 options/panel1.php:43
 msgid "Update"
 msgstr "更新"
+
+#: options/panel1-add-subscription.php:8 options/panel1.php:54
+msgid "Add New Subscription"
+msgstr "增加新的订阅"
+
+#: options/panel1-add-subscription.php:24 options/panel1.php:74
+msgid "Ask user to confirm"
+msgstr "让用户确认"
 
 #: options/panel8.php:11
 #, fuzzy
@@ -1171,17 +1194,9 @@ msgstr ""
 msgid "Mass Update Subscriptions"
 msgstr "批量更新订阅"
 
-#: options/panel1.php:54
-msgid "Add New Subscription"
-msgstr "增加新的订阅"
-
 #: options/panel1.php:61
 msgid "Post ID"
 msgstr "Post ID"
-
-#: options/panel1.php:74
-msgid "Ask user to confirm"
-msgstr "让用户确认"
 
 #: options/panel1.php:76
 msgid "Add"
