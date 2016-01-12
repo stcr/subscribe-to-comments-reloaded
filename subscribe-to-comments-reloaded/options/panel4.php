@@ -27,13 +27,13 @@ if ( isset( $_POST['options'] ) ) {
 		$faulty_fields = __( 'Notification subject', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['notification_content'] ) &&
-		empty( trim( $_POST['options']['notification_content'] ) )  &&
+		trim( $_POST['options']['notification_content'] ) == false &&
 		! subscribe_reloaded_update_option( 'notification_content', "<h1>There is a new comment on [post_title].</h1><hr><p><strong>Comment link:</strong>&nbsp;<a href=\"[comment_permalink]\" data-mce-href=\"[comment_permalink]\">[comment_permalink]</a>&nbsp;<br><strong>Author:</strong>&nbsp;[comment_author]</p><p><strong>Comment:</strong><br>[comment_content]</p><div style=\"font-size: 0.8em\" data-mce-style=\"font-size: 0.8em;\"><strong>Permalink:</strong>&nbsp;<a href=\"[post_permalink]\" data-mce-href=\"[post_permalink]\">[post_permalink]</a><br><a href=\"[manager_link]\" data-mce-href=\"[manager_link]\">Manage your subscriptions</a>&nbsp;|&nbsp;<a href=\"[oneclick_link]\" data-mce-href=\"[oneclick_link]\">One click unsubscribe</a></div>", 'text-no-encode' )
 	) {
 		$faulty_fields = __( 'Notification message', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['notification_content'] ) &&
-		! empty( trim( $_POST['options']['notification_content'] ) )  &&
+		trim( $_POST['options']['notification_content'] )  &&
 		! subscribe_reloaded_update_option( 'notification_content', $_POST['options']['notification_content'], 'text-no-encode' )
 	) {
 		$faulty_fields = __( 'Notification message', 'subscribe-reloaded' ) . ', ';
