@@ -14,7 +14,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 
 ## Requirements
 * Wordpress 2.9.2 or higher
-* PHP 5.1 or higher
+* PHP 5.4.x or higher
 * MySQL 5.x or higher
 
 ## Main Features
