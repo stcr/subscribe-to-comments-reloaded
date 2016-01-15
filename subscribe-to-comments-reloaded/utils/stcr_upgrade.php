@@ -409,6 +409,19 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 							);
 							$this->link_tags();
 							break;
+						case '160115':
+							$this->stcr_create_admin_notice(
+								'notify_update_' . $_version,
+								'unread',
+								'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160115.', 'subscribe-reloaded') . '</p>' .
+								'<p>' . __('This version includes fixes to broken links while managing your subscriptions', 'subscribe-reloaded') . '</p>' .
+								'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
+									. '<a class="dismiss" href="#">Got it.  </a>'
+									. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
+								'updated'
+							);
+							$this->link_tags();
+							break;
 					}
 				}
 

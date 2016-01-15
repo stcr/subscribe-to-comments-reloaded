@@ -3,7 +3,7 @@
  * Class with management functions for Subscribe to Comments Reloaded
  * @author reedyseth
  * @since 16-Jul-2015
- * @version 160106
+ * @version 160115
  */
 namespace stcr {
 	// Avoid direct access to this piece of code
@@ -19,7 +19,7 @@ namespace stcr {
 	{
 		class stcr_manage {
 
-			public $current_version = '160106';
+			public $current_version = '160115';
 			public $utils = null;
 			public $upgrade = null;
 			public $db_version = null;

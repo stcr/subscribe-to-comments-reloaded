@@ -1,11 +1,11 @@
 === Subscribe To Comments Reloaded ===
-Author: camu, reedyseth, andreasbo, raamdev
-Contributors: coolmann, reedyseth, raamdev
+Author: reedyseth, andreasbo, raamdev, camu
+Contributors: reedyseth, raamdev, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
-Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
+Tags: comments, subscribe, comment subscription, comment subscriptions, comment subscribe, subscribe comments, comment, comment email, comment notification, notifications, notification, email, notify, posts, subscription, subscribe to comments reloaded, commenting, reply, subscribe form, comments, mail, mailing, subscriptions, newsletter, newsletters, email newsletter, email subscription, newsletter signup, post notification, newsletter alert, automatic post notification, email newsletters, email signup, auto post notifications, newsletter plugin, emailing, email commenting, engagement, invite, invitations
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 160106
+Tested up to: 4.4.1
+Stable tag: 160115
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -22,8 +22,9 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 * Easily manage and search among your subscriptions
 * Imports Mark Jaquith's Subscribe To Comments (and its clones) data
 * Imports comments from Comment Reply Notification plugin
-* Messages are fully customizable, no poEdit required (and you can use HTML!)
+* Messages are fully customizable, no poEdit required (and you can use HTML!) with a Rich Text Editor - WYSIWYG
 * Disable subscriptions for specific posts
+* One Click Unsubscribe
 * Compatible with [Fluency Admin](http://deanjrobinson.com/projects/fluency-admin/) and [QTranslate](http://wordpress.org/extend/plugins/qtranslate/)
 
 == Installation ==
@@ -69,10 +70,14 @@ Just go to the Options Panel and click the generate button. By generating a new 
 1. Manage your subscriptions
 2. Use your own messages to interact with your users
 3. Configure the Virtual Management page
-4. Customize the notification messages
+4. Customize the notification messages with a wonderful Rich Text Editor - WYSIWYG
 5. Customize the plugin's behavior
 
 == Upgrade Notice ==
+
+== v160115 ==
+
+**Subscription broken Fix; PLEASE UPGRADE IMMEDIATELY**. This fixes the broken links while trying to subscribe without commenting.
 
 == v160106 ==
 
@@ -110,6 +115,11 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
+== v160115 ==
+
+* **Fix** Error while calling the option to subscribe without commenting.
+* **Fix** Error while deleting a subscription on the management page.
+
 = v160106 =
 
 * **Fix** The correct calling to the update function when a new version is available.
@@ -133,7 +143,6 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 * **Update** Panel Messages. Add new Support panel and move the support information from panel6.php to panel7.php on the StCR Settings.
 * **Update** transalation references on new German Translation file provided by @maffi91 and @konus1. See issue#114 and [issue#135](https://github.com/stcr/subscribe-to-comments-reloaded/issues/135).
 * **Update** Various notice style and spelling improvements. See [issue#135](https://github.com/stcr/subscribe-to-comments-reloaded/issues/135)
-* **Remove** Manager Page translation support for WPML by @IvanRF.
 
 = v150820 =
 

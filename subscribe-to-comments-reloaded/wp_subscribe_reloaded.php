@@ -611,7 +611,7 @@ namespace stcr {
 						}
 					} else {
 						foreach ( $_email as $a_email ) {
-							$emails_where .= "meta_key = '_stcr@_" . $this->clean_email( $a_email ) . "' OR ";
+							$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
 							// Deletion on every email on the subscribers table.
 							$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $a_email );
 							if( $has_subscriptions === false ) {

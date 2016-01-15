@@ -33,7 +33,7 @@ if ( ! empty( $email ) ) {
 		}
 	}
 
-	$clean_email = $wp_subscribe_reloaded->stcr->clean_email( $email );
+	$clean_email = $wp_subscribe_reloaded->stcr->utils->clean_email( $email );
 
 	// If the case, send a message to the administrator
 	if ( get_option( 'subscribe_reloaded_enable_admin_messages', 'no' ) == 'yes' ) {
