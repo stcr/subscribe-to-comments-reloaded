@@ -6,6 +6,8 @@ Tags: comments, subscribe, comment subscription, comment subscriptions, comment 
 Requires at least: 4.0
 Tested up to: 4.4.1
 Stable tag: 160115
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -13,7 +15,7 @@ Subscribe to Comments Reloaded allows commenters to sign up for e-mail notificat
 Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notification of subsequent entries. The plugin includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications. It solves most of the issues that affect Mark Jaquith's version, using the latest Wordpress features and functionality. Plus, allows administrators to enable a double opt-in mechanism, requiring users to confirm their subscription clicking on a link they will receive via email.
 
 ## Requirements
-* Wordpress 2.9.2 or higher
+* Wordpress 4.0 or higher
 * PHP 5.4.x or higher
 * MySQL 5.x or higher
 
@@ -28,6 +30,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 * Compatible with [Fluency Admin](http://deanjrobinson.com/projects/fluency-admin/) and [QTranslate](http://wordpress.org/extend/plugins/qtranslate/)
 
 == Installation ==
+
 
 1. If you are using Subscribe To Comments by Mark Jaquith, disable it (no need to uninstall it, though)
 2. Upload the entire folder and all the subfolders to your Wordpress plugins' folder
@@ -75,33 +78,33 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
-== v160115 ==
+= v160115 =
 
 **Subscription broken Fix; PLEASE UPGRADE IMMEDIATELY**. This fixes the broken links while trying to subscribe without commenting.
 
-== v160106 ==
+= v160106 =
 
 This version is a mayor version change on StCR. It includes many changes and features like One Click Unsubscribe, A Rich editor for the notifications templates, Subscription Checkbox position, Huge code refactor just to mention a few.
 
-== v150820 ==
+= v150820 =
 
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v150820 fixes an XSS/CSRF vulnerability that was reported by a WordPress Plugin Repository moderator.
 
 v150611 Fix the creation of the new table realated to the Google PII issue with AdWords, see v150422 Change log for details.
 
-== v150611 ==
+= v150611 =
 
 v150611 Fix the creation of the new table realated to the Google PII issue with AdWords, see v150422 Change log for details.
 
-== v150422 ==
+= v150422 =
 
 **Security Fix; PLEASE UPGRADE IMMEDIATELY** Google PII issue with AdWords. Protect user email Address and uses an encrypted key instead on URL. Several issues are fix, see the change log.
 
-== v150207 ==
+= v150207 =
 
 Improvements on the links security. Now you get a Unique Key for your site. Check the Options Panel.
 
-== v141103 ==
+= v141103 =
 
 **Broken links and settings issue** Please upgrade to fix the URL creation on the Request Management link and to save the settings values correctly.
 
@@ -115,7 +118,10 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
-== v160115 ==
+= Warning =
+**StCR version 160106 and above require at least PHP 5.3.X, so if you have a lower version your site might break, Read more** [here](https://wordpress.org/support/topic/fatal-error-upon-updating?replies=43)
+
+= v160115 =
 
 * **Fix** Error while calling the option to subscribe without commenting.
 * **Fix** Error while deleting a subscription on the management page.
