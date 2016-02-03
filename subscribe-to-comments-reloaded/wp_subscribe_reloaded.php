@@ -748,7 +748,7 @@ namespace stcr {
 							    salt = %d,
 							    subscriber_unique_id = %s
 				 				WHERE subscriber_email = %s",
-							$_new_email, $salt, $this->generate_temp_key( $salt . $_new_email ),$_email )
+							$_new_email, $salt, $this->utils->generate_temp_key( $salt . $_new_email ),$_email )
 					);
 				}
 				return false;
