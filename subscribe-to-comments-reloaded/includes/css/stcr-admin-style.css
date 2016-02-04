@@ -49,3 +49,9 @@
 .hidden {
 	display: none;
 }
+
+.info-panel {
+	background-color: #BBBBBB;
+	padding: 8px;
+	font-style: italic;
+}

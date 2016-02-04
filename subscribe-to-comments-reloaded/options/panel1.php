@@ -15,7 +15,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 }
 ?>
 
-<div class="postbox small">
+<div class="postbox small postbox-mass">
 	<h3><?php _e( 'Mass Update Subscriptions', 'subscribe-reloaded' ) ?></h3>
 
 	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post" id="update_address_form"
@@ -24,13 +24,15 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 			<table>
 				<tr>
 					<td><label for='oldsre'><?php _e( 'From', 'subscribe-reloaded' ) ?></label></td>
-					<td><input type='text' size='30' name='oldsre' id='oldsre' value='' ></td>
+					<td><input type='text' size='30' name='oldsre' id='oldsre' value='<?php _e( 'email address', 'subscribe-reloaded' ) ?>' style="color:#ccc"
+							   onfocus='if (this.value == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
+							   onblur='if (this.value == ""){this.value="<?php _e( 'email address', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}'  ></td>
 				</tr>
 				<tr>
 					<td><label for='sre'><?php _e( 'To', 'subscribe-reloaded' ) ?></label></td>
-					<td><input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional', 'subscribe-reloaded' ) ?>' style="color:#ccc"
-							   onfocus='if (this.value == "<?php _e( 'optional', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
-							   onblur='if (this.value == ""){this.value="<?php _e( 'optional', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}' ></td>
+					<td><input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>' style="color:#ccc"
+							   onfocus='if (this.value == "<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
+							   onblur='if (this.value == ""){this.value="<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}' ></td>
 				</tr>
 				<tr>
 					<td><label for='srs'><?php _e( 'Status', 'subscribe-reloaded' ) ?></label></td>
@@ -43,9 +45,13 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 						<input type='submit' class='subscribe-form-button' value='<?php _e( 'Update', 'subscribe-reloaded' ) ?>' ></td>
 				</tr>
 				<tr>
-					<td><input type='hidden' name='sra' value='edit' /></td>
+					<td colspan="2"><a class="more-info" href="#" data-infopanel="info-panel-mass-update">More info</a></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type='hidden' name='sra' value='edit' /></td>
 				</tr>
 			</table>
+			<span class="hidden info-panel info-panel-mass-update"><?php _e('This option will allow you to change an email address for another one or to update the same status for all the subscription on a specific email address.', 'subscribe-reloaded' ); ?></span>
 		</fieldset>
 	</form>
 </div>
