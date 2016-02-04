@@ -30,6 +30,8 @@ namespace stcr {
 				add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 				// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
 				add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
+				// Update email when a subscribed user updates their email address
+				add_action( 'profile_update', array ($this, 'update_subscribed_user_email' ), 10, 2 );
 				
 				// Load Text Domain
 				add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
@@ -716,6 +718,17 @@ namespace stcr {
 			}
 			// end update_subscription_status
 
+			/**
+			* Wrapper for update_subscription_email used to update email of subscribed user on profile change
+			*/
+			public function update_subscribed_user_email( $user_id, $old_user_data ) {
+
+				$new_user_data = get_userdata( $user_id );
+				$this->update_subscription_email( 0, $old_user_data->user_email, $new_user_data->user_email );
+
+			}
+			// end update_subscribed_user_email
+			
 			/**
 			 * Updates the email address of an existing subscription
 			 */
