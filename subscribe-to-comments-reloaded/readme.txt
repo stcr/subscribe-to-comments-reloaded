@@ -2,7 +2,7 @@
 Author: reedyseth, andreasbo, raamdev, camu
 Contributors: reedyseth, raamdev, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
-Tags: comments, subscribe, comment subscription, comment subscriptions, comment subscribe, subscribe comments, comment, comment email, comment notification, notifications, notification, email, notify, posts, subscription, subscribe to comments reloaded, commenting, reply, subscribe form, comments, mail, mailing, subscriptions, newsletter, newsletters, email newsletter, email subscription, newsletter signup, post notification, newsletter alert, automatic post notification, email newsletters, email signup, auto post notifications, newsletter plugin, emailing, email commenting, engagement, invite, invitations
+Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
 Tested up to: 4.4.1
 Stable tag: 160115
