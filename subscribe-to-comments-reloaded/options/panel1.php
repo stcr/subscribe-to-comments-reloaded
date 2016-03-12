@@ -164,13 +164,19 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 					</li>\n";
 	}
 	echo '</ul>';
-	echo '<p>' . __( 'Action:', 'subscribe-reloaded' ) . '
-				<input type="radio" name="sra" value="delete" id="action_type_delete" /> <label for="action_type_delete">' . __( 'Delete forever', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="sra" value="suspend" id="action_type_suspend" checked="checked" /> <label for="action_type_suspend">' . __( 'Suspend', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="sra" value="force_y" id="action_type_force_y" /> <label for="action_type_force_y">' . __( 'Activate and set to Y', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="sra" value="force_r" id="action_type_force_r" /> <label for="action_type_force_r">' . __( 'Activate and set to R', 'subscribe-reloaded' ) . '</label> &nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="radio" name="sra" value="activate" id="action_type_activate" /> <label for="action_type_activate">' . __( 'Activate', 'subscribe-reloaded' ) . '</label></p>';
-	echo '<p><input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /></p>';
+
+	echo '<label for="action_type" >' . __( 'Action:', 'subscribe-reloaded' ) . '</label >' ;
+	?>
+		<select name="sra" id="action_type">
+			<option value="delete"><?php _e( 'Delete forever', 'subscribe-reloaded' ) ?></option>
+			<option value="suspend"><?php _e( 'Suspend', 'subscribe-reloaded' ) ?></option>
+			<option value="force_y"><?php _e( 'Activate and set to Y', 'subscribe-reloaded' ) ?></option>
+			<option value="force_r"><?php _e( 'Activate and set to R', 'subscribe-reloaded' ) ?></option>
+			<option value="activate"><?php _e( 'Activate', 'subscribe-reloaded' ) ?></option>
+		</select>
+		
+<?php
+	echo '<p><input type="submit" class="subscribe-form-button button-primary" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /></p>';
 	echo "<input type='hidden' name='srf' value='$search_field'/><input type='hidden' name='srt' value='$operator'/><input type='hidden' name='srv' value='$search_value'/><input type='hidden' name='srsf' value='$offset'/><input type='hidden' name='srrp' value='$limit_results'/><input type='hidden' name='srob' value='$order_by'/><input type='hidden' name='sro' value='$order'/>";
 } elseif ( $action == 'search' ) {
 	echo '<p>' . __( 'Sorry, no subscriptions match your search criteria.', 'subscribe-reloaded' ) . "</p>";

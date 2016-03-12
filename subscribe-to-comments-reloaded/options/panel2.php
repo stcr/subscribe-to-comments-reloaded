@@ -131,15 +131,24 @@ if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' )
 			</th>
 			<td>
 				<input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style" value="<?php echo subscribe_reloaded_get_option( 'checkbox_inline_style' ); ?>" size="20">
-
+				
 				<div class="description"><?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
 		<tr>
 			<th scope="row"><label for="checkbox_html"><?php _e( 'Custom HTML', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<input type="text" name="options[checkbox_html]" id="checkbox_html" value="<?php echo subscribe_reloaded_get_option( 'checkbox_html' ); ?>" size="50">
-
+				<?php
+					$id_checkbox_html = "checkbox_html";
+					$args_notificationContent = array(
+						"media_buttons" => false,
+						"textarea_rows" => 5,
+						"teeny"         => true,
+						"textarea_name" => "options[{$id_checkbox_html}]",
+						"tinymce"		=> false
+					);
+					wp_editor( subscribe_reloaded_get_option( $id_checkbox_html ), $id_checkbox_html, $args_notificationContent );
+				?>
 				<div class="description"><?php _e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
@@ -153,8 +162,16 @@ if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' )
 			<th scope="row"><label for="checkbox_label"><?php _e( 'Default label', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
-				<input type="text" name="options[checkbox_label]" id="checkbox_label" value="<?php echo subscribe_reloaded_get_option( 'checkbox_label' ); ?>" size="70">
-
+				<?php
+					$id_checkbox_label = "checkbox_label";
+					$args_notificationContent = array(
+						"media_buttons" => false,
+						"textarea_rows" => 3,
+						"teeny"         => true,
+						"textarea_name" => "options[{$id_checkbox_label}]"
+					);
+					wp_editor( subscribe_reloaded_get_option( $id_checkbox_label ), $id_checkbox_label, $args_notificationContent );
+				?>
 				<div class="description"><?php _e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
@@ -162,8 +179,16 @@ if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' )
 			<th scope="row">
 				<label for="subscribed_label"><?php _e( 'Subscribed label', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<input type="text" name="options[subscribed_label]" id="subscribed_label" value="<?php echo subscribe_reloaded_get_option( 'subscribed_label' ); ?>" size="70">
-
+				<?php
+					$id_subscribed_label = "subscribed_label";
+					$args_notificationContent = array(
+						"media_buttons" => false,
+						"textarea_rows" => 3,
+						"teeny"         => true,
+						"textarea_name" => "options[{$id_subscribed_label}]"
+					);
+					wp_editor( subscribe_reloaded_get_option( $id_subscribed_label ), $id_subscribed_label, $args_notificationContent );
+				?>
 				<div class="description"><?php _e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
@@ -171,16 +196,32 @@ if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' )
 			<th scope="row">
 				<label for="subscribed_waiting_label"><?php _e( 'Pending label', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<input type="text" name="options[subscribed_waiting_label]" id="subscribed_waiting_label" value="<?php echo subscribe_reloaded_get_option( 'subscribed_waiting_label' ); ?>" size="70">
-
+				<?php
+					$id_subscribed_waiting_label = "subscribed_waiting_label";
+					$args_notificationContent = array(
+						"media_buttons" => false,
+						"textarea_rows" => 3,
+						"teeny"         => true,
+						"textarea_name" => "options[{$id_subscribed_waiting_label}]"
+					);
+					wp_editor( subscribe_reloaded_get_option( $id_subscribed_waiting_label ), $id_subscribed_waiting_label, $args_notificationContent );
+				?>
 				<div class="description"><?php _e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
 		<tr>
 			<th scope="row"><label for="author_label"><?php _e( 'Author label', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<input type="text" name="options[author_label]" id="author_label" value="<?php echo subscribe_reloaded_get_option( 'author_label' ); ?>" size="70">
-
+				<?php
+					$id_author_label = "author_label";
+					$args_notificationContent = array(
+						"media_buttons" => false,
+						"textarea_rows" => 3,
+						"teeny"         => true,
+						"textarea_name" => "options[{$id_author_label}]"
+					);
+					wp_editor( subscribe_reloaded_get_option( $id_author_label ), $id_author_label, $args_notificationContent );
+				?>
 				<div class="description"><?php _e( 'Label shown to authors (and administrators). Allowed tag: [manager_link]', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
