@@ -349,6 +349,15 @@ namespace stcr {
 				wp_send_json_success( 'Notification status updated for "' . $_notification . '"' );
 				die();
 			}
+
+			public function stcr_logger( $value = '' )
+			{
+				$file = fopen( "Path/log.txt", "a" );
+
+				fputs( $file , $value);
+
+				fclose($file);
+			}
 		}
 	}
 }

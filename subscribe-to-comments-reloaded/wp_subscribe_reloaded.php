@@ -895,7 +895,10 @@ namespace stcr {
 				$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
 				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
 
-				$headers      = "From: $from_name <$from_email>\n";
+				$headers       = "From: \"$from_name\" <$from_email>\n";
+				$headers      .= "To: $clean_email\n";
+				$reply_to	   = get_option( "subscribe_reloaded_reply_to" ) == "" ? $from_email : get_option( "subscribe_reloaded_reply_to" );
+				$headers      .= "Reply-To: $reply_to\n";
 				$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
 				$headers .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' ) . "\n";
 
@@ -938,6 +941,7 @@ namespace stcr {
 					}
 					$message = $this->utils->wrap_html_message( $message, $subject );
 				}
+				$headers .= "Subject: $subject\n";
 
 				wp_mail( $clean_email, $subject, $message, $headers );
 			}
@@ -1040,13 +1044,13 @@ namespace stcr {
 				// Check for the Comment Form location
 				if( get_option('subscribe_reloaded_commentbox_place') == 'yes' ) {
 					echo "<div class='stcr-form hidden'>";
-					echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
+					echo "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 					echo "</div>";
 				} else {
 					$backtrace = debug_backtrace();
 					// print_r($backtrace);
-					echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
+					echo "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 				}
 

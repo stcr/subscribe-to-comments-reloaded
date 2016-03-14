@@ -35,6 +35,7 @@ delete_option( 'subscribe_reloaded_default_subscription_type' );
 delete_option( 'subscribe_reloaded_checked_by_default_value' );
 delete_option( 'subscribe_reloaded_purge_days' );
 delete_option( 'subscribe_reloaded_from_name' );
+delete_option( 'subscribe_reloaded_reply_to' );
 delete_option( 'subscribe_reloaded_from_email' );
 delete_option( 'subscribe_reloaded_checked_by_default' );
 delete_option( 'subscribe_reloaded_enable_double_check' );
