@@ -21,16 +21,11 @@ namespace stcr {
 
 				$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
 
-				// Show the checkbox - You can manually override this by adding the corresponding function in your template
-				if ( get_option( 'subscribe_reloaded_show_subscription_box', 'yes' ) == 'yes' ) {
-					add_action( 'comment_form', array( $this,'subscribe_reloaded_show' ) );
-				}
-
 				// What to do when a new comment is posted
 				add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 				// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
 				add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
-				
+
 				// Load Text Domain
 				add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
 
@@ -108,14 +103,14 @@ namespace stcr {
 
 			}
 			// end __construct
-			
+
 			/**
 			 * Load localization files
 			 */
 			function subscribe_reloaded_load_plugin_textdomain() {
 				load_plugin_textdomain( 'subscribe-reloaded', FALSE, basename( dirname( __FILE__ ) ) . '/langs/' );
 			}
-			
+
 			/*
 			 * Add Settings link to plugin on plugins page
 			 */
@@ -1049,6 +1044,8 @@ namespace stcr {
 					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 					echo "</div>";
 				} else {
+					$backtrace = debug_backtrace();
+					// print_r($backtrace);
 					echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 				}
