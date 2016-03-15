@@ -349,14 +349,31 @@ namespace stcr {
 				wp_send_json_success( 'Notification status updated for "' . $_notification . '"' );
 				die();
 			}
-
+			/**
+			 * Function to log messages into a given file. The variable $file_path must have writing permissions.
+			 *
+			 * @param  string $value The message to log
+			 * @since 13-Mar-2016
+			 * @author reedyseth
+			 */
 			public function stcr_logger( $value = '' )
 			{
-				$file = fopen( "Path/log.txt", "a" );
+				$file_path = plugin_dir_path( __FILE__ );
+				$file_name = "log.txt";
 
-				fputs( $file , $value);
+				if( is_writable( $file_path ) )
+				{
+					$file = fopen( $file_path . "/" . $file_name, "a" );
 
-				fclose($file);
+					fputs( $file , $value);
+
+					fclose($file);
+
+				}
+				// else
+				// {
+				// 	throw new \Exception("The path $file_path is not writable, please check the folder Permissions.", 1);
+				// }
 			}
 		}
 	}

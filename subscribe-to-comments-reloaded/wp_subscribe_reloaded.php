@@ -18,7 +18,6 @@ namespace stcr {
 
 				parent::__construct(); // Run parent constructor.
 
-
 				$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
 
 				// What to do when a new comment is posted
@@ -896,7 +895,6 @@ namespace stcr {
 				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
 
 				$headers       = "From: \"$from_name\" <$from_email>\n";
-				$headers      .= "To: $clean_email\n";
 				$reply_to	   = get_option( "subscribe_reloaded_reply_to" ) == "" ? $from_email : get_option( "subscribe_reloaded_reply_to" );
 				$headers      .= "Reply-To: $reply_to\n";
 				$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
@@ -942,7 +940,9 @@ namespace stcr {
 					$message = $this->utils->wrap_html_message( $message, $subject );
 				}
 				$headers .= "Subject: $subject\n";
-
+				if ( $content_type == 'text/html' ) {
+					$message = wpautop( $message );
+				}
 				wp_mail( $clean_email, $subject, $message, $headers );
 			}
 			// end notify_user
