@@ -35,6 +35,24 @@ namespace stcr {
 					if ( function_exists( 'qtrans_convertURL' ) ) {
 						$manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
 					}
+					if (function_exists('pll_default_language'))
+					{
+						$currentLanguage = pll_current_language();  //get current active language
+						$defaultLanguage = pll_default_language();  // get default language
+						$currID = url_to_postid(get_option("subscribe_reloaded_manager_page"));  // get post id of subscription manager page
+						$languageParameter = '';
+
+						if(($currentLanguage != $defaultLanguage)) { // Generating user_link
+							$translationIds = pll_get_post($currID, $currentLanguage);  // get post id of translated page
+							$post = get_post($translationIds);
+							$slug = $post->post_name;
+							$languageParameter = '/' . $currentLanguage . '/' . $slug;
+							$manager_page_permalink = get_bloginfo('url') . $languageParameter;
+						} else {
+							$manager_page_permalink = get_bloginfo('url') . $languageParameter . get_option( 'subscribe_reloaded_manager_page', '' );
+						}
+					}
+
 					if ( empty( $manager_page_permalink ) ) {
 						$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 					}
@@ -888,6 +906,23 @@ namespace stcr {
 				if ( function_exists( 'qtrans_convertURL' ) ) {
 					$manager_link = qtrans_convertURL( $manager_link );
 				}
+				if (function_exists('pll_default_language')) {
+					$currentLanguage = pll_current_language();  //get current active language
+					$defaultLanguage = pll_default_language();  // get default language
+					$currID = url_to_postid(get_option("subscribe_reloaded_manager_page"));  // get post id of subscription manager page
+					$languageParameter = '';
+
+					if(($currentLanguage != $defaultLanguage)) { // Generating user_link
+						$translationIds = pll_get_post($currID, $currentLanguage);  // get post id of translated page
+						$post = get_post($translationIds);
+						$slug = $post->post_name;
+						$languageParameter = '/' . $currentLanguage . '/' . $slug;
+						$manager_link = get_bloginfo('url') . $languageParameter;
+					} else {
+						$manager_link = get_bloginfo('url') . $languageParameter . get_option( 'subscribe_reloaded_manager_page', '' );
+					}
+				}
+
 
 				$clean_email     = $this->utils->clean_email( $_email );
 				$subscriber_salt = $this->utils->generate_temp_key( $clean_email );
@@ -970,6 +1005,22 @@ namespace stcr {
 
 				if ( function_exists( 'qtrans_convertURL' ) ) {
 					$user_link = qtrans_convertURL( $user_link );
+				}
+				if (function_exists('pll_default_language')) {
+					$currentLanguage = pll_current_language();  //get current active language
+					$defaultLanguage = pll_default_language();  // get default language
+					$currID = url_to_postid(get_option("subscribe_reloaded_manager_page"));  // get post id of subscription manager page
+					$languageParameter = '';
+
+					if(($currentLanguage != $defaultLanguage)) { // Generating user_link
+						$translationIds = pll_get_post($currID, $currentLanguage);  // get post id of translated page
+						$post = get_post($translationIds);
+						$slug = $post->post_name;
+						$languageParameter = '/' . $currentLanguage . '/' . $slug;
+						$user_link = get_bloginfo('url') . $languageParameter;
+					} else {
+						$user_link = get_bloginfo('url') . $languageParameter . get_option( 'subscribe_reloaded_manager_page', '' );
+					}
 				}
 
 				$manager_link = ( strpos( $user_link, '?' ) !== false ) ?
