@@ -4,6 +4,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	header( 'Location: /' );
 	exit;
 }
+
 $action = esc_attr( ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' ) );
 if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
 	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-' . $action . '.php';
@@ -18,7 +19,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 <div class="postbox small postbox-mass">
 	<h3><?php _e( 'Mass Update Subscriptions', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post" id="update_address_form"
+	<form action="" method="post" id="update_address_form"
 		  onsubmit="if (this.oldsre.value == '') return false;return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
 			<table>
@@ -59,7 +60,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 <div class="postbox small">
 	<h3><?php _e( 'Add New Subscription', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post" id="update_address_form"
+	<form action="" method="post" id="update_address_form"
 		  onsubmit="if (this.srp.value == '' || this.sre.value == '') return false;">
 		<fieldset style="border:0">
 			<table>
@@ -96,10 +97,10 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
 	<h3><?php _e( 'Search subscriptions', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post">
+	<form action="" method="post">
 		<p><?php printf(
 	__( 'You can either <a href="%s">view all the subscriptions</a> or find those where the', 'subscribe-reloaded' ),
-	'options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv=@&amp;srt=contains'
+	'admin.php?page=stcr_manage_subscriptions&amp;srv=@&amp;srt=contains'
 ) ?>&nbsp;
 			<select name="srf">
 				<option value='email'><?php _e( 'email', 'subscribe-reloaded' ) ?></option>
@@ -119,14 +120,14 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 			<input type="submit" class="subscribe-form-button" value="<?php _e( 'Search', 'subscribe-reloaded' ) ?>" />
 	</form>
 
-	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1" method="post" id="subscription_form" name="subscription_form"
+	<form action="" method="post" id="subscription_form" name="subscription_form"
 		  onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
 			<?php
 if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
-	$order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-reloaded' ) . "' href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
-	$order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
-	$order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
+	$order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
+	$order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
+	$order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
 
 	$show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<span class='subscribe-column subscribe-column-1'>" . __( 'Post (ID)', 'subscribe-reloaded' ) . "&nbsp;&nbsp;$order_post_id</span>" : '';
 	$show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'>" . __( 'Email', 'subscribe-reloaded' ) . "</span>" : '';
@@ -148,15 +149,15 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 	foreach ( $subscriptions as $a_subscription ) {
 		$title     = get_the_title( $a_subscription->post_id );
 		$title     = ( strlen( $title ) > 35 ) ? substr( $title, 0, 35 ) . '..' : $title;
-		$row_post  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<a class='subscribe-column subscribe-column-1' href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=$a_subscription->post_id'>$title ($a_subscription->post_id)</a> " : '';
-		$row_email = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'><a href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=" . urlencode( $a_subscription->email ) . "'>$a_subscription->email</a></span> " : '';
+		$row_post  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<a class='subscribe-column subscribe-column-1' href='admin.php?page=stcr_manage_subscriptions&amp;srf=post_id&amp;srt=equals&amp;srv=$a_subscription->post_id'>$title ($a_subscription->post_id)</a> " : '';
+		$row_email = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'><a href='admin.php?page=stcr_manage_subscriptions&amp;srf=email&amp;srt=equals&amp;srv=" . urlencode( $a_subscription->email ) . "'>$a_subscription->email</a></span> " : '';
 		$date_time = date_i18n( $date_time_format, strtotime( $a_subscription->dt ) );
 		$alternate = ( $alternate == ' class="row"' ) ? ' class="row alternate"' : ' class="row"';
 		echo "<li$alternate>
 					<label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) . " {$a_subscription->meta_id}</label>
 					<input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
-					<a class='subscribe-column' href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/edit.png' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
-					<a class='subscribe-column' href='options-general.php?page=subscribe-to-comments-reloaded/options/index.php&amp;subscribepanel=1&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/delete.png' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
+					<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/edit.png' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
+					<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/delete.png' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
 					$row_post
 					$row_email
 					<span class='subscribe-column subscribe-column-3'>$date_time</span>
@@ -174,7 +175,7 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 			<option value="force_r"><?php _e( 'Activate and set to R', 'subscribe-reloaded' ) ?></option>
 			<option value="activate"><?php _e( 'Activate', 'subscribe-reloaded' ) ?></option>
 		</select>
-		
+
 <?php
 	echo '<p><input type="submit" class="subscribe-form-button button-primary" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /></p>';
 	echo "<input type='hidden' name='srf' value='$search_field'/><input type='hidden' name='srt' value='$operator'/><input type='hidden' name='srv' value='$search_value'/><input type='hidden' name='srsf' value='$offset'/><input type='hidden' name='srrp' value='$limit_results'/><input type='hidden' name='srob' value='$order_by'/><input type='hidden' name='sro' value='$order'/>";

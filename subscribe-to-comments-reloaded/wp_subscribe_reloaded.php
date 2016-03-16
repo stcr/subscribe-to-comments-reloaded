@@ -66,12 +66,7 @@ namespace stcr {
 
 					// Add appropriate entries in the admin menu
 					add_action( 'admin_menu', array( $this, 'add_config_menu' ) );
-					add_action(
-						'admin_print_styles-subscribe-to-comments-reloaded/options/index.php', array(
-							$this,
-							'add_options_stylesheet'
-						)
-					);
+					// TODO: Remove admin_print_styles and add the style with the correct hook.
 					add_action( 'admin_print_styles-edit-comments.php', array( $this, 'add_post_comments_stylesheet' ) );
 					add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
 

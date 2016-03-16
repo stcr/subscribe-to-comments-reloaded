@@ -54,7 +54,7 @@ if ( isset( $_POST['options'] ) ) {
 	echo "</p></div>\n";
 }
 ?>
-<form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
+<form action="" method="post">
 	<h3><?php _e( 'Options', 'subscribe-reloaded' ) ?></h3>
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
 		<tbody>
@@ -131,7 +131,7 @@ if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' )
 			</th>
 			<td>
 				<input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style" value="<?php echo subscribe_reloaded_get_option( 'checkbox_inline_style' ); ?>" size="20">
-				
+
 				<div class="description"><?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>

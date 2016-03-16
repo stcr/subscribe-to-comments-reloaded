@@ -80,7 +80,7 @@ if ( isset( $_POST['options'] ) ) {
 wp_print_scripts( 'quicktags' );
 
 ?>
-<form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
+<form action="" method="post">
 	<h3><?php _e( 'Options', 'subscribe-reloaded' ) ?></h3>
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
 		<tbody>

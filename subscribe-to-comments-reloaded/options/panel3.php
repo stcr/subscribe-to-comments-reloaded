@@ -78,7 +78,7 @@ wp_print_scripts( 'quicktags' );
 $is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' );
 ?>
 
-<form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
+<form action="" method="post">
 	<h3><?php _e( 'Options', 'subscribe-reloaded' ) ?></h3>
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
 		<tbody>
