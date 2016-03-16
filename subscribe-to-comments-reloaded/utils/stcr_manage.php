@@ -346,7 +346,26 @@ namespace stcr {
 				global $current_user;
 
 				if ( current_user_can( 'manage_options' ) ) {
-					add_options_page( 'Subscribe to Comments', 'Subscribe to Comments', 'manage_options', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/index.php' );
+
+					$page_title = "Subscribe to Comments Reloaded";
+					$menu_title = "StCR";
+					$capability = "manage_options";
+					$menu_slug  = WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/index.php';
+					$function   = "";
+					$icon_url   = "dashicons-email";
+					$position   = 26;
+					$parent_slug= $menu_slug;
+					add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
+
+					add_submenu_page( $parent_slug , "Manage Subscriptions", "Manage Subscriptions", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=1", "");
+					add_submenu_page( $parent_slug , "Comment Form", "Comment Form", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=2", "");
+					add_submenu_page( $parent_slug , "Management Page", "Management Page", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=3", "");
+					add_submenu_page( $parent_slug , "Notifications", "Notifications", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=4", "");
+					add_submenu_page( $parent_slug , "Options", "Options", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=5", "");
+					add_submenu_page( $parent_slug , "Subscribers Email", "Subscribers Email", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=6","");
+					add_submenu_page( $parent_slug , "You can Help", "You can Help", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=7", "");
+					add_submenu_page( $parent_slug , "Support", "Support", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=8", "");
+					add_submenu_page( $parent_slug , "Donate", "Donate", $capability, "admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=&subscribepanel=9", "");
 				}
 
 				return $_s;

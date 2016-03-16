@@ -249,7 +249,7 @@ wp_print_scripts( 'quicktags' );
 					wp_editor( subscribe_reloaded_get_option( $id_oneclick_text ), $id_oneclick_text, $args_notificationContent );
 				?>
 				<div class="description" style="padding-top:0">
-					<?php _e( 'Content of the One Click confirmation. Allowed tags: [post_title]', 'subscribe-reloaded' ); ?>
+					<?php _e( 'Content of the One Click confirmation. Allowed tags: [post_title], [blog_name]', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

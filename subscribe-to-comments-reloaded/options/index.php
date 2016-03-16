@@ -59,6 +59,7 @@ $array_panels = array(
 	__( 'Management Page', 'subscribe-reloaded' ),
 	__( 'Notifications', 'subscribe-reloaded' ),
 	__( 'Options', 'subscribe-reloaded' ),
+	__( 'Subscribers Emails', 'subscribe-reloaded' ),
 	__( 'You can help', 'subscribe-reloaded' ),
 	__( 'Support', 'subscribe-reloaded' ),
 	__( 'Donate', 'subscribe-reloaded' )
@@ -87,8 +88,8 @@ if ( $wp_locale->text_direction != 'ltr' ) {
 		foreach ( $array_panels as $a_panel_id => $a_panel_details ) {
 			echo '<a class="nav-tab nav-tab';
 			echo ( $current_panel == $a_panel_id + 1 ) ? '-active' : '-inactive';
-			echo ( $current_panel == $a_panel_id + 1 &&  $a_panel_id + 1 == 8) ? ' donate-tab-active' : '';
-			if ( $a_panel_id + 1 == 8){
+			echo ( $current_panel == $a_panel_id + 1 &&  $a_panel_id + 1 == 9) ? ' donate-tab-active' : '';
+			if ( $a_panel_id + 1 == 9){
 				echo ' donate-tab ';
 			}
 			echo '" href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=' . ( $a_panel_id + 1 ) . '">' . $a_panel_details . '</a>';
@@ -97,7 +98,9 @@ if ( $wp_locale->text_direction != 'ltr' ) {
 		<div class="clearFix"></div>
 	</h2>
 
-	<?php if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php" ) ) {
-		require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php";
-	} ?>
+	<?php
+		if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php" ) ) {
+			require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php";
+		}
+	?>
 </div>
