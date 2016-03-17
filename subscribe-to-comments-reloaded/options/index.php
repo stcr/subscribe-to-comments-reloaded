@@ -78,9 +78,9 @@ $array_pages = array(
 $current_page =  isset( $_GET['page'] ) ? $_GET['page'] : '';
 
 // Text direction button-primary
-if ( $wp_locale->text_direction != 'ltr' ) {
-	$array_pages = array_reverse( $array_pages, true );
-}
+// if ( $wp_locale->text_direction != 'ltr' ) {
+// 	$array_pages = array_reverse( $array_pages, true );
+// }
 
 ?>
 <div class="wrap">

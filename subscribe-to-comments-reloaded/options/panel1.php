@@ -46,7 +46,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 						<input type='submit' class='subscribe-form-button' value='<?php _e( 'Update', 'subscribe-reloaded' ) ?>' ></td>
 				</tr>
 				<tr>
-					<td colspan="2"><a class="more-info" href="#" data-infopanel="info-panel-mass-update">More info</a></td>
+					<td colspan="2"><a class="more-info" href="#" data-infopanel="info-panel-mass-update"><?php _e("More info", "subscribe-reloaded"); ?></a></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type='hidden' name='sra' value='edit' /></td>
@@ -136,33 +136,75 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 	echo '<p>' . __( 'Legend: Y = all comments, R = replies only, C = inactive', 'subscribe-reloaded' ) . '</p>';
 	echo '<ul>';
 
-	echo "<li class='subscribe-list-header'>
-				<input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all'
+	if( $wp_locale->text_direction == 'rtl' )
+	{
+		echo "<li class='subscribe-list-header'>
+					<span class='subscribe-column subscribe-column-4'>" . __( 'Status', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_status</span>
+					<span class='subscribe-column subscribe-column-3'>" . __( 'Date and Time', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_dt</span>
+					$show_email_column
+					$show_post_column
+					<span class='subscribe-column' style='width:38px'>&nbsp;</span>
+					<input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all'
 					onchange='t=document.forms[\"subscription_form\"].elements[\"subscriptions_list[]\"];c=t.length;if(!c){t.checked=this.checked}else{for(var i=0;i<c;i++){t[i].checked=!t[i].checked}}'/>
-				<span class='subscribe-column' style='width:38px'>&nbsp;</span>
-				$show_post_column
-				$show_email_column
-				<span class='subscribe-column subscribe-column-3'>" . __( 'Date and Time', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_dt</span>
-				<span class='subscribe-column subscribe-column-4'>" . __( 'Status', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_status</span></li>\n";
+			</li>\n";
+	}
+	else
+	{
+		echo "<li class='subscribe-list-header'>
+					<input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all'
+						onchange='t=document.forms[\"subscription_form\"].elements[\"subscriptions_list[]\"];c=t.length;if(!c){t.checked=this.checked}else{for(var i=0;i<c;i++){t[i].checked=!t[i].checked}}'/>
+					<span class='subscribe-column' style='width:38px'>&nbsp;</span>
+					$show_post_column
+					$show_email_column
+					<span class='subscribe-column subscribe-column-3'>" . __( 'Date and Time', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_dt</span>
+					<span class='subscribe-column subscribe-column-4'>" . __( 'Status', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_status</span></li>\n";
+
+	}
+
 	$alternate        = '';
 	$date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 	foreach ( $subscriptions as $a_subscription ) {
 		$title     = get_the_title( $a_subscription->post_id );
 		$title     = ( strlen( $title ) > 35 ) ? substr( $title, 0, 35 ) . '..' : $title;
-		$row_post  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<a class='subscribe-column subscribe-column-1' href='admin.php?page=stcr_manage_subscriptions&amp;srf=post_id&amp;srt=equals&amp;srv=$a_subscription->post_id'>$title ($a_subscription->post_id)</a> " : '';
+		if( $wp_locale->text_direction == 'rtl' )
+		{
+			$row_post  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<a class='subscribe-column subscribe-column-1' href='admin.php?page=stcr_manage_subscriptions&amp;srf=post_id&amp;srt=equals&amp;srv=$a_subscription->post_id'>($a_subscription->post_id) $title</a> " : '';
+		}
+		else
+		{
+			$row_post  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<a class='subscribe-column subscribe-column-1' href='admin.php?page=stcr_manage_subscriptions&amp;srf=post_id&amp;srt=equals&amp;srv=$a_subscription->post_id'>$title ($a_subscription->post_id)</a> " : '';
+		}
 		$row_email = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'><a href='admin.php?page=stcr_manage_subscriptions&amp;srf=email&amp;srt=equals&amp;srv=" . urlencode( $a_subscription->email ) . "'>$a_subscription->email</a></span> " : '';
 		$date_time = date_i18n( $date_time_format, strtotime( $a_subscription->dt ) );
 		$alternate = ( $alternate == ' class="row"' ) ? ' class="row alternate"' : ' class="row"';
-		echo "<li$alternate>
-					<label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) . " {$a_subscription->meta_id}</label>
-					<input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
-					<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/edit.png' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
-					<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/delete.png' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
-					$row_post
-					$row_email
-					<span class='subscribe-column subscribe-column-3'>$date_time</span>
-					<span class='subscribe-column subscribe-column-4'>$a_subscription->status</span>
-					</li>\n";
+
+		if( $wp_locale->text_direction == 'rtl' )
+		{
+			echo "<li$alternate>
+						<span class='subscribe-column subscribe-column-4'>$a_subscription->status</span>
+						<span class='subscribe-column subscribe-column-3'>$date_time</span>
+						$row_email
+						$row_post
+						<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/delete.png' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
+						<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/edit.png' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
+						<input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
+						<label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) . " {$a_subscription->meta_id}</label>
+				  </li>\n";
+		}
+		else
+		{
+			echo "<li$alternate>
+						<label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) . " {$a_subscription->meta_id}</label>
+						<input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
+						<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/edit.png' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
+						<a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/delete.png' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
+						$row_post
+						$row_email
+						<span class='subscribe-column subscribe-column-3'>$date_time</span>
+						<span class='subscribe-column subscribe-column-4'>$a_subscription->status</span>
+				  </li>\n";
+		}
+
 	}
 	echo '</ul>';
 
