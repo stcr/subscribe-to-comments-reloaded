@@ -20,6 +20,12 @@ namespace stcr {
 
 				$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
 
+				// Show the checkbox - You can manually override this by adding the corresponding function in your template
+				if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' )
+				{
+					add_action( 'comment_form', array( $this,'subscribe_reloaded_show' ) );
+				}
+
 				// What to do when a new comment is posted
 				add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 				// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
