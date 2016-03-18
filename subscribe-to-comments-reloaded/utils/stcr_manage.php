@@ -350,7 +350,7 @@ namespace stcr {
 					$function   = "";
 					$icon_url   = "dashicons-email";
 					$position   = 26;
-					$parent_slug= "stcr_options";
+					$parent_slug= "stcr_manage_subscriptions";
 					add_menu_page( $page_title, $menu_title, $capability, $parent_slug, $function, $icon_url, $position );
 
 					add_submenu_page( $parent_slug ,
