@@ -133,7 +133,6 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 	$show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'>" . __( 'Email', 'subscribe-reloaded' ) . "</span>" : '';
 
 	echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) . " <code>$search_field $operator <strong>$search_value</strong> ORDER BY $order_by $order</code>. " . __( 'Rows:', 'subscribe-reloaded' ) . ' ' . ( $offset + 1 ) . " - $ending_to " . __( 'of', 'subscribe-reloaded' ) . " $count_total</p>";
-	echo '<p>' . __( 'Legend: Y = all comments, R = replies only, C = inactive', 'subscribe-reloaded' ) . '</p>';
 	echo '<ul>';
 
 	if( $wp_locale->text_direction == 'rtl' )
@@ -163,7 +162,18 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 
 	$alternate        = '';
 	$date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+
+	// Let us forme those status
+	$status_arry = array(
+			'R'  => __( 'Replies', 'subscribe-reloaded'),
+			'Y'  => __( "All Comments", "subscribe-reloaded"),
+			'YC' => __( "Unconfirmed", "subscribe-reloaded"),
+			'C'	 => __( "Inactive", "subscribe-reloaded"),
+			'-C' => __( "Active", "subscribe-reloaded")
+		);
+
 	foreach ( $subscriptions as $a_subscription ) {
+		$wp_subscribe_reloaded->stcr->utils->stcr_logger( print_r($a_subscription, true) );
 		$title     = get_the_title( $a_subscription->post_id );
 		$title     = ( strlen( $title ) > 35 ) ? substr( $title, 0, 35 ) . '..' : $title;
 		if( $wp_locale->text_direction == 'rtl' )
@@ -174,14 +184,16 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 		{
 			$row_post  = ( $operator != 'equals' || $search_field != 'post_id' ) ? "<a class='subscribe-column subscribe-column-1' href='admin.php?page=stcr_manage_subscriptions&amp;srf=post_id&amp;srt=equals&amp;srv=$a_subscription->post_id'>$title ($a_subscription->post_id)</a> " : '';
 		}
-		$row_email = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'><a href='admin.php?page=stcr_manage_subscriptions&amp;srf=email&amp;srt=equals&amp;srv=" . urlencode( $a_subscription->email ) . "'>$a_subscription->email</a></span> " : '';
+		$row_email = ( $operator != 'equals' || $search_field != 'email' ) ? "<span class='subscribe-column subscribe-column-2'><a href='admin.php?page=stcr_manage_subscriptions&amp;srf=email&amp;srt=equals&amp;srv=" . urlencode( $a_subscription->email ) . "' title='email unique key: ( $a_subscription->email_key )'>$a_subscription->email</a></span> " : '';
 		$date_time = date_i18n( $date_time_format, strtotime( $a_subscription->dt ) );
 		$alternate = ( $alternate == ' class="row"' ) ? ' class="row alternate"' : ' class="row"';
+
+		$status_desc = $status_arry[$a_subscription->status];
 
 		if( $wp_locale->text_direction == 'rtl' )
 		{
 			echo "<li$alternate>
-						<span class='subscribe-column subscribe-column-4'>$a_subscription->status</span>
+						<span class='subscribe-column subscribe-column-4'>$status_desc</span>
 						<span class='subscribe-column subscribe-column-3'>$date_time</span>
 						$row_email
 						$row_post
@@ -201,7 +213,7 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 						$row_post
 						$row_email
 						<span class='subscribe-column subscribe-column-3'>$date_time</span>
-						<span class='subscribe-column subscribe-column-4'>$a_subscription->status</span>
+						<span class='subscribe-column subscribe-column-4'>$status_desc</span>
 				  </li>\n";
 		}
 

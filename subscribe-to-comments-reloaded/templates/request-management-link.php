@@ -41,8 +41,8 @@ if ( ! empty( $email ) ) {
 	$message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
 	$page_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
 	$page_message = str_replace( '[manager_link]', '', $message );
-	$message = str_replace( '[manager_link]', '<a href="' . $manager_link . '">' . $manager_link . '</a>', $message );
-	$message = str_replace( '[oneclick_link]', '<a href="' . $one_click_unsubscribe_link . '">' . $one_click_unsubscribe_link . '</a>', $message );
+	$message = str_replace( '[manager_link]',  $manager_link, $message );
+	$message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {

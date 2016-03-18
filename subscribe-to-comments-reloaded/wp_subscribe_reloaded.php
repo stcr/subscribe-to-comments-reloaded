@@ -784,8 +784,9 @@ namespace stcr {
 					return $wpdb->get_results(
 						$wpdb->prepare(
 							"
-				SELECT pm.meta_id, REPLACE(pm.meta_key, '_stcr@_', '') AS email, pm.post_id, SUBSTRING(pm.meta_value, 1, 19) AS dt, SUBSTRING(pm.meta_value, 21) AS status
+				SELECT pm.meta_id, REPLACE(pm.meta_key, '_stcr@_', '') AS email, pm.post_id, SUBSTRING(pm.meta_value, 1, 19) AS dt, SUBSTRING(pm.meta_value, 21) AS status, srs.subscriber_unique_id AS email_key
 				FROM $wpdb->postmeta pm
+				INNER JOIN {$wpdb->prefix}subscribe_reloaded_subscribers srs ON ( REPLACE(pm.meta_key, '_stcr@_', '') = srs.subscriber_email  )
 				WHERE pm.meta_key LIKE %s
 					AND pm.meta_value LIKE '%%R'
 					AND pm.post_id = %d", $parent_comment_author_email, $comment_post_id
@@ -849,8 +850,9 @@ namespace stcr {
 					return $wpdb->get_results(
 						$wpdb->prepare(
 							"
-				SELECT meta_id, REPLACE(meta_key, '_stcr@_', '') AS email, post_id, SUBSTRING(meta_value, 1, 19) AS dt, SUBSTRING(meta_value, 21) AS status
+				SELECT meta_id, REPLACE(meta_key, '_stcr@_', '') AS email, post_id, SUBSTRING(meta_value, 1, 19) AS dt, SUBSTRING(meta_value, 21) AS status, srs.subscriber_unique_id AS email_key
 				FROM $wpdb->postmeta
+				INNER JOIN {$wpdb->prefix}subscribe_reloaded_subscribers srs ON ( REPLACE(meta_key, '_stcr@_', '') = srs.subscriber_email  )
 				WHERE meta_key LIKE '\_stcr@\_%%' $where_clause
 				ORDER BY $order_by $order
 				LIMIT $_offset,$row_count", $where_values
