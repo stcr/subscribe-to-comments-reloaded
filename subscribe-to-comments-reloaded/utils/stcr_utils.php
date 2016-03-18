@@ -124,9 +124,22 @@ namespace stcr {
 			 * Creates the HTML structure to properly handle HTML messages
 			 */
 			public function wrap_html_message( $_message = '', $_subject = '' ) {
+				global $wp_locale;
 				$_message = apply_filters( 'stcr_wrap_html_message', $_message );
 
-				return "<html><head><title>$_subject</title></head><body>$_message</body></html>";
+				if( $wp_locale->text_direction == "rtl")
+				{
+					$locale = get_locale();
+					$html = "<html xmlns='http://www.w3.org/1999/xhtml' dir='rtl' lang='$locale'>";
+					$head = "<head><title>$_subject</title></head>";
+					$body = "<body>$_message</body>";
+					return $html . $head . $body . "</html>";
+				}
+				else
+				{
+					return "<html><body>$_message</body></html>";
+				}
+
 			}
 			// end _wrap_html_message
 
