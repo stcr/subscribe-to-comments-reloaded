@@ -363,6 +363,8 @@ namespace stcr {
 			 */
 			public function subscribe_reloaded_manage( $_posts = '', $_query = '' ) {
 				global $current_user;
+				$stcr_unique_key = get_option( "subscribe_reloaded_unique_key" );
+				$date = date_i18n( 'Y-m-d H:i:s' );
 
 				if ( ! empty( $_posts ) ) {
 					return $_posts;
@@ -381,14 +383,20 @@ namespace stcr {
 				$sre = ! empty( $_POST['sre'] ) ? $_POST['sre']  : ( ! empty( $_GET['sre'] ) ?  $_GET['sre']  : '' );
 
 				$email = $this->utils->get_subscriber_email_by_key( $sre );
-				if( ! $email){
-					$email = $sre;
-				}
-				//$email = $this->get_subscriber_key( $subcriber_email_key );
 
-				if ( empty( $email ) && ! empty( $current_user->user_email ) ) {
-					$email = $this->utils->clean_email( $current_user->user_email );
+				// Check for a valid SRE key, otherwise stop execution.
+				if( ! $email){
+					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: $sre\n" );
+					return;
 				}
+				// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
+				// or is wrong, in that case display the request management page template
+				if( ! $this->utils->_is_valid_key( $key, $email ) )
+				{
+					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n" );
+					return;
+				}
+
 
 				// Subscribe without commenting
 				if ( ! empty( $action ) && ( $action == 's' ) && ( $post_ID > 0 ) ) {
@@ -946,6 +954,9 @@ namespace stcr {
 				if ( $content_type == 'text/html' ) {
 					$message = wpautop( $message );
 				}
+				$this->utils->stcr_logger( "*********************************************************************************" );
+				$this->utils->stcr_logger( "\n\n" . $message );
+				$this->utils->stcr_logger( "*********************************************************************************" );
 				wp_mail( $clean_email, $subject, $message, $headers );
 			}
 			// end notify_user
