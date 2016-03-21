@@ -23,6 +23,23 @@ if ( ! empty( $email ) ) {
 		$manager_link = qtrans_convertURL( $manager_link );
 	}
 
+	if (function_exists('pll_default_language')) {
+		$currentLanguage = pll_current_language();  //get current active language
+		$defaultLanguage = pll_default_language();  // get default language
+		$currID = url_to_postid(get_option("subscribe_reloaded_manager_page"));  // get post id of subscription manager page
+		$languageParameter = '';
+
+		if(($currentLanguage != $defaultLanguage)) { // Generating user_link
+			$translationIds = pll_get_post($currID, $currentLanguage);  // get post id of translated page
+			$post = get_post($translationIds);
+			$slug = $post->post_name;
+			$languageParameter = '/' . $currentLanguage . '/' . $slug;
+			$manager_link = get_bloginfo('url') . $languageParameter;
+		} else {
+			$manager_link = get_bloginfo('url') . $languageParameter . get_option( 'subscribe_reloaded_manager_page', '' );
+		}
+	}
+
 	$clean_email     = $wp_subscribe_reloaded->stcr->utils->clean_email( $email );
 	$subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
 
