@@ -84,7 +84,7 @@ if ( ! empty( $email ) ) {
 		echo "#";
 	} else {
 		echo $_SERVER['REQUEST_URI'];
-	} ?>" method="post" onsubmit="if(this.sre.value=='' || this.sre.indexOf('@')==0) return false">
+	} ?>" method="post" onsubmit="if(this.sre.value=='email' || /\S+@\S+\.\S+/.test(this.sre.value)===false || this.sre.indexOf('@')==0) return false">
 		<fieldset style="border:0">
 			<p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
 				<input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
