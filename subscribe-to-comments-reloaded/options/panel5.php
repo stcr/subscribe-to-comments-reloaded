@@ -159,7 +159,7 @@ wp_print_scripts( 'quicktags' );
 			<td>
 				<input type="radio" name="options[commentbox_place]" id="commentbox_place" value="yes"<?php echo ( subscribe_reloaded_get_option( 'commentbox_place' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
 				<input type="radio" name="options[commentbox_place]" value="no" <?php echo ( subscribe_reloaded_get_option( 'commentbox_place' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
-				<div class="description"><?php _e( 'If this option is enable the subscriptioin box will be above the submit button in your comment form.', 'subscribe-reloaded' ); ?></div>
+				<div class="description"><?php _e( 'If this option is enable the subscription box will be above the submit button in your comment form.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
 		<tr>

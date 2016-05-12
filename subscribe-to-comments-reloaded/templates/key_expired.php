@@ -5,10 +5,12 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-ob_start();
+$error_message   = __( "Woohaa the link to manage your subscriptions has expired, don't worry, just enter your email below and a new link will be send.", "subscribe-reloaded");
 
-if ( ! empty( $email ) ) {
+ob_start();
+if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	global $wp_subscribe_reloaded;
+	$email = esc_attr( $_POST[ 'sre' ] );
 
 	// Send management link
 	$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
@@ -25,10 +27,10 @@ if ( ! empty( $email ) ) {
 	$clean_email     = $wp_subscribe_reloaded->stcr->utils->clean_email( $email );
 	$subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
 
-	$headers = "MIME-Version: 1.0\n";
-	$headers .= "From: $from_name <$from_email>\n";
+	$headers      = "MIME-Version: 1.0\n";
+	$headers     .= "From: $from_name <$from_email>\n";
 	$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
-	$headers .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' );
+	$headers     .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' );
 
 	$manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
 	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt";
@@ -46,8 +48,8 @@ if ( ! empty( $email ) ) {
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
-		$subject = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
-		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
+		$subject      = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
+		$message      = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 		$page_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
 	}
 	if ( $content_type == 'text/html' ) {
@@ -55,18 +57,21 @@ if ( ! empty( $email ) ) {
 	}
 	$wp_subscribe_reloaded->stcr->utils->stcr_logger( "\n\n" . $clean_email );
 	$wp_subscribe_reloaded->stcr->utils->stcr_logger( "\n\n" . $message );
+
 	wp_mail( $clean_email, $subject, $message, $headers );
 
-	echo $page_message;
+	echo wpautop( $page_message );
 } else {
 	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_COMPAT, 'UTF-8' );
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
-	<p><?php echo $message; ?></p>
+	<p><?php echo $error_message; ?></p>
 	<form action="<?php 
-		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);
+		$url = $_SERVER[ 'REQUEST_URI' ];
+		$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );		
+		echo esc_url( $url . "&key_expired=1" );
 	 ?>" method="post" onsubmit="if(this.subscribe_reloaded_email.value=='' || this.subscribe_reloaded_email.value.indexOf('@')==0) return false">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>

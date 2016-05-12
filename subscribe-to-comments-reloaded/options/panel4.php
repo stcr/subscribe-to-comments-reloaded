@@ -229,7 +229,7 @@ wp_print_scripts( 'quicktags' );
 					wp_editor( subscribe_reloaded_get_option( $id_management_content ), $id_management_content, $args_notificationContent );
 				?>
 				<div class="description" style="padding-top:0">
-					<?php _e( 'Content of the management email. Allowed tags: [blog_name], [manager_link]', 'subscribe-reloaded' ); ?>
+					<?php _e( 'Content of the management email and Page message. Allowed tags: [blog_name], [manager_link]. [manager_link] Will be visible only on the email, if you need to show that link into the web page use [web_manager_link]. Although the [web_manager_link] is available be AWARE that if someone know the email address of a user they will enter it to manage and will get the link.', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

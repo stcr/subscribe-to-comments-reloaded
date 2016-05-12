@@ -356,8 +356,8 @@ namespace stcr {
 					$this->add_subscription( $_post_ID, $author_email, 'Y' );
 				}
 			}
-			// end subscribe_post_author
-
+			// // end subscribe_post_author
+			
 			/**
 			 * Displays the appropriate management page
 			 */
@@ -365,8 +365,10 @@ namespace stcr {
 				global $current_user;
 				$stcr_unique_key = get_option( "subscribe_reloaded_unique_key" );
 				$date = date_i18n( 'Y-m-d H:i:s' );
+				$error_exits = false;
+				$email = '';
 
-				if ( ! empty( $_posts ) ) {
+				if ( ! isset( $_posts ) && ! empty( $_posts ) ) {
 					return $_posts;
 				}
 
@@ -378,53 +380,89 @@ namespace stcr {
 					return $_posts;
 				}
 
-				$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
-				$key    = ! empty( $_POST['srk'] ) ? $_POST['srk'] : ( ! empty( $_GET['srk'] ) ? $_GET['srk'] : 0 );
-				$sre = ! empty( $_POST['sre'] ) ? $_POST['sre']  : ( ! empty( $_GET['sre'] ) ?  $_GET['sre']  : '' );
+				$action 	   = ! empty( $_POST['sra'] )  ? $_POST['sra']   : ( ! empty( $_GET['sra'] )  ?  $_GET['sra']   : 0  );
+				$key    	   = ! empty( $_POST['srk'] )  ? $_POST['srk']   : ( ! empty( $_GET['srk'] )  ?  $_GET['srk']   : 0  );
+				$sre    	   = ! empty( $_POST['sre'] )  ? $_POST['sre']   : ( ! empty( $_GET['sre'] )  ?  $_GET['sre']   : '' );
+				$srek   	   = ! empty( $_POST['srek'] ) ? $_POST['srek']  : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
+				$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : 0 );
 
-				$email = $this->utils->get_subscriber_email_by_key( $sre );
+				$email_by_key  = $this->utils->get_subscriber_email_by_key( $srek );				
 
 				// Check for a valid SRE key, otherwise stop execution.
-				if( ! $email){
-					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: $sre\n" );
-					return;
+				if( ! $email_by_key ){
+					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n" );					
+					$email =  $sre;					
+				}
+				else
+				{
+					$email = $email_by_key;
 				}
 				// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
 				// or is wrong, in that case display the request management page template
-				if( ! $this->utils->_is_valid_key( $key, $email ) )
+				if( $email !== "" && ! $this->utils->_is_valid_key( $key, $email ) || $key_expired == "1" )
 				{
-					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n" );
-					return;
+					if( $key_expired == "1" )
+					{
+						$error_exits = true;
+					}
+					else
+					{
+						$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n" );
+						$error_exits = true;
+					}
 				}
 
+				if( $error_exits )
+				{
+					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/key_expired.php';
+				}
+				else
+				{
+					// Subscribe without commenting
+					if ( ! empty( $action ) && 
+						 ( $action == 's' ) && 
+						 ( $post_ID > 0 ) && 
+						 $key_expired != "1" )  
+					{
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
+					} // Management page for post authors
+					elseif ( ( $post_ID > 0 ) && 
+							 $this->is_author( $target_post->post_author ) ) 
+					{
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
+					} // Confirm your subscription (double check-in)
+					elseif ( ( $post_ID > 0 )  && 
+							 ! empty( $email ) && 
+							 ! empty( $key )   && 
+							 ! empty( $action ) &&
+						     $this->utils->_is_valid_key( $key, $email ) &&
+							 $this->is_user_subscribed( $post_ID, $email, 'C' ) &&
+							 ( $action == 'c' ) &&
+							 $key_expired != "1" ) 
+					{
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
+					}
+					elseif ( ( $post_ID > 0 )  && 
+							 ! empty( $email ) && 
+							 ! empty( $key )   && 
+							 ! empty( $action ) &&
+							 $this->utils->_is_valid_key( $key, $email ) &&
+						     ( $action == 'u' ) &&
+						     $key_expired != "1" ) 
+					{
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
+					}
+					// Manage your subscriptions (user)
+					elseif (   ! empty( $email ) && 
+						     ( ! empty( $key ) && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) ) 
+					{
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
+					}
 
-				// Subscribe without commenting
-				if ( ! empty( $action ) && ( $action == 's' ) && ( $post_ID > 0 ) ) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
-				} // Management page for post authors
-				elseif ( ( $post_ID > 0 ) && $this->is_author( $target_post->post_author ) ) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
-				} // Confirm your subscription (double check-in)
-				elseif ( ( $post_ID > 0 ) && ! empty( $email ) && ! empty( $key ) && ! empty( $action ) &&
-					$this->is_user_subscribed( $post_ID, $email, 'C' ) &&
-					$this->utils->_is_valid_key( $key, $email ) &&
-					( $action == 'c' )
-				) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
-				}
-				elseif ( ( $post_ID > 0 ) && ! empty( $email ) && ! empty( $key ) && ! empty( $action ) &&
-					$this->utils->_is_valid_key( $key, $email ) &&
-					( $action == 'u' )
-				) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
-				}
-				// Manage your subscriptions (user)
-				elseif ( ! empty( $email ) && ( ! empty( $key ) && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) ) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
-				}
-
-				if ( empty( $include_post_content ) ) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
+					if ( empty( $include_post_content ) ) 
+					{
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
+					}
 				}
 
 				global $wp_query;
@@ -479,6 +517,9 @@ namespace stcr {
 
 				// Seems like WP adds its own HTML formatting code to the content, we don't need that here
 				remove_filter( 'the_content', 'wpautop' );
+				// Look like the plugin is call twice and therefor subscribe to the "the_posts" filter again so we need to
+				// tell to WordPress to not register again.
+				remove_filter("the_posts", array( $this, "subscribe_reloaded_manage" ) );
 				add_action( 'wp_head', array( $this, 'add_custom_header_meta' ) );
 
 				return $posts;
@@ -902,8 +943,8 @@ namespace stcr {
 				$clean_email     = $this->utils->clean_email( $_email );
 				$subscriber_salt = $this->utils->generate_temp_key( $clean_email );
 
-				$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
-				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
+				$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
+				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
 
 				$headers       = "From: \"$from_name\" <$from_email>\n";
 				$reply_to	   = get_option( "subscribe_reloaded_reply_to" ) == "" ? $from_email : get_option( "subscribe_reloaded_reply_to" );
@@ -955,6 +996,7 @@ namespace stcr {
 					$message = wpautop( $message );
 				}
 				$this->utils->stcr_logger( "*********************************************************************************" );
+				$this->utils->stcr_logger( "\n\n" . $clean_email );
 				$this->utils->stcr_logger( "\n\n" . $message );
 				$this->utils->stcr_logger( "*********************************************************************************" );
 				wp_mail( $clean_email, $subject, $message, $headers );

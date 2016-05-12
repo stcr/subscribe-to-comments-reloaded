@@ -56,6 +56,6 @@ namespace stcr {
 				$this->stcr->deactivate();
 			}
 		}
-		$wp_subscribe_reloaded = new stcr_subscribe_reloaded(); // Initialize the cool stuff
+		$wp_subscribe_reloaded = new stcr_subscribe_reloaded(); // Initialize the cool stuff		
 	}
 }
