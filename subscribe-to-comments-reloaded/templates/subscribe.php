@@ -43,12 +43,12 @@ if ( ! empty( $email ) ) {
 		$subject = __( 'New subscription to', 'subscribe-reloaded' ) . " $target_post->post_title";
 		$message = __( 'New subscription to', 'subscribe-reloaded' ) . " $target_post->post_title\n" . __( 'User:', 'subscribe-reloaded' ) . " $clean_email";
 
-		$headers = "MIME-Version: 1.0\n";
+		// $headers = "MIME-Version: 1.0\n";
 		$headers .= "From: $from_name <$from_email>\n";
 		$headers .= "Content-Type: text/plain; charset=" . get_bloginfo( 'charset' ) . "\n";
 		wp_mail( get_bloginfo( 'admin_email' ), $subject, $message, $headers );
 	}
-	if ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' && ! $wp_subscribe_reloaded->stcr->is_user_subscribed( $post_ID, $clean_email, 'C' ) ) {
+	if ( get_option( 'subscribe_reloaded_enable_double_check' ) == 'yes' && ! $wp_subscribe_reloaded->stcr->is_user_subscribed( $post_ID, $clean_email, 'C' ) ) {
 		$wp_subscribe_reloaded->stcr->add_subscription( $post_ID, $clean_email, 'YC' );
 		$wp_subscribe_reloaded->stcr->confirmation_email( $post_ID, $clean_email );
 		$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscription_confirmed_dci' ) ), ENT_QUOTES, 'UTF-8' );

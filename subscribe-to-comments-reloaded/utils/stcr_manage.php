@@ -411,6 +411,12 @@ namespace stcr {
 									 $capability,
 									 "stcr_donate",
 									 array( $this, "stcr_option_donate" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'StCR System', 'subscribe-reloaded' ),
+									__( 'StCR System', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_system",
+									 array( $this, "stcr_option_system" ) );
 				}
 
 				return $_s;
@@ -657,6 +663,34 @@ namespace stcr {
 					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel9.php" ) )
 					{
 						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel9.php";
+					}
+				}
+			}
+
+			/**
+			 * Dispaly the stcr_option_donate template
+			 * @since 160524
+			 * @author reedyseth
+			 */
+			public function stcr_option_system()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel10.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel10.php";
 					}
 				}
 			}
