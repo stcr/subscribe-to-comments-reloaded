@@ -116,7 +116,7 @@ namespace stcr {
 			 */
 			public function plugin_settings_link( $links, $file ) {
 				if ( $file == 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' ) {
-					$links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url( 'options-general.php?page=subscribe-to-comments-reloaded/options/index.php' ), __( 'Settings', 'subscribe-reloaded' ) );
+					$links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_options' ), __( 'Settings', 'subscribe-reloaded' ) );
 				}
 
 				return $links;
