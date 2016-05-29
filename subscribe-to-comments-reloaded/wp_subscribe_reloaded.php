@@ -357,7 +357,7 @@ namespace stcr {
 				}
 			}
 			// // end subscribe_post_author
-			
+
 			/**
 			 * Displays the appropriate management page
 			 */
@@ -386,12 +386,12 @@ namespace stcr {
 				$srek   	   = ! empty( $_POST['srek'] ) ? $_POST['srek']  : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
 				$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : 0 );
 
-				$email_by_key  = $this->utils->get_subscriber_email_by_key( $srek );				
+				$email_by_key  = $this->utils->get_subscriber_email_by_key( $srek );
 
 				// Check for a valid SRE key, otherwise stop execution.
 				if( ! $email_by_key ){
-					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n" );					
-					$email =  $sre;					
+					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n" );
+					$email =  $sre;
 				}
 				else
 				{
@@ -419,47 +419,47 @@ namespace stcr {
 				else
 				{
 					// Subscribe without commenting
-					if ( ! empty( $action ) && 
-						 ( $action == 's' ) && 
-						 ( $post_ID > 0 ) && 
-						 $key_expired != "1" )  
+					if ( ! empty( $action ) &&
+						 ( $action == 's' ) &&
+						 ( $post_ID > 0 ) &&
+						 $key_expired != "1" )
 					{
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
 					} // Management page for post authors
-					elseif ( ( $post_ID > 0 ) && 
-							 $this->is_author( $target_post->post_author ) ) 
+					elseif ( ( $post_ID > 0 ) &&
+							 $this->is_author( $target_post->post_author ) )
 					{
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
 					} // Confirm your subscription (double check-in)
-					elseif ( ( $post_ID > 0 )  && 
-							 ! empty( $email ) && 
-							 ! empty( $key )   && 
+					elseif ( ( $post_ID > 0 )  &&
+							 ! empty( $email ) &&
+							 ! empty( $key )   &&
 							 ! empty( $action ) &&
 						     $this->utils->_is_valid_key( $key, $email ) &&
 							 $this->is_user_subscribed( $post_ID, $email, 'C' ) &&
 							 ( $action == 'c' ) &&
-							 $key_expired != "1" ) 
+							 $key_expired != "1" )
 					{
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
 					}
-					elseif ( ( $post_ID > 0 )  && 
-							 ! empty( $email ) && 
-							 ! empty( $key )   && 
+					elseif ( ( $post_ID > 0 )  &&
+							 ! empty( $email ) &&
+							 ! empty( $key )   &&
 							 ! empty( $action ) &&
 							 $this->utils->_is_valid_key( $key, $email ) &&
 						     ( $action == 'u' ) &&
-						     $key_expired != "1" ) 
+						     $key_expired != "1" )
 					{
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
 					}
 					// Manage your subscriptions (user)
-					elseif (   ! empty( $email ) && 
-						     ( ! empty( $key ) && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) ) 
+					elseif (   ! empty( $email ) &&
+						     ( ! empty( $key ) && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) )
 					{
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
 					}
 
-					if ( empty( $include_post_content ) ) 
+					if ( empty( $include_post_content ) )
 					{
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
 					}
@@ -467,7 +467,7 @@ namespace stcr {
 
 				global $wp_query;
 
-				$manager_page_title = html_entity_decode( get_option( 'subscribe_reloaded_manager_page_title', 'Manage subscriptions' ), ENT_COMPAT, 'UTF-8' );
+				$manager_page_title = html_entity_decode( get_option( 'subscribe_reloaded_manager_page_title', 'Manage subscriptions' ), ENT_QUOTES, 'UTF-8' );
 				if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 					$manager_page_title = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $manager_page_title );
 				} else {
@@ -929,13 +929,11 @@ namespace stcr {
 					$sitepress->switch_lang($language);
 				}
 
-				// Retrieve the options from the database
-				$from_name    = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) ), ENT_QUOTES, 'UTF-8' );
-				$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 				$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_QUOTES, 'UTF-8' );
-				$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_COMPAT, 'UTF-8' );
+				$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_QUOTES, 'UTF-8' );
 				$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 				$one_click_unsubscribe_link = $manager_link;
+
 				if ( function_exists( 'qtrans_convertURL' ) ) {
 					$manager_link = qtrans_convertURL( $manager_link );
 				}
@@ -943,26 +941,14 @@ namespace stcr {
 				$clean_email     = $this->utils->clean_email( $_email );
 				$subscriber_salt = $this->utils->generate_temp_key( $clean_email );
 
-				$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
-				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
-
-				$headers       = "From: \"$from_name\" <$from_email>\n";
-				$reply_to	   = get_option( "subscribe_reloaded_reply_to" ) == "" ? $from_email : get_option( "subscribe_reloaded_reply_to" );
-				$headers      .= "Reply-To: $reply_to\n";
-				$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
-				$headers .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' ) . "\n";
-
-				if ( get_option( 'subscribe_reloaded_admin_bcc', 'no' ) == 'yes' ) {
-					$headers .= "Bcc: $from_name <$from_email>\n";
-				}
+				$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' )
+								. "srek=" . $this->utils->get_subscriber_key( $clean_email )
+								. "&srk=$subscriber_salt";
+				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
+										. "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt"
+										. "&sra=u" . "&srp=" . $_post_ID;
 
 				$comment_content = $comment->comment_content;
-
-				// Add HTML paragraph tags to comment
-				// See wp-includes/formatting.php for details on the wpautop() function
-				if ( $content_type == 'text/html' ) {
-					$comment_content = wpautop( $comment->comment_content );
-				}
 
 				// Replace tags with their actual values
 				$subject = str_replace( '[post_title]', $post->post_title, $subject );
@@ -984,22 +970,16 @@ namespace stcr {
 				} else {
 					$message = str_replace( '[post_title]', $post->post_title, $message );
 				}
-				$message = apply_filters( 'stcr_notify_user_message', $message, $_post_ID, $_email, $_comment_ID );
-				if ( $content_type == 'text/html' ) {
-					if ( get_option( 'subscribe_reloaded_htmlify_message_links' ) == 'yes' ) {
-						$message = $this->htmlify_message_links( $message );
-					}
-					$message = $this->utils->wrap_html_message( $message, $subject );
-				}
-				$headers .= "Subject: $subject\n";
-				if ( $content_type == 'text/html' ) {
-					$message = wpautop( $message );
-				}
-				$this->utils->stcr_logger( "*********************************************************************************" );
-				$this->utils->stcr_logger( "\n\n" . $clean_email );
-				$this->utils->stcr_logger( "\n\n" . $message );
-				$this->utils->stcr_logger( "*********************************************************************************" );
-				wp_mail( $clean_email, $subject, $message, $headers );
+				$message = apply_filters( 'stcr_notify_user_message', $message, $_post_ID, $clean_email, $_comment_ID );
+				// Prepare email settings
+				$email_settings = array(
+					'subject'      => $subject,
+					'message'      => $message,
+					'toEmail'      => $clean_email,
+					'XPostId'    => $_post_ID,
+					'XCommentId' => $_comment_ID
+				);
+				$this->utils->send_email( $email_settings );
 			}
 			// end notify_user
 

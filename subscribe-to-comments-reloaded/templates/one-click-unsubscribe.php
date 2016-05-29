@@ -15,7 +15,7 @@ ob_start();
 
 if ( is_object( $post ) ) {
 
-	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_oneclick_text' ) ), ENT_COMPAT, 'UTF-8' );
+	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_oneclick_text' ) ), ENT_QUOTES, 'UTF-8' );
 	$message = str_replace( '[post_title]',   $post->post_name, $message );
 	$message = str_replace( '[blog_name]' , get_bloginfo('name'), $message );
 

@@ -6,8 +6,6 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 global $wp_subscribe_reloaded;
-require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/classes/helper.class.php';
-$helper = new subscribeToCommentsHelper();
 ob_start();
 $post_permalink = get_permalink( $post_ID );
 if ( ! empty( $email ) ) {
@@ -36,23 +34,29 @@ if ( ! empty( $email ) ) {
 	$clean_email = $wp_subscribe_reloaded->stcr->utils->clean_email( $email );
 
 	// If the case, send a message to the administrator
-	if ( get_option( 'subscribe_reloaded_enable_admin_messages', 'no' ) == 'yes' ) {
+	if ( get_option( 'subscribe_reloaded_enable_admin_messages' ) == 'yes' )
+	{
 		$from_name  = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
 		$from_email = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 
 		$subject = __( 'New subscription to', 'subscribe-reloaded' ) . " $target_post->post_title";
 		$message = __( 'New subscription to', 'subscribe-reloaded' ) . " $target_post->post_title\n" . __( 'User:', 'subscribe-reloaded' ) . " $clean_email";
-
-		// $headers = "MIME-Version: 1.0\n";
-		$headers .= "From: $from_name <$from_email>\n";
-		$headers .= "Content-Type: text/plain; charset=" . get_bloginfo( 'charset' ) . "\n";
-		wp_mail( get_bloginfo( 'admin_email' ), $subject, $message, $headers );
+		// Prepare email settings
+		$email_settings = array(
+			'subject'      => $subject,
+			'message'      => $message,
+			'toEmail'      => get_bloginfo( 'admin_email' )
+		);
+		$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
 	}
-	if ( get_option( 'subscribe_reloaded_enable_double_check' ) == 'yes' && ! $wp_subscribe_reloaded->stcr->is_user_subscribed( $post_ID, $clean_email, 'C' ) ) {
+	if ( get_option( 'subscribe_reloaded_enable_double_check' ) == 'yes'
+			&& ! $wp_subscribe_reloaded->stcr->is_user_subscribed( $post_ID, $clean_email, 'C' ) )
+	{
 		$wp_subscribe_reloaded->stcr->add_subscription( $post_ID, $clean_email, 'YC' );
 		$wp_subscribe_reloaded->stcr->confirmation_email( $post_ID, $clean_email );
 		$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscription_confirmed_dci' ) ), ENT_QUOTES, 'UTF-8' );
-	} else {
+	}
+	else {
 		$this->add_subscription( $post_ID, $clean_email, 'Y' );
 		$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscription_confirmed' ) ), ENT_QUOTES, 'UTF-8' );
 	}
@@ -64,12 +68,11 @@ if ( ! empty( $email ) ) {
 	} else {
 		$message = str_replace( '[post_title]', $target_post->post_title, $message );
 	}
-
-	echo "<p>$message</p>";
-} else {
+	echo wpautop($message);
+}
+else {
 	$email = isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? $_COOKIE['comment_author_email_' . COOKIEHASH] : 'email';
 ?>
-
 	<p><?php
 	$message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
@@ -80,11 +83,9 @@ if ( ! empty( $email ) ) {
 	}
 	echo $message;
 	?></p>
-	<form action="<?php if ( $helper->verifyXSS( $_SERVER['REQUEST_URI'] ) ) {
-		echo "#";
-	} else {
-		echo $_SERVER['REQUEST_URI'];
-	} ?>" method="post" onsubmit="if(this.sre.value=='' || this.sre.indexOf('@')==0) return false">
+	<form action="<?php
+		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
+		method="post" onsubmit="if(this.sre.value=='' || this.sre.indexOf('@')==0) return false">
 		<fieldset style="border:0">
 			<p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
 				<input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />

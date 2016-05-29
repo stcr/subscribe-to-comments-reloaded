@@ -106,7 +106,7 @@ wp_print_scripts( 'quicktags' );
 				<div class="description"><?php _e( 'If enabled, will send email messages with content-type = text/html instead of text/plain', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
-		<tr>
+	<!-- 	<tr>
 			<th scope="row">
 				<label for="htmlify_message_links"><?php _e( 'HTMLify links in emails', 'wp-comment-subscriptions' ) ?></label>
 			</th>
@@ -115,7 +115,7 @@ wp_print_scripts( 'quicktags' );
 				<input type="radio" name="options[htmlify_message_links]" value="no" <?php echo ( subscribe_reloaded_get_option( 'htmlify_message_links' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
 				<div class="description"><?php _e( 'If enabled, will wrap all links in messages with <code>&lt;a href=""&gt;&lt;/a&gt;</code> (only when HTML emails enabled).', 'subscribe-reloaded' ); ?></div>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<th scope="row">
 				<label for="process_trackbacks"><?php _e( 'Process trackbacks', 'subscribe-reloaded' ) ?></label></th>

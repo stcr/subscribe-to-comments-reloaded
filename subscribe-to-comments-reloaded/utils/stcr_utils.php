@@ -126,6 +126,9 @@ namespace stcr {
 			public function wrap_html_message( $_message = '', $_subject = '' ) {
 				global $wp_locale;
 				$_message = apply_filters( 'stcr_wrap_html_message', $_message );
+				// Add HTML paragraph tags to comment
+				// See wp-includes/formatting.php for details on the wpautop() function
+				$_message = wpautop( $_message );
 
 				if( $wp_locale->text_direction == "rtl")
 				{
@@ -137,7 +140,10 @@ namespace stcr {
 				}
 				else
 				{
-					return "<html><body>$_message</body></html>";
+					$html = "<html>";
+					$head = "<head><title>$_subject</title></head>";
+					$body = "<body>$_message</body>";
+					return $html . $head . $body . "</html>";
 				}
 
 			}
@@ -160,6 +166,75 @@ namespace stcr {
 				return esc_attr( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
 			}
 			// end clean_email
+
+
+			/**
+			 * Will send an email by adding the correct headers.
+			 *
+			 * @since 28-May-2016
+			 * @author reedyseth
+			 * @param $_emailSettings Array Associative array with settings.
+			 * @return true|false Boolean On success or failure
+			 */
+			public function send_email( $_settings )
+			{	// Retrieve the options from the database
+				$from_name    = html_entity_decode(
+									stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) ), ENT_QUOTES, 'UTF-8' );
+				$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
+				$reply_to     = get_option( "subscribe_reloaded_reply_to" ) == ''
+										? $from_email : get_option( "subscribe_reloaded_reply_to" );
+				$content_type = $content_type = (  get_option(  'subscribe_reloaded_enable_html_emails' ) == 'yes' )
+										?  'text/html'  :  'text/plain';
+				$headers      = "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' ) . "\n";
+				$date = date_i18n( 'Y-m-d H:i:s' );
+
+				$_emailSettings = array(
+					'fromEmail'    =>  $from_email,
+					'fromName'     =>  $from_name,
+					'toEmail'      =>  '',
+					'subject'      =>  __('StCR Notification' ,'subscribe-reloaded'),
+					'message'      =>  '',
+					'bcc'          =>  '',
+					'reply_to'     =>  $reply_to,
+					'XPostId'    =>  '0',
+					'XCommentId' =>  '0'
+				);
+
+				$_emailSettings = array_merge( $_emailSettings, $_settings );
+
+				if ( $content_type == 'text/html' ) {
+					$_emailSettings[ 'message' ] = $this->wrap_html_message( $_emailSettings['message'], $_emailSettings['subject'] );
+				}
+
+				$headers .= "From: \"{$_emailSettings['fromName']}\" <{$_emailSettings['fromEmail']}>\n";
+				$headers .= "Reply-To: {$_emailSettings['reply_to']}\n";
+				$headers .= "Subject: {$_emailSettings['subject']}\n";
+				$headers .= "X-Post-Id: {$_emailSettings['XPostId']}\n";
+				$headers .= "X-Comment-Id: {$_emailSettings['XCommentId']}\n";
+
+				if ( get_option( 'subscribe_reloaded_admin_bcc' ) == 'yes' ) {
+					$headers .= "Bcc: $from_name <$from_email>\n"; // The StCR email define or otherwise the blog admin.
+				}
+
+				$this->stcr_logger( "*********************************************************************************" );
+				$this->stcr_logger( "\n\nDate:			" . $date );
+				$this->stcr_logger( "\n\nTo Email:		" . $_emailSettings['toEmail'] );
+				$this->stcr_logger( "\n\nFrom Email: 	" . $_emailSettings['fromEmail'] );
+				$this->stcr_logger( "\n\nMessage: 		" . $_emailSettings['message'] );
+				$this->stcr_logger( "\n\nHeaders:\n\n" 	  . $headers );
+				$this->stcr_logger( "*********************************************************************************" );
+
+				$sent_result = ( wp_mail( $_emailSettings['toEmail'], $_emailSettings['subject'], $_emailSettings['message'], $headers ) )
+							? true : false;
+				if( ! $sent_result )
+				{
+					$this->stcr_logger( "*********************************************************************************" );
+					$this->stcr_logger( "\nError sending email notification.\n" );
+					$this->stcr_logger( "*********************************************************************************" );
+				}
+
+				return  $sent_result;
+			}// End send_email
 			/**
 			 * Checks if a key is valid for a given email address
 			 */

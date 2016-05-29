@@ -11,26 +11,18 @@ ob_start();
 if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	global $wp_subscribe_reloaded;
 	$email = esc_attr( $_POST[ 'sre' ] );
-
-	// Send management link
-	$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
-	$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
-	$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_COMPAT, 'UTF-8' );
-	$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_COMPAT, 'UTF-8' );
+	$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
+	$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
 	$web_message  = $message;
 	$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 	$one_click_unsubscribe_link = $manager_link;
+
 	if ( function_exists( 'qtrans_convertURL' ) ) {
 		$manager_link = qtrans_convertURL( $manager_link );
 	}
 
 	$clean_email     = $wp_subscribe_reloaded->stcr->utils->clean_email( $email );
 	$subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
-
-	$headers      = "MIME-Version: 1.0\n";
-	$headers     .= "From: $from_name <$from_email>\n";
-	$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
-	$headers     .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' );
 
 	$manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
 	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt";
@@ -52,25 +44,26 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 		$message      = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 		$page_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
 	}
-	if ( $content_type == 'text/html' ) {
-		$message = $wp_subscribe_reloaded->stcr->utils->wrap_html_message( $message, $subject );
-	}
-	$wp_subscribe_reloaded->stcr->utils->stcr_logger( "\n\n" . $clean_email );
-	$wp_subscribe_reloaded->stcr->utils->stcr_logger( "\n\n" . $message );
-
-	wp_mail( $clean_email, $subject, $message, $headers );
-
+	// Prepare email settings
+	$email_settings = array(
+		'subject'      => $subject,
+		'message'      => $message,
+		'toEmail'      => $clean_email
+	);
+	$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
 	echo wpautop( $page_message );
-} else {
-	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_COMPAT, 'UTF-8' );
+}
+else
+{
+	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
 	<p><?php echo $error_message; ?></p>
-	<form action="<?php 
+	<form action="<?php
 		$url = $_SERVER[ 'REQUEST_URI' ];
-		$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );		
+		$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
 		echo esc_url( $url . "&key_expired=1" );
 	 ?>" method="post" onsubmit="if(this.subscribe_reloaded_email.value=='' || this.subscribe_reloaded_email.value.indexOf('@')==0) return false">
 		<fieldset style="border:0">
