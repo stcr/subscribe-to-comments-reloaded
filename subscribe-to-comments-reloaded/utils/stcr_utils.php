@@ -208,7 +208,6 @@ namespace stcr {
 
 				$headers .= "From: \"{$_emailSettings['fromName']}\" <{$_emailSettings['fromEmail']}>\n";
 				$headers .= "Reply-To: {$_emailSettings['reply_to']}\n";
-				$headers .= "Subject: {$_emailSettings['subject']}\n";
 				$headers .= "X-Post-Id: {$_emailSettings['XPostId']}\n";
 				$headers .= "X-Comment-Id: {$_emailSettings['XCommentId']}\n";
 
