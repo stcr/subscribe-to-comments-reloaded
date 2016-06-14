@@ -19,6 +19,11 @@ if ( isset( $_POST['options'] ) ) {
 	) {
 		$faulty_fields = __( 'Sender email address', 'subscribe-reloaded' ) . ', ';
 	}
+	if ( isset( $_POST['options']['reply_to'] ) &&
+		! subscribe_reloaded_update_option( 'reply_to', $_POST['options']['reply_to'], 'text' )
+	) {
+		$faulty_fields = __( 'Sender email address', 'subscribe-reloaded' ) . ', ';
+	}
 	if ( isset( $_POST['options']['notification_subject'] ) &&
 		! subscribe_reloaded_update_option( 'notification_subject', $_POST['options']['notification_subject'], 'text' )
 	) {
@@ -75,7 +80,7 @@ if ( isset( $_POST['options'] ) ) {
 wp_print_scripts( 'quicktags' );
 
 ?>
-<form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
+<form action="" method="post">
 	<h3><?php _e( 'Options', 'subscribe-reloaded' ) ?></h3>
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
 		<tbody>
@@ -103,6 +108,19 @@ wp_print_scripts( 'quicktags' );
 
 				<div class="description">
 					<?php _e( 'Email address to use for the "from" field when sending a new notification to the user.', 'subscribe-reloaded' ); ?>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<label for="reply_to"><?php _e( 'Reply To', 'subscribe-reloaded' ) ?></label>
+			</th>
+			<td>
+				<input type="text" name="options[reply_to]" id="reply_to"
+					   value="<?php echo subscribe_reloaded_get_option( 'reply_to' ); ?>" size="50">
+
+				<div class="description">
+					<?php _e( 'This will be use when the user click reply on their email agent. If not set will be the same as the Sender email address.', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>
@@ -231,7 +249,7 @@ wp_print_scripts( 'quicktags' );
 					wp_editor( subscribe_reloaded_get_option( $id_oneclick_text ), $id_oneclick_text, $args_notificationContent );
 				?>
 				<div class="description" style="padding-top:0">
-					<?php _e( 'Content of the One Click confirmation. Allowed tags: [post_title]', 'subscribe-reloaded' ); ?>
+					<?php _e( 'Content of the One Click confirmation. Allowed tags: [post_title], [blog_name]', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

@@ -124,9 +124,22 @@ namespace stcr {
 			 * Creates the HTML structure to properly handle HTML messages
 			 */
 			public function wrap_html_message( $_message = '', $_subject = '' ) {
+				global $wp_locale;
 				$_message = apply_filters( 'stcr_wrap_html_message', $_message );
 
-				return "<html><head><title>$_subject</title></head><body>$_message</body></html>";
+				if( $wp_locale->text_direction == "rtl")
+				{
+					$locale = get_locale();
+					$html = "<html xmlns='http://www.w3.org/1999/xhtml' dir='rtl' lang='$locale'>";
+					$head = "<head><title>$_subject</title></head>";
+					$body = "<body>$_message</body>";
+					return $html . $head . $body . "</html>";
+				}
+				else
+				{
+					return "<html><body>$_message</body></html>";
+				}
+
 			}
 			// end _wrap_html_message
 
@@ -348,6 +361,32 @@ namespace stcr {
 				// Send success message
 				wp_send_json_success( 'Notification status updated for "' . $_notification . '"' );
 				die();
+			}
+			/**
+			 * Function to log messages into a given file. The variable $file_path must have writing permissions.
+			 *
+			 * @param  string $value The message to log
+			 * @since 13-Mar-2016
+			 * @author reedyseth
+			 */
+			public function stcr_logger( $value = '' )
+			{
+				$file_path = plugin_dir_path( __FILE__ );
+				$file_name = "log.txt";
+
+				if( is_writable( $file_path ) )
+				{
+					$file = fopen( $file_path . "/" . $file_name, "a" );
+
+					fputs( $file , $value);
+
+					fclose($file);
+
+				}
+				// else
+				// {
+				// 	throw new \Exception("The path $file_path is not writable, please check the folder Permissions.", 1);
+				// }
 			}
 		}
 	}

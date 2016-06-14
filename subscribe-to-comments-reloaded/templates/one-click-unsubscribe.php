@@ -23,6 +23,7 @@ if ( is_object( $post ) ) {
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
+	$message = wpautop( $message ); // Let us add the <p> tag if need it.
 	echo "$message"; // TODO: Add management link with number of subscriptions.
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';

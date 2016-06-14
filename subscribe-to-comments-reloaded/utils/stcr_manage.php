@@ -19,7 +19,7 @@ namespace stcr {
 	{
 		class stcr_manage {
 
-			public $current_version = '160115';
+			public $current_version = '160320';
 			public $utils = null;
 			public $upgrade = null;
 			public $db_version = null;
@@ -221,6 +221,7 @@ namespace stcr {
 				delete_option('subscribe_reloaded_unique_key');
 				add_option( 'subscribe_reloaded_unique_key', $this->utils->generate_key(), '', 'yes' );
 				add_option( 'subscribe_reloaded_commentbox_place', 'no', '', 'yes' );
+				add_option( 'subscribe_reloaded_reply_to', '', '', 'yes' );
 				add_option( 'subscribe_reloaded_oneclick_text', "<p>Your are not longer subscribe to the post:</p>\r\n\r\n<h3>[post_title]</h3>\r\n<br>", '', 'yes' );
 				add_option( 'subscribe_reloaded_subscriber_table', 'no', '', 'yes' );
 				add_option( 'subscribe_reloaded_data_sanitized', 'no', '', 'yes' );
@@ -352,21 +353,329 @@ namespace stcr {
 				return preg_replace( '!(((f|ht)tp(s)?://)[-a-zA-Z?-??-?()0-9@:%_+.~#?&;//=]+)!i', '<a href="$1">$1</a>', $text );
 			}
 
-
-
 			/**
 			 * Adds a new entry in the admin menu, to manage this plugin's options
 			 */
 			public function add_config_menu( $_s ) {
-				global $current_user;
 
 				if ( current_user_can( 'manage_options' ) ) {
-					add_options_page( 'Subscribe to Comments', 'Subscribe to Comments', 'manage_options', WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/index.php' );
+
+					$page_title = "Subscribe to Comments Reloaded";
+					$menu_title = "StCR";
+					$capability = "manage_options";
+					$function   = "";
+					$icon_url   = "dashicons-email";
+					$position   = 26;
+					$parent_slug= "stcr_options";
+					add_menu_page( $page_title, $menu_title, $capability, $parent_slug, $function, $icon_url, $position );
+
+					add_submenu_page( $parent_slug ,
+									__( 'Manage subscriptions', 'subscribe-reloaded' ),
+									__( 'Manage subscriptions', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_manage_subscriptions",
+									 array( $this, "stcr_option_manage_subscriptions") );
+					add_submenu_page( $parent_slug ,
+									__( 'Comment Form', 'subscribe-reloaded' ),
+									__( 'Comment Form', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_comment_form",
+									 array( $this, "stcr_option_comment_form" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'Management Page', 'subscribe-reloaded' ),
+									__( 'Management Page', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_management_page",
+									 array( $this, "stcr_option_management_page" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'Notifications', 'subscribe-reloaded' ),
+									__( 'Notifications', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_notifications",
+									 array( $this, "stcr_option_notifications" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'Options', 'subscribe-reloaded' ),
+									__( 'Options', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_options",
+									 array( $this, "stcr_option_options" ) );
+					// @since 160316
+					// Using this page requires to list a cool table, on this case will be the WP_List_Table,
+					// since this requires much effort this is pointe to go to the pro version. NO ETA avaiable.
+					//
+					// add_submenu_page( $parent_slug ,
+					// 				__( 'Subscribers Emails', 'subscribe-reloaded' ),
+					// 				__( 'Subscribers Emails', 'subscribe-reloaded' ),
+					// 				 $capability,
+					// 				 "stcr_subscribers_emails",
+					// 				 array( $this, "stcr_option_subscribers_emails" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'You can help', 'subscribe-reloaded' ),
+									__( 'You can help', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_you_can_help",
+									 array( $this, "stcr_option_you_can_help" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'Support', 'subscribe-reloaded' ),
+									__( 'Support', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_support",
+									 array( $this, "stcr_option_support" ) );
+					add_submenu_page( $parent_slug ,
+									__( 'Donate', 'subscribe-reloaded' ),
+									__( 'Donate', 'subscribe-reloaded' ),
+									 $capability,
+									 "stcr_donate",
+									 array( $this, "stcr_option_donate" ) );
 				}
 
 				return $_s;
 			}
 			// end add_config_menu
+			/**
+			 * Dispaly the stcr_option_manage_subscriptions template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_manage_subscriptions()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+			    global $wp_subscribe_reloaded;
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_comment_form template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_comment_form()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel2.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel2.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_management_page template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_management_page()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel3.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel3.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_notifications template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_notifications()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel4.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel4.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_options template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_options()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel5.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel5.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_subscribers_emails template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_subscribers_emails()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel6.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel6.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_you_can_help template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_you_can_help()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel7.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel7.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_support template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_support()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel8.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel8.php";
+					}
+				}
+			}
+			/**
+			 * Dispaly the stcr_option_donate template
+			 * @since 160316
+			 * @author reedyseth
+			 */
+			public function stcr_option_donate()
+			{
+				//must check that the user has the required capability
+			    if (!current_user_can('manage_options'))
+			    {
+			    	wp_die( __('You do not have sufficient permissions to access this page.') );
+			    }
+
+			    $this->add_options_stylesheet();
+
+				// echo 'New Page Settings';
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+				{
+					// What panel to display
+					$current_panel = 2;
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
+					if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel9.php" ) )
+					{
+						require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel9.php";
+					}
+				}
+			}
 
 			/**
 			 * Adds a custom stylesheet file to the admin interface

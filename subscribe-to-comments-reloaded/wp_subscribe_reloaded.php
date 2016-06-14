@@ -18,8 +18,13 @@ namespace stcr {
 
 				parent::__construct(); // Run parent constructor.
 
-
 				$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
+
+				// Show the checkbox - You can manually override this by adding the corresponding function in your template
+				if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' )
+				{
+					add_action( 'comment_form', array( $this,'subscribe_reloaded_show' ) );
+				}
 
 				// What to do when a new comment is posted
 				add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
@@ -85,12 +90,7 @@ namespace stcr {
 
 					// Add appropriate entries in the admin menu
 					add_action( 'admin_menu', array( $this, 'add_config_menu' ) );
-					add_action(
-						'admin_print_styles-subscribe-to-comments-reloaded/options/index.php', array(
-							$this,
-							'add_options_stylesheet'
-						)
-					);
+					// TODO: Remove admin_print_styles and add the style with the correct hook.
 					add_action( 'admin_print_styles-edit-comments.php', array( $this, 'add_post_comments_stylesheet' ) );
 					add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
 
@@ -930,7 +930,9 @@ namespace stcr {
 				$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
 				$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=" . $_post_ID;
 
-				$headers      = "From: $from_name <$from_email>\n";
+				$headers       = "From: \"$from_name\" <$from_email>\n";
+				$reply_to	   = get_option( "subscribe_reloaded_reply_to" ) == "" ? $from_email : get_option( "subscribe_reloaded_reply_to" );
+				$headers      .= "Reply-To: $reply_to\n";
 				$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
 				$headers .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' ) . "\n";
 
@@ -973,7 +975,10 @@ namespace stcr {
 					}
 					$message = $this->utils->wrap_html_message( $message, $subject );
 				}
-
+				$headers .= "Subject: $subject\n";
+				if ( $content_type == 'text/html' ) {
+					$message = wpautop( $message );
+				}
 				wp_mail( $clean_email, $subject, $message, $headers );
 			}
 			// end notify_user
@@ -1091,13 +1096,13 @@ namespace stcr {
 				// Check for the Comment Form location
 				if( get_option('subscribe_reloaded_commentbox_place') == 'yes' ) {
 					echo "<div class='stcr-form hidden'>";
-					echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
+					echo "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 					echo "</div>";
 				} else {
 					$backtrace = debug_backtrace();
 					// print_r($backtrace);
-					echo "<!-- Subscribe to Comments Reloaded version". $wp_subscribe_reloaded->stcr->current_version . " -->";
+					echo "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 				}
 

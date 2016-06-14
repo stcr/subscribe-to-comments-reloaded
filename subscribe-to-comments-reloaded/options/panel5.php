@@ -9,7 +9,7 @@ $faulty_fields = '';
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
 	global $wp_subscribe_reloaded;
-	$unique_key = $wp_subscribe_reloaded->generate_key();
+	$unique_key = $wp_subscribe_reloaded->stcr->utils->generate_key();
 	subscribe_reloaded_update_option( 'unique_key', $unique_key, 'text' );
 
 	// Display an alert in the admin interface if something went wrong
@@ -69,7 +69,7 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 
 wp_print_scripts( 'quicktags' );
 ?>
-<form action="admin.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=<?php echo $current_panel ?>" method="post">
+<form action="" method="post">
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
 		<tr>
 			<th scope="row"><label for="purge_days"><?php _e( 'Autopurge requests', 'subscribe-reloaded' ) ?></label>

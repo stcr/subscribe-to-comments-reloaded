@@ -7,7 +7,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 <div class="postbox">
 	<h3><?php _e( 'Add New Subscription', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1" method="post" id="update_address_form"
+	<form action="" method="post" id="update_address_form"
 		  onsubmit="if (this.srp.value == '' || this.sre.value == '') return false;">
 		<fieldset style="border:0">
 			<p><?php _e( 'Post:', 'subscribe-reloaded' );
