@@ -428,20 +428,6 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 							break;
 					}
 				}
-
-				// Show the Comment Mail announcement to new installs and upgrades
-				$this->stcr_create_admin_notice(
-				'comment_mail_announcement',
-				'unread',
-				'<h3>' . __('Announcement: Introducing Comment Mail', 'subscribe-reloaded') . '</h3>' .
-				'<p>' . __('<strong><a href="http://comment-mail.com/r/stcr-to-cm/" target="_blank">Comment Mail</strong></a> is a new free plugin based on the original <strong>Subscribe to Comments Reloaded</strong> and includes all of the core StCR features.', 'subscribe-reloaded') . '</p>' .
-				'<p>' . __('A powerful StCR importer lets you import your StCR settings and subscriptions into Comment Mail, allowing for a seamless transition.', 'subscribe-reloaded') . '</p>' .
-				'<p>' . __('Need more powerful features to manage your subscriptions but can\'t wait for StCR? <a href="http://comment-mail.com/r/stcr-to-cm/" target="_blank">Take a look at Comment Mail!</a>', 'subscribe-reloaded') . '</p>' .
-				'<p>' . __('<em>Note: Subscribe to Comments Reloaded remains in active development.</em>'
-					. '<a class="dismiss" href="#">Got it.  </a>'
-					. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
-				'updated'
-				);
 			}
 		}
 	}
