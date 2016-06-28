@@ -997,8 +997,8 @@ namespace stcr {
 				$_comment_ID = null;
 
 				// Enable JS scripts.
-				$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
-				wp_enqueue_style( 'stcr-plugin-style' );
+				// $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
+				// wp_enqueue_style( 'stcr-plugin-style' );
 
 				$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 				if ( ! empty( $is_disabled ) ) {
@@ -1080,17 +1080,17 @@ namespace stcr {
 				}
 				$output = '';
 				// Check for the Comment Form location
-				if( get_option('subscribe_reloaded_commentbox_place') == 'yes' ) {
+				/*if( get_option('subscribe_reloaded_commentbox_place') == 'yes' ) {
 					$output .= "<div class='stcr-form hidden'>";
 					$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 					$output .= "</div>";
 				} else {
-					$backtrace = debug_backtrace();
+					// $backtrace = debug_backtrace();
 					// print_r($backtrace);
+				}*/
 					$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
 					$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
-				}
 				echo $output . $submit_field;
 			} // end subscribe_reloaded_show
 
