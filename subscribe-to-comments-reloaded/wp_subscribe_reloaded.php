@@ -23,7 +23,8 @@ namespace stcr {
 				// Show the checkbox - You can manually override this by adding the corresponding function in your template
 				if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' )
 				{
-					add_action( 'comment_form', array( $this,'subscribe_reloaded_show' ) );
+					add_filter( 'comment_form_submit_field', array($this, 'subscribe_reloaded_show'), 5, 1 );
+					// add_action( 'comment_form', array( $this,'subscribe_reloaded_show' ), 5, 0 );
 				}
 
 				// What to do when a new comment is posted
@@ -990,7 +991,7 @@ namespace stcr {
 			/**
 			 * Displays the checkbox to allow visitors to subscribe
 			 */
-			function subscribe_reloaded_show() {
+			function subscribe_reloaded_show($submit_field = '') {
 				global $post, $wp_subscribe_reloaded;
 				$checkbox_subscription_type = null;
 				$_comment_ID = null;
@@ -1077,19 +1078,20 @@ namespace stcr {
 				if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 					$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 				}
+				$output = '';
 				// Check for the Comment Form location
 				if( get_option('subscribe_reloaded_commentbox_place') == 'yes' ) {
-					echo "<div class='stcr-form hidden'>";
-					echo "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
-					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
-					echo "</div>";
+					$output .= "<div class='stcr-form hidden'>";
+					$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
+					$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+					$output .= "</div>";
 				} else {
 					$backtrace = debug_backtrace();
 					// print_r($backtrace);
-					echo "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
-					echo "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+					$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
+					$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 				}
-
+				echo $output . $submit_field;
 			} // end subscribe_reloaded_show
 
 			public function setUserCoookie() {
