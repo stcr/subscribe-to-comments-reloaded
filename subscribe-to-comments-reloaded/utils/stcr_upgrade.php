@@ -77,7 +77,7 @@ namespace stcr {
 
 				if ( ! get_option( "subscribe_reloaded_data_sanitized" ) || get_option( "subscribe_reloaded_data_sanitized" ) == "no" ) {
 					$stcr_data            = $wpdb->get_results(
-						" SELECT * FROM wp_options WHERE option_name like 'subscribe_reloaded%'
+						" SELECT * FROM $wpdb->options WHERE option_name like 'subscribe_reloaded%'
 				ORDER BY option_name", OBJECT
 					);
 					$sctr_data_array_size = sizeof( $stcr_data );
