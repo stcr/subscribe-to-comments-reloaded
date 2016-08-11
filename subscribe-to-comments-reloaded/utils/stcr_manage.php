@@ -19,7 +19,7 @@ namespace stcr {
 	{
 		class stcr_manage {
 
-			public $current_version = '160320';
+			public $current_version = '3.0.0';
 			public $utils = null;
 			public $upgrade = null;
 			public $db_version = null;
