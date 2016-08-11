@@ -4,8 +4,8 @@ Contributors: reedyseth, raamdev, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
-Tested up to: 4.4.1
-Stable tag: 160320
+Tested up to: 4.5.4-alpha-38000
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+= v3.0.0 =
+
+**Major Release** On this version there have been a lot of patches and upgrades in the code, although there are many other issues to improve and fix this version will make your site and subscribers happy.
+
 = v160115 =
 
 **Subscription broken Fix; PLEASE UPGRADE IMMEDIATELY**. This fixes the broken links while trying to subscribe without commenting.
@@ -117,6 +121,10 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v3.0.0 =
+
+* **Update** The version number to continue using the [Semantic](http://semver.org/) way.
 
 = Warning =
 **StCR version 160106 and above require at least PHP 5.3.X, so if you have a lower version your site might break, Read more** [here](https://wordpress.org/support/topic/fatal-error-upon-updating?replies=43)
