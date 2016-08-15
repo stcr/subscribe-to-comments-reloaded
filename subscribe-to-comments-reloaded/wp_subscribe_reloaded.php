@@ -95,7 +95,8 @@ namespace stcr {
 
 					// Check if the subscribers table is created otherwise create it.
 					if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
-						$this->upgrade->_create_subscriber_table();
+						$fresh_install = ! get_option( 'subscribe_reloaded_fresh_install' ) ? true : false;
+						$this->upgrade->_create_subscriber_table( $fresh_install );
 					}
 					// Add the AJAX Action
 					$this->utils->stcr_create_ajax_notices();

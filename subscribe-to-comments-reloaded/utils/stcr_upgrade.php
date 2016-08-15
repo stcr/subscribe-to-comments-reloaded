@@ -15,12 +15,14 @@ namespace stcr {
 	if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 		class stcr_upgrade extends stcr_utils {
 
-			public function _create_subscriber_table() {
+			public function _create_subscriber_table( $_fresh_install ) {
 				global $wpdb;
 				$charset_collate = $wpdb->get_charset_collate();
 				$errorMsg        = '';
 				// If the update option is set to false
-				if ( ! get_option('subscribe_reloaded_subscriber_table') ||  get_option('subscribe_reloaded_subscriber_table') == 'no' ) {
+				$stcr_opt_subscriber_table = get_option('subscribe_reloaded_subscriber_table');
+
+				if ( ! $_fresh_install && ( ! $stcr_opt_subscriber_table ||  $stcr_opt_subscriber_table == 'no' ) ) {
 					// Creation of table and subscribers.
 					$sqlCreateTable = " CREATE TABLE " . $wpdb->prefix . "subscribe_reloaded_subscribers (
 							  stcr_id int(11) NOT NULL AUTO_INCREMENT,
@@ -72,10 +74,12 @@ namespace stcr {
 				}
 			}
 
-			public function _sanitize_db_information() {
+			public function _sanitize_db_information( $_fresh_install ) {
 				global $wpdb;
 
-				if ( ! get_option( "subscribe_reloaded_data_sanitized" ) || get_option( "subscribe_reloaded_data_sanitized" ) == "no" ) {
+				if ( ( ! get_option( "subscribe_reloaded_data_sanitized" ) 
+					|| get_option( "subscribe_reloaded_data_sanitized" ) == "no" )
+					&& ! $_fresh_install  ) {
 					$stcr_data            = $wpdb->get_results(
 						" SELECT * FROM $wpdb->options WHERE option_name like 'subscribe_reloaded%'
 				ORDER BY option_name", OBJECT

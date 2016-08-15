@@ -23,11 +23,22 @@ namespace stcr {
 			public $utils = null;
 			public $upgrade = null;
 			public $db_version = null;
+			public $fresh_install = false;
 
 			public function __construct() {
 				$this->upgrade = new stcr_upgrade();
 				$this->utils = new stcr_utils();
 				$this->db_version = get_option( 'subscribe_reloaded_version' );
+				if ( ! get_option( 'subscribe_reloaded_fresh_install' ) 
+						|| get_option( 'subscribe_reloaded_fresh_install' ) == 'yes')
+				{
+					$this->fresh_install = true;
+				}
+				else
+				{
+					$this->fresh_install = true;
+					update_option('subscribe_reloaded_fresh_install', 'no');
+				}
 			}
 
 			/**
@@ -190,7 +201,9 @@ namespace stcr {
 
 				// Since there are some users with the database corrupted due to encoding stuff we need to sanitize
 				// their information
-				$this->upgrade->_sanitize_db_information();
+				$this->upgrade->_sanitize_db_information( $this->fresh_install );
+				// Create a new table if not exists to manage the subscribers safer
+				$this->upgrade->_create_subscriber_table( $this->fresh_install );
 
 				// Messages related to the management page
 				global $wp_rewrite;
@@ -204,6 +217,7 @@ namespace stcr {
 				// Let us make sure that the Unique Key is created
 				delete_option('subscribe_reloaded_unique_key');
 				add_option( 'subscribe_reloaded_unique_key', $this->utils->generate_key(), '', 'yes' );
+				add_option( 'subscribe_reloaded_fresh_install', 'no', '', 'yes' );
 				add_option( 'subscribe_reloaded_commentbox_place', 'no', '', 'yes' );
 				add_option( 'subscribe_reloaded_reply_to', '', '', 'yes' );
 				add_option( 'subscribe_reloaded_oneclick_text', "<p>Your are not longer subscribe to the post:</p>\r\n\r\n<h3>[post_title]</h3>\r\n<br>", '', 'yes' );
@@ -251,9 +265,6 @@ namespace stcr {
 				add_option( 'subscribe_reloaded_enable_admin_messages', 'no', '', 'yes' );
 				add_option( 'subscribe_reloaded_admin_subscribe', 'no', '', 'yes' );
 				add_option( 'subscribe_reloaded_admin_bcc', 'no', '', 'yes' );
-
-				// Create a new table if not exists to manage the subscribers safer
-				$this->upgrade->_create_subscriber_table();
 
 				update_option( 'subscribe_reloaded_version', $this->current_version );
 
