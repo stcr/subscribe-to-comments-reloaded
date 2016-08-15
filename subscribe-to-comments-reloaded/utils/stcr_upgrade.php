@@ -22,7 +22,7 @@ namespace stcr {
 				// If the update option is set to false
 				$stcr_opt_subscriber_table = get_option('subscribe_reloaded_subscriber_table');
 
-				if ( ! $_fresh_install && ( ! $stcr_opt_subscriber_table ||  $stcr_opt_subscriber_table == 'no' ) ) {
+				if ( $_fresh_install && ( ! $stcr_opt_subscriber_table ||  $stcr_opt_subscriber_table == 'no' ) ) {
 					// Creation of table and subscribers.
 					$sqlCreateTable = " CREATE TABLE " . $wpdb->prefix . "subscribe_reloaded_subscribers (
 							  stcr_id int(11) NOT NULL AUTO_INCREMENT,
@@ -77,7 +77,7 @@ namespace stcr {
 			public function _sanitize_db_information( $_fresh_install ) {
 				global $wpdb;
 
-				if ( ( ! get_option( "subscribe_reloaded_data_sanitized" ) 
+				if ( ( ! get_option( "subscribe_reloaded_data_sanitized" )
 					|| get_option( "subscribe_reloaded_data_sanitized" ) == "no" )
 					&& ! $_fresh_install  ) {
 					$stcr_data            = $wpdb->get_results(

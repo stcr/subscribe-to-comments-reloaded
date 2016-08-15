@@ -29,7 +29,7 @@ namespace stcr {
 				$this->upgrade = new stcr_upgrade();
 				$this->utils = new stcr_utils();
 				$this->db_version = get_option( 'subscribe_reloaded_version' );
-				if ( ! get_option( 'subscribe_reloaded_fresh_install' ) 
+				if ( ! get_option( 'subscribe_reloaded_fresh_install' )
 						|| get_option( 'subscribe_reloaded_fresh_install' ) == 'yes')
 				{
 					$this->fresh_install = true;
@@ -203,7 +203,10 @@ namespace stcr {
 				// their information
 				$this->upgrade->_sanitize_db_information( $this->fresh_install );
 				// Create a new table if not exists to manage the subscribers safer
-				$this->upgrade->_create_subscriber_table( $this->fresh_install );
+				// First Check if the subscribers table is created.
+				if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
+					$this->upgrade->_create_subscriber_table( $this->fresh_install );
+				}
 
 				// Messages related to the management page
 				global $wp_rewrite;
