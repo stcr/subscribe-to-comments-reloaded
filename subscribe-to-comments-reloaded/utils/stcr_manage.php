@@ -36,7 +36,7 @@ namespace stcr {
 				}
 				else
 				{
-					$this->fresh_install = true;
+					$this->fresh_install = false;
 					update_option('subscribe_reloaded_fresh_install', 'no');
 				}
 			}

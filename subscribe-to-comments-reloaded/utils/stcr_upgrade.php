@@ -22,7 +22,7 @@ namespace stcr {
 				// If the update option is set to false
 				$stcr_opt_subscriber_table = get_option('subscribe_reloaded_subscriber_table');
 
-				if ( $_fresh_install && ( ! $stcr_opt_subscriber_table ||  $stcr_opt_subscriber_table == 'no' ) ) {
+				if ( $_fresh_install || ( ! $stcr_opt_subscriber_table ||  $stcr_opt_subscriber_table == 'no' ) ) {
 					// Creation of table and subscribers.
 					$sqlCreateTable = " CREATE TABLE " . $wpdb->prefix . "subscribe_reloaded_subscribers (
 							  stcr_id int(11) NOT NULL AUTO_INCREMENT,
@@ -59,16 +59,19 @@ namespace stcr {
 							}
 						}
 
-						$this->stcr_create_admin_notice(
-							'notify_create_subscriber_table',
-							'unread',
-							'<p><strong>Subscribe to Comments Reloaded:</strong> The creation of table <code>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</code> was successful.</p>'.
-							'<p>This new table will help to add your subscribers email addresses more safely and prevent Google PII violations.'
-							 . '<a class="dismiss" href="#">Got it.  </a>'
-								. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'
-							. '</p>',
-							'updated'
-						);
+						if( ! $_fresh_install )
+						{
+							$this->stcr_create_admin_notice(
+								'notify_create_subscriber_table',
+								'unread',
+								'<p><strong>Subscribe to Comments Reloaded:</strong> The creation of table <code>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</code> was successful.</p>'.
+								'<p>This new table will help to add your subscribers email addresses more safely and prevent Google PII violations.'
+								 . '<a class="dismiss" href="#">Got it.  </a>'
+									. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'
+								. '</p>',
+								'updated'
+							);
+						}
 						update_option('subscribe_reloaded_subscriber_table', 'yes');
 					}
 				}
