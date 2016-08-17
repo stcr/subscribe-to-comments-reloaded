@@ -1,5 +1,5 @@
 <?php
-
+namespace stcr;
 // Avoid misusage
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
