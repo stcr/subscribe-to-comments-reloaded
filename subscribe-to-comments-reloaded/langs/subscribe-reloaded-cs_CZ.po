@@ -683,7 +683,7 @@ msgid "Disabled"
 msgstr "Zakázáno"
 
 #: options/panel3.php:47
-#, fuzzy
+
 msgid ""
 "Disable the virtual management page if you need to create a <a href=\"http://"
 "behstant.com/subscribe-reloaded/realMgnPage.php\">real page</a> to make your "
@@ -1091,34 +1091,34 @@ msgstr ""
 msgid "Approximate Overhead"
 msgstr ""
 
-#, fuzzy
+
 #~ msgid "Management Page ID"
 #~ msgstr "Nastavení"
 
-#, fuzzy
+
 #~ msgid "Management page"
 #~ msgstr "Nastavení"
 
 #~ msgid "Awaiting confirmation"
 #~ msgstr "Čeká na schválení"
 
-#, fuzzy
+
 #~ msgid "Stats"
 #~ msgstr "Status"
 
-#, fuzzy
+
 #~ msgid "Other Messages"
 #~ msgstr "Zprávy"
 
-#, fuzzy
+
 #~ msgid "Support"
 #~ msgstr "fórum podpory"
 
-#, fuzzy
+
 #~ msgid "The status has been successfully updated. Rows affected:"
 #~ msgstr "Vaše nastavení bylo úspěšně aktualizováno."
 
-#, fuzzy
+
 #~ msgid "PID"
 #~ msgstr "Příspěvek"
 
@@ -1137,7 +1137,7 @@ msgstr ""
 #~ msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
 #~ msgstr "Legenda: Y-odebíráno, N-neodebíráno, C- čeká na schválení"
 
-#, fuzzy
+
 #~ msgid "StCR table has been successfully optimized."
 #~ msgstr "Vaše nastavení bylo úspěšně aktualizováno."
 

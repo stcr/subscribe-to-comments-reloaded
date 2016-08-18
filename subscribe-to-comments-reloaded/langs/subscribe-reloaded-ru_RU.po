@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-11 02:05-0600\n"
-"PO-Revision-Date: 2016-01-11 02:05-0600\n"
+"POT-Creation-Date: 2016-08-18 15:27-0700\n"
+"PO-Revision-Date: 2016-08-18 15:27-0700\n"
 "Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
 "Language-Team: due chiacchiere <info@duechiacchiere.it>\n"
 "Language: ru_RU\n"
@@ -13,381 +13,55 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: s;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp_subscribe_reloaded.php:124
+#: wp_subscribe_reloaded.php:116
 msgid "Settings"
 msgstr "Scegli ordine"
 
-#: wp_subscribe_reloaded.php:1030
+#: wp_subscribe_reloaded.php:1062
 msgid "Don't subscribe"
 msgstr "Не подписываться"
 
-#: wp_subscribe_reloaded.php:1031
+#: wp_subscribe_reloaded.php:1063
 msgid "All"
 msgstr "Все"
 
-#: wp_subscribe_reloaded.php:1032 templates/user.php:73
+#: wp_subscribe_reloaded.php:1064 templates/user.php:73
 #: templates/author.php:75
 msgid "Replies to my comments"
 msgstr "Ответы на мои комментарии"
 
-#: utils/stcr_manage.php:218
+#: templates/request-management-link.php:70 templates/key_expired.php:70
+#: templates/subscribe.php:90 templates/user.php:57 options/panel1.php:72
+#: options/panel1.php:133 options/panel1-add-subscription.php:16
+msgid "Email"
+msgstr "Эл. адрес"
+
+#: templates/request-management-link.php:72 templates/key_expired.php:72
+#: templates/subscribe.php:92
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/key_expired.php:8
 msgid ""
-"Notify me of followup comments via e-mail. You can also <a "
-"href='[subscribe_link]'>subscribe</a> without commenting."
-msgstr ""
-"Получать новые комментарии по электронной почте. Вы можете <a "
-"href='[subscribe_link]'>подписаться</a> без комментирования."
-
-#: utils/stcr_manage.php:219
-msgid ""
-"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
-"subscriptions."
-msgstr ""
-"Вы подписаны на эту статью. <a href='[manager_link]'>Редактировать</a> свои "
-"подписки."
-
-#: utils/stcr_manage.php:220
-msgid ""
-"Your subscription to this post needs to be confirmed. <a "
-"href='[manager_link]'>Manage your subscriptions</a>."
-msgstr ""
-"Ваша подписка на эту статью нуждается в подтверждении. <a "
-"href='[manager_link]'>Редактировать</a> свои подписки."
-
-#: utils/stcr_manage.php:221
-msgid ""
-"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
-msgstr ""
-"Вы можете <a href='[manager_link]'>управлять подписками</a> на эту запись."
-
-#: utils/stcr_manage.php:225 options/index.php:57
-msgid "Manage subscriptions"
-msgstr "Редактировать подписки"
-
-#: utils/stcr_manage.php:227
-msgid ""
-"To manage your subscriptions, please enter your email address here below. We "
-"will send you a message containing the link to access your personal "
-"management page."
-msgstr ""
-"Для управления своими подписками, пожалуйста, введите свой электронный адрес "
-"в форму ниже. Мы отправим вам сообщение со ссылкой на вашу персональную "
-"страницу управления."
-
-#: utils/stcr_manage.php:228
-msgid ""
-"Thank you for using our subscription service. Your request has been "
-"completed, and you should receive an email with the management link in a few "
-"minutes."
-msgstr ""
-"Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. В "
-"течение нескольких минут вы должны получить письмо со ссылкой на страницу "
-"управления подписками."
-
-#: utils/stcr_manage.php:229
-msgid ""
-"You can follow the discussion on <strong>[post_title]</strong> without "
-"having to leave a comment. Cool, huh? Just enter your email address in the "
-"form here below and you're all set."
-msgstr ""
-"Вы можете следить за обсуждением статьи <strong>[post_title]</strong>, не "
-"оставляя своего комментария. Здорово, не правда ли? Просто введите свой "
-"электронный адрес в форму ниже, и готово!"
-
-#: utils/stcr_manage.php:230
-msgid ""
-"Thank you for using our subscription service. Your request has been "
-"completed. You will receive a notification email every time a new comment to "
-"this article is approved and posted by the administrator."
-msgstr ""
-"Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. Вы "
-"будете получать уведомления каждый раз, как новый комментарий к этот статье "
-"будет одобрен и опубликован администратором сайта."
-
-#: utils/stcr_manage.php:231
-msgid ""
-"Thank you for using our subscription service. In order to confirm your "
-"request, please check your email for the verification message and follow the "
-"instructions."
-msgstr ""
-"Спасибо, что пользуетесь нашим сервисом подписок. Чтобы подтвердить свой "
-"запрос, пожалуйста, проверьте свою почту и следуйте инструкциям в письме о "
-"подтверждении."
-
-#: utils/stcr_manage.php:232
-msgid ""
-"In order to cancel or suspend one or more notifications, select the "
-"corresponding checkbox(es) and click on the button at the end of the list."
-msgstr ""
-"Чтобы отменить или приостановить одно или более уведомлений, щелкните в "
-"соответствующем окошке выбора и нажмите на кнопку в конце списка."
-
-#: utils/stcr_manage.php:233
-msgid ""
-"In order to cancel or suspend one or more notifications, select the "
-"corresponding checkbox(es) and click on the button at the end of the list. "
-"You are currently subscribed to:"
-msgstr ""
-"Чтобы отменить или приостановить одно или более уведомлений, щелкните в "
-"соответствующем окошке выбора и нажмите на кнопку в конце списка. На данный "
-"момент вы подписаны на:"
-
-#: utils/stcr_manage.php:237
-msgid "There is a new comment to [post_title]"
-msgstr "Появился новый комментарий к статье [post_title]"
-
-#: utils/stcr_manage.php:238
-msgid ""
-"There is a new comment to [post_title].\n"
-"Comment Link: [comment_permalink]\n"
-"Author: [comment_author]\n"
-"Comment:\n"
-"[comment_content]\n"
-"Permalink: [post_permalink]\n"
-"Manage your subscriptions: [manager_link]"
-msgstr ""
-"Появился новый комментарий к статье [post_title].\n"
-"Ссылка на комментарий: [comment_permalink]\n"
-"Автор: [comment_author]\n"
-"Комментарий:\n"
-"[comment_content]\n"
-"\n"
-"Ссылка на статью: [post_permalink]\n"
-"Управление подписками: [manager_link]"
-
-#: utils/stcr_manage.php:239
-msgid "Please confirm your subscription to [post_title]"
-msgstr "Пожалуйста, подтвердите свою подписку на статью [post_title]"
-
-#: utils/stcr_manage.php:240
-msgid ""
-"You have requested to be notified every time a new comment is added to:\n"
-"[post_permalink]\n"
-"\n"
-"Please confirm your request by clicking on this link:\n"
-"[confirm_link]"
-msgstr ""
-"Вы сделали запрос на получение новых комментариев к статье:\n"
-"[post_permalink]\n"
-"\n"
-"Пожалуйста, перейдите по следующей ссылке, чтобы подтвердить подписку:\n"
-"[confirm_link]"
-
-#: utils/stcr_manage.php:241
-msgid "Manage your subscriptions on [blog_name]"
-msgstr "Редактировать свои подписки на сайте [blog_name]"
-
-#: utils/stcr_manage.php:242
-msgid ""
-"You have requested to manage your subscriptions to the articles on "
-"[blog_name]. Follow this link to access your personal page:\n"
-"[manager_link]"
-msgstr ""
-"Вы сделали запрос на редактирование своих подписок на комментарии к статьям "
-"на сайте [blog_name]. Вот ссылка на вашу личную страницу управления "
-"подписками:\n"
-"[manager_link]"
-
-#: utils/stcr_manage.php:387
-#, fuzzy
-msgid "Subscriptions"
-msgstr "Подписки"
-
-#: utils/stcr_manage.php:416 options/panel5.php:87 options/panel5.php:96
-#: options/panel5.php:105 options/panel5.php:115 options/panel5.php:124
-#: options/panel5.php:134 options/panel5.php:143 options/panel5.php:152
-#: options/panel5.php:161 options/panel2.php:67 options/panel2.php:77
-#: options/panel2.php:106
-msgid "No"
-msgstr "Нет"
-
-#: utils/stcr_manage.php:443
-msgid ""
-"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
-msgstr ""
-"Нужна помощь в использовани плагина Subscribe to Comments Reloaded? Посетите "
-"наш официальный"
-
-#: utils/stcr_manage.php:443
-msgid "support forum"
-msgstr "форум поддержки"
-
-#: utils/stcr_manage.php:444
-msgid "Feeling generous?"
-msgstr "Хотите проявить щедрость?"
-
-#: utils/stcr_manage.php:444
-msgid "Donate a few bucks!"
-msgstr "Пожертвуйте пару баксов!"
-
-#: utils/stcr_upgrade.php:53
-msgid "Important Notice"
+"Woohaa the link to manage your subscriptions has expired, don't worry, just "
+"enter your email below and a new link will be send."
 msgstr ""
 
-#: utils/stcr_upgrade.php:96
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> The information in your "
-"database has been sanitized to prevent the raw html messages. <a class="
-"\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-animation\" "
-"src=\""
-msgstr ""
+#: templates/one-click-unsubscribe.php:30 templates/user.php:79
+#: templates/author.php:80
+msgid "No subscriptions match your search criteria."
+msgstr "Ни одна подписка не соответствует поисковому запросу."
 
-#: utils/stcr_upgrade.php:151
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
-"from the <strong>Subscribe to Comments</strong> plugin was detected and "
-"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
-msgstr ""
+#: templates/subscribe.php:42 templates/subscribe.php:43
+msgid "New subscription to"
+msgstr "Новая подписка на"
 
-#: utils/stcr_upgrade.php:151
-msgid ""
-" It is recommended that you now <strong>deactivate</strong> Subscribe to "
-"Comments to prevent confusion between the two plugins."
-msgstr ""
-
-#: utils/stcr_upgrade.php:152
-msgid ""
-"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
-"that you want to import, you'll need to import that data manually, as only "
-"one import routine will ever run to prevent data loss."
-msgstr ""
-
-#: utils/stcr_upgrade.php:153 utils/stcr_upgrade.php:225
-#: utils/stcr_upgrade.php:374
-msgid ""
-"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
-"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
-"your configuration.<a class=\"dismiss\" href=\"#\">Got it.  </a><img class="
-"\"stcr-loading-animation\" src=\""
-msgstr ""
-
-#: utils/stcr_upgrade.php:224
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
-"from the <strong>Comment Reply Notification</strong> plugin was detected and "
-"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:224
-msgid ""
-" It is recommended that you now <strong>deactivate</strong> Comment Reply "
-"Notification to prevent confusion between the two plugins."
-msgstr ""
-
-#: utils/stcr_upgrade.php:371
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
-"subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
-"were detected and automatically imported into <strong>Subscribe to Comments "
-"Reloaded</strong>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:371
-msgid ""
-" It is recommended that you now <strong>deactivate</strong> WP Comment "
-"Subscriptions to prevent confusion between the two plugins."
-msgstr ""
-
-#: utils/stcr_upgrade.php:372
-msgid ""
-"If you have subscription data from another plugin (such as Subscribe to "
-"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
-"you'll need to import that data manually, as only one import routine will "
-"ever run to prevent data loss."
-msgstr ""
-
-#: utils/stcr_upgrade.php:373
-msgid ""
-"<strong>Note:</strong> If you were previously using the "
-"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
-"subscribe-url]</code> shortcode, you'll need to replace those with "
-"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
-"respectively."
-msgstr ""
-
-#: utils/stcr_upgrade.php:387
-msgid ""
-"<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:388
-msgid ""
-"If you find a bug or an issue you can report it <a href=\"https://github.com/"
-"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:389
-msgid ""
-"If you want to donate you can do it via <a href=\"\n"
-"https://www.paypal.com/cgi-bin/webscr?"
-"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
-"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
-"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:391
-msgid ""
-"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
-"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for detailed "
-"information on plugin changes.<a class=\"dismiss\" href=\"#\">Got it.  </"
-"a><img class=\"stcr-loading-animation\" src=\""
-msgstr ""
-
-#: utils/stcr_upgrade.php:403
-msgid ""
-"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
-"160106."
-msgstr ""
-
-#: utils/stcr_upgrade.php:404
-msgid ""
-"This version includes many changes and fixes to improve your experience with "
-"the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
-"email templates, Subscription Checkbox position, and more!"
-msgstr ""
-
-#: utils/stcr_upgrade.php:405
-msgid ""
-"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
-"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
-"complete list of changes.<a class=\"dismiss\" href=\"#\">Got it.  </a><img "
-"class=\"stcr-loading-animation\" src=\""
-msgstr ""
-
-#: utils/stcr_upgrade.php:419
-msgid "Announcement: Introducing Comment Mail"
-msgstr ""
-
-#: utils/stcr_upgrade.php:420
-msgid ""
-"<strong><a href=\"http://comment-mail.com/r/stcr-to-cm/\" target=\"_blank"
-"\">Comment Mail</strong></a> is a new free plugin based on the original "
-"<strong>Subscribe to Comments Reloaded</strong> and includes all of the core "
-"StCR features."
-msgstr ""
-
-#: utils/stcr_upgrade.php:421
-msgid ""
-"A powerful StCR importer lets you import your StCR settings and "
-"subscriptions into Comment Mail, allowing for a seamless transition."
-msgstr ""
-
-#: utils/stcr_upgrade.php:422
-msgid ""
-"Need more powerful features to manage your subscriptions but can't wait for "
-"StCR? <a href=\"http://comment-mail.com/r/stcr-to-cm/\" target=\"_blank"
-"\">Take a look at Comment Mail!</a>"
-msgstr ""
-
-#: utils/stcr_upgrade.php:423
-msgid ""
-"<em>Note: Subscribe to Comments Reloaded remains in active development.</"
-"em><a class=\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-"
-"animation\" src=\""
-msgstr ""
+#: templates/subscribe.php:43
+msgid "User:"
+msgstr "Пользователь:"
 
 #: templates/user.php:23 templates/author.php:23
 #: options/panel1-business-logic.php:70
@@ -410,22 +84,16 @@ msgstr "Подписки активированы:"
 msgid "Subscriptions updated:"
 msgstr "Подписки обновлены:"
 
-#: templates/user.php:52 templates/author.php:52
-#: options/panel1-edit-subscription.php:11 options/panel1.php:22
-#: options/panel1.php:117 options/panel1.php:153
+#: templates/user.php:52 templates/author.php:52 options/panel1.php:23
+#: options/panel1.php:124 options/panel1.php:200 options/panel1.php:212
+#: options/panel1-edit-subscription.php:11
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
 msgstr ""
 "Внимание: эту операцию нельзя отменить. Вы уверены, что хотите продолжить?"
 
-#: templates/user.php:57 templates/request-management-link.php:73
-#: templates/subscribe.php:89 options/panel1-add-subscription.php:16
-#: options/panel1.php:65 options/panel1.php:126
-msgid "Email"
-msgstr "Эл. адрес"
-
-#: templates/user.php:58 templates/author.php:58 options/panel1.php:129
+#: templates/user.php:58 templates/author.php:58
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
 msgstr "Расшифровка: Y = все комментарии, R = только ответы, C = неактивные"
 
@@ -441,15 +109,16 @@ msgstr "Выбрать все"
 msgid "Invert selection"
 msgstr "Выбрать обратное"
 
-#: templates/user.php:69 templates/author.php:71 options/panel1.php:161
+#: templates/user.php:69 templates/author.php:71 options/panel1.php:223
 msgid "Action:"
 msgstr "Действие:"
 
-#: templates/user.php:70 templates/author.php:72 options/panel1.php:153
+#: templates/user.php:70 templates/author.php:72 options/panel1.php:200
+#: options/panel1.php:212
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/user.php:71 templates/author.php:73 options/panel1.php:163
+#: templates/user.php:71 templates/author.php:73 options/panel1.php:227
 msgid "Suspend"
 msgstr "Приостановить"
 
@@ -457,640 +126,396 @@ msgstr "Приостановить"
 msgid "All comments"
 msgstr ""
 
-#: templates/user.php:74 templates/author.php:76 options/panel1.php:166
+#: templates/user.php:74 templates/author.php:76 options/panel1.php:230
 msgid "Activate"
 msgstr "Включить"
 
-#: templates/user.php:76 templates/author.php:77 options/panel1.php:167
+#: templates/user.php:76 templates/author.php:77 options/panel1.php:234
 msgid "Update subscriptions"
 msgstr "Обновить подписки"
-
-#: templates/user.php:79 templates/author.php:80
-#: templates/one-click-unsubscribe.php:28
-msgid "No subscriptions match your search criteria."
-msgstr "Ни одна подписка не соответствует поисковому запросу."
-
-#: templates/request-management-link.php:75 templates/subscribe.php:91
-msgid "Send"
-msgstr "Отправить"
 
 #: templates/author.php:57
 msgid "Title"
 msgstr "Заголовок"
 
-#: templates/subscribe.php:43 templates/subscribe.php:44
-msgid "New subscription to"
-msgstr "Новая подписка на"
+#: utils/stcr_upgrade.php:55
+msgid "Important Notice"
+msgstr ""
 
-#: templates/subscribe.php:44
-msgid "User:"
-msgstr "Пользователь:"
-
-#: options/panel6.php:8 options/panel7.php:8
-#, fuzzy
-msgid "Support the developers"
-msgstr "Поддержать автора"
-
-#: options/panel6.php:18
-#, fuzzy
+#: utils/stcr_upgrade.php:103
 msgid ""
-"How valuable is the feature offered by this plugin to your visitors? please "
-"consider supporting the author if this plugin made your web site better, "
-"especially if you are making money out of it. Any donation received will be "
-"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
-"strong>, and to buy some food for my hungry family."
+"<strong>Subscribe to Comments Reloaded:</strong> The information in your "
+"database has been sanitized to prevent the raw html messages. <a class="
+"\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-animation\" "
+"src=\""
 msgstr ""
-"Насколько важна функция, которую предоставляет этот плагин для ваших "
-"посетителей? Плагин <b>Subscribe to Comments Reloaded</b> есть и всегда "
-"будет бесплатным, но подумайте над тем, чтобы поддержать автора, если этот "
-"плагин сделал ваш сайт немного лучше, особенно если вы зарабатываете деньги "
-"с помощью своего сайта. Все пожертвования будут использованы для развития "
-"плагина <b>Subscribe to Comments Reloaded</b> и на то, чтобы купить немного "
-"еды моей голодной семье."
 
-#: options/panel6.php:20
-msgid "Don't want to donate? You can still help"
-msgstr "Не хотите делать пожертвование? Вы все равно можете помочь"
-
-#: options/panel6.php:21
-#, fuzzy
+#: utils/stcr_upgrade.php:158
 msgid ""
-"If you don't want to donate money, please consider blogging about my plugin "
-"with a link to the plugin's page. Please let your readers know what makes "
-"your blog better. You can also contribute donating your time: do not "
-"hesitate to send me bug reports, your localization files, ideas on how to "
-"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
-"you do, thanks for using my plugin!"
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Subscribe to Comments</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
-"Если вы не хотите помочь деньгами, пожалуйста, рассмотрите возможность "
-"написать о моем плагине в своем блоге и оставить ссылку на страницу плагина. "
-"Пожалуйста, расскажите своим читателям, что делает ваш блог лучше. Вы можете "
-"также пожертвовать свое время: не стесняйтесь отправлять мне отчеты об "
-"ошибках, свои файлы локализации, идеи по улучшению плагина <b>Subscribe to "
-"Comments Reloaded</b> и так далее. Что бы вы ни выбрали, спасибо, что "
-"пользуетесь моим плагином!"
 
-#: options/panel6.php:23
-#, fuzzy
-msgid "Subscribe to the Beta testers"
-msgstr "Ярлык оформленной подписки"
-
-#: options/panel6.php:24
+#: utils/stcr_upgrade.php:158
 msgid ""
-"Before a new Update we release a Beta version so that our current users can "
-"give us feedback if they find a bug, If you want to join the tester list you "
-"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
-"a>"
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
 msgstr ""
 
-#: options/panel6.php:26
-msgid "Vote and show your appreciation"
-msgstr "Проголосуйте и покажите свою признательность"
-
-#: options/panel6.php:27
-#, fuzzy
+#: utils/stcr_upgrade.php:159
 msgid ""
-"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
-"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
-"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
-msgstr ""
-"Если вам нравится вам плагин <b>Subscribe to Comments Reloaded</b>, "
-"расскажите другим людям о нем и о том, насколько он хорош. <a href=\"http://"
-"wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Оцените</a> "
-"его в разделе плагинов на сайте Wordpress."
-
-#: options/panel1-business-logic.php:23
-msgid "Subscription added."
-msgstr "Подписка добавлена."
-
-#: options/panel1-business-logic.php:39
-msgid "Subscriptions updated."
-msgstr "Подписки обновлены."
-
-#: options/panel1-business-logic.php:51
-msgid "Subscription deleted."
-msgstr "Подписка удалена."
-
-#: options/panel1-business-logic.php:110
-msgid "&laquo; Previous"
-msgstr "&laquo; Обратно"
-
-#: options/panel1-business-logic.php:114
-msgid "Next &raquo;"
-msgstr "Вперед &raquo;"
-
-#: options/panel5.php:18 options/panel5.php:60 options/panel3.php:73
-#: options/panel4.php:70 options/panel2.php:49
-msgid "Your settings have been successfully updated."
-msgstr "Ваши настройки успешно обновлены."
-
-#: options/panel5.php:20 options/panel5.php:62 options/panel3.php:75
-#: options/panel4.php:72 options/panel2.php:51
-msgid "There was an error updating the following fields:"
-msgstr "Произошла ошибка в обновлении следующих полей:"
-
-#: options/panel5.php:28 options/panel5.php:75
-msgid "Autopurge requests"
-msgstr "Автоматически удалять запросы"
-
-#: options/panel5.php:31 options/panel5.php:84
-msgid "Enable double check"
-msgstr "Включить двойное подтверждение"
-
-#: options/panel5.php:34 options/panel5.php:92
-msgid "Subscribe authors"
-msgstr "Ярлык оформленной подписки"
-
-#: options/panel5.php:37 options/panel5.php:102
-msgid "Enable HTML emails"
-msgstr "Использовать HTML письма"
-
-#: options/panel5.php:40
-msgid "HTMLify Links in HTML emails"
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
 msgstr ""
 
-#: options/panel5.php:43
-msgid "Send trackbacks"
-msgstr "Отправлять трэкбеки"
-
-#: options/panel5.php:46
-msgid "Notify admin"
-msgstr "Уведомить админа"
-
-#: options/panel5.php:49 options/panel5.php:140
-msgid "Let admin subscribe"
-msgstr "Позволить админу подписываться"
-
-#: options/panel5.php:52 options/panel5.php:149
-msgid "BCC admin on Notifications"
-msgstr "Уведомления"
-
-#: options/panel5.php:55
-#, fuzzy
-msgid "StCR Subscription Box Position"
-msgstr "Новая подписка на"
-
-#: options/panel5.php:78
-msgid "days"
-msgstr "дней"
-
-#: options/panel5.php:79
+#: utils/stcr_upgrade.php:160 utils/stcr_upgrade.php:232
+#: utils/stcr_upgrade.php:381
 msgid ""
-"Delete pending subscriptions (not confirmed) after X days. Zero disables "
-"this feature."
+"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
+"your configuration.<a class=\"dismiss\" href=\"#\">Got it.  </a><img class="
+"\"stcr-loading-animation\" src=\""
 msgstr ""
-"Удалять ожидающие подтверждения (не подтвержденные) подписки через Х дней. "
-"Ноль отключает эту функцию."
 
-#: options/panel5.php:86 options/panel5.php:95 options/panel5.php:104
-#: options/panel5.php:114 options/panel5.php:123 options/panel5.php:133
-#: options/panel5.php:142 options/panel5.php:151 options/panel5.php:160
-#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
-msgid "Yes"
-msgstr "Да"
-
-#: options/panel5.php:88
+#: utils/stcr_upgrade.php:231
 msgid ""
-"Send a notification email to confirm the subscription (to avoid addresses "
-"misuse)."
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Comment Reply Notification</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
-"Отправлять письмо с просьбой подтвердить подписку (чтобы избежать "
-"использования эл. адреса без ведома владельца)"
 
-#: options/panel5.php:97
+#: utils/stcr_upgrade.php:231
 msgid ""
-"Automatically subscribe authors to their own articles (not retroactive)."
+" It is recommended that you now <strong>deactivate</strong> Comment Reply "
+"Notification to prevent confusion between the two plugins."
 msgstr ""
 
-#: options/panel5.php:106
+#: utils/stcr_upgrade.php:378
 msgid ""
-"If enabled, will send email messages with content-type = text/html instead "
-"of text/plain"
-msgstr ""
-"При выборе этой функции сообщения будут отправляться в формате текст/html "
-"вместо обычного текста"
-
-#: options/panel5.php:111
-msgid "HTMLify links in emails"
+"<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
+"subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
+"were detected and automatically imported into <strong>Subscribe to Comments "
+"Reloaded</strong>."
 msgstr ""
 
-#: options/panel5.php:116
+#: utils/stcr_upgrade.php:378
 msgid ""
-"If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
-"&lt;/a&gt;</code> (only when HTML emails enabled)."
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
 msgstr ""
 
-#: options/panel5.php:121
-msgid "Process trackbacks"
-msgstr "Обрабатывать трэкбеки"
-
-#: options/panel5.php:125
+#: utils/stcr_upgrade.php:379
 msgid ""
-"Notify users when a new trackback or pingback is added to the discussion."
-msgstr "Уведомлять подписчиков о новых трэкбеках или пингбэках к обсуждению"
-
-#: options/panel5.php:130
-msgid "Track all subscriptions"
-msgstr "Отследить все подписки"
-
-#: options/panel5.php:135
-msgid "Notify the administrator when users subscribe without commenting."
-msgstr ""
-"Уведомлять администратора, когда пользователи подписываются без комментария."
-
-#: options/panel5.php:144
-msgid "Let the administrator subscribe to comments when logged in."
-msgstr "Позволить админу подписываться, когда он авторизован."
-
-#: options/panel5.php:153
-msgid "Send a copy of all Notifications to the administrator."
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
 msgstr ""
 
-#: options/panel5.php:158
-msgid "StCR Box Position"
-msgstr ""
-
-#: options/panel5.php:162
+#: utils/stcr_upgrade.php:380
 msgid ""
-"If this option is enable the subscriptioin box will be above the submit "
-"button in your comment form."
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
 msgstr ""
 
-#: options/panel5.php:167
-msgid "StCR Unique Key"
-msgstr ""
-
-#: options/panel5.php:172
-msgid "This Unique Key is not set, please click the following button to "
-msgstr ""
-
-#: options/panel5.php:176 options/panel5.php:187
-#, fuzzy
-msgid "Generate"
-msgstr "Tasso di rimbalzo"
-
-#: options/panel5.php:184
+#: utils/stcr_upgrade.php:394
 msgid ""
-"This Unique Key will be use to send the notification to your subscribers "
-"with more security."
+"<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>."
 msgstr ""
 
-#: options/panel5.php:195 options/panel3.php:200 options/panel4.php:207
-#: options/panel2.php:189
-msgid "Save Changes"
-msgstr "Сохранить изменения"
+#: utils/stcr_upgrade.php:395
+msgid ""
+"If you find a bug or an issue you can report it <a href=\"https://github.com/"
+"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
+msgstr ""
 
-#: options/index.php:58
+#: utils/stcr_upgrade.php:396
+msgid ""
+"If you want to donate you can do it via <a href=\"\n"
+"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:398
+msgid ""
+"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for detailed "
+"information on plugin changes.<a class=\"dismiss\" href=\"#\">Got it.  </"
+"a><img class=\"stcr-loading-animation\" src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:410
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160106."
+msgstr ""
+
+#: utils/stcr_upgrade.php:411
+msgid ""
+"This version includes many changes and fixes to improve your experience with "
+"the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
+"email templates, Subscription Checkbox position, and more!"
+msgstr ""
+
+#: utils/stcr_upgrade.php:412 utils/stcr_upgrade.php:427
+msgid ""
+"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
+"complete list of changes.<a class=\"dismiss\" href=\"#\">Got it.  </a><img "
+"class=\"stcr-loading-animation\" src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:425
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160115."
+msgstr ""
+
+#: utils/stcr_upgrade.php:426
+msgid ""
+"This version includes fixes to broken links while managing your subscriptions"
+msgstr ""
+
+#: utils/stcr_manage.php:236
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"Получать новые комментарии по электронной почте. Вы можете <a "
+"href='[subscribe_link]'>подписаться</a> без комментирования."
+
+#: utils/stcr_manage.php:237
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"Вы подписаны на эту статью. <a href='[manager_link]'>Редактировать</a> свои "
+"подписки."
+
+#: utils/stcr_manage.php:238
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"Ваша подписка на эту статью нуждается в подтверждении. <a "
+"href='[manager_link]'>Редактировать</a> свои подписки."
+
+#: utils/stcr_manage.php:239
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr ""
+"Вы можете <a href='[manager_link]'>управлять подписками</a> на эту запись."
+
+#: utils/stcr_manage.php:243 utils/stcr_manage.php:371
+#: utils/stcr_manage.php:372 options/index.php:59
+msgid "Manage subscriptions"
+msgstr "Редактировать подписки"
+
+#: utils/stcr_manage.php:245
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"Для управления своими подписками, пожалуйста, введите свой электронный адрес "
+"в форму ниже. Мы отправим вам сообщение со ссылкой на вашу персональную "
+"страницу управления."
+
+#: utils/stcr_manage.php:246
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. В "
+"течение нескольких минут вы должны получить письмо со ссылкой на страницу "
+"управления подписками."
+
+#: utils/stcr_manage.php:247
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"Вы можете следить за обсуждением статьи <strong>[post_title]</strong>, не "
+"оставляя своего комментария. Здорово, не правда ли? Просто введите свой "
+"электронный адрес в форму ниже, и готово!"
+
+#: utils/stcr_manage.php:248
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"Спасибо, что пользуетесь нашим сервисом подписок. Ваш запрос выполнен. Вы "
+"будете получать уведомления каждый раз, как новый комментарий к этот статье "
+"будет одобрен и опубликован администратором сайта."
+
+#: utils/stcr_manage.php:249
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"Спасибо, что пользуетесь нашим сервисом подписок. Чтобы подтвердить свой "
+"запрос, пожалуйста, проверьте свою почту и следуйте инструкциям в письме о "
+"подтверждении."
+
+#: utils/stcr_manage.php:250
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"Чтобы отменить или приостановить одно или более уведомлений, щелкните в "
+"соответствующем окошке выбора и нажмите на кнопку в конце списка."
+
+#: utils/stcr_manage.php:251
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"Чтобы отменить или приостановить одно или более уведомлений, щелкните в "
+"соответствующем окошке выбора и нажмите на кнопку в конце списка. На данный "
+"момент вы подписаны на:"
+
+#: utils/stcr_manage.php:255
+msgid "There is a new comment to [post_title]"
+msgstr "Появился новый комментарий к статье [post_title]"
+
+#: utils/stcr_manage.php:256
+msgid ""
+"There is a new comment to [post_title].\n"
+"Comment Link: [comment_permalink]\n"
+"Author: [comment_author]\n"
+"Comment:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Manage your subscriptions: [manager_link]"
+msgstr ""
+"Появился новый комментарий к статье [post_title].\n"
+"Ссылка на комментарий: [comment_permalink]\n"
+"Автор: [comment_author]\n"
+"Комментарий:\n"
+"[comment_content]\n"
+"\n"
+"Ссылка на статью: [post_permalink]\n"
+"Управление подписками: [manager_link]"
+
+#: utils/stcr_manage.php:257
+msgid "Please confirm your subscription to [post_title]"
+msgstr "Пожалуйста, подтвердите свою подписку на статью [post_title]"
+
+#: utils/stcr_manage.php:258
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"[post_permalink]\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"[confirm_link]"
+msgstr ""
+"Вы сделали запрос на получение новых комментариев к статье:\n"
+"[post_permalink]\n"
+"\n"
+"Пожалуйста, перейдите по следующей ссылке, чтобы подтвердить подписку:\n"
+"[confirm_link]"
+
+#: utils/stcr_manage.php:259
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "Редактировать свои подписки на сайте [blog_name]"
+
+#: utils/stcr_manage.php:260
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
+"[manager_link]"
+msgstr ""
+"Вы сделали запрос на редактирование своих подписок на комментарии к статьям "
+"на сайте [blog_name]. Вот ссылка на вашу личную страницу управления "
+"подписками:\n"
+"[manager_link]"
+
+#: utils/stcr_manage.php:377 utils/stcr_manage.php:378 options/index.php:60
 msgid "Comment Form"
 msgstr "Форма комментария"
 
-#: options/index.php:59
+#: utils/stcr_manage.php:383 utils/stcr_manage.php:384 options/index.php:61
 msgid "Management Page"
 msgstr "Страница управления"
 
-#: options/index.php:60
+#: utils/stcr_manage.php:389 utils/stcr_manage.php:390 options/index.php:62
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: options/index.php:61 options/panel3.php:85 options/panel4.php:80
-#: options/panel2.php:58
+#: utils/stcr_manage.php:395 utils/stcr_manage.php:396 options/index.php:63
+#: options/panel2.php:58 options/panel4.php:84 options/panel3.php:82
 msgid "Options"
 msgstr "Параметры"
 
-#: options/index.php:62
+#: utils/stcr_manage.php:411 utils/stcr_manage.php:412 options/index.php:65
 msgid "You can help"
 msgstr "Вы можете помочь"
 
-#: options/index.php:63
+#: utils/stcr_manage.php:417 utils/stcr_manage.php:418 options/index.php:66
 msgid "Support"
 msgstr "Поддержка"
 
-#: options/index.php:64
+#: utils/stcr_manage.php:423 utils/stcr_manage.php:424 options/index.php:67
 msgid "Donate"
 msgstr ""
 
-#: options/panel3.php:16 options/panel3.php:90
-msgid "Virtual Management Page"
-msgstr "Виртуальная страница управления"
+#: utils/stcr_manage.php:429 utils/stcr_manage.php:430
+msgid "StCR System"
+msgstr ""
 
-#: options/panel3.php:21 options/panel3.php:99
-msgid "Page title"
-msgstr "Заголовок страницы"
+#: utils/stcr_manage.php:449 utils/stcr_manage.php:477
+#: utils/stcr_manage.php:504 utils/stcr_manage.php:531
+#: utils/stcr_manage.php:558 utils/stcr_manage.php:585
+#: utils/stcr_manage.php:612 utils/stcr_manage.php:639
+#: utils/stcr_manage.php:666 utils/stcr_manage.php:694
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
 
-#: options/panel3.php:26 options/panel3.php:108
-msgid "Management URL"
-msgstr "URL управления"
+#: utils/stcr_manage.php:744
+msgid "Subscriptions"
+msgstr "Подписки"
 
-#: options/panel3.php:31 options/panel3.php:120
-msgid "Custom HEAD meta"
-msgstr "Собственный HEAD meta-тег"
+#: utils/stcr_manage.php:773 options/panel2.php:67 options/panel2.php:77
+#: options/panel2.php:106 options/panel5.php:84 options/panel5.php:93
+#: options/panel5.php:102 options/panel5.php:112 options/panel5.php:121
+#: options/panel5.php:131 options/panel5.php:140 options/panel5.php:149
+msgid "No"
+msgstr "Нет"
 
-#: options/panel3.php:37 options/panel3.php:134
-msgid "Request link"
-msgstr "Ссылка на запрос"
-
-#: options/panel3.php:42 options/panel3.php:144
-msgid "Request submitted"
-msgstr "Запрос отправлен"
-
-#: options/panel3.php:47 options/panel3.php:154
-msgid "Subscribe without commenting"
-msgstr "Подписка без комментирования"
-
-#: options/panel3.php:52 options/panel3.php:164
-msgid "Subscription processed"
-msgstr "Подписка оформлена"
-
-#: options/panel3.php:57 options/panel3.php:174
-msgid "Subscription processed (DCI)"
-msgstr "Подписка оформлена (DCI)"
-
-#: options/panel3.php:62 options/panel3.php:183
-msgid "Authors"
-msgstr "Авторы"
-
-#: options/panel3.php:67 options/panel3.php:191
-msgid "Users"
-msgstr "Пользователи"
-
-#: options/panel3.php:93
-msgid "Enabled"
-msgstr "Включено"
-
-#: options/panel3.php:94
-msgid "Disabled"
-msgstr "Выключено"
-
-#: options/panel3.php:95
-#, fuzzy
+#: utils/stcr_manage.php:800
 msgid ""
-"Disable the virtual management page if you need to create a <a href="
-"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
-"real-management-page\">real page</a> to make your theme happy."
-msgstr ""
-"Отмените виртуальную страницу управления, если вам нужно создать <a href="
-"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">настоящую "
-"страницу</a> для корректной работы плагина с вашей темой оформления."
-
-#: options/panel3.php:104
-msgid "Title of the page your visitors will use to manage their subscriptions."
-msgstr ""
-"Заголовок страницы, на которой пользователи будут редактировать свои "
-"подписки."
-
-#: options/panel3.php:112
-msgid ""
-"The permalink for your management page (something like <code>/manage-"
-"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
-"b> actually exist in the system, but its link must follow your permalink "
-"structure."
-msgstr ""
-"Постоянная ссылка на вашу страницу управления (что-то вроде <code>/manage-"
-"subscriptions</code> или <code>/page_id=345</code>). Эта страница фактически "
-"<b>не существует</b> в системе, но постоянная ссылка на нее должна "
-"соответствовать вашим установкам постоянных ссылок в Wordpress."
-
-#: options/panel3.php:114
-msgid ""
-"Warning: it looks like the value you are using may be incompatible with your "
-"permalink structure"
-msgstr ""
-"Внимание: возможно, используемое вами значение несовместимо с вашей "
-"структурой постоянных ссылок"
-
-#: options/panel3.php:124
-msgid ""
-"Specify your custom HTML code to be added to the HEAD section of the page. "
-"Use <strong>single</strong> quotes for values."
-msgstr ""
-"Укажите свой код HTML для добавления в HEAD страницы. Используйте "
-"<strong>одинарные</strong> кавычки для значений."
-
-#: options/panel3.php:130 options/panel4.php:113
-msgid "Messages"
-msgstr "Сообщения"
-
-#: options/panel3.php:139
-msgid "Text shown to those who request to manage their subscriptions."
-msgstr "Текст, видимый сделавшим запрос на управление подписками."
-
-#: options/panel3.php:149
-msgid ""
-"Thank you note shown after the request here above has been processed. "
-"Allowed tags: [post_title], [post_permalink]"
-msgstr ""
-"Текст благодарности, выводимый после обработки сделанного запроса. Разрешены "
-"теги: [post_title], [post_permalink]"
-
-#: options/panel3.php:159
-msgid ""
-"Text shown to those who want to subscribe without commenting. Allowed tags: "
-"[post_title], [post_permalink]"
-msgstr ""
-"Текст для желающих подписаться без комментирования. Разрешены теги: "
-"[post_title], [post_permalink]"
-
-#: options/panel3.php:169
-msgid ""
-"Thank you note shown after the subscription request has been processed "
-"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
-msgstr ""
-"Текст благодарности, выводимый после обработки запроса на подписку (двойное "
-"подтверждение отключено). Разрешены теги: [post_title], [post_permalink]"
-
-#: options/panel3.php:179
-msgid ""
-"Thank you note shown after the subscription request has been processed "
-"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
-msgstr ""
-"Текст благодарности, выводимый после обработки запроса на подписку (двойное "
-"подтверждение включено). Разрешены теги: [post_title], [post_permalink]"
-
-#: options/panel3.php:187
-msgid "Introductory text for the authors' management page."
-msgstr "Вводный текст на странице управления подписками для авторов."
-
-#: options/panel3.php:195
-msgid "Introductory text for the users' management page."
-msgstr "Вводный текст на странице управления подписками для подписчиков."
-
-#: options/panel1-edit-subscription.php:8
-msgid "Update Subscription"
-msgstr "Обновить подписку"
-
-#: options/panel1-edit-subscription.php:11
-#: options/panel1-edit-subscription.php:21
-#: options/panel1-edit-subscription.php:22
-#: options/panel1-edit-subscription.php:23 options/panel1.php:31
-#: options/panel1.php:32 options/panel1.php:33
-msgid "optional"
-msgstr "по выбору"
-
-#: options/panel1-edit-subscription.php:13
-#: options/panel1-add-subscription.php:13
-msgid "Post:"
-msgstr "Запись:"
-
-#: options/panel1-edit-subscription.php:16 options/panel1.php:26
-msgid "From"
-msgstr "С"
-
-#: options/panel1-edit-subscription.php:20 options/panel1.php:30
-msgid "To"
-msgstr "на"
-
-#: options/panel1-edit-subscription.php:26
-#: options/panel1-add-subscription.php:20 options/panel1.php:36
-#: options/panel1.php:69 options/panel1.php:139
-msgid "Status"
-msgstr "Статус"
-
-#: options/panel1-edit-subscription.php:28 options/panel1.php:38
-msgid "Keep unchanged"
-msgstr "Оставить без изменений"
-
-#: options/panel1-edit-subscription.php:29
-#: options/panel1-add-subscription.php:22 options/panel1.php:39
-#: options/panel1.php:72
-msgid "Active"
-msgstr "Активно"
-
-#: options/panel1-edit-subscription.php:30
-#: options/panel1-add-subscription.php:23 options/panel1.php:40
-#: options/panel1.php:73
-msgid "Replies only"
-msgstr "Только ответы"
-
-#: options/panel1-edit-subscription.php:31 options/panel1.php:41
-msgid "Suspended"
-msgstr "Приостановлено"
-
-#: options/panel1-edit-subscription.php:33
-#: options/panel1-add-subscription.php:26 options/panel1.php:43
-msgid "Update"
-msgstr "Обновить"
-
-#: options/panel1-add-subscription.php:8 options/panel1.php:54
-msgid "Add New Subscription"
-msgstr "Добавить новую подписку"
-
-#: options/panel1-add-subscription.php:24 options/panel1.php:74
-msgid "Ask user to confirm"
-msgstr "Просить подтвреждение от пользователя"
-
-#: options/panel8.php:11
-#, fuzzy
-msgid "Support Subscribe to Comments Reloaded"
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
 "Нужна помощь в использовани плагина Subscribe to Comments Reloaded? Посетите "
 "наш официальный"
 
-#: options/panel8.php:12
-msgid ""
-"Every contribution that you make is high valuable, so if you consider this "
-"plugin a helpful tool we will use your donation to invest on support and "
-"developing time."
-msgstr ""
+#: utils/stcr_manage.php:800
+msgid "support forum"
+msgstr "форум поддержки"
 
-#: options/panel4.php:17 options/panel4.php:85
-msgid "Sender name"
-msgstr "Имя отправителя"
+#: utils/stcr_manage.php:801
+msgid "Feeling generous?"
+msgstr "Хотите проявить щедрость?"
 
-#: options/panel4.php:22 options/panel4.php:98
-msgid "Sender email address"
-msgstr "Эл. адрес отправителя"
+#: utils/stcr_manage.php:801
+msgid "Donate a few bucks!"
+msgstr "Пожертвуйте пару баксов!"
 
-#: options/panel4.php:27 options/panel4.php:118
-msgid "Notification subject"
-msgstr "Тема письма с уведомлением"
-
-#: options/panel4.php:33 options/panel4.php:39 options/panel4.php:131
-msgid "Notification message"
-msgstr "Текст уведомления"
-
-#: options/panel4.php:44 options/panel4.php:145
-msgid "Double check subject"
-msgstr "Тема письма о подтверждении подписки"
-
-#: options/panel4.php:49 options/panel4.php:158
-msgid "Double check message"
-msgstr "Текст письма о подтверждении подписки"
-
-#: options/panel4.php:54 options/panel4.php:170
-msgid "Management subject"
-msgstr "Тема письма об управлении подписками"
-
-#: options/panel4.php:59 options/panel4.php:64 options/panel4.php:183
-msgid "Management message"
-msgstr "Текст письма об управлении подписками"
-
-#: options/panel4.php:92
-msgid ""
-"Name to use for the \"from\" field when sending a new notification to the "
-"user."
-msgstr "Имя в поле \"От кого\" в новом уведомлении пользователю."
-
-#: options/panel4.php:106
-msgid ""
-"Email address to use for the \"from\" field when sending a new notification "
-"to the user."
-msgstr "Эл. адрес в поле \"От кого\" в новом уведомлении пользователю."
-
-#: options/panel4.php:125
-msgid "Subject of the notification email. Allowed tag: [post_title]"
-msgstr "Тема письма с уведомлением. Разрешенный тег: [post_title]"
-
-#: options/panel4.php:138
-msgid ""
-"Content of the notification email. Allowed tags: [post_title], "
-"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
-"[manager_link]"
-msgstr ""
-"Текст уведомления. Разрешенные теги: [post_title],  [comment_permalink], "
-"[comment_author], [comment_content], [post_permalink], [manager_link]"
-
-#: options/panel4.php:139
-msgid ""
-"<p><strong>Note: To get a default template clear all the content and save "
-"the options.</strong></p>"
-msgstr ""
-
-#: options/panel4.php:152
-msgid "Subject of the confirmation email. Allowed tag: [post_title]"
-msgstr "Тема письма о подтверждении. Разрешенный тег: [post_title]"
-
-#: options/panel4.php:164
-msgid ""
-"Content of the confirmation email. Allowed tags: [post_permalink], "
-"[confirm_link], [post_title], [manager_link]"
-msgstr ""
-"Текст письма о подтвеждении. Разрешенные теги: [post_permalink], "
-"[confirm_link], [post_title], [manager_link]"
-
-#: options/panel4.php:177
-msgid ""
-"Subject of the mail sent to those who request to access their management "
-"page. Allowed tag: [blog_name]"
-msgstr ""
-"Тема письма подписчику, сделавшему запрос на доступ к странице управления "
-"подписками. Разрешенный тег: [blog_name]"
-
-#: options/panel4.php:189
-msgid ""
-"Content of the management email. Allowed tags: [blog_name], [manager_link]"
-msgstr ""
-"Текст письма об управлении подписками. Разрешенные теги: [blog_name],"
-"[manager_link]"
-
-#: options/panel4.php:195
-#, fuzzy
-msgid "One Click Unsubscribe"
-msgstr "Позволить админу подписываться"
-
-#: options/panel4.php:201
-#, fuzzy
-msgid "Content of the One Click confirmation. Allowed tags: [post_title]"
-msgstr "Тема письма о подтверждении. Разрешенный тег: [post_title]"
+#: utils/stcr_utils.php:195
+msgid "StCR Notification"
+msgstr "Уведомления"
 
 #: options/panel2.php:12 options/panel2.php:63
 msgid "Enable default checkbox"
@@ -1120,7 +545,7 @@ msgstr "Собственный HTML"
 msgid "Checkbox label"
 msgstr "Ярлык окошка выбора"
 
-#: options/panel2.php:37 options/panel2.php:163
+#: options/panel2.php:37 options/panel2.php:180
 msgid "Subscribed label"
 msgstr "Ярлык оформленной подписки"
 
@@ -1128,9 +553,26 @@ msgstr "Ярлык оформленной подписки"
 msgid "Awaiting label"
 msgstr "Ярлык неподтвержденной подписки"
 
-#: options/panel2.php:43 options/panel2.php:180
+#: options/panel2.php:43 options/panel2.php:213
 msgid "Author label"
 msgstr "Ярлык автора"
+
+#: options/panel2.php:49 options/panel4.php:73 options/panel5.php:18
+#: options/panel5.php:57 options/panel3.php:70
+msgid "Your settings have been successfully updated."
+msgstr "Ваши настройки успешно обновлены."
+
+#: options/panel2.php:51 options/panel4.php:75 options/panel5.php:20
+#: options/panel5.php:59 options/panel3.php:72
+msgid "There was an error updating the following fields:"
+msgstr "Произошла ошибка в обновлении следующих полей:"
+
+#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
+#: options/panel5.php:83 options/panel5.php:92 options/panel5.php:101
+#: options/panel5.php:111 options/panel5.php:120 options/panel5.php:130
+#: options/panel5.php:139 options/panel5.php:148
+msgid "Yes"
+msgstr "Да"
 
 #: options/panel2.php:68
 msgid ""
@@ -1186,7 +628,7 @@ msgstr ""
 msgid "Custom inline CSS to add to the checkbox."
 msgstr "Изменяемый Inline CSS для добавления к окошку выбора"
 
-#: options/panel2.php:143
+#: options/panel2.php:152
 msgid ""
 "Custom HTML code to be used when displaying the checkbox. Allowed tags: "
 "[checkbox_field], [checkbox_label]"
@@ -1194,30 +636,30 @@ msgstr ""
 "Собственный код HTML для использования при отображении окошка выбора. "
 "Разрешенные теги: [checkbox_field], [checkbox_label]"
 
-#: options/panel2.php:149
+#: options/panel2.php:158
 msgid "Messages for your visitors"
 msgstr "Сообщения вашим посетителям"
 
-#: options/panel2.php:153
+#: options/panel2.php:162
 msgid "Default label"
 msgstr "Стандартный ярлык"
 
-#: options/panel2.php:158
+#: options/panel2.php:175
 msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
 msgstr "Текст рядом с окошком выбора. Разрешенный тег: [subscribe_link]"
 
-#: options/panel2.php:167
+#: options/panel2.php:192
 msgid ""
 "Label shown to those who are already subscribed to a post. Allowed tag: "
 "[manager_link]"
 msgstr ""
 "Текст, видимый подписавшимся читателям. Разрешенный тег: [manager_link]"
 
-#: options/panel2.php:172
+#: options/panel2.php:197
 msgid "Pending label"
 msgstr "Ярлык  \"В ожидании\" "
 
-#: options/panel2.php:176
+#: options/panel2.php:209
 msgid ""
 "Label shown to those who are already subscribed, but haven't clicked on the "
 "confirmation link yet. Allowed tag: [manager_link]"
@@ -1225,41 +667,296 @@ msgstr ""
 "Текст, видимый читателям, еще не подтвердившим свою подписку. Разрешенный "
 "тег: [manager_link]"
 
-#: options/panel2.php:184
+#: options/panel2.php:225
 msgid ""
 "Label shown to authors (and administrators). Allowed tag: [manager_link]"
 msgstr ""
 "Тест, видимый авторам и администраторам. Разрешенный тег: [manager_link]"
 
-#: options/panel7.php:18
-msgid "Did you find a Bug on the plugin?"
-msgstr ""
+#: options/panel2.php:230 options/panel4.php:258 options/panel5.php:183
+#: options/panel3.php:253
+msgid "Save Changes"
+msgstr "Сохранить изменения"
 
-#: options/panel7.php:19
+#: options/panel9.php:11
+msgid "Support Subscribe to Comments Reloaded"
+msgstr ""
+"Нужна помощь в использовани плагина Subscribe to Comments Reloaded? Посетите "
+"наш официальный"
+
+#: options/panel9.php:12
 msgid ""
-"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
-"comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
-"%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
-"WordPress Support page."
+"Every contribution that you make is high valuable, so if you consider this "
+"plugin a helpful tool we will use your donation to invest on support and "
+"developing time."
 msgstr ""
 
-#: options/panel1.php:19
+#: options/panel4.php:15 options/panel4.php:89
+msgid "Sender name"
+msgstr "Имя отправителя"
+
+#: options/panel4.php:20 options/panel4.php:25 options/panel4.php:102
+msgid "Sender email address"
+msgstr "Эл. адрес отправителя"
+
+#: options/panel4.php:30 options/panel4.php:135
+msgid "Notification subject"
+msgstr "Тема письма с уведомлением"
+
+#: options/panel4.php:36 options/panel4.php:42 options/panel4.php:148
+msgid "Notification message"
+msgstr "Текст уведомления"
+
+#: options/panel4.php:47 options/panel4.php:172
+msgid "Double check subject"
+msgstr "Тема письма о подтверждении подписки"
+
+#: options/panel4.php:52 options/panel4.php:185
+msgid "Double check message"
+msgstr "Текст письма о подтверждении подписки"
+
+#: options/panel4.php:57 options/panel4.php:205
+msgid "Management subject"
+msgstr "Тема письма об управлении подписками"
+
+#: options/panel4.php:62 options/panel4.php:67 options/panel4.php:218
+msgid "Management message"
+msgstr "Текст письма об управлении подписками"
+
+#: options/panel4.php:96
+msgid ""
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
+msgstr "Имя в поле \"От кого\" в новом уведомлении пользователю."
+
+#: options/panel4.php:110
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
+msgstr "Эл. адрес в поле \"От кого\" в новом уведомлении пользователю."
+
+#: options/panel4.php:116
+msgid "Reply To"
+msgstr "Только ответы"
+
+#: options/panel4.php:123
+msgid ""
+"This will be use when the user click reply on their email agent. If not set "
+"will be the same as the Sender email address."
+msgstr ""
+
+#: options/panel4.php:130 options/panel3.php:127
+msgid "Messages"
+msgstr "Сообщения"
+
+#: options/panel4.php:142
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr "Тема письма с уведомлением. Разрешенный тег: [post_title]"
+
+#: options/panel4.php:165
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+msgstr ""
+"Текст уведомления. Разрешенные теги: [post_title],  [comment_permalink], "
+"[comment_author], [comment_content], [post_permalink], [manager_link]"
+
+#: options/panel4.php:166
+msgid ""
+"<p><strong>Note: To get a default template clear all the content and save "
+"the options.</strong></p>"
+msgstr ""
+
+#: options/panel4.php:179
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr "Тема письма о подтверждении. Разрешенный тег: [post_title]"
+
+#: options/panel4.php:199
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"Текст письма о подтвеждении. Разрешенные теги: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+
+#: options/panel4.php:212
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
+msgstr ""
+"Тема письма подписчику, сделавшему запрос на доступ к странице управления "
+"подписками. Разрешенный тег: [blog_name]"
+
+#: options/panel4.php:232
+msgid ""
+"Content of the management email and Page message. Allowed tags: [blog_name], "
+"[manager_link]. [manager_link] Will be visible only on the email, if you "
+"need to show that link into the web page use [web_manager_link]. Although "
+"the [web_manager_link] is available be AWARE that if someone know the email "
+"address of a user they will enter it to manage and will get the link."
+msgstr ""
+
+#: options/panel4.php:238
+msgid "One Click Unsubscribe"
+msgstr "Позволить админу подписываться"
+
+#: options/panel4.php:252
+msgid ""
+"Content of the One Click confirmation. Allowed tags: [post_title], "
+"[blog_name]"
+msgstr "Тема письма о подтверждении. Разрешенный тег: [post_title]"
+
+#: options/panel7.php:8 options/panel8.php:8
+msgid "Support the developers"
+msgstr "Поддержать автора"
+
+#: options/panel7.php:18
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? please "
+"consider supporting the author if this plugin made your web site better, "
+"especially if you are making money out of it. Any donation received will be "
+"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
+"strong>, and to buy some food for my hungry family."
+msgstr ""
+"Насколько важна функция, которую предоставляет этот плагин для ваших "
+"посетителей? Плагин <b>Subscribe to Comments Reloaded</b> есть и всегда "
+"будет бесплатным, но подумайте над тем, чтобы поддержать автора, если этот "
+"плагин сделал ваш сайт немного лучше, особенно если вы зарабатываете деньги "
+"с помощью своего сайта. Все пожертвования будут использованы для развития "
+"плагина <b>Subscribe to Comments Reloaded</b> и на то, чтобы купить немного "
+"еды моей голодной семье."
+
+#: options/panel7.php:20
+msgid "Don't want to donate? You can still help"
+msgstr "Не хотите делать пожертвование? Вы все равно можете помочь"
+
+#: options/panel7.php:21
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
+"you do, thanks for using my plugin!"
+msgstr ""
+"Если вы не хотите помочь деньгами, пожалуйста, рассмотрите возможность "
+"написать о моем плагине в своем блоге и оставить ссылку на страницу плагина. "
+"Пожалуйста, расскажите своим читателям, что делает ваш блог лучше. Вы можете "
+"также пожертвовать свое время: не стесняйтесь отправлять мне отчеты об "
+"ошибках, свои файлы локализации, идеи по улучшению плагина <b>Subscribe to "
+"Comments Reloaded</b> и так далее. Что бы вы ни выбрали, спасибо, что "
+"пользуетесь моим плагином!"
+
+#: options/panel7.php:23
+msgid "Subscribe to the Beta testers"
+msgstr "Ярлык оформленной подписки"
+
+#: options/panel7.php:24
+msgid ""
+"Before a new Update we release a Beta version so that our current users can "
+"give us feedback if they find a bug, If you want to join the tester list you "
+"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
+"a>"
+msgstr ""
+
+#: options/panel7.php:26
+msgid "Vote and show your appreciation"
+msgstr "Проголосуйте и покажите свою признательность"
+
+#: options/panel7.php:27
+msgid ""
+"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
+"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
+"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"Если вам нравится вам плагин <b>Subscribe to Comments Reloaded</b>, "
+"расскажите другим людям о нем и о том, насколько он хорош. <a href=\"http://"
+"wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Оцените</a> "
+"его в разделе плагинов на сайте Wordpress."
+
+#: options/panel1.php:20
 msgid "Mass Update Subscriptions"
 msgstr "Массово обновить подписки"
 
-#: options/panel1.php:61
+#: options/panel1.php:27 options/panel1-edit-subscription.php:16
+msgid "From"
+msgstr "С"
+
+#: options/panel1.php:28 options/panel1.php:29 options/panel1.php:30
+msgid "email address"
+msgstr "Эл. адрес отправителя"
+
+#: options/panel1.php:33 options/panel1-edit-subscription.php:20
+msgid "To"
+msgstr "на"
+
+#: options/panel1.php:34 options/panel1.php:35 options/panel1.php:36
+msgid "optional - new email address"
+msgstr "Обновить электронный адрес"
+
+#: options/panel1.php:39 options/panel1.php:76 options/panel1.php:141
+#: options/panel1.php:159 options/panel1-add-subscription.php:20
+#: options/panel1-edit-subscription.php:26
+msgid "Status"
+msgstr "Статус"
+
+#: options/panel1.php:41 options/panel1-edit-subscription.php:28
+msgid "Keep unchanged"
+msgstr "Оставить без изменений"
+
+#: options/panel1.php:42 options/panel1.php:79 options/panel1.php:172
+#: options/panel1-add-subscription.php:22
+#: options/panel1-edit-subscription.php:29
+msgid "Active"
+msgstr "Активно"
+
+#: options/panel1.php:43 options/panel1.php:80
+#: options/panel1-add-subscription.php:23
+#: options/panel1-edit-subscription.php:30
+msgid "Replies only"
+msgstr "Только ответы"
+
+#: options/panel1.php:44 options/panel1-edit-subscription.php:31
+msgid "Suspended"
+msgstr "Приостановлено"
+
+#: options/panel1.php:46 options/panel1-add-subscription.php:26
+#: options/panel1-edit-subscription.php:33
+msgid "Update"
+msgstr "Обновить"
+
+#: options/panel1.php:49
+msgid "More info"
+msgstr "Dettagli"
+
+#: options/panel1.php:55
+msgid ""
+"This option will allow you to change an email address for another one or to "
+"update the same status for all the subscription on a specific email address."
+msgstr ""
+
+#: options/panel1.php:61 options/panel1-add-subscription.php:8
+msgid "Add New Subscription"
+msgstr "Добавить новую подписку"
+
+#: options/panel1.php:68
 msgid "Post ID"
 msgstr "ID-номер записи"
 
-#: options/panel1.php:76
+#: options/panel1.php:81 options/panel1-add-subscription.php:24
+msgid "Ask user to confirm"
+msgstr "Просить подтвреждение от пользователя"
+
+#: options/panel1.php:83
 msgid "Add"
 msgstr "Добавить"
 
-#: options/panel1.php:91
+#: options/panel1.php:98
 msgid "Search subscriptions"
 msgstr "Искать в подписках"
 
-#: options/panel1.php:95
+#: options/panel1.php:102
 #, php-format
 msgid ""
 "You can either <a href=\"%s\">view all the subscriptions</a> or find those "
@@ -1267,97 +964,437 @@ msgid ""
 msgstr ""
 "Вы можете <a href=\"%s\">просмотреть все подписки</a> или найти те, где"
 
-#: options/panel1.php:99
+#: options/panel1.php:106
 msgid "email"
 msgstr "эл. адрес"
 
-#: options/panel1.php:100
+#: options/panel1.php:107
 msgid "post ID"
 msgstr "ID-номер записи"
 
-#: options/panel1.php:101
+#: options/panel1.php:108
 msgid "status"
 msgstr "статус"
 
-#: options/panel1.php:104
+#: options/panel1.php:111
 msgid "equals"
 msgstr "равнозначно"
 
-#: options/panel1.php:105
+#: options/panel1.php:112
 msgid "contains"
 msgstr "содержит"
 
-#: options/panel1.php:106
+#: options/panel1.php:113
 msgid "does not contain"
 msgstr "не содержит"
 
-#: options/panel1.php:107
+#: options/panel1.php:114
 msgid "starts with"
 msgstr "начинается с"
 
-#: options/panel1.php:108
+#: options/panel1.php:115
 msgid "ends with"
 msgstr "заканчивается на"
 
-#: options/panel1.php:111
+#: options/panel1.php:118
 msgid "results per page:"
 msgstr "результаты постранично:"
 
-#: options/panel1.php:113
+#: options/panel1.php:120
 msgid "Search"
 msgstr "Искать"
 
-#: options/panel1.php:121
+#: options/panel1.php:128
 msgid "Reverse the order by Post ID"
 msgstr "Изменить порядок по ID записи"
 
-#: options/panel1.php:122 options/panel1.php:123
+#: options/panel1.php:129 options/panel1.php:130
 msgid "Reverse the order by Date/Time"
 msgstr "Изменить порядок по дате/времени"
 
-#: options/panel1.php:125
+#: options/panel1.php:132
 msgid "Post (ID)"
 msgstr "Запись (ID)"
 
-#: options/panel1.php:128
+#: options/panel1.php:135
 msgid "Search query:"
 msgstr "Поисковый запрос:"
 
-#: options/panel1.php:128
+#: options/panel1.php:135
 msgid "Rows:"
 msgstr "Ряды:"
 
-#: options/panel1.php:128
+#: options/panel1.php:135
 msgid "of"
 msgstr " "
 
-#: options/panel1.php:138
+#: options/panel1.php:142 options/panel1.php:158
 msgid "Date and Time"
 msgstr "Дата и время"
 
-#: options/panel1.php:150
-msgid "Subscription"
-msgstr "Подписки"
+#: options/panel1.php:168
+msgid "Replies"
+msgstr "Ответы"
 
-#: options/panel1.php:152
+#: options/panel1.php:169
+msgid "All Comments"
+msgstr ""
+
+#: options/panel1.php:170
+msgid "Unconfirmed"
+msgstr ""
+
+#: options/panel1.php:171
+msgid "Inactive"
+msgstr "Активно"
+
+#: options/panel1.php:201 options/panel1.php:211
 msgid "Edit"
 msgstr "Редактировать"
 
-#: options/panel1.php:162
+#: options/panel1.php:203 options/panel1.php:209
+msgid "Subscription"
+msgstr "Подписки"
+
+#: options/panel1.php:226
 msgid "Delete forever"
 msgstr "Удалить навсегда"
 
-#: options/panel1.php:164
+#: options/panel1.php:228
 msgid "Activate and set to Y"
 msgstr "Включить и установить на Y"
 
-#: options/panel1.php:165
+#: options/panel1.php:229
 msgid "Activate and set to R"
 msgstr "Включить и установить на R"
 
-#: options/panel1.php:170
+#: options/panel1.php:237
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr "Извините, ни одна подписка не соответствует вашему поисковому запросу."
+
+#: options/panel1-business-logic.php:23
+msgid "Subscription added."
+msgstr "Подписка добавлена."
+
+#: options/panel1-business-logic.php:39
+msgid "Subscriptions updated."
+msgstr "Подписки обновлены."
+
+#: options/panel1-business-logic.php:51
+msgid "Subscription deleted."
+msgstr "Подписка удалена."
+
+#: options/panel1-business-logic.php:110
+msgid "&laquo; Previous"
+msgstr "&laquo; Обратно"
+
+#: options/panel1-business-logic.php:114
+msgid "Next &raquo;"
+msgstr "Вперед &raquo;"
+
+#: options/panel1-add-subscription.php:13
+#: options/panel1-edit-subscription.php:13
+msgid "Post:"
+msgstr "Запись:"
+
+#: options/panel5.php:28 options/panel5.php:72
+msgid "Autopurge requests"
+msgstr "Автоматически удалять запросы"
+
+#: options/panel5.php:31 options/panel5.php:81
+msgid "Enable double check"
+msgstr "Включить двойное подтверждение"
+
+#: options/panel5.php:34 options/panel5.php:89
+msgid "Subscribe authors"
+msgstr "Ярлык оформленной подписки"
+
+#: options/panel5.php:37 options/panel5.php:99
+msgid "Enable HTML emails"
+msgstr "Использовать HTML письма"
+
+#: options/panel5.php:40
+msgid "HTMLify Links in HTML emails"
+msgstr ""
+
+#: options/panel5.php:43
+msgid "Send trackbacks"
+msgstr "Отправлять трэкбеки"
+
+#: options/panel5.php:46
+msgid "Notify admin"
+msgstr "Уведомить админа"
+
+#: options/panel5.php:49 options/panel5.php:137
+msgid "Let admin subscribe"
+msgstr "Позволить админу подписываться"
+
+#: options/panel5.php:52 options/panel5.php:146
+msgid "BCC admin on Notifications"
+msgstr "Уведомления"
+
+#: options/panel5.php:75
+msgid "days"
+msgstr "дней"
+
+#: options/panel5.php:76
+msgid ""
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
+msgstr ""
+"Удалять ожидающие подтверждения (не подтвержденные) подписки через Х дней. "
+"Ноль отключает эту функцию."
+
+#: options/panel5.php:85
+msgid ""
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
+msgstr ""
+"Отправлять письмо с просьбой подтвердить подписку (чтобы избежать "
+"использования эл. адреса без ведома владельца)"
+
+#: options/panel5.php:94
+msgid ""
+"Automatically subscribe authors to their own articles (not retroactive)."
+msgstr ""
+
+#: options/panel5.php:103
+msgid ""
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
+msgstr ""
+"При выборе этой функции сообщения будут отправляться в формате текст/html "
+"вместо обычного текста"
+
+#: options/panel5.php:108
+msgid "HTMLify links in emails"
+msgstr ""
+
+#: options/panel5.php:113
+msgid ""
+"If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
+"&lt;/a&gt;</code> (only when HTML emails enabled)."
+msgstr ""
+
+#: options/panel5.php:118
+msgid "Process trackbacks"
+msgstr "Обрабатывать трэкбеки"
+
+#: options/panel5.php:122
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
+msgstr "Уведомлять подписчиков о новых трэкбеках или пингбэках к обсуждению"
+
+#: options/panel5.php:127
+msgid "Track all subscriptions"
+msgstr "Отследить все подписки"
+
+#: options/panel5.php:132
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr ""
+"Уведомлять администратора, когда пользователи подписываются без комментария."
+
+#: options/panel5.php:141
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr "Позволить админу подписываться, когда он авторизован."
+
+#: options/panel5.php:150
+msgid "Send a copy of all Notifications to the administrator."
+msgstr ""
+
+#: options/panel5.php:155
+msgid "StCR Unique Key"
+msgstr ""
+
+#: options/panel5.php:160
+msgid "This Unique Key is not set, please click the following button to "
+msgstr ""
+
+#: options/panel5.php:164 options/panel5.php:175
+msgid "Generate"
+msgstr "Tasso di rimbalzo"
+
+#: options/panel5.php:172
+msgid ""
+"This Unique Key will be use to send the notification to your subscribers "
+"with more security."
+msgstr ""
+
+#: options/panel8.php:18
+msgid "Did you find a Bug on the plugin?"
+msgstr ""
+
+#: options/panel8.php:19
+msgid ""
+"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
+"%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
+"WordPress Support page."
+msgstr ""
+
+#: options/panel1-edit-subscription.php:8
+msgid "Update Subscription"
+msgstr "Обновить подписку"
+
+#: options/panel1-edit-subscription.php:11
+#: options/panel1-edit-subscription.php:21
+#: options/panel1-edit-subscription.php:22
+#: options/panel1-edit-subscription.php:23
+msgid "optional"
+msgstr "по выбору"
+
+#: options/panel10.php:22 options/panel10.php:23
+msgid "System Information"
+msgstr ""
+
+#: options/panel3.php:13 options/panel3.php:87
+msgid "Virtual Management Page"
+msgstr "Виртуальная страница управления"
+
+#: options/panel3.php:18 options/panel3.php:96
+msgid "Page title"
+msgstr "Заголовок страницы"
+
+#: options/panel3.php:23 options/panel3.php:105
+msgid "Management URL"
+msgstr "URL управления"
+
+#: options/panel3.php:28 options/panel3.php:117
+msgid "Custom HEAD meta"
+msgstr "Собственный HEAD meta-тег"
+
+#: options/panel3.php:34 options/panel3.php:131
+msgid "Request link"
+msgstr "Ссылка на запрос"
+
+#: options/panel3.php:39 options/panel3.php:149
+msgid "Request submitted"
+msgstr "Запрос отправлен"
+
+#: options/panel3.php:44 options/panel3.php:167
+msgid "Subscribe without commenting"
+msgstr "Подписка без комментирования"
+
+#: options/panel3.php:49 options/panel3.php:185
+msgid "Subscription processed"
+msgstr "Подписка оформлена"
+
+#: options/panel3.php:54 options/panel3.php:203
+msgid "Subscription processed (DCI)"
+msgstr "Подписка оформлена (DCI)"
+
+#: options/panel3.php:59 options/panel3.php:220
+msgid "Authors"
+msgstr "Авторы"
+
+#: options/panel3.php:64 options/panel3.php:236
+msgid "Users"
+msgstr "Пользователи"
+
+#: options/panel3.php:90
+msgid "Enabled"
+msgstr "Включено"
+
+#: options/panel3.php:91
+msgid "Disabled"
+msgstr "Выключено"
+
+#: options/panel3.php:92
+msgid ""
+"Disable the virtual management page if you need to create a <a href="
+"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
+"real-management-page\">real page</a> to make your theme happy."
+msgstr ""
+"Отмените виртуальную страницу управления, если вам нужно создать <a href="
+"\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">настоящую "
+"страницу</a> для корректной работы плагина с вашей темой оформления."
+
+#: options/panel3.php:101
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr ""
+"Заголовок страницы, на которой пользователи будут редактировать свои "
+"подписки."
+
+#: options/panel3.php:109
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"Постоянная ссылка на вашу страницу управления (что-то вроде <code>/manage-"
+"subscriptions</code> или <code>/page_id=345</code>). Эта страница фактически "
+"<b>не существует</b> в системе, но постоянная ссылка на нее должна "
+"соответствовать вашим установкам постоянных ссылок в Wordpress."
+
+#: options/panel3.php:111
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
+msgstr ""
+"Внимание: возможно, используемое вами значение несовместимо с вашей "
+"структурой постоянных ссылок"
+
+#: options/panel3.php:121
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
+msgstr ""
+"Укажите свой код HTML для добавления в HEAD страницы. Используйте "
+"<strong>одинарные</strong> кавычки для значений."
+
+#: options/panel3.php:144
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr "Текст, видимый сделавшим запрос на управление подписками."
+
+#: options/panel3.php:162
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Текст благодарности, выводимый после обработки сделанного запроса. Разрешены "
+"теги: [post_title], [post_permalink]"
+
+#: options/panel3.php:180
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"Текст для желающих подписаться без комментирования. Разрешены теги: "
+"[post_title], [post_permalink]"
+
+#: options/panel3.php:198
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Текст благодарности, выводимый после обработки запроса на подписку (двойное "
+"подтверждение отключено). Разрешены теги: [post_title], [post_permalink]"
+
+#: options/panel3.php:216
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Текст благодарности, выводимый после обработки запроса на подписку (двойное "
+"подтверждение включено). Разрешены теги: [post_title], [post_permalink]"
+
+#: options/panel3.php:232
+msgid "Introductory text for the authors' management page."
+msgstr "Вводный текст на странице управления подписками для авторов."
+
+#: options/panel3.php:248
+msgid "Introductory text for the users' management page."
+msgstr "Вводный текст на странице управления подписками для подписчиков."
+
+#~ msgid "StCR Subscription Box Position"
+#~ msgstr "Новая подписка на"
+
+#~ msgid ""
+#~ "Content of the management email. Allowed tags: [blog_name], [manager_link]"
+#~ msgstr ""
+#~ "Текст письма об управлении подписками. Разрешенные теги: [blog_name],"
+#~ "[manager_link]"
 
 #~ msgid "Bold"
 #~ msgstr "Жирный"
@@ -1396,9 +1433,6 @@ msgstr "Извините, ни одна подписка не соответст
 
 #~ msgid "Subscribed"
 #~ msgstr "Подписано"
-
-#~ msgid "Replies"
-#~ msgstr "Ответы"
 
 #~ msgid "Digest"
 #~ msgstr "Дайджест"
@@ -1444,9 +1478,6 @@ msgstr "Извините, ни одна подписка не соответст
 
 #~ msgid "Resume"
 #~ msgstr "Восстановить"
-
-#~ msgid "Update email address"
-#~ msgstr "Обновить электронный адрес"
 
 #~ msgid ""
 #~ "You can \"mass update\" all the occurrences of a given email address "
@@ -1734,9 +1765,6 @@ msgstr "Извините, ни одна подписка не соответст
 
 #~ msgid "Open %s in a new window"
 #~ msgstr "Apri %s in una nuova finestra"
-
-#~ msgid "More"
-#~ msgstr "Dettagli"
 
 #~ msgid "Recent Keywords"
 #~ msgstr "Parole chiave recenti"
