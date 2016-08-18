@@ -9,14 +9,14 @@ Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
+Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies. You can receive notifications from any comment on a Post or just when someone reply to your message.
 
 == Description ==
-Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notification of subsequent entries. The plugin includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications. It solves most of the issues that affect Mark Jaquith's version, using the latest Wordpress features and functionality. Plus, allows administrators to enable a double opt-in mechanism, requiring users to confirm their subscription clicking on a link they will receive via email.
+Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notification of subsequent entries. The plugin includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications. It solves most of the issues that affect Mark Jaquith's version, using the latest Wordpress features and functionality. Plus, allows administrators to enable a double opt-in mechanism, requiring users to confirm their subscription clicking on a link they will receive via email or even One Click Unsubscribe.
 
 ## Requirements
 * Wordpress 4.0 or higher
-* PHP 5.4.x or higher
+* PHP 5.3.13 or higher
 * MySQL 5.x or higher
 
 ## Main Features
@@ -33,13 +33,19 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 
 
 1. If you are using Subscribe To Comments by Mark Jaquith, disable it (no need to uninstall it, though)
-2. Upload the entire folder and all the subfolders to your Wordpress plugins' folder
+2. Upload the entire folder and all the subfolders to your Wordpress plugins' folder. You can also use the downloaded ZIP file to upload it.
 3. Activate it
 5. Customize the Permalink value under Settings > Subscribe to Comments > Management Page > Management URL. It **must** reflect your permalinks' structure
-5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show(); ?>` somewhere in your `comments.php`
-6. If you're upgrading from a previous version, please **make sure to deactivate/activate** StCR
+5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>` somewhere in your `comments.php`
+6. If you're upgrading from a previous version, please **make sure to deactivate/activate** StCR.
 
 == Frequently Asked Questions ==
+
+= Where can I give a Donation to support the plugin?
+Thank you to your contributions the plugin gets better, please go to this [link](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) to give a PayPal donation.
+
+= Why my notifications are not in HTML format? =
+Don't worry, just go to the Options tab an set to Yes the **Enable HTML emails** option.
 
 = Aaargh! Were did all my subscriptions go? =
 No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure
@@ -48,18 +54,18 @@ No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/ac
 Please refer to [this page](https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page) for a detailed step-by-step description on how to do that
 
 = Can I customize the layout of the management page? =
-Yes, each HTML tag has a CSS class or ID that you can use to change its position or look-and-feel
+Yes, each HTML tag has a CSS class or ID that you can use to change its position or look-and-feel.
 
 = How do I disable subscriptions for a given post? =
 Add a custom field called `stcr_disable_subscriptions` to it, with value 'yes'
 
 = How do I add the management page URL to my posts? =
 Use the shortcode `[subscribe-url]`, or use the following code in your theme:
-`if(function_exists('subscribe_reloaded_show')) echo '<a href="'.do_shortcode('[subscribe-url]').'">Subscribe</a>";`
+`global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){  echo '<a href="'.do_shortcode('[subscribe-url]').'">Subscribe</a>";`
 
 = Can I move the subscription checkbox to another position? =
 Yes! Just disable the corresponding option under Settings > Comment Form and then add the following code where you want to display the checkbox:
-`<?php if (function_exists('subscribe_reloaded_show')) subscribe_reloaded_show(); ?>`
+`<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>`
 
 = What if after update to the version 141024 I still see plain HTML messages? =
 The information of your configuration needs to be updated. Go to the Subscribe to Comments Reloaded settings and click the `Save Changes` button on the tab
@@ -67,6 +73,9 @@ where you have you messages with HTML.
 
 = How to generate a new Key for my Site? =
 Just go to the Options Panel and click the generate button. By generating a new key you prevent the spam bots to steal your links.
+
+= Why the version number change to the format X.X.X?
+The version number must mean something to the users, at the end this is the purpose of a version number and therefore the plugin version re-take the [Semantic](http://semver.org/) Versioning.
 
 == Screenshots ==
 
@@ -124,27 +133,27 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 = v3.0.0 =
 
-* **Update** The version number to continue using the [Semantic](http://semver.org/) way.
-* **Info** The version 3.0.0 has been tested down until PHP 5.3.13 and up to PHP 7.0.
-* **Add** Link on the Mass Update panel with instructions to help the user know what is for.
-* **Fix** links duplications on notification messages.
-* **Change** TinyMCE editor for wp_editor.
-* **Add** the wp_editor to the comment form panel.
-* **Change** the radio buttons at the bottom of the subscriptions page for a select/combobox menu.
-* **Fix** email headers and new headers: Reply-To, To, and Subject. Some notification message where not deliver in public accounts like Gmail, AOL and Hotmail due to broken email headers.
 * **New Feature** Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.
 * **New Feature** Improve the Admin Menu for StCR. Replace the StCR menu on the Settings Menu for a new Menu with sub menus for the pages.
+* **Info** The version 3.0.0 has been tested down until PHP 5.3.13 and up to PHP 7.0. See also [issue#238](https://github.com/stcr/subscribe-to-comments-reloaded/issues/238)
+* **Fix** email headers and new headers: Reply-To, To, and Subject. Some notification message where not deliver in public accounts like Gmail, AOL and Hotmail due to broken email headers.
+* **Fix** links duplications on notification messages. [issue#198](https://github.com/stcr/subscribe-to-comments-reloaded/issues/198) and [issue#200](https://github.com/stcr/subscribe-to-comments-reloaded/issues/200)
+* **Fix** the position of StCR box to be above the submit button by using the WordPress way, this is the way it should be. [issue#196](https://github.com/stcr/subscribe-to-comments-reloaded/issues/196)
+* **Fix** hard code table name `wp_option` for the `$wpdb->options` way. Issue "SQL Error: 'wp_options' doesn't exist" [issue#197](https://github.com/stcr/subscribe-to-comments-reloaded/issues/197)
+* **Improve** the subscribers list.
 * **Improve** RTL support.
 * **Improve** the support for RTL languages on the `Manage Subscriptions` admin page.
-* **Update** some translations on the Persian file.
-* **Improve** the subscribers list.
+* **Update** The version number to continue using the [Semantic](http://semver.org/) Versioning.
+* **Update** some translations on the Persian file. [issue#191](https://github.com/stcr/subscribe-to-comments-reloaded/issues/191)
+* **Add** Link on the Mass Update panel with instructions to help the user know what is for.
+* **Add** the wp_editor to the comment form panel instead of only the TinyMCE. [issue#2017](https://github.com/stcr/subscribe-to-comments-reloaded/issues/207)
 * **Add** descriptive statuses on the Subscribers list.
 * **Add** subscribers unique key on the email as a title attribute.
-* **Remove** the anchor wrappers on the request-management-link.php
 * **Add** Unique Key expiration when the unique key is regenerated by the admin. This will fix also broken links on the email notifications.
-* **Fix** the position of StCR box to be above the submit button by using the WordPress way, this is the way it should be.
-* **Remove** option to move subscription box on the options tabs.
-* **Fix** hard code table name `wp_option` for the `$wpdb->options` way. Issue "SQL Error: 'wp_options' doesn't exist" issue#197
+* **Remove** the anchor wrappers on the request-management-link.php
+* **Change** TinyMCE editor for wp_editor. [issue#2017](https://github.com/stcr/subscribe-to-comments-reloaded/issues/207)
+* **Change** the radio buttons at the bottom of the subscriptions page for a select/combobox menu.
+* **Remove** option to move subscription box on the options tabs. [issue#196](https://github.com/stcr/subscribe-to-comments-reloaded/issues/196)
 
 = Warning =
 **StCR version 160106 and above require at least PHP 5.3.X, so if you have a lower version your site might break, Read more** [here](https://wordpress.org/support/topic/fatal-error-upon-updating?replies=43) and [here](https://github.com/stcr/subscribe-to-comments-reloaded/issues/238#issuecomment-240486395)
@@ -342,4 +351,4 @@ localization is ready. Currently, we support the following languages:
 * Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
 * Hungarian - [László Tavaszi]
 * Czech - [Daniel Král](http://www.danielkral.cz/)
-* Persian - [Javad Hoseini-Nopendar](http://www.irannopendar.com/)
+* Persian - [Javad Hoseini-Nopendar](http://www.irannopendar.com/), [omid020](https://github.com/omid020)
