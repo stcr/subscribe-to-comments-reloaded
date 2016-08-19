@@ -24,6 +24,9 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 } else {
 	// Update options
 	if ( isset( $_POST['options'] ) ) {
+		if ( isset( $_POST['options']['safely_uninstall'] ) && ! subscribe_reloaded_update_option( 'safely_uninstall', $_POST['options']['safely_uninstall'], 'yesno' ) ) {
+			$faulty_fields = __( 'Safetly Uninstall', 'subscribe-reloaded' ) . ', ';
+		}
 		if ( isset( $_POST['options']['purge_days'] ) && ! subscribe_reloaded_update_option( 'purge_days', $_POST['options']['purge_days'], 'integer' ) ) {
 			$faulty_fields = __( 'Autopurge requests', 'subscribe-reloaded' ) . ', ';
 		}
@@ -68,6 +71,15 @@ wp_print_scripts( 'quicktags' );
 ?>
 <form action="" method="post">
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
+		<tr>
+			<th scope="row">
+				<label for="safely_uninstall"><?php _e( 'Safely Uninstall', 'subscribe-reloaded' ) ?></label></th>
+			<td>
+				<input type="radio" name="options[safely_uninstall]" id="safely_uninstall" value="yes"<?php echo ( subscribe_reloaded_get_option( 'safely_uninstall' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+				<input type="radio" name="options[safely_uninstall]" value="no" <?php echo ( subscribe_reloaded_get_option( 'safely_uninstall' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
+				<div class="description"><?php _e( 'This option will allow you to delete the plugin with WordPress without loosing your subscribers. Any database table and plugin options are wipeout.', 'subscribe-reloaded' ); ?></div>
+			</td>
+		</tr>
 		<tr>
 			<th scope="row"><label for="purge_days"><?php _e( 'Autopurge requests', 'subscribe-reloaded' ) ?></label>
 			</th>

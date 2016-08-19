@@ -221,6 +221,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			delete_option('subscribe_reloaded_unique_key');
 			add_option( 'subscribe_reloaded_unique_key', $this->utils->generate_key(), '', 'yes' );
 			add_option( 'subscribe_reloaded_fresh_install', 'no', '', 'yes' );
+			add_option( 'subscribe_reloaded_safely_uninstall', 'yes', '', 'yes' );
 			add_option( 'subscribe_reloaded_commentbox_place', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_reply_to', '', '', 'yes' );
 			add_option( 'subscribe_reloaded_oneclick_text', "<p>Your are not longer subscribe to the post:</p>\r\n\r\n<h3>[post_title]</h3>\r\n<br>", '', 'yes' );
