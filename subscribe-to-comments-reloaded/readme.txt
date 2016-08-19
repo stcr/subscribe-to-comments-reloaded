@@ -47,6 +47,12 @@ Thank you to your contributions the plugin gets better, please go to this [link]
 = Why my notifications are not in HTML format? =
 Don't worry, just go to the Options tab an set to Yes the **Enable HTML emails** option.
 
+= How can I reset all the plugin options? =
+There is a new feature called **Safely Uninstall** that allow you to delete the plugin using the WordPress plugin interface. If you have the option set to **Yes** everything but the subscriptions created by the plugin will be wipeout. So after you made sure that you have this option to **Yes** you can deactivate the plugin and the delete it. Now you have to install the plugin via WordPress or Upload the plugin `zip` file and activate it, after this step all your settings will be as default and your subscriptions will remain.
+
+= What can I do if the **Safely Unistall** does not have any value?
+Just deactivate and activate the plugin and you are all set. The default value will be **Yes**.
+
 = Aaargh! Were did all my subscriptions go? =
 No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure
 
