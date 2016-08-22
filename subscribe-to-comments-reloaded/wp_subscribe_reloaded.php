@@ -99,20 +99,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		}
 		// end __construct
 
-		function stcr_admin_init()
-		{
-			// Add Authors to custom posts types
-			if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
-				// Retrieve custom post types
-				$gpt_args = array('_builtin' => false);
-				$post_types = get_post_types( $gpt_args );
-				foreach ($post_types as $post_type_name) {
-					// Add author subscription in every post type
-					add_action( 'publish_' . $post_type_name , array( $this, 'subscribe_post_author' ) );
-				}
-			}
-		}
-
 		/**
 		 * Load localization files
 		 */
