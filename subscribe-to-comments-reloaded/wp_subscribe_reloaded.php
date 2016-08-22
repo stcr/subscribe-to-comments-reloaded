@@ -59,12 +59,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				// Monitor actions on existing comments
 				add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
 				add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
-
-				// Subscribe post authors, if the case
-				if ( get_option( 'subscribe_reloaded_notify_authors', 'no' ) == 'yes' ) {
-					add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
-				}
-
 				// Add a new column to the Edit Comments panel
 				add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
 				add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
@@ -78,7 +72,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
 
 				// Admin notices
-				add_action( 'admin_init', array( $this, 'admin_init' ) );
+				add_action( 'admin_init', array( $this, 'stcr_admin_init' ) );
 				add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 				// Contextual help
@@ -89,6 +83,10 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 				// Settings link for plugin on plugins page
 				add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
+				// Subscribe post authors, if the case
+				if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
+					add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
+				}
 
 				// Enqueue admin scripts
 				$this->utils->hook_admin_scripts();
@@ -100,6 +98,20 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 		}
 		// end __construct
+
+		function stcr_admin_init()
+		{
+			// Add Authors to custom posts types
+			if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
+				// Retrieve custom post types
+				$gpt_args = array('_builtin' => false);
+				$post_types = get_post_types( $gpt_args );
+				foreach ($post_types as $post_type_name) {
+					// Add author subscription in every post type
+					add_action( 'publish_' . $post_type_name , array( $this, 'subscribe_post_author' ) );
+				}
+			}
+		}
 
 		/**
 		 * Load localization files

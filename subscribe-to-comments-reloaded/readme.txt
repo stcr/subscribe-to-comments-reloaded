@@ -142,6 +142,7 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 * **New Feature** Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.
 * **New Feature** Improve the Admin Menu for StCR. Replace the StCR menu on the Settings Menu for a new Menu with sub menus for the pages.
 * **New Feature** Saftely Uninstall option to Delete the plugin without loosing your subscriptions. You can use this option also for reset all the settings, see the FAQ.
+* **New Feature** Now the WordPress Authors can use the **Subscribe authors** option to autor subscribe to a Custom Post Type. [issue#126](https://github.com/stcr/subscribe-to-comments-reloaded/issues/126)
 * **Info** The version 3.0.0 has been tested down until PHP 5.3.13 and up to PHP 7.0. See also [issue#238](https://github.com/stcr/subscribe-to-comments-reloaded/issues/238)
 * **Fix** email headers and new headers: Reply-To, To, and Subject. Some notification message where not deliver in public accounts like Gmail, AOL and Hotmail due to broken email headers.
 * **Fix** links duplications on notification messages. [issue#198](https://github.com/stcr/subscribe-to-comments-reloaded/issues/198) and [issue#200](https://github.com/stcr/subscribe-to-comments-reloaded/issues/200)
