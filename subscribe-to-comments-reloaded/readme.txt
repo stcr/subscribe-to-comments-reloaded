@@ -148,6 +148,7 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 * **Fix** links duplications on notification messages. [issue#198](https://github.com/stcr/subscribe-to-comments-reloaded/issues/198) and [issue#200](https://github.com/stcr/subscribe-to-comments-reloaded/issues/200)
 * **Fix** the position of StCR box to be above the submit button by using the WordPress way, this is the way it should be. [issue#196](https://github.com/stcr/subscribe-to-comments-reloaded/issues/196)
 * **Fix** hard code table name `wp_option` for the `$wpdb->options` way. Issue "SQL Error: 'wp_options' doesn't exist" [issue#197](https://github.com/stcr/subscribe-to-comments-reloaded/issues/197)
+**Improve** Message notification, now the **Management Page message** is different than the **Management Email message**. On the **Management Page message** you only notify the author of the request and in the **Management Email message** you notify of the request and you can include the management link. [issue#247](https://github.com/stcr/subscribe-to-comments-reloaded/issues/247#issuecomment-242662558)
 * **Improve** the subscribers list.
 * **Improve** RTL support.
 * **Improve** the support for RTL languages on the `Manage Subscriptions` admin page.

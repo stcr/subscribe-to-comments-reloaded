@@ -11,10 +11,10 @@ if ( ! empty( $email ) ) {
 	global $wp_subscribe_reloaded;
 
 	// Send management link
-	$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
-	$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
-	$web_message  = $message;
-	$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+	$subject        = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
+	$page_message   = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
+	$email_message  = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_email_content', '' ) ), ENT_QUOTES, 'UTF-8' );
+	$manager_link   = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 	$one_click_unsubscribe_link = $manager_link;
 	if ( function_exists( 'qtrans_convertURL' ) ) {
 		$manager_link = qtrans_convertURL( $manager_link );
@@ -31,24 +31,25 @@ if ( ! empty( $email ) ) {
 								. "&srk=$subscriber_salt" . "&sra=u" . "&srp=";
 
 	// Replace tags with their actual values
-	$subject      = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
-	$message      = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
-	$page_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $web_message );
-	$page_message = str_replace( '[web_manager_link]',  $manager_link, $page_message );
-	$message      = str_replace( '[manager_link]',  $manager_link, $message );
-	$message      = str_replace( '[web_manager_link]',  $manager_link, $message );
-	$message      = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
+	$subject       = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
+	// Setup the fronted page message
+	$page_message  = str_replace( '[blog_name]', get_bloginfo( 'name' ), $page_message );
+	// Setup the email message
+	$email_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $email_message );
+	$email_message = str_replace( '[manager_link]',  $manager_link, $email_message );
+	$email_message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $email_message );
+	$email_message = wpautop( $email_message );
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
-		$subject = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
-		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
-		$page_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
+		$subject       = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
+		$page_message  = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
+		$email_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $email_message );
 	}
 	// Prepare email settings
 	$email_settings = array(
 		'subject'      => $subject,
-		'message'      => $message,
+		'message'      => $email_message,
 		'toEmail'      => $clean_email
 	);
 	$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
@@ -62,7 +63,7 @@ else
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
-	<p><?php echo $message; ?></p>
+	<p><?php echo wpautop( $message ); ?></p>
 	<form action="<?php
 		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
 		method="post" onsubmit="if(this.subscribe_reloaded_email.value=='' || this.subscribe_reloaded_email.value.indexOf('@')==0) return false">

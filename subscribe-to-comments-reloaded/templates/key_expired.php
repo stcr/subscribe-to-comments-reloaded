@@ -10,11 +10,11 @@ $error_message   = __( "Woohaa the link to manage your subscriptions has expired
 ob_start();
 if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	global $wp_subscribe_reloaded;
-	$email = esc_attr( $_POST[ 'sre' ] );
-	$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
-	$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
-	$web_message  = $message;
-	$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+	$email         = esc_attr( $_POST[ 'sre' ] );
+	$subject       = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
+	$page_message  = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
+	$email_message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_email_content', '' ) ), ENT_QUOTES, 'UTF-8' );
+	$manager_link  = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 	$one_click_unsubscribe_link = $manager_link;
 
 	if ( function_exists( 'qtrans_convertURL' ) ) {
@@ -30,24 +30,25 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=";
 
 	// Replace tags with their actual values
-	$subject      = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
-	$message      = str_replace( '[blog_name]', get_bloginfo( 'name' ), $message );
-	$page_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $web_message );
-	$page_message = str_replace( '[web_manager_link]',  $manager_link, $page_message );
-	$message      = str_replace( '[manager_link]',  $manager_link, $message );
-	$message      = str_replace( '[web_manager_link]',  $manager_link, $message );
-	$message      = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
+	$subject       = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );
+	// Setup the fronted page message
+	$page_message  = str_replace( '[blog_name]', get_bloginfo( 'name' ), $page_message );
+	// Setup the email message
+	$email_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $email_message );
+	$email_message = str_replace( '[manager_link]',  $manager_link, $email_message );
+	$email_message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $email_message );
+	$email_message = wpautop( $email_message );
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
-		$subject      = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
-		$message      = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
-		$page_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
+		$subject       = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
+		$page_message  = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $page_message );
+		$email_message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $email_message );
 	}
 	// Prepare email settings
 	$email_settings = array(
 		'subject'      => $subject,
-		'message'      => $message,
+		'message'      => $email_message,
 		'toEmail'      => $clean_email
 	);
 	$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
@@ -60,12 +61,12 @@ else
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
-	<p><?php echo $error_message; ?></p>
+	<p><?php echo wpautop( $error_message ); ?></p>
 	<form action="<?php
-		$url = $_SERVER[ 'REQUEST_URI' ];
-		$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
-		echo esc_url( $url . "&key_expired=1" );
-	 ?>" method="post" onsubmit="if(this.subscribe_reloaded_email.value=='' || this.subscribe_reloaded_email.value.indexOf('@')==0) return false">
+	$url = $_SERVER[ 'REQUEST_URI' ];
+	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
+	echo esc_url( $url . "&key_expired=1" );
+	?>" method="post" onsubmit="if(this.subscribe_reloaded_email.value=='' || this.subscribe_reloaded_email.value.indexOf('@')==0) return false">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
 				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? $_COOKIE['comment_author_email_' . COOKIEHASH] : 'email'; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
@@ -73,7 +74,7 @@ else
 			</p>
 		</fieldset>
 	</form>
-<?php
+	<?php
 }
 $output = ob_get_contents();
 ob_end_clean();

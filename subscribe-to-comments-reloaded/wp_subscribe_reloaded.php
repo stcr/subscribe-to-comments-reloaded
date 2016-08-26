@@ -394,7 +394,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 			// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
 			// or is wrong, in that case display the request management page template
-			if( $email !== "" && ! $this->utils->_is_valid_key( $key, $email ) || $key_expired == "1" )
+			if( $email !== "" && $key !== 0 && ! $this->utils->_is_valid_key( $key, $email ) || $key_expired == "1" )
 			{
 				if( $key_expired == "1" )
 				{
@@ -449,7 +449,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				}
 				// Manage your subscriptions (user)
 				elseif (   ! empty( $email ) &&
-					     ( ! empty( $key ) && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) )
+					     ( $key !== 0 && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) )
 				{
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
 				}

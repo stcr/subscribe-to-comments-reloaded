@@ -66,6 +66,11 @@ if ( isset( $_POST['options'] ) ) {
 	) {
 		$faulty_fields = __( 'Management message', 'subscribe-reloaded' ) . ', ';
 	}
+	if ( isset( $_POST['options']['management_email_content'] ) &&
+		! subscribe_reloaded_update_option( 'management_email_content', $_POST['options']['management_email_content'], 'text' )
+	) {
+		$faulty_fields = __( 'Management Email message', 'subscribe-reloaded' ) . ', ';
+	}
 
 	// Display an alert in the admin interface if something went wrong
 	echo '<div class="updated fade"><p>';
@@ -215,7 +220,7 @@ wp_print_scripts( 'quicktags' );
 		</tr>
 		<tr>
 			<th scope="row">
-				<label for="management_content"><?php _e( 'Management message', 'subscribe-reloaded' ) ?></label>
+				<label for="management_content"><?php _e( 'Management Page message', 'subscribe-reloaded' ) ?></label>
 			</th>
 			<td>
 				<?php
@@ -229,7 +234,27 @@ wp_print_scripts( 'quicktags' );
 					wp_editor( subscribe_reloaded_get_option( $id_management_content ), $id_management_content, $args_notificationContent );
 				?>
 				<div class="description" style="padding-top:0">
-					<?php _e( 'Content of the management email and Page message. Allowed tags: [blog_name], [manager_link]. [manager_link] Will be visible only on the email, if you need to show that link into the web page use [web_manager_link]. Although the [web_manager_link] is available be AWARE that if someone know the email address of a user they will enter it to manage and will get the link.', 'subscribe-reloaded' ); ?>
+					<?php _e( 'Content of the management Page message. Allowed tags: [blog_name].', 'subscribe-reloaded' ); ?>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<label for="management_email_content"><?php _e( 'Management Email message', 'subscribe-reloaded' ) ?></label>
+			</th>
+			<td>
+				<?php
+				$id_management_email_content = "management_email_content";
+				$args_notificationContent = array(
+					"media_buttons" => false,
+					"textarea_rows" => 5,
+					"teeny"         => true,
+					"textarea_name" => "options[{$id_management_email_content}]"
+				);
+				wp_editor( subscribe_reloaded_get_option( $id_management_email_content ), $id_management_email_content, $args_notificationContent );
+				?>
+				<div class="description" style="padding-top:0">
+					<?php _e( 'Content of the management email message. Allowed tags: [blog_name], [manager_link].', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

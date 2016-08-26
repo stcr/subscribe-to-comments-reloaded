@@ -269,12 +269,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			add_option( 'subscribe_reloaded_double_check_subject', __( 'Please confirm your subscription to [post_title]', 'subscribe-reloaded' ), '', 'yes' );
 			add_option( 'subscribe_reloaded_double_check_content', __( "You have requested to be notified every time a new comment is added to:\n[post_permalink]\n\nPlease confirm your request by clicking on this link:\n[confirm_link]", 'subscribe-reloaded' ), '', 'yes' );
 			add_option( 'subscribe_reloaded_management_subject', __( 'Manage your subscriptions on [blog_name]', 'subscribe-reloaded' ) );
-			add_option( 'subscribe_reloaded_management_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n[manager_link]", 'subscribe-reloaded' ) );
+			add_option( 'subscribe_reloaded_management_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Please check the Subscriptions management link in your email", 'subscribe-reloaded' ) );
+			add_option( 'subscribe_reloaded_management_email_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n[manager_link]", 'subscribe-reloaded' ) );
 
 			add_option( 'subscribe_reloaded_purge_days', '30', '', 'yes' );
 			add_option( 'subscribe_reloaded_enable_double_check', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_notify_authors', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_html_emails', 'no', '', 'yes' );
+			add_option( 'subscribe_reloaded_enable_html_emails', 'yes', '', 'yes' );
 			add_option( 'subscribe_reloaded_htmlify_message_links', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_process_trackbacks', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_enable_admin_messages', 'no', '', 'yes' );
