@@ -41,7 +41,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 
 == Frequently Asked Questions ==
 
-= Where can I give a Donation to support the plugin?
+= Where can I give a Donation to support the plugin? =
 Thank you to your contributions the plugin gets better, please go to this [link](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) to give a PayPal donation.
 
 = Why my notifications are not in HTML format? =
@@ -50,7 +50,7 @@ Don't worry, just go to the Options tab an set to Yes the **Enable HTML emails**
 = How can I reset all the plugin options? =
 There is a new feature called **Safely Uninstall** that allow you to delete the plugin using the WordPress plugin interface. If you have the option set to **Yes** everything but the subscriptions created by the plugin will be wipeout. So after you made sure that you have this option to **Yes** you can deactivate the plugin and the delete it. Now you have to install the plugin via WordPress or Upload the plugin `zip` file and activate it, after this step all your settings will be as default and your subscriptions will remain.
 
-= What can I do if the **Safely Unistall** does not have any value?
+= What can I do if the **Safely Unistall** does not have any value? =
 Just deactivate and activate the plugin and you are all set. The default value will be **Yes**.
 
 = Aaargh! Were did all my subscriptions go? =
@@ -80,7 +80,7 @@ where you have you messages with HTML.
 = How to generate a new Key for my Site? =
 Just go to the Options Panel and click the generate button. By generating a new key you prevent the spam bots to steal your links.
 
-= Why the version number change to the format X.X.X?
+= Why the version number change to the format X.X.X? =
 The version number must mean something to the users, at the end this is the purpose of a version number and therefore the plugin version re-take the [Semantic](http://semver.org/) Versioning.
 
 == Screenshots ==
@@ -90,6 +90,7 @@ The version number must mean something to the users, at the end this is the purp
 3. Configure the Virtual Management page
 4. Customize the notification messages with a the wonderful WordPress Rich Text Editor - WYSIWYG
 5. Customize the plugin's behavior
+6. Check the number of subscribers in your posts.
 
 == Upgrade Notice ==
 
