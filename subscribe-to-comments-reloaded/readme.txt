@@ -4,12 +4,12 @@ Contributors: reedyseth, raamdev, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
-Tested up to: 4.6.1-alpha-38271
+Tested up to: 4.6.1-alpha-38346
 Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies. You can receive notifications from any comment on a Post or just when someone reply to your message.
+Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies. Don't miss any comment.
 
 == Description ==
 Subscribe to Comments Reloaded is a robust plugin that enables commenters to sign up for e-mail notification of subsequent entries. The plugin includes a full-featured subscription manager that your commenters can use to unsubscribe to certain posts or suspend all notifications. It solves most of the issues that affect Mark Jaquith's version, using the latest Wordpress features and functionality. Plus, allows administrators to enable a double opt-in mechanism, requiring users to confirm their subscription clicking on a link they will receive via email or even One Click Unsubscribe.
