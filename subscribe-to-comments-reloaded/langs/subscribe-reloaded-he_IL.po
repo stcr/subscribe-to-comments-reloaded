@@ -1,953 +1,288 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: subscribe-to-comments-reloaded\n"
-"POT-Creation-Date: 2016-08-23 10:05-0700\n"
+"POT-Creation-Date: 2016-08-28 22:36-0600\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
+"Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: Ahrale | Atar4U.com <contact@atar4u.com>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
 "__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp_subscribe_reloaded.php:114
-msgid "Settings"
-msgstr "הגדרות"
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid "id accesskey class dir lang style tabindex title"
+msgstr ""
 
-#: wp_subscribe_reloaded.php:1060
-msgid "Don't subscribe"
-msgstr "א להירשם"
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid ""
+"address blockquote div dl fieldset form h1 h2 h3 h4 h5 h6 hr menu ol p pre "
+"table ul"
+msgstr ""
 
-#: wp_subscribe_reloaded.php:1061
-msgid "All"
-msgstr "הכול"
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid ""
+"a abbr b bdo br button cite code del dfn em embed i iframe img input ins kbd "
+"label map noscript object q s samp script select small span strong sub sup "
+"textarea u var #text #comment"
+msgstr ""
 
-#: wp_subscribe_reloaded.php:1062 templates/user.php:73
-#: templates/author.php:75
-msgid "Replies to my comments"
-msgstr "תגובות להערות שלי"
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid ""
+"contenteditable contextmenu draggable dropzone hidden spellcheck translate"
+msgstr ""
 
-#: templates/request-management-link.php:70 templates/key_expired.php:70
-#: templates/subscribe.php:90 templates/user.php:57 options/panel1.php:72
-#: options/panel1.php:133 options/panel1-add-subscription.php:16
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid "article aside details dialog figure header footer hgroup section nav"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid ""
+"audio canvas command datalist mark meter output progress time wbr video ruby "
+"bdi keygen"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid "acronym applet basefont big font strike tt"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:3
+msgid "center dir isindex noframes"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:4
+msgid "a form meter progress dfn"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:4
+msgid "strong/b em/i"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:4
+msgid "ol ul sub sup blockquote span font a table tbody tr strong em b i"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:4
+msgid "p h1 h2 h3 h4 h5 h6 th td pre div address caption"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:4
+msgid "span"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:6
+msgid "previousSibling"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:6
+msgid "nextSibling"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:7
+msgid "h"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:7
+msgid "v"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:7
+msgid "t"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:8
+msgid "flex"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:9
+msgid "tooltip"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:10
+msgid "-sv"
+msgstr ""
+
+#: includes/js/tinymce-lite/tinymce.min.js:10
+msgid "-h"
+msgstr ""
+
+#: options/index.php:59 utils/stcr_manage.php:253 utils/stcr_manage.php:382
+#: utils/stcr_manage.php:383
+msgid "Manage subscriptions"
+msgstr "Manage subscriptions"
+
+#: options/index.php:60 utils/stcr_manage.php:388 utils/stcr_manage.php:389
+msgid "Comment Form"
+msgstr "טופס תגובה"
+
+#: options/index.php:61 utils/stcr_manage.php:394 utils/stcr_manage.php:395
+msgid "Management Page"
+msgstr "עמוד הניהול"
+
+#: options/index.php:62 utils/stcr_manage.php:400 utils/stcr_manage.php:401
+msgid "Notifications"
+msgstr "הודעות"
+
+#: options/index.php:63 options/panel2.php:58 options/panel3.php:82
+#: options/panel4.php:89 utils/stcr_manage.php:406 utils/stcr_manage.php:407
+msgid "Options"
+msgstr "אפשרויות"
+
+#: options/index.php:65 utils/stcr_manage.php:422 utils/stcr_manage.php:423
+msgid "You can help"
+msgstr "אפשר לעזור"
+
+#: options/index.php:66 utils/stcr_manage.php:428 utils/stcr_manage.php:429
+#, fuzzy
+msgid "Support"
+msgstr "פורום התמיכה הרשמי"
+
+#: options/index.php:67 utils/stcr_manage.php:434 utils/stcr_manage.php:435
+msgid "Donate"
+msgstr ""
+
+#: options/panel1-add-subscription.php:8 options/panel1.php:61
+msgid "Add New Subscription"
+msgstr "הוספת הרשמה חדשה"
+
+#: options/panel1-add-subscription.php:13
+#: options/panel1-edit-subscription.php:13
+msgid "Post:"
+msgstr "פוסט:"
+
+#: options/panel1-add-subscription.php:16 options/panel1.php:72
+#: options/panel1.php:133 templates/key_expired.php:71
+#: templates/request-management-link.php:71 templates/subscribe.php:90
+#: templates/user.php:57
 msgid "Email"
 msgstr "אימייל"
 
-#: templates/request-management-link.php:72 templates/key_expired.php:72
-#: templates/subscribe.php:92
-msgid "Send"
-msgstr "שלח"
+#: options/panel1-add-subscription.php:20
+#: options/panel1-edit-subscription.php:26 options/panel1.php:39
+#: options/panel1.php:76 options/panel1.php:141 options/panel1.php:159
+msgid "Status"
+msgstr "מצב"
 
-#: templates/key_expired.php:8
-msgid ""
-"Woohaa the link to manage your subscriptions has expired, don't worry, just "
-"enter your email below and a new link will be send."
-msgstr ""
+#: options/panel1-add-subscription.php:22
+#: options/panel1-edit-subscription.php:29 options/panel1.php:42
+#: options/panel1.php:79 options/panel1.php:172
+msgid "Active"
+msgstr "פעיל"
 
-#: templates/one-click-unsubscribe.php:30 templates/user.php:79
-#: templates/author.php:80
-msgid "No subscriptions match your search criteria."
-msgstr "אין הרשמה התואמת את קריטריון החיפוש שלך."
+#: options/panel1-add-subscription.php:23
+#: options/panel1-edit-subscription.php:30 options/panel1.php:43
+#: options/panel1.php:80
+msgid "Replies only"
+msgstr "תגובות בלבד"
 
-#: templates/subscribe.php:42 templates/subscribe.php:43
-msgid "New subscription to"
-msgstr "הרשמה חדשה ל"
+#: options/panel1-add-subscription.php:24 options/panel1.php:81
+msgid "Ask user to confirm"
+msgstr "בקשת המשתמש לאשר"
 
-#: templates/subscribe.php:43
-msgid "User:"
-msgstr "משתמש:"
+#: options/panel1-add-subscription.php:26
+#: options/panel1-edit-subscription.php:33 options/panel1.php:46
+msgid "Update"
+msgstr "עדכן"
 
-#: templates/user.php:23 templates/author.php:23
-#: options/panel1-business-logic.php:70
+#: options/panel1-business-logic.php:23
+msgid "Subscription added."
+msgstr "ההרשמה נוספה."
+
+#: options/panel1-business-logic.php:39
+msgid "Subscriptions updated."
+msgstr "ההרשמה עודכנה."
+
+#: options/panel1-business-logic.php:51
+msgid "Subscription deleted."
+msgstr "ההרשמה נמחקה."
+
+#: options/panel1-business-logic.php:70 templates/author.php:23
+#: templates/user.php:23
 msgid "Subscriptions deleted:"
 msgstr "הרשמות שנמחקו:"
 
-#: templates/user.php:27 templates/author.php:27
-#: options/panel1-business-logic.php:74
+#: options/panel1-business-logic.php:74 templates/author.php:27
+#: templates/user.php:27
 msgid "Subscriptions suspended:"
 msgstr "הרשמות שהושעו:"
 
-#: templates/user.php:31 templates/author.php:31
-#: options/panel1-business-logic.php:78
+#: options/panel1-business-logic.php:78 templates/author.php:31
+#: templates/user.php:31
 msgid "Subscriptions activated:"
 msgstr "הרשמות שהופעלו:"
 
-#: templates/user.php:35 templates/user.php:39 templates/author.php:35
-#: templates/author.php:39 options/panel1-business-logic.php:82
-#: options/panel1-business-logic.php:86
+#: options/panel1-business-logic.php:82 options/panel1-business-logic.php:86
+#: templates/author.php:35 templates/author.php:39 templates/user.php:35
+#: templates/user.php:39
 msgid "Subscriptions updated:"
 msgstr "ההרשמה עודכנה:"
 
-#: templates/user.php:52 templates/author.php:52 options/panel1.php:23
-#: options/panel1.php:124 options/panel1.php:200 options/panel1.php:212
+#: options/panel1-business-logic.php:110
+#, fuzzy
+msgid "&laquo; Previous"
+msgstr "« הקודם"
+
+#: options/panel1-business-logic.php:114
+msgid "Next &raquo;"
+msgstr ""
+
+#: options/panel1-edit-subscription.php:8
+msgid "Update Subscription"
+msgstr "עדכון ההרשמה"
+
 #: options/panel1-edit-subscription.php:11
+#: options/panel1-edit-subscription.php:21
+#: options/panel1-edit-subscription.php:22
+#: options/panel1-edit-subscription.php:23
+msgid "optional"
+msgstr "רשות"
+
+#: options/panel1-edit-subscription.php:11 options/panel1.php:23
+#: options/panel1.php:124 options/panel1.php:200 options/panel1.php:212
+#: templates/author.php:52 templates/user.php:52
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
 msgstr "נא לזכור: פעולה זו אינה הפיכה. בטוח שרוצה להמשיך?"
 
-#: templates/user.php:58 templates/author.php:58
-msgid "Legend: Y = all comments, R = replies only, C = inactive"
-msgstr "מקרא: Y = כל ההערות, R = תגובות בלבד, C = לא פעיל"
-
-#: templates/user.php:63
-msgid "F j, Y"
-msgstr ""
-
-#: templates/user.php:67 templates/author.php:69
-msgid "Select all"
-msgstr "הכל"
-
-#: templates/user.php:68 templates/author.php:70
-msgid "Invert selection"
-msgstr "היפוך הבחירה"
-
-#: templates/user.php:69 templates/author.php:71 options/panel1.php:223
-msgid "Action:"
-msgstr "פעולה:"
-
-#: templates/user.php:70 templates/author.php:72 options/panel1.php:200
-#: options/panel1.php:212
-msgid "Delete"
-msgstr "מחק"
-
-#: templates/user.php:71 templates/author.php:73 options/panel1.php:227
-msgid "Suspend"
-msgstr "השעה"
-
-#: templates/user.php:72 templates/author.php:74
-#, fuzzy
-msgid "All comments"
-msgstr "כל התגובות החדשות"
-
-#: templates/user.php:74 templates/author.php:76 options/panel1.php:230
-msgid "Activate"
-msgstr "הפעל"
-
-#: templates/user.php:76 templates/author.php:77 options/panel1.php:234
-msgid "Update subscriptions"
-msgstr "עדכון ההרשמות"
-
-#: templates/author.php:57
-msgid "Title"
-msgstr "כותרת"
-
-#: utils/stcr_upgrade.php:55
-msgid "Important Notice"
-msgstr "הודעה חשובה"
-
-#: utils/stcr_upgrade.php:103
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> The information in your "
-"database has been sanitized to prevent the raw html messages. <a class="
-"\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-animation\" "
-"src=\""
-msgstr ""
-
-#: utils/stcr_upgrade.php:158
-#, fuzzy
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
-"from the <strong>Subscribe to Comments</strong> plugin was detected and "
-"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
-msgstr ""
-"נתוני הרשמה מתוסף <strong>Subscribe to Comments</strong> זוהו ויובאו "
-"אוטומטית ל <strong>Subscribe to Comments Reloaded</strong>."
-
-#: utils/stcr_upgrade.php:158
-msgid ""
-" It is recommended that you now <strong>deactivate</strong> Subscribe to "
-"Comments to prevent confusion between the two plugins."
-msgstr ""
-" מומלץ כעת <strong>לכבות</strong> את Subscribe to Comments כדי למנוע בלבול "
-"בין שני התוספים."
-
-#: utils/stcr_upgrade.php:159
-msgid ""
-"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
-"that you want to import, you'll need to import that data manually, as only "
-"one import routine will ever run to prevent data loss."
-msgstr ""
-"אם יש לך נתוני הרשמה מ Subscribe to Comments Reloaded < v2.0 ליבוא, יהיה "
-"צורך לייבא אותם ידנית, כי רק שגרת יבוא אחת תפעל, כדי למנוע אבדן נתונים."
-
-#: utils/stcr_upgrade.php:160 utils/stcr_upgrade.php:232
-#: utils/stcr_upgrade.php:381
-#, fuzzy
-msgid ""
-"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
-"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
-"your configuration.<a class=\"dismiss\" href=\"#\">Got it.  </a><img class="
-"\"stcr-loading-animation\" src=\""
-msgstr ""
-"נא לבקר ב <a href=\"options-general.php?page=subscribe-to-comments-reloaded/"
-"options/index.php\">Settings -> Subscribe to Comments</a> כדי לסקור את "
-"ההגדרה שלך."
-
-#: utils/stcr_upgrade.php:231
-#, fuzzy
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
-"from the <strong>Comment Reply Notification</strong> plugin was detected and "
-"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
-msgstr ""
-"נתוני הרשמה מתוסף <strong>Comment Reply Notification</strong> זוהו ויובאו "
-"אוטומטית ל <strong>Subscribe to Comments Reloaded</strong>."
-
-#: utils/stcr_upgrade.php:231
-msgid ""
-" It is recommended that you now <strong>deactivate</strong> Comment Reply "
-"Notification to prevent confusion between the two plugins."
-msgstr ""
-" מומלץ כעת <strong>לכבות</strong> את Comment Reply Notification כדי למנוע "
-"בלבול בין התוספים."
-
-#: utils/stcr_upgrade.php:378
-#, fuzzy
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
-"subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
-"were detected and automatically imported into <strong>Subscribe to Comments "
-"Reloaded</strong>."
-msgstr ""
-"אפשרויות התוסף ונתוני הרשמה מתוסף <strong>WP Comment Subscriptions</strong> "
-"זוהו ויובאו אוטומטית אל <strong>Subscribe to Comments Reloaded</strong>."
-
-#: utils/stcr_upgrade.php:378
-msgid ""
-" It is recommended that you now <strong>deactivate</strong> WP Comment "
-"Subscriptions to prevent confusion between the two plugins."
-msgstr ""
-" מומלץ כעת <strong>לכבות</strong> את WP Comment Subscriptions כדי למנוע "
-"בלבול בין שני התוספים."
-
-#: utils/stcr_upgrade.php:379
-msgid ""
-"If you have subscription data from another plugin (such as Subscribe to "
-"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
-"you'll need to import that data manually, as only one import routine will "
-"ever run to prevent data loss."
-msgstr ""
-"אם יש לך מידע הרשמה מתוסף אחר (כמו Subscribe to Comments או Subscribe to "
-"Comments Reloaded < v2.0) שתרצה לייבא, יהיה צורך לייבא את הנתונים באופן "
-"ידני, כי תמיד תפעל רק שגרת יבוא אחת כדי למנוע אבדן נתונים."
-
-#: utils/stcr_upgrade.php:380
-msgid ""
-"<strong>Note:</strong> If you were previously using the "
-"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
-"subscribe-url]</code> shortcode, you'll need to replace those with "
-"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
-"respectively."
-msgstr ""
-"<strong>הערה:</strong> אם השתמשת קודם בפונקציית "
-"<code>wp_comment_subscriptions_show()</code> או בפונקציית קיצור הקוד "
-"<code>[wpcs-subscribe-url]</code> , תצטרך להחליף אותו ב "
-"<code>subscribe_reloaded_show()</code> וב <code>[subscribe-url]</code> "
-"בהתאמה."
-
-#: utils/stcr_upgrade.php:394
-msgid ""
-"<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:395
-#, fuzzy
-msgid ""
-"If you find a bug or an issue you can report it <a href=\"https://github.com/"
-"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
-msgstr ""
-"נא לדווח על כל באג בעמוד <a href=\"https://github.com/stcr/subscribe-to-"
-"comments-reloaded/issues/\" target=\"_blank\">GitHub</a> עדיף על עמוד התמיכה "
-"בוורדפרס."
-
-#: utils/stcr_upgrade.php:396
-msgid ""
-"If you want to donate you can do it via <a href=\"\n"
-"https://www.paypal.com/cgi-bin/webscr?"
-"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
-"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
-"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
-msgstr ""
-
-#: utils/stcr_upgrade.php:398
-msgid ""
-"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
-"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for detailed "
-"information on plugin changes.<a class=\"dismiss\" href=\"#\">Got it.  </"
-"a><img class=\"stcr-loading-animation\" src=\""
-msgstr ""
-
-#: utils/stcr_upgrade.php:410
-msgid ""
-"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
-"160106."
-msgstr ""
-
-#: utils/stcr_upgrade.php:411
-msgid ""
-"This version includes many changes and fixes to improve your experience with "
-"the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
-"email templates, Subscription Checkbox position, and more!"
-msgstr ""
-
-#: utils/stcr_upgrade.php:412 utils/stcr_upgrade.php:427
-msgid ""
-"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
-"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
-"complete list of changes.<a class=\"dismiss\" href=\"#\">Got it.  </a><img "
-"class=\"stcr-loading-animation\" src=\""
-msgstr ""
-
-#: utils/stcr_upgrade.php:425
-msgid ""
-"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
-"160115."
-msgstr ""
-
-#: utils/stcr_upgrade.php:426
-msgid ""
-"This version includes fixes to broken links while managing your subscriptions"
-msgstr ""
-
-#: utils/stcr_manage.php:248
-msgid ""
-"Notify me of followup comments via e-mail. You can also <a "
-"href='[subscribe_link]'>subscribe</a> without commenting."
-msgstr ""
-"נא לעדכן אותי במייל על תגובות נוספות. אפשר גם <a "
-"href='[subscribe_link]'>להירשם</a> מבלי להגיב."
-
-#: utils/stcr_manage.php:249
-msgid ""
-"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
-"subscriptions."
-msgstr ""
-"ההרשמה שלך לפוסט זה פעילה. <a href='[manager_link]'>ניהול ההרשמות שלך</a>.  "
-
-#: utils/stcr_manage.php:250
-msgid ""
-"Your subscription to this post needs to be confirmed. <a "
-"href='[manager_link]'>Manage your subscriptions</a>."
-msgstr ""
-"ההרשמה שלך לפוסט זה צריכה אישור. <a href='[manager_link]'>לניהול ההרשמות "
-"שלך</a>."
-
-#: utils/stcr_manage.php:251
-msgid ""
-"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
-msgstr "אפשר <a href='[manager_link]'>לנהל את ההרשמה</a> של פוסט זה."
-
-#: utils/stcr_manage.php:255 utils/stcr_manage.php:383
-#: utils/stcr_manage.php:384 options/index.php:59
-msgid "Manage subscriptions"
-msgstr "Manage subscriptions"
-
-#: utils/stcr_manage.php:257
-msgid ""
-"To manage your subscriptions, please enter your email address here below. We "
-"will send you a message containing the link to access your personal "
-"management page."
-msgstr ""
-"כדי לנהל את ההרשמות שלך, נא להזין את האימייל שלך להלן. נשלח לך הודעה המכילה "
-"קישור לעמוד הניהול האישי שלך."
-
-#: utils/stcr_manage.php:258
-msgid ""
-"Thank you for using our subscription service. Your request has been "
-"completed, and you should receive an email with the management link in a few "
-"minutes."
-msgstr ""
-"תודה שהשתמשת בשירות ההרשמה שלנו. בקשתך הושלמה ותוך דקות יישלח אליך אימייל עם "
-"קישור ניהול הרשמה שלך."
-
-#: utils/stcr_manage.php:259
-msgid ""
-"You can follow the discussion on <strong>[post_title]</strong> without "
-"having to leave a comment. Cool, huh? Just enter your email address in the "
-"form here below and you're all set."
-msgstr ""
-"אפשר לעקוב אחר הדיון ב <strong>[post_title]</strong> ללא צורך לשלוח תגובה. "
-"מגניב, אה? רק להזין את כתובת האימייל שלך בשדה שלהלן."
-
-#: utils/stcr_manage.php:260
-msgid ""
-"Thank you for using our subscription service. Your request has been "
-"completed. You will receive a notification email every time a new comment to "
-"this article is approved and posted by the administrator."
-msgstr ""
-"תודה שהשתמש בשירות ההרשמה שלנו. בקשתך הושלמה. התראה באימייל תישלח על כל "
-"תגובה חדשה שתאושר על-ידי ההנהלה לפוסט זה."
-
-#: utils/stcr_manage.php:261
-msgid ""
-"Thank you for using our subscription service. In order to confirm your "
-"request, please check your email for the verification message and follow the "
-"instructions."
-msgstr ""
-"תודה על השימוש בשירות ההרשמה שלנו. כדי לאשר את הבקשה שלך, נא לבדוק ת האימייל "
-"שלך כדי לאשר את ההרשמה לפי ההנחיות במייל ."
-
-#: utils/stcr_manage.php:262
-msgid ""
-"In order to cancel or suspend one or more notifications, select the "
-"corresponding checkbox(es) and click on the button at the end of the list."
-msgstr ""
-"כדי לבטל או להשעות הודעה אחת או יותר נא לבחור תיבת(ות) סימון בהתאמה וללחוץ "
-"על הכפתור שבסוף הרשימה."
-
-#: utils/stcr_manage.php:263
-msgid ""
-"In order to cancel or suspend one or more notifications, select the "
-"corresponding checkbox(es) and click on the button at the end of the list. "
-"You are currently subscribed to:"
-msgstr ""
-"כדי לבטל או להשעות התראה אחת או יותר, נא לבחור בתיבת(ות) הסימון המתאימה(ות) "
-"וללחוץ על הכפתור שבסוף הרשימה. כעת יש הרשמות ל:"
-
-#: utils/stcr_manage.php:267
-msgid "There is a new comment to [post_title]"
-msgstr "יש תגובה חדשה ל [post_title]"
-
-#: utils/stcr_manage.php:268
-msgid ""
-"There is a new comment to [post_title].\n"
-"Comment Link: [comment_permalink]\n"
-"Author: [comment_author]\n"
-"Comment:\n"
-"[comment_content]\n"
-"Permalink: [post_permalink]\n"
-"Manage your subscriptions: [manager_link]"
-msgstr ""
-"יש תגובה חדשה ל [post_title].\n"
-"קישור לתגובה: [comment_permalink]\n"
-"מחבר: [comment_author]\n"
-"תגובה:\n"
-"[comment_content]\n"
-"מבנה קישור: [post_permalink]\n"
-"ניהול ההרשמות שלך: [manager_link]"
-
-#: utils/stcr_manage.php:269
-msgid "Please confirm your subscription to [post_title]"
-msgstr "נא לאשר את ההרשמה שלך ל [post_title]"
-
-#: utils/stcr_manage.php:270
-msgid ""
-"You have requested to be notified every time a new comment is added to:\n"
-"[post_permalink]\n"
-"\n"
-"Please confirm your request by clicking on this link:\n"
-"[confirm_link]"
-msgstr ""
-"ביקשת לקבל הודעות על הוספת תגובות חדשות ל:\n"
-"[post_permalink]\n"
-"\n"
-"נא לאמת את הבקשה באמצעות לחיצה על הקישור:\n"
-"[confirm_link]"
-
-#: utils/stcr_manage.php:271
-msgid "Manage your subscriptions on [blog_name]"
-msgstr "ניהול ההרשמות שלך ב [blog_name]"
-
-#: utils/stcr_manage.php:272
-msgid ""
-"You have requested to manage your subscriptions to the articles on "
-"[blog_name]. Follow this link to access your personal page:\n"
-"[manager_link]"
-msgstr ""
-"ביקשת לנהל את ההרשמות שלך למאמרים ב [blog_name]. קישור זה יוביל אותך לעמוד "
-"הניהול שלך:\n"
-"[manager_link]"
-
-#: utils/stcr_manage.php:389 utils/stcr_manage.php:390 options/index.php:60
-msgid "Comment Form"
-msgstr "טופס תגובה"
-
-#: utils/stcr_manage.php:395 utils/stcr_manage.php:396 options/index.php:61
-msgid "Management Page"
-msgstr "עמוד הניהול"
-
-#: utils/stcr_manage.php:401 utils/stcr_manage.php:402 options/index.php:62
-msgid "Notifications"
-msgstr "הודעות"
-
-#: utils/stcr_manage.php:407 utils/stcr_manage.php:408 options/index.php:63
-#: options/panel2.php:58 options/panel4.php:84 options/panel3.php:82
-msgid "Options"
-msgstr "אפשרויות"
-
-#: utils/stcr_manage.php:423 utils/stcr_manage.php:424 options/index.php:65
-msgid "You can help"
-msgstr "אפשר לעזור"
-
-#: utils/stcr_manage.php:429 utils/stcr_manage.php:430 options/index.php:66
-#, fuzzy
-msgid "Support"
-msgstr "פורום התמיכה הרשמי"
-
-#: utils/stcr_manage.php:435 utils/stcr_manage.php:436 options/index.php:67
-msgid "Donate"
-msgstr ""
-
-#: utils/stcr_manage.php:441 utils/stcr_manage.php:442
-msgid "StCR System"
-msgstr ""
-
-#: utils/stcr_manage.php:461 utils/stcr_manage.php:489
-#: utils/stcr_manage.php:516 utils/stcr_manage.php:543
-#: utils/stcr_manage.php:570 utils/stcr_manage.php:597
-#: utils/stcr_manage.php:624 utils/stcr_manage.php:651
-#: utils/stcr_manage.php:678 utils/stcr_manage.php:706
-msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-
-#: utils/stcr_manage.php:756
-#, fuzzy
-msgid "Subscriptions"
-msgstr "הרשמה"
-
-#: utils/stcr_manage.php:785 options/panel2.php:67 options/panel2.php:77
-#: options/panel2.php:106 options/panel5.php:79 options/panel5.php:96
-#: options/panel5.php:105 options/panel5.php:114 options/panel5.php:124
-#: options/panel5.php:133 options/panel5.php:143 options/panel5.php:152
-#: options/panel5.php:161
-msgid "No"
-msgstr "לא"
-
-#: utils/stcr_manage.php:812
-msgid ""
-"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
-msgstr "זקוק לעזרה ב כיצד להירשם ל Comments Reloaded? בקר ב"
-
-#: utils/stcr_manage.php:812
-msgid "support forum"
-msgstr "פורום התמיכה הרשמי"
-
-#: utils/stcr_manage.php:813
-msgid "Feeling generous?"
-msgstr "מרגיש נדיב?"
-
-#: utils/stcr_manage.php:813
-msgid "Donate a few bucks!"
-msgstr "תרום קצת!"
-
-#: utils/stcr_utils.php:195
-#, fuzzy
-msgid "StCR Notification"
-msgstr "הודעות"
-
-#: options/panel2.php:12 options/panel2.php:63
-msgid "Enable default checkbox"
-msgstr "הפעל תיבת סימון כברירת מחדל"
-
-#: options/panel2.php:15 options/panel2.php:73
-msgid "Checked by default"
-msgstr "מסומן כברירת מחדל"
-
-#: options/panel2.php:18
-msgid "Checked by default Value"
-msgstr "מסומנות כברירת מחדל"
-
-#: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
-msgid "Advanced subscription"
-msgstr "הרשמה מתקדמת"
-
-#: options/panel2.php:27 options/panel2.php:130
-msgid "Custom inline style"
-msgstr "עיצוב בשורה"
-
-#: options/panel2.php:30 options/panel2.php:139
-msgid "Custom HTML"
-msgstr "התאמת HTML"
-
-#: options/panel2.php:34
-msgid "Checkbox label"
-msgstr "תווית תיבת הסימון"
-
-#: options/panel2.php:37 options/panel2.php:180
-msgid "Subscribed label"
-msgstr "תווית רשום"
-
-#: options/panel2.php:40
-msgid "Awaiting label"
-msgstr "תווית בהמתנה"
-
-#: options/panel2.php:43 options/panel2.php:213
-msgid "Author label"
-msgstr "תווית מחבר"
-
-#: options/panel2.php:49 options/panel4.php:73 options/panel5.php:18
-#: options/panel5.php:60 options/panel3.php:70
-msgid "Your settings have been successfully updated."
-msgstr "ההגדרות שלך עודכנו בהצלחה"
-
-#: options/panel2.php:51 options/panel4.php:75 options/panel5.php:20
-#: options/panel5.php:62 options/panel3.php:72
-msgid "There was an error updating the following fields:"
-msgstr "היתה שגיאה בעדכון השדות שלהלן:"
-
-#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
-#: options/panel5.php:78 options/panel5.php:95 options/panel5.php:104
-#: options/panel5.php:113 options/panel5.php:123 options/panel5.php:132
-#: options/panel5.php:142 options/panel5.php:151 options/panel5.php:160
-msgid "Yes"
-msgstr "כן"
-
-#: options/panel2.php:68
-msgid ""
-"Disable this option if you want to move the subscription checkbox to a "
-"different place on your page."
-msgstr "בטל אפשרות זו כדי להעביר את תיבת סימון ההרשמה למקום אחר בעמוד שלך."
-
-#: options/panel2.php:78
-msgid "Decide if the checkbox should be checked by default or not."
-msgstr "האם לסמן את תיבת הסימון הזו כברירת מחדל או לא."
-
-#: options/panel2.php:87
-msgid "Default Checkbox Value"
-msgstr "ערך ברירת המחדל של תיבת הסימון"
-
-#: options/panel2.php:91 options/panel2.php:120
-msgid "All new comments"
-msgstr "כל התגובות החדשות"
-
-#: options/panel2.php:92 options/panel2.php:121
-msgid "Replies to this comment"
-msgstr "תגובות לתגובה זו"
-
-#: options/panel2.php:94
-msgid ""
-"Select the default option for the Checkbox. Be careful! Some users might "
-"like to be subscribed to all the post."
-msgstr ""
-"בחירת אפשרות ברירת מחדל עבור תיבת הסימון. יתכן שחלק מן המשתמשים יעדיפו "
-"להירשם לכל התגובות לפוסט."
-
-#: options/panel2.php:107
-msgid ""
-"Allow users to choose from different subscription types (all, replies only)."
-msgstr "אפשר למשתמשים לבחור בין סוגי הרשמה שונים (הכל, תגובות בלבד)."
-
-#: options/panel2.php:115
-msgid "Advanced default"
-msgstr "ברירת מחדל מתקדמת"
-
-#: options/panel2.php:119
-msgid "None"
-msgstr "ללא"
-
-#: options/panel2.php:124
-msgid ""
-"The default subscription type that should be selected when Advanced "
-"subscriptions are enable."
-msgstr "ברירת המחדל לסוג ההרשמה כאשר מופעל הרשמה מתקדמת."
-
-#: options/panel2.php:135
-msgid "Custom inline CSS to add to the checkbox."
-msgstr "הוספת עיצוב CSS בשורה לתיבת הסימון."
-
-#: options/panel2.php:152
-msgid ""
-"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
-"[checkbox_field], [checkbox_label]"
-msgstr ""
-"קוד HTML לשימוש בהצגת תיבת הסימון. תגיות מותרות: [checkbox_field], "
-"[checkbox_label]"
-
-#: options/panel2.php:158
-msgid "Messages for your visitors"
-msgstr "הודעות למשתמשים שלך"
-
-#: options/panel2.php:162
-msgid "Default label"
-msgstr "תווית ברירת המחדל"
-
-#: options/panel2.php:175
-msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
-msgstr "תווית המקושרת לתיבת הסימון. תגיות מותרות: [subscribe_link]"
-
-#: options/panel2.php:192
-msgid ""
-"Label shown to those who are already subscribed to a post. Allowed tag: "
-"[manager_link]"
-msgstr "תווית המוצגת לאלו שכבר רשומים לפוסט. תגית אפשרית: [manager_link]"
-
-#: options/panel2.php:197
-msgid "Pending label"
-msgstr "תווית בהמתנה"
-
-#: options/panel2.php:209
-msgid ""
-"Label shown to those who are already subscribed, but haven't clicked on the "
-"confirmation link yet. Allowed tag: [manager_link]"
-msgstr ""
-"תווית המוצגת לאלו שכבר נרשמו, אבל עדיין לא לחצו על קישור האישור. תגית "
-"אפשרית: [manager_link]"
-
-#: options/panel2.php:225
-msgid ""
-"Label shown to authors (and administrators). Allowed tag: [manager_link]"
-msgstr "תווית המוצגת למחברים (ולמנהלים). תגית אפשרית: [manager_link]"
-
-#: options/panel2.php:230 options/panel4.php:258 options/panel5.php:195
-#: options/panel3.php:253
-msgid "Save Changes"
-msgstr ""
-
-#: options/panel9.php:11
-#, fuzzy
-msgid "Support Subscribe to Comments Reloaded"
-msgstr "זקוק לעזרה ב כיצד להירשם ל Comments Reloaded? בקר ב"
-
-#: options/panel9.php:12
-msgid ""
-"Every contribution that you make is high valuable, so if you consider this "
-"plugin a helpful tool we will use your donation to invest on support and "
-"developing time."
-msgstr ""
-
-#: options/panel4.php:15 options/panel4.php:89
-msgid "Sender name"
-msgstr "שם השולח"
-
-#: options/panel4.php:20 options/panel4.php:25 options/panel4.php:102
-msgid "Sender email address"
-msgstr "כתובת המייל של השולח"
-
-#: options/panel4.php:30 options/panel4.php:135
-msgid "Notification subject"
-msgstr "נושא ההתראה"
-
-#: options/panel4.php:36 options/panel4.php:42 options/panel4.php:148
-msgid "Notification message"
-msgstr "הודעת התראה"
-
-#: options/panel4.php:47 options/panel4.php:172
-msgid "Double check subject"
-msgstr "בדיקה כפולה של הנושא"
-
-#: options/panel4.php:52 options/panel4.php:185
-msgid "Double check message"
-msgstr "בדיקה כפולה של ההודעה"
-
-#: options/panel4.php:57 options/panel4.php:205
-msgid "Management subject"
-msgstr "נושא הניהול"
-
-#: options/panel4.php:62 options/panel4.php:67 options/panel4.php:218
-msgid "Management message"
-msgstr "הודעת הניהול"
-
-#: options/panel4.php:96
-msgid ""
-"Name to use for the \"from\" field when sending a new notification to the "
-"user."
-msgstr "השם לשימוש בשדה \"מאת\" בשליחת הודעה חדשה למשתמש."
-
-#: options/panel4.php:110
-msgid ""
-"Email address to use for the \"from\" field when sending a new notification "
-"to the user."
-msgstr "כתובת אימייל לשימוש עבור שדה \"מאת\" בשליחת התראה הודעה חדשה למשתמש."
-
-#: options/panel4.php:116
-#, fuzzy
-msgid "Reply To"
-msgstr "תגובות בלבד"
-
-#: options/panel4.php:123
-msgid ""
-"This will be use when the user click reply on their email agent. If not set "
-"will be the same as the Sender email address."
-msgstr ""
-
-#: options/panel4.php:130 options/panel3.php:127
-msgid "Messages"
-msgstr "הודעות"
-
-#: options/panel4.php:142
-msgid "Subject of the notification email. Allowed tag: [post_title]"
-msgstr "נושא מייל ההתראה. תגית אפשרית: [post_title]"
-
-#: options/panel4.php:165
-msgid ""
-"Content of the notification email. Allowed tags: [post_title], "
-"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
-"[manager_link]"
-msgstr ""
-"תוכן מייל ההתראה. תגיות אפשריות: [post_title], [comment_permalink], "
-"[comment_author], [comment_content], [post_permalink], [manager_link]"
-
-#: options/panel4.php:166
-msgid ""
-"<p><strong>Note: To get a default template clear all the content and save "
-"the options.</strong></p>"
-msgstr ""
-
-#: options/panel4.php:179
-msgid "Subject of the confirmation email. Allowed tag: [post_title]"
-msgstr "נושא מייל האישור. תגית אפשרית: [post_title]"
-
-#: options/panel4.php:199
-msgid ""
-"Content of the confirmation email. Allowed tags: [post_permalink], "
-"[confirm_link], [post_title], [manager_link]"
-msgstr ""
-"תוכן מייל האישור. תגיות מותרות: [post_permalink], [confirm_link], "
-"[post_title], [manager_link]"
-
-#: options/panel4.php:212
-msgid ""
-"Subject of the mail sent to those who request to access their management "
-"page. Allowed tag: [blog_name]"
-msgstr "נושא המייל שיישלח למבקשים גישה לדף הניהול. תגית אפשרית: [blog_name]"
-
-#: options/panel4.php:232
-msgid ""
-"Content of the management email and Page message. Allowed tags: [blog_name], "
-"[manager_link]. [manager_link] Will be visible only on the email, if you "
-"need to show that link into the web page use [web_manager_link]. Although "
-"the [web_manager_link] is available be AWARE that if someone know the email "
-"address of a user they will enter it to manage and will get the link."
-msgstr ""
-
-#: options/panel4.php:238
-#, fuzzy
-msgid "One Click Unsubscribe"
-msgstr "אפשר למנהל להירשם"
-
-#: options/panel4.php:252
-#, fuzzy
-msgid ""
-"Content of the One Click confirmation. Allowed tags: [post_title], "
-"[blog_name]"
-msgstr "נושא מייל האישור. תגית אפשרית: [post_title]"
-
-#: options/panel7.php:8 options/panel8.php:8
-msgid "Support the developers"
-msgstr "תמיכה במפתחים"
-
-#: options/panel7.php:18
-#, fuzzy
-msgid ""
-"How valuable is the feature offered by this plugin to your visitors? please "
-"consider supporting the author if this plugin made your web site better, "
-"especially if you are making money out of it. Any donation received will be "
-"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
-"strong>, and to buy some food for my hungry family."
-msgstr ""
-"כמה ערך מוסיף התוסף למבקרים באתר שלך? <strong>הירשם ל Comments Reloaded</"
-"strong> תהיה תמיד ללא תשלום, אבל שקול לתמוך במחבר אם התוסף הזה שיפר את האתר "
-"שלך, במיוחד אם אתה מרוויח ממנו. כל תרומה שתתקבל תושקע מחדש בפיתוח של "
-"<strong>Subscribe to Comments Reloaded</strong>, ותקנה קצת אוכל למשפחתי "
-"הרעבה."
-
-#: options/panel7.php:20
-msgid "Don't want to donate? You can still help"
-msgstr "לא רוצה לתרום? עדיין אפשר לעזור"
-
-#: options/panel7.php:21
-msgid ""
-"If you don't want to donate money, please consider blogging about my plugin "
-"with a link to the plugin's page. Please let your readers know what makes "
-"your blog better. You can also contribute donating your time: do not "
-"hesitate to send me bug reports, your localization files, ideas on how to "
-"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
-"you do, thanks for using my plugin!"
-msgstr ""
-"אם אינך מעוניין לתרום כסף,. נא לשקול לפרסם אותו לקוראים שלך בבלוג עם קישור "
-"לעמוד התוסף. אפשר גם לתרום זמן: לא להסס לשלוח לי דיווחי באגים, קבצי תרגום, "
-"רעיונות לשיפור, איך לשפר את <strong>Subscribe to Comments Reloaded</strong> "
-"וכו'. בכל מקרה, תודה שבחרת להשתמש בתוסף שלי!"
-
-#: options/panel7.php:23
-#, fuzzy
-msgid "Subscribe to the Beta testers"
-msgstr "רשום את המחברים"
-
-#: options/panel7.php:24
-msgid ""
-"Before a new Update we release a Beta version so that our current users can "
-"give us feedback if they find a bug, If you want to join the tester list you "
-"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
-"a>"
-msgstr ""
-
-#: options/panel7.php:26
-msgid "Vote and show your appreciation"
-msgstr "דרגו והראו הערכה"
-
-#: options/panel7.php:27
-msgid ""
-"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
-"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
-"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
-msgstr ""
-"שתף אנשים נוספים  איך <strong>Subscribe to Comments Reloaded</strong> פועל "
-"עבורך וכמה הוא טוב. <a href=\"http://wordpress.org/extend/plugins/subscribe-"
-"to-comments-reloaded/\">דרג אותו</a> בעמוד התוסף."
+#: options/panel1-edit-subscription.php:16 options/panel1.php:27
+msgid "From"
+msgstr "מאת"
+
+#: options/panel1-edit-subscription.php:20 options/panel1.php:33
+msgid "To"
+msgstr "אל"
+
+#: options/panel1-edit-subscription.php:28 options/panel1.php:41
+msgid "Keep unchanged"
+msgstr "השאר ללא שינוי"
+
+#: options/panel1-edit-subscription.php:31 options/panel1.php:44
+msgid "Suspended"
+msgstr "מושעה"
 
 #: options/panel1.php:20
 msgid "Mass Update Subscriptions"
 msgstr "עדכון כמותי של הרשמות"
-
-#: options/panel1.php:27 options/panel1-edit-subscription.php:16
-msgid "From"
-msgstr "מאת"
 
 #: options/panel1.php:28 options/panel1.php:29 options/panel1.php:30
 #, fuzzy
 msgid "email address"
 msgstr "כתובת המייל של השולח"
 
-#: options/panel1.php:33 options/panel1-edit-subscription.php:20
-msgid "To"
-msgstr "אל"
-
 #: options/panel1.php:34 options/panel1.php:35 options/panel1.php:36
 #, fuzzy
 msgid "optional - new email address"
 msgstr "כתובת המייל של השולח"
-
-#: options/panel1.php:39 options/panel1.php:76 options/panel1.php:141
-#: options/panel1.php:159 options/panel1-add-subscription.php:20
-#: options/panel1-edit-subscription.php:26
-msgid "Status"
-msgstr "מצב"
-
-#: options/panel1.php:41 options/panel1-edit-subscription.php:28
-msgid "Keep unchanged"
-msgstr "השאר ללא שינוי"
-
-#: options/panel1.php:42 options/panel1.php:79 options/panel1.php:172
-#: options/panel1-add-subscription.php:22
-#: options/panel1-edit-subscription.php:29
-msgid "Active"
-msgstr "פעיל"
-
-#: options/panel1.php:43 options/panel1.php:80
-#: options/panel1-add-subscription.php:23
-#: options/panel1-edit-subscription.php:30
-msgid "Replies only"
-msgstr "תגובות בלבד"
-
-#: options/panel1.php:44 options/panel1-edit-subscription.php:31
-msgid "Suspended"
-msgstr "מושעה"
-
-#: options/panel1.php:46 options/panel1-add-subscription.php:26
-#: options/panel1-edit-subscription.php:33
-msgid "Update"
-msgstr "עדכן"
 
 #: options/panel1.php:49
 msgid "More info"
@@ -959,17 +294,9 @@ msgid ""
 "update the same status for all the subscription on a specific email address."
 msgstr ""
 
-#: options/panel1.php:61 options/panel1-add-subscription.php:8
-msgid "Add New Subscription"
-msgstr "הוספת הרשמה חדשה"
-
 #: options/panel1.php:68
 msgid "Post ID"
 msgstr "מזהה פוסט"
-
-#: options/panel1.php:81 options/panel1-add-subscription.php:24
-msgid "Ask user to confirm"
-msgstr "בקשת המשתמש לאשר"
 
 #: options/panel1.php:83
 msgid "Add"
@@ -1073,6 +400,11 @@ msgstr ""
 msgid "Inactive"
 msgstr "פעיל"
 
+#: options/panel1.php:200 options/panel1.php:212 templates/author.php:72
+#: templates/user.php:70
+msgid "Delete"
+msgstr "מחק"
+
 #: options/panel1.php:201 options/panel1.php:211
 msgid "Edit"
 msgstr "ערוך"
@@ -1081,9 +413,17 @@ msgstr "ערוך"
 msgid "Subscription"
 msgstr "הרשמה"
 
+#: options/panel1.php:223 templates/author.php:71 templates/user.php:69
+msgid "Action:"
+msgstr "פעולה:"
+
 #: options/panel1.php:226
 msgid "Delete forever"
 msgstr "למחוק לצמיתות"
+
+#: options/panel1.php:227 templates/author.php:73 templates/user.php:71
+msgid "Suspend"
+msgstr "השעה"
 
 #: options/panel1.php:228
 msgid "Activate and set to Y"
@@ -1093,35 +433,449 @@ msgstr "הפעלה והגדרה ל Y"
 msgid "Activate and set to R"
 msgstr "הפעלה והגדרה ל R"
 
+#: options/panel1.php:230 templates/author.php:76 templates/user.php:74
+msgid "Activate"
+msgstr "הפעל"
+
+#: options/panel1.php:234 templates/author.php:77 templates/user.php:76
+msgid "Update subscriptions"
+msgstr "עדכון ההרשמות"
+
 #: options/panel1.php:237
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr "מצטערים, אין הרשמות התואמות את קריטריון החיפוש שלך."
 
-#: options/panel1-business-logic.php:23
-msgid "Subscription added."
-msgstr "ההרשמה נוספה."
-
-#: options/panel1-business-logic.php:39
-msgid "Subscriptions updated."
-msgstr "ההרשמה עודכנה."
-
-#: options/panel1-business-logic.php:51
-msgid "Subscription deleted."
-msgstr "ההרשמה נמחקה."
-
-#: options/panel1-business-logic.php:110
-#, fuzzy
-msgid "&laquo; Previous"
-msgstr "« הקודם"
-
-#: options/panel1-business-logic.php:114
-msgid "Next &raquo;"
+#: options/panel10.php:22 options/panel10.php:23
+msgid "System Information"
 msgstr ""
 
-#: options/panel1-add-subscription.php:13
-#: options/panel1-edit-subscription.php:13
-msgid "Post:"
-msgstr "פוסט:"
+#: options/panel2.php:12 options/panel2.php:63
+msgid "Enable default checkbox"
+msgstr "הפעל תיבת סימון כברירת מחדל"
+
+#: options/panel2.php:15 options/panel2.php:73
+msgid "Checked by default"
+msgstr "מסומן כברירת מחדל"
+
+#: options/panel2.php:18
+msgid "Checked by default Value"
+msgstr "מסומנות כברירת מחדל"
+
+#: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
+msgid "Advanced subscription"
+msgstr "הרשמה מתקדמת"
+
+#: options/panel2.php:27 options/panel2.php:130
+msgid "Custom inline style"
+msgstr "עיצוב בשורה"
+
+#: options/panel2.php:30 options/panel2.php:139
+msgid "Custom HTML"
+msgstr "התאמת HTML"
+
+#: options/panel2.php:34
+msgid "Checkbox label"
+msgstr "תווית תיבת הסימון"
+
+#: options/panel2.php:37 options/panel2.php:180
+msgid "Subscribed label"
+msgstr "תווית רשום"
+
+#: options/panel2.php:40
+msgid "Awaiting label"
+msgstr "תווית בהמתנה"
+
+#: options/panel2.php:43 options/panel2.php:213
+msgid "Author label"
+msgstr "תווית מחבר"
+
+#: options/panel2.php:49 options/panel3.php:70 options/panel4.php:78
+#: options/panel5.php:18 options/panel5.php:60
+msgid "Your settings have been successfully updated."
+msgstr "ההגדרות שלך עודכנו בהצלחה"
+
+#: options/panel2.php:51 options/panel3.php:72 options/panel4.php:80
+#: options/panel5.php:20 options/panel5.php:62
+msgid "There was an error updating the following fields:"
+msgstr "היתה שגיאה בעדכון השדות שלהלן:"
+
+#: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
+#: options/panel5.php:78 options/panel5.php:95 options/panel5.php:104
+#: options/panel5.php:113 options/panel5.php:123 options/panel5.php:132
+#: options/panel5.php:142 options/panel5.php:151 options/panel5.php:160
+msgid "Yes"
+msgstr "כן"
+
+#: options/panel2.php:67 options/panel2.php:77 options/panel2.php:106
+#: options/panel5.php:79 options/panel5.php:96 options/panel5.php:105
+#: options/panel5.php:114 options/panel5.php:124 options/panel5.php:133
+#: options/panel5.php:143 options/panel5.php:152 options/panel5.php:161
+#: utils/stcr_manage.php:784
+msgid "No"
+msgstr "לא"
+
+#: options/panel2.php:68
+msgid ""
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
+msgstr "בטל אפשרות זו כדי להעביר את תיבת סימון ההרשמה למקום אחר בעמוד שלך."
+
+#: options/panel2.php:78
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr "האם לסמן את תיבת הסימון הזו כברירת מחדל או לא."
+
+#: options/panel2.php:87
+msgid "Default Checkbox Value"
+msgstr "ערך ברירת המחדל של תיבת הסימון"
+
+#: options/panel2.php:91 options/panel2.php:120
+msgid "All new comments"
+msgstr "כל התגובות החדשות"
+
+#: options/panel2.php:92 options/panel2.php:121
+msgid "Replies to this comment"
+msgstr "תגובות לתגובה זו"
+
+#: options/panel2.php:94
+msgid ""
+"Select the default option for the Checkbox. Be careful! Some users might "
+"like to be subscribed to all the post."
+msgstr ""
+"בחירת אפשרות ברירת מחדל עבור תיבת הסימון. יתכן שחלק מן המשתמשים יעדיפו "
+"להירשם לכל התגובות לפוסט."
+
+#: options/panel2.php:107
+msgid ""
+"Allow users to choose from different subscription types (all, replies only)."
+msgstr "אפשר למשתמשים לבחור בין סוגי הרשמה שונים (הכל, תגובות בלבד)."
+
+#: options/panel2.php:115
+msgid "Advanced default"
+msgstr "ברירת מחדל מתקדמת"
+
+#: options/panel2.php:119
+msgid "None"
+msgstr "ללא"
+
+#: options/panel2.php:124
+msgid ""
+"The default subscription type that should be selected when Advanced "
+"subscriptions are enable."
+msgstr "ברירת המחדל לסוג ההרשמה כאשר מופעל הרשמה מתקדמת."
+
+#: options/panel2.php:135
+msgid "Custom inline CSS to add to the checkbox."
+msgstr "הוספת עיצוב CSS בשורה לתיבת הסימון."
+
+#: options/panel2.php:152
+msgid ""
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
+msgstr ""
+"קוד HTML לשימוש בהצגת תיבת הסימון. תגיות מותרות: [checkbox_field], "
+"[checkbox_label]"
+
+#: options/panel2.php:158
+msgid "Messages for your visitors"
+msgstr "הודעות למשתמשים שלך"
+
+#: options/panel2.php:162
+msgid "Default label"
+msgstr "תווית ברירת המחדל"
+
+#: options/panel2.php:175
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr "תווית המקושרת לתיבת הסימון. תגיות מותרות: [subscribe_link]"
+
+#: options/panel2.php:192
+msgid ""
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
+msgstr "תווית המוצגת לאלו שכבר רשומים לפוסט. תגית אפשרית: [manager_link]"
+
+#: options/panel2.php:197
+msgid "Pending label"
+msgstr "תווית בהמתנה"
+
+#: options/panel2.php:209
+msgid ""
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
+msgstr ""
+"תווית המוצגת לאלו שכבר נרשמו, אבל עדיין לא לחצו על קישור האישור. תגית "
+"אפשרית: [manager_link]"
+
+#: options/panel2.php:225
+msgid ""
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
+msgstr "תווית המוצגת למחברים (ולמנהלים). תגית אפשרית: [manager_link]"
+
+#: options/panel2.php:230 options/panel3.php:253 options/panel4.php:283
+#: options/panel5.php:195
+msgid "Save Changes"
+msgstr ""
+
+#: options/panel3.php:13 options/panel3.php:87
+msgid "Virtual Management Page"
+msgstr "עמוד הניהול הויזואלי"
+
+#: options/panel3.php:18 options/panel3.php:96
+msgid "Page title"
+msgstr "כותרת העמוד"
+
+#: options/panel3.php:23 options/panel3.php:105
+msgid "Management URL"
+msgstr "כתובת ה URL של הניהול"
+
+#: options/panel3.php:28 options/panel3.php:117
+msgid "Custom HEAD meta"
+msgstr "תיאור"
+
+#: options/panel3.php:34 options/panel3.php:131
+msgid "Request link"
+msgstr "קישור הבקשה"
+
+#: options/panel3.php:39 options/panel3.php:149
+msgid "Request submitted"
+msgstr "הבקשה נשלחה"
+
+#: options/panel3.php:44 options/panel3.php:167
+msgid "Subscribe without commenting"
+msgstr "הרשמה ללא כתיבת תגובה"
+
+#: options/panel3.php:49 options/panel3.php:185
+msgid "Subscription processed"
+msgstr "ההרשמה עובדה"
+
+#: options/panel3.php:54 options/panel3.php:203
+msgid "Subscription processed (DCI)"
+msgstr "ההרשמה עובדה(DCI)"
+
+#: options/panel3.php:59 options/panel3.php:220
+msgid "Authors"
+msgstr "מחברים"
+
+#: options/panel3.php:64 options/panel3.php:236
+msgid "Users"
+msgstr "משתמשים"
+
+#: options/panel3.php:90
+msgid "Enabled"
+msgstr "מופעל"
+
+#: options/panel3.php:91
+msgid "Disabled"
+msgstr "כבוי"
+
+#: options/panel3.php:92
+#, fuzzy
+msgid ""
+"Disable the virtual management page if you need to create a <a href="
+"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
+"real-management-page\">real page</a> to make your theme happy."
+msgstr ""
+"בטל את עמוד הניהול הוירטואלי עם יצירת <a href=\"http://behstant.com/"
+"subscribe-reloaded/realMgnPage.php\">עמוד אמתי</a> כדי לשמח את ערכת הנושא "
+"שלך."
+
+#: options/panel3.php:101
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr "כותרת העמוד בו ישתמשו המבקרים שלך לניהול הרשמות שלהם."
+
+#: options/panel3.php:109
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"מבנה הקישור של של דף הניהול שלך (משהו כמו <code>/ניהול-הרשמות</code> או "
+"<code>/?page_id=345</code>). עמוד זה <b>אינו</b> קיים באמת במערכת שלך, אבל "
+"הקישור שלו חייב לתאום את מבנה הקישורים שלך."
+
+#: options/panel3.php:111
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
+msgstr "אזהרה: נראה שהערך בשימוש אינו מתאים למבנה הקישורים שלך"
+
+#: options/panel3.php:121
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
+msgstr ""
+"ציין קוד HTML משלך להוספה למקטע HEAD של העמוד. השתמש כערכים בציטוט "
+"<strong>יחיד</strong>."
+
+#: options/panel3.php:127 options/panel4.php:135
+msgid "Messages"
+msgstr "הודעות"
+
+#: options/panel3.php:144
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr "טקסט המוצג לאלו המבקשים לנהל את ההרשמות שלהם."
+
+#: options/panel3.php:162
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"הודעת תודה המוצגת לאחר שהבקשה עובדה. תגיות מותרות: [post_title], "
+"[post_permalink]"
+
+#: options/panel3.php:180
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"טקסט המוצג לאלו המבקשים להירשם מבלי להגיב. תגיות מותרות: [post_title], "
+"[post_permalink]"
+
+#: options/panel3.php:198
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"הודעת תודה המוצגת לאחר שעובדה בקשת ההרשמה (ללא אימות כפול). תגיות מותרות: "
+"[post_title], [post_permalink]"
+
+#: options/panel3.php:216
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"הודעת תודה המוצגת לאחר עיבוד בקשת הרשמה (כאשר מופעל אימות כפול). תגיות "
+"מותרות: [post_title], [post_permalink]"
+
+#: options/panel3.php:232
+msgid "Introductory text for the authors' management page."
+msgstr "טקסט היכרות למחברים בעמוד הניהול."
+
+#: options/panel3.php:248
+msgid "Introductory text for the users' management page."
+msgstr "טקסט היכרות למשתמשים בעמוד הניהול."
+
+#: options/panel4.php:15 options/panel4.php:94
+msgid "Sender name"
+msgstr "שם השולח"
+
+#: options/panel4.php:20 options/panel4.php:25 options/panel4.php:107
+msgid "Sender email address"
+msgstr "כתובת המייל של השולח"
+
+#: options/panel4.php:30 options/panel4.php:140
+msgid "Notification subject"
+msgstr "נושא ההתראה"
+
+#: options/panel4.php:36 options/panel4.php:42 options/panel4.php:153
+msgid "Notification message"
+msgstr "הודעת התראה"
+
+#: options/panel4.php:47 options/panel4.php:177
+msgid "Double check subject"
+msgstr "בדיקה כפולה של הנושא"
+
+#: options/panel4.php:52 options/panel4.php:190
+msgid "Double check message"
+msgstr "בדיקה כפולה של ההודעה"
+
+#: options/panel4.php:57 options/panel4.php:210
+msgid "Management subject"
+msgstr "נושא הניהול"
+
+#: options/panel4.php:62 options/panel4.php:67
+msgid "Management message"
+msgstr "הודעת הניהול"
+
+#: options/panel4.php:72 options/panel4.php:243
+msgid "Management Email message"
+msgstr ""
+
+#: options/panel4.php:101
+msgid ""
+"Name to use for the \"from\" field when sending a new notification to the "
+"user."
+msgstr "השם לשימוש בשדה \"מאת\" בשליחת הודעה חדשה למשתמש."
+
+#: options/panel4.php:115
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
+msgstr "כתובת אימייל לשימוש עבור שדה \"מאת\" בשליחת התראה הודעה חדשה למשתמש."
+
+#: options/panel4.php:121
+#, fuzzy
+msgid "Reply To"
+msgstr "תגובות בלבד"
+
+#: options/panel4.php:128
+msgid ""
+"This will be use when the user click reply on their email agent. If not set "
+"will be the same as the Sender email address."
+msgstr ""
+
+#: options/panel4.php:147
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr "נושא מייל ההתראה. תגית אפשרית: [post_title]"
+
+#: options/panel4.php:170
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
+msgstr ""
+"תוכן מייל ההתראה. תגיות אפשריות: [post_title], [comment_permalink], "
+"[comment_author], [comment_content], [post_permalink], [manager_link]"
+
+#: options/panel4.php:171
+msgid ""
+"<p><strong>Note: To get a default template clear all the content and save "
+"the options.</strong></p>"
+msgstr ""
+
+#: options/panel4.php:184
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr "נושא מייל האישור. תגית אפשרית: [post_title]"
+
+#: options/panel4.php:204
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"תוכן מייל האישור. תגיות מותרות: [post_permalink], [confirm_link], "
+"[post_title], [manager_link]"
+
+#: options/panel4.php:217
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
+msgstr "נושא המייל שיישלח למבקשים גישה לדף הניהול. תגית אפשרית: [blog_name]"
+
+#: options/panel4.php:223
+msgid "Management Page message"
+msgstr ""
+
+#: options/panel4.php:237
+msgid "Content of the management Page message. Allowed tags: [blog_name]."
+msgstr ""
+
+#: options/panel4.php:257
+msgid ""
+"Content of the management email message. Allowed tags: [blog_name], "
+"[manager_link]."
+msgstr ""
+
+#: options/panel4.php:263
+#, fuzzy
+msgid "One Click Unsubscribe"
+msgstr "אפשר למנהל להירשם"
+
+#: options/panel4.php:277
+#, fuzzy
+msgid ""
+"Content of the One Click confirmation. Allowed tags: [post_title], "
+"[blog_name]"
+msgstr "נושא מייל האישור. תגית אפשרית: [post_title]"
 
 #: options/panel5.php:28
 msgid "Safetly Uninstall"
@@ -1258,6 +1012,70 @@ msgstr ""
 "זהו מפתח ייחודי שישמש כדי לשלוח את ההודעה עבור הנרשמים שלך עם יותר\n"
 "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tאבטחה."
 
+#: options/panel7.php:8 options/panel8.php:8
+msgid "Support the developers"
+msgstr "תמיכה במפתחים"
+
+#: options/panel7.php:18
+#, fuzzy
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? please "
+"consider supporting the author if this plugin made your web site better, "
+"especially if you are making money out of it. Any donation received will be "
+"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
+"strong>, and to buy some food for my hungry family."
+msgstr ""
+"כמה ערך מוסיף התוסף למבקרים באתר שלך? <strong>הירשם ל Comments Reloaded</"
+"strong> תהיה תמיד ללא תשלום, אבל שקול לתמוך במחבר אם התוסף הזה שיפר את האתר "
+"שלך, במיוחד אם אתה מרוויח ממנו. כל תרומה שתתקבל תושקע מחדש בפיתוח של "
+"<strong>Subscribe to Comments Reloaded</strong>, ותקנה קצת אוכל למשפחתי "
+"הרעבה."
+
+#: options/panel7.php:20
+msgid "Don't want to donate? You can still help"
+msgstr "לא רוצה לתרום? עדיין אפשר לעזור"
+
+#: options/panel7.php:21
+msgid ""
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever "
+"you do, thanks for using my plugin!"
+msgstr ""
+"אם אינך מעוניין לתרום כסף,. נא לשקול לפרסם אותו לקוראים שלך בבלוג עם קישור "
+"לעמוד התוסף. אפשר גם לתרום זמן: לא להסס לשלוח לי דיווחי באגים, קבצי תרגום, "
+"רעיונות לשיפור, איך לשפר את <strong>Subscribe to Comments Reloaded</strong> "
+"וכו'. בכל מקרה, תודה שבחרת להשתמש בתוסף שלי!"
+
+#: options/panel7.php:23
+#, fuzzy
+msgid "Subscribe to the Beta testers"
+msgstr "רשום את המחברים"
+
+#: options/panel7.php:24
+msgid ""
+"Before a new Update we release a Beta version so that our current users can "
+"give us feedback if they find a bug, If you want to join the tester list you "
+"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
+"a>"
+msgstr ""
+
+#: options/panel7.php:26
+msgid "Vote and show your appreciation"
+msgstr "דרגו והראו הערכה"
+
+#: options/panel7.php:27
+msgid ""
+"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
+"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
+"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"שתף אנשים נוספים  איך <strong>Subscribe to Comments Reloaded</strong> פועל "
+"עבורך וכמה הוא טוב. <a href=\"http://wordpress.org/extend/plugins/subscribe-"
+"to-comments-reloaded/\">דרג אותו</a> בעמוד התוסף."
+
 #: options/panel8.php:18
 msgid "Did you find a Bug on the plugin?"
 msgstr "מצאתם באג בתוסף?"
@@ -1274,156 +1092,501 @@ msgstr ""
 "comments-reloaded/issues/\" target=\"_blank\">GitHub</a> עדיף על עמוד התמיכה "
 "בוורדפרס."
 
-#: options/panel1-edit-subscription.php:8
-msgid "Update Subscription"
-msgstr "עדכון ההרשמה"
+#: options/panel9.php:11
+#, fuzzy
+msgid "Support Subscribe to Comments Reloaded"
+msgstr "זקוק לעזרה ב כיצד להירשם ל Comments Reloaded? בקר ב"
 
-#: options/panel1-edit-subscription.php:11
-#: options/panel1-edit-subscription.php:21
-#: options/panel1-edit-subscription.php:22
-#: options/panel1-edit-subscription.php:23
-msgid "optional"
-msgstr "רשות"
-
-#: options/panel10.php:22 options/panel10.php:23
-msgid "System Information"
+#: options/panel9.php:12
+msgid ""
+"Every contribution that you make is high valuable, so if you consider this "
+"plugin a helpful tool we will use your donation to invest on support and "
+"developing time."
 msgstr ""
 
-#: options/panel3.php:13 options/panel3.php:87
-msgid "Virtual Management Page"
-msgstr "עמוד הניהול הויזואלי"
+#: templates/author.php:57
+msgid "Title"
+msgstr "כותרת"
 
-#: options/panel3.php:18 options/panel3.php:96
-msgid "Page title"
-msgstr "כותרת העמוד"
+#: templates/author.php:58 templates/user.php:58
+msgid "Legend: Y = all comments, R = replies only, C = inactive"
+msgstr "מקרא: Y = כל ההערות, R = תגובות בלבד, C = לא פעיל"
 
-#: options/panel3.php:23 options/panel3.php:105
-msgid "Management URL"
-msgstr "כתובת ה URL של הניהול"
+#: templates/author.php:69 templates/user.php:67
+msgid "Select all"
+msgstr "הכל"
 
-#: options/panel3.php:28 options/panel3.php:117
-msgid "Custom HEAD meta"
-msgstr "תיאור"
+#: templates/author.php:70 templates/user.php:68
+msgid "Invert selection"
+msgstr "היפוך הבחירה"
 
-#: options/panel3.php:34 options/panel3.php:131
-msgid "Request link"
-msgstr "קישור הבקשה"
+#: templates/author.php:74 templates/user.php:72
+#, fuzzy
+msgid "All comments"
+msgstr "כל התגובות החדשות"
 
-#: options/panel3.php:39 options/panel3.php:149
-msgid "Request submitted"
-msgstr "הבקשה נשלחה"
+#: templates/author.php:75 templates/user.php:73 wp_subscribe_reloaded.php:1062
+msgid "Replies to my comments"
+msgstr "תגובות להערות שלי"
 
-#: options/panel3.php:44 options/panel3.php:167
-msgid "Subscribe without commenting"
-msgstr "הרשמה ללא כתיבת תגובה"
+#: templates/author.php:80 templates/one-click-unsubscribe.php:30
+#: templates/user.php:79
+msgid "No subscriptions match your search criteria."
+msgstr "אין הרשמה התואמת את קריטריון החיפוש שלך."
 
-#: options/panel3.php:49 options/panel3.php:185
-msgid "Subscription processed"
-msgstr "ההרשמה עובדה"
+#: templates/key_expired.php:8
+msgid ""
+"Woohaa the link to manage your subscriptions has expired, don't worry, just "
+"enter your email below and a new link will be send."
+msgstr ""
 
-#: options/panel3.php:54 options/panel3.php:203
-msgid "Subscription processed (DCI)"
-msgstr "ההרשמה עובדה(DCI)"
+#: templates/key_expired.php:73 templates/request-management-link.php:73
+#: templates/subscribe.php:92
+msgid "Send"
+msgstr "שלח"
 
-#: options/panel3.php:59 options/panel3.php:220
-msgid "Authors"
-msgstr "מחברים"
+#: templates/subscribe.php:42 templates/subscribe.php:43
+msgid "New subscription to"
+msgstr "הרשמה חדשה ל"
 
-#: options/panel3.php:64 options/panel3.php:236
-msgid "Users"
-msgstr "משתמשים"
+#: templates/subscribe.php:43
+msgid "User:"
+msgstr "משתמש:"
 
-#: options/panel3.php:90
-msgid "Enabled"
-msgstr "מופעל"
+#: templates/user.php:63
+msgid "F j, Y"
+msgstr ""
 
-#: options/panel3.php:91
-msgid "Disabled"
-msgstr "כבוי"
+#: utils/stcr_manage.php:246
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"נא לעדכן אותי במייל על תגובות נוספות. אפשר גם <a "
+"href='[subscribe_link]'>להירשם</a> מבלי להגיב."
 
-#: options/panel3.php:92
+#: utils/stcr_manage.php:247
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"ההרשמה שלך לפוסט זה פעילה. <a href='[manager_link]'>ניהול ההרשמות שלך</a>.  "
+
+#: utils/stcr_manage.php:248
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"ההרשמה שלך לפוסט זה צריכה אישור. <a href='[manager_link]'>לניהול ההרשמות "
+"שלך</a>."
+
+#: utils/stcr_manage.php:249
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr "אפשר <a href='[manager_link]'>לנהל את ההרשמה</a> של פוסט זה."
+
+#: utils/stcr_manage.php:255
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"כדי לנהל את ההרשמות שלך, נא להזין את האימייל שלך להלן. נשלח לך הודעה המכילה "
+"קישור לעמוד הניהול האישי שלך."
+
+#: utils/stcr_manage.php:256
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"תודה שהשתמשת בשירות ההרשמה שלנו. בקשתך הושלמה ותוך דקות יישלח אליך אימייל עם "
+"קישור ניהול הרשמה שלך."
+
+#: utils/stcr_manage.php:257
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"אפשר לעקוב אחר הדיון ב <strong>[post_title]</strong> ללא צורך לשלוח תגובה. "
+"מגניב, אה? רק להזין את כתובת האימייל שלך בשדה שלהלן."
+
+#: utils/stcr_manage.php:258
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"תודה שהשתמש בשירות ההרשמה שלנו. בקשתך הושלמה. התראה באימייל תישלח על כל "
+"תגובה חדשה שתאושר על-ידי ההנהלה לפוסט זה."
+
+#: utils/stcr_manage.php:259
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"תודה על השימוש בשירות ההרשמה שלנו. כדי לאשר את הבקשה שלך, נא לבדוק ת האימייל "
+"שלך כדי לאשר את ההרשמה לפי ההנחיות במייל ."
+
+#: utils/stcr_manage.php:260
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"כדי לבטל או להשעות הודעה אחת או יותר נא לבחור תיבת(ות) סימון בהתאמה וללחוץ "
+"על הכפתור שבסוף הרשימה."
+
+#: utils/stcr_manage.php:261
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"כדי לבטל או להשעות התראה אחת או יותר, נא לבחור בתיבת(ות) הסימון המתאימה(ות) "
+"וללחוץ על הכפתור שבסוף הרשימה. כעת יש הרשמות ל:"
+
+#: utils/stcr_manage.php:265
+msgid "There is a new comment to [post_title]"
+msgstr "יש תגובה חדשה ל [post_title]"
+
+#: utils/stcr_manage.php:266
+msgid ""
+"There is a new comment to [post_title].\n"
+"Comment Link: [comment_permalink]\n"
+"Author: [comment_author]\n"
+"Comment:\n"
+"[comment_content]\n"
+"Permalink: [post_permalink]\n"
+"Manage your subscriptions: [manager_link]"
+msgstr ""
+"יש תגובה חדשה ל [post_title].\n"
+"קישור לתגובה: [comment_permalink]\n"
+"מחבר: [comment_author]\n"
+"תגובה:\n"
+"[comment_content]\n"
+"מבנה קישור: [post_permalink]\n"
+"ניהול ההרשמות שלך: [manager_link]"
+
+#: utils/stcr_manage.php:267
+msgid "Please confirm your subscription to [post_title]"
+msgstr "נא לאשר את ההרשמה שלך ל [post_title]"
+
+#: utils/stcr_manage.php:268
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"[post_permalink]\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"[confirm_link]"
+msgstr ""
+"ביקשת לקבל הודעות על הוספת תגובות חדשות ל:\n"
+"[post_permalink]\n"
+"\n"
+"נא לאמת את הבקשה באמצעות לחיצה על הקישור:\n"
+"[confirm_link]"
+
+#: utils/stcr_manage.php:269
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "ניהול ההרשמות שלך ב [blog_name]"
+
+#: utils/stcr_manage.php:270
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Please check the Subscriptions management link in your email"
+msgstr ""
+
+#: utils/stcr_manage.php:271
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
+"[manager_link]"
+msgstr ""
+"ביקשת לנהל את ההרשמות שלך למאמרים ב [blog_name]. קישור זה יוביל אותך לעמוד "
+"הניהול שלך:\n"
+"[manager_link]"
+
+#: utils/stcr_manage.php:440 utils/stcr_manage.php:441
+msgid "StCR System"
+msgstr ""
+
+#: utils/stcr_manage.php:460 utils/stcr_manage.php:488
+#: utils/stcr_manage.php:515 utils/stcr_manage.php:542
+#: utils/stcr_manage.php:569 utils/stcr_manage.php:596
+#: utils/stcr_manage.php:623 utils/stcr_manage.php:650
+#: utils/stcr_manage.php:677 utils/stcr_manage.php:705
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: utils/stcr_manage.php:755
+#, fuzzy
+msgid "Subscriptions"
+msgstr "הרשמה"
+
+#: utils/stcr_manage.php:811
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr "זקוק לעזרה ב כיצד להירשם ל Comments Reloaded? בקר ב"
+
+#: utils/stcr_manage.php:811
+msgid "support forum"
+msgstr "פורום התמיכה הרשמי"
+
+#: utils/stcr_manage.php:812
+msgid "Feeling generous?"
+msgstr "מרגיש נדיב?"
+
+#: utils/stcr_manage.php:812
+msgid "Donate a few bucks!"
+msgstr "תרום קצת!"
+
+#: utils/stcr_upgrade.php:55
+msgid "Important Notice"
+msgstr "הודעה חשובה"
+
+#: utils/stcr_upgrade.php:103
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> The information in your "
+"database has been sanitized to prevent the raw html messages. <a class="
+"\"dismiss\" href=\"#\">Dismiss.  </a><img class=\"stcr-loading-animation\" "
+"src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:158
 #, fuzzy
 msgid ""
-"Disable the virtual management page if you need to create a <a href="
-"\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
-"real-management-page\">real page</a> to make your theme happy."
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Subscribe to Comments</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
-"בטל את עמוד הניהול הוירטואלי עם יצירת <a href=\"http://behstant.com/"
-"subscribe-reloaded/realMgnPage.php\">עמוד אמתי</a> כדי לשמח את ערכת הנושא "
-"שלך."
+"נתוני הרשמה מתוסף <strong>Subscribe to Comments</strong> זוהו ויובאו "
+"אוטומטית ל <strong>Subscribe to Comments Reloaded</strong>."
 
-#: options/panel3.php:101
-msgid "Title of the page your visitors will use to manage their subscriptions."
-msgstr "כותרת העמוד בו ישתמשו המבקרים שלך לניהול הרשמות שלהם."
-
-#: options/panel3.php:109
+#: utils/stcr_upgrade.php:158
 msgid ""
-"The permalink for your management page (something like <code>/manage-"
-"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
-"b> actually exist in the system, but its link must follow your permalink "
-"structure."
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
 msgstr ""
-"מבנה הקישור של של דף הניהול שלך (משהו כמו <code>/ניהול-הרשמות</code> או "
-"<code>/?page_id=345</code>). עמוד זה <b>אינו</b> קיים באמת במערכת שלך, אבל "
-"הקישור שלו חייב לתאום את מבנה הקישורים שלך."
+" מומלץ כעת <strong>לכבות</strong> את Subscribe to Comments כדי למנוע בלבול "
+"בין שני התוספים."
 
-#: options/panel3.php:111
+#: utils/stcr_upgrade.php:159
 msgid ""
-"Warning: it looks like the value you are using may be incompatible with your "
-"permalink structure"
-msgstr "אזהרה: נראה שהערך בשימוש אינו מתאים למבנה הקישורים שלך"
-
-#: options/panel3.php:121
-msgid ""
-"Specify your custom HTML code to be added to the HEAD section of the page. "
-"Use <strong>single</strong> quotes for values."
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
 msgstr ""
-"ציין קוד HTML משלך להוספה למקטע HEAD של העמוד. השתמש כערכים בציטוט "
-"<strong>יחיד</strong>."
+"אם יש לך נתוני הרשמה מ Subscribe to Comments Reloaded < v2.0 ליבוא, יהיה "
+"צורך לייבא אותם ידנית, כי רק שגרת יבוא אחת תפעל, כדי למנוע אבדן נתונים."
 
-#: options/panel3.php:144
-msgid "Text shown to those who request to manage their subscriptions."
-msgstr "טקסט המוצג לאלו המבקשים לנהל את ההרשמות שלהם."
-
-#: options/panel3.php:162
+#: utils/stcr_upgrade.php:160 utils/stcr_upgrade.php:232
+#: utils/stcr_upgrade.php:381
 msgid ""
-"Thank you note shown after the request here above has been processed. "
-"Allowed tags: [post_title], [post_permalink]"
+"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
+"your configuration.<a class=\"dismiss\" href=\"#\">Dismiss.  </a><img class="
+"\"stcr-loading-animation\" src=\""
 msgstr ""
-"הודעת תודה המוצגת לאחר שהבקשה עובדה. תגיות מותרות: [post_title], "
-"[post_permalink]"
 
-#: options/panel3.php:180
+#: utils/stcr_upgrade.php:231
+#, fuzzy
 msgid ""
-"Text shown to those who want to subscribe without commenting. Allowed tags: "
-"[post_title], [post_permalink]"
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Comment Reply Notification</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
-"טקסט המוצג לאלו המבקשים להירשם מבלי להגיב. תגיות מותרות: [post_title], "
-"[post_permalink]"
+"נתוני הרשמה מתוסף <strong>Comment Reply Notification</strong> זוהו ויובאו "
+"אוטומטית ל <strong>Subscribe to Comments Reloaded</strong>."
 
-#: options/panel3.php:198
+#: utils/stcr_upgrade.php:231
 msgid ""
-"Thank you note shown after the subscription request has been processed "
-"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+" It is recommended that you now <strong>deactivate</strong> Comment Reply "
+"Notification to prevent confusion between the two plugins."
 msgstr ""
-"הודעת תודה המוצגת לאחר שעובדה בקשת ההרשמה (ללא אימות כפול). תגיות מותרות: "
-"[post_title], [post_permalink]"
+" מומלץ כעת <strong>לכבות</strong> את Comment Reply Notification כדי למנוע "
+"בלבול בין התוספים."
 
-#: options/panel3.php:216
+#: utils/stcr_upgrade.php:378
+#, fuzzy
 msgid ""
-"Thank you note shown after the subscription request has been processed "
-"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+"<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
+"subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
+"were detected and automatically imported into <strong>Subscribe to Comments "
+"Reloaded</strong>."
 msgstr ""
-"הודעת תודה המוצגת לאחר עיבוד בקשת הרשמה (כאשר מופעל אימות כפול). תגיות "
-"מותרות: [post_title], [post_permalink]"
+"אפשרויות התוסף ונתוני הרשמה מתוסף <strong>WP Comment Subscriptions</strong> "
+"זוהו ויובאו אוטומטית אל <strong>Subscribe to Comments Reloaded</strong>."
 
-#: options/panel3.php:232
-msgid "Introductory text for the authors' management page."
-msgstr "טקסט היכרות למחברים בעמוד הניהול."
+#: utils/stcr_upgrade.php:378
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
+msgstr ""
+" מומלץ כעת <strong>לכבות</strong> את WP Comment Subscriptions כדי למנוע "
+"בלבול בין שני התוספים."
 
-#: options/panel3.php:248
-msgid "Introductory text for the users' management page."
-msgstr "טקסט היכרות למשתמשים בעמוד הניהול."
+#: utils/stcr_upgrade.php:379
+msgid ""
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
+msgstr ""
+"אם יש לך מידע הרשמה מתוסף אחר (כמו Subscribe to Comments או Subscribe to "
+"Comments Reloaded < v2.0) שתרצה לייבא, יהיה צורך לייבא את הנתונים באופן "
+"ידני, כי תמיד תפעל רק שגרת יבוא אחת כדי למנוע אבדן נתונים."
+
+#: utils/stcr_upgrade.php:380
+msgid ""
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
+msgstr ""
+"<strong>הערה:</strong> אם השתמשת קודם בפונקציית "
+"<code>wp_comment_subscriptions_show()</code> או בפונקציית קיצור הקוד "
+"<code>[wpcs-subscribe-url]</code> , תצטרך להחליף אותו ב "
+"<code>subscribe_reloaded_show()</code> וב <code>[subscribe-url]</code> "
+"בהתאמה."
+
+#: utils/stcr_upgrade.php:394
+msgid ""
+"<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:395
+#, fuzzy
+msgid ""
+"If you find a bug or an issue you can report it <a href=\"https://github.com/"
+"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
+msgstr ""
+"נא לדווח על כל באג בעמוד <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/\" target=\"_blank\">GitHub</a> עדיף על עמוד התמיכה "
+"בוורדפרס."
+
+#: utils/stcr_upgrade.php:396
+msgid ""
+"If you want to donate you can do it via <a href=\"\n"
+"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:398
+msgid ""
+"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for detailed "
+"information on plugin changes.<a class=\"dismiss\" href=\"#\">Dismiss.  </"
+"a><img class=\"stcr-loading-animation\" src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:409
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160106."
+msgstr ""
+
+#: utils/stcr_upgrade.php:410
+msgid ""
+"This version includes many changes and fixes to improve your experience with "
+"the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
+"email templates, Subscription Checkbox position, and more!"
+msgstr ""
+
+#: utils/stcr_upgrade.php:411 utils/stcr_upgrade.php:426
+#: utils/stcr_upgrade.php:448
+msgid ""
+"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
+"complete list of changes.<a class=\"dismiss\" href=\"#\">Dismiss.  </a><img "
+"class=\"stcr-loading-animation\" src=\""
+msgstr ""
+
+#: utils/stcr_upgrade.php:424
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160115."
+msgstr ""
+
+#: utils/stcr_upgrade.php:425
+msgid ""
+"This version includes fixes to broken links while managing your subscriptions"
+msgstr ""
+
+#: utils/stcr_upgrade.php:439
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"3.0.0"
+msgstr ""
+
+#: utils/stcr_upgrade.php:440
+msgid "This version includes fixes to many bugs and also new features, "
+msgstr ""
+
+#: utils/stcr_upgrade.php:442
+msgid ""
+"<strong>New Feature</strong> Add new option to set the Reply To email "
+"address. This will help the subscribers to use the Reply option in their "
+"email agents."
+msgstr ""
+
+#: utils/stcr_upgrade.php:443
+msgid ""
+"<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the "
+"StCR menu on the Settings Menu for a new Menu with sub menus for the pages."
+msgstr ""
+
+#: utils/stcr_upgrade.php:444
+msgid ""
+"<strong>New Feature</strong> Safely Uninstall option to Delete the plugin "
+"without loosing your subscriptions. You can use this option also for reset "
+"all the settings, see the FAQ."
+msgstr ""
+
+#: utils/stcr_upgrade.php:445
+msgid ""
+"<strong>New Feature</strong> Now the WordPress Authors can use the "
+"<strong>Subscribe authors</strong> option to autor subscribe to a Custom "
+"Post Type."
+msgstr ""
+
+#: utils/stcr_upgrade.php:446
+msgid ""
+"<strong>New Feature</strong> A new field was added under the notification "
+"options to and the management link only by email and not to display it on "
+"the request link page."
+msgstr ""
+
+#: utils/stcr_utils.php:195
+#, fuzzy
+msgid "StCR Notification"
+msgstr "הודעות"
+
+#: wp_subscribe_reloaded.php:114
+msgid "Settings"
+msgstr "הגדרות"
+
+#: wp_subscribe_reloaded.php:1060
+msgid "Don't subscribe"
+msgstr "א להירשם"
+
+#: wp_subscribe_reloaded.php:1061
+msgid "All"
+msgstr "הכול"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+#~ "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to "
+#~ "review your configuration.<a class=\"dismiss\" href=\"#\">Got it.  </"
+#~ "a><img class=\"stcr-loading-animation\" src=\""
+#~ msgstr ""
+#~ "נא לבקר ב <a href=\"options-general.php?page=subscribe-to-comments-"
+#~ "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> כדי "
+#~ "לסקור את ההגדרה שלך."
 
 #~ msgid ""
 #~ "Content of the management email. Allowed tags: [blog_name], [manager_link]"
