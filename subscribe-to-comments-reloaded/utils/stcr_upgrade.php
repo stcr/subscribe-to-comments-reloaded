@@ -66,7 +66,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 							'unread',
 							'<p><strong>Subscribe to Comments Reloaded:</strong> The creation of table <code>' . $wpdb->prefix . 'subscribe_reloaded_subscribers</code> was successful.</p>'.
 							'<p>This new table will help to add your subscribers email addresses more safely and prevent Google PII violations.'
-							 . '<a class="dismiss" href="#">Got it.  </a>'
+							 . '<a class="dismiss" href="#">Dismiss.  </a>'
 								. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'
 							. '</p>',
 							'updated'
@@ -100,7 +100,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 				$this->stcr_create_admin_notice(
 					'notify_update_sanitize_db_options',
 					'unread',
-					'<p>' . __( '<strong>Subscribe to Comments Reloaded:</strong> The information in your database has been sanitized to prevent the raw html messages. <a class="dismiss" href="#">Got it.  </a>'
+					'<p>' . __( '<strong>Subscribe to Comments Reloaded:</strong> The information in your database has been sanitized to prevent the raw html messages. <a class="dismiss" href="#">Dismiss.  </a>'
 						  . '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">'  , 'subscribe-reloaded' )
 					. '</p>',
 					'updated'
@@ -158,7 +158,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 					'<p>' . __( '<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data from the <strong>Subscribe to Comments</strong> plugin was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded' ) . ( is_plugin_active( 'subscribe-to-comments/subscribe-to-comments.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> Subscribe to Comments to prevent confusion between the two plugins.', 'subscribe-reloaded' ) : '' ) . '</p>' .
 					'<p>' . __( 'If you have subscription data from Subscribe to Comments Reloaded < v2.0 that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded' ) . '</p>' .
 					'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
-						. '<a class="dismiss" href="#">Got it.  </a>'
+						. '<a class="dismiss" href="#">Dismiss.  </a>'
 						. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-reloaded' ) . '</p>',
 					'updated'
 				);
@@ -230,7 +230,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 					'unread',
 					'<p>' . __( '<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data from the <strong>Comment Reply Notification</strong> plugin was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-reloaded' ) . ( is_plugin_active( 'comment-reply-notification/comment-reply-notification.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> Comment Reply Notification to prevent confusion between the two plugins.', 'subscribe-reloaded' ) : '' ) . '</p>' .
 					'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
-						. '<a class="dismiss" href="#">Got it.  </a>'
+						. '<a class="dismiss" href="#">Dismiss.  </a>'
 						. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-reloaded' ) . '</p>',
 					'updated'
 				);
@@ -379,15 +379,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 					'<p>' . __( 'If you have subscription data from another plugin (such as Subscribe to Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-reloaded' ) . '</p>' .
 					'<p>' . __( '<strong>Note:</strong> If you were previously using the <code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-subscribe-url]</code> shortcode, you\'ll need to replace those with <code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> respectively.', 'subscribe-reloaded' ) . '</p>' .
 					'<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
-						. '<a class="dismiss" href="#">Got it.  </a>'
+						. '<a class="dismiss" href="#">Dismiss.  </a>'
 						. '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-reloaded' ) . '</p>',
 					'updated'
 				);
 			}
 		}
 		// end _import_wpcs_data
-		public function upgrade_notification( $_version, $_db_version ) {
-			if( empty( $_db_version ) ) {
+		public function upgrade_notification( $_version, $_db_version, $_fresh_install ) {
+			if( $_fresh_install ) {
 				$this->stcr_create_admin_notice(
 					'notify_update_new_install',
 					'unread',
@@ -396,11 +396,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 					'<p>' . __('If you want to donate you can do it via <a href="
 https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">PayPal</a>.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for detailed information on plugin changes.'
-						. '<a class="dismiss" href="#">Got it.  </a>'
+						. '<a class="dismiss" href="#">Dismiss.  </a>'
 						. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
 					'updated'
 				);
-				 $this->link_tags();
 			} else {
 				switch ($_version) {
 					case '160106':
@@ -410,7 +409,7 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160106.', 'subscribe-reloaded') . '</p>' .
 							'<p>' . __('This version includes many changes and fixes to improve your experience with the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML email templates, Subscription Checkbox position, and more!', 'subscribe-reloaded') . '</p>' .
 							'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
-								. '<a class="dismiss" href="#">Got it.  </a>'
+								. '<a class="dismiss" href="#">Dismiss.  </a>'
 								. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
 							'updated'
 						);
@@ -425,7 +424,29 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160115.', 'subscribe-reloaded') . '</p>' .
 							'<p>' . __('This version includes fixes to broken links while managing your subscriptions', 'subscribe-reloaded') . '</p>' .
 							'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
-								. '<a class="dismiss" href="#">Got it.  </a>'
+								. '<a class="dismiss" href="#">Dismiss.  </a>'
+								. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
+							'updated'
+						);
+						// Update the HTML emails option
+						update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
+						update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
+						break;
+					case '3.0.0':
+						$this->stcr_create_admin_notice(
+							'notify_update_' . $_version,
+							'unread',
+							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 3.0.0', 'subscribe-reloaded') . '</p>' .
+							'<p>' . __('This version includes fixes to many bugs and also new features, ', 'subscribe-reloaded') . '</p>' .
+							'<ul>' .
+								'<li>' . __("<strong>New Feature</strong> Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the StCR menu on the Settings Menu for a new Menu with sub menus for the pages.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> Safely Uninstall option to Delete the plugin without loosing your subscriptions. You can use this option also for reset all the settings, see the FAQ.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> Now the WordPress Authors can use the <strong>Subscribe authors</strong> option to autor subscribe to a Custom Post Type.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> A new field was added under the notification options to and the management link only by email and not to display it on the request link page.", 'subscribe-reloaded') . '</li>'.
+							'</ul>' .
+							'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
+								. '<a class="dismiss" href="#">Dismiss.  </a>'
 								. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
 							'updated'
 						);

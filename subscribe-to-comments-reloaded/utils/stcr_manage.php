@@ -56,16 +56,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 					add_action( 'publish_' . $post_type_name , array( $this, 'subscribe_post_author' ) );
 				}
 			}
-
-			if ( empty ( $this->db_version ) || (int) $this->db_version < (int) $this->current_version ) {
-				// Do whatever upgrades needed here.
-				$this->_activate();
-				// Send the current version to display the appropiate message
-				// The notification will only be visible once there is an update not a activation.
-				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version );
-			} else {
-				return;
-			}
 		}
 
 		public function admin_notices() {
@@ -168,6 +158,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function activate() {
 			global $wpdb;
 
+			if ( empty ( $this->db_version ) || $this->db_version != $this->current_version ) {
+				// // Do whatever upgrades needed here.
+				// $this->_activate();
+				// Send the current version to display the appropiate message
+				// The notification will only be visible once there is an update not a activation.
+				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version, $this->fresh_install );
+			} 
+
 			if ( function_exists( 'is_multisite' ) && is_multisite() && isset( $_GET['networkwide'] ) && ( $_GET['networkwide'] == 1 ) ) {
 				$blogids = $wpdb->get_col(
 					$wpdb->prepare(
@@ -237,7 +235,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			add_option( 'subscribe_reloaded_reply_to', '', '', 'yes' );
 			add_option( 'subscribe_reloaded_oneclick_text', "<p>Your are not longer subscribe to the post:</p>\r\n\r\n<h3>[post_title]</h3>\r\n<br>", '', 'yes' );
 			add_option( 'subscribe_reloaded_subscriber_table', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_data_sanitized', 'no', '', 'yes' );
+			add_option( 'subscribe_reloaded_data_sanitized', 'yes', '', 'yes' );
 			add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'yes' );
 			add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'yes' );
