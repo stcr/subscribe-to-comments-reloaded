@@ -3,7 +3,7 @@
  * Class with utility functions to upgrade the plugin.
  * @author reedyseth
  * @since 15-Jul-2015
- * @version 3.0.0
+ * @version 160831
  */
 namespace stcr;
 // Avoid direct access to this piece of code
@@ -432,11 +432,11 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 						update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
 						update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
 						break;
-					case '3.0.0':
+					case '160831':
 						$this->stcr_create_admin_notice(
 							'notify_update_' . $_version,
 							'unread',
-							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 3.0.0', 'subscribe-reloaded') . '</p>' .
+							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160831', 'subscribe-reloaded') . '</p>' .
 							'<p>' . __('This version includes fixes to many bugs and also new features, ', 'subscribe-reloaded') . '</p>' .
 							'<ul>' .
 								'<li>' . __("<strong>New Feature</strong> Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.", 'subscribe-reloaded') . '</li>'.

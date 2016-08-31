@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
 Tested up to: 4.7-alpha
-Stable tag: 3.0.0
+Stable tag: 160831
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,9 +80,6 @@ where you have you messages with HTML.
 = How to generate a new Key for my Site? =
 Just go to the Options Panel and click the generate button. By generating a new key you prevent the spam bots to steal your links.
 
-= Why the version number change to the format X.X.X? =
-The version number must mean something to the users, at the end this is the purpose of a version number and therefore the plugin version re-take the [Semantic](http://semver.org/) Versioning.
-
 == Screenshots ==
 
 1. Manage your subscriptions
@@ -94,7 +91,7 @@ The version number must mean something to the users, at the end this is the purp
 
 == Upgrade Notice ==
 
-= v3.0.0 =
+= v160831 =
 
 **Major Release** On this version there have been a lot of patches and upgrades in the code, although there are many other issues to improve and fix this version will make your site and subscribers happy.
 
@@ -138,13 +135,13 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
-= v3.0.0 =
+= v160831 =
 
 * **New Feature** Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.
 * **New Feature** Improve the Admin Menu for StCR. Replace the StCR menu on the Settings Menu for a new Menu with sub menus for the pages.
 * **New Feature** Safely Uninstall option to Delete the plugin without loosing your subscriptions. You can use this option also for reset all the settings, see the FAQ.
 * **New Feature** Now the WordPress Authors can use the **Subscribe authors** option to autor subscribe to a Custom Post Type. [issue#126](https://github.com/stcr/subscribe-to-comments-reloaded/issues/126)
-* **Info** The version 3.0.0 has been tested down until PHP 5.3.13 and up to PHP 7.0. See also [issue#238](https://github.com/stcr/subscribe-to-comments-reloaded/issues/238)
+* **Info** The version 160831 has been tested down until PHP 5.3.13 and up to PHP 7.0. See also [issue#238](https://github.com/stcr/subscribe-to-comments-reloaded/issues/238)
 * **Fix** email headers and new headers: Reply-To, To, and Subject. Some notification message where not deliver in public accounts like Gmail, AOL and Hotmail due to broken email headers.
 * **Fix** links duplications on notification messages. [issue#198](https://github.com/stcr/subscribe-to-comments-reloaded/issues/198) and [issue#200](https://github.com/stcr/subscribe-to-comments-reloaded/issues/200)
 * **Fix** the position of StCR box to be above the submit button by using the WordPress way, this is the way it should be. [issue#196](https://github.com/stcr/subscribe-to-comments-reloaded/issues/196)
@@ -153,7 +150,6 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 * **Improve** the subscribers list.
 * **Improve** RTL support.
 * **Improve** the support for RTL languages on the `Manage Subscriptions` admin page.
-* **Update** The version number to continue using the [Semantic](http://semver.org/) Versioning.
 * **Update** some translations on the Persian file. [issue#191](https://github.com/stcr/subscribe-to-comments-reloaded/issues/191)
 * **Add** Link on the Mass Update panel with instructions to help the user know what is for.
 * **Add** the wp_editor to the comment form panel instead of only the TinyMCE. [issue#2017](https://github.com/stcr/subscribe-to-comments-reloaded/issues/207)

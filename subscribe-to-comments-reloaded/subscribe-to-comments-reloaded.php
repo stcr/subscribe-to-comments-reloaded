@@ -2,8 +2,8 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 3.0.0
-Stable tag: 3.0.0
+Version: 160831
+Stable tag: 160831
 Requires at least: 4.0
 Tested up to: 4.7-alpha
 

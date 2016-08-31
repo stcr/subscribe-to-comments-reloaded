@@ -3,7 +3,7 @@
  * Class with utility functions. This functions are all over the plugin.
  * @author reedyseth
  * @since 15-Jul-2015
- * @version 3.0.0
+ * @version 160831
  */
 namespace stcr;
 // Avoid direct access to this piece of code

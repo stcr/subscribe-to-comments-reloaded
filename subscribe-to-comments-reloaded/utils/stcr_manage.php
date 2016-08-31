@@ -3,7 +3,7 @@
  * Class with management functions for Subscribe to Comments Reloaded
  * @author reedyseth
  * @since 16-Jul-2015
- * @version 3.0.0
+ * @version 160831
  */
 namespace stcr;
 // Avoid direct access to this piece of code
@@ -19,7 +19,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 {
 	class stcr_manage {
 
-		public $current_version = '3.0.0';
+		public $current_version = '160831';
 		public $utils = null;
 		public $upgrade = null;
 		public $db_version = null;
@@ -164,7 +164,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// Send the current version to display the appropiate message
 				// The notification will only be visible once there is an update not a activation.
 				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version, $this->fresh_install );
-			} 
+			}
 
 			if ( function_exists( 'is_multisite' ) && is_multisite() && isset( $_GET['networkwide'] ) && ( $_GET['networkwide'] == 1 ) ) {
 				$blogids = $wpdb->get_col(
