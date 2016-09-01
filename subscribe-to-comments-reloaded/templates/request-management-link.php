@@ -24,11 +24,11 @@ if ( ! empty( $email ) ) {
 	$subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
 
 	$manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
-	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt";
+	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e";
 	$one_click_unsubscribe_link .= ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?';
 	$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
 								. "srek=" . $this->utils->get_subscriber_key( $clean_email )
-								. "&srk=$subscriber_salt" . "&sra=u" . "&srp=";
+								. "&srk=$subscriber_salt" . "&sra=u;srsrc=e" . "&srp=";
 
 	// Replace tags with their actual values
 	$subject       = str_replace( '[blog_name]', get_bloginfo( 'name' ), $subject );

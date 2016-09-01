@@ -375,10 +375,11 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				return $_posts;
 			}
 
-			$action 	   = ! empty( $_POST['sra'] )  ? $_POST['sra']   : ( ! empty( $_GET['sra'] )  ?  $_GET['sra']   : 0  );
-			$key    	   = ! empty( $_POST['srk'] )  ? $_POST['srk']   : ( ! empty( $_GET['srk'] )  ?  $_GET['srk']   : 0  );
-			$sre    	   = ! empty( $_POST['sre'] )  ? $_POST['sre']   : ( ! empty( $_GET['sre'] )  ?  $_GET['sre']   : '' );
-			$srek   	   = ! empty( $_POST['srek'] ) ? $_POST['srek']  : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
+			$action 	   = ! empty( $_POST['sra'] )  ? $_POST['sra']     : ( ! empty( $_GET['sra'] )  ?  $_GET['sra']   : 0  );
+			$key    	   = ! empty( $_POST['srk'] )  ? $_POST['srk']     : ( ! empty( $_GET['srk'] )  ?  $_GET['srk']   : 0  );
+			$sre    	   = ! empty( $_POST['sre'] )  ? $_POST['sre']     : ( ! empty( $_GET['sre'] )  ?  $_GET['sre']   : '' );
+			$srek   	   = ! empty( $_POST['srek'] ) ? $_POST['srek']    : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
+			$link_source   = ! empty( $_POST['srsrc'] ) ? $_POST['srsrc']  : ( ! empty( $_GET['srsrc'] ) ?  $_GET['srsrc']  : '' );
 			$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : 0 );
 
 			$email_by_key  = $this->utils->get_subscriber_email_by_key( $srek );
@@ -392,20 +393,40 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			{
 				$email = $email_by_key;
 			}
-			// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
-			// or is wrong, in that case display the request management page template
-			if( $email !== "" && $key !== 0 && ! $this->utils->_is_valid_key( $key, $email ) || $key_expired == "1" )
+			// Check the link source
+			if( $link_source == "f" ) // Comes from the comment form.
 			{
-				if( $key_expired == "1" )
+				// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
+				// or is wrong, in that case display the request management page template
+				if( $email !== "" && $key !== 0 && $stcr_unique_key !== $key || $key_expired == "1" )
 				{
-					$error_exits = true;
-				}
-				else
-				{
-					$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n" );
-					$error_exits = true;
+					if( $key_expired == "1" )
+					{
+						$error_exits = true;
+					}
+					else
+					{
+						$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n" );
+						$error_exits = true;
+					}
 				}
 			}
+			else if( $link_source == "e" ) // Comes from the email link.
+			{
+				if( $email !== "" && $key !== 0 && ! $this->utils->_is_valid_key( $srek, $email ) || $key_expired == "1" )
+				{
+					if( $key_expired == "1" )
+					{
+						$error_exits = true;
+					}
+					else
+					{
+						$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n" );
+						$error_exits = true;
+					}
+				}
+			}
+
 
 			if( $error_exits )
 			{
@@ -1037,7 +1058,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			if ( $show_subscription_box ) {
 				$checkbox_label        = str_replace(
-					'[subscribe_link]', "$manager_link&amp;sra=s",
+					'[subscribe_link]', "$manager_link&amp;sra=s&amp;srsrc=f",
 					__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 				);
 				$checkbox_inline_style = get_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px' );

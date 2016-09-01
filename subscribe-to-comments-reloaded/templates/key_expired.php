@@ -25,7 +25,7 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	$subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
 
 	$manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
-	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt";
+	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e";
 	$one_click_unsubscribe_link .= ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?';
 	$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt" . "&sra=u" . "&srp=";
 
