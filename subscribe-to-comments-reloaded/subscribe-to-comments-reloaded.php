@@ -33,29 +33,31 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded'))
 		function __construct() {
 			$this->stcr = new wp_subscribe_reloaded();
 			$this->stcr->setUserCoookie();
-			// Run the activation/deactivation routing only for admins.
-			if(is_admin()){
-				// Initialization routines that should be executed on activation/deactivation
-				// Due to Wordpress restrinctions these hooks have to be on the main file.
-				register_activation_hook( __FILE__, array( $this, 'activate' ) );
-				register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
-			}
 		}
 
 		/**
 		 * This will trigger the activate function located on utils/stcr_manage.php
 		 * @since 150720
 		 */
-		function activate() {
-			$this->stcr->activate();
+		static function activate() {
+			require_once dirname(__FILE__).'/utils/stcr_manage.php';
+			$_stcra = new stcr_manage();
+			$_stcra->activate();
 		}
 		/**
 		 * This will trigger the activate function located on utils/stcr_manage.php
 		 * @since 150720
 		 */
-		function deactivate() {
-			$this->stcr->deactivate();
+		static function deactivate() {
+			require_once dirname(__FILE__).'/utils/stcr_manage.php';
+			$_stcrd = new stcr_manage();
+			$_stcrd->deactivate();
 		}
 	}
+	// Initialization routines that should be executed on activation/deactivation
+	// Due to Wordpress restrinctions these hooks have to be on the main file.
+	register_activation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::class , 'activate' ) );
+	register_deactivation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::class , 'deactivate' ) );
+
 	$wp_subscribe_reloaded = new stcr_subscribe_reloaded(); // Initialize the cool stuff
 }
