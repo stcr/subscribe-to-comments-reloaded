@@ -413,7 +413,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 			else if( $link_source == "e" ) // Comes from the email link.
 			{
-				if( $email !== "" && $key !== 0 && ! $this->utils->_is_valid_key( $srek, $email ) || $key_expired == "1" )
+				if( $email !== "" && $key !== 0 && ! $this->utils->_is_valid_key( $key, $email ) || $key_expired == "1" )
 				{
 					if( $key_expired == "1" )
 					{
@@ -436,43 +436,48 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			{
 				// Subscribe without commenting
 				if ( ! empty( $action ) &&
-					 ( $action == 's' ) &&
-					 ( $post_ID > 0 ) &&
-					 $key_expired != "1" )
+					( $action == 's' ) &&
+					( $post_ID > 0 ) &&
+					$key_expired != "1" )
 				{
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
 				} // Management page for post authors
 				elseif ( ( $post_ID > 0 ) &&
-						 $this->is_author( $target_post->post_author ) )
+					$this->is_author( $target_post->post_author ) )
 				{
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
 				} // Confirm your subscription (double check-in)
 				elseif ( ( $post_ID > 0 )  &&
-						 ! empty( $email ) &&
-						 ! empty( $key )   &&
-						 ! empty( $action ) &&
-					     $this->utils->_is_valid_key( $key, $email ) &&
-						 $this->is_user_subscribed( $post_ID, $email, 'C' ) &&
-						 ( $action == 'c' ) &&
-						 $key_expired != "1" )
+					! empty( $email ) &&
+					! empty( $key )   &&
+					! empty( $action ) &&
+					$this->utils->_is_valid_key( $key, $email ) &&
+					$this->is_user_subscribed( $post_ID, $email, 'C' ) &&
+					( $action == 'c' ) &&
+					$key_expired != "1" )
 				{
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
 				}
 				elseif ( ( $post_ID > 0 )  &&
-						 ! empty( $email ) &&
-						 ! empty( $key )   &&
-						 ! empty( $action ) &&
-						 $this->utils->_is_valid_key( $key, $email ) &&
-					     ( $action == 'u' ) &&
-					     $key_expired != "1" )
+					! empty( $email ) &&
+					! empty( $key )   &&
+					! empty( $action ) &&
+					$this->utils->_is_valid_key( $key, $email ) &&
+					( $action == 'u' ) &&
+					$key_expired != "1" )
 				{
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
 				}
 				// Manage your subscriptions (user)
 				elseif (   ! empty( $email ) &&
-					     ( $key !== 0 && $this->utils->_is_valid_key( $key, $email ) || current_user_can( 'read' ) ) )
+					( $key !== 0 && $this->utils->_is_valid_key( $key, $email ) || ( ! empty($current_user->data->user_email) && ( $current_user->data->user_email === $email && current_user_can( 'read' ) ) ) ) )
 				{
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
+				}
+				elseif (   ! empty( $email ) &&
+					( $key === 0 && ( ! empty($current_user->data->user_email) && ( $current_user->data->user_email !== $email ) ) ) )
+				{
+					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/wrong-request.php';
 				}
 
 				if ( empty( $include_post_content ) )
@@ -958,11 +963,11 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$subscriber_salt = $this->utils->generate_temp_key( $clean_email );
 
 			$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' )
-							. "srek=" . $this->utils->get_subscriber_key( $clean_email )
-							. "&srk=$subscriber_salt";
+				. "srek=" . $this->utils->get_subscriber_key( $clean_email )
+				. "&srk=$subscriber_salt";
 			$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
-									. "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt"
-									. "&sra=u" . "&srp=" . $_post_ID;
+				. "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt"
+				. "&sra=u&srsrc=e" . "&srp=" . $_post_ID;
 
 			$comment_content = $comment->comment_content;
 
@@ -1104,8 +1109,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				// $backtrace = debug_backtrace();
 				// print_r($backtrace);
 			}*/
-				$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
-				$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+			$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
+			$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 			echo $output . $submit_field;
 		} // end subscribe_reloaded_show
 
