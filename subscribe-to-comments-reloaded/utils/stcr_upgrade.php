@@ -393,7 +393,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 					'unread',
 					'<p>' . __('<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('If you find a bug or an issue you can report it <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues" target="_blank">here</a>.', 'subscribe-reloaded') . '</p>' .
-					'<p>' . __('If you want to donate you can do it via <a href="
+					'<p>' . __('Please consider to make a donation to support the plugin, you can donate via <a href="
 https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">PayPal</a>.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for detailed information on plugin changes.'
 						. '<a class="dismiss" href="#">Dismiss.  </a>'
@@ -439,6 +439,29 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160831', 'subscribe-reloaded') . '</p>' .
 							'<p>' . __('This version includes fixes to many bugs and also new features, ', 'subscribe-reloaded') . '</p>' .
 							'<ul>' .
+								'<li>' . __("<strong>New Feature</strong> Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the StCR menu on the Settings Menu for a new Menu with sub menus for the pages.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> Safely Uninstall option to Delete the plugin without loosing your subscriptions. You can use this option also for reset all the settings, see the FAQ.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> Now the WordPress Authors can use the <strong>Subscribe authors</strong> option to autor subscribe to a Custom Post Type.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>New Feature</strong> A new field was added under the notification options to and the management link only by email and not to display it on the request link page.", 'subscribe-reloaded') . '</li>'.
+							'</ul>' .
+							'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
+								. '<a class="dismiss" href="#">Dismiss.  </a>'
+								. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
+							'updated'
+						);
+						// Update the HTML emails option
+						update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
+						update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
+						break;
+					case '160902':
+						$this->stcr_create_admin_notice(
+							'notify_update_' . $_version,
+							'unread',
+							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160902', 'subscribe-reloaded') . '</p>' .
+							'<p>' . __('This version includes fixes to many bugs and also new features, ', 'subscribe-reloaded') . '</p>' .
+							'<ul>' .
+								'<li>' . __("<strong>Fix update</strong> this version Fixes some issue trigger by the previous 160831 version.", 'subscribe-reloaded') . '</li>'.
 								'<li>' . __("<strong>New Feature</strong> Add new option to set the Reply To email address. This will help the subscribers to use the Reply option in their email agents.", 'subscribe-reloaded') . '</li>'.
 								'<li>' . __("<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the StCR menu on the Settings Menu for a new Menu with sub menus for the pages.", 'subscribe-reloaded') . '</li>'.
 								'<li>' . __("<strong>New Feature</strong> Safely Uninstall option to Delete the plugin without loosing your subscriptions. You can use this option also for reset all the settings, see the FAQ.", 'subscribe-reloaded') . '</li>'.

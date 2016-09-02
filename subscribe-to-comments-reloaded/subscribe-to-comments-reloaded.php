@@ -2,8 +2,8 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 160831
-Stable tag: 160831
+Version: 160902
+Stable tag: 160902
 Requires at least: 4.0
 Tested up to: 4.7-alpha
 
@@ -27,6 +27,8 @@ require_once dirname(__FILE__).'/wp_subscribe_reloaded.php';
 if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded'))
 {
 	class stcr_subscribe_reloaded {
+		// http://www.garfieldtech.com/blog/class-constants-php54
+		const CLASSNAME = __CLASS__;
 
 		public $stcr = null;
 
@@ -56,8 +58,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded'))
 	}
 	// Initialization routines that should be executed on activation/deactivation
 	// Due to Wordpress restrinctions these hooks have to be on the main file.
-	register_activation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::class , 'activate' ) );
-	register_deactivation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::class , 'deactivate' ) );
+	register_activation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'activate' ) );
+	register_deactivation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'deactivate' ) );
 
 	$wp_subscribe_reloaded = new stcr_subscribe_reloaded(); // Initialize the cool stuff
 }
