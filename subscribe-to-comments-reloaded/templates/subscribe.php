@@ -6,6 +6,7 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 global $wp_subscribe_reloaded;
+
 ob_start();
 $post_permalink = get_permalink( $post_ID );
 if ( ! empty( $email ) ) {
@@ -83,9 +84,22 @@ else {
 	}
 	echo $message;
 	?></p>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$('form[name="sub-form"]').on('submit',function (event) {
+				var email = $('input[name="sre"]');
+				console.debug(email);
+				if( email.val() !== "email" && email.val() === "" )
+				{
+					event.preventDefault();
+					alert("Please enter your email.!!");
+				}
+			});
+		});
+	</script>
 	<form action="<?php
 		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
-		method="post" onsubmit="if(this.sre.value=='' || this.sre.indexOf('@')==0) return false">
+		method="post" name="sub-form">
 		<fieldset style="border:0">
 			<p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
 				<input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />

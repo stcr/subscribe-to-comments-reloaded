@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
 Tested up to: 4.7-alpha
-Stable tag: 160831
+Stable tag: 160901
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+= v160901 =
+
+**Fix release; PLEASE UPGRADE IMMEDIATELY** This version fixes bugs regarding broken links and wrong management page assignments.
+
 = v160831 =
 
 **Major Release** On this version there have been a lot of patches and upgrades in the code, although there are many other issues to improve and fix this version will make your site and subscribers happy.
@@ -134,6 +138,12 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v160901 =
+
+* **Fix** Message that was refering to a key expire, also fix wrong See [issue#250](https://github.com/stcr/subscribe-to-comments-reloaded/issues/250)
+* **Fix** Bug that was allowing a user that was logged in to manage another user subscription by knowing his/her email address.
+* **Fix** Submition of management request with empty email.
 
 = v160831 =
 

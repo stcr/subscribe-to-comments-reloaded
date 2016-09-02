@@ -62,11 +62,24 @@ else
 	}
 	?>
 	<p><?php echo wpautop( $error_message ); ?></p>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$('form[name="sub-form"]').on('submit',function (event) {
+				var email = $('input[name="sre"]');
+				console.debug(email);
+				if( email.val() !== "email" && email.val() === "" )
+				{
+					event.preventDefault();
+					alert("Please enter your email.!!");
+				}
+			});
+		});
+	</script>
 	<form action="<?php
 	$url = $_SERVER[ 'REQUEST_URI' ];
 	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
 	echo esc_url( $url . "&key_expired=1" );
-	?>" method="post" onsubmit="if(this.subscribe_reloaded_email.value=='' || this.subscribe_reloaded_email.value.indexOf('@')==0) return false">
+	?>" name="sub-form" method="post">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
 				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? $_COOKIE['comment_author_email_' . COOKIEHASH] : 'email'; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
