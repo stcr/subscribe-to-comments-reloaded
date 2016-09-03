@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-31 11:21-0700\n"
-"PO-Revision-Date: 2016-08-31 11:21-0700\n"
-"Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
+"PO-Revision-Date: 2016-09-02 19:27-0600\n"
+"Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: TodoWordPress, Juan Luis Perez, Iván Ridao Freitas "
 "<juanluperez@gmail.com>\n"
 "Language: es_ES\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n !=1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: wp_subscribe_reloaded.php:114
@@ -30,8 +30,7 @@ msgstr "No Suscribirse"
 msgid "All"
 msgstr "Todo"
 
-#: wp_subscribe_reloaded.php:1062 templates/user.php:73
-#: templates/author.php:75
+#: wp_subscribe_reloaded.php:1062 templates/user.php:73 templates/author.php:75
 msgid "Replies to my comments"
 msgstr "Respuestas a mis comentarios"
 

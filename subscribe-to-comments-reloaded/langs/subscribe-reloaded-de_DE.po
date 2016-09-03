@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-01 20:52-0600\n"
-"PO-Revision-Date: 2016-09-01 20:52-0600\n"
+"POT-Creation-Date: 2016-09-02 19:27-0600\n"
+"PO-Revision-Date: 2016-09-02 19:27-0600\n"
 "Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -163,8 +163,8 @@ msgid "Post:"
 msgstr "Beitrag:"
 
 #: options/panel1-add-subscription.php:16 options/panel1.php:72
-#: options/panel1.php:133 templates/key_expired.php:71
-#: templates/request-management-link.php:71 templates/subscribe.php:90
+#: options/panel1.php:133 templates/key_expired.php:84
+#: templates/request-management-link.php:84 templates/subscribe.php:104
 #: templates/user.php:57
 msgid "Email"
 msgstr "E-Mail"
@@ -1159,16 +1159,16 @@ msgid ""
 "enter your email below and a new link will be send."
 msgstr ""
 
-#: templates/key_expired.php:73 templates/request-management-link.php:73
-#: templates/subscribe.php:92
+#: templates/key_expired.php:86 templates/request-management-link.php:86
+#: templates/subscribe.php:106
 msgid "Send"
 msgstr "Abschicken"
 
-#: templates/subscribe.php:42 templates/subscribe.php:43
+#: templates/subscribe.php:43 templates/subscribe.php:44
 msgid "New subscription to"
 msgstr "Neue Benachrichtigung"
 
-#: templates/subscribe.php:43
+#: templates/subscribe.php:44
 msgid "User:"
 msgstr "Besucher:"
 
@@ -1474,7 +1474,8 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:396
 msgid ""
-"If you want to donate you can do it via <a href=\"\n"
+"Please consider to make a donation to support the plugin, you can donate via "
+"<a href=\"\n"
 "https://www.paypal.com/cgi-bin/webscr?"
 "cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
 "%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
@@ -1503,7 +1504,7 @@ msgid ""
 msgstr ""
 
 #: utils/stcr_upgrade.php:411 utils/stcr_upgrade.php:426
-#: utils/stcr_upgrade.php:448
+#: utils/stcr_upgrade.php:448 utils/stcr_upgrade.php:471
 msgid ""
 "Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
 "comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
@@ -1533,42 +1534,54 @@ msgstr ""
 "Benötigst Du Hilfe zum Plugin Subscribe to Comments Reloaded? Besuche das "
 "offizielle"
 
-#: utils/stcr_upgrade.php:440
+#: utils/stcr_upgrade.php:440 utils/stcr_upgrade.php:462
 msgid "This version includes fixes to many bugs and also new features, "
 msgstr ""
 
-#: utils/stcr_upgrade.php:442
+#: utils/stcr_upgrade.php:442 utils/stcr_upgrade.php:465
 msgid ""
 "<strong>New Feature</strong> Add new option to set the Reply To email "
 "address. This will help the subscribers to use the Reply option in their "
 "email agents."
 msgstr ""
 
-#: utils/stcr_upgrade.php:443
+#: utils/stcr_upgrade.php:443 utils/stcr_upgrade.php:466
 msgid ""
 "<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the "
 "StCR menu on the Settings Menu for a new Menu with sub menus for the pages."
 msgstr ""
 
-#: utils/stcr_upgrade.php:444
+#: utils/stcr_upgrade.php:444 utils/stcr_upgrade.php:467
 msgid ""
 "<strong>New Feature</strong> Safely Uninstall option to Delete the plugin "
 "without loosing your subscriptions. You can use this option also for reset "
 "all the settings, see the FAQ."
 msgstr ""
 
-#: utils/stcr_upgrade.php:445
+#: utils/stcr_upgrade.php:445 utils/stcr_upgrade.php:468
 msgid ""
 "<strong>New Feature</strong> Now the WordPress Authors can use the "
 "<strong>Subscribe authors</strong> option to autor subscribe to a Custom "
 "Post Type."
 msgstr ""
 
-#: utils/stcr_upgrade.php:446
+#: utils/stcr_upgrade.php:446 utils/stcr_upgrade.php:469
 msgid ""
 "<strong>New Feature</strong> A new field was added under the notification "
 "options to and the management link only by email and not to display it on "
 "the request link page."
+msgstr ""
+
+#: utils/stcr_upgrade.php:461
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160902"
+msgstr ""
+
+#: utils/stcr_upgrade.php:464
+msgid ""
+"<strong>Fix update</strong> this version Fixes some issue trigger by the "
+"previous 160831 version."
 msgstr ""
 
 #: utils/stcr_utils.php:195
