@@ -34,6 +34,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			}
 
+			$this->maybe_update();
+
 			// What to do when a new comment is posted
 			add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 			// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.

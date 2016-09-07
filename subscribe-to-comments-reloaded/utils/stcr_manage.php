@@ -19,7 +19,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 {
 	class stcr_manage {
 
-		public $current_version = '160902';
+		public $current_version = '160910';
 		public $utils = null;
 		public $upgrade = null;
 		public $db_version = null;
@@ -38,6 +38,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			{
 				$this->fresh_install = false;
 				update_option('subscribe_reloaded_fresh_install', 'no');
+			}
+			// Schedule the autopurge hook
+			if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_purge' ) ) {
+				wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
+				// Let us bind the schedule event with our desire action.
+				wp_schedule_event( time() + 15, 'daily', '_cron_subscribe_reloaded_purge' );
 			}
 		}
 
@@ -158,14 +164,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function activate() {
 			global $wpdb;
 
-			if ( empty ( $this->db_version ) || $this->db_version != $this->current_version ) {
-				// // Do whatever upgrades needed here.
-				// $this->_activate();
-				// Send the current version to display the appropiate message
-				// The notification will only be visible once there is an update not a activation.
-				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version, $this->fresh_install );
-			}
-
 			if ( function_exists( 'is_multisite' ) && is_multisite() && isset( $_GET['networkwide'] ) && ( $_GET['networkwide'] == 1 ) ) {
 				$blogids = $wpdb->get_col(
 					$wpdb->prepare(
@@ -192,30 +190,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds the options to the database and imports the data from other plugins
 		 */
 		public function _activate() {
-
 			// Load localization files
 			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
-
-			// Import data from the WP Comment Subscriptions plugin, if needed
-			$this->upgrade->_import_wpcs_data();
-
-			// Import data from Subscribe to Comments & Co., if needed
-			$this->upgrade->_import_stc_data();
-
-			// Import data from Comment Reply Notification, if needed
-			$this->upgrade->_import_crn_data();
-
-			// Starting from version 2.0 StCR uses Wordpress' tables to store the information about subscriptions
-			$this->upgrade->_update_db();
-
-			// Since there are some users with the database corrupted due to encoding stuff we need to sanitize
-			// their information
-			$this->upgrade->_sanitize_db_information( $this->fresh_install );
-			// Create a new table if not exists to manage the subscribers safer
-			// First Check if the subscribers table is created.
-			if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
-				$this->upgrade->_create_subscriber_table( $this->fresh_install );
-			}
+			// Upgrade rountine
+			$this->upgrade();
 
 			// Messages related to the management page
 			global $wp_rewrite;
@@ -280,14 +258,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			add_option( 'subscribe_reloaded_admin_subscribe', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_admin_bcc', 'no', '', 'yes' );
 
-			update_option( 'subscribe_reloaded_version', $this->current_version );
-
-			// Schedule the autopurge hook
-			if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_purge' ) ) {
-				wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
-				// Let us bind the schedule event with our desire action.
-				wp_schedule_event( time() + 15, 'daily', '_cron_subscribe_reloaded_purge' );
-			}
 		}
 		/**
 		 * Performs some clean-up maintenance (disable cron job).
@@ -317,6 +287,46 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		}
 
 		// end deactivate
+
+		public function maybe_update()
+		{
+			$int_db_version   = str_replace('.','', $this->db_version) ;
+			$int_curr_version = str_replace('.','', $this->current_version) ;;
+
+			if ( empty ( $int_db_version ) || (int) $int_db_version < (int) $int_curr_version ) {
+				// // Do whatever upgrades needed here.
+				// $this->_activate();
+				// Send the current version to display the appropiate message
+				// The notification will only be visible once there is an update not a activation.
+				$this->upgrade->upgrade_notification( $this->current_version, $this->db_version, $this->fresh_install );
+				$this->upgrade();
+				update_option( 'subscribe_reloaded_version', $this->current_version );
+			}
+		}
+
+		private function upgrade()
+		{
+			// Import data from the WP Comment Subscriptions plugin, if needed
+			$this->upgrade->_import_wpcs_data();
+
+			// Import data from Subscribe to Comments & Co., if needed
+			$this->upgrade->_import_stc_data();
+
+			// Import data from Comment Reply Notification, if needed
+			$this->upgrade->_import_crn_data();
+
+			// Starting from version 2.0 StCR uses Wordpress' tables to store the information about subscriptions
+			$this->upgrade->_update_db();
+
+			// Since there are some users with the database corrupted due to encoding stuff we need to sanitize
+			// their information
+			$this->upgrade->_sanitize_db_information( $this->fresh_install );
+			// Create a new table if not exists to manage the subscribers safer
+			// First Check if the subscribers table is created.
+			if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
+				$this->upgrade->_create_subscriber_table( $this->fresh_install );
+			}
+		}
 
 		/**
 		 * Removes old entries from the database
