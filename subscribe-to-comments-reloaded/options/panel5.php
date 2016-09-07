@@ -33,6 +33,9 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 		if ( isset( $_POST['options']['enable_double_check'] ) && ! subscribe_reloaded_update_option( 'enable_double_check', $_POST['options']['enable_double_check'], 'yesno' ) ) {
 			$faulty_fields = __( 'Enable double check', 'subscribe-reloaded' ) . ', ';
 		}
+		if ( isset( $_POST['options']['stcr_position'] ) && ! subscribe_reloaded_update_option( 'stcr_position', $_POST['options']['stcr_position'], 'yesno' ) ) {
+			$faulty_fields = __( 'StCR Position', 'subscribe-reloaded' ) . ', ';
+		}
 		if ( isset( $_POST['options']['notify_authors'] ) && ! subscribe_reloaded_update_option( 'notify_authors', $_POST['options']['notify_authors'], 'yesno' ) ) {
 			$faulty_fields = __( 'Subscribe authors', 'subscribe-reloaded' ) . ', ';
 		}
@@ -86,6 +89,15 @@ wp_print_scripts( 'quicktags' );
 			<td>
 				<input type="text" name="options[purge_days]" id="purge_days" value="<?php echo subscribe_reloaded_get_option( 'purge_days' ); ?>" size="10"> <?php _e( 'days', 'subscribe-reloaded' ) ?>
 				<div class="description"><?php _e( "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature.", 'subscribe-reloaded' ); ?></div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<label for="stcr_position"><?php _e( 'StCR Position', 'subscribe-reloaded' ) ?></label></th>
+			<td>
+				<input type="radio" name="options[stcr_position]" id="stcr_position" value="yes"<?php echo ( subscribe_reloaded_get_option( 'stcr_position' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+				<input type="radio" name="options[stcr_position]" value="no" <?php echo ( subscribe_reloaded_get_option( 'stcr_position' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
+				<div class="description"><?php _e( 'If this option is enable the subscription box will be above the submit button in your comment form. Use this when your theme is outdated and using the incorrect WordPress Hooks and the checkbox is not displayed.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
 		<tr>

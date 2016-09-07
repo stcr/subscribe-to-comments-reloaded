@@ -23,8 +23,15 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			// Show the checkbox - You can manually override this by adding the corresponding function in your template
 			if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' )
 			{
-				add_filter( 'comment_form_submit_field', array($this, 'subscribe_reloaded_show'), 5, 1 );
-				// add_action( 'comment_form', array( $this,'subscribe_reloaded_show' ), 5, 0 );
+                if( get_option('subscribe_reloaded_stcr_position') == 'yes' )
+                {
+                    add_action( 'comment_form', array($this, 'subscribe_reloaded_show'), 5, 0 );
+                }
+                else
+                {
+                    add_filter( 'comment_form_submit_field', array($this, 'subscribe_reloaded_show'), 5, 1 );
+                }
+
 			}
 
 			// What to do when a new comment is posted
@@ -87,7 +94,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
 					add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
 				}
-
 				// Enqueue admin scripts
 				$this->utils->hook_admin_scripts();
 
@@ -1017,8 +1023,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$_comment_ID = null;
 
 			// Enable JS scripts.
-			// $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
-			// wp_enqueue_style( 'stcr-plugin-style' );
+			 $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
+			wp_enqueue_style( 'stcr-plugin-style' );
 
 			$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
@@ -1100,17 +1106,16 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 			$output = '';
 			// Check for the Comment Form location
-			/*if( get_option('subscribe_reloaded_commentbox_place') == 'yes' ) {
+			if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
 				$output .= "<div class='stcr-form hidden'>";
-				$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
-				$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+                $output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
+                $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 				$output .= "</div>";
 			} else {
-				// $backtrace = debug_backtrace();
-				// print_r($backtrace);
-			}*/
-			$output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
-			$output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+                $output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
+                $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
+			}
+
 			echo $output . $submit_field;
 		} // end subscribe_reloaded_show
 
