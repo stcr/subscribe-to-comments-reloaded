@@ -28,4 +28,25 @@ jQuery(document).ready(function($){
 			}
 		});
 	}
+	/**
+	 * Validate the email address.
+	 * @since 09-Sep-2016
+	 * @author reedyseth
+	 */
+	jQuery('form[name="sub-form"]').on('submit',function (event) {
+		var emailRegex = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,}$/i;
+		var email = jQuery('input[name="sre"]');
+
+		if( email.val() !== "email" && email.val() === "" )
+		{
+			event.preventDefault();
+			alert("Please enter your email.!!");
+		}
+		else if( email.val().match( emailRegex ) === null )
+		{
+			event.preventDefault();
+			alert("Your email address is not valid.!!");
+		}
+	});
 });
+

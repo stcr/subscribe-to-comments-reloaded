@@ -6,6 +6,8 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 global $wp_subscribe_reloaded;
+$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
+$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
 
 ob_start();
 $post_permalink = get_permalink( $post_ID );
@@ -84,19 +86,6 @@ else {
 	}
 	echo $message;
 	?></p>
-	<script type="text/javascript">
-		jQuery(document).ready(function($){
-			$('form[name="sub-form"]').on('submit',function (event) {
-				var email = $('input[name="sre"]');
-				console.debug(email);
-				if( email.val() !== "email" && email.val() === "" )
-				{
-					event.preventDefault();
-					alert("Please enter your email.!!");
-				}
-			});
-		});
-	</script>
 	<form action="<?php
 		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
 		method="post" name="sub-form">

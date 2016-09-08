@@ -4,12 +4,12 @@ if ( ! function_exists( 'add_action' ) ) {
 	header( 'Location: /' );
 	exit;
 }
-
+global $wp_subscribe_reloaded;
 ob_start();
+$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
+$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
 
 if ( ! empty( $email ) ) {
-	global $wp_subscribe_reloaded;
-
 	// Send management link
 	$subject        = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
 	$page_message   = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
@@ -64,19 +64,6 @@ else
 	}
 	?>
 	<p><?php echo wpautop( $message ); ?></p>
-	<script type="text/javascript">
-		jQuery(document).ready(function($){
-			$('form[name="sub-form"]').on('submit',function (event) {
-				var email = $('input[name="sre"]');
-				console.debug(email);
-				if( email.val() !== "email" && email.val() === "" )
-				{
-					event.preventDefault();
-					alert("Please enter your email.!!");
-				}
-			});
-		});
-	</script>
 	<form action="<?php
 		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
 		method="post" name="sub-form">
@@ -91,5 +78,6 @@ else
 }
 $output = ob_get_contents();
 ob_end_clean();
+
 return $output;
 ?>

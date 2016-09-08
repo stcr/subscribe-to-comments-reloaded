@@ -7,9 +7,12 @@ if ( ! function_exists( 'add_action' ) ) {
 
 $error_message   = __( "Woohaa the link to manage your subscriptions has expired, don't worry, just enter your email below and a new link will be send.", "subscribe-reloaded");
 
+global $wp_subscribe_reloaded;
 ob_start();
+$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
+$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
+
 if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
-	global $wp_subscribe_reloaded;
 	$email         = esc_attr( $_POST[ 'sre' ] );
 	$subject       = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
 	$page_message  = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
@@ -62,19 +65,6 @@ else
 	}
 	?>
 	<p><?php echo wpautop( $error_message ); ?></p>
-	<script type="text/javascript">
-		jQuery(document).ready(function($){
-			$('form[name="sub-form"]').on('submit',function (event) {
-				var email = $('input[name="sre"]');
-				console.debug(email);
-				if( email.val() !== "email" && email.val() === "" )
-				{
-					event.preventDefault();
-					alert("Please enter your email.!!");
-				}
-			});
-		});
-	</script>
 	<form action="<?php
 	$url = $_SERVER[ 'REQUEST_URI' ];
 	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
