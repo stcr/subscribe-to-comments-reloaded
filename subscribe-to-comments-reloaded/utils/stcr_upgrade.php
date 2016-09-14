@@ -477,6 +477,27 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 						update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
 						update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
 						break;
+					case '160915':
+						$options_link = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_options' ), __( 'Settings', 'subscribe-reloaded' ) );
+						$this->stcr_create_admin_notice(
+							'notify_update_' . $_version,
+							'unread',
+							'<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version 160915', 'subscribe-reloaded') . '</p>' .
+							'<p>' . __('This version includes fixes and improvements, ', 'subscribe-reloaded') . '</p>' .
+							'<ul>' .
+								'<li>' . __("<strong>Fix</strong> StCR checkbox position issues with some WordPress themes, Go to the {$options_link} to activate it.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>Change</strong> the radio buttons in the management page for a dropdown.", 'subscribe-reloaded') . '</li>'.
+								'<li>' . __("<strong>Improve</strong> Email validation for empty values and using a regex.", 'subscribe-reloaded') . '</li>'.
+							'</ul>' .
+							'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
+								. '<a class="dismiss" href="#">Dismiss.  </a>'
+								. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
+							'updated'
+						);
+						// Update the HTML emails option
+						update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
+						update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
+						break;
 				}
 			}
 		}

@@ -19,7 +19,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 {
 	class stcr_manage {
 
-		public $current_version = '160910';
+		public $current_version = '160915';
 		public $utils = null;
 		public $upgrade = null;
 		public $db_version = null;

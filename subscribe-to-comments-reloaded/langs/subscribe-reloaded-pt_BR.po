@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-02 19:31-0600\n"
-"PO-Revision-Date: 2016-09-02 19:31-0600\n"
+"POT-Creation-Date: 2016-09-13 20:07-0600\n"
+"PO-Revision-Date: 2016-09-13 20:07-0600\n"
 "Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -19,42 +19,42 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 # @ subscribe-reloaded
-#: options/index.php:59 utils/stcr_manage.php:253 utils/stcr_manage.php:382
-#: utils/stcr_manage.php:383
+#: options/index.php:59 utils/stcr_manage.php:231 utils/stcr_manage.php:392
+#: utils/stcr_manage.php:393
 msgid "Manage subscriptions"
 msgstr "Gerenciar inscrições"
 
 # @ subscribe-reloaded
-#: options/index.php:60 utils/stcr_manage.php:388 utils/stcr_manage.php:389
+#: options/index.php:60 utils/stcr_manage.php:398 utils/stcr_manage.php:399
 msgid "Comment Form"
 msgstr "Formulário de resposta"
 
 # @ subscribe-reloaded
-#: options/index.php:61 utils/stcr_manage.php:394 utils/stcr_manage.php:395
+#: options/index.php:61 utils/stcr_manage.php:404 utils/stcr_manage.php:405
 msgid "Management Page"
 msgstr "Página de Gerenciamento"
 
 # @ subscribe-reloaded
-#: options/index.php:62 utils/stcr_manage.php:400 utils/stcr_manage.php:401
+#: options/index.php:62 utils/stcr_manage.php:410 utils/stcr_manage.php:411
 msgid "Notifications"
 msgstr "Notificações"
 
 # @ subscribe-reloaded
 #: options/index.php:63 options/panel2.php:58 options/panel3.php:82
-#: options/panel4.php:89 utils/stcr_manage.php:406 utils/stcr_manage.php:407
+#: options/panel4.php:89 utils/stcr_manage.php:416 utils/stcr_manage.php:417
 msgid "Options"
 msgstr "Opções"
 
-#: options/index.php:65 utils/stcr_manage.php:422 utils/stcr_manage.php:423
+#: options/index.php:65 utils/stcr_manage.php:432 utils/stcr_manage.php:433
 msgid "You can help"
 msgstr "Você pode ajudar"
 
 # @ subscribe-reloaded
-#: options/index.php:66 utils/stcr_manage.php:428 utils/stcr_manage.php:429
+#: options/index.php:66 utils/stcr_manage.php:438 utils/stcr_manage.php:439
 msgid "Support"
 msgstr "Suporte"
 
-#: options/index.php:67 utils/stcr_manage.php:434 utils/stcr_manage.php:435
+#: options/index.php:67 utils/stcr_manage.php:444 utils/stcr_manage.php:445
 msgid "Donate"
 msgstr ""
 
@@ -70,8 +70,8 @@ msgstr "Post:"
 
 # @ subscribe-reloaded
 #: options/panel1-add-subscription.php:16 options/panel1.php:72
-#: options/panel1.php:133 templates/key_expired.php:84
-#: templates/request-management-link.php:84 templates/subscribe.php:104
+#: options/panel1.php:133 templates/key_expired.php:74
+#: templates/request-management-link.php:71 templates/subscribe.php:93
 #: templates/user.php:57
 msgid "Email"
 msgstr "E-mail"
@@ -338,8 +338,8 @@ msgid "Inactive"
 msgstr "Ativo"
 
 # @ subscribe-reloaded
-#: options/panel1.php:200 options/panel1.php:212 templates/author.php:72
-#: templates/user.php:70
+#: options/panel1.php:200 options/panel1.php:212 templates/author.php:74
+#: templates/user.php:73
 msgid "Delete"
 msgstr "Remover"
 
@@ -363,7 +363,7 @@ msgid "Delete forever"
 msgstr "Remover para sempre"
 
 # @ subscribe-reloaded
-#: options/panel1.php:227 templates/author.php:73 templates/user.php:71
+#: options/panel1.php:227 templates/author.php:75 templates/user.php:74
 msgid "Suspend"
 msgstr "Suspender"
 
@@ -375,12 +375,12 @@ msgstr "Ativar e marcar como Y"
 msgid "Activate and set to R"
 msgstr "Ativar e marcar como R"
 
-#: options/panel1.php:230 templates/author.php:76 templates/user.php:74
+#: options/panel1.php:230 templates/author.php:78 templates/user.php:77
 msgid "Activate"
 msgstr "Ativar"
 
 # @ subscribe-reloaded
-#: options/panel1.php:234 templates/author.php:77 templates/user.php:76
+#: options/panel1.php:234 templates/author.php:80 templates/user.php:81
 msgid "Update subscriptions"
 msgstr "Atualizar inscrições"
 
@@ -443,30 +443,31 @@ msgstr "Descrição para &quot;Autor&quot;"
 
 # @ subscribe-reloaded
 #: options/panel2.php:49 options/panel3.php:70 options/panel4.php:78
-#: options/panel5.php:18 options/panel5.php:60
+#: options/panel5.php:18 options/panel5.php:63
 msgid "Your settings have been successfully updated."
 msgstr "Suas configurações foram atualizadas"
 
 # @ subscribe-reloaded
 #: options/panel2.php:51 options/panel3.php:72 options/panel4.php:80
-#: options/panel5.php:20 options/panel5.php:62
+#: options/panel5.php:20 options/panel5.php:65
 msgid "There was an error updating the following fields:"
 msgstr "Houve um erro ao atualizar os seguintes campos:"
 
 # @ subscribe-reloaded
 #: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
-#: options/panel5.php:78 options/panel5.php:95 options/panel5.php:104
-#: options/panel5.php:113 options/panel5.php:123 options/panel5.php:132
-#: options/panel5.php:142 options/panel5.php:151 options/panel5.php:160
+#: options/panel5.php:81 options/panel5.php:98 options/panel5.php:107
+#: options/panel5.php:116 options/panel5.php:125 options/panel5.php:135
+#: options/panel5.php:144 options/panel5.php:154 options/panel5.php:163
+#: options/panel5.php:172
 msgid "Yes"
 msgstr "Sim"
 
 # @ subscribe-reloaded
 #: options/panel2.php:67 options/panel2.php:77 options/panel2.php:106
-#: options/panel5.php:79 options/panel5.php:96 options/panel5.php:105
-#: options/panel5.php:114 options/panel5.php:124 options/panel5.php:133
-#: options/panel5.php:143 options/panel5.php:152 options/panel5.php:161
-#: utils/stcr_manage.php:784
+#: options/panel5.php:82 options/panel5.php:99 options/panel5.php:108
+#: options/panel5.php:117 options/panel5.php:126 options/panel5.php:136
+#: options/panel5.php:145 options/panel5.php:155 options/panel5.php:164
+#: options/panel5.php:173 utils/stcr_manage.php:794
 msgid "No"
 msgstr "Não"
 
@@ -583,7 +584,7 @@ msgstr ""
 
 # @ default
 #: options/panel2.php:230 options/panel3.php:253 options/panel4.php:283
-#: options/panel5.php:195
+#: options/panel5.php:207
 msgid "Save Changes"
 msgstr "Salvar Alterações"
 
@@ -900,63 +901,67 @@ msgid "Safetly Uninstall"
 msgstr ""
 
 # @ subscribe-reloaded
-#: options/panel5.php:31 options/panel5.php:84
+#: options/panel5.php:31 options/panel5.php:87
 msgid "Autopurge requests"
 msgstr "Pedidos de auto remoção"
 
 # @ subscribe-reloaded
-#: options/panel5.php:34 options/panel5.php:93
+#: options/panel5.php:34 options/panel5.php:105
 msgid "Enable double check"
 msgstr "Habilitar confirmação"
 
+#: options/panel5.php:37 options/panel5.php:96
+msgid "StCR Position"
+msgstr ""
+
 # @ subscribe-reloaded
-#: options/panel5.php:37 options/panel5.php:101
+#: options/panel5.php:40 options/panel5.php:113
 msgid "Subscribe authors"
 msgstr "Inscrito"
 
-#: options/panel5.php:40 options/panel5.php:111
+#: options/panel5.php:43 options/panel5.php:123
 msgid "Enable HTML emails"
 msgstr "Habilitar e-mails HTML"
 
-#: options/panel5.php:43
+#: options/panel5.php:46
 msgid "HTMLify Links in HTML emails"
 msgstr ""
 
 # @ subscribe-reloaded
-#: options/panel5.php:46
+#: options/panel5.php:49
 msgid "Send trackbacks"
 msgstr "Enviar trackbacks"
 
 # @ subscribe-reloaded
-#: options/panel5.php:49
+#: options/panel5.php:52
 msgid "Notify admin"
 msgstr "Notificar Administrador"
 
-#: options/panel5.php:52 options/panel5.php:149
+#: options/panel5.php:55 options/panel5.php:161
 msgid "Let admin subscribe"
 msgstr "Permitir inscrições do Admin"
 
 # @ subscribe-reloaded
-#: options/panel5.php:55 options/panel5.php:158
+#: options/panel5.php:58 options/panel5.php:170
 msgid "BCC admin on Notifications"
 msgstr "Notificações"
 
-#: options/panel5.php:76
+#: options/panel5.php:79
 msgid "Safely Uninstall"
 msgstr ""
 
-#: options/panel5.php:80
+#: options/panel5.php:83
 msgid ""
 "This option will allow you to delete the plugin with WordPress without "
 "loosing your subscribers. Any database table and plugin options are wipeout."
 msgstr ""
 
-#: options/panel5.php:87
+#: options/panel5.php:90
 msgid "days"
 msgstr "dias"
 
 # @ subscribe-reloaded
-#: options/panel5.php:88
+#: options/panel5.php:91
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
@@ -964,8 +969,15 @@ msgstr ""
 "Excluir inscrições pendentes (não-confirmadas) após X dias. Zero desativa "
 "esse recurso."
 
+#: options/panel5.php:100
+msgid ""
+"If this option is enable the subscription box will be above the submit "
+"button in your comment form. Use this when your theme is outdated and using "
+"the incorrect WordPress Hooks and the checkbox is not displayed."
+msgstr ""
+
 # @ subscribe-reloaded
-#: options/panel5.php:97
+#: options/panel5.php:109
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
@@ -973,12 +985,12 @@ msgstr ""
 "Enviar um e-mail de notificação para confirmar a inscrição (para evitar "
 "abusos de endereços)."
 
-#: options/panel5.php:106
+#: options/panel5.php:118
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
 
-#: options/panel5.php:115
+#: options/panel5.php:127
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
@@ -986,23 +998,23 @@ msgstr ""
 "Se ativado envia mensagens de e-mail com o content-type = text/html, em vez "
 "de text/plain"
 
-#: options/panel5.php:120
+#: options/panel5.php:132
 msgid "HTMLify links in emails"
 msgstr ""
 
-#: options/panel5.php:125
+#: options/panel5.php:137
 msgid ""
 "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
 "&lt;/a&gt;</code> (only when HTML emails enabled)."
 msgstr ""
 
 # @ subscribe-reloaded
-#: options/panel5.php:130
+#: options/panel5.php:142
 msgid "Process trackbacks"
 msgstr "Enviar trackbacks"
 
 # @ subscribe-reloaded
-#: options/panel5.php:134
+#: options/panel5.php:146
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
 msgstr ""
@@ -1010,39 +1022,39 @@ msgstr ""
 "discussão."
 
 # @ subscribe-reloaded
-#: options/panel5.php:139
+#: options/panel5.php:151
 msgid "Track all subscriptions"
 msgstr "Acompanhe todas as inscrições"
 
 # @ subscribe-reloaded
-#: options/panel5.php:144
+#: options/panel5.php:156
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr ""
 "Notificar o administrador quando os usuários se inscrever sem comentar."
 
 # @ subscribe-reloaded
-#: options/panel5.php:153
+#: options/panel5.php:165
 msgid "Let the administrator subscribe to comments when logged in."
 msgstr ""
 "Deixe o administrador inscrever-se em comentários, quando estiver logado."
 
-#: options/panel5.php:162
+#: options/panel5.php:174
 msgid "Send a copy of all Notifications to the administrator."
 msgstr ""
 
-#: options/panel5.php:167
+#: options/panel5.php:179
 msgid "StCR Unique Key"
 msgstr ""
 
-#: options/panel5.php:172
+#: options/panel5.php:184
 msgid "This Unique Key is not set, please click the following button to "
 msgstr ""
 
-#: options/panel5.php:176 options/panel5.php:187
+#: options/panel5.php:188 options/panel5.php:199
 msgid "Generate"
 msgstr ""
 
-#: options/panel5.php:184
+#: options/panel5.php:196
 msgid ""
 "This Unique Key will be use to send the notification to your subscribers "
 "with more security."
@@ -1163,17 +1175,21 @@ msgstr "Selecionar tudo"
 msgid "Invert selection"
 msgstr "Inverter seleção"
 
-#: templates/author.php:74 templates/user.php:72
+#: templates/author.php:73 templates/user.php:72
+msgid "Choose your action"
+msgstr ""
+
+#: templates/author.php:76 templates/user.php:75
 msgid "All comments"
 msgstr ""
 
 # @ subscribe-reloaded
-#: templates/author.php:75 templates/user.php:73 wp_subscribe_reloaded.php:1088
+#: templates/author.php:77 templates/user.php:76 wp_subscribe_reloaded.php:1096
 msgid "Replies to my comments"
 msgstr "Apenas respostas a meus comentários"
 
-#: templates/author.php:80 templates/one-click-unsubscribe.php:30
-#: templates/user.php:79
+#: templates/author.php:83 templates/one-click-unsubscribe.php:30
+#: templates/user.php:84
 msgid "No subscriptions match your search criteria."
 msgstr "Nenhuma inscrição atende a seus critérios de busca."
 
@@ -1184,18 +1200,18 @@ msgid ""
 msgstr ""
 
 # @ subscribe-reloaded
-#: templates/key_expired.php:86 templates/request-management-link.php:86
-#: templates/subscribe.php:106
+#: templates/key_expired.php:76 templates/request-management-link.php:73
+#: templates/subscribe.php:95
 msgid "Send"
 msgstr "Enviar"
 
 # @ subscribe-reloaded
-#: templates/subscribe.php:43 templates/subscribe.php:44
+#: templates/subscribe.php:45 templates/subscribe.php:46
 msgid "New subscription to"
 msgstr "Nova inscrição para"
 
 # @ subscribe-reloaded
-#: templates/subscribe.php:44
+#: templates/subscribe.php:46
 msgid "User:"
 msgstr "Usuário:"
 
@@ -1208,7 +1224,7 @@ msgid "You have request to manage another email address and this is forbidden."
 msgstr ""
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:246
+#: utils/stcr_manage.php:224
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -1217,7 +1233,7 @@ msgstr ""
 "href='[subscribe_link]'>se inscrever</a> sem comentar."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:247
+#: utils/stcr_manage.php:225
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
@@ -1226,7 +1242,7 @@ msgstr ""
 "inscrições."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:248
+#: utils/stcr_manage.php:226
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
@@ -1235,14 +1251,14 @@ msgstr ""
 "href='[manager_link]'>Gerencie as suas inscrições</a>."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:249
+#: utils/stcr_manage.php:227
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "Você pode <a href='[manager_link]'>gerenciar as inscrições</a> deste post."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:255
+#: utils/stcr_manage.php:233
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -1253,7 +1269,7 @@ msgstr ""
 "página pessoal de gerenciamento."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:256
+#: utils/stcr_manage.php:234
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -1263,7 +1279,7 @@ msgstr ""
 "você deverá receber um email com o link de gerenciamento em poucos minutos."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:257
+#: utils/stcr_manage.php:235
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -1274,7 +1290,7 @@ msgstr ""
 "no formulário abaixo."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:258
+#: utils/stcr_manage.php:236
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -1285,7 +1301,7 @@ msgstr ""
 "este artigo for aprovado e publicado pelo administrador."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:259
+#: utils/stcr_manage.php:237
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -1295,7 +1311,7 @@ msgstr ""
 "verifique seu e-mail para a mensagem de confirmação e siga as instruções."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:260
+#: utils/stcr_manage.php:238
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -1304,7 +1320,7 @@ msgstr ""
 "correspondente (s) e clique no botão no final da lista."
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:261
+#: utils/stcr_manage.php:239
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -1315,12 +1331,12 @@ msgstr ""
 "em:"
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:265
+#: utils/stcr_manage.php:243
 msgid "There is a new comment to [post_title]"
 msgstr "Há um novo comentário para [post_title]"
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:266
+#: utils/stcr_manage.php:244
 msgid ""
 "There is a new comment to [post_title].\n"
 "Comment Link: [comment_permalink]\n"
@@ -1339,12 +1355,12 @@ msgstr ""
 "Gerencie suas inscrições: [manager_link]"
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:267
+#: utils/stcr_manage.php:245
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Por favor, confirme sua inscrição para [post_title]"
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:268
+#: utils/stcr_manage.php:246
 msgid ""
 "You have requested to be notified every time a new comment is added to:\n"
 "[post_permalink]\n"
@@ -1360,18 +1376,18 @@ msgstr ""
 "[confirm_link]"
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:269
+#: utils/stcr_manage.php:247
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Gerenciar as suas inscrições em [blog_name]"
 
-#: utils/stcr_manage.php:270
+#: utils/stcr_manage.php:248
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Please check the Subscriptions management link in your email"
 msgstr ""
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:271
+#: utils/stcr_manage.php:249
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Follow this link to access your personal page:\n"
@@ -1381,24 +1397,24 @@ msgstr ""
 "[blog_name]. Siga este link para acessar sua página pessoal de inscrições:\n"
 "[manager_link]"
 
-#: utils/stcr_manage.php:440 utils/stcr_manage.php:441
+#: utils/stcr_manage.php:450 utils/stcr_manage.php:451
 msgid "StCR System"
 msgstr ""
 
-#: utils/stcr_manage.php:460 utils/stcr_manage.php:488
-#: utils/stcr_manage.php:515 utils/stcr_manage.php:542
-#: utils/stcr_manage.php:569 utils/stcr_manage.php:596
-#: utils/stcr_manage.php:623 utils/stcr_manage.php:650
-#: utils/stcr_manage.php:677 utils/stcr_manage.php:705
+#: utils/stcr_manage.php:470 utils/stcr_manage.php:498
+#: utils/stcr_manage.php:525 utils/stcr_manage.php:552
+#: utils/stcr_manage.php:579 utils/stcr_manage.php:606
+#: utils/stcr_manage.php:633 utils/stcr_manage.php:660
+#: utils/stcr_manage.php:687 utils/stcr_manage.php:715
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:755
+#: utils/stcr_manage.php:765
 msgid "Subscriptions"
 msgstr "Inscrições"
 
-#: utils/stcr_manage.php:811
+#: utils/stcr_manage.php:821
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
@@ -1406,15 +1422,15 @@ msgstr ""
 "oficial"
 
 # @ subscribe-reloaded
-#: utils/stcr_manage.php:811
+#: utils/stcr_manage.php:821
 msgid "support forum"
 msgstr "fórum de suporte"
 
-#: utils/stcr_manage.php:812
+#: utils/stcr_manage.php:822
 msgid "Feeling generous?"
 msgstr "Sentindo-se generoso(a)?"
 
-#: utils/stcr_manage.php:812
+#: utils/stcr_manage.php:822
 msgid "Donate a few bucks!"
 msgstr "Doe alguns trocados!"
 
@@ -1547,6 +1563,7 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:411 utils/stcr_upgrade.php:426
 #: utils/stcr_upgrade.php:448 utils/stcr_upgrade.php:471
+#: utils/stcr_upgrade.php:492
 msgid ""
 "Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
 "comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
@@ -1621,19 +1638,40 @@ msgid ""
 "previous 160831 version."
 msgstr ""
 
+#: utils/stcr_upgrade.php:481 wp_subscribe_reloaded.php:122
+msgid "Settings"
+msgstr ""
+
+#: utils/stcr_upgrade.php:485
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160915"
+msgstr ""
+
+#: utils/stcr_upgrade.php:486
+msgid "This version includes fixes and improvements, "
+msgstr ""
+
+#: utils/stcr_upgrade.php:489
+msgid ""
+"<strong>Change</strong> the radio buttons in the management page for a "
+"dropdown."
+msgstr ""
+
+#: utils/stcr_upgrade.php:490
+msgid ""
+"<strong>Improve</strong> Email validation for empty values and using a regex."
+msgstr ""
+
 # @ subscribe-reloaded
 #: utils/stcr_utils.php:195
 msgid "StCR Notification"
 msgstr "Notificações"
 
-#: wp_subscribe_reloaded.php:114
-msgid "Settings"
-msgstr ""
-
-#: wp_subscribe_reloaded.php:1086
+#: wp_subscribe_reloaded.php:1094
 msgid "Don't subscribe"
 msgstr "Não se inscrever"
 
-#: wp_subscribe_reloaded.php:1087
+#: wp_subscribe_reloaded.php:1095
 msgid "All"
 msgstr "Todos os comentários"
