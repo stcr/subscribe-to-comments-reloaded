@@ -107,8 +107,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
 			// Retrieve the options from the database
-			$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
-			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 			$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_double_check_subject', 'Please confirm your subscribtion to [post_title]' ) ), ENT_COMPAT, 'UTF-8' );
 			$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_double_check_content', '' ) ), ENT_COMPAT, 'UTF-8' );
 			$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
@@ -121,12 +119,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 			$this->utils->add_user_subscriber_table( $clean_email );
 
-			$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "sre=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
+			$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt&srsrc=e";
 			$confirm_link = "$manager_link&srp=$_post_ID&sra=c";
-
-			$headers      = "From: $from_name <$from_email>\n";
-			$content_type = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' ) ? 'text/html' : 'text/plain';
-			$headers .= "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' ) . "\n";
 
 			$post           = get_post( $_post_ID );
 			$post_permalink = get_permalink( $_post_ID );
@@ -147,14 +141,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				$message = str_replace( '[post_title]', $post->post_title, $message );
 			}
 			$message = apply_filters( 'stcr_confirmation_email_message', $message, $_post_ID, $clean_email );
-			if ( $content_type == 'text/html' ) {
-				if ( get_option( 'subscribe_reloaded_htmlify_message_links' ) == 'yes' ) {
-					$message = $this->htmlify_message_links( $message );
-				}
-				$message = $this->utils->wrap_html_message( $message, $subject );
-			}
-
-			wp_mail( $clean_email, $subject, $message, $headers );
+            // Prepare email settings
+            $email_settings = array(
+                'subject'      => $subject,
+                'message'      => $message,
+                'toEmail'      => $clean_email,
+                'XPostId'      => $_post_ID
+            );
+            $this->utils->send_email( $email_settings );
 		}
 		// end confirmation_email
 
