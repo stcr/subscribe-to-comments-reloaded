@@ -447,15 +447,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		{
 			$file_path = plugin_dir_path( __FILE__ );
 			$file_name = "log.txt";
+			$loggin_info = get_option("subscribe_reloaded_enable_log_data", "no");
 
-			if( is_writable( $file_path ) )
+			if( is_writable( $file_path ) && $loggin_info === "yes")
 			{
 				$file = fopen( $file_path . "/" . $file_name, "a" );
 
 				fputs( $file , $value);
 
 				fclose($file);
-
 			}
 			// else
 			// {

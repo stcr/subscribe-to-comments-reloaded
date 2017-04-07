@@ -202,7 +202,6 @@ wp_print_scripts( 'quicktags' );
 				?>
 			</td>
 		</tr>
-		</tbody>
 	</table>
 	<p class="submit"><input type="submit" value="<?php _e( 'Save Changes' ) ?>" class="button-primary" name="Submit">
 	</p>

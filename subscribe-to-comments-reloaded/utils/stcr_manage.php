@@ -45,6 +45,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// Let us bind the schedule event with our desire action.
 				wp_schedule_event( time() + 15, 'daily', '_cron_subscribe_reloaded_purge' );
 			}
+
 		}
 
 		/**
@@ -257,6 +258,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			add_option( 'subscribe_reloaded_enable_admin_messages', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_admin_subscribe', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_admin_bcc', 'no', '', 'yes' );
+			add_option( 'subscribe_reloaded_enable_log_data', 'no', '', 'yes' );
+			add_option( 'subscribe_reloaded_auto_clean_log_data', 'yes', '', 'yes' );
+			add_option( 'subscribe_reloaded_auto_clean_log_frecuency', 'daily', '', 'yes' );
 
 		}
 		/**
@@ -279,10 +283,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				foreach ( $blogids as $blog_id ) {
 					switch_to_blog( $blog_id );
 					wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
+					wp_clear_scheduled_hook( '_cron_log_file_purge' );
 				}
 				restore_current_blog();
 			} else {
 				wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
+				wp_clear_scheduled_hook( '_cron_log_file_purge' );
 			}
 		}
 
@@ -328,6 +334,22 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 		}
 
+		/**
+		 * Remove the log file created by StCR
+		 * @since 05-Apr-2017
+		 */
+		public function log_file_purge()
+		{
+			$plugin_dir   = plugin_dir_path( __DIR__ );
+			$file_name    = "log.txt";
+			$file_path    = $plugin_dir . "utils/" . $file_name;
+
+			if( file_exists( $file_path )  && is_writable( $plugin_dir ) )
+			{
+				// unlink the file
+				unlink($file_path);
+			}
+		}
 		/**
 		 * Removes old entries from the database
 		 */
@@ -791,9 +813,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			), 'dt', 'DESC', 0, 1
 			);
 			if ( count( $subscription ) == 0 ) {
-				echo '<a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-reloaded' ) . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-reloaded' ) . '</a>';
 			} else {
-				echo '<a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . $subscription[0]->status . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . $subscription[0]->status . '</a>';
 			}
 		}
 		// end add_column
@@ -808,7 +830,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 			global $post;
 			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
-			echo '<a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . $post->ID . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
+			echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . $post->ID . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
 		}
 		// end add_column
 
