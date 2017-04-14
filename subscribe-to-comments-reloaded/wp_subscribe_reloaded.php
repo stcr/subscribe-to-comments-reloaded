@@ -167,35 +167,36 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			// Did this visitor request to be subscribed to the discussion? (and s/he is not subscribed)
 			if ( ! empty( $_POST['subscribe-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
-				if ( ! in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
-					return $_comment_ID;
-				}
+			    // Check that the user select a valid subscription status, otherwise skip the subscription addition and continue to notify the
+                // users that are subscribe.
+				if ( in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
 
-				switch ( $_POST['subscribe-reloaded'] ) {
-					case 'replies':
-						$status = 'R';
-						break;
-					case 'digest':
-						$status = 'D';
-						break;
-					default:
-						$status = 'Y';
-						break;
-				}
+                    switch ($_POST['subscribe-reloaded']) {
+                        case 'replies':
+                            $status = 'R';
+                            break;
+                        case 'digest':
+                            $status = 'D';
+                            break;
+                        default:
+                            $status = 'Y';
+                            break;
+                    }
 
-				if ( ! $this->is_user_subscribed( $info->comment_post_ID, $info->comment_author_email ) ) {
-					if ( $this->isDoubleCheckinEnabled( $info ) ) {
-						$this->sendConfirmationEMail( $info );
-						$status = "{$status}C";
-					}
-					$this->add_subscription( $info->comment_post_ID, $info->comment_author_email, $status );
+                    if (!$this->is_user_subscribed($info->comment_post_ID, $info->comment_author_email)) {
+                        if ($this->isDoubleCheckinEnabled($info)) {
+                            $this->sendConfirmationEMail($info);
+                            $status = "{$status}C";
+                        }
+                        $this->add_subscription($info->comment_post_ID, $info->comment_author_email, $status);
 
-					// If comment is in the moderation queue
-					if ( $info->comment_approved == 0 ) {
-						//don't send notification-emails to all subscribed users
-						return $_comment_ID;
-					}
-				}
+                        // If comment is in the moderation queue
+                        if ($info->comment_approved == 0) {
+                            //don't send notification-emails to all subscribed users
+                            return $_comment_ID;
+                        }
+                    }
+                }
 			}
 
 			// Send a notification to all the users subscribed to this post
@@ -212,6 +213,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 						'Y'
 					)
 				);
+				// Now verify if the comments has a parent comment, if so, then this comment is a reply.
 				if ( ! empty( $info->comment_parent ) ) {
 					$subscriptions = array_merge(
 						$subscriptions, $this->get_subscriptions(
