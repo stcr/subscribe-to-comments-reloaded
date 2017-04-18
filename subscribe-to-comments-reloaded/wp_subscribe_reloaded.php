@@ -127,7 +127,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		}
 
 		/**
-		 * Retrieves the comment information from the databse
+		 * Retrieves the comment information from the database
 		 */
 		public function _get_comment_object( $_comment_ID ) {
 			global $wpdb;
@@ -952,6 +952,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$post_permalink          = get_permalink( $_post_ID );
 			$comment_permalink       = get_comment_link( $_comment_ID );
 			$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
+            $info                    = $this->_get_comment_object( $_comment_ID );
 
 			// WPML compatibility
 			if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
@@ -993,6 +994,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$message = str_replace( '[comment_content]', $comment_content, $message );
 			$message = str_replace( '[manager_link]', $manager_link, $message );
 			$message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
+            $message = str_replace( '[comment_gravatar]', get_avatar($info->comment_author_email, 40), $message );
 
 			// QTranslate support
 			if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
