@@ -1027,7 +1027,10 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		function subscribe_reloaded_show($submit_field = '') {
 			global $post, $wp_subscribe_reloaded;
 			$checkbox_subscription_type = null;
-			$_comment_ID = null;
+            $_comment_ID = null;
+            $post_permalink = get_permalink( $post->ID );
+            $post_permalink = "post_permalink=" . $post_permalink;
+
 
 			// Enable JS scripts.
 			 $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
@@ -1050,6 +1053,10 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				"$user_link&amp;srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' ) :
 				"$user_link?srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' );
 
+            $user_link = ( strpos( $user_link, '?' ) !== false ) ?
+                "$user_link&" . $post_permalink :
+                "$user_link?" . $post_permalink;
+
 			if ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '', 'C' ) ) {
 				$html_to_show          = str_replace(
 					'[manager_link]', $user_link,
@@ -1058,7 +1065,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				$show_subscription_box = false;
 			} elseif ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '' ) ) {
 				$html_to_show          = str_replace(
-					'[manager_link]', $user_link,
+					'[manager_link]', $user_link ,
 					__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 				);
 				$show_subscription_box = false;

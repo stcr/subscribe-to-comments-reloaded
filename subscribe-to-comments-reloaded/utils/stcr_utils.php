@@ -267,12 +267,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			// $tinyMCE_url_js = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-tinyMCE.js';
 			$stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
 			$stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
-			// Javascript
-			// wp_register_script('stcr-tinyMCE', $tinyMCE_url);
-			// wp_register_script('stcr-tinyMCE-js', $tinyMCE_url_js);
-			wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
-			// // Styles
-			wp_register_style( 'stcr-admin-style', $stcr_admin_css );
+            $stcr_font_awesome_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
+            // Javascript
+            wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+            // Enqueue Scripts
+            wp_enqueue_script('stcr-admin-js');
+            // // Styles
+            wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
+            wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
+            // Enqueue the styles
+            wp_enqueue_style('stcr-admin-style');
+            wp_enqueue_style('stcr-font-awesome');
 		}
 		/**
 		 * Hooking scripts for admin pages.
@@ -292,9 +297,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			$stcr_plugin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-plugin.js';
 			// Javascript
 			wp_register_script('stcr-plugin-js', $stcr_plugin_js, array( 'jquery' ) );
+            // Enqueue Scripts
+            wp_enqueue_script('stcr-plugin-js');
 			// Styles
 			$stcr_plugin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css';
+            $stcr_font_awesome_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
 			wp_register_style( 'stcr-plugin-style', $stcr_plugin_css );
+            wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
+            // Enqueue the styles
+            wp_enqueue_style('stcr-plugin-style');
+            wp_enqueue_style('stcr-font-awesome');
 		}
 		/**
 		 * Hooking scripts for plugin pages.

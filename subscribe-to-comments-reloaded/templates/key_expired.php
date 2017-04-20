@@ -9,8 +9,6 @@ $error_message   = __( "Woohaa the link to manage your subscriptions has expired
 
 global $wp_subscribe_reloaded;
 ob_start();
-$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
-$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
 
 if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	$email         = esc_attr( $_POST[ 'sre' ] );

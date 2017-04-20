@@ -5,9 +5,20 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 global $wp_subscribe_reloaded;
+
+// The the page where the user is coming from
+$post_permalink = null;
+
+if (array_key_exists('post_permalink', $_GET))
+{
+    if ( ! empty( $_GET['post_permalink'] ) )
+    {
+        $post_permalink = $_GET['post_permalink'];
+    }
+}
+
+
 ob_start();
-$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
-$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
 
 if ( ! empty( $email ) ) {
 	// Send management link
@@ -24,7 +35,7 @@ if ( ! empty( $email ) ) {
 	$subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
 
 	$manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
-	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e";
+	$manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e&post_permalink=" . $post_permalink;
 	$one_click_unsubscribe_link .= ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?';
 	$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
 								. "srek=" . $this->utils->get_subscriber_key( $clean_email )

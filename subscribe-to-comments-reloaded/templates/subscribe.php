@@ -6,8 +6,6 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 global $wp_subscribe_reloaded;
-$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
-$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
 
 ob_start();
 $post_permalink = get_permalink( $post_ID );

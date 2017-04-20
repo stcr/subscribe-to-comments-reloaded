@@ -8,6 +8,7 @@ if ( ! function_exists( 'add_action' ) ) {
 global $wp_subscribe_reloaded;
 
 ob_start();
+
 if ( ! empty( $_POST['email_list'] ) ) {
 	$email_list = array();
 	foreach ( $_POST['email_list'] as $a_email ) {
@@ -52,24 +53,44 @@ echo "<p>$message</p>";
 	<form action="<?php echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ?>" method="post" id="email_list_form" name="email_list_form" onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
 			<?php
-$subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( 'post_id', 'equals', $post_ID, 'dt', 'ASC' );
+                $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( 'post_id', 'equals', $post_ID, 'dt', 'ASC' );
+            // Let us translate those status
+            $legend_translate = array(
+                'R'  => __( 'Replies', 'subscribe-reloaded'),
+                'RC'  => __( 'Replies Unconfirmed', 'subscribe-reloaded'),
+                'Y'  => __( "All Comments", "subscribe-reloaded"),
+                'YC' => __( "Unconfirmed", "subscribe-reloaded"),
+                'C'	 => __( "Inactive", "subscribe-reloaded"),
+                '-C' => __( "Active", "subscribe-reloaded")
+            );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
-	echo '<p id="subscribe-reloaded-title-p">' . __( 'Title', 'subscribe-reloaded' ) . ': <strong>' . $target_post->post_title . '</strong></p>';
-	echo '<p id="subscribe-reloaded-legend-p">' . __( 'Legend: Y = all comments, R = replies only, C = inactive', 'subscribe-reloaded' ) . '</p>';
-	echo '<ul id="subscribe-reloaded-list">';
-	foreach ( $subscriptions as $i => $a_subscription ) {
-		echo "<li><input type='checkbox' name='email_list[]' value='" . urlencode( $a_subscription->email ) . "' id='e_$i'/>
-				<label for='e_$i'><span class='subscribe-column-1'>$a_subscription->dt</span>
-					<span class='subscribe-separator subscribe-separator-1'>&mdash;</span>
-					<span class='subscribe-column-2'>$a_subscription->status</span>
-					<span class='subscribe-separator subscribe-separator-2'>&mdash;</span>
-					<span class='subscribe-column-3'>$a_subscription->email</span></label></li>\n";
+	echo '<h1 id="subscribe-reloaded-title-p">' . __( 'Title', 'subscribe-reloaded' ) . ': <strong>' . $target_post->post_title . '</strong></h1>'; // $target_post comes from wp_subscribe_reloaded\subscribe_reloaded_manage
+
+	echo "<table><thead><tr>
+                <th style='width:4%; text-align: center;'></th>
+                <th style='width:18%; text-align: center;'><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Subscription Date</th>
+                <th style='width:35%;'><i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Subscriber Email</th>
+                <th style='width:20%; text-align: center;'><i class=\"fa fa-info\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Subscription Status</th>
+            </tr></thead>";
+    echo "<tbody>";
+
+    foreach ( $subscriptions as $i => $a_subscription ) {
+        $t_status = $a_subscription->status;
+
+        echo "<tr>";
+            echo "<td style='text-align: center;'><input type='checkbox' name='email_list[]' value='" . urlencode( $a_subscription->email ) . "' id='e_$i'/></td>";
+            echo "<td style='text-align: center;'><label for='e_$i'>$a_subscription->dt</td>";
+            echo "<td>$a_subscription->email</td>";
+            echo "<td style='text-align: center;'>$legend_translate[$t_status]</td>";
+        echo "</tr>";
 	}
-	echo '</ul>';
-	echo '<p id="subscribe-reloaded-select-all-p"><a class="subscribe-reloaded-small-button" href="#" onclick="t=document.forms[\'email_list_form\'].elements[\'email_list[]\'];c=t.length;if(!c){t.checked=true}else{for(var i=0;i<c;i++){t[i].checked=true}};return false;">' . __( 'Select all', 'subscribe-reloaded' ) . '</a> ';
-	echo '<a class="subscribe-reloaded-small-button" href="#" onclick="t=document.forms[\'email_list_form\'].elements[\'email_list[]\'];c=t.length;if(!c){t.checked=!t.checked}else{for(var i=0;i<c;i++){t[i].checked=false}};return false;">' . __( 'Invert selection', 'subscribe-reloaded' ) . '</a></p>';
+        echo "</tbody>";
+    echo "</table>";
+
+	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#">' . __( 'Select all', 'subscribe-reloaded' ) . '</a> ';
+	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#">' . __( 'Invert selection', 'subscribe-reloaded' ) . '</a></p>';
 	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-reloaded' );
-	echo '<select name="sra">';
+	echo '&nbsp;&nbsp;<select name="sra">';
 		echo '<option value="">'. __( 'Choose your action', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="delete">'. __( 'Delete', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="suspend">'. __( 'Suspend', 'subscribe-reloaded' ) .'</option>';
@@ -77,7 +98,12 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 		echo '<option value="force_r">'. __( 'Replies to my comments', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="activate">'. __( 'Activate', 'subscribe-reloaded' ) .'</option>';
 	echo '<select>';
-	echo '<p id="subscribe-reloaded-update-p"><input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /><input type="hidden" name="srp" value="' . intval( $post_ID ) . '"/></p>';
+    echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" />
+          <input type="hidden" name="srp" value="' . intval( $post_ID ) . '"/></p>';
+	echo '<p id="subscribe-reloaded-update-p"> 
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url(get_permalink( $post_ID )) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; Return to Post</a>
+          </p>';
+
 
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';
