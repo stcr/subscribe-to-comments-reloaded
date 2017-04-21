@@ -78,11 +78,10 @@ echo "<p>$message</p>";
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-email-p">' . __( 'Email to manage', 'subscribe-reloaded' ) . ': <strong>' . $email . '</strong></p>';
 
-    echo "<table><thead><tr>
-                <th style='width:4%; text-align: center;'></th>
-                <th style='width:20%; text-align: center;'><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Subscription Date</th>
-                <th style='width:40%;'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Title</th>
-                <th style='width:20%; text-align: center;'><i class=\"fa fa-info\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Subscription Status</th>
+    echo "<table class='stcr-subscription-list'><thead><tr>
+                <th style='width:24%; text-align: center;'><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". __('Subscription Date','subscribe-reloaded')."</th>
+                <th style='width:40%;'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". __('Title','subscribe-reloaded')."</th>
+                <th style='width:20%; text-align: center;'><i class=\"fa fa-info\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". __('Subscription Status','subscribe-reloaded')."</th>
             </tr></thead>";
     echo "<tbody>";
 
@@ -92,8 +91,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         $title     = get_the_title( $a_subscription->post_id );
 
         echo "<tr>";
-        echo "<td style='text-align: center;'><input type='checkbox' name='post_list[]' value='{$a_subscription->post_id}' id='e_$i'/></td>";
-        echo "<td style='text-align: center;'><label for='e_$i'>$a_subscription->dt</td>";
+        echo "<td style='text-align: center;'><input type='checkbox' name='post_list[]' value='{$a_subscription->post_id}' id='e_$i'/><label for='e_$i'>$a_subscription->dt</td>";
         echo "<td><a href='$permalink' target='_blank'>$title</a> </td>";
         echo "<td style='text-align: center;'>$legend_translate[$t_status]</td>";
         echo "</tr>";
@@ -114,7 +112,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 		echo '<option value="suspend">'. __( 'Suspend', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="force_y">'. __( 'All comments', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="force_r">'. __( 'Replies to my comments', 'subscribe-reloaded' ) .'</option>';
-		echo '<option value="activate">'. __( 'Activate', 'subscribe-reloaded' ) .'</option>';
+//		echo '<option value="activate">'. __( 'Activate', 'subscribe-reloaded' ) .'</option>';
 	echo '<select>';
 
     echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" />
@@ -123,7 +121,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     if ( isset( $post_permalink ) )
     {
         echo '<p id="subscribe-reloaded-update-p"> 
-            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; Return to Post</a>
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-reloaded').'</a>
           </p>';
     }
 } else {

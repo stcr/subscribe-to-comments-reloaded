@@ -391,18 +391,32 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$sre    	   = ! empty( $_POST['sre'] )  ? $_POST['sre']     : ( ! empty( $_GET['sre'] )  ?  $_GET['sre']   : '' );
 			$srek   	   = ! empty( $_POST['srek'] ) ? $_POST['srek']    : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
 			$link_source   = ! empty( $_POST['srsrc'] ) ? $_POST['srsrc']  : ( ! empty( $_GET['srsrc'] ) ?  $_GET['srsrc']  : '' );
-			$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : 0 );
-
+			$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : '0' );
+            // Check if the current subscriber has va email using the $srek key.
 			$email_by_key  = $this->utils->get_subscriber_email_by_key( $srek );
-
 			// Check for a valid SRE key, otherwise stop execution.
-			if( ! $email_by_key ){
+			if( ! $email_by_key && ! empty($srek) ){
 				$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n" );
-				$email =  $sre;
+                $email = '';
 			}
 			else
 			{
-				$email = $email_by_key;
+			    if ( ! $email_by_key && empty($sre) )
+                {
+                    $email = '';
+                }
+                else if( $email_by_key && ! empty($email_by_key) )
+                {
+                    $email = $email_by_key;
+                }
+                else if ( ! empty($sre) )
+                {
+                    $email = $sre;
+                }
+                else
+                {
+                    $email = '';
+                }
 			}
 			// Check the link source
 			if( $link_source == "f" ) // Comes from the comment form.

@@ -122,13 +122,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 			$this->utils->add_user_subscriber_table( $clean_email );
 
-			$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
-			$confirm_link = "$manager_link&srp=$_post_ID&sra=c&srsrc=e&confirmation_email=y";
-
 			$post           = get_post( $_post_ID );
-			$post_permalink = get_permalink( $_post_ID );
+            $post_permalink = get_permalink( $_post_ID );
 
-			// Replace tags with their actual values
+            $manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
+            $confirm_link = "$manager_link&srp=$_post_ID&sra=c&srsrc=e&confirmation_email=y&post_permalink=" . $post_permalink;
+
+
+            // Replace tags with their actual values
 			$subject = str_replace( '[post_title]', $post->post_title, $subject );
 
 			$message = str_replace( '[post_permalink]', $post_permalink, $message );

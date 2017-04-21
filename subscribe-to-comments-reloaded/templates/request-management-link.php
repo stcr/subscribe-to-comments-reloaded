@@ -8,6 +8,13 @@ global $wp_subscribe_reloaded;
 
 // The the page where the user is coming from
 $post_permalink = null;
+$current_user_email = null; // Comes from wp_subscribe-to-comments-reloaded\subscribe_reloaded_manage()
+$ID = $target_post;
+
+if ( isset($current_user) && $current_user->ID > 0 )
+{
+    $current_user_email = $current_user->data->user_email;
+}
 
 if (array_key_exists('post_permalink', $_GET))
 {
@@ -70,6 +77,21 @@ if ( ! empty( $email ) ) {
 else
 {
 	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
+    $email = '';
+
+    if ( isset($current_user_email) )
+    {
+        $email = $current_user_email;
+    }
+    else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ))
+    {
+        $email = $_COOKIE['comment_author_email_' . COOKIEHASH];
+    }
+    else
+    {
+        $email = 'email';
+    }
+
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
@@ -80,12 +102,19 @@ else
 		method="post" name="sub-form">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? $_COOKIE['comment_author_email_' . COOKIEHASH] : 'email'; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
 				<input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
 			</p>
 		</fieldset>
 	</form>
 <?php
+    if ( isset( $post_permalink ) )
+    {
+        echo '<p id="subscribe-reloaded-update-p"> 
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-reloaded').'</a>
+          </p>';
+    }
+
 }
 $output = ob_get_contents();
 ob_end_clean();
