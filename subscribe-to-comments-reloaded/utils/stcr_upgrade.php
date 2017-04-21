@@ -15,10 +15,21 @@ if ( ! function_exists( 'add_action' ) ) {
 if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 	class stcr_upgrade extends stcr_utils {
 
-		public function _create_subscriber_table( $_fresh_install ) {
+	    private $_stcr_charset = null;
+	    private $_stcr_collate = null;
+	    private $_db_collate   = null;
+
+	    public function __construct()
+        {
+            $this->_stcr_charset  = 'utf8';
+            $this->_stcr_collate  = 'utf8_unicode_ci';
+            $this->_db_collate    = "AULT CHARSET={$this->_stcr_charset} COLLATE={$this->_stcr_collate}";
+        }
+
+        public function _create_subscriber_table( $_fresh_install ) {
 			global $wpdb;
-			$charset_collate = $wpdb->get_charset_collate();
 			$errorMsg        = '';
+			
 			// If the update option is set to false
 			$stcr_opt_subscriber_table = get_option('subscribe_reloaded_subscriber_table');
 
@@ -33,7 +44,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 						  PRIMARY KEY  (stcr_id),
 						  UNIQUE KEY uk_subscriber_email (subscriber_email))
 						ENGINE = InnoDB
-						$charset_collate";
+						$this->_db_collate";
+
 				require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 				// dbDelta Will create or update the table safety
 				// Ref: https://codex.wordpress.org/Creating_Tables_with_Plugins
