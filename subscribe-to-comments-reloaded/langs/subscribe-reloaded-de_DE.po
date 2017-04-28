@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 23:21-0600\n"
-"PO-Revision-Date: 2017-04-27 23:21-0600\n"
-"Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
+"POT-Creation-Date: 2017-04-28 00:15-0700\n"
+"PO-Revision-Date: 2017-04-28 00:15-0700\n"
+"Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Loco-Target-Locale: de_DE\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: includes\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: options/index.php:59 utils/stcr_manage.php:230 utils/stcr_manage.php:412
 #: utils/stcr_manage.php:413
 msgid "Manage subscriptions"
-msgstr "Verwalte Abonnements"
+msgstr "Verwalte deine Abonnements"
 
 #: options/index.php:60 utils/stcr_manage.php:418 utils/stcr_manage.php:419
 msgid "Comment Form"
@@ -56,7 +56,7 @@ msgstr "Support-Forum"
 
 #: options/index.php:67 utils/stcr_manage.php:464 utils/stcr_manage.php:465
 msgid "Donate"
-msgstr ""
+msgstr "Spenden"
 
 #: options/panel1-add-subscription.php:8 options/panel1.php:61
 msgid "Add New Subscription"
@@ -169,7 +169,7 @@ msgstr "Von"
 
 #: options/panel1-edit-subscription.php:20 options/panel1.php:33
 msgid "To"
-msgstr "ersetze durch"
+msgstr "An"
 
 #: options/panel1-edit-subscription.php:28 options/panel1.php:41
 msgid "Keep unchanged"
@@ -189,17 +189,20 @@ msgstr "E-Mail-Adresse des Absenders"
 
 #: options/panel1.php:34 options/panel1.php:35 options/panel1.php:36
 msgid "optional - new email address"
-msgstr "E-Mail-Adresse des Absenders"
+msgstr "Optional - Neue E-Mail-Adresse"
 
 #: options/panel1.php:49
 msgid "More info"
-msgstr ""
+msgstr "Mehr Informationen"
 
 #: options/panel1.php:55
 msgid ""
 "This option will allow you to change an email address for another one or to "
 "update the same status for all the subscription on a specific email address."
 msgstr ""
+"Mit dieser Option können Sie eine E-Mail-Adresse für einen anderen ändern "
+"oder den Status für das gesamte Abonnement zu einer bestimmten E-Mail-"
+"Adresse aktualisieren."
 
 #: options/panel1.php:68
 msgid "Post ID"
@@ -240,11 +243,11 @@ msgstr "entspricht"
 
 #: options/panel1.php:112
 msgid "contains"
-msgstr "enthällt"
+msgstr "enthält"
 
 #: options/panel1.php:113
 msgid "does not contain"
-msgstr "enthällt nicht"
+msgstr "enthält nicht"
 
 #: options/panel1.php:114
 msgid "starts with"
@@ -296,15 +299,15 @@ msgstr "Antworten"
 
 #: options/panel1.php:169 templates/author.php:60 templates/user.php:72
 msgid "Replies Unconfirmed"
-msgstr ""
+msgstr "Unbestätigte Antworten"
 
 #: options/panel1.php:170 templates/author.php:61 templates/user.php:73
 msgid "All Comments"
-msgstr ""
+msgstr "Alle Kommentare"
 
 #: options/panel1.php:171 templates/author.php:62 templates/user.php:74
 msgid "Unconfirmed"
-msgstr ""
+msgstr "Unbestätigt"
 
 #: options/panel1.php:172 templates/author.php:63 templates/user.php:75
 msgid "Inactive"
@@ -357,23 +360,25 @@ msgstr "Keine passenden Abonnements gefunden."
 
 #: options/panel10.php:35
 msgid "The log file has been successfully deleted."
-msgstr ""
+msgstr "Die Log Datei wurde erfolgreich gelöscht."
 
 #: options/panel10.php:40
 msgid "Can't delete the log file, check the file permissions."
 msgstr ""
+"Eine Löschung der Log Datei ist nicht möglich. Bitte prüfe die "
+"Berechtigungen der Datei."
 
 #: options/panel10.php:46
 msgid "The log file does not exists."
-msgstr ""
+msgstr "Es existiert keine Log Datei"
 
 #: options/panel10.php:60 options/panel10.php:104
 msgid "Enable Log Information"
-msgstr ""
+msgstr "Aktiviere Log Informationen"
 
 #: options/panel10.php:66 options/panel10.php:113
 msgid "Enable Auto clean log data"
-msgstr ""
+msgstr "Aktiviere \"Automatische Bereinigung\" der Log Daten"
 
 #: options/panel10.php:87 options/panel2.php:49 options/panel3.php:70
 #: options/panel4.php:78 options/panel5.php:18 options/panel5.php:67
@@ -409,39 +414,42 @@ msgid ""
 "If enabled, will log information of the plugin. Helpful for debugging "
 "purposes."
 msgstr ""
+"Wenn aktiviert, werden Log Informationen zu dem Plugin erfasst. Dies ist für "
+"die Fehleranalyse hilfreich."
 
 #: options/panel10.php:119
 msgid "Hourly"
-msgstr ""
+msgstr "Stündlich"
 
 #: options/panel10.php:120
 msgid "Twice Daily"
-msgstr ""
+msgstr "Zweimal täglich"
 
 #: options/panel10.php:121
 msgid "Daily"
-msgstr ""
+msgstr "Täglich"
 
 #: options/panel10.php:123
 msgid "If enabled, StCR will auto clean your information every day."
 msgstr ""
+"Wenn aktiviert, wird StCR automatisch die Informationen täglich bereinigen."
 
 #: options/panel10.php:128
 msgid "Clean Up Log Archive"
-msgstr ""
+msgstr "Bereinigung der Log Archive"
 
 #: options/panel10.php:132
 msgid ""
 "If you want to clean up the log archive please click the following button"
-msgstr ""
+msgstr "Wenn du die Log Archive bereinigen willst, klicke auf folgenden Button"
 
 #: options/panel10.php:134
 msgid "Clean"
-msgstr ""
+msgstr "Bereinigen"
 
 #: options/panel10.php:141 options/panel10.php:144
 msgid "System Information"
-msgstr ""
+msgstr "System Information"
 
 #: options/panel10.php:158 options/panel2.php:230 options/panel3.php:253
 #: options/panel4.php:283 options/panel5.php:219
@@ -478,7 +486,7 @@ msgstr "Beschriftung der Auswahlbox"
 
 #: options/panel2.php:37 options/panel2.php:180
 msgid "Subscribed label"
-msgstr "Benachrichtigung aktiviert"
+msgstr "Abonniert"
 
 #: options/panel2.php:40
 msgid "Awaiting label"
@@ -507,24 +515,26 @@ msgstr "Auswahlbox anzeigen"
 
 #: options/panel2.php:91 options/panel2.php:120
 msgid "All new comments"
-msgstr ""
+msgstr "Alle neuen Kommentare"
 
 #: options/panel2.php:92 options/panel2.php:121
 msgid "Replies to this comment"
-msgstr "Nur Antworten"
+msgstr "Nur Antworten auf dieses Kommentar"
 
 #: options/panel2.php:94
 msgid ""
 "Select the default option for the Checkbox. Be careful! Some users might "
 "like to be subscribed to all the post."
 msgstr ""
+"Wählen Sie die Standardoption für die Checkbox aus. Achtung! Manche Benutzer "
+"möchten aber vielleicht gern alle Beiträge abonnieren."
 
 #: options/panel2.php:107
 msgid ""
 "Allow users to choose from different subscription types (all, replies only)."
 msgstr ""
 "Erlaube dem Nutzer, verschiedene Abonnement-Arten auszuwählen (alle "
-"Kommentare, nur Antworten auf eigene)."
+"Kommentare, nur Antworten auf eigene Kommentare)."
 
 #: options/panel2.php:115
 msgid "Advanced default"
@@ -532,13 +542,15 @@ msgstr "Standardmäßig ausgewählt"
 
 #: options/panel2.php:119
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 #: options/panel2.php:124
 msgid ""
 "The default subscription type that should be selected when Advanced "
 "subscriptions are enable."
 msgstr ""
+"Der Standard-Abonnement Typ, welcher ausgewählt werden soll, wenn erweiterte "
+"Abonnements aktiviert sind."
 
 #: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
@@ -772,7 +784,7 @@ msgstr "Verwaltung - Text"
 
 #: options/panel4.php:72 options/panel4.php:243
 msgid "Management Email message"
-msgstr ""
+msgstr "Verwaltung - E-Mail Nachricht"
 
 #: options/panel4.php:101
 msgid ""
@@ -788,13 +800,16 @@ msgstr "Absender: E-Mail-Adresse"
 
 #: options/panel4.php:121
 msgid "Reply To"
-msgstr "Nur Antworten"
+msgstr "Antworten"
 
 #: options/panel4.php:128
 msgid ""
 "This will be use when the user click reply on their email agent. If not set "
 "will be the same as the Sender email address."
 msgstr ""
+"Dies wird verwendet werden, wenn der Benutzer auf ihren E-Mail-Agent "
+"antwortet. Wenn nicht aktiviert, wird die E-Mail-Adresse des Absenders "
+"verwendet."
 
 #: options/panel4.php:147
 msgid "Subject of the notification email. Allowed tag: [post_title]"
@@ -806,12 +821,17 @@ msgid ""
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
 "[manager_link], [comment_gravatar]"
 msgstr ""
+"Text einer E-Mail Benachrichtigung.<br/>Erlaubte Tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link]"
 
 #: options/panel4.php:171
 msgid ""
 "<p><strong>Note: To get a default template clear all the content and save "
 "the options.</strong></p>"
 msgstr ""
+"<p><strong>Nachricht:  Um die Standardvorlage zu nutzen, leere bitte den "
+"gesamten Inhalt und speichere die Optionen.</strong></p>"
 
 #: options/panel4.php:184
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
@@ -836,21 +856,23 @@ msgstr ""
 
 #: options/panel4.php:223
 msgid "Management Page message"
-msgstr ""
+msgstr "Verwaltung - Seite Nachricht"
 
 #: options/panel4.php:237
 msgid "Content of the management Page message. Allowed tags: [blog_name]."
-msgstr ""
+msgstr "Inhalt der Verwaltungsseite. Erlaubte Tags: [blog_name]."
 
 #: options/panel4.php:257
 msgid ""
 "Content of the management email message. Allowed tags: [blog_name], "
 "[manager_link]."
 msgstr ""
+"Inhalt der E-Mail Nachricht über die Verwaltung. Erlaubte Tags:  "
+"[blog_name], [manager_link]."
 
 #: options/panel4.php:263
 msgid "One Click Unsubscribe"
-msgstr "Admin-Anmeldung"
+msgstr "\"One Click\" Abmeldung"
 
 #: options/panel4.php:277
 msgid ""
@@ -862,11 +884,11 @@ msgstr ""
 
 #: options/panel5.php:29 options/panel5.php:83
 msgid "Show StCR checkbox / dropdown"
-msgstr ""
+msgstr "Zeige die StCR Checkbox/Dropdown Menü"
 
 #: options/panel5.php:32
 msgid "Safetly Uninstall"
-msgstr ""
+msgstr "Sicher Deinstallieren"
 
 #: options/panel5.php:35 options/panel5.php:100
 msgid "Autopurge requests"
@@ -878,11 +900,11 @@ msgstr "Bestätigung erforderlich (double check)"
 
 #: options/panel5.php:41 options/panel5.php:109
 msgid "StCR Position"
-msgstr ""
+msgstr "StCR Position"
 
 #: options/panel5.php:44 options/panel5.php:126
 msgid "Subscribe authors"
-msgstr "Abonniert"
+msgstr "Abonnierte Autoren"
 
 #: options/panel5.php:47 options/panel5.php:136
 msgid "Enable HTML emails"
@@ -890,7 +912,7 @@ msgstr "Aktiviere HTML E-Mails"
 
 #: options/panel5.php:50
 msgid "HTMLify Links in HTML emails"
-msgstr ""
+msgstr "HTMLify Links in HTML emails"
 
 #: options/panel5.php:53
 msgid "Send trackbacks"
@@ -913,16 +935,21 @@ msgid ""
 "This option will disable the StCR checkbox or dropdown in you comment form. "
 "You should leave it to Yes always.  "
 msgstr ""
+"Diese Option deaktiviert die StCR Checkbox in deinen Kommentaren. Du "
+"solltest es leer lassen oder immer \"Ja\" einstellen."
 
 #: options/panel5.php:92
 msgid "Safely Uninstall"
-msgstr ""
+msgstr "Sicher Deinstallieren"
 
 #: options/panel5.php:96
 msgid ""
 "This option will allow you to delete the plugin with WordPress without "
 "loosing your subscribers. Any database table and plugin options are wipeout."
 msgstr ""
+"Mit dieser Option können Sie das Plugin mit WordPress löschen, ohne Ihre "
+"Abonnenten zu verlieren. Alle Datenbanktabellen und Plugin-Optionen werden "
+"gelöscht."
 
 #: options/panel5.php:103
 msgid "days"
@@ -942,6 +969,10 @@ msgid ""
 "button in your comment form. Use this when your theme is outdated and using "
 "the incorrect WordPress Hooks and the checkbox is not displayed."
 msgstr ""
+"Wenn diese Option aktiviert ist, befindet sich das Abonnement-Feld oberhalb "
+"der Schaltfläche \"Senden\" in Ihrem Kommentarformular. Verwenden Sie diese "
+"Option, wenn Ihr Thema veraltet ist und die falschen WordPress \"Hooks\" "
+"verwendet und das Kontrollkästchen nicht angezeigt wird."
 
 #: options/panel5.php:122
 msgid ""
@@ -955,6 +986,7 @@ msgstr ""
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
+"Automatisch Autoren zu ihren eigenen Artikeln abonnieren (nicht rückwirkend)."
 
 #: options/panel5.php:140
 msgid ""
@@ -999,25 +1031,29 @@ msgstr ""
 
 #: options/panel5.php:187
 msgid "Send a copy of all Notifications to the administrator."
-msgstr ""
+msgstr "Sende eine Kopie von allen Benachrichtigungen an den Administrator"
 
 #: options/panel5.php:192
 msgid "StCR Unique Key"
-msgstr ""
+msgstr "Eindeutiger StCR Schlüssel"
 
 #: options/panel5.php:197
 msgid "This Unique Key is not set, please click the following button to "
 msgstr ""
+"Der eindeutige Schlüssel ist nicht definiert. Bitte klicke auf den folgenden "
+"Button"
 
 #: options/panel5.php:201 options/panel5.php:212
 msgid "Generate"
-msgstr ""
+msgstr "Generieren"
 
 #: options/panel5.php:209
 msgid ""
 "This Unique Key will be use to send the notification to your subscribers "
 "with more security."
 msgstr ""
+"Dieser eindeutige Schlüssel wird verwendet, um die Benachrichtigung an Ihre "
+"Abonnenten mit mehr Sicherheit zu senden."
 
 #: options/panel7.php:8 options/panel8.php:8
 msgid "Support the developers"
@@ -1060,7 +1096,7 @@ msgstr ""
 
 #: options/panel7.php:23
 msgid "Subscribe to the Beta testers"
-msgstr ""
+msgstr "Melde dich als Betatester an"
 
 #: options/panel7.php:24
 msgid ""
@@ -1069,6 +1105,10 @@ msgid ""
 "can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
 "a>"
 msgstr ""
+"Vor einem neuen Update geben wir eine Beta-Version frei, damit unsere "
+"aktuellen Benutzer uns Feedback geben können, wenn sie einen Bug finden. "
+"Wenn du dem Tester Team beitreten möchtest, kannst du deine E-Mail Adresse "
+"<a href='http://eepurl.com/biCk1b' target='_blank'>hier</a> eintragen"
 
 #: options/panel7.php:26
 msgid "Vote and show your appreciation"
@@ -1086,7 +1126,7 @@ msgstr ""
 
 #: options/panel8.php:18
 msgid "Did you find a Bug on the plugin?"
-msgstr ""
+msgstr "Hast du einen Fehler im Plugin gefunden?"
 
 #: options/panel8.php:19
 msgid ""
@@ -1095,6 +1135,9 @@ msgid ""
 "%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
 "WordPress Support page."
 msgstr ""
+"Bitte schick uns den Fehler via <a href=\"https://github.com/stcr/subscribe-"
+"to-comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
+"%3E&labels=bug\" target=\"_blank\">GitHub</a>"
 
 #: options/panel9.php:11
 msgid "Support Subscribe to Comments Reloaded"
@@ -1108,6 +1151,9 @@ msgid ""
 "plugin a helpful tool we will use your donation to invest on support and "
 "developing time."
 msgstr ""
+"Jeder Beitrag, den Sie machen, ist sehr wertvoll, also wenn Sie dieses "
+"Plugin als hilfreiches Werkzeug betrachten, werden wir Ihre Spende nutzen, "
+"um das Plugin weiter zu entwickeln und zu verbessern."
 
 #: templates/author.php:67 templates/user.php:83
 msgid "Title"
@@ -1115,15 +1161,15 @@ msgstr "Titel"
 
 #: templates/author.php:70 templates/user.php:82
 msgid "Subscription Date"
-msgstr ""
+msgstr "Abonnement - Datum"
 
 #: templates/author.php:71
 msgid "Subscription Email"
-msgstr ""
+msgstr "Abonnement - E-Mail"
 
 #: templates/author.php:72 templates/user.php:84
 msgid "Subscription Status"
-msgstr ""
+msgstr "Abonnement - Status"
 
 #: templates/author.php:88 templates/user.php:104
 msgid "Select all"
@@ -1135,21 +1181,21 @@ msgstr "Auswahl umkehren"
 
 #: templates/author.php:92 templates/user.php:110
 msgid "Choose your action"
-msgstr ""
+msgstr "Wähle eine Aktion"
 
 #: templates/author.php:95 templates/user.php:113
 msgid "All comments"
-msgstr ""
+msgstr "Alle Kommentare"
 
 #: templates/author.php:96 templates/user.php:114
 #: wp_subscribe_reloaded.php:1122
 msgid "Replies to my comments"
-msgstr "Nur Antworten"
+msgstr "Nur Antworten auf meine Kommentare"
 
 #: templates/author.php:102 templates/confirm.php:28
 #: templates/request-management-link.php:114 templates/user.php:124
 msgid "Return to Post"
-msgstr ""
+msgstr "Zurück zum Beitrag"
 
 #: templates/author.php:107 templates/one-click-unsubscribe.php:30
 #: templates/user.php:128
@@ -1161,6 +1207,8 @@ msgid ""
 "Woohaa the link to manage your subscriptions has expired, don't worry, just "
 "enter your email below and a new link will be send."
 msgstr ""
+"Oha. Der Link zum Verwalten Ihre Abonnements ist abgelaufen. Keine Sorge, "
+"geben Sie einfach Ihre E-Mail Adresse unten und ein neuer Link wird versandt."
 
 #: templates/key_expired.php:74 templates/request-management-link.php:106
 #: templates/subscribe.php:112
@@ -1177,11 +1225,13 @@ msgstr "Besucher:"
 
 #: templates/user.php:79
 msgid "Email to manage"
-msgstr ""
+msgstr "E-Mail zum Verwalten"
 
 #: templates/wrong-request.php:9
 msgid "You have request to manage another email address and this is forbidden."
 msgstr ""
+"Sie haben versucht eine Einstellungen zu einer anderen E-Mail-Adresse zu "
+"verwalten und das ist verboten."
 
 #: utils/stcr_manage.php:223
 msgid ""
@@ -1331,6 +1381,8 @@ msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Please check the Subscriptions management link in your email"
 msgstr ""
+"Du möchtest Deine Benachrichtigungs-Einstellungen von [blog_name] ändern. "
+"Bitte prüfe den Abonnementen Verwaltungslink in deiner E-Mail "
 
 #: utils/stcr_manage.php:248
 msgid ""
@@ -1353,6 +1405,7 @@ msgstr ""
 #: utils/stcr_manage.php:707 utils/stcr_manage.php:735
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
+"Sie haben nicht ausreichende Berechtigungen um auf diese Seite zuzugreifen."
 
 #: utils/stcr_manage.php:785
 msgid "Subscriptions"
@@ -1379,7 +1432,7 @@ msgstr "Gib mir ein Trinkgeld!"
 
 #: utils/stcr_upgrade.php:67
 msgid "Important Notice"
-msgstr ""
+msgstr "Wichtige Mitteilung"
 
 #: utils/stcr_upgrade.php:115
 msgid ""
@@ -1474,6 +1527,9 @@ msgid ""
 "If you find a bug or an issue you can report it <a href=\"https://github.com/"
 "stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
 msgstr ""
+"Wenn du einen Fehler im Plugin gefunden hast,  <a href=\"https://github.com/"
+"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">sende Ihn uns "
+"bitte zu</a>."
 
 #: utils/stcr_upgrade.php:408
 msgid ""
@@ -1498,6 +1554,8 @@ msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160106."
 msgstr ""
+"<strong>Subscribe to Comments Reloaded</strong> wurde auf Version 160106 "
+"aktualisiert."
 
 #: utils/stcr_upgrade.php:422
 msgid ""
@@ -1521,26 +1579,27 @@ msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160115."
 msgstr ""
-"Benötigst Du Hilfe zum Plugin Subscribe to Comments Reloaded? Besuche das "
-"offizielle"
+"<strong>Subscribe to Comments Reloaded</strong> wurde auf Version 160115 "
+"aktualisiert."
 
 #: utils/stcr_upgrade.php:437
 msgid ""
 "This version includes fixes to broken links while managing your subscriptions"
 msgstr ""
+"Diese Version beinhaltet Fixes, welche kaputte Links für das \"Verwalten der "
+"Abonnements\"  korrigiert."
 
 #: utils/stcr_upgrade.php:451
-#, fuzzy
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160831"
 msgstr ""
-"Benötigst Du Hilfe zum Plugin Subscribe to Comments Reloaded? Besuche das "
-"offizielle"
+"<strong>Subscribe to Comments Reloaded</strong> wurde auf Version 160831 "
+"aktualisiert."
 
 #: utils/stcr_upgrade.php:452 utils/stcr_upgrade.php:474
 msgid "This version includes fixes to many bugs and also new features, "
-msgstr ""
+msgstr "Diese Version behebt viele Bugs und beinhaltet auch neue Funktionen."
 
 #: utils/stcr_upgrade.php:454 utils/stcr_upgrade.php:477
 msgid ""
@@ -1590,23 +1649,27 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:493 wp_subscribe_reloaded.php:123
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: utils/stcr_upgrade.php:497
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160915"
 msgstr ""
+"<strong>Subscribe to Comments Reloaded</strong> wurde auf Version 160915 "
+"aktualisiert."
 
 #: utils/stcr_upgrade.php:498 utils/stcr_upgrade.php:519
 msgid "This version includes fixes and improvements, "
-msgstr ""
+msgstr "Diese Version enthält Fixes und Verbesserungen."
 
 #: utils/stcr_upgrade.php:501
 msgid ""
 "<strong>Change</strong> the radio buttons in the management page for a "
 "dropdown."
 msgstr ""
+"<strong>Ändere</strong> die  Radio Buttons auf der Verwaltungsseite für ein "
+"Dropdown Menü."
 
 #: utils/stcr_upgrade.php:502
 msgid ""
@@ -1614,13 +1677,17 @@ msgid ""
 msgstr ""
 
 #: utils/stcr_upgrade.php:514
+#, fuzzy
 msgid "Log Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: utils/stcr_upgrade.php:518
+#, fuzzy
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 msgstr ""
+"<strong>Subscribe to Comments Reloaded</strong> wurde auf Version 160831 "
+"aktualisiert."
 
 #: utils/stcr_upgrade.php:522
 msgid ""
@@ -1657,15 +1724,6 @@ msgstr "Nicht abbonieren"
 #: wp_subscribe_reloaded.php:1121
 msgid "All"
 msgstr "Alle"
-
-#~ msgid ""
-#~ "Content of the notification email. Allowed tags: [post_title], "
-#~ "[comment_permalink], [comment_author], [comment_content], "
-#~ "[post_permalink], [manager_link]"
-#~ msgstr ""
-#~ "E-Mail-Text einer Benachrichtigung.<br/>Erlaubte Tags: [post_title], "
-#~ "[comment_permalink], [comment_author], [comment_content], "
-#~ "[post_permalink], [manager_link]"
 
 #~ msgid "Legend: Y = all comments, R = replies only, C = inactive"
 #~ msgstr "Legende: Y = Alle Kommentare, R = Nur Antworten, C = Inaktiv"
