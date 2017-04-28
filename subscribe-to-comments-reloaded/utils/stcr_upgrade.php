@@ -510,6 +510,34 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 						update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
 						update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
 						break;
+                    case '170428':
+                        $options_link = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_system' ), __( 'Log Settings', 'subscribe-reloaded' ) );
+                        $this->stcr_create_admin_notice(
+                            'notify_update_' . $_version,
+                            'unread',
+                            '<p>' . __('<strong>Subscribe to Comments Reloaded</strong> has been updated to version ' . $_version, 'subscribe-reloaded') . '</p>' .
+                            '<p>' . __('This version includes fixes and improvements, ', 'subscribe-reloaded') . '</p>' .
+
+                            '<ul>' .
+                                '<li>' . __("<strong>Fix</strong> Wrong confirmation link when the double check option is enable.", 'subscribe-reloaded') . '</li>'.
+                                '<li>' . __("<strong>Improve</strong> Manage subscription page. Take a look ;).", 'subscribe-reloaded') . '</li>'.
+                                '<li>' . __("<strong>Improve</strong> Log file manipulation. Now you can control how the log behaves, take a look at the {$options_link}.", 'subscribe-reloaded') . '</li>'.
+                            '</ul>' .
+
+                            '<p>' . __('If you find a bug or an issue you can report it <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues" target="_blank">here</a>.', 'subscribe-reloaded') . '</p>' .
+                            '<h2>' . __('The support of this plugin is given thanks to your donations.', 'subscribe-reloaded') . '</h2>'.
+                            '<h2>' . __('Help to keep the support alive. You can donate via <i class="fa fa-paypal" aria-hidden="true"></i> <a href="
+https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">PayPal</a>.', 'subscribe-reloaded') . '</h2>' .
+
+                            '<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for a complete list of changes.'
+                                . '<a class="dismiss" href="#">Dismiss.  </a>'
+                                . '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Dismissing Message">', 'subscribe-reloaded') . '</p>',
+                            'updated'
+                        );
+                        // Update the HTML emails option
+                        update_option( 'subscribe_reloaded_htmlify_message_links', 'no' );
+                        update_option( 'subscribe_reloaded_enable_html_emails', 'yes' );
+                        break;
 				}
 			}
 		}
