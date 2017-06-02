@@ -23,7 +23,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
         {
             $this->_stcr_charset  = 'utf8';
             $this->_stcr_collate  = 'utf8_unicode_ci';
-            $this->_db_collate    = "AULT CHARSET={$this->_stcr_charset} COLLATE={$this->_stcr_collate}";
+            $this->_db_collate    = "DEFAULT CHARSET={$this->_stcr_charset} COLLATE={$this->_stcr_collate}";
         }
 
         public function _create_subscriber_table( $_fresh_install ) {

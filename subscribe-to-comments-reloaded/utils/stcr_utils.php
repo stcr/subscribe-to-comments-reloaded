@@ -274,11 +274,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             wp_enqueue_script('stcr-admin-js');
             // // Styles
             wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
-            wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
             // Enqueue the styles
             wp_enqueue_style('stcr-admin-style');
-            wp_enqueue_style('stcr-font-awesome');
-		}
+            // Font Awesome
+            if( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" )
+            {
+                wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
+                wp_enqueue_style('stcr-font-awesome');
+            }
+        }
 		/**
 		 * Hooking scripts for admin pages.
 		 * @since 03-Agu-2015
@@ -303,10 +307,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			$stcr_plugin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css';
             $stcr_font_awesome_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
 			wp_register_style( 'stcr-plugin-style', $stcr_plugin_css );
-            wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
             // Enqueue the styles
             wp_enqueue_style('stcr-plugin-style');
-            wp_enqueue_style('stcr-font-awesome');
+
+            // Font Awesome
+            if( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" )
+            {
+                wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
+                wp_enqueue_style('stcr-font-awesome');
+            }
 		}
 		/**
 		 * Hooking scripts for plugin pages.

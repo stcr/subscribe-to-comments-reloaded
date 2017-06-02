@@ -259,6 +259,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			add_option( 'subscribe_reloaded_enable_log_data', 'no', '', 'yes' );
 			add_option( 'subscribe_reloaded_auto_clean_log_data', 'yes', '', 'yes' );
 			add_option( 'subscribe_reloaded_auto_clean_log_frecuency', 'daily', '', 'yes' );
+			add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
 
 		}
 		/**
