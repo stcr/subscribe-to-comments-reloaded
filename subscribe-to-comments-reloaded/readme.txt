@@ -4,8 +4,8 @@ Contributors: reedyseth, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
-Tested up to: 4.7.5
-Stable tag: 170428
+Tested up to: 4.8
+Stable tag: 170607
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+= v170607 =
+**Fix Critical Bug** This version fix a critical bug on fresh installation regarding a database table creation.
+
 = v170428 =
 **Fix issues** This version fix a few bug reported on GitHub and also includes an improvement on the management page. See the change log for more details.
 
@@ -151,6 +154,11 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v170607 =
+
+* **Fix Critical Bug** This version fix a critical bug on fresh installation regarding a database table creation.
+* **Add** Option to control the inclusion of the style Font Awesome [issue#344](https://github.com/stcr/subscribe-to-comments-reloaded/issues/344).
 
 = v170428 =
 
