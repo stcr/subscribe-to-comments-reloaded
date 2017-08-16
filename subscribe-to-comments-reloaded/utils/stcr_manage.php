@@ -478,6 +478,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			return $_s;
 		}
 		// end add_config_menu
+
 		/**
 		 * Dispaly the stcr_option_manage_subscriptions template
 		 * @since 160316

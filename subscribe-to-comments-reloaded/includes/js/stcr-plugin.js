@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
 			if($this.find(':input[type="submit"]').length)
 			{
 				stcr_form.remove(), $this.before(stcr_form);
-				jQuery('div.stcr-form').removeClass( 'hidden' );
+				jQuery('div.stcr-form').removeClass( 'stcr-hidden' );
 				return false; // Break the each() loop.
 			}
 		});

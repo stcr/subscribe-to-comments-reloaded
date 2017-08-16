@@ -304,11 +304,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             // Enqueue Scripts
             wp_enqueue_script('stcr-plugin-js');
 			// Styles
-			$stcr_plugin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css';
+			// $stcr_plugin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css';
             $stcr_font_awesome_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
-			wp_register_style( 'stcr-plugin-style', $stcr_plugin_css );
+			//wp_register_style( 'stcr-plugin-style', $stcr_plugin_css );
             // Enqueue the styles
-            wp_enqueue_style('stcr-plugin-style');
+            //wp_enqueue_style('stcr-plugin-style');
 
             // Font Awesome
             if( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" )
