@@ -4,8 +4,8 @@ Contributors: reedyseth, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
-Tested up to: 4.7-alpha
-Stable tag: 160915
+Tested up to: 4.8
+Stable tag: 170607
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,8 +44,9 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 = Where can I give a Donation to support the plugin? =
 Thank you to your contributions the plugin gets better, please go to this [link](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted) to give a PayPal donation.
 
-= Are there any video tutorials?
+= Are there any video tutorials? =
 Yeah, I have uploaded a few videos for the following topics:
+
 1. Issues [Updating StCR via WordPress Update](https://youtu.be/Lb6cVx2bBU8)
 2. Issues with StCR links see [StCR Clickable Links](https://youtu.be/eFW-2NIRzBA)
 3. Issues with empty emails or management messages? see [StCR Mamagement Message](https://youtu.be/yRxOY8yq_cc)
@@ -96,6 +97,12 @@ Just go to the Options Panel and click the generate button. By generating a new 
 6. Check the number of subscribers in your posts.
 
 == Upgrade Notice ==
+
+= v170607 =
+**Fix Critical Bug** This version fix a critical bug on fresh installation regarding a database table creation.
+
+= v170428 =
+**Fix issues** This version fix a few bug reported on GitHub and also includes an improvement on the management page. See the change log for more details.
 
 = v160915 =
 **Fix issues** This version fix the StCR position in the comment form. Small improvement in the Management Page.
@@ -148,12 +155,37 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 
 == Changelog ==
 
+= v170607 =
+
+* **Fix Critical Bug** This version fix a critical bug on fresh installation regarding a database table creation.
+* **Add** Option to control the inclusion of the style Font Awesome [issue#344](https://github.com/stcr/subscribe-to-comments-reloaded/issues/344).
+
+= v170428 =
+
+* **Fix** broken code while using BBCode plugin. This cause the select all subscriptions to be broken [issue#56](https://github.com/stcr/subscribe-to-comments-reloaded/issues/56).
+* **Fix** wrong link on the StCR column under the comments list. [Issue#328](https://github.com/stcr/subscribe-to-comments-reloaded/issues/328)
+* **Fix** double check confirmation link with missing srek key. [issue#329 & issue#305](https://github.com/stcr/subscribe-to-comments-reloaded/issues/329).
+* **Fix** error that the plugin was no delivering notifications when a user A was subscribe and user B was not subscribe and replying to user A message. [issue#324](https://github.com/stcr/subscribe-to-comments-reloaded/issues/324).
+* **Fix** confusing options when trying to select all the subscriptions or invert on the management page. [issue#339](https://github.com/stcr/subscribe-to-comments-reloaded/issues/339).
+* **Fix** non translated text on the new Management Page.
+* **Add** RC status to the translate array. [Issue#330](https://github.com/stcr/subscribe-to-comments-reloaded/issues/330).
+* **Add** options on the *StCR Menu* to control the usage of the log file. **Add** option to auto purge the log file or disable the loggin. [Issue#312](https://github.com/stcr/subscribe-to-comments-reloaded/issues/312).
+* **Add** Font Awesome to have a nicer UI.
+* **Add** option to disable the subscription/dropdown from the comment from. [issue#183](https://github.com/stcr/subscribe-to-comments-reloaded/issues/183).
+* **Add** the permalink to the confirmation page so that the user can return to the post where the requested to be subscribed.
+* **Improve** the UI of the Management Page to be more friendly. Delete the leyend and instead add the complete subs status.
+* **New feature** to include the WordPress Gravatar on the notification message. Suggested by @lolobu on [issue#188](https://github.com/stcr/subscribe-to-comments-reloaded/issues/188).
+* **New feature**. **Add** a back to post button to the Author/Admin page and the User page. This will allow the user to return to where they were. [issue#254](https://github.com/stcr/subscribe-to-comments-reloaded/issues/254).
+* **Remove** the Activate status from the dropdown menu of the management page, this value has no purpose on this version.
+* **Improve** Auto fill the email address to the request management page and the subscribe without commenting page when the user is logged in in WordPress. [issue#325](https://github.com/stcr/subscribe-to-comments-reloaded/issues/325).
+* **Improve** the validation of $sre and $srek keys on the `wp_subscribe_reloaded\subscribe_reloaded_manage()` to avoid sending null values to the logger and the get the correct email information.
+
 = v160915 =
 
-**Fix** StCR checkbox position. Some WordPress themes does not use the latest WordPress standard and therefore the hook `comment_form_submit_field` does not work, as a result the checkbox is not visible. To force the checkbox visibility a new options called **a** was added in order to make the checkbox visible. See [issue#260](https://github.com/stcr/subscribe-to-comments-reloaded/issues/260)
-**Improve** Email validation for empty values and using a regex.
-**Improve** StCR update detection. Using the WordPress **Shiny Update** does not trigger the activate hook correctly.
-**Change** Radio buttons in the management page for a dropdown menu. Props[issue#247](https://github.com/stcr/subscribe-to-comments-reloaded/issues/247#issuecomment-242662558)
+* **Fix** StCR checkbox position. Some WordPress themes does not use the latest WordPress standard and therefore the hook `comment_form_submit_field` does not work, as a result the checkbox is not visible. To force the checkbox visibility a new options called **a** was added in order to make the checkbox visible. See [issue#260](https://github.com/stcr/subscribe-to-comments-reloaded/issues/260)
+* **Improve** Email validation for empty values and using a regex.
+* **Improve** StCR update detection. Using the WordPress **Shiny Update** does not trigger the activate hook correctly.
+* **Change** Radio buttons in the management page for a dropdown menu. Props[issue#247](https://github.com/stcr/subscribe-to-comments-reloaded/issues/247#issuecomment-242662558)
 
 = v160902 =
 

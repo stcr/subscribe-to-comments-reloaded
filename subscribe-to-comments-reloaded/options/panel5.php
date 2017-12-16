@@ -24,6 +24,10 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 } else {
 	// Update options
 	if ( isset( $_POST['options'] ) ) {
+	    // show_subscription_box
+        if ( isset( $_POST['options']['show_subscription_box'] ) && ! subscribe_reloaded_update_option( 'show_subscription_box', $_POST['options']['show_subscription_box'], 'yesno' ) ) {
+            $faulty_fields = __( 'Show StCR checkbox / dropdown', 'subscribe-reloaded' ) . ', ';
+        }
 		if ( isset( $_POST['options']['safely_uninstall'] ) && ! subscribe_reloaded_update_option( 'safely_uninstall', $_POST['options']['safely_uninstall'], 'yesno' ) ) {
 			$faulty_fields = __( 'Safetly Uninstall', 'subscribe-reloaded' ) . ', ';
 		}
@@ -57,6 +61,9 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 		if ( isset( $_POST['options']['admin_bcc'] ) && ! subscribe_reloaded_update_option( 'admin_bcc', $_POST['options']['admin_bcc'], 'yesno' ) ) {
 			$faulty_fields = __( 'BCC admin on Notifications', 'subscribe-reloaded' ) . ', ';
 		}
+        if ( isset( $_POST['options']['enable_font_awesome'] ) && ! subscribe_reloaded_update_option( 'enable_font_awesome', $_POST['options']['enable_font_awesome'], 'yesno' ) ) {
+            $faulty_fields = __( 'Enable Font Awesome', 'subscribe-reloaded' ) . ', ';
+        }
 		// Display an alert in the admin interface if something went wrong
 		echo '<div class="updated fade"><p>';
 		if ( empty( $faulty_fields ) ) {
@@ -74,6 +81,15 @@ wp_print_scripts( 'quicktags' );
 ?>
 <form action="" method="post">
 	<table class="form-table <?php echo $wp_locale->text_direction ?>">
+        <tr>
+            <th scope="row">
+                <label for="show_subscription_box"><?php _e( 'Show StCR checkbox / dropdown', 'subscribe-reloaded' ) ?></label></th>
+            <td>
+                <input type="radio" name="options[show_subscription_box]" id="show_subscription_box" value="yes"<?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="options[show_subscription_box]" value="no" <?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                <div class="description"><?php _e( 'This option will disable the StCR checkbox or dropdown in you comment form. You should leave it to Yes always.  ', 'subscribe-reloaded' ); ?></div>
+            </td>
+        </tr>
 		<tr>
 			<th scope="row">
 				<label for="safely_uninstall"><?php _e( 'Safely Uninstall', 'subscribe-reloaded' ) ?></label></th>
@@ -174,6 +190,15 @@ wp_print_scripts( 'quicktags' );
 				<div class="description"><?php _e( 'Send a copy of all Notifications to the administrator.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
+        <tr>
+            <th scope="row">
+                <label for="enable_font_awesome"><?php _e( 'Enable Font Awesome', 'subscribe-reloaded' ) ?></label></th>
+            <td>
+                <input type="radio" name="options[enable_font_awesome]" id="enable_font_awesome" value="yes"<?php echo ( subscribe_reloaded_get_option( 'enable_font_awesome' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="options[enable_font_awesome]" value="no" <?php echo ( subscribe_reloaded_get_option( 'enable_font_awesome' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                <div class="description"><?php _e( 'Let you control the inclusion of the Font Awesome into your site. Disable if you theme already add this into your site.', 'subscribe-reloaded' ); ?></div>
+            </td>
+        </tr>
 		<tr>
 			<th scope="row">
 				<label for="admin_bcc"><?php _e( 'StCR Unique Key', 'subscribe-reloaded' ) ?></label></th>
@@ -202,7 +227,6 @@ wp_print_scripts( 'quicktags' );
 				?>
 			</td>
 		</tr>
-		</tbody>
 	</table>
 	<p class="submit"><input type="submit" value="<?php _e( 'Save Changes' ) ?>" class="button-primary" name="Submit">
 	</p>

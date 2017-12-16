@@ -166,6 +166,7 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 	// Let us forme those status
 	$status_arry = array(
 			'R'  => __( 'Replies', 'subscribe-reloaded'),
+			'RC'  => __( 'Replies Unconfirmed', 'subscribe-reloaded'),
 			'Y'  => __( "All Comments", "subscribe-reloaded"),
 			'YC' => __( "Unconfirmed", "subscribe-reloaded"),
 			'C'	 => __( "Inactive", "subscribe-reloaded"),

@@ -48,5 +48,73 @@ jQuery(document).ready(function($){
 			alert("Your email address is not valid.!!");
 		}
 	});
+    /**
+     * Select all subscriptions
+     *
+     * @since 18-Apr-2017
+     * @author reedyseth
+     */
+    jQuery('form[name="post_list_form"]').on('click','.stcr-subs-select-all', function(event) {
+        var checkbox = jQuery('form[name="post_list_form"] table input[type="checkbox"] ');
+
+        checkbox.each(function(index,  element){
+            $(this).attr('checked','checked');
+        });
+
+        event.preventDefault();
+
+        return false;
+    });
+    /**
+     * Deselect all subscriptions
+     *
+     * @since 18-Apr-2017
+     * @author reedyseth
+     */
+    jQuery('form[name="post_list_form"]').on('click','.stcr-subs-select-none', function(event) {
+        var checkbox = jQuery('form[name="post_list_form"] table input[type="checkbox"] ');
+
+        checkbox.each(function(index,  element){
+            $(this).removeAttr('checked');
+        });
+
+        event.preventDefault();
+
+        return false;
+    });
+    /**
+     * Select all subscribers
+     *
+     * @since 18-Apr-2017
+     * @author reedyseth
+     */
+    jQuery('form[name="email_list_form"]').on('click','.stcr-subs-select-all', function(event) {
+        var checkbox = jQuery('form[name="email_list_form"] table input[type="checkbox"] ');
+
+        checkbox.each(function(index,  element){
+			$(this).attr('checked','checked');
+		});
+
+        event.preventDefault();
+
+        return false;
+    });
+    /**
+     * Deselect all subscribers
+     *
+     * @since 18-Apr-2017
+     * @author reedyseth
+     */
+    jQuery('form[name="email_list_form"]').on('click','.stcr-subs-select-none', function(event) {
+        var checkbox = jQuery('form[name="email_list_form"] table input[type="checkbox"] ');
+
+        checkbox.each(function(index,  element){
+            $(this).removeAttr('checked');
+        });
+
+        event.preventDefault();
+
+        return false;
+    });
 });
 

@@ -6,8 +6,13 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 global $wp_subscribe_reloaded;
-$wp_subscribe_reloaded->stcr->utils->register_plugin_scripts();
-$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
+
+$current_user_email = null; // Comes from wp_subscribe-to-comments-reloaded\subscribe_reloaded_manage()
+
+if ( isset($current_user) && $current_user->ID > 0 )
+{
+    $current_user_email = $current_user->data->user_email;
+}
 
 ob_start();
 $post_permalink = get_permalink( $post_ID );
@@ -74,7 +79,19 @@ if ( ! empty( $email ) ) {
 	echo wpautop($message);
 }
 else {
-	$email = isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? $_COOKIE['comment_author_email_' . COOKIEHASH] : 'email';
+    if ( isset($current_user_email) )
+    {
+        $email = $current_user_email;
+    }
+    else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ))
+    {
+        $email = $_COOKIE['comment_author_email_' . COOKIEHASH];
+    }
+    else
+    {
+        $email = 'email';
+    }
+
 ?>
 	<p><?php
 	$message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );

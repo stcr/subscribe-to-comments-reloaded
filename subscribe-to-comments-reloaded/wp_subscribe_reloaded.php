@@ -40,6 +40,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
 			// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
 			add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
+			add_action('_cron_log_file_purge', array($this, 'log_file_purge'), 10 );
 
 			// Load Text Domain
 			add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
@@ -126,7 +127,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		}
 
 		/**
-		 * Retrieves the comment information from the databse
+		 * Retrieves the comment information from the database
 		 */
 		public function _get_comment_object( $_comment_ID ) {
 			global $wpdb;
@@ -166,35 +167,36 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			// Did this visitor request to be subscribed to the discussion? (and s/he is not subscribed)
 			if ( ! empty( $_POST['subscribe-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
-				if ( ! in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
-					return $_comment_ID;
-				}
+			    // Check that the user select a valid subscription status, otherwise skip the subscription addition and continue to notify the
+                // users that are subscribe.
+				if ( in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
 
-				switch ( $_POST['subscribe-reloaded'] ) {
-					case 'replies':
-						$status = 'R';
-						break;
-					case 'digest':
-						$status = 'D';
-						break;
-					default:
-						$status = 'Y';
-						break;
-				}
+                    switch ($_POST['subscribe-reloaded']) {
+                        case 'replies':
+                            $status = 'R';
+                            break;
+                        case 'digest':
+                            $status = 'D';
+                            break;
+                        default:
+                            $status = 'Y';
+                            break;
+                    }
 
-				if ( ! $this->is_user_subscribed( $info->comment_post_ID, $info->comment_author_email ) ) {
-					if ( $this->isDoubleCheckinEnabled( $info ) ) {
-						$this->sendConfirmationEMail( $info );
-						$status = "{$status}C";
-					}
-					$this->add_subscription( $info->comment_post_ID, $info->comment_author_email, $status );
+                    if (!$this->is_user_subscribed($info->comment_post_ID, $info->comment_author_email)) {
+                        if ($this->isDoubleCheckinEnabled($info)) {
+                            $this->sendConfirmationEMail($info);
+                            $status = "{$status}C";
+                        }
+                        $this->add_subscription($info->comment_post_ID, $info->comment_author_email, $status);
 
-					// If comment is in the moderation queue
-					if ( $info->comment_approved == 0 ) {
-						//don't send notification-emails to all subscribed users
-						return $_comment_ID;
-					}
-				}
+                        // If comment is in the moderation queue
+                        if ($info->comment_approved == 0) {
+                            //don't send notification-emails to all subscribed users
+                            return $_comment_ID;
+                        }
+                    }
+                }
 			}
 
 			// Send a notification to all the users subscribed to this post
@@ -211,6 +213,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 						'Y'
 					)
 				);
+				// Now verify if the comments has a parent comment, if so, then this comment is a reply.
 				if ( ! empty( $info->comment_parent ) ) {
 					$subscriptions = array_merge(
 						$subscriptions, $this->get_subscriptions(
@@ -388,18 +391,32 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$sre    	   = ! empty( $_POST['sre'] )  ? $_POST['sre']     : ( ! empty( $_GET['sre'] )  ?  $_GET['sre']   : '' );
 			$srek   	   = ! empty( $_POST['srek'] ) ? $_POST['srek']    : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
 			$link_source   = ! empty( $_POST['srsrc'] ) ? $_POST['srsrc']  : ( ! empty( $_GET['srsrc'] ) ?  $_GET['srsrc']  : '' );
-			$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : 0 );
-
+			$key_expired   = ! empty( $_POST['key_expired'] ) ? $_POST['key_expired']  : ( ! empty( $_GET['key_expired'] ) ?  $_GET['key_expired']  : '0' );
+            // Check if the current subscriber has va email using the $srek key.
 			$email_by_key  = $this->utils->get_subscriber_email_by_key( $srek );
-
 			// Check for a valid SRE key, otherwise stop execution.
-			if( ! $email_by_key ){
+			if( ! $email_by_key && ! empty($srek) ){
 				$this->utils->stcr_logger( "\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n" );
-				$email =  $sre;
+                $email = '';
 			}
 			else
 			{
-				$email = $email_by_key;
+			    if ( ! $email_by_key && empty($sre) )
+                {
+                    $email = '';
+                }
+                else if( $email_by_key && ! empty($email_by_key) )
+                {
+                    $email = $email_by_key;
+                }
+                else if ( ! empty($sre) )
+                {
+                    $email = $sre;
+                }
+                else
+                {
+                    $email = '';
+                }
 			}
 			// Check the link source
 			if( $link_source == "f" ) // Comes from the comment form.
@@ -949,6 +966,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$post_permalink          = get_permalink( $_post_ID );
 			$comment_permalink       = get_comment_link( $_comment_ID );
 			$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
+            $info                    = $this->_get_comment_object( $_comment_ID );
 
 			// WPML compatibility
 			if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
@@ -990,6 +1008,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$message = str_replace( '[comment_content]', $comment_content, $message );
 			$message = str_replace( '[manager_link]', $manager_link, $message );
 			$message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
+            $message = str_replace( '[comment_gravatar]', get_avatar($info->comment_author_email, 40), $message );
 
 			// QTranslate support
 			if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
@@ -1022,7 +1041,10 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		function subscribe_reloaded_show($submit_field = '') {
 			global $post, $wp_subscribe_reloaded;
 			$checkbox_subscription_type = null;
-			$_comment_ID = null;
+            $_comment_ID = null;
+            $post_permalink = get_permalink( $post->ID );
+            $post_permalink = "post_permalink=" . $post_permalink;
+
 
 			// Enable JS scripts.
 			 $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
@@ -1045,6 +1067,10 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				"$user_link&amp;srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' ) :
 				"$user_link?srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' );
 
+            $user_link = ( strpos( $user_link, '?' ) !== false ) ?
+                "$user_link&" . $post_permalink :
+                "$user_link?" . $post_permalink;
+
 			if ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '', 'C' ) ) {
 				$html_to_show          = str_replace(
 					'[manager_link]', $user_link,
@@ -1053,7 +1079,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				$show_subscription_box = false;
 			} elseif ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '' ) ) {
 				$html_to_show          = str_replace(
-					'[manager_link]', $user_link,
+					'[manager_link]', $user_link ,
 					__( html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions." ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' )
 				);
 				$show_subscription_box = false;
