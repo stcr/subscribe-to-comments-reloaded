@@ -318,7 +318,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			$this->upgrade->_import_stc_data();
 
 			// Import data from Comment Reply Notification, if needed
-			$this->upgrade->_import_crn_data();
+            // Function deprecated and not in use anymore.
+			// $this->upgrade->_import_crn_data();
 
 			// Starting from version 2.0 StCR uses Wordpress' tables to store the information about subscriptions
 			$this->upgrade->_update_db();

@@ -178,7 +178,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 		}
 		// end _import_stc_data
 		/**
-		 * Imports subscription data created with the Comment Reply Notification plugin
+		 * Imports subscription data created with the Comment Reply Notification plugin. This function is deprecated is not in use anymore.
+         *
+         * @deprecated
 		 * @since 13-May-2014
 		 */
 		public function _import_crn_data() {
@@ -205,7 +207,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 				);
 				$stcr_data            = $wpdb->get_results(
 					" SELECT post_id, SUBSTRING(meta_key,8) AS email"
-					. "FROM wp_postmeta WHERE meta_key LIKE '_stcr@_%'"
+					. " FROM wp_postmeta WHERE meta_key LIKE '_stcr@_%'"
 					, ARRAY_N
 				);
 				$sctr_data_array_size = sizeof( $stcr_data );
