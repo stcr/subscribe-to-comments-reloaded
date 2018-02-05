@@ -332,6 +332,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			if ( ! get_option( 'subscribe_reloaded_subscriber_table' ) || get_option( 'subscribe_reloaded_subscriber_table' ) == 'no') {
 				$this->upgrade->_create_subscriber_table( $this->fresh_install );
 			}
+			// Apply Patches
+            $this->upgrade->apply_patches();
 		}
 
 		/**

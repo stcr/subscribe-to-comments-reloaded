@@ -26,6 +26,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
             $this->_db_collate    = "DEFAULT CHARSET={$this->_stcr_charset} COLLATE={$this->_stcr_collate}";
         }
 
+        public function apply_patches()
+        {
+            $this->patch_collation();
+        }
+
         public function _create_subscriber_table( $_fresh_install ) {
 			global $wpdb;
 			$errorMsg        = '';
@@ -570,5 +575,69 @@ https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=U
 				}
 			}
 		}
+
+		private function patch_collation()
+        {
+            global $wpdb;
+            $wp_postmeta_table_data     = $wpdb->get_results( 'SHOW TABLE STATUS LIKE \''. $wpdb->prefix .'postmeta\'' );
+            $wp_stcr_subs_table_data    = $wpdb->get_results( 'SHOW TABLE STATUS LIKE \''. $wpdb->prefix .'subscribe_reloaded_subscribers\'' );
+            $wp_postmeta_collation_data = $wpdb->get_results( 'SHOW COLLATION' );
+
+            $wp_postmeta_collation  = $wp_postmeta_table_data[0]->Collation;
+            $wp_stcr_subs_collation = $wp_stcr_subs_table_data[0]->Collation;
+            // Check Collation
+            if( $wp_postmeta_collation !== $wp_stcr_subs_collation )
+            {
+                // Get database collations
+                $database_collations = $wpdb->get_results( 'SHOW COLLATION' );
+                $collations = array();
+
+                if( ! empty($database_collations))
+                {
+                    foreach ( $database_collations as $collation)
+                    {
+                        $collations[$collation->Collation] = $collation->Charset;
+                    }
+                    //$collations = array_unique($collations, SORT_STRING);
+                }
+                // Update subscribe_reloaded_subscribers table collation
+                $new_charset = $collations[$wp_postmeta_collation];
+                $new_collation = $wp_postmeta_collation;
+                $sql = 'ALTER TABLE '. $wpdb->prefix .'subscribe_reloaded_subscribers CONVERT TO CHARACTER SET '. $new_charset .' COLLATE '. $new_collation;
+                $result = $wpdb->query( $sql );
+
+                if( $result !== false ) // Query executed without any error.
+                {
+                    // Update subscribe_reloaded_subscribers columns collation
+                    $sql = 'ALTER TABLE '. $wpdb->prefix .'subscribe_reloaded_subscribers CHANGE subscriber_email subscriber_email VARCHAR(100) CHARACTER SET '. $new_charset .' COLLATE '. $new_collation .' NOT NULL';
+                    $result = $wpdb->query( $sql );
+
+                    if( $result !== false ) // Query executed without any error.
+                    {
+                        $sql = 'ALTER TABLE '. $wpdb->prefix .'subscribe_reloaded_subscribers CHANGE subscriber_unique_id subscriber_unique_id VARCHAR(50) CHARACTER SET '. $new_charset .' COLLATE '. $new_collation .' NOT NULL';
+                        $result = $wpdb->query( $sql );
+
+                        if( $result === false ) // Query executed without any error.
+                        {
+                            // Log query execution.
+                            $this->stcr_logger("Error while updating the collation for the subscribe_reloaded_subscribers COLUMN subscriber_unique_id.");
+                            $this->stcr_logger("\nDatabase Error: \" $wpdb->last_error \"\n");
+                        }
+                    }
+                    else
+                    {
+                        // Log query execution.
+                        $this->stcr_logger("Error while updating the collation for the subscribe_reloaded_subscribers table COLUMN subscriber_email");
+                        $this->stcr_logger("\nDatabase Error: \" $wpdb->last_error \"\n");
+                    }
+                }
+                else
+                {
+                    // Log query execution.
+                    $this->stcr_logger("Error while updating the collation for the subscribe_reloaded_subscribers table");
+                    $this->stcr_logger("\nDatabase Error: \" $wpdb->last_error \"\n");
+                }
+            }
+        }
 	}
 }
