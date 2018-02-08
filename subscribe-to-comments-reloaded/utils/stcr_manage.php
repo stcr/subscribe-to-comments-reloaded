@@ -240,12 +240,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			add_option( 'subscribe_reloaded_from_name', get_bloginfo( 'name' ), '', 'yes' );
 			add_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ), '', 'yes' );
 			add_option( 'subscribe_reloaded_notification_subject', __( 'There is a new comment to [post_title]', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_notification_content', __( "There is a new comment to [post_title].\nComment Link: [comment_permalink]\nAuthor: [comment_author]\nComment:\n[comment_content]\nPermalink: [post_permalink]\nManage your subscriptions: [manager_link]", 'subscribe-reloaded' ), '', 'yes' );
+			add_option( 'subscribe_reloaded_notification_content', __( "<h1>There is a new comment on [post_title].</h1>\n\n<hr />\n<strong>Comment link:</strong> <a href=\"[comment_permalink]\">[comment_permalink]</a>\n<strong>Author:</strong> [comment_author]\n\n<strong>Comment:</strong>\n[comment_content]\n<div style=\"font-size: 0.8em;\"><strong>Permalink:</strong> <a href=\"[post_permalink]\">[post_permalink]</a>\n<a href=\"[manager_link]\">Manage your subscriptions</a> | <a href=\"[oneclick_link]\">One click unsubscribe</a></div>", 'subscribe-reloaded' ), '', 'yes' );
 			add_option( 'subscribe_reloaded_double_check_subject', __( 'Please confirm your subscription to [post_title]', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_double_check_content', __( "You have requested to be notified every time a new comment is added to:\n[post_permalink]\n\nPlease confirm your request by clicking on this link:\n[confirm_link]", 'subscribe-reloaded' ), '', 'yes' );
+			add_option( 'subscribe_reloaded_double_check_content', __( "You have requested to be notified every time a new comment is added to:\n<a href='[post_permalink]'>[post_permalink]</a>\n\nPlease confirm your request by clicking on this link:\n<a href='[confirm_link]'>[confirm_link]</a>", 'subscribe-reloaded' ), '', 'yes' );
 			add_option( 'subscribe_reloaded_management_subject', __( 'Manage your subscriptions on [blog_name]', 'subscribe-reloaded' ) );
 			add_option( 'subscribe_reloaded_management_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Please check the Subscriptions management link in your email", 'subscribe-reloaded' ) );
-			add_option( 'subscribe_reloaded_management_email_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n[manager_link]", 'subscribe-reloaded' ) );
+			add_option( 'subscribe_reloaded_management_email_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n<a href='[manager_link]'>[manager_link]</a>", 'subscribe-reloaded' ) );
 
 			add_option( 'subscribe_reloaded_purge_days', '30', '', 'yes' );
 			add_option( 'subscribe_reloaded_enable_double_check', 'no', '', 'yes' );

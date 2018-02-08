@@ -125,7 +125,7 @@ wp_print_scripts( 'quicktags' );
 					   value="<?php echo subscribe_reloaded_get_option( 'reply_to' ); ?>" size="50">
 
 				<div class="description">
-					<?php _e( 'This will be use when the user click reply on their email agent. If not set will be the same as the Sender email address.', 'subscribe-reloaded' ); ?>
+					<?php _e( 'This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>
@@ -168,7 +168,7 @@ wp_print_scripts( 'quicktags' );
 				?>
 				<div class="description" style="padding-top:0">
 					<?php _e( 'Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]', 'subscribe-reloaded' ); ?>
-					<?php _e( '<p><strong>Note: To get a default template clear all the content and save the options.</strong></p>', 'subscribe-reloaded' ); ?>
+					<?php _e( '<p style="color: #156dc7;"><strong>Note: To get a default template clear all the content and save the options.</strong></p>', 'subscribe-reloaded' ); ?>
 				</div>
 			</td>
 		</tr>

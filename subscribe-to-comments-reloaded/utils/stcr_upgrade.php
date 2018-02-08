@@ -412,8 +412,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 					'unread',
 					'<p>' . __('<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>.', 'subscribe-reloaded') . '</p>' .
 					'<p>' . __('If you find a bug or an issue you can report it <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues" target="_blank">here</a>.', 'subscribe-reloaded') . '</p>' .
-					'<p>' . __('Please consider to make a donation to support the plugin, you can donate via <a href="
-https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">PayPal</a>.', 'subscribe-reloaded') . '</p>' .
+                    '<h2>' . __('Please consider to make a donation to support the plugin. You can donate via <i class="fa fa-paypal" aria-hidden="true"></i> <a href="
+https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">PayPal</a>.', 'subscribe-reloaded') . '</h2>' .
 					'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for detailed information on plugin changes.'
 						. '<a class="dismiss" href="#">Dismiss.  </a>'
 						. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
