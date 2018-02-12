@@ -23,23 +23,23 @@ if ( isset( $_POST['options'] ) ) {
 	if ( isset( $_POST['options']['default_subscription_type'] ) && ! subscribe_reloaded_update_option( 'default_subscription_type', $_POST['options']['default_subscription_type'], 'integer' ) ) {
 		$faulty_fields = __( 'Advanced subscription', 'subscribe-reloaded' ) . ', ';
 	}
-	if ( isset( $_POST['options']['checkbox_inline_style'] ) && ! subscribe_reloaded_update_option( 'checkbox_inline_style', $_POST['options']['checkbox_inline_style'], 'text-no-encode' ) ) {
+	if ( isset( $_POST['options']['checkbox_inline_style'] ) && ! subscribe_reloaded_update_option( 'checkbox_inline_style', $_POST['options']['checkbox_inline_style'], 'text-html' ) ) {
 		$faulty_fields = __( 'Custom inline style', 'subscribe-reloaded' ) . ', ';
 	}
-	if ( isset( $_POST['options']['checkbox_html'] ) && ! subscribe_reloaded_update_option( 'checkbox_html', $_POST['options']['checkbox_html'], 'text-no-encode' ) ) {
+	if ( isset( $_POST['options']['checkbox_html'] ) && ! subscribe_reloaded_update_option( 'checkbox_html', $_POST['options']['checkbox_html'], 'text-html' ) ) {
 		$faulty_fields = __( 'Custom HTML', 'subscribe-reloaded' ) . ', ';
 	}
 	// default_subscription_type
-	if ( isset( $_POST['options']['checkbox_label'] ) && ! subscribe_reloaded_update_option( 'checkbox_label', $_POST['options']['checkbox_label'], 'text-no-encode' ) ) {
+	if ( isset( $_POST['options']['checkbox_label'] ) && ! subscribe_reloaded_update_option( 'checkbox_label', $_POST['options']['checkbox_label'], 'text-html' ) ) {
 		$faulty_fields = __( 'Checkbox label', 'subscribe-reloaded' ) . ', ';
 	}
-	if ( isset( $_POST['options']['subscribed_label'] ) && ! subscribe_reloaded_update_option( 'subscribed_label', $_POST['options']['subscribed_label'], 'text-no-encode' ) ) {
+	if ( isset( $_POST['options']['subscribed_label'] ) && ! subscribe_reloaded_update_option( 'subscribed_label', $_POST['options']['subscribed_label'], 'text-html' ) ) {
 		$faulty_fields = __( 'Subscribed label', 'subscribe-reloaded' ) . ', ';
 	}
-	if ( isset( $_POST['options']['subscribed_waiting_label'] ) && ! subscribe_reloaded_update_option( 'subscribed_waiting_label', $_POST['options']['subscribed_waiting_label'], 'text-no-encode' ) ) {
+	if ( isset( $_POST['options']['subscribed_waiting_label'] ) && ! subscribe_reloaded_update_option( 'subscribed_waiting_label', $_POST['options']['subscribed_waiting_label'], 'text-html' ) ) {
 		$faulty_fields = __( 'Awaiting label', 'subscribe-reloaded' ) . ', ';
 	}
-	if ( isset( $_POST['options']['author_label'] ) && ! subscribe_reloaded_update_option( 'author_label', $_POST['options']['author_label'], 'text-no-encode' ) ) {
+	if ( isset( $_POST['options']['author_label'] ) && ! subscribe_reloaded_update_option( 'author_label', $_POST['options']['author_label'], 'text-html' ) ) {
 		$faulty_fields = __( 'Author label', 'subscribe-reloaded' ) . ', ';
 	}
 

@@ -18,38 +18,38 @@ if ( isset( $_POST['options'] ) ) {
 		$faulty_fields = __( 'Page title', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['manager_page'] )
-		&& ! subscribe_reloaded_update_option( 'manager_page', $_POST['options']['manager_page'], 'text-no-encode' )
+		&& ! subscribe_reloaded_update_option( 'manager_page', $_POST['options']['manager_page'], 'url' )
 	) {
 		$faulty_fields = __( 'Management URL', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['custom_header_meta'] )
-		&& ! subscribe_reloaded_update_option( 'custom_header_meta', $_POST['options']['custom_header_meta'], 'text-no-encode' )
+		&& ! subscribe_reloaded_update_option( 'custom_header_meta', $_POST['options']['custom_header_meta'], 'text-html' )
 	) {
 		$faulty_fields = __( 'Custom HEAD meta', 'subscribe-reloaded' ) . ', ';
 	}
 
 	if ( isset( $_POST['options']['request_mgmt_link'] )
-		&& ! subscribe_reloaded_update_option( 'request_mgmt_link', $_POST['options']['request_mgmt_link'], 'text' )
+		&& ! subscribe_reloaded_update_option( 'request_mgmt_link', $_POST['options']['request_mgmt_link'], 'text-html' )
 	) {
 		$faulty_fields = __( 'Request link', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['request_mgmt_link_thankyou'] )
-		&& ! subscribe_reloaded_update_option( 'request_mgmt_link_thankyou', $_POST['options']['request_mgmt_link_thankyou'], 'text' )
+		&& ! subscribe_reloaded_update_option( 'request_mgmt_link_thankyou', $_POST['options']['request_mgmt_link_thankyou'], 'text-html' )
 	) {
 		$faulty_fields = __( 'Request submitted', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['subscribe_without_commenting'] )
-		&& ! subscribe_reloaded_update_option( 'subscribe_without_commenting', $_POST['options']['subscribe_without_commenting'], 'text' )
+		&& ! subscribe_reloaded_update_option( 'subscribe_without_commenting', $_POST['options']['subscribe_without_commenting'], 'text-html' )
 	) {
 		$faulty_fields = __( 'Subscribe without commenting', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['subscription_confirmed'] )
-		&& ! subscribe_reloaded_update_option( 'subscription_confirmed', $_POST['options']['subscription_confirmed'], 'text' )
+		&& ! subscribe_reloaded_update_option( 'subscription_confirmed', $_POST['options']['subscription_confirmed'], 'text-html' )
 	) {
 		$faulty_fields = __( 'Subscription processed', 'subscribe-reloaded' ) . ', ';
 	}
 	if ( isset( $_POST['options']['subscription_confirmed_dci'] )
-		&& ! subscribe_reloaded_update_option( 'subscription_confirmed_dci', $_POST['options']['subscription_confirmed_dci'], 'text' )
+		&& ! subscribe_reloaded_update_option( 'subscription_confirmed_dci', $_POST['options']['subscription_confirmed_dci'], 'text-html' )
 	) {
 		$faulty_fields = __( 'Subscription processed (DCI)', 'subscribe-reloaded' ) . ', ';
 	}
