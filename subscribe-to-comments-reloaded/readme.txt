@@ -1,11 +1,12 @@
 === Subscribe To Comments Reloaded ===
-Author: reedyseth, camu
+Author: reedyseth
 Contributors: reedyseth, coolmann
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 170607
+Requires PHP: 5.3.13
+Tested up to: 4.9.4
+Stable tag: 180212
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +24,6 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 * Does not modify Wordpress core tables
 * Easily manage and search among your subscriptions
 * Imports Mark Jaquith's Subscribe To Comments (and its clones) data
-* Imports comments from Comment Reply Notification plugin
 * Messages are fully customizable, no poEdit required (and you can use HTML!) with a Rich Text Editor - WYSIWYG
 * Disable subscriptions for specific posts
 * One Click Unsubscribe
@@ -38,6 +38,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 5. Customize the Permalink value under Settings > Subscribe to Comments > Management Page > Management URL. It **must** reflect your permalinks' structure
 5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>` somewhere in your `comments.php`
 6. If you're upgrading from a previous version, please **make sure to deactivate/activate** StCR.
+7. You can always install the latest development version by taking a look at this [Video](https://youtu.be/uQwkBciyFGY)
 
 == Frequently Asked Questions ==
 
@@ -49,19 +50,21 @@ Yeah, I have uploaded a few videos for the following topics:
 
 1. Issues [Updating StCR via WordPress Update](https://youtu.be/Lb6cVx2bBU8)
 2. Issues with StCR links see [StCR Clickable Links](https://youtu.be/eFW-2NIRzBA)
-3. Issues with empty emails or management messages? see [StCR Mamagement Message](https://youtu.be/yRxOY8yq_cc)
+3. Issues with empty emails or management messages? see [StCR Management Message](https://youtu.be/yRxOY8yq_cc)
+4. Upgrading from the latest development version see [Upgrading](https://youtu.be/uQwkBciyFGY)
 
 = Why my notifications are not in HTML format? =
 Don't worry, just go to the Options tab an set to Yes the **Enable HTML emails** option.
 
 = How can I reset all the plugin options? =
 There is a new feature called **Safely Uninstall** that allow you to delete the plugin using the WordPress plugin interface. If you have the option set to **Yes** everything but the subscriptions created by the plugin will be wipeout. So after you made sure that you have this option to **Yes** you can deactivate the plugin and the delete it. Now you have to install the plugin via WordPress or Upload the plugin `zip` file and activate it, after this step all your settings will be as default and your subscriptions will remain.
+There is a new feature added on the Options tab where you can reset all the settings by using only one click. You can either wipe out all the subscriptions or keep them.
 
-= What can I do if the **Safely Unistall** does not have any value? =
+= What can I do if the **Safely Uninstall** does not have any value? =
 Just deactivate and activate the plugin and you are all set. The default value will be **Yes**.
 
 = Aaargh! Were did all my subscriptions go? =
-No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure
+No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure. After the version 180212 a fix was applied so that you can see all the subscriptions.
 
 = How do I create a 'real' management page? =
 Please refer to [this page](https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page) for a detailed step-by-step description on how to do that
@@ -95,8 +98,13 @@ Just go to the Options Panel and click the generate button. By generating a new 
 4. Customize the notification messages with a the wonderful WordPress Rich Text Editor - WYSIWYG
 5. Customize the plugin's behavior
 6. Check the number of subscribers in your posts.
+7. Manage the subscriptions on the Frontend Side.
 
 == Upgrade Notice ==
+
+= v180212 =
+**Security Patch** This version add a patch for some security issues.
+**Fix Critical Bug** This version fix a critical bug causing issues with wrong database collations.
 
 = v170607 =
 **Fix Critical Bug** This version fix a critical bug on fresh installation regarding a database table creation.
@@ -154,6 +162,21 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v180212 =
+
+* **Fix** the performance issue when enqueuing the CSS style. See [issue#361](https://github.com/stcr/subscribe-to-comments-reloaded/issues/361).
+* **Fix** issue with SQL syntax on the stcr_upgrade.php file. [Issue#352](https://github.com/stcr/subscribe-to-comments-reloaded/issues/352)
+* **Fix** database collations. When a new update is release the plugin check for the consistency of the collation between post_meta and StCR table.
+* **Fix** links that where on the notifications messages on new installations.
+* **Add** feature to reset all the StCR options including the option to delete all subscriptions or keep them.
+* **Remove** deprecated function to import comments from Comment Reply Plugin. [Issue#273](https://github.com/stcr/subscribe-to-comments-reloaded/issues/273) & [Issue#343](https://github.com/stcr/subscribe-to-comments-reloaded/issues/343).
+* **Improve** code and made more OOP the creation of default/new options.
+* **Improve** the default notification message to have all the links working and to have a better format.
+* **Improve** notice message on fresh installations.
+* **Improve** data validation to have a better and sanitize information save and read.
+* **Improve** the default settings on a fresh install to have all links workings and the default comment message template.
+* **Merge** the **You can help** and **Support Panel**.
 
 = v170607 =
 
