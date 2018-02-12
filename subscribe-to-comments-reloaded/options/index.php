@@ -62,7 +62,7 @@ $array_pages = array(
 	"stcr_notifications"        => __( 'Notifications', 'subscribe-reloaded' ),
 	"stcr_options"              => __( 'Options', 'subscribe-reloaded' ),
 	// "stcr_subscribers_emails"   => __( 'Subscribers Emails', 'subscribe-reloaded' ),
-	"stcr_you_can_help"         => __( 'You can help', 'subscribe-reloaded' ),
+//	"stcr_you_can_help"         => __( 'You can help', 'subscribe-reloaded' ),
 	"stcr_support"              => __( 'Support', 'subscribe-reloaded' ),
 	"stcr_donate"               => __( 'Donate', 'subscribe-reloaded' )
 );

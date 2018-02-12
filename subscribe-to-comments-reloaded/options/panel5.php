@@ -21,6 +21,25 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 		echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
 	}
 	echo "</p></div>\n";
+}
+elseif ( array_key_exists( "reset_all_options", $_POST ) ) {
+    global $wp_subscribe_reloaded;
+    $delete_subscriptions_selection = $_POST['options']['delete_options_subscriptions'];
+    $deletion_result = $wp_subscribe_reloaded->stcr->utils->delete_all_settings( $delete_subscriptions_selection );
+
+    if( $deletion_result )
+    {
+        // Restore settings
+        $wp_subscribe_reloaded->stcr->utils->create_options();
+    }
+    // Display an alert in the admin interface if something went wrong
+    echo '<div class="updated fade"><p>';
+    if ( $deletion_result ) {
+        _e( 'Your settings have been successfully reset.', 'subscribe-reloaded' );
+    } else {
+        _e( 'There was an error deleting the options:', 'subscribe-reloaded' );
+    }
+    echo "</p></div>\n";
 } else {
 	// Update options
 	if ( isset( $_POST['options'] ) ) {
@@ -63,6 +82,9 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 		}
         if ( isset( $_POST['options']['enable_font_awesome'] ) && ! subscribe_reloaded_update_option( 'enable_font_awesome', $_POST['options']['enable_font_awesome'], 'yesno' ) ) {
             $faulty_fields = __( 'Enable Font Awesome', 'subscribe-reloaded' ) . ', ';
+        }
+        if ( isset( $_POST['options']['delete_options_subscriptions'] ) && ! subscribe_reloaded_update_option( 'delete_options_subscriptions', $_POST['options']['delete_options_subscriptions'], 'yesno' ) ) {
+            $faulty_fields = __( 'Reset All Options', 'subscribe-reloaded' ) . ', ';
         }
 		// Display an alert in the admin interface if something went wrong
 		echo '<div class="updated fade"><p>';
@@ -227,6 +249,18 @@ wp_print_scripts( 'quicktags' );
 				?>
 			</td>
 		</tr>
+        <tr>
+            <th scope="row">
+                <label for="enable_font_awesome"><?php _e( 'Reset All Options', 'subscribe-reloaded' ) ?></label></th>
+            <td>
+                <div class="description"><?php _e( 'This will reset all the options and messages of the plugin. Please proceed with caution.', 'subscribe-reloaded' ); ?></div>
+                <br>
+                <input type="radio" name="options[delete_options_subscriptions]" id="delete_options_subscriptions" value="yes"<?php echo ( subscribe_reloaded_get_option( 'delete_options_subscriptions' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes, Delete Options including subscriptions.', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="options[delete_options_subscriptions]" value="no" <?php echo ( subscribe_reloaded_get_option( 'delete_options_subscriptions' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No, Only delete the StCR Options.', 'subscribe-reloaded' ) ?>
+                <br><br>
+                <input type="submit" value="<?php _e( 'Reset All Options' ) ?>" class="button-primary reset_all_options" size="6" name="reset_all_options" style="background-color: #FF1316;border-color: #B34B28;text-shadow: none;">
+            </td>
+        </tr>
 	</table>
 	<p class="submit"><input type="submit" value="<?php _e( 'Save Changes' ) ?>" class="button-primary" name="Submit">
 	</p>

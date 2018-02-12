@@ -194,73 +194,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			// Upgrade rountine
 			$this->upgrade();
 
-			// Messages related to the management page
-			global $wp_rewrite;
+            delete_option('subscribe_reloaded_unique_key');
 
-			if ( empty( $wp_rewrite->permalink_structure ) ) {
-				add_option( 'subscribe_reloaded_manager_page', '/?page_id=99999', '', 'yes' );
-			} else {
-				add_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/', '', 'yes' );
-			}
-
-			// Let us make sure that the Unique Key is created
-			delete_option('subscribe_reloaded_unique_key');
-			add_option( 'subscribe_reloaded_unique_key', $this->utils->generate_key(), '', 'yes' );
-			add_option( 'subscribe_reloaded_fresh_install', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_safely_uninstall', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_stcr_position', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_reply_to', '', '', 'yes' );
-			add_option( 'subscribe_reloaded_oneclick_text', "<p>Your are not longer subscribe to the post:</p>\r\n\r\n<h3>[post_title]</h3>\r\n<br>", '', 'yes' );
-			add_option( 'subscribe_reloaded_subscriber_table', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_data_sanitized', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_default_subscription_type', '2', '', 'yes' );
-			add_option( 'subscribe_reloaded_checked_by_default_value', '0', '', 'yes' );
-			add_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px', '', 'yes' );
-			add_option( 'subscribe_reloaded_checkbox_html', "<p class='comment-form-subscriptions'><label for='subscribe-reloaded'>[checkbox_field] [checkbox_label]</label></p>", '', 'yes' );
-			add_option( 'subscribe_reloaded_checkbox_label', __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_subscribed_label', __( "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_subscribed_waiting_label', __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_author_label', __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-reloaded' ), '', 'yes' );
-
-			add_option( 'subscribe_reloaded_manager_page_enabled', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_virtual_manager_page_enabled', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_manager_page_title', __( 'Manage subscriptions', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_custom_header_meta', "<meta name='robots' content='noindex,nofollow'>", '', 'yes' );
-			add_option( 'subscribe_reloaded_request_mgmt_link', __( 'To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page.', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_request_mgmt_link_thankyou', __( 'Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes.', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_subscribe_without_commenting', __( "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_subscription_confirmed', __( "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_subscription_confirmed_dci', __( "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_author_text', __( "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list.", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_user_text', __( "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:", 'subscribe-reloaded' ), '', 'yes' );
-
-			add_option( 'subscribe_reloaded_from_name', get_bloginfo( 'name' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_notification_subject', __( 'There is a new comment to [post_title]', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_notification_content', __( "<h1>There is a new comment on [post_title].</h1>\n\n<hr />\n<strong>Comment link:</strong> <a href=\"[comment_permalink]\">[comment_permalink]</a>\n<strong>Author:</strong> [comment_author]\n\n<strong>Comment:</strong>\n[comment_content]\n<div style=\"font-size: 0.8em;\"><strong>Permalink:</strong> <a href=\"[post_permalink]\">[post_permalink]</a>\n<a href=\"[manager_link]\">Manage your subscriptions</a> | <a href=\"[oneclick_link]\">One click unsubscribe</a></div>", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_double_check_subject', __( 'Please confirm your subscription to [post_title]', 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_double_check_content', __( "You have requested to be notified every time a new comment is added to:\n<a href='[post_permalink]'>[post_permalink]</a>\n\nPlease confirm your request by clicking on this link:\n<a href='[confirm_link]'>[confirm_link]</a>", 'subscribe-reloaded' ), '', 'yes' );
-			add_option( 'subscribe_reloaded_management_subject', __( 'Manage your subscriptions on [blog_name]', 'subscribe-reloaded' ) );
-			add_option( 'subscribe_reloaded_management_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Please check the Subscriptions management link in your email", 'subscribe-reloaded' ) );
-			add_option( 'subscribe_reloaded_management_email_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n<a href='[manager_link]'>[manager_link]</a>", 'subscribe-reloaded' ) );
-
-			add_option( 'subscribe_reloaded_purge_days', '30', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_double_check', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_notify_authors', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_html_emails', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_htmlify_message_links', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_process_trackbacks', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_admin_messages', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_admin_subscribe', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_admin_bcc', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_log_data', 'no', '', 'yes' );
-			add_option( 'subscribe_reloaded_auto_clean_log_data', 'yes', '', 'yes' );
-			add_option( 'subscribe_reloaded_auto_clean_log_frecuency', 'daily', '', 'yes' );
-			add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
-
+            $this->utils->create_options();
 		}
 		/**
 		 * Performs some clean-up maintenance (disable cron job).
@@ -452,12 +388,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// 				 $capability,
 				// 				 "stcr_subscribers_emails",
 				// 				 array( $this, "stcr_option_subscribers_emails" ) );
-				add_submenu_page( $parent_slug ,
-								__( 'You can help', 'subscribe-reloaded' ),
-								__( 'You can help', 'subscribe-reloaded' ),
-								 $capability,
-								 "stcr_you_can_help",
-								 array( $this, "stcr_option_you_can_help" ) );
+//				add_submenu_page( $parent_slug ,
+//								__( 'You can help', 'subscribe-reloaded' ),
+//								__( 'You can help', 'subscribe-reloaded' ),
+//								 $capability,
+//								 "stcr_you_can_help",
+//								 array( $this, "stcr_option_you_can_help" ) );
 				add_submenu_page( $parent_slug ,
 								__( 'Support', 'subscribe-reloaded' ),
 								__( 'Support', 'subscribe-reloaded' ),
