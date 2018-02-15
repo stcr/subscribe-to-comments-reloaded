@@ -15,14 +15,28 @@ if ( ! function_exists( 'add_action' ) ) {
 if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 {
 	class stcr_utils {
-
+        /**
+         * Check a given email to be valid.
+         *
+         * @since 15-Feb-2018
+         * @author Reedyseth
+         * @param $email
+         * @return mixed
+         */
 	    public function check_valid_email( $email )
         {
             $email = trim( $email );
             $email = sanitize_email( $email );
             return filter_var( $email, FILTER_VALIDATE_EMAIL );
         }
-
+        /**
+         * Check for a valid number.
+         *
+         * @since 15-Feb-2018
+         * @author Reedyseth
+         * @param $number String|Integer to be validated
+         * @return bool True if number false otherwise
+         */
         public function check_valid_number( $number )
         {
             $valid = true;

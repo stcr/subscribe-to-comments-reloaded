@@ -32,25 +32,34 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 }
 ?>
 
+<style type="text/css">
+    .validate-error-text
+    {
+        color: #f55252;
+        font-weight:bold;
+    }
+    .validate-error-field { border: 1px solid #ff9595 !important; }
+    .stcr-hidden { display: none;}
+</style>
+
 <div class="postbox small postbox-mass">
 	<h3><?php _e( 'Mass Update Subscriptions', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="" method="post" id="update_address_form"
-		  onsubmit="if (this.oldsre.value == '') return false;return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
+	<form action="" method="post" id="mass_update_address_form">
 		<fieldset style="border:0">
 			<table>
 				<tr>
 					<td><label for='oldsre'><?php _e( 'From', 'subscribe-reloaded' ) ?></label></td>
-					<td><input type='text' size='30' name='oldsre' id='oldsre' value='<?php _e( 'email address', 'subscribe-reloaded' ) ?>' style="color:#ccc"
-							   onfocus='if (this.value == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
-							   onblur='if (this.value == ""){this.value="<?php _e( 'email address', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}'  ></td>
+					<td><input type='text' size='30' name='oldsre' id='oldsre' value='<?php _e( 'email address', 'subscribe-reloaded' ) ?>' style="color:#ccc"></td>
+                    <td><span class="validate-error-text validate-error-text-oldsre stcr-hidden "></span></td>
 				</tr>
-				<tr>
-					<td><label for='sre'><?php _e( 'To', 'subscribe-reloaded' ) ?></label></td>
-					<td><input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>' style="color:#ccc"
-							   onfocus='if (this.value == "<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>") this.value="";this.style.color="#000"'
-							   onblur='if (this.value == ""){this.value="<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>";this.style.color="#ccc"}' ></td>
-				</tr>
+                <tr>
+                    <td><label for='sre'><?php _e( 'To', 'subscribe-reloaded' ) ?></label></td>
+                    <td><input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>' style="color:#ccc"
+							   >
+                    </td>
+                    <td><span class="validate-error-text validate-error-text-sre stcr-hidden "></span></td>
+                </tr>
 				<tr>
 					<td><label for='srs'><?php _e( 'Status', 'subscribe-reloaded' ) ?></label></td>
 					<td><select name="srs" id="srs">
@@ -76,17 +85,18 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 <div class="postbox small">
 	<h3><?php _e( 'Add New Subscription', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="" method="post" id="update_address_form"
-		  onsubmit="if (this.srp.value == '' || this.sre.value == '') return false;">
+	<form action="" method="post" id="add_new_subscription">
 		<fieldset style="border:0">
 			<table>
 				<tr>
 					<td><?php _e( 'Post ID', 'subscribe-reloaded' ) ?></td>
 					<td><input type='text' size='30' name='srp' value='' ></td>
+                    <td><span class="validate-error-text validate-error-text-srp stcr-hidden "></span></td>
 				</tr>
 				<tr>
 					<td><?php _e( 'Email', 'subscribe-reloaded' ) ?></td>
 					<td><input type='text' size='30' name='sre' value='' ></td>
+                    <td><span class="validate-error-text validate-error-text-sre stcr-hidden "></span></td>
 				</tr>
 				<tr>
 					<td><?php _e( 'Status', 'subscribe-reloaded' ) ?></td>
@@ -113,7 +123,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
 	<h3><?php _e( 'Search subscriptions', 'subscribe-reloaded' ) ?></h3>
 
-	<form action="" method="post">
+	<form action="" method="post" id="search_subscriptions_form">
 		<p><?php printf(
 	__( 'You can either <a href="%s">view all the subscriptions</a> or find those where the', 'subscribe-reloaded' ),
 	'admin.php?page=stcr_manage_subscriptions&amp;srv=@&amp;srt=contains'
@@ -257,4 +267,219 @@ if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 		</fieldset>
 	</form>
 </div>
+
+<script type="text/javascript">
+    ( function($){
+        $(document).ready(function(){
+
+            var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            var oldsre_input = $("form#mass_update_address_form input[name='oldsre']");
+            var sre_input    = $("form#mass_update_address_form input[name='sre']");
+
+
+            oldsre_input.focus(function(){
+                if (oldsre_input.val() == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>")
+                {
+                    oldsre_input.val("");
+                }
+                oldsre_input.css("color","#000");
+            });
+
+            oldsre_input.blur(function(){
+                if (oldsre_input.val() == "")
+                {
+                    oldsre_input.val("<?php _e( 'email address', 'subscribe-reloaded' ) ?>");
+                    oldsre_input.css("color","#ccc");
+                }
+            });
+
+            sre_input.focus(function(){
+                if (sre_input.val() == "<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>")
+                {
+                    sre_input.val("");
+                }
+                sre_input.css("color","#000");
+            });
+
+            sre_input.blur(function(){
+                if (sre_input.val() == "")
+                {
+                    sre_input.val("<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>");
+                    sre_input.css("color","#ccc");
+                }
+            });
+
+            $("form#mass_update_address_form").submit(function(){
+                var old_email      = $.trim( $("form#mass_update_address_form input[name='oldsre']").val() );
+                var email          = $.trim( $("form#mass_update_address_form input[name='sre']").val() );
+                var missing_fields = [];
+
+                if( old_email == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>" || old_email == "")
+                {
+                    missing_fields.push(
+                        {
+                            message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
+                            field: "oldsre"
+                        } );
+                }
+                else if( ! emailRegex.test(old_email) ) // check valid email
+                {
+                    missing_fields.push(
+                        {
+                            message: "<?php _e( 'Invalid email address.', 'subscribe-reloaded' ) ?>",
+                            field: "oldsre"
+                        } );
+                }
+
+                var missing_fields_size = missing_fields.length;
+
+                if( missing_fields_size > 0 )
+                {
+
+                    for( var i = 0; i < missing_fields_size; i++ )
+                    {
+                        var field_obj = missing_fields[i];
+                        $("form#mass_update_address_form .validate-error-text-" + field_obj.field).text(field_obj.message).show();
+                        $("form#mass_update_address_form input[name='"+ field_obj.field +"']").addClass("validate-error-field");
+                    }
+
+                    return false;
+                }
+                else
+                {
+                    var answer = confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>');
+
+                    if( ! answer )
+                    {
+                        return false;
+                    }
+                }
+
+
+            });
+            // Add New Subscription
+            var stcr_post_id_input = $("form#add_new_subscription input[name='srp']");
+            var sre_input          = $("form#add_new_subscription input[name='sre']");
+
+            stcr_post_id_input.blur(function(){
+                if( $.isNumeric(stcr_post_id_input.val() ) ) // check numeric value
+                {
+                    $(this).removeClass("validate-error-field");
+                    $("form#add_new_subscription .validate-error-text-srp").hide();
+                }
+            });
+
+            sre_input.blur(function(){
+                if( emailRegex.test(sre_input.val() ) ) // check email value
+                {
+                    $(this).removeClass("validate-error-field");
+                    $("form#add_new_subscription .validate-error-text-sre").hide();
+                }
+            });
+
+            $("form#add_new_subscription").submit(function(){
+                var post_id        = $.trim(stcr_post_id_input.val());
+                var email          = $.trim(sre_input.val());
+                var missing_fields = [];
+
+                if( post_id == "")
+                {
+                    missing_fields.push(
+                        {
+                            message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
+                            field: "srp"
+                        } );
+                }
+                else if( ! $.isNumeric(post_id) ) // check numeric value
+                {
+                    missing_fields.push(
+                        {
+                            message: "<?php _e( 'Enter a numeric Post ID.', 'subscribe-reloaded' ) ?>",
+                            field: "srp"
+                        } );
+                }
+
+                if( email == "")
+                {
+                    missing_fields.push(
+                        {
+                            message: "<?php _e( 'Missing email information', 'subscribe-reloaded' ) ?>",
+                            field: "sre"
+                        } );
+                }
+                else if( ! emailRegex.test(email) ) // check valid email
+                {
+                    missing_fields.push(
+                        {
+                            message: "<?php _e( 'Invalid email address.', 'subscribe-reloaded' ) ?>",
+                            field: "sre"
+                        } );
+                }
+
+                var missing_fields_size = missing_fields.length;
+
+                if( missing_fields_size > 0 )
+                {
+
+                    for( var i = 0; i < missing_fields_size; i++ )
+                    {
+                        var field_obj = missing_fields[i];
+                        $("form#add_new_subscription .validate-error-text-" + field_obj.field).text(field_obj.message).show();
+                        $("form#add_new_subscription input[name='"+ field_obj.field +"']").addClass("validate-error-field");
+                    }
+
+                    return false;
+                }
+            });
+
+            var search_input = $("form#search_subscriptions_form input[name='srv']");
+
+            $("form#search_subscriptions_form").submit(function(){
+                var search_value = $.trim(search_input.val());
+
+                if( search_value == "")
+                {
+                    search_input.val("<?php _e( 'Please enter a value', 'subscribe-reloaded' ) ?>");
+                    search_input.addClass("validate-error-field");
+
+                    return false;
+                }
+            });
+
+            search_input.focus(function(){
+                if( search_input.val() == "<?php _e( 'Please enter a value', 'subscribe-reloaded' ) ?>" )
+                {
+                    search_input.val("");
+                }
+            });
+
+            search_input.blur(function(){
+                if( $.trim(search_input.val() ) != "" )
+                {
+                    $(this).removeClass("validate-error-field");
+                }
+            });
+        });
+
+        // More info action
+        $('a.more-info').on("click", function( event ) {
+            event.preventDefault();
+            var info_panel = $( this ).data( "infopanel" );
+            info_panel = "." + info_panel;
+
+            $( ".postbox-mass").css("overflow","hidden");
+
+            if( $( info_panel ).hasClass( "hidden") )
+            {
+                $( info_panel ).slideDown( "fast" );
+                $( info_panel).removeClass( "hidden" );
+            }
+            else
+            {
+                $( info_panel ).slideUp( "fast" );
+                $( info_panel).addClass( "hidden" );
+            }
+        });
+    } )( jQuery );
+</script>
 
