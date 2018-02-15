@@ -12,7 +12,23 @@ if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
 	return;
 }
 if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1-business-logic.php" ) ) {
+
 	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-business-logic.php';
+
+    // Display an alert in the admin interface if the email is wrong or the post id is not a number.
+    if ( ! $valid_email )
+    {
+        echo '<div class="notice notice-error is-dismissible"><p>';
+            _e( 'The email that you typed is not correct.', 'subscribe-reloaded' );
+        echo "</p></div>";
+    }
+
+    if ( ! $valid_post_id )
+    {
+        echo '<div class="notice notice-error is-dismissible"><p>';
+            _e( 'Please enter a valid Post ID.', 'subscribe-reloaded' );
+        echo "</p></div>";
+    }
 }
 ?>
 

@@ -16,6 +16,25 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 {
 	class stcr_utils {
 
+	    public function check_valid_email( $email )
+        {
+            $email = trim( $email );
+            $email = sanitize_email( $email );
+            return filter_var( $email, FILTER_VALIDATE_EMAIL );
+        }
+
+        public function check_valid_number( $number )
+        {
+            $valid = true;
+
+            if ( ! is_numeric( $number ) )
+            {
+                $valid = false;
+            }
+
+            return $valid;
+        }
+
 		/*
 		 * This will retrieve an user/email from the prefix_subscribe_reloaded_subscribers table.
 		 * @param String $email email to be added.
