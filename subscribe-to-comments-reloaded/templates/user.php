@@ -130,6 +130,44 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 ?>
 		</fieldset>
 	</form>
+    <script type="text/javascript">
+        ( function($){
+            /**
+             * Select all subscriptions
+             *
+             * @since 18-Apr-2017
+             * @author reedyseth
+             */
+            $('form[name="post_list_form"]').on('click','.stcr-subs-select-all', function(event) {
+                var checkbox = $('form[name="post_list_form"] table input[type="checkbox"] ');
+
+                checkbox.each(function(index,  element){
+                    $(this).attr('checked','checked');
+                });
+
+                event.preventDefault();
+
+                return false;
+            });
+            /**
+             * Deselect all subscriptions
+             *
+             * @since 18-Apr-2017
+             * @author reedyseth
+             */
+            $('form[name="post_list_form"]').on('click','.stcr-subs-select-none', function(event) {
+                var checkbox = $('form[name="post_list_form"] table input[type="checkbox"] ');
+
+                checkbox.each(function(index,  element){
+                    $(this).removeAttr('checked');
+                });
+
+                event.preventDefault();
+
+                return false;
+            });
+        } )( jQuery );
+    </script>
 <?php
 $output = ob_get_contents();
 ob_end_clean();

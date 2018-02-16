@@ -571,11 +571,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			return $posts;
 		}
 		// end subscribe_reloaded_manage
-
-
-
-
-
 		/**
 		 * Checks if current logged in user is the author of this post
 		 */
@@ -625,7 +620,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			return false;
 		}
 		// end is_user_subscribed
-
 		/**
 		 * Adds a new subscription
 		 */
@@ -668,7 +662,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 		}
 		// end add_subscription
-
 		/**
 		 * Deletes one or more subscriptions from the database
 		 */
@@ -717,7 +710,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 		}
 		// end delete_subscriptions
-
 		/**
 		 * The function must search for subscription by a given post id.
 		 *
@@ -756,7 +748,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			return $result === false || $result == 0 || empty( $result ) ? false : $result;
 		}
-
 		/**
 		 * Updates the status of an existing subscription
 		 */
@@ -805,7 +796,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			);
 		}
 		// end update_subscription_status
-
 		/**
 		 * Updates the email address of an existing subscription
 		 */
@@ -844,7 +834,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			return false;
 		}
 		// end update_subscription_email
-
 		/**
 		 * Retrieves a list of emails subscribed to this post
 		 */
@@ -956,7 +945,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 		}
 		// end get_subscriptions
-
 		/**
 		 * Sends the notification message to a given user
 		 */
@@ -1030,11 +1018,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$this->utils->send_email( $email_settings );
 		}
 		// end notify_user
-
-
-
-
-
 		/**
 		 * Displays the checkbox to allow visitors to subscribe
 		 */

@@ -430,24 +430,22 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			// link the hooks
 			add_action('admin_enqueue_scripts',array( $this, 'register_admin_scripts') );
 		}
+        /**
+         * Hooking scripts for plugin pages.
+         * @since 22-Sep-2015
+         * @author reedyseth
+         */
+        public function hook_plugin_scripts() {
+            // link the hooks
+            add_action('wp_enqueue_scripts',array( $this, 'register_plugin_scripts') );
+        }
 		/**
 		 * Register scripts for plugin pages.
 		 * @since 22-Sep-2015
 		 * @author reedyseth
 		 */
 		public function register_plugin_scripts() {
-			$stcr_plugin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-plugin.js';
-			// Javascript
-			wp_register_script('stcr-plugin-js', $stcr_plugin_js, array( 'jquery' ) );
-            // Enqueue Scripts
-            wp_enqueue_script('stcr-plugin-js');
-			// Styles
-			// $stcr_plugin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-plugin-style.css';
-            $stcr_font_awesome_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
-			//wp_register_style( 'stcr-plugin-style', $stcr_plugin_css );
-            // Enqueue the styles
-            //wp_enqueue_style('stcr-plugin-style');
-
+            $stcr_font_awesome_css = (is_ssl() ? str_replace('http://', 'https://', WP_PLUGIN_URL) : WP_PLUGIN_URL) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
             // Font Awesome
             if( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" )
             {
@@ -456,21 +454,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 		}
 		/**
-		 * Hooking scripts for plugin pages.
-		 * @since 22-Sep-2015
-		 * @author reedyseth
-		 */
-		public function hook_plugin_scripts() {
-			// link the hooks
-			add_action('wp_enqueue_scripts',array( $this, 'register_plugin_scripts') );
-		}
-		/**
 		 * Enqueue `style for plugin pages
 		 * @since 22-Sep-2015
 		 * @author reedyseth
 		 */
 		public function add_plugin_js_scripts() {
-			wp_enqueue_script('stcr-plugin-js');
+            // Enqueue Scripts
+            //wp_enqueue_script('stcr-plugin-js');
 		}
 		/**
 		 * Create a notice array with its settings and add it to the subscribe_reloaded_deferred_admin_notices
