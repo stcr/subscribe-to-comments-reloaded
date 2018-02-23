@@ -244,6 +244,9 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		// end new_comment_posted
 
 		public function isDoubleCheckinEnabled( $info ) {
+
+		    $is_subscribe_to_post = false;
+
 			$approved_subscriptions = $this->get_subscriptions(
 				array(
 					'status',
@@ -256,7 +259,17 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 					$info->comment_author_email
 				)
 			);
-			if ( ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' ) && ! is_user_logged_in() && empty( $approved_subscriptions ) ) {
+
+			// Check if the user is already subscribe to the requested Post ID
+            foreach ( $approved_subscriptions as $subscription )
+            {
+                if ( $info->comment_post_ID == $subscription->post_id )
+                {
+                    $is_subscribe_to_post = true;
+                }
+            }
+
+			if ( ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' ) && ! is_user_logged_in() && ( ! $is_subscribe_to_post || empty( $approved_subscriptions ) ) ) {
 				return true;
 			} else {
 				return false;
@@ -658,7 +671,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			$OK = $this->utils->add_user_subscriber_table( $clean_email );
 			if ( ! $OK) {
-				// Catch the error
+				// TODO: Catch the error and add it to the log file.
 			}
 		}
 		// end add_subscription
