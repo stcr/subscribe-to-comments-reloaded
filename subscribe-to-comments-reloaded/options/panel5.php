@@ -86,6 +86,9 @@ elseif ( array_key_exists( "reset_all_options", $_POST ) ) {
         if ( isset( $_POST['options']['delete_options_subscriptions'] ) && ! subscribe_reloaded_update_option( 'delete_options_subscriptions', $_POST['options']['delete_options_subscriptions'], 'yesno' ) ) {
             $faulty_fields = __( 'Reset All Options', 'subscribe-reloaded' ) . ', ';
         }
+        if ( isset( $_POST['options']['date_format'] ) && ! subscribe_reloaded_update_option( 'date_format', $_POST['options']['date_format'], 'text' ) ) {
+            $faulty_fields = __( 'Reset All Options', 'subscribe-reloaded' ) . ', ';
+        }
 		// Display an alert in the admin interface if something went wrong
 		echo '<div class="updated fade"><p>';
 		if ( empty( $faulty_fields ) ) {
@@ -129,6 +132,14 @@ wp_print_scripts( 'quicktags' );
 				<div class="description"><?php _e( "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature.", 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
+        <tr>
+            <th scope="row"><label for="date_format"><?php _e( 'Date Format', 'subscribe-reloaded' ) ?></label>
+            </th>
+            <td>
+                <input type="text" name="options[date_format]" id="date_format" value="<?php echo subscribe_reloaded_get_option( 'date_format' ); ?>" size="10">
+                <div class="description"><?php _e( "Date format that will be display on the management page. Use <a href='https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters' target='_blank'>PHP Date Format</a>", 'subscribe-reloaded' ); ?></div>
+            </td>
+        </tr>
 		<tr>
 			<th scope="row">
 				<label for="stcr_position"><?php _e( 'StCR Position', 'subscribe-reloaded' ) ?></label></th>

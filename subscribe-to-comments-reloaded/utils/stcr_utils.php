@@ -152,7 +152,51 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			return $key;
 		}
 		// end generate_key
+        public function stcr_translate_month( $date_str )
+        {
+            $months_long = array (
+                "January" => __("January","subscribe-reloaded"),
+                "February" => __("February","subscribe-reloaded"),
+                "March" => __("March","subscribe-reloaded"),
+                "April" => __("April","subscribe-reloaded"),
+                "May" => __("May","subscribe-reloaded"),
+                "June" => __("June","subscribe-reloaded"),
+                "July" => __("July","subscribe-reloaded"),
+                "August" => __("August","subscribe-reloaded"),
+                "September" => __("September","subscribe-reloaded"),
+                "October" => __("October","subscribe-reloaded"),
+                "November" => __("November","subscribe-reloaded"),
+                "December" => __("December","subscribe-reloaded")
+            );
 
+            $months_short = array (
+                "Jan" => __("Jan","subscribe-reloaded"),
+                "Feb" => __("Feb","subscribe-reloaded"),
+                "Mar" => __("Mar","subscribe-reloaded"),
+                "Apr" => __("Apr","subscribe-reloaded"),
+                "May" => __("May","subscribe-reloaded"),
+                "Jun" => __("Jun","subscribe-reloaded"),
+                "Jul" => __("Jul","subscribe-reloaded"),
+                "Aug" => __("Aug","subscribe-reloaded"),
+                "Sep" => __("Sep","subscribe-reloaded"),
+                "Oct" => __("Oct","subscribe-reloaded"),
+                "Nov" => __("Nov","subscribe-reloaded"),
+                "Dec" => __("Dec","subscribe-reloaded")
+            );
+
+            // Replace String
+            foreach( $months_long as $key => $value)
+            {
+                $date_str = str_replace( $key, $value, $date_str);
+            }
+            // Find String
+            foreach( $months_short as $key => $value)
+            {
+                $date_str = str_replace( $key, $value, $date_str);
+            }
+            // Return string
+            return $date_str;
+        }
 		/**
 		 * Creates the HTML structure to properly handle HTML messages
 		 */
@@ -267,6 +311,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_auto_clean_log_frecuency', 'daily', '', 'yes' );
             add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_delete_options_subscriptions', 'no', '', 'no' );
+            add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
         }
         /**
          * @since 08-February-2018

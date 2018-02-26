@@ -11,7 +11,7 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 	}
 
 	// Prevent XSS/CSRF attacks
-	$_value = stripslashes( $_value );
+	$_value = trim( stripslashes( $_value ) );
 
 	switch ( $_type ) {
 		case 'yesno':
