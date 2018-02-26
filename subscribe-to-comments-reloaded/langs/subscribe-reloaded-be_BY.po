@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 15:07-0700\n"
-"PO-Revision-Date: 2018-02-12 15:10-0700\n"
+"POT-Creation-Date: 2018-02-25 23:08-0700\n"
+"PO-Revision-Date: 2018-02-25 23:08-0700\n"
 "Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
 "Language-Team: Web Geeks\n"
 "Language: be_BY\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: options/index.php:69 utils/stcr_manage.php:352 utils/stcr_manage.php:353
-#: utils/stcr_utils.php:203
+#: utils/stcr_utils.php:280
 msgid "Manage subscriptions"
 msgstr "Рэдагаваць падпіскі"
 
@@ -46,7 +46,7 @@ msgstr "Падтрымка"
 msgid "Donate"
 msgstr ""
 
-#: options/panel1-add-subscription.php:8 options/panel1.php:61
+#: options/panel1-add-subscription.php:8 options/panel1.php:86
 msgid "Add New Subscription"
 msgstr "Дадаць новую падпіску"
 
@@ -55,78 +55,80 @@ msgstr "Дадаць новую падпіску"
 msgid "Post:"
 msgstr "Запіс:"
 
-#: options/panel1-add-subscription.php:16 options/panel1.php:72
-#: options/panel1.php:133 templates/key_expired.php:72
-#: templates/request-management-link.php:104 templates/subscribe.php:110
+#: options/panel1-add-subscription.php:16 options/panel1.php:97
+#: options/panel1.php:159 templates/key_expired.php:72
+#: templates/request-management-link.php:113
+#: templates/request-management-link.php:139 templates/subscribe.php:121
+#: templates/subscribe.php:146
 msgid "Email"
 msgstr "Эл. адрас"
 
 #: options/panel1-add-subscription.php:20
-#: options/panel1-edit-subscription.php:26 options/panel1.php:39
-#: options/panel1.php:76 options/panel1.php:141 options/panel1.php:159
+#: options/panel1-edit-subscription.php:26 options/panel1.php:64
+#: options/panel1.php:102 options/panel1.php:167 options/panel1.php:185
 msgid "Status"
 msgstr "Статут"
 
 #: options/panel1-add-subscription.php:22
-#: options/panel1-edit-subscription.php:29 options/panel1.php:42
-#: options/panel1.php:79 options/panel1.php:173 templates/author.php:64
+#: options/panel1-edit-subscription.php:29 options/panel1.php:67
+#: options/panel1.php:105 options/panel1.php:199 templates/author.php:64
 #: templates/user.php:76
 msgid "Active"
 msgstr "Актыўна"
 
 #: options/panel1-add-subscription.php:23
-#: options/panel1-edit-subscription.php:30 options/panel1.php:43
-#: options/panel1.php:80
+#: options/panel1-edit-subscription.php:30 options/panel1.php:68
+#: options/panel1.php:106
 msgid "Replies only"
 msgstr "Толькі адказы"
 
-#: options/panel1-add-subscription.php:24 options/panel1.php:81
+#: options/panel1-add-subscription.php:24 options/panel1.php:107
 msgid "Ask user to confirm"
 msgstr "Прасіць подтвреждение ад карыстача"
 
 #: options/panel1-add-subscription.php:26
-#: options/panel1-edit-subscription.php:33 options/panel1.php:46
+#: options/panel1-edit-subscription.php:33 options/panel1.php:71
 msgid "Update"
 msgstr "Абнавіць"
 
-#: options/panel1-business-logic.php:23
+#: options/panel1-business-logic.php:40
 msgid "Subscription added."
 msgstr "Падпіска дададзена."
 
-#: options/panel1-business-logic.php:39
+#: options/panel1-business-logic.php:65
 msgid "Subscriptions updated."
 msgstr "Падпіскі абноўлены."
 
-#: options/panel1-business-logic.php:51
+#: options/panel1-business-logic.php:80
 msgid "Subscription deleted."
 msgstr "Падпіска выдалена."
 
-#: options/panel1-business-logic.php:70 templates/author.php:24
+#: options/panel1-business-logic.php:99 templates/author.php:24
 #: templates/user.php:33
 msgid "Subscriptions deleted:"
 msgstr "Падпіскі выдалены:"
 
-#: options/panel1-business-logic.php:74 templates/author.php:28
+#: options/panel1-business-logic.php:103 templates/author.php:28
 #: templates/user.php:37
 msgid "Subscriptions suspended:"
 msgstr "Падпіскі прыпынены:"
 
-#: options/panel1-business-logic.php:78 templates/author.php:32
+#: options/panel1-business-logic.php:107 templates/author.php:32
 #: templates/user.php:41
 msgid "Subscriptions activated:"
 msgstr "Падпіскі актываваны:"
 
-#: options/panel1-business-logic.php:82 options/panel1-business-logic.php:86
+#: options/panel1-business-logic.php:111 options/panel1-business-logic.php:115
 #: templates/author.php:36 templates/author.php:40 templates/user.php:45
 #: templates/user.php:49
 msgid "Subscriptions updated:"
 msgstr "Падпіскі абноўлены:"
 
-#: options/panel1-business-logic.php:110
+#: options/panel1-business-logic.php:147
 msgid "&laquo; Previous"
 msgstr "&laquo; Зваротна"
 
-#: options/panel1-business-logic.php:114
+#: options/panel1-business-logic.php:151
 msgid "Next &raquo;"
 msgstr "Наперад &raquo;"
 
@@ -141,8 +143,8 @@ msgstr "Абнавіць падпіску"
 msgid "optional"
 msgstr "па выбары"
 
-#: options/panel1-edit-subscription.php:11 options/panel1.php:23
-#: options/panel1.php:124 options/panel1.php:201 options/panel1.php:213
+#: options/panel1-edit-subscription.php:11 options/panel1.php:150
+#: options/panel1.php:227 options/panel1.php:239 options/panel1.php:350
 #: templates/author.php:53 templates/user.php:65
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
@@ -150,57 +152,66 @@ msgid ""
 msgstr ""
 "Увага: гэту аперацыю нельга адмяніць. Вы ўпэўнены, што жадаеце працягнуць?"
 
-#: options/panel1-edit-subscription.php:16 options/panel1.php:27
+#: options/panel1-edit-subscription.php:16 options/panel1.php:52
 msgid "From"
 msgstr "З"
 
-#: options/panel1-edit-subscription.php:20 options/panel1.php:33
+#: options/panel1-edit-subscription.php:20 options/panel1.php:57
 msgid "To"
 msgstr "на"
 
-#: options/panel1-edit-subscription.php:28 options/panel1.php:41
+#: options/panel1-edit-subscription.php:28 options/panel1.php:66
 msgid "Keep unchanged"
 msgstr "Пакінуць без змен"
 
-#: options/panel1-edit-subscription.php:31 options/panel1.php:44
+#: options/panel1-edit-subscription.php:31 options/panel1.php:69
 msgid "Suspended"
 msgstr "Прыпынена"
 
-#: options/panel1.php:20
+#: options/panel1.php:22
+msgid "The email that you typed is not correct."
+msgstr ""
+
+#: options/panel1.php:29
+msgid "Please enter a valid Post ID."
+msgstr ""
+
+#: options/panel1.php:46
 msgid "Mass Update Subscriptions"
 msgstr "Масава абнавіць падпіскі"
 
-#: options/panel1.php:28 options/panel1.php:29 options/panel1.php:30
+#: options/panel1.php:53 options/panel1.php:281 options/panel1.php:291
+#: options/panel1.php:317
 msgid "email address"
 msgstr "Эл. адрас адпраўніка"
 
-#: options/panel1.php:34 options/panel1.php:35 options/panel1.php:36
+#: options/panel1.php:58 options/panel1.php:297 options/panel1.php:307
 msgid "optional - new email address"
 msgstr "Абнавіць электронны адрас"
 
-#: options/panel1.php:49
+#: options/panel1.php:74
 msgid "More info"
 msgstr "Dettagli"
 
-#: options/panel1.php:55
+#: options/panel1.php:80
 msgid ""
 "This option will allow you to change an email address for another one or to "
 "update the same status for all the subscription on a specific email address."
 msgstr ""
 
-#: options/panel1.php:68
+#: options/panel1.php:92
 msgid "Post ID"
 msgstr "ID-нумар запісу"
 
-#: options/panel1.php:83
+#: options/panel1.php:109
 msgid "Add"
 msgstr "Дадаць"
 
-#: options/panel1.php:98
+#: options/panel1.php:124
 msgid "Search subscriptions"
 msgstr "Шукаць у падпісках"
 
-#: options/panel1.php:102
+#: options/panel1.php:128
 #, php-format
 msgid ""
 "You can either <a href=\"%s\">view all the subscriptions</a> or find those "
@@ -208,138 +219,164 @@ msgid ""
 msgstr ""
 "Вы можаце <a href=\"%s\">прагледзець усе падпіскі</a> ці знайсці тыя, дзе"
 
-#: options/panel1.php:106
+#: options/panel1.php:132
 msgid "email"
 msgstr "эл. адрас"
 
-#: options/panel1.php:107
+#: options/panel1.php:133
 msgid "post ID"
 msgstr "ID-нумар запісу"
 
-#: options/panel1.php:108
+#: options/panel1.php:134
 msgid "status"
 msgstr "статут"
 
-#: options/panel1.php:111
+#: options/panel1.php:137
 msgid "equals"
 msgstr "раўназначна"
 
-#: options/panel1.php:112
+#: options/panel1.php:138
 msgid "contains"
 msgstr "утрымоўвае"
 
-#: options/panel1.php:113
+#: options/panel1.php:139
 msgid "does not contain"
 msgstr "не ўтрымоўвае"
 
-#: options/panel1.php:114
+#: options/panel1.php:140
 msgid "starts with"
 msgstr "пачынаецца з"
 
-#: options/panel1.php:115
+#: options/panel1.php:141
 msgid "ends with"
 msgstr "сканчаецца на"
 
-#: options/panel1.php:118
+#: options/panel1.php:144
 msgid "results per page:"
 msgstr "вынікі пастаронкава:"
 
-#: options/panel1.php:120
+#: options/panel1.php:146
 msgid "Search"
 msgstr "Шукаць"
 
-#: options/panel1.php:128
+#: options/panel1.php:154
 msgid "Reverse the order by Post ID"
 msgstr "Змяніць парадак па ID запісы"
 
-#: options/panel1.php:129 options/panel1.php:130
+#: options/panel1.php:155 options/panel1.php:156
 msgid "Reverse the order by Date/Time"
 msgstr "Змяніць парадак па даце/чакай"
 
-#: options/panel1.php:132
+#: options/panel1.php:158
 msgid "Post (ID)"
 msgstr "Запіс (ID)"
 
-#: options/panel1.php:135
+#: options/panel1.php:161
 msgid "Search query:"
 msgstr "Пошукавы запыт:"
 
-#: options/panel1.php:135
+#: options/panel1.php:161
 msgid "Rows:"
 msgstr "Шэрагі:"
 
-#: options/panel1.php:135
+#: options/panel1.php:161
 msgid "of"
 msgstr " "
 
-#: options/panel1.php:142 options/panel1.php:158
+#: options/panel1.php:168 options/panel1.php:184
 msgid "Date and Time"
 msgstr "Дата і час"
 
-#: options/panel1.php:168 templates/author.php:59 templates/user.php:71
+#: options/panel1.php:194 templates/author.php:59 templates/user.php:71
 msgid "Replies"
 msgstr "Адказы"
 
-#: options/panel1.php:169 templates/author.php:60 templates/user.php:72
+#: options/panel1.php:195 templates/author.php:60 templates/user.php:72
 msgid "Replies Unconfirmed"
 msgstr ""
 
-#: options/panel1.php:170 templates/author.php:61 templates/user.php:73
+#: options/panel1.php:196 templates/author.php:61 templates/user.php:73
 msgid "All Comments"
 msgstr ""
 
-#: options/panel1.php:171 templates/author.php:62 templates/user.php:74
+#: options/panel1.php:197 templates/author.php:62 templates/user.php:74
 msgid "Unconfirmed"
 msgstr ""
 
-#: options/panel1.php:172 templates/author.php:63 templates/user.php:75
+#: options/panel1.php:198 templates/author.php:63 templates/user.php:75
 msgid "Inactive"
 msgstr "Актыўна"
 
-#: options/panel1.php:201 options/panel1.php:213 templates/author.php:93
-#: templates/user.php:111
+#: options/panel1.php:227 options/panel1.php:239 templates/author.php:96
+#: templates/user.php:114
 msgid "Delete"
 msgstr "Выдаліць"
 
-#: options/panel1.php:202 options/panel1.php:212
+#: options/panel1.php:228 options/panel1.php:238
 msgid "Edit"
 msgstr "Рэдагаваць"
 
-#: options/panel1.php:204 options/panel1.php:210
+#: options/panel1.php:230 options/panel1.php:236
 msgid "Subscription"
 msgstr "Падпіскі"
 
-#: options/panel1.php:224 templates/author.php:90 templates/user.php:107
+#: options/panel1.php:250 templates/author.php:93 templates/user.php:110
 msgid "Action:"
 msgstr "Дзеянне:"
 
-#: options/panel1.php:227
+#: options/panel1.php:253
 msgid "Delete forever"
 msgstr "Выдаліць назаўжды"
 
-#: options/panel1.php:228 templates/author.php:94 templates/user.php:112
+#: options/panel1.php:254 templates/author.php:97 templates/user.php:115
 msgid "Suspend"
 msgstr "Прыпыніць"
 
-#: options/panel1.php:229
+#: options/panel1.php:255
 msgid "Activate and set to Y"
 msgstr "Уключыць і ўсталяваць на Y"
 
-#: options/panel1.php:230
+#: options/panel1.php:256
 msgid "Activate and set to R"
 msgstr "Уключыць і ўсталяваць на R"
 
-#: options/panel1.php:231
+#: options/panel1.php:257
 msgid "Activate"
 msgstr "Уключыць"
 
-#: options/panel1.php:235 templates/author.php:99 templates/user.php:118
+#: options/panel1.php:261 templates/author.php:102 templates/user.php:121
 msgid "Update subscriptions"
 msgstr "Абнавіць падпіскі"
 
-#: options/panel1.php:238
+#: options/panel1.php:264
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr "Выбачыце, ніводная падпіска не адпавядае вашаму пошукаваму запыту."
+
+#: options/panel1.php:321 options/panel1.php:389
+#, fuzzy
+#| msgid "Awaiting confirmation"
+msgid "Missing information"
+msgstr "Чакае пацверджання"
+
+#: options/panel1.php:329 options/panel1.php:414
+#, fuzzy
+#| msgid "Sender email address"
+msgid "Invalid email address."
+msgstr "Эл. адрас адпраўніка"
+
+#: options/panel1.php:397
+msgid "Enter a numeric Post ID."
+msgstr ""
+
+#: options/panel1.php:406
+#, fuzzy
+#| msgid "Awaiting confirmation"
+msgid "Missing email information"
+msgstr "Чакае пацверджання"
+
+#: options/panel1.php:442 options/panel1.php:450
+msgid "Please enter a value"
+msgstr ""
 
 #: options/panel10.php:41
 msgid "The log file has been successfully deleted."
@@ -362,30 +399,30 @@ msgid "Enable Auto clean log data"
 msgstr ""
 
 #: options/panel10.php:93 options/panel2.php:49 options/panel3.php:70
-#: options/panel4.php:78 options/panel5.php:18 options/panel5.php:92
+#: options/panel4.php:78 options/panel5.php:18 options/panel5.php:95
 msgid "Your settings have been successfully updated."
 msgstr "Вашы налады паспяхова абноўлены."
 
 #: options/panel10.php:95 options/panel2.php:51 options/panel3.php:72
-#: options/panel4.php:80 options/panel5.php:20 options/panel5.php:94
+#: options/panel4.php:80 options/panel5.php:20 options/panel5.php:97
 msgid "There was an error updating the following fields:"
 msgstr "Адбылася памылка ў абнаўленні наступных палёў:"
 
 #: options/panel10.php:112 options/panel10.php:121 options/panel2.php:66
-#: options/panel2.php:76 options/panel2.php:105 options/panel5.php:110
-#: options/panel5.php:119 options/panel5.php:136 options/panel5.php:145
-#: options/panel5.php:154 options/panel5.php:163 options/panel5.php:173
-#: options/panel5.php:182 options/panel5.php:192 options/panel5.php:201
-#: options/panel5.php:210 options/panel5.php:219
+#: options/panel2.php:76 options/panel2.php:105 options/panel5.php:113
+#: options/panel5.php:122 options/panel5.php:147 options/panel5.php:156
+#: options/panel5.php:165 options/panel5.php:174 options/panel5.php:184
+#: options/panel5.php:193 options/panel5.php:203 options/panel5.php:212
+#: options/panel5.php:221 options/panel5.php:230
 msgid "Yes"
 msgstr "Так"
 
 #: options/panel10.php:113 options/panel10.php:122 options/panel2.php:67
-#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:111
-#: options/panel5.php:120 options/panel5.php:137 options/panel5.php:146
-#: options/panel5.php:155 options/panel5.php:164 options/panel5.php:174
-#: options/panel5.php:183 options/panel5.php:193 options/panel5.php:202
-#: options/panel5.php:211 options/panel5.php:220 utils/stcr_manage.php:755
+#: options/panel2.php:77 options/panel2.php:106 options/panel5.php:114
+#: options/panel5.php:123 options/panel5.php:148 options/panel5.php:157
+#: options/panel5.php:166 options/panel5.php:175 options/panel5.php:185
+#: options/panel5.php:194 options/panel5.php:204 options/panel5.php:213
+#: options/panel5.php:222 options/panel5.php:231 utils/stcr_manage.php:755
 msgid "No"
 msgstr "Не"
 
@@ -429,7 +466,7 @@ msgid "System Information"
 msgstr ""
 
 #: options/panel10.php:164 options/panel2.php:230 options/panel3.php:253
-#: options/panel4.php:283 options/panel5.php:265
+#: options/panel4.php:283 options/panel5.php:276
 msgid "Save Changes"
 msgstr "Захаваць змены"
 
@@ -843,7 +880,7 @@ msgstr "Вашы налады паспяхова абноўлены."
 msgid "There was an error deleting the options:"
 msgstr "Адбылася памылка ў абнаўленні наступных палёў:"
 
-#: options/panel5.php:48 options/panel5.php:108
+#: options/panel5.php:48 options/panel5.php:111
 msgid "Show StCR checkbox / dropdown"
 msgstr ""
 
@@ -851,23 +888,23 @@ msgstr ""
 msgid "Safetly Uninstall"
 msgstr ""
 
-#: options/panel5.php:54 options/panel5.php:125
+#: options/panel5.php:54 options/panel5.php:128
 msgid "Autopurge requests"
 msgstr "Аўтаматычна выдаляць запыты"
 
-#: options/panel5.php:57 options/panel5.php:143
+#: options/panel5.php:57 options/panel5.php:154
 msgid "Enable double check"
 msgstr "Уключыць падвойнае пацверджанне"
 
-#: options/panel5.php:60 options/panel5.php:134
+#: options/panel5.php:60 options/panel5.php:145
 msgid "StCR Position"
 msgstr ""
 
-#: options/panel5.php:63 options/panel5.php:151
+#: options/panel5.php:63 options/panel5.php:162
 msgid "Subscribe authors"
 msgstr ""
 
-#: options/panel5.php:66 options/panel5.php:161
+#: options/panel5.php:66 options/panel5.php:172
 msgid "Enable HTML emails"
 msgstr "Выкарыстоўваць HTML лісты"
 
@@ -883,43 +920,44 @@ msgstr "Адпраўляць трэкбеки"
 msgid "Notify admin"
 msgstr "Апавясціць адміна"
 
-#: options/panel5.php:78 options/panel5.php:199
+#: options/panel5.php:78 options/panel5.php:210
 msgid "Let admin subscribe"
 msgstr "Дазволіць адміну падпісвацца"
 
-#: options/panel5.php:81 options/panel5.php:208
+#: options/panel5.php:81 options/panel5.php:219
 msgid "BCC admin on Notifications"
 msgstr "Апавяшчэнні"
 
-#: options/panel5.php:84 options/panel5.php:217
+#: options/panel5.php:84 options/panel5.php:228
 msgid "Enable Font Awesome"
 msgstr ""
 
-#: options/panel5.php:87 options/panel5.php:254 options/panel5.php:261
+#: options/panel5.php:87 options/panel5.php:90 options/panel5.php:265
+#: options/panel5.php:272
 msgid "Reset All Options"
 msgstr ""
 
-#: options/panel5.php:112
+#: options/panel5.php:115
 msgid ""
 "This option will disable the StCR checkbox or dropdown in you comment form. "
 "You should leave it to Yes always.  "
 msgstr ""
 
-#: options/panel5.php:117
+#: options/panel5.php:120
 msgid "Safely Uninstall"
 msgstr ""
 
-#: options/panel5.php:121
+#: options/panel5.php:124
 msgid ""
 "This option will allow you to delete the plugin with WordPress without "
 "loosing your subscribers. Any database table and plugin options are wipeout."
 msgstr ""
 
-#: options/panel5.php:128
+#: options/panel5.php:131
 msgid "days"
 msgstr "дзён"
 
-#: options/panel5.php:129
+#: options/panel5.php:132
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
@@ -927,14 +965,25 @@ msgstr ""
 "Выдаляць якія чакаюць пацверджанні (не пацверджаныя) падпіскі праз Х дзён. "
 "Нуль адключае гэту функцыю."
 
-#: options/panel5.php:138
+#: options/panel5.php:136
+msgid "Date Format"
+msgstr ""
+
+#: options/panel5.php:140
+msgid ""
+"Date format that will be display on the management page. Use <a "
+"href='https://secure.php.net/manual/en/function.date.php#refsect1-function."
+"date-parameters' target='_blank'>PHP Date Format</a>"
+msgstr ""
+
+#: options/panel5.php:149
 msgid ""
 "If this option is enable the subscription box will be above the submit "
 "button in your comment form. Use this when your theme is outdated and using "
 "the incorrect WordPress Hooks and the checkbox is not displayed."
 msgstr ""
 
-#: options/panel5.php:147
+#: options/panel5.php:158
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
@@ -942,12 +991,12 @@ msgstr ""
 "Адпраўляць ліст з просьбай пацвердзіць падпіску (каб пазбегнуць выкарыстанні "
 "эл. адрасы без вядзёная ўладальніка)"
 
-#: options/panel5.php:156
+#: options/panel5.php:167
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
 
-#: options/panel5.php:165
+#: options/panel5.php:176
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
@@ -955,77 +1004,77 @@ msgstr ""
 "Пры выбары гэтай функцыі паведамлення будуць адпраўляцца ў фармаце тэкст/"
 "html замест звычайнага тэксту"
 
-#: options/panel5.php:170
+#: options/panel5.php:181
 msgid "HTMLify links in emails"
 msgstr ""
 
-#: options/panel5.php:175
+#: options/panel5.php:186
 msgid ""
 "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
 "&lt;/a&gt;</code> (only when HTML emails enabled)."
 msgstr ""
 
-#: options/panel5.php:180
+#: options/panel5.php:191
 msgid "Process trackbacks"
 msgstr "Апрацоўваць трэкбеки"
 
-#: options/panel5.php:184
+#: options/panel5.php:195
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
 msgstr ""
 "Апавяшчаць падпісантаў пра новыя трэкбеках ці пингбэках да абмеркавання"
 
-#: options/panel5.php:189
+#: options/panel5.php:200
 msgid "Track all subscriptions"
 msgstr "Адсачыць усе падпіскі"
 
-#: options/panel5.php:194
+#: options/panel5.php:205
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr "Апавяшчаць адміністратара, калі карыстачы падпісваюцца без каментара."
 
-#: options/panel5.php:203
+#: options/panel5.php:214
 msgid "Let the administrator subscribe to comments when logged in."
 msgstr "Дазволіць адміну падпісвацца, калі ён аўтарызаваны."
 
-#: options/panel5.php:212
+#: options/panel5.php:223
 msgid "Send a copy of all Notifications to the administrator."
 msgstr ""
 
-#: options/panel5.php:221
+#: options/panel5.php:232
 msgid ""
 "Let you control the inclusion of the Font Awesome into your site. Disable if "
 "you theme already add this into your site."
 msgstr ""
 
-#: options/panel5.php:226
+#: options/panel5.php:237
 msgid "StCR Unique Key"
 msgstr ""
 
-#: options/panel5.php:231
+#: options/panel5.php:242
 msgid "This Unique Key is not set, please click the following button to "
 msgstr ""
 
-#: options/panel5.php:235 options/panel5.php:246
+#: options/panel5.php:246 options/panel5.php:257
 msgid "Generate"
 msgstr "Tasso di rimbalzo"
 
-#: options/panel5.php:243
+#: options/panel5.php:254
 msgid ""
 "This Unique Key will be use to send the notification to your subscribers "
 "with more security."
 msgstr ""
 
-#: options/panel5.php:256
+#: options/panel5.php:267
 msgid ""
 "This will reset all the options and messages of the plugin. Please proceed "
 "with caution."
 msgstr ""
 
-#: options/panel5.php:258
+#: options/panel5.php:269
 msgid "Yes, Delete Options including subscriptions."
 msgstr ""
 
-#: options/panel5.php:259
+#: options/panel5.php:270
 msgid "No, Only delete the StCR Options."
 msgstr ""
 
@@ -1157,34 +1206,34 @@ msgstr ""
 msgid "Subscription Status"
 msgstr ""
 
-#: templates/author.php:88 templates/user.php:104
+#: templates/author.php:91 templates/user.php:107
 msgid "Select all"
 msgstr "Абраць усё"
 
-#: templates/author.php:89 templates/user.php:106
+#: templates/author.php:92 templates/user.php:109
 msgid "Invert selection"
 msgstr "Абраць зваротнае"
 
-#: templates/author.php:92 templates/user.php:110
+#: templates/author.php:95 templates/user.php:113
 msgid "Choose your action"
 msgstr ""
 
-#: templates/author.php:95 templates/user.php:113
+#: templates/author.php:98 templates/user.php:116
 msgid "All comments"
 msgstr ""
 
-#: templates/author.php:96 templates/user.php:114
-#: wp_subscribe_reloaded.php:1122
+#: templates/author.php:99 templates/user.php:117
+#: wp_subscribe_reloaded.php:1118
 msgid "Replies to my comments"
 msgstr "Адказы на мае каментары"
 
-#: templates/author.php:102 templates/confirm.php:28
-#: templates/request-management-link.php:114 templates/user.php:124
+#: templates/author.php:105 templates/confirm.php:28
+#: templates/request-management-link.php:125 templates/user.php:127
 msgid "Return to Post"
 msgstr ""
 
-#: templates/author.php:107 templates/one-click-unsubscribe.php:30
-#: templates/user.php:128
+#: templates/author.php:110 templates/one-click-unsubscribe.php:30
+#: templates/user.php:131
 msgid "No subscriptions match your search criteria."
 msgstr "Ніводная падпіска не адпавядае пошукаваму запыту."
 
@@ -1194,16 +1243,29 @@ msgid ""
 "enter your email below and a new link will be send."
 msgstr ""
 
-#: templates/key_expired.php:74 templates/request-management-link.php:106
-#: templates/subscribe.php:112
+#: templates/key_expired.php:74 templates/request-management-link.php:115
+#: templates/request-management-link.php:141 templates/subscribe.php:123
+#: templates/subscribe.php:148
 msgid "Send"
 msgstr "Адправіць"
 
-#: templates/subscribe.php:50 templates/subscribe.php:51
+#: templates/request-management-link.php:143
+#: templates/request-management-link.php:171 templates/subscribe.php:150
+#: templates/subscribe.php:178
+#, fuzzy
+#| msgid "email address"
+msgid "Email address is not valid"
+msgstr "Эл. адрас адпраўніка"
+
+#: templates/request-management-link.php:166 templates/subscribe.php:173
+msgid "Please enter your email"
+msgstr ""
+
+#: templates/subscribe.php:60 templates/subscribe.php:61
 msgid "New subscription to"
 msgstr "Новая падпіска на"
 
-#: templates/subscribe.php:51
+#: templates/subscribe.php:61
 msgid "User:"
 msgstr "Карыстач:"
 
@@ -1342,6 +1404,7 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:414 utils/stcr_upgrade.php:534
 #: utils/stcr_upgrade.php:561 utils/stcr_upgrade.php:589
+#: utils/stcr_upgrade.php:610
 msgid ""
 "If you find a bug or an issue you can report it <a href=\"https://github.com/"
 "stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
@@ -1382,6 +1445,7 @@ msgstr ""
 #: utils/stcr_upgrade.php:467 utils/stcr_upgrade.php:490
 #: utils/stcr_upgrade.php:511 utils/stcr_upgrade.php:539
 #: utils/stcr_upgrade.php:566 utils/stcr_upgrade.php:594
+#: utils/stcr_upgrade.php:615
 msgid ""
 "Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
 "comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
@@ -1468,6 +1532,7 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:505 utils/stcr_upgrade.php:526
 #: utils/stcr_upgrade.php:554 utils/stcr_upgrade.php:581
+#: utils/stcr_upgrade.php:609
 msgid "This version includes fixes and improvements, "
 msgstr ""
 
@@ -1483,12 +1548,12 @@ msgid ""
 msgstr ""
 
 #: utils/stcr_upgrade.php:521 utils/stcr_upgrade.php:549
-#: utils/stcr_upgrade.php:576
+#: utils/stcr_upgrade.php:576 utils/stcr_upgrade.php:604
 msgid "Log Settings"
 msgstr ""
 
 #: utils/stcr_upgrade.php:525 utils/stcr_upgrade.php:553
-#: utils/stcr_upgrade.php:580
+#: utils/stcr_upgrade.php:580 utils/stcr_upgrade.php:608
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 msgstr ""
@@ -1504,7 +1569,7 @@ msgid "<strong>Improve</strong> Manage subscription page. Take a look ;)."
 msgstr ""
 
 #: utils/stcr_upgrade.php:535 utils/stcr_upgrade.php:562
-#: utils/stcr_upgrade.php:590
+#: utils/stcr_upgrade.php:590 utils/stcr_upgrade.php:611
 msgid "The support of this plugin is given thanks to your donations."
 msgstr ""
 
@@ -1555,7 +1620,7 @@ msgstr ""
 msgid "<strong>Fix</strong> issue regarding database collations"
 msgstr ""
 
-#: utils/stcr_upgrade.php:591
+#: utils/stcr_upgrade.php:591 utils/stcr_upgrade.php:612
 msgid ""
 "Help to keep the support alive. You can donate via <i class=\"fa fa-paypal\" "
 "aria-hidden=\"true\"></i> <a href=\"\n"
@@ -1566,7 +1631,105 @@ msgid ""
 "Thanks for all the users that have supported the plugin development."
 msgstr ""
 
-#: utils/stcr_utils.php:196
+#: utils/stcr_utils.php:158
+msgid "January"
+msgstr ""
+
+#: utils/stcr_utils.php:159
+msgid "February"
+msgstr ""
+
+#: utils/stcr_utils.php:160
+#, fuzzy
+#| msgid "Search"
+msgid "March"
+msgstr "Шукаць"
+
+#: utils/stcr_utils.php:161
+msgid "April"
+msgstr ""
+
+#: utils/stcr_utils.php:162 utils/stcr_utils.php:177
+#, fuzzy
+#| msgid "Day"
+msgid "May"
+msgstr "Giorno"
+
+#: utils/stcr_utils.php:163
+msgid "June"
+msgstr ""
+
+#: utils/stcr_utils.php:164
+msgid "July"
+msgstr ""
+
+#: utils/stcr_utils.php:165
+msgid "August"
+msgstr ""
+
+#: utils/stcr_utils.php:166
+msgid "September"
+msgstr ""
+
+#: utils/stcr_utils.php:167
+msgid "October"
+msgstr ""
+
+#: utils/stcr_utils.php:168
+msgid "November"
+msgstr ""
+
+#: utils/stcr_utils.php:169
+msgid "December"
+msgstr ""
+
+#: utils/stcr_utils.php:173
+msgid "Jan"
+msgstr ""
+
+#: utils/stcr_utils.php:174
+msgid "Feb"
+msgstr ""
+
+#: utils/stcr_utils.php:175
+msgid "Mar"
+msgstr ""
+
+#: utils/stcr_utils.php:176
+msgid "Apr"
+msgstr ""
+
+#: utils/stcr_utils.php:178
+msgid "Jun"
+msgstr ""
+
+#: utils/stcr_utils.php:179
+msgid "Jul"
+msgstr ""
+
+#: utils/stcr_utils.php:180
+msgid "Aug"
+msgstr ""
+
+#: utils/stcr_utils.php:181
+msgid "Sep"
+msgstr ""
+
+#: utils/stcr_utils.php:182
+msgid "Oct"
+msgstr ""
+
+#: utils/stcr_utils.php:183
+#, fuzzy
+#| msgid "No"
+msgid "Nov"
+msgstr "Не"
+
+#: utils/stcr_utils.php:184
+msgid "Dec"
+msgstr ""
+
+#: utils/stcr_utils.php:273
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
@@ -1574,7 +1737,7 @@ msgstr ""
 "Атрымліваць новыя каментары па электроннай пошце. Вы можаце <a "
 "href='[subscribe_link]'>падпісацца</a> без каментавання."
 
-#: utils/stcr_utils.php:197
+#: utils/stcr_utils.php:274
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
@@ -1582,7 +1745,7 @@ msgstr ""
 "Вы падпісаны на гэты артыкул. <a href='[manager_link]'>Рэдагаваць</a> свае "
 "падпіскі."
 
-#: utils/stcr_utils.php:198
+#: utils/stcr_utils.php:275
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
@@ -1590,13 +1753,13 @@ msgstr ""
 "Ваша падпіска на гэты артыкул мае патрэбу ў пацверджанні. <a "
 "href='[manager_link]'>Рэдагаваць</a> свае падпіскі."
 
-#: utils/stcr_utils.php:199
+#: utils/stcr_utils.php:276
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 "Вы можаце <a href='[manager_link]'>кіраваць падпіскамі</a> на гэты запіс."
 
-#: utils/stcr_utils.php:205
+#: utils/stcr_utils.php:282
 msgid ""
 "To manage your subscriptions, please enter your email address here below. We "
 "will send you a message containing the link to access your personal "
@@ -1606,7 +1769,7 @@ msgstr ""
 "у форму ніжэй. Мы адправім вам паведамленне са спасылкай на вашу "
 "персанальную старонку кіравання."
 
-#: utils/stcr_utils.php:206
+#: utils/stcr_utils.php:283
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed, and you should receive an email with the management link in a few "
@@ -1616,7 +1779,7 @@ msgstr ""
 "працягу некалькіх хвілін вы павінны атрымаць ліст са спасылкай на старонку "
 "кіравання падпіскамі."
 
-#: utils/stcr_utils.php:207
+#: utils/stcr_utils.php:284
 msgid ""
 "You can follow the discussion on <strong>[post_title]</strong> without "
 "having to leave a comment. Cool, huh? Just enter your email address in the "
@@ -1626,7 +1789,7 @@ msgstr ""
 "пакідаючы свайго каментара. Выдатна, ці не праўда? Проста ўвядзіце свой "
 "электронны адрас у форму ніжэй, і гатова!"
 
-#: utils/stcr_utils.php:208
+#: utils/stcr_utils.php:285
 msgid ""
 "Thank you for using our subscription service. Your request has been "
 "completed. You will receive a notification email every time a new comment to "
@@ -1636,7 +1799,7 @@ msgstr ""
 "будзеце атрымліваць апавяшчэнні кожных разоў, як новы каментар да гэты "
 "артыкулу будзе ўхвалены і апублікаваны адміністратарам сайта."
 
-#: utils/stcr_utils.php:209
+#: utils/stcr_utils.php:286
 msgid ""
 "Thank you for using our subscription service. In order to confirm your "
 "request, please check your email for the verification message and follow the "
@@ -1646,7 +1809,7 @@ msgstr ""
 "запыт, калі ласка, праверце сваю пошту і вынікайце інструкцыям у лісце пра "
 "пацверджанне."
 
-#: utils/stcr_utils.php:210
+#: utils/stcr_utils.php:287
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
@@ -1654,7 +1817,7 @@ msgstr ""
 "Каб адмяніць ці прыпыніць адно ці больш апавяшчэнняў, пстрыкніце ў "
 "адпаведным акенцы выбару і націсніце на кнопку ў канцы спісу."
 
-#: utils/stcr_utils.php:211
+#: utils/stcr_utils.php:288
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list. "
@@ -1664,11 +1827,11 @@ msgstr ""
 "адпаведным акенцы выбару і націсніце на кнопку ў канцы спісу. На дадзены "
 "момант вы падпісаны на:"
 
-#: utils/stcr_utils.php:215
+#: utils/stcr_utils.php:292
 msgid "There is a new comment to [post_title]"
 msgstr "З'явіўся новы каментар да артыкула [post_title]"
 
-#: utils/stcr_utils.php:216
+#: utils/stcr_utils.php:293
 msgid ""
 "<h1>There is a new comment on [post_title].</h1>\n"
 "\n"
@@ -1685,11 +1848,11 @@ msgid ""
 "\"[oneclick_link]\">One click unsubscribe</a></div>"
 msgstr ""
 
-#: utils/stcr_utils.php:217
+#: utils/stcr_utils.php:294
 msgid "Please confirm your subscription to [post_title]"
 msgstr "Калі ласка, пацвердзіце сваю падпіску на артыкул [post_title]"
 
-#: utils/stcr_utils.php:218
+#: utils/stcr_utils.php:295
 #, fuzzy
 #| msgid ""
 #| "You have requested to be notified every time a new comment is added to:\n"
@@ -1710,17 +1873,17 @@ msgstr ""
 "Калі ласка, перайдзіце па наступнай спасылцы, каб пацвердзіць падпіску:\n"
 "[confirm_link]"
 
-#: utils/stcr_utils.php:219
+#: utils/stcr_utils.php:296
 msgid "Manage your subscriptions on [blog_name]"
 msgstr "Рэдагаваць свае падпіскі на сайце [blog_name]"
 
-#: utils/stcr_utils.php:220
+#: utils/stcr_utils.php:297
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Please check the Subscriptions management link in your email"
 msgstr ""
 
-#: utils/stcr_utils.php:221
+#: utils/stcr_utils.php:298
 #, fuzzy
 #| msgid ""
 #| "You have requested to manage your subscriptions to the articles on "
@@ -1736,15 +1899,15 @@ msgstr ""
 "падпіскамі:\n"
 "[manager_link]"
 
-#: utils/stcr_utils.php:300
+#: utils/stcr_utils.php:378
 msgid "StCR Notification"
 msgstr "Апавяшчэнні"
 
-#: wp_subscribe_reloaded.php:1120
+#: wp_subscribe_reloaded.php:1116
 msgid "Don't subscribe"
 msgstr "Не падпісвацца"
 
-#: wp_subscribe_reloaded.php:1121
+#: wp_subscribe_reloaded.php:1117
 msgid "All"
 msgstr "Усё"
 
@@ -1841,9 +2004,6 @@ msgstr "Усё"
 
 #~ msgid "Management page"
 #~ msgstr "Старонка кіравання"
-
-#~ msgid "Awaiting confirmation"
-#~ msgstr "Чакае пацверджання"
 
 #~ msgid "Stats"
 #~ msgstr "Статыстыка"
@@ -2104,9 +2264,6 @@ msgstr "Усё"
 
 #~ msgid "Is equal to"
 #~ msgstr "Uguale a"
-
-#~ msgid "Day"
-#~ msgstr "Giorno"
 
 #~ msgid "Go"
 #~ msgstr "Vai"

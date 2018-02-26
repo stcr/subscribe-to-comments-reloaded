@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 20:17-0700\n"
-"PO-Revision-Date: 2018-02-25 20:18-0700\n"
-"Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
+"POT-Creation-Date: 2018-02-25 23:11-0700\n"
+"PO-Revision-Date: 2018-02-25 23:11-0700\n"
+"Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_MX\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n !=1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: options/index.php:69 utils/stcr_manage.php:352 utils/stcr_manage.php:353
@@ -313,7 +313,7 @@ msgstr "Sin Confirmar"
 msgid "Inactive"
 msgstr "Activo"
 
-#: options/panel1.php:227 options/panel1.php:239 templates/author.php:95
+#: options/panel1.php:227 options/panel1.php:239 templates/author.php:96
 #: templates/user.php:114
 msgid "Delete"
 msgstr "Eliminar"
@@ -326,7 +326,7 @@ msgstr "Editar"
 msgid "Subscription"
 msgstr "Suscripciones"
 
-#: options/panel1.php:250 templates/author.php:92 templates/user.php:110
+#: options/panel1.php:250 templates/author.php:93 templates/user.php:110
 msgid "Action:"
 msgstr "Acción:"
 
@@ -334,7 +334,7 @@ msgstr "Acción:"
 msgid "Delete forever"
 msgstr "Eliminar para siempre"
 
-#: options/panel1.php:254 templates/author.php:96 templates/user.php:115
+#: options/panel1.php:254 templates/author.php:97 templates/user.php:115
 msgid "Suspend"
 msgstr "Suspender"
 
@@ -350,7 +350,7 @@ msgstr "Activar y establecer a R"
 msgid "Activate"
 msgstr "Activar"
 
-#: options/panel1.php:261 templates/author.php:101 templates/user.php:121
+#: options/panel1.php:261 templates/author.php:102 templates/user.php:121
 msgid "Update subscriptions"
 msgstr "Actualizar suscripciones"
 
@@ -1219,33 +1219,33 @@ msgstr "Email de Subscripción"
 msgid "Subscription Status"
 msgstr "Estado de Subscripción"
 
-#: templates/author.php:90 templates/user.php:107
+#: templates/author.php:91 templates/user.php:107
 msgid "Select all"
 msgstr "Seleccionar todo"
 
-#: templates/author.php:91 templates/user.php:109
+#: templates/author.php:92 templates/user.php:109
 msgid "Invert selection"
 msgstr "Invertir selección"
 
-#: templates/author.php:94 templates/user.php:113
+#: templates/author.php:95 templates/user.php:113
 msgid "Choose your action"
 msgstr "Selecciona la acción"
 
-#: templates/author.php:97 templates/user.php:116
+#: templates/author.php:98 templates/user.php:116
 msgid "All comments"
 msgstr "Todos los comentarios"
 
-#: templates/author.php:98 templates/user.php:117
+#: templates/author.php:99 templates/user.php:117
 #: wp_subscribe_reloaded.php:1118
 msgid "Replies to my comments"
 msgstr "Respuestas a mis comentarios"
 
-#: templates/author.php:104 templates/confirm.php:28
+#: templates/author.php:105 templates/confirm.php:28
 #: templates/request-management-link.php:125 templates/user.php:127
 msgid "Return to Post"
 msgstr "Regresar al Post"
 
-#: templates/author.php:109 templates/one-click-unsubscribe.php:30
+#: templates/author.php:110 templates/one-click-unsubscribe.php:30
 #: templates/user.php:131
 msgid "No subscriptions match your search criteria."
 msgstr "Ninguna suscripción coincide con tu criterio de búsqueda."
@@ -1442,6 +1442,7 @@ msgstr "Aviso Importante de Subscribe to Comments Reloaded"
 
 #: utils/stcr_upgrade.php:414 utils/stcr_upgrade.php:534
 #: utils/stcr_upgrade.php:561 utils/stcr_upgrade.php:589
+#: utils/stcr_upgrade.php:610
 msgid ""
 "If you find a bug or an issue you can report it <a href=\"https://github.com/"
 "stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
@@ -1482,6 +1483,7 @@ msgstr ""
 #: utils/stcr_upgrade.php:467 utils/stcr_upgrade.php:490
 #: utils/stcr_upgrade.php:511 utils/stcr_upgrade.php:539
 #: utils/stcr_upgrade.php:566 utils/stcr_upgrade.php:594
+#: utils/stcr_upgrade.php:615
 msgid ""
 "Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
 "comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
@@ -1569,6 +1571,7 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:505 utils/stcr_upgrade.php:526
 #: utils/stcr_upgrade.php:554 utils/stcr_upgrade.php:581
+#: utils/stcr_upgrade.php:609
 msgid "This version includes fixes and improvements, "
 msgstr ""
 
@@ -1584,12 +1587,12 @@ msgid ""
 msgstr ""
 
 #: utils/stcr_upgrade.php:521 utils/stcr_upgrade.php:549
-#: utils/stcr_upgrade.php:576
+#: utils/stcr_upgrade.php:576 utils/stcr_upgrade.php:604
 msgid "Log Settings"
 msgstr "Ajustes de logs"
 
 #: utils/stcr_upgrade.php:525 utils/stcr_upgrade.php:553
-#: utils/stcr_upgrade.php:580
+#: utils/stcr_upgrade.php:580 utils/stcr_upgrade.php:608
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 msgstr ""
@@ -1605,7 +1608,7 @@ msgid "<strong>Improve</strong> Manage subscription page. Take a look ;)."
 msgstr ""
 
 #: utils/stcr_upgrade.php:535 utils/stcr_upgrade.php:562
-#: utils/stcr_upgrade.php:590
+#: utils/stcr_upgrade.php:590 utils/stcr_upgrade.php:611
 msgid "The support of this plugin is given thanks to your donations."
 msgstr ""
 
@@ -1656,7 +1659,7 @@ msgstr ""
 msgid "<strong>Fix</strong> issue regarding database collations"
 msgstr ""
 
-#: utils/stcr_upgrade.php:591
+#: utils/stcr_upgrade.php:591 utils/stcr_upgrade.php:612
 msgid ""
 "Help to keep the support alive. You can donate via <i class=\"fa fa-paypal\" "
 "aria-hidden=\"true\"></i> <a href=\"\n"
