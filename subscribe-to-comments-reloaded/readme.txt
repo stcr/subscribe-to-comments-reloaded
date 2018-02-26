@@ -5,8 +5,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Requires at least: 4.0
 Requires PHP: 5.3.13
-Tested up to: 4.9.4
-Stable tag: 180212
+Tested up to: 4.9.5-alpha
+Stable tag: 180225
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+= v180225 =
+**Fix** Information that was not been validated on the backened.
+
 = v180212 =
 **Security Patch** This version add a patch for some security issues.
 **Fix Critical Bug** This version fix a critical bug causing issues with wrong database collations.
@@ -162,6 +165,16 @@ v1410124 Fixed several issues reported on the support forum like broken links, r
 **Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v180225 =
+
+* **Fix** error when a user subscribe to a new post and the double opt-in was enable, preventing the double opt-in not sending the email message. [Issue#350](https://github.com/stcr/subscribe-to-comments-reloaded/issues/350).
+* **Add** email and post id validation on the StCR backened.
+* **Add** email, search and post id validation on the frontend.
+* **Add** backened validation for input data (email) on the subscribe and request management pages.
+* **Add** debug messages to improve support.
+* **Add** feature to change the date format output on the management page for both the User page and Author. See [issue#345](https://github.com/stcr/subscribe-to-comments-reloaded/issues/345).
+* **Remove** the inclusion of the plugin scripts with WP enqueue. This will load only the needed script on specific pages. Will remove request to the server to get scripts.
 
 = v180212 =
 
