@@ -1132,6 +1132,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			// Check for the Comment Form location
 			if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
 				$output .= "<style type='text/css'>.stcr-hidden{display: none !important;}</style>";
+				$output .= "<script type='text/javascript'>jQuery(document).ready(function(t){t(':input[type=\"submit\"]');var e=t(\"div.stcr-form\");e.html(),e.prevUntil(\"form\").each(function(){var r=t(this);if(r.find(':input[type=\"submit\"]').length)return e.remove(),r.before(e),t(\"div.stcr-form\").removeClass(\"stcr-hidden\"),!1})});</script>";
 				$output .= "<div class='stcr-form stcr-hidden'>";
                 $output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
                 $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
