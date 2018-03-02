@@ -6,6 +6,8 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
+define( __NAMESPACE__.'\\VERSION','180225' );
+
 require_once dirname(__FILE__).'/utils/stcr_manage.php';
 
 if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
@@ -36,77 +38,87 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			$this->maybe_update();
 
-			// What to do when a new comment is posted
-			add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
-			// Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
-			add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
-			add_action('_cron_log_file_purge', array($this, 'log_file_purge'), 10 );
-
-			// Load Text Domain
-			add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
-
-			// Provide content for the management page using WP filters
-			if ( ! is_admin() ) {
-				$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
-				if ( function_exists( 'qtrans_convertURL' ) ) {
-					$manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
-				}
-				if ( empty( $manager_page_permalink ) ) {
-					$manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
-				}
-				if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
-					add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
-				}
-				// Enqueue plugin scripts
-				$this->utils->hook_plugin_scripts();
-			} else {
-				// Hook for WPMU - New blog created
-				add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
-
-				// Remove subscriptions attached to a post that is being deleted
-				add_action( 'delete_post', array( $this, 'delete_subscriptions' ), 10, 2 );
-
-				// Monitor actions on existing comments
-				add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
-				add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
-				// Add a new column to the Edit Comments panel
-				add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
-				add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
-				add_action( 'manage_comments_custom_column', array( $this, 'add_comment_column' ) );
-				add_action( 'manage_posts_custom_column', array( $this, 'add_post_column' ) );
-
-				// Add appropriate entries in the admin menu
-				add_action( 'admin_menu', array( $this, 'add_config_menu' ) );
-				// TODO: Remove admin_print_styles and add the style with the correct hook.
-				add_action( 'admin_print_styles-edit-comments.php', array( $this, 'add_post_comments_stylesheet' ) );
-				add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
-
-				// Admin notices
-				add_action( 'admin_init', array( $this, 'stcr_admin_init' ) );
-				add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-
-				// Contextual help
-				add_action( 'contextual_help', array( $this, 'contextual_help' ), 10, 3 );
-
-				// Shortcodes to use the management URL sitewide
-				add_shortcode( 'subscribe-url', array( $this, 'subscribe_url_shortcode' ) );
-
-				// Settings link for plugin on plugins page
-				add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
-				// Subscribe post authors, if the case
-				if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
-					add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
-				}
-				// Enqueue admin scripts
-				$this->utils->hook_admin_scripts();
-
-				// Add the AJAX Action
-				$this->utils->stcr_create_ajax_notices();
-			}
+			$this->define_wp_hooks();
 
 
 		}
 		// end __construct
+        /**
+         * Define the WordPress Hooks that will be use by the plugin.
+         *
+         * @since 02-March-2018
+         * @author reedyseth
+         */
+        public function define_wp_hooks()
+        {
+            // What to do when a new comment is posted
+            add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
+            // Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
+            add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
+            add_action('_cron_log_file_purge', array($this, 'log_file_purge'), 10 );
+
+            // Load Text Domain
+            add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
+
+            // Provide content for the management page using WP filters
+            if ( ! is_admin() ) {
+                $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+                if ( function_exists( 'qtrans_convertURL' ) ) {
+                    $manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
+                }
+                if ( empty( $manager_page_permalink ) ) {
+                    $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+                }
+
+                if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
+                    add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
+                }
+                // Enqueue plugin scripts
+                $this->utils->hook_plugin_scripts();
+            } else {
+                // Hook for WPMU - New blog created
+                add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
+
+                // Remove subscriptions attached to a post that is being deleted
+                add_action( 'delete_post', array( $this, 'delete_subscriptions' ), 10, 2 );
+
+                // Monitor actions on existing comments
+                add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
+                add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
+                // Add a new column to the Edit Comments panel
+                add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
+                add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
+                add_action( 'manage_comments_custom_column', array( $this, 'add_comment_column' ) );
+                add_action( 'manage_posts_custom_column', array( $this, 'add_post_column' ) );
+
+                // Add appropriate entries in the admin menu
+                add_action( 'admin_menu', array( $this, 'add_config_menu' ) );
+                add_action( 'admin_print_styles-edit-comments.php', array( $this, 'add_post_comments_stylesheet' ) );
+                add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
+
+                // Admin notices
+                add_action( 'admin_init', array( $this, 'stcr_admin_init' ) );
+                add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+
+                // Contextual help
+                add_action( 'contextual_help', array( $this, 'contextual_help' ), 10, 3 );
+
+                // Shortcodes to use the management URL sitewide
+                add_shortcode( 'subscribe-url', array( $this, 'subscribe_url_shortcode' ) );
+
+                // Settings link for plugin on plugins page
+                add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
+                // Subscribe post authors, if the case
+                if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
+                    add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
+                }
+                // Enqueue admin scripts
+                $this->utils->hook_admin_scripts();
+
+                // Add the AJAX Action
+                $this->utils->stcr_create_ajax_notices();
+            }
+        }
 
 		/**
 		 * Load localization files
