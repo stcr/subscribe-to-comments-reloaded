@@ -120,13 +120,16 @@ switch ( $action ) {
         }
 }
 
+$initial_limit_results  = 10;
+$official_limit_results = '18446744073709551610';
+
 $search_field  = ! empty( $_POST['srf'] ) ? $_POST['srf'] : ( ! empty( $_GET['srf'] ) ? $_GET['srf'] : 'email' );
 $operator      = ! empty( $_POST['srt'] ) ? $_POST['srt'] : ( ! empty( $_GET['srt'] ) ? $_GET['srt'] : 'contains' );
 $search_value  = ! empty( $_POST['srv'] ) ? $_POST['srv'] : ( ! empty( $_GET['srv'] ) ? $_GET['srv'] : '@' );
 $order_by      = ! empty( $_POST['srob'] ) ? $_POST['srob'] : ( ! empty( $_GET['srob'] ) ? $_GET['srob'] : 'dt' );
 $order         = ! empty( $_POST['sro'] ) ? $_POST['sro'] : ( ! empty( $_GET['sro'] ) ? $_GET['sro'] : 'DESC' );
 $offset        = ! empty( $_POST['srsf'] ) ? intval( $_POST['srsf'] ) : ( ! empty( $_GET['srsf'] ) ? intval( $_GET['srsf'] ) : 0 );
-$limit_results = ! empty( $_POST['srrp'] ) ? intval( $_POST['srrp'] ) : ( ! empty( $_GET['srrp'] ) ? intval( $_GET['srrp'] ) : 3 );
+$limit_results = ! empty( $_POST['srrp'] ) ? intval( $_POST['srrp'] ) : ( ! empty( $_GET['srrp'] ) ? intval( $_GET['srrp'] ) : $initial_limit_results );
 // Clean data
 $search_field  = sanitize_text_field($search_field);
 $operator      = sanitize_text_field($operator);
@@ -136,14 +139,25 @@ $offset        = sanitize_text_field($offset);
 $search_value  = sanitize_text_field(trim($search_value));
 $limit_results = sanitize_text_field(trim($limit_results));
 
-$subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $limit_results );
-$count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );
+// Fix Limit results for last_page
+$last_page = isset( $_GET['last_page'] ) ? $_GET['last_page'] : 'no';
+
+if ( $last_page === 'yes' )
+{
+    $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $official_limit_results );
+    $count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );
+    $total_pages = round ( abs( $count_total / $initial_limit_results ) );
+}
+else
+{
+    $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $limit_results );
+    $count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );
+    $total_pages = round ( abs( $count_total / $limit_results ) );
+}
 
 $count_results = count( $subscriptions ); // 0 if $results is null
 $ending_to     = min( $count_total, $offset + $limit_results );
 $previous_link = $next_link = $next_page_link = $previous_page_link = '';
-
-$total_pages = round ( abs( $count_total / $limit_results ) );
 
 if ( $offset > 0 ) {
 	$new_starting  = ( $offset > $limit_results ) ? $offset - $limit_results : 0;
@@ -190,17 +204,21 @@ for ( $p = 1; $p <= $total_pages; $p++ )
             $active_page = $p == $stcr_sub_current_page ? "active" : "";
             $stcr_sub_prev_page = $stcr_sub_current_page - 1;
             $previous_page_link = $previous_page_link . "&stcr_sub_current_page=$stcr_sub_prev_page";
+            $new_starting = $pagination_offset; // Since is the first
+            $page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
+            $page_link    = $page_link ."&stcr_sub_current_page=$p";
 
             $navigation_panel .= "<li class=\"page-item\">
                                     <a class=\"page-link\" href=\"$previous_page_link\" tabindex=\"-1\">Previous</a>
                                   </li>
-                                      <li class=\"page-item $active_page\"><a class=\"page-link\" href=\"#\">1</a></li>";
+                                      <li class=\"page-item $active_page\"><a class=\"page-link\" href=\"$page_link\">1</a></li>";
         }
         else
         {
             $active_page = $p == $stcr_sub_current_page ? "active" : "";
             $new_starting = $pagination_offset; // Since is the first
             $page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
+            $page_link    = $page_link ."&stcr_sub_current_page=$p";
 
             $navigation_panel .= "<li class=\"page-item disabled\">
                                     <a class=\"page-link\" href=\"#\" tabindex=\"-1\">Previous</a>
@@ -213,6 +231,7 @@ for ( $p = 1; $p <= $total_pages; $p++ )
         $new_starting = $pagination_offset + $limit_results;
         $pagination_offset = $new_starting; // Set the next offset
         $page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
+        $page_link    = $page_link ."&stcr_sub_current_page=$p";
         $active_page = $p == $stcr_sub_current_page ? "active" : "";
         $navigation_panel .= "<li class=\"page-item $active_page\"><a class=\"page-link\" href=\"$page_link\">$p</a></li>";
 
@@ -222,11 +241,18 @@ for ( $p = 1; $p <= $total_pages; $p++ )
     {
         if( $stcr_sub_current_page < $p )
         {
+
+            $stcr_sub_prev_page = $stcr_sub_current_page - 1;
+            $previous_page_link = $previous_page_link . "&stcr_sub_current_page=$stcr_sub_prev_page";
+
+
             $active_page = $p == $stcr_sub_current_page ? "active" : "";
             $new_starting = $pagination_offset + $limit_results;
             $pagination_offset = $new_starting; // Set the next offset
-            $limit_results = "18446744073709551610";
-            $page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
+            $stcr_sub_next_page = $stcr_sub_current_page + 1;
+            $next_page_link = $next_page_link . "&stcr_sub_current_page=$stcr_sub_next_page";
+            $page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting";
+            $page_link    = $page_link ."&stcr_sub_current_page=$p&last_page=yes";
 
             $navigation_panel .= "<li class=\"page-item $active_page\"><a class=\"page-link\" href=\"$page_link\">$p</a></li>";
             $navigation_panel .= "<li class=\"page-item\">

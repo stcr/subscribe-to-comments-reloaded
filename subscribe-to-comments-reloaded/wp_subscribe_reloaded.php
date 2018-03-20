@@ -8,7 +8,6 @@ if ( ! function_exists( 'add_action' ) ) {
 
 define( __NAMESPACE__.'\\VERSION','180225' );
 define( __NAMESPACE__.'\\DEVELOPMENT', true );
-define( __NAMESPACE__.'\\MANUAL_SUBS', 20 );
 
 require_once dirname(__FILE__).'/utils/stcr_manage.php';
 
@@ -45,10 +44,17 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
             if ( DEVELOPMENT )
             {
                 // Add subscriptions for tests
-                //$this->add_manual_subs( MANUAL_SUBS, 18,'Y', 'dev', 0);
+//                $this->add_manual_subs( 50, 18,'Y', 'dev', 30);
             }
 		}
 		// end __construct
+        public function add_manual_subs( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 )
+        {
+            for ( $i = $last_id_subs+1; $i <= $iterations; $i++)
+            {
+                $this->add_subscription( $post_id, "{$email_prefix}_{$i}@dev.com", $status);
+            }
+        }
         /**
          * Define the WordPress Hooks that will be use by the plugin.
          *
@@ -310,14 +316,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		}
 
 		// end new_comment_posted
-        public function add_manual_subs( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 )
-        {
-            for ( $i = $last_id_subs+1; $i <= $iterations; $i++)
-            {
-                $this->add_subscription( $post_id, "{$email_prefix}_{$i}@dev.com", $status);
-            }
-        }
-
 		public function isDoubleCheckinEnabled( $info ) {
 
 		    $is_subscribe_to_post = false;
