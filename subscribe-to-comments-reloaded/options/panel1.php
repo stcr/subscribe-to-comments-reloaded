@@ -197,9 +197,9 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                 );
 
                                 if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
-                                    $order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
-                                    $order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
-                                    $order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'>&or;" : "ASC'>&and;" ) . "</a>";
+                                    $order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
+                                    $order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
+                                    $order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
 
                                     $show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ?  __( 'Post (ID)', 'subscribe-reloaded' ) . "&nbsp;&nbsp;$order_post_id": '';
                                     $show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? __( 'Email', 'subscribe-reloaded' ) : '';
@@ -295,50 +295,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
                                     echo "</table>";
 
-                                    echo "<nav aria-label=\"Subscriptions\">
-                                              <ul class=\"pagination justify-content-end\">";
-                                                for ( $p = 1; $p <= $total_pages; $p++ )
-                                                {
-                                                    if( $p == 1 )
-                                                    {
-                                                        echo "<li class=\"page-item disabled\">
-                                                            <a class=\"page-link\" href=\"#\" tabindex=\"-1\">Previous</a>
-                                                          </li>
-                                                              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li>
-                                                              <li class=\"page-item disabled\">
-                                                                    <a class=\"page-link\" href=\"#\" tabindex=\"-1\">Next</a>
-                                                                  </li>";
-                                                    }
-                                                    else if( $p > 1 )
-                                                    {
-                                                        echo "<li class=\"page-item\"><a class=\"page-link\" href=\"#\">$p</a></li>";
-
-                                                        if( $p == $total_pages )
-                                                        {
-                                                            echo "<li class=\"page-item disabled\">
-                                                                    <a class=\"page-link\" href=\"#\" tabindex=\"-1\">Next</a>
-                                                                  </li>";
-                                                        }
-                                                        else if( $p > 1 && $p < $total_pages )
-                                                        {
-                                                            echo "<li class=\"page-item\">
-                                                                    <a class=\"page-link\" href=\"#\" tabindex=\"-1\">Next</a>
-                                                                  </li>";
-                                                        }
-                                                    }
-                                                }
-                                            echo "";
-//                                                ."<li class=\"page-item disabled\">
-//                                                  <a class=\"page-link\" href=\"#\" tabindex=\"-1\">Previous</a>
-//                                                </li>
-//                                                <li class=\"page-item\"><a class=\"page-link\" href=\"#\">1</a></li>
-//                                                <li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li>
-//                                                <li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li>
-//                                                <li class=\"page-item\">
-//                                                  <a class=\"page-link\" href=\"#\">Next</a>
-//                                                </li>
-                                     echo  "    </ul>
-                                            </nav>";
+                                    echo $navigation_panel; // Located on Business Logic
 
                                     echo '<label for="action_type" >' . __( 'Action:', 'subscribe-reloaded' ) . '</label >' ;
                                     ?>
