@@ -82,6 +82,10 @@
 	font-size: 0.85em;
 }
 
+table.subscribers-table {
+	width: auto !important;
+}
+
 table.subscribers-table thead{
 	background-color: #b3e0f1;
 }
@@ -111,6 +115,20 @@ table.subscribers-table thead th span{
 	text-transform: uppercase;
 }
 
+@media screen and ( max-width: 651px ) {
+	table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+	table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+		padding-left: 40px !important;
+	}
+}
+
+@media screen and ( max-width: 350px ) {
+	table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+	table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+		padding-left: 57px !important;
+	}
+}
+
 .btn-primary {
 	color: #fff !important;
 	background-color: #0085ba !important;;
@@ -121,4 +139,71 @@ table.subscribers-table thead th span{
 	color: #fff !important;;
 	background-color: #4299b9 !important;;
 	border-color: #5495ad !important;;
+}
+
+/* Override rules from DataTables causing styling issues.*/
+.dataTables_wrapper .dataTables_paginate .paginate_button
+{
+	padding: 0 !important;
+	margin-left: 0 !important;
+	border: none !important;
+	border-radius: 0px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	background: none !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.subscribers-mass-actions
+{
+	margin-top: 20px;
+	font-size: 0.9rem;
+}
+
+.subscribers-mass-actions select,
+.subscribers-mass-actions button,
+.subscribers-mass-actions input
+{
+	font-size: 0.9rem !important;
+}
+
+.mass-update-subs {
+	/*height: 100%;*/
+	margin-top: 0 !important;
+}
+
+.mass-update-select-status {
+	width: 73% !important;
+	display: inline !important;
+}
+
+.new-sub-select-status {
+	width: 76% !important;
+	display: inline !important;
+}
+
+.add-new-subs {
+	/*height: 100%;*/
+	margin-top: 0 !important;
+}
+
+.mass-update-subs h6,
+.add-new-subs h6 {
+	cursor: pointer;
+}
+
+.original-card-padding {
+	padding: 1.25rem !important;
 }

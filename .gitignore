@@ -159,3 +159,12 @@ pip-log.txt
 # Mac crap
 .DS_Store
 .idea
+
+# Composer vendor directory
+src/vendor/
+
+# Bower Components
+src/bower_components/
+
+# Node
+node_modules/

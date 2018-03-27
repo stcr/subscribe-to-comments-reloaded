@@ -38,19 +38,28 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
         font-weight:bold;
     }
     .validate-error-field { border: 1px solid #ff9595 !important; }
-    .stcr-hidden { display: none;}
+    .stcr-hidden {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
 </style>
+
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"/>
 
 <div class="container-fluid">
 
     <div class="row mx-auto">
         <div class="col-sm-6">
-            <div class="card card-font-size">
+            <div class="card card-font-size mass-update-subs">
                 <h6 class="card-header">
                     <i class="fas fa-exchange-alt"></i> <?php _e( 'Mass Update Subscriptions', 'subscribe-reloaded' ) ?>
+                    <i class="fas fa-caret-down pull-right"></i>
                 </h6>
-                <div class="card-body">
-                    <div class="card-text">
+                <div class="card-body cbody-mass" style="padding: 0;">
+                    <div class="card-text stcr-hidden">
                         <form action="" method="post" id="mass_update_address_form">
 
                             <table>
@@ -68,7 +77,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                 </tr>
                                 <tr>
                                     <td><label for='srs'><?php _e( 'Status', 'subscribe-reloaded' ) ?></label></td>
-                                    <td><select class="form-control form-controls-font" name="srs" id="srs" style="width: 65%; display: inline;">
+                                    <td><select class="form-control form-controls-font mass-update-select-status" name="srs" id="srs">
                                             <option value=''><?php _e( 'Keep unchanged', 'subscribe-reloaded' ) ?></option>
                                             <option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
                                             <option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' ) ?></option>
@@ -99,12 +108,13 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
         </div>
 
         <div class="col-sm-6">
-            <div class="card card-font-size">
+            <div class="card card-font-size add-new-subs">
                 <h6 class="card-header">
                     <i class="fas fa-plus-square"></i> <?php _e( 'Add New Subscription', 'subscribe-reloaded' ) ?>
+                    <i class="fas fa-caret-down pull-right"></i>
                 </h6>
-                <div class="card-body">
-                    <div class="card-text">
+                <div class="card-body" style="padding: 0;">
+                    <div class="card-text stcr-hidden">
                         <form action="" method="post" id="add_new_subscription">
                             <fieldset style="border:0">
                                 <table>
@@ -121,7 +131,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                     <tr>
                                         <td><?php _e( 'Status', 'subscribe-reloaded' ) ?></td>
                                         <td>
-                                            <select name="srs" class="form-control form-controls-font" style="width: 65%; display: inline;">
+                                            <select name="srs" class="form-control form-controls-font new-sub-select-status">
                                                 <option value='Y'><?php _e( 'Active', 'subscribe-reloaded' ) ?></option>
                                                 <option value='R'><?php _e( 'Replies only', 'subscribe-reloaded' ) ?></option>
                                                 <option value='YC'><?php _e( 'Ask user to confirm', 'subscribe-reloaded' ) ?></option>
@@ -142,6 +152,45 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
         </div>
     </div>
 
+<!--    <div class="clearfix"></div>-->
+<!---->
+<!--    <div class="row mx-auto">-->
+<!--        <div class="col-sm-12 col-md-12 col-lg-12">-->
+<!--            <div class="card" style="max-width: 100% !important;">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="card-text postbox" style="border: none;">-->
+<!--                        <p class="subscribe-list-navigation">--><?php //echo "$previous_link $next_link" ?>
+<!--                        </p>-->
+<!---->
+<!--                        <h4>--><?php //_e( 'Search subscriptions', 'subscribe-reloaded' ) ?><!--</h4>-->
+<!---->
+<!--                        <form action="" method="post" id="search_subscriptions_form">-->
+<!--                            <p>--><?php //printf(
+//                                    __( 'You can either <a href="%s">view all the subscriptions</a> or find those where the', 'subscribe-reloaded' ),
+//                                    'admin.php?page=stcr_manage_subscriptions&amp;srv=@&amp;srt=contains'
+//                                ) ?><!--&nbsp;-->
+<!--                                <select name="srf">-->
+<!--                                    <option value='email'>--><?php //_e( 'email', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                    <option value='post_id'>--><?php //_e( 'post ID', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                    <option value='status'>--><?php //_e( 'status', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                </select>-->
+<!--                                <select name="srt">-->
+<!--                                    <option value='equals'>--><?php //_e( 'equals', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                    <option value='contains'>--><?php //_e( 'contains', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                    <option value='does not contain'>--><?php //_e( 'does not contain', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                    <option value='starts with'>--><?php //_e( 'starts with', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                    <option value='ends with'>--><?php //_e( 'ends with', 'subscribe-reloaded' ) ?><!--</option>-->
+<!--                                </select>-->
+<!--                                <input type="text" size="20" name="srv" value="" />,-->
+<!--                                --><?php //_e( 'results per page:', 'subscribe-reloaded' ) ?>
+<!--                                <input type="text" size="2" name="srrp" value="25" />-->
+<!--                                <input type="submit" class="subscribe-form-button" value="--><?php //_e( 'Search', 'subscribe-reloaded' ) ?><!--" />-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="clearfix"></div>
 
@@ -151,33 +200,8 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                 <div class="card-body">
 
                     <div class="card-text postbox" style="border: none;">
-                        <p class="subscribe-list-navigation"><?php echo "$previous_link $next_link" ?>
-                        </p>
 
-                        <h4><?php _e( 'Search subscriptions', 'subscribe-reloaded' ) ?></h4>
-
-                        <form action="" method="post" id="search_subscriptions_form">
-                            <p><?php printf(
-                                    __( 'You can either <a href="%s">view all the subscriptions</a> or find those where the', 'subscribe-reloaded' ),
-                                    'admin.php?page=stcr_manage_subscriptions&amp;srv=@&amp;srt=contains'
-                                ) ?>&nbsp;
-                                <select name="srf">
-                                    <option value='email'><?php _e( 'email', 'subscribe-reloaded' ) ?></option>
-                                    <option value='post_id'><?php _e( 'post ID', 'subscribe-reloaded' ) ?></option>
-                                    <option value='status'><?php _e( 'status', 'subscribe-reloaded' ) ?></option>
-                                </select>
-                                <select name="srt">
-                                    <option value='equals'><?php _e( 'equals', 'subscribe-reloaded' ) ?></option>
-                                    <option value='contains'><?php _e( 'contains', 'subscribe-reloaded' ) ?></option>
-                                    <option value='does not contain'><?php _e( 'does not contain', 'subscribe-reloaded' ) ?></option>
-                                    <option value='starts with'><?php _e( 'starts with', 'subscribe-reloaded' ) ?></option>
-                                    <option value='ends with'><?php _e( 'ends with', 'subscribe-reloaded' ) ?></option>
-                                </select>
-                                <input type="text" size="20" name="srv" value="" />,
-                                <?php _e( 'results per page:', 'subscribe-reloaded' ) ?>
-                                <input type="text" size="2" name="srrp" value="25" />
-                                <input type="submit" class="subscribe-form-button" value="<?php _e( 'Search', 'subscribe-reloaded' ) ?>" />
-                        </form>
+                        <h4><i class="fas fa-search"></i> <?php _e( 'Search subscriptions', 'subscribe-reloaded' ) ?></h4>
 
                         <form action="" method="post" id="subscription_form" name="subscription_form"
                               onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
@@ -197,14 +221,14 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                 );
 
                                 if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
-                                    $order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
-                                    $order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
-                                    $order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
+//                                    $order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
+//                                    $order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
+//                                    $order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
 
-                                    $show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ?  __( 'Post (ID)', 'subscribe-reloaded' ) . "&nbsp;&nbsp;$order_post_id": '';
+                                    $show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ?  __( 'Post (ID)', 'subscribe-reloaded' ) : '';
                                     $show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? __( 'Email', 'subscribe-reloaded' ) : '';
 
-                                    echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) . " <code>$search_field $operator <strong>$search_value</strong> ORDER BY $order_by $order</code>. " . __( 'Rows:', 'subscribe-reloaded' ) . ' ' . ( $offset + 1 ) . " - $ending_to " . __( 'of', 'subscribe-reloaded' ) . " $count_total</p>";
+//                                    echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) . " <code>$search_field $operator <strong>$search_value</strong> ORDER BY $order_by $order</code>. " . __( 'Rows:', 'subscribe-reloaded' ) . ' ' . ( $offset + 1 ) . " - $ending_to " . __( 'of', 'subscribe-reloaded' ) . " $count_total</p>";
 
                                     echo "<table class=\"table table-smx table-hover table-striped subscribers-table\" style=\"font-size: 0.8em\">
                                              <thead>";
@@ -212,8 +236,8 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                     if( $wp_locale->text_direction == 'rtl' )
                                     {
                                         echo "<li class='subscribe-list-header'>
-                                                <span class='subscribe-column subscribe-column-4'>" . __( 'Status', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_status</span>
-                                                <span class='subscribe-column subscribe-column-3'>" . __( 'Date and Time', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_dt</span>
+                                                <span class='subscribe-column subscribe-column-4'>" . __( 'Status', 'subscribe-reloaded' ) . "</span>
+                                                <span class='subscribe-column subscribe-column-3'>" . __( 'Date and Time', 'subscribe-reloaded' ) . "</span>
                                                 $show_email_column
                                                 $show_post_column
                                                 <span class='subscribe-column' style='width:38px'>&nbsp;</span>
@@ -295,21 +319,22 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
                                     echo "</table>";
 
-                                    echo $navigation_panel; // Located on Business Logic
-
-                                    echo '<label for="action_type" >' . __( 'Action:', 'subscribe-reloaded' ) . '</label >' ;
-                                    ?>
-                                    <select name="sra" id="action_type">
-                                        <option value="delete"><?php _e( 'Delete forever', 'subscribe-reloaded' ) ?></option>
-                                        <option value="suspend"><?php _e( 'Suspend', 'subscribe-reloaded' ) ?></option>
-                                        <option value="force_y"><?php _e( 'Activate and set to Y', 'subscribe-reloaded' ) ?></option>
-                                        <option value="force_r"><?php _e( 'Activate and set to R', 'subscribe-reloaded' ) ?></option>
-                                        <option value="activate"><?php _e( 'Activate', 'subscribe-reloaded' ) ?></option>
-                                    </select>
-
+                                    echo "<div class='subscribers-mass-actions form-group row'>";
+                                        echo '<label for="action_type" class="col-sm-1 col-form-label">' . __( 'Action:', 'subscribe-reloaded' ) . '</label >' ;
+                                    ?>          <div class="col-sm-3">
+                                                    <select name="sra" id="action_type" class="form-control">
+                                                        <option value="delete"><?php _e( 'Delete forever', 'subscribe-reloaded' ) ?></option>
+                                                        <option value="suspend"><?php _e( 'Suspend', 'subscribe-reloaded' ) ?></option>
+                                                        <option value="force_y"><?php _e( 'Activate and set to Y', 'subscribe-reloaded' ) ?></option>
+                                                        <option value="force_r"><?php _e( 'Activate and set to R', 'subscribe-reloaded' ) ?></option>
+                                                        <option value="activate"><?php _e( 'Activate', 'subscribe-reloaded' ) ?></option>
+                                                    </select>
+                                                </div>
                                     <?php
-                                    echo '<p><input type="submit" class="subscribe-form-button button-primary" value="' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '" /></p>';
-                                    echo "<input type='hidden' name='srf' value='$search_field'/><input type='hidden' name='srt' value='$operator'/><input type='hidden' name='srv' value='$search_value'/><input type='hidden' name='srsf' value='$offset'/><input type='hidden' name='srrp' value='$limit_results'/><input type='hidden' name='srob' value='$order_by'/><input type='hidden' name='sro' value='$order'/>";
+                                                echo '<div class="col-sm-2"><button type="submit" class="subscribe-form-button btn btn-primary" >' . __( 'Update subscriptions', 'subscribe-reloaded' ) . '</button></div>';
+                                                echo "<input type='hidden' name='srf' value='$search_field'/><input type='hidden' name='srt' value='$operator'/><input type='hidden' name='srv' value='$search_value'/><input type='hidden' name='srsf' value='$offset'/><input type='hidden' name='srrp' value='$limit_results'/><input type='hidden' name='srob' value='$order_by'/><input type='hidden' name='sro' value='$order'/>";
+                                    echo "</div>";
+
                                 } elseif ( $action == 'search' ) {
                                     echo '<p>' . __( 'Sorry, no subscriptions match your search criteria.', 'subscribe-reloaded' ) . "</p>";
                                 }
@@ -324,218 +349,9 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
 </div>
 
-<script type="text/javascript">
-    ( function($){
-        $(document).ready(function(){
-
-            var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var oldsre_input = $("form#mass_update_address_form input[name='oldsre']");
-            var sre_input    = $("form#mass_update_address_form input[name='sre']");
-
-
-            oldsre_input.focus(function(){
-                if (oldsre_input.val() == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>")
-                {
-                    oldsre_input.val("");
-                }
-                oldsre_input.css("color","#000");
-            });
-
-            oldsre_input.blur(function(){
-                if (oldsre_input.val() == "")
-                {
-                    oldsre_input.val("<?php _e( 'email address', 'subscribe-reloaded' ) ?>");
-                    oldsre_input.css("color","#ccc");
-                }
-            });
-
-            sre_input.focus(function(){
-                if (sre_input.val() == "<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>")
-                {
-                    sre_input.val("");
-                }
-                sre_input.css("color","#000");
-            });
-
-            sre_input.blur(function(){
-                if (sre_input.val() == "")
-                {
-                    sre_input.val("<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>");
-                    sre_input.css("color","#ccc");
-                }
-            });
-
-            $("form#mass_update_address_form").submit(function(){
-                var old_email      = $.trim( $("form#mass_update_address_form input[name='oldsre']").val() );
-                var email          = $.trim( $("form#mass_update_address_form input[name='sre']").val() );
-                var missing_fields = [];
-
-                if( old_email == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>" || old_email == "")
-                {
-                    missing_fields.push(
-                        {
-                            message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
-                            field: "oldsre"
-                        } );
-                }
-                else if( ! emailRegex.test(old_email) ) // check valid email
-                {
-                    missing_fields.push(
-                        {
-                            message: "<?php _e( 'Invalid email address.', 'subscribe-reloaded' ) ?>",
-                            field: "oldsre"
-                        } );
-                }
-
-                var missing_fields_size = missing_fields.length;
-
-                if( missing_fields_size > 0 )
-                {
-
-                    for( var i = 0; i < missing_fields_size; i++ )
-                    {
-                        var field_obj = missing_fields[i];
-                        $("form#mass_update_address_form .validate-error-text-" + field_obj.field).text(field_obj.message).show();
-                        $("form#mass_update_address_form input[name='"+ field_obj.field +"']").addClass("validate-error-field");
-                    }
-
-                    return false;
-                }
-                else
-                {
-                    var answer = confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>');
-
-                    if( ! answer )
-                    {
-                        return false;
-                    }
-                }
-
-
-            });
-            // Add New Subscription
-            var stcr_post_id_input = $("form#add_new_subscription input[name='srp']");
-            var sre_input          = $("form#add_new_subscription input[name='sre']");
-
-            stcr_post_id_input.blur(function(){
-                if( $.isNumeric(stcr_post_id_input.val() ) ) // check numeric value
-                {
-                    $(this).removeClass("validate-error-field");
-                    $("form#add_new_subscription .validate-error-text-srp").hide();
-                }
-            });
-
-            sre_input.blur(function(){
-                if( emailRegex.test(sre_input.val() ) ) // check email value
-                {
-                    $(this).removeClass("validate-error-field");
-                    $("form#add_new_subscription .validate-error-text-sre").hide();
-                }
-            });
-
-            $("form#add_new_subscription").submit(function(){
-                var post_id        = $.trim(stcr_post_id_input.val());
-                var email          = $.trim(sre_input.val());
-                var missing_fields = [];
-
-                if( post_id == "")
-                {
-                    missing_fields.push(
-                        {
-                            message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
-                            field: "srp"
-                        } );
-                }
-                else if( ! $.isNumeric(post_id) ) // check numeric value
-                {
-                    missing_fields.push(
-                        {
-                            message: "<?php _e( 'Enter a numeric Post ID.', 'subscribe-reloaded' ) ?>",
-                            field: "srp"
-                        } );
-                }
-
-                if( email == "")
-                {
-                    missing_fields.push(
-                        {
-                            message: "<?php _e( 'Missing email information', 'subscribe-reloaded' ) ?>",
-                            field: "sre"
-                        } );
-                }
-                else if( ! emailRegex.test(email) ) // check valid email
-                {
-                    missing_fields.push(
-                        {
-                            message: "<?php _e( 'Invalid email address.', 'subscribe-reloaded' ) ?>",
-                            field: "sre"
-                        } );
-                }
-
-                var missing_fields_size = missing_fields.length;
-
-                if( missing_fields_size > 0 )
-                {
-
-                    for( var i = 0; i < missing_fields_size; i++ )
-                    {
-                        var field_obj = missing_fields[i];
-                        $("form#add_new_subscription .validate-error-text-" + field_obj.field).text(field_obj.message).show();
-                        $("form#add_new_subscription input[name='"+ field_obj.field +"']").addClass("validate-error-field");
-                    }
-
-                    return false;
-                }
-            });
-
-            var search_input = $("form#search_subscriptions_form input[name='srv']");
-
-            $("form#search_subscriptions_form").submit(function(){
-                var search_value = $.trim(search_input.val());
-
-                if( search_value == "")
-                {
-                    search_input.val("<?php _e( 'Please enter a value', 'subscribe-reloaded' ) ?>");
-                    search_input.addClass("validate-error-field");
-
-                    return false;
-                }
-            });
-
-            search_input.focus(function(){
-                if( search_input.val() == "<?php _e( 'Please enter a value', 'subscribe-reloaded' ) ?>" )
-                {
-                    search_input.val("");
-                }
-            });
-
-            search_input.blur(function(){
-                if( $.trim(search_input.val() ) != "" )
-                {
-                    $(this).removeClass("validate-error-field");
-                }
-            });
-        });
-
-        // More info action
-        $('div.more-info').on("click", function( event ) {
-            event.preventDefault();
-            var info_panel = $( this ).data( "infopanel" );
-            info_panel = "." + info_panel;
-
-            $( ".postbox-mass").css("overflow","hidden");
-
-            if( $( info_panel ).hasClass( "hidden") )
-            {
-                $( info_panel ).slideDown( "fast" );
-                $( info_panel).removeClass( "hidden" );
-            }
-            else
-            {
-                $( info_panel ).slideUp( "fast" );
-                $( info_panel).addClass( "hidden" );
-            }
-        });
-    } )( jQuery );
-</script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/includes/js/admin/subs_management.js"></script>
 

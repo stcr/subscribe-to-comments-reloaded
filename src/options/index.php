@@ -62,12 +62,14 @@ function subscribe_reloaded_get_option( $_option = '', $_default = '' ) {
 global $wp_locale;
 
 // Load localization files
-load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+//load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 ?>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/includes/css/fontawesome-all.min.css" rel="stylesheet"/>
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>-->
+<!-- TODO: Fix variable on resources to automate on diployment-->
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet"/>
 <style type="text/css">
     #wpcontent {
         background: #f1f1f1 !important;

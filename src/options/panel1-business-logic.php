@@ -120,7 +120,7 @@ switch ( $action ) {
         }
 }
 
-$initial_limit_results  = 10;
+$initial_limit_results  = 1000;
 $official_limit_results = '18446744073709551610';
 
 $search_field  = ! empty( $_POST['srf'] ) ? $_POST['srf'] : ( ! empty( $_GET['srf'] ) ? $_GET['srf'] : 'email' );
@@ -139,21 +139,9 @@ $offset        = sanitize_text_field($offset);
 $search_value  = sanitize_text_field(trim($search_value));
 $limit_results = sanitize_text_field(trim($limit_results));
 
-// Fix Limit results for last_page
-$last_page = isset( $_GET['last_page'] ) ? $_GET['last_page'] : 'no';
-
-if ( $last_page === 'yes' )
-{
-    $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $official_limit_results );
-    $count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );
-    $total_pages = round ( abs( $count_total / $initial_limit_results ) );
-}
-else
-{
-    $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $limit_results );
-    $count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );
-    $total_pages = round ( abs( $count_total / $limit_results ) );
-}
+$subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $limit_results );
+$count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );
+//$total_pages = round ( abs( $count_total / $limit_results ) );
 
 $count_results = count( $subscriptions ); // 0 if $results is null
 $ending_to     = min( $count_total, $offset + $limit_results );
@@ -162,12 +150,12 @@ $previous_link = $next_link = $next_page_link = $previous_page_link = '';
 if ( $offset > 0 ) {
 	$new_starting  = ( $offset > $limit_results ) ? $offset - $limit_results : 0;
 	$previous_link = "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>" . __( '&laquo; Previous', 'subscribe-reloaded' ) . "</a> ";
-    $previous_page_link = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
+//    $previous_page_link = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
 }
 if ( ( $ending_to < $count_total ) && ( $count_results > 0 ) ) {
 	$new_starting = $offset + $limit_results;
 	$next_link    = "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>" . __( 'Next &raquo;', 'subscribe-reloaded' ) . "</a> ";
-	$next_page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
+//	$next_page_link    = "admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results";
 }
 
 
@@ -176,7 +164,7 @@ if ( ( $ending_to < $count_total ) && ( $count_results > 0 ) ) {
    @since 16-March-2018
    @author Reedyseth
 */
-$stcr_sub_current_page = isset( $_GET['stcr_sub_current_page'] ) ? $_GET['stcr_sub_current_page'] : 1;
+/*$stcr_sub_current_page = isset( $_GET['stcr_sub_current_page'] ) ? $_GET['stcr_sub_current_page'] : 1;
 $pagination_offset = 0;
 $navigation_panel = "";
 
@@ -271,3 +259,4 @@ for ( $p = 1; $p <= $total_pages; $p++ )
 }
 $navigation_panel .=  "    </ul>
                         </nav>";
+*/

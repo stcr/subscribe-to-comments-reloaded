@@ -185,7 +185,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		 * Load localization files
 		 */
 		function subscribe_reloaded_load_plugin_textdomain() {
-			load_plugin_textdomain( 'subscribe-reloaded', FALSE, basename( dirname( __FILE__ ) ) . '/langs/' );
+			load_plugin_textdomain( 'subscribe-reloaded', FALSE,  'subscribe-to-comments-reloaded/langs/' );
+            echo dirname( plugin_basename( __FILE__ ) );
 		}
 
 		/*
