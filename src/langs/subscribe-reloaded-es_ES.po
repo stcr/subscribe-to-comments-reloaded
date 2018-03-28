@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 23:11-0700\n"
-"PO-Revision-Date: 2018-02-25 23:11-0700\n"
-"Last-Translator: Reedyseth <reedyseth@gmail.com>\n"
+"POT-Creation-Date: 2018-03-27 22:31-0700\n"
+"PO-Revision-Date: 2018-03-27 23:07-0700\n"
+"Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_MX\n"
 "MIME-Version: 1.0\n"
@@ -14,40 +14,74 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n !=1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: options/index.php:69 utils/stcr_manage.php:352 utils/stcr_manage.php:353
-#: utils/stcr_utils.php:280
-msgid "Manage subscriptions"
-msgstr "Administrar suscripciones"
+#: classes/stcr_i18n.php:30
+msgid "No data available in table"
+msgstr "No disponible en la tabla"
 
-#: options/index.php:70 utils/stcr_manage.php:358 utils/stcr_manage.php:359
-msgid "Comment Form"
-msgstr "Formulario de Comentario"
+#: classes/stcr_i18n.php:31
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Mostrando _START_ al _END_ de _TOTAL_ registros"
 
-#: options/index.php:71 utils/stcr_manage.php:364 utils/stcr_manage.php:365
-msgid "Management Page"
-msgstr "Página de Administración"
+#: classes/stcr_i18n.php:32
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Mostrando 0 al 0 de 0 registros"
 
-#: options/index.php:72 utils/stcr_manage.php:370 utils/stcr_manage.php:371
-msgid "Notifications"
-msgstr "Notificaciones"
+#: classes/stcr_i18n.php:33
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(filtro de _MAX_ total registros)"
 
-#: options/index.php:73 options/panel2.php:58 options/panel3.php:82
-#: options/panel4.php:89 utils/stcr_manage.php:376 utils/stcr_manage.php:377
-msgid "Options"
-msgstr "Opciones"
+#: classes/stcr_i18n.php:35
+msgid ","
+msgstr ","
 
-#: options/index.php:76 utils/stcr_manage.php:398 utils/stcr_manage.php:399
-msgid "Support"
-msgstr "Soporte"
+#: classes/stcr_i18n.php:36
+msgid "Show _MENU_ entries"
+msgstr "Mostrar _MENU_ registros"
 
-#: options/index.php:77 utils/stcr_manage.php:404 utils/stcr_manage.php:405
-msgid "Donate"
-msgstr "¡Dona un poco de dinero!"
+#: classes/stcr_i18n.php:37
+msgid "Loading..."
+msgstr "Cargando..."
 
-#: options/panel1-add-subscription.php:8 options/panel1.php:86
+#: classes/stcr_i18n.php:38
+msgid "Processing..."
+msgstr "Procesando..."
+
+#: classes/stcr_i18n.php:39
+msgid "Search"
+msgstr "Buscar"
+
+#: classes/stcr_i18n.php:40
+msgid "No matching records found"
+msgstr "No se encontraron registros"
+
+#: classes/stcr_i18n.php:42
+msgid "First"
+msgstr "Primero"
+
+#: classes/stcr_i18n.php:43
+msgid "Last"
+msgstr "Ultimo"
+
+#: classes/stcr_i18n.php:44
+msgid "Next"
+msgstr "Siguiente"
+
+#: classes/stcr_i18n.php:45
+msgid "Previous"
+msgstr "Anterior"
+
+#: classes/stcr_i18n.php:48
+msgid "activate to sort column ascending"
+msgstr "activar para ordenar columna ascendente"
+
+#: classes/stcr_i18n.php:49
+msgid "activate to sort column descending"
+msgstr "activar para ordenar columna descendente"
+
+#: options/panel1-add-subscription.php:8 options/panel1.php:114
 msgid "Add New Subscription"
 msgstr "Añadir Nueva Suscripción"
 
@@ -56,8 +90,8 @@ msgstr "Añadir Nueva Suscripción"
 msgid "Post:"
 msgstr "Entrada:"
 
-#: options/panel1-add-subscription.php:16 options/panel1.php:97
-#: options/panel1.php:159 templates/key_expired.php:72
+#: options/panel1-add-subscription.php:16 options/panel1.php:128
+#: options/panel1.php:230 templates/key_expired.php:72
 #: templates/request-management-link.php:113
 #: templates/request-management-link.php:139 templates/subscribe.php:121
 #: templates/subscribe.php:146
@@ -65,30 +99,30 @@ msgid "Email"
 msgstr "Email"
 
 #: options/panel1-add-subscription.php:20
-#: options/panel1-edit-subscription.php:26 options/panel1.php:64
-#: options/panel1.php:102 options/panel1.php:167 options/panel1.php:185
+#: options/panel1-edit-subscription.php:26 options/panel1.php:80
+#: options/panel1.php:133 options/panel1.php:240 options/panel1.php:260
 msgid "Status"
 msgstr "Estado"
 
 #: options/panel1-add-subscription.php:22
-#: options/panel1-edit-subscription.php:29 options/panel1.php:67
-#: options/panel1.php:105 options/panel1.php:199 templates/author.php:64
+#: options/panel1-edit-subscription.php:29 options/panel1.php:83
+#: options/panel1.php:136 options/panel1.php:221 templates/author.php:64
 #: templates/user.php:76
 msgid "Active"
 msgstr "Activo"
 
 #: options/panel1-add-subscription.php:23
-#: options/panel1-edit-subscription.php:30 options/panel1.php:68
-#: options/panel1.php:106
+#: options/panel1-edit-subscription.php:30 options/panel1.php:84
+#: options/panel1.php:137
 msgid "Replies only"
 msgstr "Solo respuestas"
 
-#: options/panel1-add-subscription.php:24 options/panel1.php:107
+#: options/panel1-add-subscription.php:24 options/panel1.php:138
 msgid "Ask user to confirm"
 msgstr "Pedir confirmación al usuario"
 
 #: options/panel1-add-subscription.php:26
-#: options/panel1-edit-subscription.php:33 options/panel1.php:71
+#: options/panel1-edit-subscription.php:33 options/panel1.php:87
 msgid "Update"
 msgstr "Actualizar"
 
@@ -125,11 +159,11 @@ msgstr "Suscripciones activadas:"
 msgid "Subscriptions updated:"
 msgstr "Suscripciones actualizadas:"
 
-#: options/panel1-business-logic.php:147
+#: options/panel1-business-logic.php:152
 msgid "&laquo; Previous"
 msgstr "&laquo; Anterior"
 
-#: options/panel1-business-logic.php:151
+#: options/panel1-business-logic.php:157
 msgid "Next &raquo;"
 msgstr "Siguiente &raquo;"
 
@@ -144,9 +178,9 @@ msgstr "Actualizar Suscripción"
 msgid "optional"
 msgstr "opcional"
 
-#: options/panel1-edit-subscription.php:11 options/panel1.php:150
-#: options/panel1.php:227 options/panel1.php:239 options/panel1.php:350
-#: templates/author.php:53 templates/user.php:65
+#: options/panel1-edit-subscription.php:11 options/panel1.php:208
+#: options/panel1.php:296 options/panel1.php:309 templates/author.php:53
+#: templates/user.php:65
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
@@ -154,48 +188,47 @@ msgstr ""
 "Recuerda: esta operación no se puede deshacer. ¿Estás seguro de que quieres "
 "hacerlo?"
 
-#: options/panel1-edit-subscription.php:16 options/panel1.php:52
+#: options/panel1-edit-subscription.php:16 options/panel1.php:68
 msgid "From"
 msgstr "De"
 
-#: options/panel1-edit-subscription.php:20 options/panel1.php:57
+#: options/panel1-edit-subscription.php:20 options/panel1.php:73
 msgid "To"
 msgstr "Para"
 
-#: options/panel1-edit-subscription.php:28 options/panel1.php:66
+#: options/panel1-edit-subscription.php:28 options/panel1.php:82
 msgid "Keep unchanged"
 msgstr "Mantener sin cambios"
 
-#: options/panel1-edit-subscription.php:31 options/panel1.php:69
+#: options/panel1-edit-subscription.php:31 options/panel1.php:85
 msgid "Suspended"
 msgstr "Suspendido"
 
 #: options/panel1.php:22
 msgid "The email that you typed is not correct."
-msgstr ""
+msgstr "El email ingresado no es correcto"
 
 #: options/panel1.php:29
 msgid "Please enter a valid Post ID."
-msgstr ""
+msgstr "Por favor ingresa un ID de Post valido."
 
-#: options/panel1.php:46
+#: options/panel1.php:59
 msgid "Mass Update Subscriptions"
 msgstr "Actualizar Suscripciones en Masa"
 
-#: options/panel1.php:53 options/panel1.php:281 options/panel1.php:291
-#: options/panel1.php:317
+#: options/panel1.php:69
 msgid "email address"
 msgstr "Dirección de correo electrónico del remitente"
 
-#: options/panel1.php:58 options/panel1.php:297 options/panel1.php:307
+#: options/panel1.php:74
 msgid "optional - new email address"
 msgstr "Actualizar dirección de correo electrónico"
 
-#: options/panel1.php:74
+#: options/panel1.php:91
 msgid "More info"
 msgstr "Mas informacion"
 
-#: options/panel1.php:80
+#: options/panel1.php:103
 msgid ""
 "This option will allow you to change an email address for another one or to "
 "update the same status for all the subscription on a specific email address."
@@ -204,182 +237,94 @@ msgstr ""
 "actualizar el mismo estatus para todas las subscripciones en un email "
 "específico."
 
-#: options/panel1.php:92
+#: options/panel1.php:123
 msgid "Post ID"
 msgstr "ID de entrada"
 
-#: options/panel1.php:109
+#: options/panel1.php:140
 msgid "Add"
 msgstr "Añadir"
 
-#: options/panel1.php:124
+#: options/panel1.php:205
 msgid "Search subscriptions"
 msgstr "Buscar suscripciones"
 
-#: options/panel1.php:128
-#, php-format
-msgid ""
-"You can either <a href=\"%s\">view all the subscriptions</a> or find those "
-"where the"
-msgstr ""
-"Puedes bien <a href=\"%s\">ver todas las suscripciones</a> o bien encontrar "
-"aquellas en las que el/la"
-
-#: options/panel1.php:132
-msgid "email"
-msgstr "email"
-
-#: options/panel1.php:133
-msgid "post ID"
-msgstr "ID de Entrada"
-
-#: options/panel1.php:134
-msgid "status"
-msgstr "estado"
-
-#: options/panel1.php:137
-msgid "equals"
-msgstr "es igual a"
-
-#: options/panel1.php:138
-msgid "contains"
-msgstr "contiene"
-
-#: options/panel1.php:139
-msgid "does not contain"
-msgstr "no contiene"
-
-#: options/panel1.php:140
-msgid "starts with"
-msgstr "comienza con"
-
-#: options/panel1.php:141
-msgid "ends with"
-msgstr "termina con"
-
-#: options/panel1.php:144
-msgid "results per page:"
-msgstr "resultados por página:"
-
-#: options/panel1.php:146
-msgid "Search"
-msgstr "Buscar"
-
-#: options/panel1.php:154
-msgid "Reverse the order by Post ID"
-msgstr "Invertir el orden por ID de entrada"
-
-#: options/panel1.php:155 options/panel1.php:156
-msgid "Reverse the order by Date/Time"
-msgstr "Invertir el orden por Fecha/Hora"
-
-#: options/panel1.php:158
-msgid "Post (ID)"
-msgstr "ID de Entrada"
-
-#: options/panel1.php:161
-msgid "Search query:"
-msgstr "Petición de búsqueda:"
-
-#: options/panel1.php:161
-msgid "Rows:"
-msgstr "Filas:"
-
-#: options/panel1.php:161
-msgid "of"
-msgstr "de"
-
-#: options/panel1.php:168 options/panel1.php:184
-msgid "Date and Time"
-msgstr "Fecha y Hora"
-
-#: options/panel1.php:194 templates/author.php:59 templates/user.php:71
+#: options/panel1.php:216 templates/author.php:59 templates/user.php:71
 msgid "Replies"
 msgstr "Respuestas"
 
-#: options/panel1.php:195 templates/author.php:60 templates/user.php:72
+#: options/panel1.php:217 templates/author.php:60 templates/user.php:72
 msgid "Replies Unconfirmed"
 msgstr "Respuestas si confirmar"
 
-#: options/panel1.php:196 templates/author.php:61 templates/user.php:73
+#: options/panel1.php:218 templates/author.php:61 templates/user.php:73
 msgid "All Comments"
 msgstr "Todos los comentarios"
 
-#: options/panel1.php:197 templates/author.php:62 templates/user.php:74
+#: options/panel1.php:219 templates/author.php:62 templates/user.php:74
 msgid "Unconfirmed"
 msgstr "Sin Confirmar"
 
-#: options/panel1.php:198 templates/author.php:63 templates/user.php:75
+#: options/panel1.php:220 templates/author.php:63 templates/user.php:75
 msgid "Inactive"
 msgstr "Activo"
 
-#: options/panel1.php:227 options/panel1.php:239 templates/author.php:96
+#: options/panel1.php:229
+msgid "Post (ID)"
+msgstr "ID de Entrada"
+
+#: options/panel1.php:241 options/panel1.php:259
+msgid "Date and Time"
+msgstr "Fecha y Hora"
+
+#: options/panel1.php:255
+msgid "Actions"
+msgstr "Acciones"
+
+#: options/panel1.php:296 options/panel1.php:309 templates/author.php:96
 #: templates/user.php:114
 msgid "Delete"
 msgstr "Eliminar"
 
-#: options/panel1.php:228 options/panel1.php:238
+#: options/panel1.php:297 options/panel1.php:308
 msgid "Edit"
 msgstr "Editar"
 
-#: options/panel1.php:230 options/panel1.php:236
+#: options/panel1.php:299 options/panel1.php:306
 msgid "Subscription"
 msgstr "Suscripciones"
 
-#: options/panel1.php:250 templates/author.php:93 templates/user.php:110
+#: options/panel1.php:324 templates/author.php:93 templates/user.php:110
 msgid "Action:"
 msgstr "Acción:"
 
-#: options/panel1.php:253
+#: options/panel1.php:327
 msgid "Delete forever"
 msgstr "Eliminar para siempre"
 
-#: options/panel1.php:254 templates/author.php:97 templates/user.php:115
+#: options/panel1.php:328 templates/author.php:97 templates/user.php:115
 msgid "Suspend"
 msgstr "Suspender"
 
-#: options/panel1.php:255
+#: options/panel1.php:329
 msgid "Activate and set to Y"
 msgstr "Activar y establecer a Y"
 
-#: options/panel1.php:256
+#: options/panel1.php:330
 msgid "Activate and set to R"
 msgstr "Activar y establecer a R"
 
-#: options/panel1.php:257
+#: options/panel1.php:331
 msgid "Activate"
 msgstr "Activar"
 
-#: options/panel1.php:261 templates/author.php:102 templates/user.php:121
+#: options/panel1.php:335 templates/author.php:102 templates/user.php:121
 msgid "Update subscriptions"
 msgstr "Actualizar suscripciones"
 
-#: options/panel1.php:264
+#: options/panel1.php:340
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr "Lo siento, ninguna suscripción coincide con tu criterio de búsqueda."
-
-#: options/panel1.php:321 options/panel1.php:389
-#, fuzzy
-msgid "Missing information"
-msgstr "Esperando confirmación"
-
-#: options/panel1.php:329 options/panel1.php:414
-#, fuzzy
-msgid "Invalid email address."
-msgstr "Dirección de correo electrónico del remitente"
-
-#: options/panel1.php:397
-msgid "Enter a numeric Post ID."
-msgstr ""
-
-#: options/panel1.php:406
-#, fuzzy
-msgid "Missing email information"
-msgstr "Esperando confirmación"
-
-#: options/panel1.php:442 options/panel1.php:450
-msgid "Please enter a value"
-msgstr ""
 
 #: options/panel10.php:41
 msgid "The log file has been successfully deleted."
@@ -453,7 +398,7 @@ msgstr ""
 
 #: options/panel10.php:134
 msgid "Clean Up Log Archive"
-msgstr ""
+msgstr "Limpiar Log de archivo"
 
 #: options/panel10.php:138
 msgid ""
@@ -462,11 +407,11 @@ msgstr ""
 
 #: options/panel10.php:140
 msgid "Clean"
-msgstr ""
+msgstr "Limpiar"
 
 #: options/panel10.php:147 options/panel10.php:150
 msgid "System Information"
-msgstr ""
+msgstr "Información del Sistema"
 
 #: options/panel10.php:164 options/panel2.php:230 options/panel3.php:253
 #: options/panel4.php:283 options/panel5.php:276
@@ -512,6 +457,12 @@ msgstr "Esperando"
 #: options/panel2.php:43 options/panel2.php:213
 msgid "Author label"
 msgstr "Autor"
+
+#: options/panel2.php:58 options/panel3.php:82 options/panel4.php:89
+#: utils/stcr_manage.php:376 utils/stcr_manage.php:377
+#: wp_subscribe_reloaded.php:151
+msgid "Options"
+msgstr "Opciones"
 
 #: options/panel2.php:68
 msgid ""
@@ -805,7 +756,7 @@ msgstr "Mensaje de administración"
 
 #: options/panel4.php:72 options/panel4.php:243
 msgid "Management Email message"
-msgstr ""
+msgstr "Mensaje de Administración de Email"
 
 #: options/panel4.php:101
 msgid ""
@@ -825,7 +776,7 @@ msgstr ""
 
 #: options/panel4.php:121
 msgid "Reply To"
-msgstr "Solo respuestas"
+msgstr "Responder A"
 
 #: options/panel4.php:128
 msgid ""
@@ -914,7 +865,7 @@ msgstr ""
 
 #: options/panel5.php:51
 msgid "Safetly Uninstall"
-msgstr ""
+msgstr "Desinstalar Seguramente"
 
 #: options/panel5.php:54 options/panel5.php:128
 msgid "Autopurge requests"
@@ -1236,7 +1187,7 @@ msgid "All comments"
 msgstr "Todos los comentarios"
 
 #: templates/author.php:99 templates/user.php:117
-#: wp_subscribe_reloaded.php:1118
+#: wp_subscribe_reloaded.php:1180
 msgid "Replies to my comments"
 msgstr "Respuestas a mis comentarios"
 
@@ -1287,6 +1238,36 @@ msgstr "Email a administrar"
 #: templates/wrong-request.php:9
 msgid "You have request to manage another email address and this is forbidden."
 msgstr ""
+
+#: utils/stcr_manage.php:352 utils/stcr_manage.php:353 utils/stcr_utils.php:280
+#: wp_subscribe_reloaded.php:147
+msgid "Manage subscriptions"
+msgstr "Administrar suscripciones"
+
+#: utils/stcr_manage.php:358 utils/stcr_manage.php:359
+#: wp_subscribe_reloaded.php:148
+msgid "Comment Form"
+msgstr "Formulario de Comentario"
+
+#: utils/stcr_manage.php:364 utils/stcr_manage.php:365
+#: wp_subscribe_reloaded.php:149
+msgid "Management Page"
+msgstr "Página de Administración"
+
+#: utils/stcr_manage.php:370 utils/stcr_manage.php:371
+#: wp_subscribe_reloaded.php:150
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: utils/stcr_manage.php:398 utils/stcr_manage.php:399
+#: wp_subscribe_reloaded.php:154
+msgid "Support"
+msgstr "Soporte"
+
+#: utils/stcr_manage.php:404 utils/stcr_manage.php:405
+#: wp_subscribe_reloaded.php:155
+msgid "Donate"
+msgstr "¡Dona un poco de dinero!"
 
 #: utils/stcr_manage.php:410 utils/stcr_manage.php:411
 msgid "StCR System"
@@ -1559,7 +1540,7 @@ msgid ""
 "previous 160831 version."
 msgstr ""
 
-#: utils/stcr_upgrade.php:500 wp_subscribe_reloaded.php:123
+#: utils/stcr_upgrade.php:500 wp_subscribe_reloaded.php:200
 msgid "Settings"
 msgstr "Configuración"
 
@@ -1917,13 +1898,74 @@ msgstr ""
 msgid "StCR Notification"
 msgstr "Notificaciones"
 
-#: wp_subscribe_reloaded.php:1116
+#: wp_subscribe_reloaded.php:1178
 msgid "Don't subscribe"
 msgstr "No Suscribirse"
 
-#: wp_subscribe_reloaded.php:1117
+#: wp_subscribe_reloaded.php:1179
 msgid "All"
 msgstr "Todo"
+
+#~ msgid ""
+#~ "You can either <a href=\"%s\">view all the subscriptions</a> or find "
+#~ "those where the"
+#~ msgstr ""
+#~ "Puedes bien <a href=\"%s\">ver todas las suscripciones</a> o bien "
+#~ "encontrar aquellas en las que el/la"
+
+#~ msgid "email"
+#~ msgstr "email"
+
+#~ msgid "post ID"
+#~ msgstr "ID de Entrada"
+
+#~ msgid "status"
+#~ msgstr "estado"
+
+#~ msgid "equals"
+#~ msgstr "es igual a"
+
+#~ msgid "contains"
+#~ msgstr "contiene"
+
+#~ msgid "does not contain"
+#~ msgstr "no contiene"
+
+#~ msgid "starts with"
+#~ msgstr "comienza con"
+
+#~ msgid "ends with"
+#~ msgstr "termina con"
+
+#~ msgid "results per page:"
+#~ msgstr "resultados por página:"
+
+#~ msgid "Reverse the order by Post ID"
+#~ msgstr "Invertir el orden por ID de entrada"
+
+#~ msgid "Reverse the order by Date/Time"
+#~ msgstr "Invertir el orden por Fecha/Hora"
+
+#~ msgid "Search query:"
+#~ msgstr "Petición de búsqueda:"
+
+#~ msgid "Rows:"
+#~ msgstr "Filas:"
+
+#~ msgid "of"
+#~ msgstr "de"
+
+#, fuzzy
+#~ msgid "Missing information"
+#~ msgstr "Esperando confirmación"
+
+#, fuzzy
+#~ msgid "Invalid email address."
+#~ msgstr "Dirección de correo electrónico del remitente"
+
+#, fuzzy
+#~ msgid "Missing email information"
+#~ msgstr "Esperando confirmación"
 
 #~ msgid "You can help"
 #~ msgstr "Puedes ayudar"

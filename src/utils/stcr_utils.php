@@ -15,6 +15,12 @@ if ( ! function_exists( 'add_action' ) ) {
 if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 {
 	class stcr_utils {
+
+	    public function __construct()
+        {
+            set_error_handler( array( $this, 'exceptions_error_handler' ) );
+        }
+
         /**
          * Check a given email to be valid.
          *
@@ -351,7 +357,32 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                 return true;
             }
         }
-		/**
+        /**
+         * Enqueue a script that was previous registered,
+         *
+         * @since 28-Mar-2018
+         * @author reedyseth
+         * @param string $handle Script handle that will be enqueue
+         */
+        public function enqueue_script_to_wp( $handle )
+        {
+            wp_enqueue_script( $handle );
+        }
+
+        function exceptions_error_handler($severity, $message,$filename, $lineno)
+        {
+            $date = date_i18n( 'Y-m-d H:i:s' );
+            // We don't want to break things out, so instead we add the error information to
+            // the log file, thus allowing us to help more on the debug / error / support of StCR.
+            $this->stcr_logger("\n [ERROR][$date] - An error occur, here is the detail information\n");
+            $this->stcr_logger(" [ERROR][SEVERITY]    - $severity\n");
+            $this->stcr_logger(" [ERROR][MESSAGE]     - $message\n");
+            $this->stcr_logger(" [ERROR][FILENAME]    - $filename\n");
+            $this->stcr_logger(" [ERROR][LINE NUMBER] - $lineno\n\n");
+
+//            throw new \ErrorException($message, 0, $severity,$filename, $lineno);
+        }
+        /**
 		 * Will send an email by adding the correct headers.
 		 *
 		 * @since 28-May-2016
@@ -435,7 +466,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @author reedyseth
 		 */
 		public function add_ritch_editor_textarea() {
-			wp_enqueue_script('stcr-tinyMCE');
+			wp_enqueue_script('stcr-tinyMCE'); // TODO: Only enqueue it the first time.
 			wp_enqueue_script('stcr-tinyMCE-js');
 		}
 		/**
@@ -476,6 +507,20 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			add_action('admin_enqueue_scripts',array( $this, 'register_admin_scripts') );
 		}
         /**
+         * Registers a Javacsript file to the `wp_register_script` hook.
+         *
+         * @since 28-Mar-2018
+         * @author reedyseth
+         * @param string $handle Script handle the data will be attached to.
+         * @param string $script_name JS File name.
+         * @param string $path_add Sometimes the path is not in the root, therefore you can use this to complete the path.
+         */
+		public function register_script_to_wp( $handle, $script_name, $path_add = "" )
+        {
+            $js_resource  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . "/". SLUG ."/$path_add/$script_name";
+            wp_register_script( $handle, $js_resource );
+        }
+        /**includes/js/admin
          * Hooking scripts for plugin pages.
          * @since 22-Sep-2015
          * @author reedyseth

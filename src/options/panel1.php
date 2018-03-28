@@ -30,6 +30,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
         echo "</p></div>";
     }
 }
+
 ?>
 <style type="text/css">
     .validate-error-text
@@ -152,46 +153,6 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
         </div>
     </div>
 
-<!--    <div class="clearfix"></div>-->
-<!---->
-<!--    <div class="row mx-auto">-->
-<!--        <div class="col-sm-12 col-md-12 col-lg-12">-->
-<!--            <div class="card" style="max-width: 100% !important;">-->
-<!--                <div class="card-body">-->
-<!--                    <div class="card-text postbox" style="border: none;">-->
-<!--                        <p class="subscribe-list-navigation">--><?php //echo "$previous_link $next_link" ?>
-<!--                        </p>-->
-<!---->
-<!--                        <h4>--><?php //_e( 'Search subscriptions', 'subscribe-reloaded' ) ?><!--</h4>-->
-<!---->
-<!--                        <form action="" method="post" id="search_subscriptions_form">-->
-<!--                            <p>--><?php //printf(
-//                                    __( 'You can either <a href="%s">view all the subscriptions</a> or find those where the', 'subscribe-reloaded' ),
-//                                    'admin.php?page=stcr_manage_subscriptions&amp;srv=@&amp;srt=contains'
-//                                ) ?><!--&nbsp;-->
-<!--                                <select name="srf">-->
-<!--                                    <option value='email'>--><?php //_e( 'email', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                    <option value='post_id'>--><?php //_e( 'post ID', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                    <option value='status'>--><?php //_e( 'status', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                </select>-->
-<!--                                <select name="srt">-->
-<!--                                    <option value='equals'>--><?php //_e( 'equals', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                    <option value='contains'>--><?php //_e( 'contains', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                    <option value='does not contain'>--><?php //_e( 'does not contain', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                    <option value='starts with'>--><?php //_e( 'starts with', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                    <option value='ends with'>--><?php //_e( 'ends with', 'subscribe-reloaded' ) ?><!--</option>-->
-<!--                                </select>-->
-<!--                                <input type="text" size="20" name="srv" value="" />,-->
-<!--                                --><?php //_e( 'results per page:', 'subscribe-reloaded' ) ?>
-<!--                                <input type="text" size="2" name="srrp" value="25" />-->
-<!--                                <input type="submit" class="subscribe-form-button" value="--><?php //_e( 'Search', 'subscribe-reloaded' ) ?><!--" />-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
     <div class="clearfix"></div>
 
     <div class="row mx-auto">
@@ -202,6 +163,10 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                     <div class="card-text postbox" style="border: none;">
 
                         <h4><i class="fas fa-search"></i> <?php _e( 'Search subscriptions', 'subscribe-reloaded' ) ?></h4>
+
+                        <div class="col-md-2 subs-spinner mx-auto"><h5><?php _e( "Loading", "subscribe-reloaded"); ?> <i class="fas fa-play-circle"></i></h5></div>
+
+                        <div class="clearfix"></div>
 
                         <form action="" method="post" id="subscription_form" name="subscription_form"
                               onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
@@ -230,27 +195,28 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
 //                                    echo '<p>' . __( 'Search query:', 'subscribe-reloaded' ) . " <code>$search_field $operator <strong>$search_value</strong> ORDER BY $order_by $order</code>. " . __( 'Rows:', 'subscribe-reloaded' ) . ' ' . ( $offset + 1 ) . " - $ending_to " . __( 'of', 'subscribe-reloaded' ) . " $count_total</p>";
 
-                                    echo "<table class=\"table table-smx table-hover table-striped subscribers-table\" style=\"font-size: 0.8em\">
+                                    echo "<table class=\"table table-smx table-hover table-striped subscribers-table stcr-hidden\" style=\"font-size: 0.8em\">
                                              <thead>";
 
                                     if( $wp_locale->text_direction == 'rtl' )
                                     {
-                                        echo "<li class='subscribe-list-header'>
-                                                <span class='subscribe-column subscribe-column-4'>" . __( 'Status', 'subscribe-reloaded' ) . "</span>
-                                                <span class='subscribe-column subscribe-column-3'>" . __( 'Date and Time', 'subscribe-reloaded' ) . "</span>
-                                                $show_email_column
-                                                $show_post_column
-                                                <span class='subscribe-column' style='width:38px'>&nbsp;</span>
-                                                <input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all'
-                                                onchange='t=document.forms[\"subscription_form\"].elements[\"subscriptions_list[]\"];c=t.length;if(!c){t.checked=this.checked}else{for(var i=0;i<c;i++){t[i].checked=!t[i].checked}}'/>
-                                              </li>";
+
+                                        echo "<tr>
+                                                  <th scope=\"col\">
+                                                    &nbsp;&nbsp;&nbsp;<i class=\"fas fa-exchange-alt\"></i> <span>" . __('Actions', 'subscribe-reloaded') ."</span>
+                                                    <input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all' class='stcr_select_all'/>
+                                                  </th>
+                                                  <th scope=\"col\"><i class=\"fas fa-thumbtack\"></i><span>$show_post_column</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-address-card\"></i><span>$show_email_column</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>". __( 'Date and Time', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_dt</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>". __( 'Status', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_status</span></th>
+                                              </tr>";
                                     }
                                     else
                                     {
                                         echo "<tr>
                                                   <th scope=\"col\">
-                                                    <input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all'
-                                                    onchange='t=document.forms[\"subscription_form\"].elements[\"subscriptions_list[]\"];c=t.length;if(!c){t.checked=this.checked}else{for(var i=0;i<c;i++){t[i].checked=!t[i].checked}}'/>
+                                                    <input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all' class='stcr_select_all'/>
                                                     &nbsp;&nbsp;&nbsp;<i class=\"fas fa-exchange-alt\"></i> <span>" . __('Actions', 'subscribe-reloaded') ."</span>
                                                   </th>
                                                   <th scope=\"col\"><i class=\"fas fa-thumbtack\"></i><span>$show_post_column</span></th>
@@ -258,15 +224,10 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                   <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>". __( 'Date and Time', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_dt</span></th>
                                                   <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>". __( 'Status', 'subscribe-reloaded' ) . " &nbsp;&nbsp;$order_status</span></th>
                                               </tr>";
-
-
                                     }
 
                                     echo "</thead>";
-
-                                    echo "<tbody>";
-
-
+                                      echo "<tbody>";
 
                                     foreach ( $subscriptions as $a_subscription ) {
                                         //$wp_subscribe_reloaded->stcr->utils->stcr_logger( print_r($a_subscription, true) );
@@ -287,16 +248,18 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
                                         if( $wp_locale->text_direction == 'rtl' )
                                         {
-                                            echo "<li>
-                                                        <span class='subscribe-column subscribe-column-4'>$status_desc</span>
-                                                        <span class='subscribe-column subscribe-column-3'>$date_time</span>
-                                                        $row_email
-                                                        $row_post
-                                                        <a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/delete.png' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
-                                                        <a class='subscribe-column' href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "'><img src='" . WP_PLUGIN_URL . "/subscribe-to-comments-reloaded/images/edit.png' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "' width='16' height='16' /></a>
-                                                        <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
-                                                        <label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) . " {$a_subscription->meta_id}</label>
-                                                  </li>";
+                                            echo "<tr>
+                                                        <td>
+                                                            <label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-reloaded' ) . " {$a_subscription->meta_id}</label>
+                                                            <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />                                                        
+                                                            <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
+                                                        </td>
+                                                        <td>$row_post</td>
+                                                        <td>$row_email</td>
+                                                        <td>$date_time</td>
+                                                        <td>$status_desc</td>
+                                                  </tr>";
                                         }
                                         else
                                         {
@@ -353,5 +316,14 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/includes/js/admin/subs_management.js"></script>
+
+<?php
+// Tell WP that we are going to use a resource.
+$wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-subs-management", "subs_management.js", "includes/js/admin");
+// Includes the Panel JS resource file as well as the JS text domain translations.
+$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-subs-management", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
+// Enqueue the JS File
+$wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-subs-management" );
+
+?>
 

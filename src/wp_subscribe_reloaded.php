@@ -8,12 +8,15 @@ if ( ! function_exists( 'add_action' ) ) {
 
 define( __NAMESPACE__.'\\VERSION','180225' );
 define( __NAMESPACE__.'\\DEVELOPMENT', true );
+define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
 require_once dirname(__FILE__).'/utils/stcr_manage.php';
+require_once dirname(__FILE__).'/classes/stcr_i18n.php';
 
 if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 	class wp_subscribe_reloaded extends stcr_manage {
+	    public $stcr_i18n;
 		/**
 		 * Constructor -- Sets things up.
 		 */
@@ -40,6 +43,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$this->maybe_update();
 
 			$this->define_wp_hooks();
+
+            $this->stcr_i18n = new stcr_i18n(); // Loaded after the text domain was loaded.
 
             if ( DEVELOPMENT )
             {
@@ -186,7 +191,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		 */
 		function subscribe_reloaded_load_plugin_textdomain() {
 			load_plugin_textdomain( 'subscribe-reloaded', FALSE,  'subscribe-to-comments-reloaded/langs/' );
-            echo dirname( plugin_basename( __FILE__ ) );
 		}
 
 		/*

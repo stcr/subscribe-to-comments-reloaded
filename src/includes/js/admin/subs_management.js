@@ -210,10 +210,19 @@
         }
     });
 
-//        console.log( $("table.subscribers-table").html() );
-    $("table.subscribers-table").DataTable( {
+    var subscribers_table   = $("table.subscribers-table");
+    var lang_text_direction = stcr_i18n.langTextDirection;
+    var dataTablesDOM       = '<"float-left"f><"float-right"l>t<ip>';
+
+    // Check the text direction and set the correct DataTables dir.
+    if ( lang_text_direction === "rtl" )
+    {
+        dataTablesDOM = '<"float-right"f><"float-left"l>t<"float-right"i><"float-left"p>';
+    }
+
+    var subscribers_table_dt = subscribers_table.DataTable( {
         columns: [ { sortable: false }, null, null, null, null],
-        dom: '<"float-left"f><"float-right"l>t<ip>',
+        dom: dataTablesDOM,
         responsive: {
             details: true,
             type: 'column'
@@ -222,9 +231,12 @@
             { responsivePriority: 1, targets: 0 },
             { responsivePriority: 2, targets: 3 },
             { responsivePriority: 3, targets: 4 }
-
-        ]
+        ],
+        language: stcr_i18n
     });
+
+    subscribers_table.removeClass("stcr-hidden");
+    $(".subs-spinner").hide();
     // card-body
     var massUpdateSubsCollapse      = $('.mass-update-subs .fa-caret-down'),
         massUpdateSubsCollapseState = true,
@@ -266,5 +278,13 @@
             addNewSubsCollapseState = true;
         }
     });
+    // Handle the checkbox selection
+    subscribers_table.find("thead tr th").on("click","#stcr_select_all",function () {
+
+        var table_rows = subscribers_table_dt.rows({ 'search': 'applied' }).nodes();
+        $('input[type="checkbox"]', table_rows).prop('checked', this.checked);
+
+    });
+
 
 } )( jQuery );

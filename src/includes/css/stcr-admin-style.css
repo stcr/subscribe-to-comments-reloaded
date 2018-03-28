@@ -83,7 +83,7 @@
 }
 
 table.subscribers-table {
-	width: auto !important;
+	width: 100% !important;
 }
 
 table.subscribers-table thead{
@@ -185,7 +185,7 @@ table.subscribers-table thead th span{
 }
 
 .mass-update-select-status {
-	width: 73% !important;
+	width: 70% !important;
 	display: inline !important;
 }
 
@@ -206,4 +206,46 @@ table.subscribers-table thead th span{
 
 .original-card-padding {
 	padding: 1.25rem !important;
+}
+
+
+.fa-spinner, .fa-play-circle {
+	color: #ffc53a;
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 900ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+	-moz-animation-name: spin;
+	-moz-animation-duration: 900ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+	-ms-animation-name: spin;
+	-ms-animation-duration: 900ms;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+
+	animation-name: spin;
+	animation-duration: 900ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+}
+@-ms-keyframes spin {
+	from { -ms-transform: rotate(0deg); }
+	to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
 }
