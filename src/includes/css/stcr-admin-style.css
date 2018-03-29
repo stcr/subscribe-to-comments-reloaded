@@ -73,6 +73,11 @@
 	padding: 0 !important;
 }
 
+.card-subscribers {
+	-webkit-box-shadow: 0 0 6px 0 #9E9E9E;
+	box-shadow: 0 0 6px 0 #9E9E9E;
+}
+
 .card-header{
 	background-color: #008ec2 !important;
 	color: #ffffff;

@@ -157,7 +157,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
     <div class="row mx-auto">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="card" style="max-width: 100% !important;">
+            <div class="card card-subscribers" style="max-width: 100% !important;">
                 <div class="card-body">
 
                     <div class="card-text postbox" style="border: none;">
