@@ -154,7 +154,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 // "stcr_subscribers_emails"   => __( 'Subscribers Emails', 'subscribe-reloaded' ),
                 // "stcr_you_can_help"         => __( 'You can help', 'subscribe-reloaded' ),
                 "stcr_support"              => __( 'Support', 'subscribe-reloaded' ),
-                "stcr_donate"               => __( 'Donate', 'subscribe-reloaded' )
+//                "stcr_donate"               => __( 'Donate', 'subscribe-reloaded' )
             );
 
 
@@ -168,6 +168,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
             <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo $wp_locale->text_direction ?>">
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav">
+                        <a class="navbar-brand "><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
                         <?php
                         foreach ( $array_pages as $page => $page_desc ) {
                             echo '<a class="navbar-brand ';

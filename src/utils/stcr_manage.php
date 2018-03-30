@@ -400,12 +400,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 								 $capability,
 								 "stcr_support",
 								 array( $this, "stcr_option_support" ) );
-				add_submenu_page( $parent_slug ,
-								__( 'Donate', 'subscribe-reloaded' ),
-								__( 'Donate', 'subscribe-reloaded' ),
-								 $capability,
-								 "stcr_donate",
-								 array( $this, "stcr_option_donate" ) );
+//				add_submenu_page( $parent_slug ,
+//								__( 'Donate', 'subscribe-reloaded' ),
+//								__( 'Donate', 'subscribe-reloaded' ),
+//								 $capability,
+//								 "stcr_donate",
+//								 array( $this, "stcr_option_donate" ) );
 				add_submenu_page( $parent_slug ,
 								__( 'StCR System', 'subscribe-reloaded' ),
 								__( 'StCR System', 'subscribe-reloaded' ),
