@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Build File to complete automate tasks
+    Author: Israel Barragan (Reedyseth)
+    Since: 30-March-2018
+    Version: 1.0.0
+-->
+
+<project name="Subscribe To Comment Reloaded" default="dist">
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+    <target name="prepare">
+        <echo msg="Making directory ./build" />
+        <mkdir dir="./build" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" depends="prepare">
+
+        <echo msg="Copying Bower Components" />
+        <echo msg="Copying ./src/bower_components/ to ./vendor directory..." />
+
+        <!--<mkdir dir="./src/vendor/datatables" />-->
+        <!--<echo msg="datatables directory created" />-->
+
+        <!--<echo msg="Copying Bower Components..." />-->
+        <copy todir="src/vendor/" >
+            <fileset dir="./src/bower_components/">
+                <include pattern="datatables/media/**" />
+                <include pattern="datatables.net-bs4/css/**" />
+                <include pattern="datatables.net-bs4/js/**" />
+                <include pattern="datatables.net-responsive/js/**" />
+                <include pattern="datatables.net-responsive-bs4/css/**" />
+                <include pattern="datatables.net-responsive-bs4/js/**" />
+                <include pattern="bootstrap/dist/**" />
+                <include pattern="Font-Awesome/web-fonts-with-css/**" />
+            </fileset>
+        </copy>
+
+
+        <reflexive>
+            <fileset dir=".">
+                <include pattern="src/options/panel1.php" />
+            </fileset>
+            <filterchain>
+                <replaceregexp>
+                    <regexp pattern="%%VENDOR%%" replace="bower_components"/>
+                </replaceregexp>
+            </filterchain>
+        </reflexive>
+
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT)  Target: dist                       -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build">
+        <echo msg="Creating archive..." />
+
+        <!--<tar destfile="./build/build.tar.gz" compression="gzip">-->
+            <!--<fileset dir="./build">-->
+                <!--<include name="*" />-->
+            <!--</fileset>-->
+        <!--</tar>-->
+
+        <!--<echo msg="Files copied and compressed in build directory OK!" />-->
+    </target>
+</project>

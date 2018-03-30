@@ -68,8 +68,8 @@ global $wp_locale;
 
 <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>-->
 <!-- TODO: Fix variable on resources to automate on diployment-->
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet"/>
 <style type="text/css">
     #wpcontent {
         background: #f1f1f1 !important;

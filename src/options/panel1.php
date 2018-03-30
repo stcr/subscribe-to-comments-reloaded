@@ -46,9 +46,9 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
     }
 </style>
 
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"/>
 
 <div class="container-fluid">
 
@@ -342,10 +342,11 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 
 <?php
 // Tell WP that we are going to use a resource.
