@@ -190,7 +190,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function _activate() {
 			// Load localization files
-			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+//			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 			// Upgrade rountine
 			$this->upgrade();
 
@@ -768,13 +768,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 
 			global $post;
-			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 			echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . $post->ID . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
 		}
 		// end add_column
 
 		/**
 		 * Contextual help (link to the support forum)
+         * @deprecated
 		 */
 		public function contextual_help( $contextual_help, $screen_id, $screen ) {
 			if ( $screen_id == 'subscribe-to-comments-reloaded/options/index' ) {
