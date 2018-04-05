@@ -33,17 +33,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
 ?>
 <style type="text/css">
-    .validate-error-text
-    {
-        color: #f55252;
-        font-weight:bold;
-    }
-    .validate-error-field { border: 1px solid #ff9595 !important; }
-    .stcr-hidden {
-        position: absolute !important;
-        top: -9999px !important;
-        left: -9999px !important;
-    }
+
 </style>
 
 <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"/>

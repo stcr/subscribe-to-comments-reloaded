@@ -38,6 +38,7 @@
                 <include pattern="datatables.net-responsive-bs4/js/**" />
                 <include pattern="bootstrap/dist/**" />
                 <include pattern="Font-Awesome/web-fonts-with-css/**" />
+                <include pattern="webui-popover/dist/**" />
             </fileset>
         </copy>
 

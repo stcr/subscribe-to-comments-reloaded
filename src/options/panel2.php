@@ -54,179 +54,340 @@ if ( isset( $_POST['options'] ) ) {
 	echo "</p></div>\n";
 }
 ?>
-<form action="" method="post">
-	<h3><?php _e( 'Options', 'subscribe-reloaded' ) ?></h3>
-	<table class="form-table <?php echo $wp_locale->text_direction ?>">
-		<tbody>
-		<tr>
-			<th scope="row">
-				<label for="show_subscription_box"><?php _e( 'Enable default checkbox', 'subscribe-reloaded' ) ?></label>
-			</th>
-			<td>
-				<input type="radio" name="options[show_subscription_box]" id="show_subscription_box" value="yes"<?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
-				<input type="radio" name="options[show_subscription_box]" value="no" <?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
-				<div class="description"><?php _e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<label for="checked_by_default"><?php _e( 'Checked by default', 'subscribe-reloaded' ) ?></label>
-			</th>
-			<td>
-				<input type="radio" name="options[checked_by_default]" id="checked_by_default" value="yes"<?php echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
-				<input type="radio" name="options[checked_by_default]" value="no" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
-				<div class="description"><?php _e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
+<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
+
+<div class="container-fluid">
+    <div class="mt-3"></div>
+    <div class="row">
+        <div class="col-sm-9">
+            <form action="" method="post">
+                <div class="form-group row">
+                    <label for="show_subscription_box" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable default checkbox', 'subscribe-reloaded' ) ?></label>
+                    <div class="col-sm-7">
+                        <div class="switch">
+                            <input type="radio" class="switch-input" name="options[show_subscription_box]"
+                                   value="yes" id="show_subscription_box-yes" <?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'yes' ) ? ' checked' : ''; ?> />
+                            <label for="show_subscription_box-yes" class="switch-label switch-label-off">
+                                <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
+                            </label>
+                            <input type="radio" class="switch-input" name="options[show_subscription_box]" value="no" id="show_subscription_box-no"
+                                <?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'no' ) ? '  checked' : ''; ?> />
+                            <label for="show_subscription_box-no" class="switch-label switch-label-on">
+                                <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                            </label>
+                            <span class="switch-selection"></span>
+                        </div>
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="checked_by_default" class="col-sm-3 col-form-label text-right"><?php _e( 'Checked by default', 'subscribe-reloaded' ) ?></label>
+                    <div class="col-sm-7">
+                        <div class="switch">
+                            <input type="radio" class="switch-input" name="options[checked_by_default]"
+                                   value="yes" id="checked_by_default-yes" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes' ) ? ' checked' : ''; ?> />
+                            <label for="checked_by_default-yes" class="switch-label switch-label-off">
+                                <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
+                            </label>
+                            <input type="radio" class="switch-input" name="options[checked_by_default]" value="no" id="checked_by_default-no"
+                                <?php echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'no' ) ? '  checked' : ''; ?> />
+                            <label for="checked_by_default-no" class="switch-label switch-label-on">
+                                <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                            </label>
+                            <span class="switch-selection"></span>
+                        </div>
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            // This option will be visible only when the Checkbox option is enable
+            if ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes') :
+            ?>
+                <div class="form-group row">
+                    <label for="checked_by_default_value" class="col-sm-3 col-form-label text-right"><?php _e( 'Default Checkbox Value', 'subscribe-reloaded' ) ?></label>
+                    <div class="col-sm-7">
+                        <select name="options[checked_by_default_value]" id="checked_by_default_value" class="form-control form-control-select">
+                            <option value="0" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
+                            <option value="1" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
+                        </select>
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            else :
+                echo "<input type='hidden' name='options[checked_by_default_value]' value = '0'>";
+            endif; ?>
+
+                <div class="form-group row">
+                    <label for="enable_advanced_subscriptions" class="col-sm-3 col-form-label text-right">
+                        <?php _e( 'Advanced subscription', 'subscribe-reloaded' ) ?></label>
+                    <div class="col-sm-7">
+                        <div class="switch">
+                            <input type="radio" class="switch-input" name="options[enable_advanced_subscriptions]"
+                                   value="yes" id="enable_advanced_subscriptions-yes"
+                                <?php echo ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' ) ? ' checked' : ''; ?> />
+                            <label for="enable_advanced_subscriptions-yes" class="switch-label switch-label-off">
+                                <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
+                            </label>
+                            <input type="radio" class="switch-input" name="options[enable_advanced_subscriptions]" value="no" id="enable_advanced_subscriptions-no"
+                                <?php echo ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'no' ) ? '  checked' : ''; ?> />
+                            <label for="enable_advanced_subscriptions-no" class="switch-label switch-label-on">
+                                <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                            </label>
+                            <span class="switch-selection"></span>
+                        </div>
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+                // Make sure that the default subscription type is visible only when advance subscriptions are set to yes.
+                if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' ):    ?>
+                    <div class="form-group row">
+                        <label for="default_subscription_type" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Advanced default', 'subscribe-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <select name="options[default_subscription_type]" id="default_subscription_type" class="form-control form-control-select">
+                                <option value="0" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'None', 'subscribe-reloaded' ); ?></option>
+                                <option value="1" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
+                                <option value="2" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '2' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
+                            </select>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                else :
+                    echo "<input type='hidden' name='options[checked_by_default_value]' value = '0'>";
+                endif; ?>
+
+                <div class="form-group row">
+                    <label for="checkbox_inline_style" class="col-sm-3 col-form-label text-right">
+                        <?php _e( 'Custom inline style', 'subscribe-reloaded' ) ?></label>
+                    <div class="col-sm-7">
+                        <input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style"
+                               class="form-control form-control-input-8"
+                               value="<?php echo subscribe_reloaded_get_option( 'checkbox_inline_style' ); ?>" size="20">
+
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="checkbox_html" class="col-sm-2 offset-sm-1 col-form-label">
+                        <?php _e( 'Custom HTML', 'subscribe-reloaded' ) ?>
+
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+
+                    </label>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-9 offset-sm-1">
+                        <?php
+                        $id_checkbox_html = "checkbox_html";
+                        $args_notificationContent = array(
+                            "media_buttons" => false,
+                            "textarea_rows" => 5,
+                            "teeny"         => true,
+                            "textarea_name" => "options[{$id_checkbox_html}]",
+                            "tinymce"		=> false
+                        );
+                        wp_editor( subscribe_reloaded_get_option( $id_checkbox_html ), $id_checkbox_html, $args_notificationContent );
+                        ?>
+                    </div>
+                </div>
+
+                <h3><?php _e( 'Messages for your visitors', 'subscribe-reloaded' ) ?></h3>
+
+                <div class="form-group row">
+                    <label for="checkbox_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
+                        <?php _e( 'Default label', 'subscribe-reloaded' ) ?>
+
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+
+                    </label>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-9 offset-sm-1" style="margin-top: -30px;">
+                        <?php
+                        $id_checkbox_label = "checkbox_label";
+                        $args_notificationContent = array(
+                            "media_buttons" => false,
+                            "textarea_rows" => 3,
+                            "teeny"         => true,
+                            "textarea_name" => "options[{$id_checkbox_label}]"
+                        );
+                        wp_editor( subscribe_reloaded_get_option( $id_checkbox_label ), $id_checkbox_label, $args_notificationContent );
+                        ?>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="subscribed_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
+                        <?php _e( 'Subscribed label', 'subscribe-reloaded' ) ?>
+
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+
+                    </label>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-9 offset-sm-1" style="margin-top: -30px;">
+                        <?php
+                        $id_subscribed_label = "subscribed_label";
+                        $args_notificationContent = array(
+                            "media_buttons" => false,
+                            "textarea_rows" => 3,
+                            "teeny"         => true,
+                            "textarea_name" => "options[{$id_subscribed_label}]"
+                        );
+                        wp_editor( subscribe_reloaded_get_option( $id_subscribed_label ), $id_subscribed_label, $args_notificationContent );
+                        ?>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="subscribed_waiting_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
+                        <?php _e( 'Pending label', 'subscribe-reloaded' ) ?>
+
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+
+                    </label>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-9 offset-sm-1" style="margin-top: -30px;">
+                        <?php
+                        $id_subscribed_waiting_label = "subscribed_waiting_label";
+                        $args_notificationContent = array(
+                            "media_buttons" => false,
+                            "textarea_rows" => 3,
+                            "teeny"         => true,
+                            "textarea_name" => "options[{$id_subscribed_waiting_label}]"
+                        );
+                        wp_editor( subscribe_reloaded_get_option( $id_subscribed_waiting_label ), $id_subscribed_waiting_label, $args_notificationContent );
+                        ?>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="author_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
+                        <?php _e( 'Author label', 'subscribe-reloaded' ) ?>
+
+                        <div class="helpDescription subsOptDescriptions"
+                             data-content="<?php _e( "Label shown to authors (and administrators). Allowed tag: [manager_link]", 'subscribe-reloaded' ); ?>"
+                             data-placement="right"
+                             aria-label="<?php _e( "Label shown to authors (and administrators). Allowed tag: [manager_link]", 'subscribe-reloaded' ); ?>">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+
+                    </label>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-9 offset-sm-1" style="margin-top: -30px;">
+                        <?php
+                        $id_author_label = "author_label";
+                        $args_notificationContent = array(
+                            "media_buttons" => false,
+                            "textarea_rows" => 3,
+                            "teeny"         => true,
+                            "textarea_name" => "options[{$id_author_label}]"
+                        );
+                        wp_editor( subscribe_reloaded_get_option( $id_author_label ), $id_author_label, $args_notificationContent );
+                        ?>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-9 offset-sm-1">
+                        <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
+                            <?php _e( 'Save Changes', 'subscribe-reloaded' ) ?>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card card-font-size">
+                <div class="card-body">
+                    <div class="text-center">
+                        <a href="http://subscribe-reloaded.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png"
+                                                                                      alt="Support Subscribe to Comments Reloaded" width="100" height="84">
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <p>Thank you for Supporting StCR, You can Support the plugin by giving a
+                            <a href="http://subscribe-reloaded.com/active-support-donation/"  rel="external" target="_blank">
+                                <i class="fab fa-paypal"></i> Donation</a></p>
+                        <p>Please rate it
+                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png"
+                                                                                                                                                 alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" />
+                            </a>
+                        </p>
+                        <p><i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/new" target="_blank">create a ticket</a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--<script type="text/javascript" src="--><?php //echo plugins_url(); ?><!--/subscribe-to-comments-reloaded/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.js"></script>
 <?php
-// This option will be visible only when the Checkbox option is enable
-if ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes') :
+global $wp_subscribe_reloaded;
+// Tell WP that we are going to use a resource.
+$wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-subs-options", "subs_options.js", "includes/js/admin");
+// Includes the Panel JS resource file as well as the JS text domain translations.
+//$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-subs-options", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
+// Enqueue the JS File
+$wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-subs-options" );
+
 ?>
-			<tr>
-				<th scope="row">
-					<label for="checked_by_default_value"><?php _e( 'Default Checkbox Value', 'subscribe-reloaded' ) ?></label>
-				</th>
-				<td>
-					<select name="options[checked_by_default_value]" id="checked_by_default_value">
-						<option value="0" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
-						<option value="1" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
-					</select>
-					<div class="description"><?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-reloaded' ); ?></div>
-				</td>
-			</tr>
-<?php else :
-	echo "<input type='hidden' name='options[checked_by_default_value]' value = '0'>";
-endif; ?>
-		<tr>
-			<th scope="row">
-				<label for="enable_advanced_subscriptions"><?php _e( 'Advanced subscription', 'subscribe-reloaded' ) ?></label>
-			</th>
-			<td>
-				<input type="radio" name="options[enable_advanced_subscriptions]" id="enable_advanced_subscriptions" value="yes"<?php echo ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
-				<input type="radio" name="options[enable_advanced_subscriptions]" value="no" <?php echo ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
-				<div class="description"><?php _e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		<?php
-// Make sure that the default subscription type is visible only when advance subscriptions are enable
-if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' ):    ?>
-			<tr>
-				<th scope="row">
-					<label for="default_subscription_type"><?php _e( 'Advanced default', 'subscribe-reloaded' ) ?></label>
-				</th>
-				<td>
-					<select name="options[default_subscription_type]" id="default_subscription_type">
-						<option value="0" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'None', 'subscribe-reloaded' ); ?></option>
-						<option value="1" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
-						<option value="2" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '2' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
-					</select>
-
-					<div class="description"><?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-reloaded' ); ?></div>
-				</td>
-			</tr>
-<?php endif; ?>
-		<tr>
-			<th scope="row">
-				<label for="checkbox_inline_style"><?php _e( 'Custom inline style', 'subscribe-reloaded' ) ?></label>
-			</th>
-			<td>
-				<input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style" value="<?php echo subscribe_reloaded_get_option( 'checkbox_inline_style' ); ?>" size="20">
-
-				<div class="description"><?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row"><label for="checkbox_html"><?php _e( 'Custom HTML', 'subscribe-reloaded' ) ?></label></th>
-			<td>
-				<?php
-					$id_checkbox_html = "checkbox_html";
-					$args_notificationContent = array(
-						"media_buttons" => false,
-						"textarea_rows" => 5,
-						"teeny"         => true,
-						"textarea_name" => "options[{$id_checkbox_html}]",
-						"tinymce"		=> false
-					);
-					wp_editor( subscribe_reloaded_get_option( $id_checkbox_html ), $id_checkbox_html, $args_notificationContent );
-				?>
-				<div class="description"><?php _e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		</tbody>
-	</table>
-
-	<h3><?php _e( 'Messages for your visitors', 'subscribe-reloaded' ) ?></h3>
-	<table class="form-table <?php echo $wp_locale->text_direction ?>">
-		<tbody>
-		<tr>
-			<th scope="row"><label for="checkbox_label"><?php _e( 'Default label', 'subscribe-reloaded' ) ?></label>
-			</th>
-			<td>
-				<?php
-					$id_checkbox_label = "checkbox_label";
-					$args_notificationContent = array(
-						"media_buttons" => false,
-						"textarea_rows" => 3,
-						"teeny"         => true,
-						"textarea_name" => "options[{$id_checkbox_label}]"
-					);
-					wp_editor( subscribe_reloaded_get_option( $id_checkbox_label ), $id_checkbox_label, $args_notificationContent );
-				?>
-				<div class="description"><?php _e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<label for="subscribed_label"><?php _e( 'Subscribed label', 'subscribe-reloaded' ) ?></label></th>
-			<td>
-				<?php
-					$id_subscribed_label = "subscribed_label";
-					$args_notificationContent = array(
-						"media_buttons" => false,
-						"textarea_rows" => 3,
-						"teeny"         => true,
-						"textarea_name" => "options[{$id_subscribed_label}]"
-					);
-					wp_editor( subscribe_reloaded_get_option( $id_subscribed_label ), $id_subscribed_label, $args_notificationContent );
-				?>
-				<div class="description"><?php _e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<label for="subscribed_waiting_label"><?php _e( 'Pending label', 'subscribe-reloaded' ) ?></label></th>
-			<td>
-				<?php
-					$id_subscribed_waiting_label = "subscribed_waiting_label";
-					$args_notificationContent = array(
-						"media_buttons" => false,
-						"textarea_rows" => 3,
-						"teeny"         => true,
-						"textarea_name" => "options[{$id_subscribed_waiting_label}]"
-					);
-					wp_editor( subscribe_reloaded_get_option( $id_subscribed_waiting_label ), $id_subscribed_waiting_label, $args_notificationContent );
-				?>
-				<div class="description"><?php _e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row"><label for="author_label"><?php _e( 'Author label', 'subscribe-reloaded' ) ?></label></th>
-			<td>
-				<?php
-					$id_author_label = "author_label";
-					$args_notificationContent = array(
-						"media_buttons" => false,
-						"textarea_rows" => 3,
-						"teeny"         => true,
-						"textarea_name" => "options[{$id_author_label}]"
-					);
-					wp_editor( subscribe_reloaded_get_option( $id_author_label ), $id_author_label, $args_notificationContent );
-				?>
-				<div class="description"><?php _e( 'Label shown to authors (and administrators). Allowed tag: [manager_link]', 'subscribe-reloaded' ); ?></div>
-			</td>
-		</tr>
-		</tbody>
-	</table>
-	<p class="submit"><input type="submit" value="<?php _e( 'Save Changes' ) ?>" class="button-primary" name="Submit">
-	</p>
-</form>

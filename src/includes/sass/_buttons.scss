@@ -1,0 +1,16 @@
+/* ----------------------------------------------------------
+Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.btn-primary {
+  color: #fff !important;
+  background-color: #0085ba !important;;
+  border-color: #80bbd2 !important;;
+}
+
+.btn-primary:hover {
+  color: #fff !important;;
+  background-color: #4299b9 !important;;
+  border-color: #5495ad !important;;
+}

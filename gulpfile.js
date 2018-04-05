@@ -9,6 +9,7 @@
 var gulp   = require( 'gulp' );
 var eslint = require( 'gulp-eslint' );
 var watch  = require('gulp-watch');
+var sass   = require('gulp-sass');
 
 gulp.task('lint', function() {
     // ESLint ignores files with "node_modules" paths.
@@ -32,8 +33,15 @@ gulp.task('lint', function() {
         .pipe(eslint.failAfterError());
 });
 
+gulp.task('sass', function () {
+    return gulp.src('src/includes/sass/*.scss')
+        .pipe(sass.sync().on( 'error', sass.logError ) )
+        .pipe( gulp.dest( 'src/includes/css' ) );
+});
+
 gulp.task('watch', function () {
-    gulp.watch('src/includes/js/admin/**/*.js', ['lint']);
+    // gulp.watch('src/includes/js/admin/**/*.js', ['lint']);
+    gulp.watch('src/includes/sass/*.scss', ['sass']);
 });
 
 gulp.task('default', ['lint'], function () {
