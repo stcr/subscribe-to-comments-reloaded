@@ -5,53 +5,42 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	exit;
 }
 
+$options = array(
+    "show_subscription_box"         => "yesno",
+    "checked_by_default"            => "yesno",
+    "checked_by_default_value"      => "integer",
+    "enable_advanced_subscriptions" => "yesno",
+    "default_subscription_type"     => "integer",
+    "checkbox_inline_style"         => "text-html",
+    "checkbox_html"                 => "text-html",
+    "checkbox_label"                => "text-html",
+    "subscribed_label"              => "text-html",
+    "subscribed_waiting_label"      => "text-html",
+    "author_label"                  => "text-html"
+);
+
 // Update options
 if ( isset( $_POST['options'] ) ) {
-	$faulty_fields = '';
-	if ( isset( $_POST['options']['show_subscription_box'] ) && ! subscribe_reloaded_update_option( 'show_subscription_box', $_POST['options']['show_subscription_box'], 'yesno' ) ) {
-		$faulty_fields = __( 'Enable default checkbox', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['checked_by_default'] ) && ! subscribe_reloaded_update_option( 'checked_by_default', $_POST['options']['checked_by_default'], 'yesno' ) ) {
-		$faulty_fields = __( 'Checked by default', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['checked_by_default_value'] ) && ! subscribe_reloaded_update_option( 'checked_by_default_value', $_POST['options']['checked_by_default_value'], 'integer' ) ) {
-		$faulty_fields = __( 'Checked by default Value', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['enable_advanced_subscriptions'] ) && ! subscribe_reloaded_update_option( 'enable_advanced_subscriptions', $_POST['options']['enable_advanced_subscriptions'], 'yesno' ) ) {
-		$faulty_fields = __( 'Advanced subscription', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['default_subscription_type'] ) && ! subscribe_reloaded_update_option( 'default_subscription_type', $_POST['options']['default_subscription_type'], 'integer' ) ) {
-		$faulty_fields = __( 'Advanced subscription', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['checkbox_inline_style'] ) && ! subscribe_reloaded_update_option( 'checkbox_inline_style', $_POST['options']['checkbox_inline_style'], 'text-html' ) ) {
-		$faulty_fields = __( 'Custom inline style', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['checkbox_html'] ) && ! subscribe_reloaded_update_option( 'checkbox_html', $_POST['options']['checkbox_html'], 'text-html' ) ) {
-		$faulty_fields = __( 'Custom HTML', 'subscribe-reloaded' ) . ', ';
-	}
-	// default_subscription_type
-	if ( isset( $_POST['options']['checkbox_label'] ) && ! subscribe_reloaded_update_option( 'checkbox_label', $_POST['options']['checkbox_label'], 'text-html' ) ) {
-		$faulty_fields = __( 'Checkbox label', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['subscribed_label'] ) && ! subscribe_reloaded_update_option( 'subscribed_label', $_POST['options']['subscribed_label'], 'text-html' ) ) {
-		$faulty_fields = __( 'Subscribed label', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['subscribed_waiting_label'] ) && ! subscribe_reloaded_update_option( 'subscribed_waiting_label', $_POST['options']['subscribed_waiting_label'], 'text-html' ) ) {
-		$faulty_fields = __( 'Awaiting label', 'subscribe-reloaded' ) . ', ';
-	}
-	if ( isset( $_POST['options']['author_label'] ) && ! subscribe_reloaded_update_option( 'author_label', $_POST['options']['author_label'], 'text-html' ) ) {
-		$faulty_fields = __( 'Author label', 'subscribe-reloaded' ) . ', ';
-	}
+	$faulty_fields = array();
+
+    foreach ( $_POST['options'] as $option => $value )
+    {
+//        echo $key . '<br>';
+        if ( isset( $options[$option] ) && ! subscribe_reloaded_update_option( $option, $value, $options[$option] ) )
+        {
+            array_push( $faulty_fields, $option );
+        }
+    }
 
 	// Display an alert in the admin interface if something went wrong
-	echo '<div class="updated fade"><p>';
-	if ( empty( $faulty_fields ) ) {
+	echo '<div class="updated"><p>';
+	if ( sizeof( $faulty_fields ) == 0 ) {
 		_e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
 	} else {
 		_e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
-		echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
+		// echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
 	}
-	echo "</p></div>\n";
+	echo "</p></div>";
 }
 ?>
 <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
