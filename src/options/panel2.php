@@ -193,7 +193,7 @@ if ( isset( $_POST['options'] ) ) {
                 </div>
 
                 <div class="form-group row">
-                    <label for="checkbox_html" class="col-sm-2 offset-sm-1 col-form-label">
+                    <label for="checkbox_html" class="col-sm-3 offset-sm-1 col-form-label">
                         <?php _e( 'Custom HTML', 'subscribe-reloaded' ) ?>
 
                         <div class="helpDescription subsOptDescriptions"

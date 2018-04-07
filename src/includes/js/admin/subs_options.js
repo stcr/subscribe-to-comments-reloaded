@@ -5,7 +5,8 @@
     $(document).ready(function(){
         $('.helpDescription').webuiPopover({
             style: 'helpDescriptionContent',
-            dismissible: true
+            dismissible: true,
+            type: 'html'
         });
 
     });
