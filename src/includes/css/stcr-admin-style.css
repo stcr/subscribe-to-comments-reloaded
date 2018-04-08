@@ -84,6 +84,12 @@ Styles use on the interaction with the user.
   width: 10%;
   font-size: 1.4rem; }
 
+.stcr-dismiss-notice p {
+  font-size: 0.8rem !important; }
+
+.stcr-dismiss-notice h2 {
+  font-size: 1rem !important; }
+
 /* ----------------------------------------------------------
 Styles use on form styles. Helpful to customize Bootstrap behavior.
 @author Israel Barragan (Reedyseth)
