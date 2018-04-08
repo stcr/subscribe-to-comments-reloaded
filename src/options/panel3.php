@@ -27,8 +27,8 @@ if ( isset( $_POST['options'] ) ) {
 
     foreach ( $_POST['options'] as $option => $value )
     {
-//        echo $key . '<br>';
-        if ( isset( $options[$option] ) && ! subscribe_reloaded_update_option( $option, $value, $options[$option] ) )
+//        echo $option . '<br>';
+        if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {
             array_push( $faulty_fields, $option );
         }
@@ -59,12 +59,12 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <div class="switch">
                                 <input type="radio" class="switch-input" name="options[manager_page_enabled]"
-                                       value="yes" id="manager_page_enabled-yes" <?php echo ( subscribe_reloaded_get_option( 'manager_page_enabled' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                       value="yes" id="manager_page_enabled-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_enabled' ) == 'yes' ) ? ' checked' : ''; ?> />
                                 <label for="manager_page_enabled-yes" class="switch-label switch-label-off">
                                     <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
                                 </label>
                                 <input type="radio" class="switch-input" name="options[manager_page_enabled]" value="no" id="manager_page_enabled-no"
-                                    <?php echo ( subscribe_reloaded_get_option( 'manager_page_enabled' ) == 'no' ) ? '  checked' : ''; ?> />
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_enabled' ) == 'no' ) ? '  checked' : ''; ?> />
                                 <label for="manager_page_enabled-no" class="switch-label switch-label-on">
                                     <?php _e( 'No', 'subscribe-reloaded' ) ?>
                                 </label>
@@ -85,7 +85,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[manager_page_title]" id="manager_page_title"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo subscribe_reloaded_get_option( 'manager_page_title' ); ?>" size="20">
+                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_title' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( 'Title of the page your visitors will use to manage their subscriptions.', 'subscribe-reloaded' ); ?>"
@@ -103,7 +103,7 @@ wp_print_scripts( 'quicktags' );
                             <code><?php echo get_bloginfo( 'url' ) ?></code>
                             <input type="text" name="options[manager_page]" id="manager_page"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo subscribe_reloaded_get_option( 'manager_page' ); ?>" style=" width: 60% !important;">
+                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ); ?>" style=" width: 60% !important;">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure.", 'subscribe-reloaded' ); ?>"
@@ -113,7 +113,7 @@ wp_print_scripts( 'quicktags' );
                             </div>
 
                             <?php
-                            if ( ( get_option( 'permalink_structure' ) == '' ) && ( strpos( subscribe_reloaded_get_option( 'manager_page' ), '?page_id=' ) === false ) ) {
+                            if ( ( get_option( 'permalink_structure' ) == '' ) && ( strpos( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ), '?page_id=' ) === false ) ) {
                                     echo "<div class=\"alert alert-danger\" role=\"alert\">";
                                     echo '<strong>' . __( "Warning: it looks like the value you are using may be incompatible with your permalink structure", 'subscribe-reloaded' ) . '</strong>';
                                     echo "</div>";
@@ -128,7 +128,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[custom_header_meta]" id="custom_header_meta"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo subscribe_reloaded_get_option( 'custom_header_meta' ); ?>" size="20">
+                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'custom_header_meta' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-reloaded' ); ?>"
@@ -163,7 +163,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_request_mgmt_link}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_request_mgmt_link ), $id_request_mgmt_link, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_request_mgmt_link ), $id_request_mgmt_link, $args_notificationContent );
                             ?>
                         </div>
                     </div>
@@ -190,7 +190,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_request_mgmt_link_thankyou}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_request_mgmt_link_thankyou ), $id_request_mgmt_link_thankyou, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_request_mgmt_link_thankyou ), $id_request_mgmt_link_thankyou, $args_notificationContent );
                             ?>
                         </div>
                     </div>
@@ -217,7 +217,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_subscribe_without_commenting}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_subscribe_without_commenting ), $id_subscribe_without_commenting, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_subscribe_without_commenting ), $id_subscribe_without_commenting, $args_notificationContent );
                             ?>
                         </div>
                     </div>
@@ -244,7 +244,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_subscription_confirmed}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_subscription_confirmed ), $id_subscription_confirmed, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_subscription_confirmed ), $id_subscription_confirmed, $args_notificationContent );
                             ?>
                         </div>
                     </div>
@@ -271,7 +271,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_subscription_confirmed_dci}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_subscription_confirmed_dci ), $id_subscription_confirmed_dci, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_subscription_confirmed_dci ), $id_subscription_confirmed_dci, $args_notificationContent );
                             ?>
                         </div>
                     </div>
@@ -298,7 +298,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_author_text}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_author_text ), $id_author_text, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_author_text ), $id_author_text, $args_notificationContent );
                             ?>
                         </div>
                     </div>
@@ -325,7 +325,7 @@ wp_print_scripts( 'quicktags' );
                                 "teeny"         => true,
                                 "textarea_name" => "options[{$id_user_text}]"
                             );
-                            wp_editor( subscribe_reloaded_get_option( $id_user_text ), $id_user_text, $args_notificationContent );
+                            wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_user_text ), $id_user_text, $args_notificationContent );
                             ?>
                         </div>
                     </div>

@@ -25,8 +25,8 @@ if ( isset( $_POST['options'] ) ) {
 
     foreach ( $_POST['options'] as $option => $value )
     {
-//        echo $key . '<br>';
-        if ( isset( $options[$option] ) && ! subscribe_reloaded_update_option( $option, $value, $options[$option] ) )
+//        echo $option . '<br>';
+        if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {
             array_push( $faulty_fields, $option );
         }
@@ -55,12 +55,12 @@ if ( isset( $_POST['options'] ) ) {
                     <div class="col-sm-7">
                         <div class="switch">
                             <input type="radio" class="switch-input" name="options[show_subscription_box]"
-                                   value="yes" id="show_subscription_box-yes" <?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                   value="yes" id="show_subscription_box-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'show_subscription_box' ) == 'yes' ) ? ' checked' : ''; ?> />
                             <label for="show_subscription_box-yes" class="switch-label switch-label-off">
                                 <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
                             </label>
                             <input type="radio" class="switch-input" name="options[show_subscription_box]" value="no" id="show_subscription_box-no"
-                                <?php echo ( subscribe_reloaded_get_option( 'show_subscription_box' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'show_subscription_box' ) == 'no' ) ? '  checked' : ''; ?> />
                             <label for="show_subscription_box-no" class="switch-label switch-label-on">
                                 <?php _e( 'No', 'subscribe-reloaded' ) ?>
                             </label>
@@ -80,12 +80,12 @@ if ( isset( $_POST['options'] ) ) {
                     <div class="col-sm-7">
                         <div class="switch">
                             <input type="radio" class="switch-input" name="options[checked_by_default]"
-                                   value="yes" id="checked_by_default-yes" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                   value="yes" id="checked_by_default-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default' ) == 'yes' ) ? ' checked' : ''; ?> />
                             <label for="checked_by_default-yes" class="switch-label switch-label-off">
                                 <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
                             </label>
                             <input type="radio" class="switch-input" name="options[checked_by_default]" value="no" id="checked_by_default-no"
-                                <?php echo ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default' ) == 'no' ) ? '  checked' : ''; ?> />
                             <label for="checked_by_default-no" class="switch-label switch-label-on">
                                 <?php _e( 'No', 'subscribe-reloaded' ) ?>
                             </label>
@@ -101,14 +101,14 @@ if ( isset( $_POST['options'] ) ) {
                 </div>
             <?php
             // This option will be visible only when the Checkbox option is enable
-            if ( subscribe_reloaded_get_option( 'checked_by_default' ) == 'yes') :
+            if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default' ) == 'yes') :
             ?>
                 <div class="form-group row">
                     <label for="checked_by_default_value" class="col-sm-3 col-form-label text-right"><?php _e( 'Default Checkbox Value', 'subscribe-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <select name="options[checked_by_default_value]" id="checked_by_default_value" class="form-control form-control-select">
-                            <option value="0" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
-                            <option value="1" <?php echo ( subscribe_reloaded_get_option( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
+                            <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
+                            <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
                         </select>
                         <div class="helpDescription subsOptDescriptions"
                              data-content="<?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-reloaded' ); ?>"
@@ -130,12 +130,12 @@ if ( isset( $_POST['options'] ) ) {
                         <div class="switch">
                             <input type="radio" class="switch-input" name="options[enable_advanced_subscriptions]"
                                    value="yes" id="enable_advanced_subscriptions-yes"
-                                <?php echo ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'yes' ) ? ' checked' : ''; ?> />
                             <label for="enable_advanced_subscriptions-yes" class="switch-label switch-label-off">
                                 <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
                             </label>
                             <input type="radio" class="switch-input" name="options[enable_advanced_subscriptions]" value="no" id="enable_advanced_subscriptions-no"
-                                <?php echo ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'no' ) ? '  checked' : ''; ?> />
                             <label for="enable_advanced_subscriptions-no" class="switch-label switch-label-on">
                                 <?php _e( 'No', 'subscribe-reloaded' ) ?>
                             </label>
@@ -152,15 +152,15 @@ if ( isset( $_POST['options'] ) ) {
 
                 <?php
                 // Make sure that the default subscription type is visible only when advance subscriptions are set to yes.
-                if ( subscribe_reloaded_get_option( 'enable_advanced_subscriptions' ) == 'yes' ):    ?>
+                if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'yes' ):    ?>
                     <div class="form-group row">
                         <label for="default_subscription_type" class="col-sm-3 col-form-label text-right">
                             <?php _e( 'Advanced default', 'subscribe-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <select name="options[default_subscription_type]" id="default_subscription_type" class="form-control form-control-select">
-                                <option value="0" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'None', 'subscribe-reloaded' ); ?></option>
-                                <option value="1" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
-                                <option value="2" <?php echo ( subscribe_reloaded_get_option( 'default_subscription_type' ) === '2' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
+                                <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'None', 'subscribe-reloaded' ); ?></option>
+                                <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-reloaded' ); ?></option>
+                                <option value="2" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '2' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-reloaded' ); ?></option>
                             </select>
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-reloaded' ); ?>"
@@ -181,7 +181,7 @@ if ( isset( $_POST['options'] ) ) {
                     <div class="col-sm-7">
                         <input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style"
                                class="form-control form-control-input-8"
-                               value="<?php echo subscribe_reloaded_get_option( 'checkbox_inline_style' ); ?>" size="20">
+                               value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checkbox_inline_style' ); ?>" size="20">
 
                         <div class="helpDescription subsOptDescriptions"
                              data-content="<?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-reloaded' ); ?>"
@@ -215,7 +215,7 @@ if ( isset( $_POST['options'] ) ) {
                             "textarea_name" => "options[{$id_checkbox_html}]",
                             "tinymce"		=> false
                         );
-                        wp_editor( subscribe_reloaded_get_option( $id_checkbox_html ), $id_checkbox_html, $args_notificationContent );
+                        wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_checkbox_html ), $id_checkbox_html, $args_notificationContent );
                         ?>
                     </div>
                 </div>
@@ -244,7 +244,7 @@ if ( isset( $_POST['options'] ) ) {
                             "teeny"         => true,
                             "textarea_name" => "options[{$id_checkbox_label}]"
                         );
-                        wp_editor( subscribe_reloaded_get_option( $id_checkbox_label ), $id_checkbox_label, $args_notificationContent );
+                        wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_checkbox_label ), $id_checkbox_label, $args_notificationContent );
                         ?>
                     </div>
                 </div>
@@ -271,7 +271,7 @@ if ( isset( $_POST['options'] ) ) {
                             "teeny"         => true,
                             "textarea_name" => "options[{$id_subscribed_label}]"
                         );
-                        wp_editor( subscribe_reloaded_get_option( $id_subscribed_label ), $id_subscribed_label, $args_notificationContent );
+                        wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_subscribed_label ), $id_subscribed_label, $args_notificationContent );
                         ?>
                     </div>
                 </div>
@@ -298,7 +298,7 @@ if ( isset( $_POST['options'] ) ) {
                             "teeny"         => true,
                             "textarea_name" => "options[{$id_subscribed_waiting_label}]"
                         );
-                        wp_editor( subscribe_reloaded_get_option( $id_subscribed_waiting_label ), $id_subscribed_waiting_label, $args_notificationContent );
+                        wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_subscribed_waiting_label ), $id_subscribed_waiting_label, $args_notificationContent );
                         ?>
                     </div>
                 </div>
@@ -325,7 +325,7 @@ if ( isset( $_POST['options'] ) ) {
                             "teeny"         => true,
                             "textarea_name" => "options[{$id_author_label}]"
                         );
-                        wp_editor( subscribe_reloaded_get_option( $id_author_label ), $id_author_label, $args_notificationContent );
+                        wp_editor( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( $id_author_label ), $id_author_label, $args_notificationContent );
                         ?>
                     </div>
                 </div>

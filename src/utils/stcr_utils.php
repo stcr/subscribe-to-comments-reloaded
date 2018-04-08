@@ -578,6 +578,24 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
 		}
 
+        /**
+         * Method to avoid using all the StCR option variable name. Return the given option value.
+         *
+         * @since 08-Apr-2018
+         * @author Israel Barragan (Reedyseth)
+         *
+         * @param string $_option Option Name
+         * @param string $_default Default value in case is not defined.
+         * @return string The option value store in WP.
+         */
+        public function stcr_get_menu_options($_option = '', $_default = '' )
+        {
+            // TODO: Create array to cache the values to avoid requesting the option to WP more than once.
+            $value = get_option( 'subscribe_reloaded_' . $_option, $_default );
+            $value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
+
+            return stripslashes( $value );
+        }
 		/**
 		 * Update a given notice with the given arguments.
 		 *
@@ -629,7 +647,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 
         /**
-         * Is method to avoid using all the StCR option variable name. It also verify the type of value to be store.
+         * Method to avoid using all the StCR option variable name. It also verify the type of value to be store.
          *
          * @since 07-Apr-2018
          * @author Israel Barragan (Reedyseth)
