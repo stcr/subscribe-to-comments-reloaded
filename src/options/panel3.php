@@ -45,7 +45,7 @@ if ( isset( $_POST['options'] ) ) {
     echo "</p></div>";
 }
 wp_print_scripts( 'quicktags' );
-//$is_html_enabled = ( get_option( 'subscribe_reloaded_enable_html_emails', 'no' ) == 'yes' );
+
 ?>
     <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
 

@@ -369,7 +369,18 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             wp_enqueue_script( $handle );
         }
 
-        function exceptions_error_handler($severity, $message,$filename, $lineno)
+        /**
+         *
+         *
+         * @since
+         * @author Israel Barragan (Reedyseth)
+         *
+         * @param $severity
+         * @param $message
+         * @param $filename
+         * @param $lineno
+         */
+        function exceptions_error_handler($severity, $message, $filename, $lineno)
         {
             $date = date_i18n( 'Y-m-d H:i:s' );
             // We don't want to break things out, so instead we add the error information to
@@ -615,6 +626,62 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			}
 			update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
 		}
+
+
+        /**
+         * Is method to avoid using all the StCR option variable name. It also verify the type of value to be store.
+         *
+         * @since 07-Apr-2018
+         * @author Israel Barragan (Reedyseth)
+         *
+         * @param string $_option Option Name.
+         * @param string $_value
+         * @param string $_type type to use for the correct sanitation yesno|integer|text|text-html|email|url
+         * @return bool false in case that the value is not defined.
+         */
+        public function stcr_update_menu_options($_option = '', $_value = '', $_type = '' )
+        {
+            if ( ! isset( $_value ) ) {
+                return false;
+            }
+
+            // Prevent XSS/CSRF attacks
+            $_value = trim( stripslashes( $_value ) );
+
+            switch ( $_type ) {
+                case 'yesno':
+                    if ( $_value == 'yes' || $_value == 'no' ) {
+                        update_option( 'subscribe_reloaded_' . $_option, esc_attr( $_value ) );
+                    }
+                    break;
+                case 'integer':
+                    update_option( 'subscribe_reloaded_' . $_option, abs( intval( esc_attr( $_value ) ) ) );
+
+                    break;
+                case 'text':
+                    update_option( 'subscribe_reloaded_' . $_option, sanitize_text_field( $_value ) );
+
+                    break;
+                case 'text-html':
+                    update_option( 'subscribe_reloaded_' . $_option, esc_html( $_value ) );
+
+                    break;
+                case 'email':
+                    update_option( 'subscribe_reloaded_' . $_option, sanitize_email( esc_attr( $_value ) ) );
+
+                    break;
+                case 'url':
+                    update_option( 'subscribe_reloaded_' . $_option, esc_url( $_value ) );
+
+                    break;
+                default:
+                    update_option( 'subscribe_reloaded_' . $_option, esc_attr( $_value ) );
+
+                    break;
+            }
+
+            return true;
+        }
 		/**
 		 * Delete a given notice with the given arguments.
 		 *

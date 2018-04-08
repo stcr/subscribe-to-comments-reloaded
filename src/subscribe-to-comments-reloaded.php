@@ -61,5 +61,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded'))
 	register_activation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'activate' ) );
 	register_deactivation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'deactivate' ) );
 
-	$wp_subscribe_reloaded = new stcr_subscribe_reloaded(); // Initialize the cool stuff
+	if (  ! isset( $GLOBALS['wp_subscribe_reloaded'] ) )
+    {
+        $GLOBALS['wp_subscribe_reloaded'] = new stcr_subscribe_reloaded(); // Initialize the cool stuff
+    }
 }

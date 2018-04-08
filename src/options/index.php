@@ -4,10 +4,13 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	header( 'Location: /' );
 	exit;
 }
+global $wp_subscribe_reloaded;
+
 
 function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type = '' ) {
+
 	if ( ! isset( $_value ) ) {
-		return true;
+		return false;
 	}
 
 	// Prevent XSS/CSRF attacks
@@ -17,39 +20,35 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 		case 'yesno':
 			if ( $_value == 'yes' || $_value == 'no' ) {
 				update_option( 'subscribe_reloaded_' . $_option, esc_attr( $_value ) );
-
-				return true;
 			}
 			break;
 		case 'integer':
 			update_option( 'subscribe_reloaded_' . $_option, abs( intval( esc_attr( $_value ) ) ) );
 
-			return true;
 			break;
         case 'text':
             update_option( 'subscribe_reloaded_' . $_option, sanitize_text_field( $_value ) );
 
-            return true;
+            break;
         case 'text-html':
             update_option( 'subscribe_reloaded_' . $_option, esc_html( $_value ) );
 
-            return true;
+            break;
         case 'email':
             update_option( 'subscribe_reloaded_' . $_option, sanitize_email( esc_attr( $_value ) ) );
 
-            return true;
+            break;
         case 'url':
             update_option( 'subscribe_reloaded_' . $_option, esc_url( $_value ) );
 
-            return true;
+            break;
 		default:
 			update_option( 'subscribe_reloaded_' . $_option, esc_attr( $_value ) );
 
-			return true;
-			break;
+            break;
 	}
 
-	return false;
+	return true;
 }
 
 function subscribe_reloaded_get_option( $_option = '', $_default = '' ) {
