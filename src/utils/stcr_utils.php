@@ -16,9 +16,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 {
 	class stcr_utils {
 
+	    protected $menu_opts_cache = [];
+
 	    public function __construct()
         {
             set_error_handler( array( $this, 'exceptions_error_handler' ) );
+        }
+
+        public function __destruct()
+        {
+            // house keeping
+            unset($this->menu_opts_cache);
         }
 
         /**
@@ -590,11 +598,22 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          */
         public function stcr_get_menu_options($_option = '', $_default = '' )
         {
-            // TODO: Create array to cache the values to avoid requesting the option to WP more than once.
-            $value = get_option( 'subscribe_reloaded_' . $_option, $_default );
-            $value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
+            $value = null;
 
-            return stripslashes( $value );
+            if ( isset( $this->menu_opts_cache[$_option] ) )
+            {
+                return $this->menu_opts_cache[$_option];
+            }
+            else
+            {
+                $value = get_option( 'subscribe_reloaded_' . $_option, $_default );
+                $value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
+                $value = stripslashes( $value );
+                // Set the cache value
+                $this->menu_opts_cache[$_option] = $value;
+            }
+
+            return $value;
         }
 		/**
 		 * Update a given notice with the given arguments.
