@@ -90,6 +90,13 @@ Styles use on the interaction with the user.
 .stcr-dismiss-notice h2 {
   font-size: 1rem !important; }
 
+li {
+  margin-bottom: 0; }
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  top: 30px;
+  font-size: 0.9rem; }
+
 /* ----------------------------------------------------------
 Styles use on form styles. Helpful to customize Bootstrap behavior.
 @author Israel Barragan (Reedyseth)

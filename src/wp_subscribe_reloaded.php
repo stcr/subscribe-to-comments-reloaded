@@ -151,10 +151,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 "stcr_management_page"      => __( 'Management Page', 'subscribe-reloaded' ),
                 "stcr_notifications"        => __( 'Notifications', 'subscribe-reloaded' ),
                 "stcr_options"              => __( 'Options', 'subscribe-reloaded' ),
-                // "stcr_subscribers_emails"   => __( 'Subscribers Emails', 'subscribe-reloaded' ),
-                // "stcr_you_can_help"         => __( 'You can help', 'subscribe-reloaded' ),
                 "stcr_support"              => __( 'Support', 'subscribe-reloaded' ),
-//                "stcr_donate"               => __( 'Donate', 'subscribe-reloaded' )
+                "stcr_system"               => __( 'Options', 'subscribe-reloaded' )
             );
 
 
@@ -166,21 +164,43 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
             ?>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo $wp_locale->text_direction ?>">
+                <a class="navbar-brand "><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
                 <div class="collapse navbar-collapse">
-                    <div class="navbar-nav">
-                        <a class="navbar-brand "><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
-                        <?php
-                        foreach ( $array_pages as $page => $page_desc ) {
-                            echo '<a class="navbar-brand ';
-                            echo ( $current_page == $page ) ? ' stcr-active-tab' : '';
-                            echo ( $current_page == $page &&  $page == "stcr_donate" ) ? ' donate-tab-active' : '';
-                            if (  $page == "stcr_donate" ){
-                                echo ' donate-tab ';
+                    <ul class="navbar-nav">
+                            <?php
+                            foreach ( $array_pages as $page => $page_desc ) {
+
+                                echo "<li class='". ( $page == "stcr_options" ? "dropdown" : "" ) ."'>";
+
+                                    if (  $page == "stcr_options" )
+                                    {
+                                        echo '<a class="nav-link dropdown-toggle'. ( $current_page == $page || $current_page == 'stcr_system' ? ' stcr-active-tab' : '' ) .'" style="padding: 5px 12px 0 0;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  '. $page_desc .'
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                  <a class="dropdown-item" href="admin.php?page=' . $page . '">'. __("StCR Options", "subscribe-reloaded") .'</a>
+                                                  <div class="dropdown-divider"></div>
+                                                  <a class="dropdown-item" href="admin.php?page=stcr_system">'. __("StCR System", "subscribe-reloaded") .'</a>
+                                                </div>';
+                                    }
+                                    elseif (  $page == "stcr_system" )
+                                    {
+                                        // do nothing
+                                    }
+                                    else
+                                    {
+                                        echo '<a class="navbar-brand ';
+                                        echo ( $current_page == $page ) ? ' stcr-active-tab' : '';
+                                        echo '" href="admin.php?page=' . $page . '">';
+                                        echo $page_desc;
+                                        echo '</a>';
+                                    }
+
+
+                                echo "<li>";
                             }
-                            echo '" href="admin.php?page=' . $page . '">' . $page_desc . '</a>';
-                        }
-                        ?>
-                    </div>
+                            ?>
+                    </ul>
                 </div>
 
             </nav>

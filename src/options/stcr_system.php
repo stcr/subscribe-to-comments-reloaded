@@ -62,13 +62,13 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
 	// 		 echo "</pre>";
 	// Update options
 	if ( isset( $_POST['options'] ) ) {
-		if ( isset( $_POST['options']['enable_log_data'] ) && ! subscribe_reloaded_update_option( 'enable_log_data', $_POST['options']['enable_log_data'], 'yesno' ) ) {
+		if ( isset( $_POST['options']['enable_log_data'] ) && ! $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data', $_POST['options']['enable_log_data'], 'yesno' ) ) {
 			$faulty_fields = __( 'Enable Log Information', 'subscribe-reloaded' ) . ', ';
 		}
 
 		if ( isset( $_POST['options']['auto_clean_log_data'] )
-				&& ! (subscribe_reloaded_update_option( 'auto_clean_log_data', $_POST['options']['auto_clean_log_data'], 'yesno' )
-					&& subscribe_reloaded_update_option( 'auto_clean_log_frecuency', $_POST['options']['auto_clean_log_frecuency']) ) ) {
+				&& ! ($wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data', $_POST['options']['auto_clean_log_data'], 'yesno' )
+					&& $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency', $_POST['options']['auto_clean_log_frecuency']) ) ) {
 			$faulty_fields = __( 'Enable Auto clean log data', 'subscribe-reloaded' ) . ', ';
 		}
 		else if ( isset( $_POST['options']['auto_clean_log_data'] ) &&  $_POST['options']['auto_clean_log_data'] === "yes" )
@@ -109,8 +109,8 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
 			<th scope="row">
 				<label for="enable_log_data"><?php _e( 'Enable Log Information', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<input type="radio" name="options[enable_log_data]" id="enable_log_data" value="yes"<?php echo ( subscribe_reloaded_get_option( 'enable_log_data' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
-				<input type="radio" name="options[enable_log_data]" value="no" <?php echo ( subscribe_reloaded_get_option( 'enable_log_data' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
+				<input type="radio" name="options[enable_log_data]" id="enable_log_data" value="yes"<?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+				<input type="radio" name="options[enable_log_data]" value="no" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
 				<div class="description"><?php _e( 'If enabled, will log information of the plugin. Helpful for debugging purposes.', 'subscribe-reloaded' ); ?></div>
 			</td>
 		</tr>
@@ -118,13 +118,13 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
 			<th scope="row">
 				<label for="auto_clean_log_data"><?php _e( 'Enable Auto clean log data', 'subscribe-reloaded' ) ?></label></th>
 			<td>
-				<input class="auto_clean_log_data" type="radio" name="options[auto_clean_log_data]" id="auto_clean_log_data" value="yes"<?php echo ( subscribe_reloaded_get_option( 'auto_clean_log_data' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
-				<input class="auto_clean_log_data" type="radio" name="options[auto_clean_log_data]" value="no" <?php echo ( subscribe_reloaded_get_option( 'auto_clean_log_data' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
+				<input class="auto_clean_log_data" type="radio" name="options[auto_clean_log_data]" id="auto_clean_log_data" value="yes"<?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data' ) == 'yes' ) ? ' checked="checked"' : ''; ?>> <?php _e( 'Yes', 'subscribe-reloaded' ) ?> &nbsp; &nbsp; &nbsp;
+				<input class="auto_clean_log_data" type="radio" name="options[auto_clean_log_data]" value="no" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data' ) == 'no' ) ? '  checked="checked"' : ''; ?>> <?php _e( 'No', 'subscribe-reloaded' ) ?>
 
 				<select class="auto_clean_log_frecuency" name="options[auto_clean_log_frecuency]">
-					<option value="hourly" <?php echo ( subscribe_reloaded_get_option( 'auto_clean_log_frecuency' ) === 'hourly' ) ? "selected='selected'" : ''; ?>><?php _e( 'Hourly', 'subscribe-reloaded' ); ?></option>
-					<option value="twicedaily" <?php echo ( subscribe_reloaded_get_option( 'auto_clean_log_frecuency' ) === 'twicedaily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Twice Daily', 'subscribe-reloaded' ); ?></option>
-					<option value="daily" <?php echo ( subscribe_reloaded_get_option( 'auto_clean_log_frecuency' ) === 'daily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Daily', 'subscribe-reloaded' ); ?></option>
+					<option value="hourly" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'hourly' ) ? "selected='selected'" : ''; ?>><?php _e( 'Hourly', 'subscribe-reloaded' ); ?></option>
+					<option value="twicedaily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'twicedaily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Twice Daily', 'subscribe-reloaded' ); ?></option>
+					<option value="daily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'daily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Daily', 'subscribe-reloaded' ); ?></option>
 				</select>
 				<div class="description"><?php _e( 'If enabled, StCR will auto clean your information every day.', 'subscribe-reloaded' ); ?></div>
 			</td>

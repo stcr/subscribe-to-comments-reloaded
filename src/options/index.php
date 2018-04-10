@@ -23,3 +23,5 @@ global $wp_locale;
     .navbar a { font-size: 1em !important; font-weight: 600; color: #464646 !important;}
 </style>
 
+<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
