@@ -1,6 +1,6 @@
 <?php
 /**
- * panel10.php
+ * stcr_system.php
  *
  * Panel: StCR System
  *

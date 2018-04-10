@@ -435,9 +435,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_manage_subscriptions.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_manage_subscriptions.php";
 				}
 			}
 		}
@@ -462,9 +462,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel2.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_comment_form.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel2.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_comment_form.php";
 				}
 			}
 		}
@@ -489,9 +489,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel3.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_management_page.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel3.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_management_page.php";
 				}
 			}
 		}
@@ -516,9 +516,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel4.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_notifications.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel4.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_notifications.php";
 				}
 			}
 		}
@@ -543,36 +543,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel5.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_options.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel5.php";
-				}
-			}
-		}
-		/**
-		 * Dispaly the stcr_option_subscribers_emails template
-		 * @since 160316
-		 * @author reedyseth
-		 */
-		public function stcr_option_subscribers_emails()
-		{
-			//must check that the user has the required capability
-		    if (!current_user_can('manage_options'))
-		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
-		    }
-
-		    $this->add_options_stylesheet();
-
-			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
-			{
-				// What panel to display
-				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel6.php" ) )
-				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel6.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_options.php";
 				}
 			}
 		}
@@ -597,39 +570,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel8.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_support.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel8.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_support.php";
 				}
 			}
 		}
-		/**
-		 * Dispaly the stcr_option_donate template
-		 * @since 160316
-		 * @author reedyseth
-		 */
-		public function stcr_option_donate()
-		{
-			//must check that the user has the required capability
-		    if (!current_user_can('manage_options'))
-		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
-		    }
 
-		    $this->add_options_stylesheet();
-
-			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
-			{
-				// What panel to display
-				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel9.php" ) )
-				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel9.php";
-				}
-			}
-		}
 
 		/**
 		 * Dispaly the stcr_option_donate template
@@ -652,9 +599,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// What panel to display
 				$current_panel = 2;
 				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel10.php" ) )
+				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_system.php" ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel10.php";
+					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_system.php";
 				}
 			}
 		}
