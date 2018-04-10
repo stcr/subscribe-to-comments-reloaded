@@ -312,7 +312,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_management_email_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n<a href='[manager_link]'>[manager_link]</a>", 'subscribe-reloaded' ) );
 
             add_option( 'subscribe_reloaded_purge_days', '30', '', 'yes' );
-            add_option( 'subscribe_reloaded_enable_double_check', 'no', '', 'yes' );
+            add_option( 'subscribe_reloaded_enable_double_check', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_notify_authors', 'no', '', 'yes' );
             add_option( 'subscribe_reloaded_enable_html_emails', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_htmlify_message_links', 'no', '', 'yes' );
