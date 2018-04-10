@@ -207,9 +207,7 @@ Styles use on form styles. Helpful to customize Bootstrap behavior.
   padding-right: 2px; }
 
 .switch-input {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important; }
+  display: none !important; }
 
 .switch-input:checked + .switch-label {
   font-weight: bold;
