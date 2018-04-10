@@ -128,13 +128,38 @@ Styles use on form styles. Helpful to customize Bootstrap behavior.
   display: inline !important;
   font-size: 0.9rem !important; }
 
+.form-control-input-3 {
+  width: 30% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-4 {
+  width: 40% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
 .form-control-input-5 {
   width: 50% !important;
   display: inline !important;
   font-size: 0.9rem !important; }
 
+.form-control-input-6 {
+  width: 60% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-7 {
+  width: 70% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
 .form-control-input-8 {
   width: 80% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-9 {
+  width: 90% !important;
   display: inline !important;
   font-size: 0.9rem !important; }
 
