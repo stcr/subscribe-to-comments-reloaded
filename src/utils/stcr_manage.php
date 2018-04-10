@@ -388,12 +388,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// 				 $capability,
 				// 				 "stcr_subscribers_emails",
 				// 				 array( $this, "stcr_option_subscribers_emails" ) );
-//				add_submenu_page( $parent_slug ,
-//								__( 'You can help', 'subscribe-reloaded' ),
-//								__( 'You can help', 'subscribe-reloaded' ),
-//								 $capability,
-//								 "stcr_you_can_help",
-//								 array( $this, "stcr_option_you_can_help" ) );
+
 				add_submenu_page( $parent_slug ,
 								__( 'Support', 'subscribe-reloaded' ),
 								__( 'Support', 'subscribe-reloaded' ),
@@ -578,33 +573,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel6.php" ) )
 				{
 					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel6.php";
-				}
-			}
-		}
-		/**
-		 * Dispaly the stcr_option_you_can_help template
-		 * @since 160316
-		 * @author reedyseth
-		 */
-		public function stcr_option_you_can_help()
-		{
-			//must check that the user has the required capability
-		    if (!current_user_can('manage_options'))
-		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
-		    }
-
-		    $this->add_options_stylesheet();
-
-			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
-			{
-				// What panel to display
-				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel7.php" ) )
-				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel7.php";
 				}
 			}
 		}

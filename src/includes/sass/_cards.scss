@@ -24,3 +24,7 @@ Styles use on Cards styles. Helpful to customize Bootstrap Cards behavior.
 .original-card-padding {
   padding: 1.25rem !important;
 }
+
+.card-no-max-width {
+  max-width: 100% !important;
+}
