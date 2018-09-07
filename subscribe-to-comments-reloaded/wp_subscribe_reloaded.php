@@ -1156,7 +1156,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				( $subscribe_to_comments_action == 's' ) && ( $subscribe_to_comments_post_ID > 0 )
 			) {
 				$subscribe_to_comments_clean_email = $this->utils->clean_email( $_POST['subscribe_reloaded_email'] );
-				setcookie( 'comment_author_email' . COOKIEHASH, $subscribe_to_comments_clean_email, time() + 1209600, '/' );
+				setcookie( 'comment_author_email_' . COOKIEHASH, $subscribe_to_comments_clean_email, time() + 1209600, '/' );
 			}
 		}
 	} // end of class declaration
