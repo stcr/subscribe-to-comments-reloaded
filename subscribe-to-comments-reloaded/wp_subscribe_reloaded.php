@@ -233,8 +233,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				}
 			}
 
-			// If the case, notify the author
-			if ( get_option( 'subscribe_reloaded_notify_authors', 'no' ) == 'yes' ) {
+			// If the case, notify the admin
+			if ( get_option( 'subscribe_reloaded_admin_bcc', 'no' ) == 'yes' ) {
 				$this->notify_user( $info->comment_post_ID, get_bloginfo( 'admin_email' ), $_comment_ID );
 			}
 
