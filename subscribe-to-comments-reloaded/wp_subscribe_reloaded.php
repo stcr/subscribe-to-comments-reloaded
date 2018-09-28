@@ -381,7 +381,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		 * Displays the appropriate management page
 		 */
 		public function subscribe_reloaded_manage( $_posts = '', $_query = '' ) {
-			global $current_user;
+			global $current_user, $wp_subscribe_reloaded;
 			$stcr_unique_key = get_option( "subscribe_reloaded_unique_key" );
 			$date = date_i18n( 'Y-m-d H:i:s' );
 			$error_exits = false;
@@ -424,7 +424,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 }
                 else if ( ! empty($sre) )
                 {
-                    $email = $sre;
+                    $email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $sre );
                 }
                 else
                 {

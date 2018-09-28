@@ -52,10 +52,10 @@ if ( ! empty( $email ) ) {
         $subscriber_salt = $wp_subscribe_reloaded->stcr->utils->generate_temp_key( $clean_email );
 
         $manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
-        $manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e&post_permalink=" . $post_permalink;
+        $manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e&post_permalink=" . urlencode( $post_permalink );
         $one_click_unsubscribe_link .= ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?';
         $one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
-            . "srek=" . $this->utils->get_subscriber_key( $clean_email )
+            . "srek=" . urlencode( $this->utils->get_subscriber_key( $clean_email ) )
             . "&srk=$subscriber_salt" . "&sra=u;srsrc=e" . "&srp=";
 
         // Replace tags with their actual values
@@ -96,7 +96,7 @@ else
     }
     else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ))
     {
-        $email = $_COOKIE['comment_author_email_' . COOKIEHASH];
+        $email = sanitize_email( $_COOKIE['comment_author_email_' . COOKIEHASH] );
     }
     else
     {
@@ -111,7 +111,7 @@ else
 	<form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email; ?>" size="22"  />
+				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22"  />
 				<input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
 			</p>
             <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
@@ -137,7 +137,7 @@ if( ! $valid_email )
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
             <p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-                <input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email; ?>" size="22"  />
+                <input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22"  />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
             </p>
             <p class="notice-email-error" style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?></p>
@@ -173,7 +173,7 @@ if( ! $valid_email )
                 });
 
                 email_input.focus(function(){
-                    if( $(this).val() == "<?php echo $email; ?>" )
+                    if( $(this).val() == <?php echo wp_json_encode( $email ); ?> )
                     {
                         $(this).val("");
                     }
@@ -182,7 +182,7 @@ if( ! $valid_email )
                 email_input.blur(function(){
                     if( $(this).val() == "" )
                     {
-                        $(this).val("<?php echo $email; ?>");
+                        $(this).val(<?php echo wp_json_encode( $email ); ?>);
                     }
                 });
             });

@@ -36,8 +36,8 @@ if ( ! empty( $email ) ) {
             $akismet_query_string .= "&blog=" . urlencode( get_option( 'home' ) );
             $akismet_query_string .= "&blog_lang=" . get_locale();
             $akismet_query_string .= "&blog_charset=" . get_option( 'blog_charset' );
-            $akismet_query_string .= "&permalink=$post_permalink";
-            $akismet_query_string .= "&comment_author_email=" . urlencode( stripslashes( $email ) );
+            $akismet_query_string .= "&permalink=".urlencode( $post_permalink );
+            $akismet_query_string .= "&comment_author_email=" . urlencode( sanitize_email( $email ) );
 
             $akismet_response = akismet_http_post( $akismet_query_string, $akismet_api_host, '/1.1/comment-check', $akismet_api_port );
 
@@ -96,7 +96,7 @@ else {
     }
     else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ))
     {
-        $email = $_COOKIE['comment_author_email_' . COOKIEHASH];
+        $email = sanitize_email( $_COOKIE['comment_author_email_' . COOKIEHASH] );
     }
     else
     {
@@ -119,7 +119,7 @@ else {
 		method="post" name="sub-form">
 		<fieldset style="border:0">
 			<p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-				<input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" />
+				<input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
 				<input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
 			</p>
@@ -135,7 +135,7 @@ if( ! $valid_email )
             $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
             $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
         } else {
-            $message = str_replace( '[post_title]', $target_post->post_title, $message );
+            $message = str_replace( '[post_title]', esc_html( $target_post->post_title ), $message );
         }
         echo $message;
 
@@ -144,7 +144,7 @@ if( ! $valid_email )
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
             <p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
             </p>
             <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?></p>
@@ -180,7 +180,7 @@ if( ! $valid_email )
             });
 
             email_input.focus(function(){
-                if( $(this).val() == "<?php echo $email; ?>" )
+                if( $(this).val() == <?php echo wp_json_encode( $email ); ?> )
                 {
                     $(this).val("");
                 }
@@ -189,7 +189,7 @@ if( ! $valid_email )
             email_input.blur(function(){
                 if( $(this).val() == "" )
                 {
-                    $(this).val("<?php echo $email; ?>");
+                    $(this).val(<?php echo wp_json_encode( $email ); ?>);
                 }
             });
         });

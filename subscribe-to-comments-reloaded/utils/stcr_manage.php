@@ -125,8 +125,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			$post           = get_post( $_post_ID );
             $post_permalink = get_permalink( $_post_ID );
 
-            $manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt";
-            $confirm_link = "$manager_link&srp=$_post_ID&sra=c&srsrc=e&confirmation_email=y&post_permalink=" . $post_permalink;
+            $manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . urlencode( $this->utils->get_subscriber_key( $clean_email ) ) . "&srk=" . urlencode( $subscriber_salt );
+            $confirm_link = "$manager_link&srp=$_post_ID&sra=c&srsrc=e&confirmation_email=y&post_permalink=" . urlencode( $post_permalink );
 
 
             // Replace tags with their actual values
@@ -142,7 +142,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				$message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $post->post_title ), $message );
 				$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 			} else {
-				$message = str_replace( '[post_title]', $post->post_title, $message );
+				if ( get_option(  'subscribe_reloaded_enable_html_emails' ) == 'yes' ) {
+					$message = str_replace( '[post_title]', esc_html( $post->post_title ), $message );
+				} else {
+					$message = str_replace( '[post_title]', $post->post_title, $message );
+				}
 			}
 			$message = apply_filters( 'stcr_confirmation_email_message', $message, $_post_ID, $clean_email );
 
@@ -713,8 +717,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds custom HTML code to the HEAD section of the management page
 		 */
 		public function add_custom_header_meta() {
-			$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
-			echo $a;
+			echo html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
 		}
 		// end add_custom_header_meta
 
