@@ -112,6 +112,16 @@ else {
 
 ?>
     <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
+    <style type="text/css">
+        .system-error {
+            color: #dc3545;
+        }
+
+        .system-success{
+            color: #7cc575;
+        }
+    </style>
+
 
     <div class="container-fluid">
         <div class="mt-3"></div>
@@ -204,7 +214,362 @@ else {
 
                     <h3><?php _e( 'System Information', 'subscribe-reloaded' ) ?></h3>
 
-                    <textarea style="width:90%; min-height:300px;"><?php echo serialize( $stcr_options_array ); ?></textarea>
+                    <table class="table table-sm table-hover table-striped subscribers-table" style="font-size: 0.8em">
+                        <thead style="background-color: #4688d2; color: #ffffff;">
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-reloaded' ) ?></th>
+                        </thead>
+                        <?php
+
+                        $memory = $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( WP_MEMORY_LIMIT );
+                        $memoryValue = '';
+                        $wpDebug     = 'No';
+                        $wpCron      = 'No';
+
+                        if ( function_exists( 'memory_get_usage' ) ) {
+                            $system_memory = $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( @ini_get( 'memory_limit' ) );
+                            $memory        = max( $memory, $system_memory );
+                        }
+
+                        if ( $memory < 67108864 ) {
+                            $memoryValue = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend setting memory to at least 64 MB. See: %s', 'subscribe-reloaded' ), size_format( $memory ), '<a href="https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . __( 'Increasing memory allocated to PHP', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                        }
+                        else {
+                            $memoryValue = '<div class="system-success">' . size_format( $memory ) . '</div>';
+                        }
+                        // Check if Debug is Enable
+                        if ( defined( 'WP_DEBUG' ) && WP_DEBUG )
+                        {
+                            $wpDebug = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                        }
+                        else
+                        {
+                            $wpDebug = '<div>'. $wpDebug .'</div>';
+                        }
+                        // Check if WP Cron is Enable
+                        if ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON )
+                        {
+                            $wpCron = '<div>'. $wpCron .'</div>';
+                        }
+                        else
+                        {
+                            $wpCron = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                        }
+
+                        $wordpressEnvironment = array(
+                            1 => array(
+                                __( "Home URL", "subscribe-reloaded" ),
+                                get_option( 'home' )
+                            ),
+                            2 => array(
+                                __( "Site URL", "subscribe-reloaded" ),
+                                get_option( 'siteurl' )
+                            ),
+                            3 => array(
+                                __( "WordPress Version", "subscribe-reloaded" ),
+                                get_bloginfo( 'version' )
+                            ),
+                            4 => array(
+                                "Multisite",
+                                is_multisite() ? '<span class="dashicons dashicons-yes"></span>' :  'No'
+                            ),
+                            5 => array(
+                                __( "Memory Limit", "subscribe-reloaded" ),
+                                $memoryValue
+                            ),
+                            6 => array(
+                                __( "WP Debug Mode", "subscribe-reloaded" ),
+                                $wpDebug
+                            ),
+                            7 => array(
+                                __( "WP Cron", "subscribe-reloaded" ),
+                                $wpDebug
+                            ),
+                            8 => array(
+                                __( "Language", "subscribe-reloaded" ),
+                                get_locale()
+                            ),
+                            9 => array(
+                                __( "Permalink Structure", "subscribe-reloaded" ),
+                                esc_html( get_option( 'permalink_structure' ) )
+                            ),
+                            10 => array(
+                                __( "Table Prefix", "subscribe-reloaded" ),
+                                esc_html( $wpdb->prefix )
+                            ),
+                            11 => array(
+                                __( "Table Prefix Length", "subscribe-reloaded" ),
+                                esc_html( strlen( $wpdb->prefix ) )
+                            ),
+                            12 => array(
+                                __( "Table Prefix Status", "subscribe-reloaded" ),
+                                strlen( $wpdb->prefix ) > 16 ? esc_html( 'Error: Too long', 'subscribe-reloaded' ) : esc_html( 'Acceptable', 'subscribe-reloaded' )
+                            ),
+                            13 => array(
+                                __( "Registered Post Statuses", "subscribe-reloaded" ),
+                                esc_html( implode( ', ', get_post_stati() ) )
+                            )
+                        );
+                        ?>
+                        <tbody>
+                        <?php
+                        foreach ( $wordpressEnvironment as $key => $opt )
+                        {
+                            echo "<tr>";
+                            echo "<td class='text-left' style='min-width: 50px;'>{$opt[0]}</td>";
+                            echo "<td class='text-left'>{$opt[1]}</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+
+                    <!-- Server Environment -->
+
+                    <table class="table table-sm table-hover table-striped subscribers-table" style="font-size: 0.8em">
+                        <thead>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Server Environment', 'subscribe-reloaded' ) ?></th>
+                        </thead>
+                        <?php
+
+                        $tlsCheck      = false;
+                        $tlsCheckValue = __( 'Cannot Evaluate', 'subscribe-reloaded' );
+                        $tlsRating     = __( 'Not Available', 'subscribe-reloaded' );
+                        $phpVersion    = __( 'Not Available', 'subscribe-reloaded' );
+                        $cURLVersion   = __( 'Not Available', 'subscribe-reloaded' );
+                        $MySQLSVersion = __( 'Not Available', 'subscribe-reloaded' );
+                        $defaultTimezone = __( 'Not Available', 'subscribe-reloaded' );
+
+                        // Get the SSL status.
+                        if ( ini_get( 'allow_url_fopen' ) ) {
+                            $tlsCheck = file_get_contents( 'https://www.howsmyssl.com/a/check' );
+                        }
+
+                        if ( false !== $tlsCheck )
+                        {
+                            $tlsCheck = json_decode( $tlsCheck );
+                            /* translators: %s: SSL connection response */
+                            $tlsCheckValue = sprintf( __( 'Connection uses %s', 'subscribe-reloaded' ), esc_html( $tlsCheck->tls_version ) );
+                        }
+                        // Check TSL Rating
+                        if ( false !== $tlsCheck )
+                        {
+                            $tlsRating = property_exists( $tlsCheck, 'rating' ) ? $tlsCheck->rating : $tlsCheck->tls_version;
+                        }
+                        // Check the PHP Version
+                        if ( function_exists( 'phpversion' ) )
+                        {
+                            $phpVersion = phpversion();
+
+                            if ( version_compare( $phpVersion, '5.6', '<' ) )
+                            {
+                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $phpVersion ), '<a href="http://docs.givewp.com/settings-system-info" target="_blank">' . __( 'PHP Requirements in Give', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                            }
+                            else
+                            {
+                                $phpVersion = '<div class="system-success">' . esc_html( $phpVersion ) . '</div>';
+                            }
+                        }
+                        else
+                        {
+                            $phpVersion = __( "Couldn't determine PHP version because the function phpversion() doesn't exist.", 'subscribe-reloaded' );
+                        }
+                        // Check the cURL Version
+                        if ( function_exists( 'curl_version' ) )
+                        {
+                            $cURLVersion = curl_version();
+
+                            if ( version_compare( $cURLVersion['version'], '7.40', '<' ) )
+                            {
+                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-reloaded' ), esc_html( $cURLVersion['version'] . ', ' . $cURLVersion['ssl_version'] ) ) . '</div>';
+                            }
+                            else
+                            {
+                                $cURLVersion = '<div class="system-success">' . esc_html( $cURLVersion ) . '</div>';
+                            }
+                        }
+                        else
+                        {
+                            $cURLVersion = '&ndash;';
+                        }
+                        // Check MySQL Version
+                        if ( $wpdb->use_mysqli )
+                        {
+                            $ver = mysqli_get_server_info( $wpdb->dbh );
+                        }
+                        else
+                        {
+                            if( function_exists( 'mysql_get_server_info' ) )
+                            {
+                                $ver = mysql_get_server_info();
+                            }
+                        }
+
+                        if ( ! empty( $wpdb->is_mysql ) && ! stristr( $ver, 'MariaDB' ) )
+                        {
+                            $MySQLSVersion = $wpdb->db_version();
+
+                            if ( version_compare( $MySQLSVersion, '5.6', '<' ) )
+                            {
+                                $MySQLSVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum MySQL version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $MySQLSVersion ), '<a href="https://wordpress.org/about/requirements/" target="_blank">' . __( 'WordPress Requirements', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                            }
+                            else
+                            {
+                                $MySQLSVersion = '<div class="system-success">' . esc_html( $MySQLSVersion ) . '</div>';
+                            }
+                        }
+                        // Get the Timezone
+                        $defaultTimezone = date_default_timezone_get();
+
+                        if ( 'UTC' !== $defaultTimezone )
+                        {
+                            $defaultTimezone = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'subscribe-reloaded' ), $defaultTimezone ) . '</div>';
+                        }
+                        else
+                        {
+                            $defaultTimezone = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                        }
+                        // DOMDocument
+                        $DOMDocument = __( 'Not Available', 'subscribe-reloaded' );
+                        if ( class_exists( 'DOMDocument' ) )
+                        {
+                            $DOMDocument = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                        }
+                        else {
+                            $DOMDocument = sprintf( __( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', 'subscribe-reloaded' ), '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
+                        }
+                        // Check gzip
+                        $gzip = __( 'Not Available', 'subscribe-reloaded' );
+                        if ( is_callable( 'gzopen' ) )
+                        {
+                            $gzip = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                        }
+                        else {
+                            $gzip = sprintf( __( 'Your server does not support the %s function - this is used for file compression and decompression.', 'subscribe-reloaded' ), '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
+                        }// Check GD
+                        $gd = __( 'Not Available', 'subscribe-reloaded' );
+                        if ( extension_loaded( 'gd' ) && function_exists( 'gd_info' ) )
+                        {
+                            $gd = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                        }
+                        else {
+                            $gd = '<div class="system-error"><span class="dashicons dashicons-no"></span></div>';;
+                        }
+
+                        // Define array of values
+                        $serverEnvironment = array(
+                            1 => array(
+                                __( "TLS Connection", "subscribe-reloaded" ),
+                                $tlsCheckValue
+                            ),
+                            2 => array(
+                                __( "TLS Rating", "subscribe-reloaded" ),
+                                $tlsRating
+                            ),
+                            3 => array(
+                                __( "Server Info", "subscribe-reloaded" ),
+                                esc_html( $_SERVER['SERVER_SOFTWARE'] )
+                            ),
+                            4 => array(
+                                __( "PHP Version", "subscribe-reloaded" ),
+                                $phpVersion
+                            ),
+                            5 => array(
+                                __( "PHP Post Max Size", "subscribe-reloaded" ),
+                                size_format( $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( ini_get( 'post_max_size' ) ) )
+                            ),
+                            6 => array(
+                                __( "PHP Max Execution Time", "subscribe-reloaded" ),
+                                ini_get( 'max_execution_time' )
+                            ),
+                            7 => array(
+                                __( "PHP Max Input Vars", "subscribe-reloaded" ),
+                                ini_get( 'max_input_vars' )
+                            ),
+                            8 => array(
+                                __( "PHP Max Upload Size", "subscribe-reloaded" ),
+                                size_format( wp_max_upload_size() )
+                            ),
+                            9 => array(
+                                __( "cURL Version", "subscribe-reloaded" ),
+                                $cURLVersion
+                            ),
+                            10 => array(
+                                __( "MySQL Version", "subscribe-reloaded" ),
+                                $MySQLSVersion
+                            ),
+                            11 => array(
+                                __( "Default Timezone is UTC", "subscribe-reloaded" ),
+                                $defaultTimezone
+                            ),
+                            12 => array(
+                                __( "DOMDocument", "subscribe-reloaded" ),
+                                $DOMDocument
+                            ),
+                            13 => array(
+                                __( "gzip", "subscribe-reloaded" ),
+                                $gzip
+                            ),
+                            14 => array(
+                                __( "GD Graphics Library", "subscribe-reloaded" ),
+                                $gd
+                            )
+                        );
+                        ?>
+                        <tbody>
+                        <?php
+                        foreach ( $serverEnvironment as $key => $opt )
+                        {
+                            echo "<tr>";
+                                echo "<td class='text-left' style='min-width: 50px;'>{$opt[0]}</td>";
+                                echo "<td class='text-left'>{$opt[1]}</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+
+                    <!-- Other Active Plugins -->
+
+                    <table class="table table-sm table-hover table-striped subscribers-table" style="font-size: 0.8em">
+                        <thead>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Other Active Plugins', 'subscribe-reloaded' ) ?></th>
+                        </thead>
+                        <?php
+
+                        $tlsCheck      = false;
+                        $tlsCheckValue = __( 'Cannot Evaluate', 'subscribe-reloaded' );
+                        $tlsRating     = __( 'Not Available', 'subscribe-reloaded' );
+                        $phpVersion    = __( 'Not Available', 'subscribe-reloaded' );
+                        $cURLVersion   = __( 'Not Available', 'subscribe-reloaded' );
+                        $MySQLSVersion = __( 'Not Available', 'subscribe-reloaded' );
+                        $defaultTimezone = __( 'Not Available', 'subscribe-reloaded' );
+
+                        // Define array of values
+                        $activePlugins = array(
+                            1 => array(
+                                __( "TLS Connection", "subscribe-reloaded" ),
+                                $tlsCheckValue
+                            )
+                        );
+
+                        // Get the SSL status.
+                        if ( ini_get( 'allow_url_fopen' ) ) {
+                            $tlsCheckValue = file_get_contents( 'https://www.howsmyssl.com/a/check' );
+                        }
+                        ?>
+                        <tbody>
+                        <?php
+                        foreach ( $activePlugins as $key => $opt )
+                        {
+                            echo "<tr>";
+                            echo "<td class='text-left' style='min-width: 50px;'>{$opt[0]}</td>";
+                            echo "<td class='text-left'>{$opt[1]}</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+<!--                    <textarea style="width:90%; min-height:300px;" readonly>--><?php //echo serialize( $stcr_options_array ); ?><!--</textarea>-->
 
                 </form>
             </div>
