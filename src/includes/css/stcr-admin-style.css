@@ -368,6 +368,9 @@ table.subscribers-table thead th span {
   -moz-box-shadow: none !important;
   box-shadow: none !important; }
 
+.system-info-table a {
+  color: #0073aa; }
+
 /* ----------------------------------------------------------
 Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
 @author Israel Barragan (Reedyseth)

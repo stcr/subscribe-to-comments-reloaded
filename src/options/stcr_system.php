@@ -17,8 +17,9 @@ $options = array(
 
 $stcr_options = $wpdb->get_results('SELECT * FROM '. $wpdb->prefix . 'options WHERE option_name LIKE "subscribe_reloaded%"');
 
-$stcr_options_str   = "";
-$stcr_options_array = array();
+$stcr_options_str        = "";
+$stcr_options_array      = array();
+$stcr_system_information = array();
 
 foreach ($stcr_options as $option) {
     $stcr_options_str .= "{$option->option_name}: {$option->option_value}\n";
@@ -214,7 +215,7 @@ else {
 
                     <h3><?php _e( 'System Information', 'subscribe-reloaded' ) ?></h3>
 
-                    <table class="table table-sm table-hover table-striped subscribers-table" style="font-size: 0.8em">
+                    <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
                         <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-reloaded' ) ?></th>
                         </thead>
@@ -224,6 +225,29 @@ else {
                         $memoryValue = '';
                         $wpDebug     = 'No';
                         $wpCron      = 'No';
+                        $wpHome      = get_option( 'home' );
+                        $wpsiteurl   = get_option( 'siteurl' );
+                        $wpVersion   = get_bloginfo( 'version' );
+                        $wpMultisite = is_multisite();
+                        $wpLanguage  = get_locale();
+                        $wpPermalink = esc_html( get_option( 'permalink_structure' ) );
+                        $wpTablePrefix = esc_html( $wpdb->prefix );
+                        $wpTablePrefixLength = strlen( $wpdb->prefix );
+                        $wpTablePrefixStatus = $wpTablePrefixLength > 16 ? esc_html( 'Error: Too long', 'subscribe-reloaded' ) : esc_html( 'Acceptable', 'subscribe-reloaded' );
+                        $wpRegisteredPostStatuses  = esc_html( implode( ', ', get_post_stati() ) );
+
+                        $stcr_system_information['Wordpress Environment']["Home URL"] = $wpHome;
+                        $stcr_system_information['Wordpress Environment']["Site URL"] = $wpsiteurl;
+                        $stcr_system_information['Wordpress Environment']["WordPress Version"] = $wpVersion;
+                        $stcr_system_information['Wordpress Environment']["Multisite"] = $wpMultisite;
+                        $stcr_system_information['Wordpress Environment']["Language"] = $wpLanguage;
+                        $stcr_system_information['Wordpress Environment']["Permalink Structure"] = $wpPermalink;
+                        $stcr_system_information['Wordpress Environment']["Table Prefix"] = $wpTablePrefix;
+                        $stcr_system_information['Wordpress Environment']["Table Prefix Length"] = $wpTablePrefixLength;
+                        $stcr_system_information['Wordpress Environment']["Table Prefix Status"] = $wpTablePrefixStatus;
+                        $stcr_system_information['Wordpress Environment']["Registered Post Statuses"] = $wpRegisteredPostStatuses;
+
+
 
                         if ( function_exists( 'memory_get_usage' ) ) {
                             $system_memory = $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( @ini_get( 'memory_limit' ) );
@@ -232,45 +256,51 @@ else {
 
                         if ( $memory < 67108864 ) {
                             $memoryValue = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend setting memory to at least 64 MB. See: %s', 'subscribe-reloaded' ), size_format( $memory ), '<a href="https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . __( 'Increasing memory allocated to PHP', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                            $stcr_system_information['Wordpress Environment']["Memory Limit"] = "Memory under 64MB";
                         }
                         else {
                             $memoryValue = '<div class="system-success">' . size_format( $memory ) . '</div>';
+                            $stcr_system_information['Wordpress Environment']["Memory Limit"] = size_format( $memory );
                         }
                         // Check if Debug is Enable
                         if ( defined( 'WP_DEBUG' ) && WP_DEBUG )
                         {
                             $wpDebug = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                            $stcr_system_information['Wordpress Environment']["WP Debug Mode"] = true;
                         }
                         else
                         {
                             $wpDebug = '<div>'. $wpDebug .'</div>';
+                            $stcr_system_information['Wordpress Environment']["WP Debug Mode"] = false;
                         }
                         // Check if WP Cron is Enable
                         if ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON )
                         {
                             $wpCron = '<div>'. $wpCron .'</div>';
+                            $stcr_system_information['Wordpress Environment']["WP Cron"] = true;
                         }
                         else
                         {
                             $wpCron = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                            $stcr_system_information['Wordpress Environment']["WP Cron"] = false;
                         }
 
                         $wordpressEnvironment = array(
                             1 => array(
                                 __( "Home URL", "subscribe-reloaded" ),
-                                get_option( 'home' )
+                                $wpHome
                             ),
                             2 => array(
                                 __( "Site URL", "subscribe-reloaded" ),
-                                get_option( 'siteurl' )
+                                $wpsiteurl
                             ),
                             3 => array(
                                 __( "WordPress Version", "subscribe-reloaded" ),
-                                get_bloginfo( 'version' )
+                                $wpVersion
                             ),
                             4 => array(
                                 "Multisite",
-                                is_multisite() ? '<span class="dashicons dashicons-yes"></span>' :  'No'
+                                $wpMultisite ? '<span class="dashicons dashicons-yes"></span>' :  'No'
                             ),
                             5 => array(
                                 __( "Memory Limit", "subscribe-reloaded" ),
@@ -282,31 +312,31 @@ else {
                             ),
                             7 => array(
                                 __( "WP Cron", "subscribe-reloaded" ),
-                                $wpDebug
+                                $wpCron
                             ),
                             8 => array(
                                 __( "Language", "subscribe-reloaded" ),
-                                get_locale()
+                                $wpLanguage
                             ),
                             9 => array(
                                 __( "Permalink Structure", "subscribe-reloaded" ),
-                                esc_html( get_option( 'permalink_structure' ) )
+                                $wpPermalink
                             ),
                             10 => array(
                                 __( "Table Prefix", "subscribe-reloaded" ),
-                                esc_html( $wpdb->prefix )
+                                $wpTablePrefix
                             ),
                             11 => array(
                                 __( "Table Prefix Length", "subscribe-reloaded" ),
-                                esc_html( strlen( $wpdb->prefix ) )
+                                $wpTablePrefixLength
                             ),
                             12 => array(
                                 __( "Table Prefix Status", "subscribe-reloaded" ),
-                                strlen( $wpdb->prefix ) > 16 ? esc_html( 'Error: Too long', 'subscribe-reloaded' ) : esc_html( 'Acceptable', 'subscribe-reloaded' )
+                                $wpTablePrefixStatus
                             ),
                             13 => array(
                                 __( "Registered Post Statuses", "subscribe-reloaded" ),
-                                esc_html( implode( ', ', get_post_stati() ) )
+                                $wpRegisteredPostStatuses
                             )
                         );
                         ?>
@@ -324,9 +354,8 @@ else {
                     </table>
 
                     <!-- Server Environment -->
-
-                    <table class="table table-sm table-hover table-striped subscribers-table" style="font-size: 0.8em">
-                        <thead>
+                    <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
+                        <thead style="background-color: #4688d2; color: #ffffff;">
                         <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Server Environment', 'subscribe-reloaded' ) ?></th>
                         </thead>
                         <?php
@@ -338,6 +367,8 @@ else {
                         $cURLVersion   = __( 'Not Available', 'subscribe-reloaded' );
                         $MySQLSVersion = __( 'Not Available', 'subscribe-reloaded' );
                         $defaultTimezone = __( 'Not Available', 'subscribe-reloaded' );
+                        $serverInfo    = esc_html( $_SERVER['SERVER_SOFTWARE'] );
+                        $maxPostSize    = size_format( $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( ini_get( 'post_max_size' ) ) );
 
                         // Get the SSL status.
                         if ( ini_get( 'allow_url_fopen' ) ) {
@@ -350,11 +381,14 @@ else {
                             /* translators: %s: SSL connection response */
                             $tlsCheckValue = sprintf( __( 'Connection uses %s', 'subscribe-reloaded' ), esc_html( $tlsCheck->tls_version ) );
                         }
+                        $stcr_system_information['Server Environment']["TLS Connection"] = $tlsCheckValue;
                         // Check TSL Rating
                         if ( false !== $tlsCheck )
                         {
                             $tlsRating = property_exists( $tlsCheck, 'rating' ) ? $tlsCheck->rating : $tlsCheck->tls_version;
                         }
+                        $stcr_system_information['Server Environment']["TLS Rating"] = $tlsRating;
+                        $stcr_system_information['Server Environment']["Server Info"] = $serverInfo;
                         // Check the PHP Version
                         if ( function_exists( 'phpversion' ) )
                         {
@@ -363,16 +397,25 @@ else {
                             if ( version_compare( $phpVersion, '5.6', '<' ) )
                             {
                                 $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $phpVersion ), '<a href="http://docs.givewp.com/settings-system-info" target="_blank">' . __( 'PHP Requirements in Give', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                                $stcr_system_information['Server Environment']["PHP Version"] = sprintf( '%s - We recommend a minimum PHP version of 5.6. See: %s', esc_html( $phpVersion ), '<a href="http://docs.givewp.com/settings-system-info" target="_blank">PHP Requirements in Give</a>' );
                             }
                             else
                             {
                                 $phpVersion = '<div class="system-success">' . esc_html( $phpVersion ) . '</div>';
+                                $stcr_system_information['Server Environment']["PHP Version"] = phpversion();
                             }
                         }
                         else
                         {
                             $phpVersion = __( "Couldn't determine PHP version because the function phpversion() doesn't exist.", 'subscribe-reloaded' );
+                            $stcr_system_information['Server Environment']["PHP Version"] = "Couldn't determine PHP version because the function phpversion() doesn't exist.";
                         }
+
+                        $stcr_system_information['Server Environment']["PHP Post Max Size"] = $maxPostSize;
+                        $stcr_system_information['Server Environment']["PHP Max Execution Time"] = ini_get( 'max_execution_time' );
+                        $stcr_system_information['Server Environment']["PHP Max Input Vars"] = ini_get( 'max_input_vars' );
+                        $stcr_system_information['Server Environment']["PHP Max Upload Size"] = size_format( wp_max_upload_size() );
+
                         // Check the cURL Version
                         if ( function_exists( 'curl_version' ) )
                         {
@@ -381,16 +424,20 @@ else {
                             if ( version_compare( $cURLVersion['version'], '7.40', '<' ) )
                             {
                                 $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-reloaded' ), esc_html( $cURLVersion['version'] . ', ' . $cURLVersion['ssl_version'] ) ) . '</div>';
+                                $stcr_system_information['Server Environment']["cURL Version"] = sprintf('%s - We recommend a minimum cURL version of 7.40.', esc_html( $cURLVersion['version'] . ', ' . $cURLVersion['ssl_version'] ) );
                             }
                             else
                             {
                                 $cURLVersion = '<div class="system-success">' . esc_html( $cURLVersion ) . '</div>';
+                                $stcr_system_information['Server Environment']["cURL Version"] = esc_html( $cURLVersion );
                             }
                         }
                         else
                         {
                             $cURLVersion = '&ndash;';
+                            $stcr_system_information['Server Environment']["cURL Version"] = 'cURL is not available';
                         }
+
                         // Check MySQL Version
                         if ( $wpdb->use_mysqli )
                         {
@@ -411,48 +458,59 @@ else {
                             if ( version_compare( $MySQLSVersion, '5.6', '<' ) )
                             {
                                 $MySQLSVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum MySQL version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $MySQLSVersion ), '<a href="https://wordpress.org/about/requirements/" target="_blank">' . __( 'WordPress Requirements', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                                $stcr_system_information['Server Environment']["MySQL Version"] = sprintf( '%s - We recommend a minimum MySQL version of 5.6. See: %s', esc_html( $MySQLSVersion ), '<a href="https://wordpress.org/about/requirements/" target="_blank">WordPress Requirements</a>' );
                             }
                             else
                             {
                                 $MySQLSVersion = '<div class="system-success">' . esc_html( $MySQLSVersion ) . '</div>';
+                                $stcr_system_information['Server Environment']["MySQL Version"] = $wpdb->db_version();
                             }
                         }
+
                         // Get the Timezone
                         $defaultTimezone = date_default_timezone_get();
 
                         if ( 'UTC' !== $defaultTimezone )
                         {
                             $defaultTimezone = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'subscribe-reloaded' ), $defaultTimezone ) . '</div>';
+                            $stcr_system_information['Server Environment']["Default Timezone is UTC"] = sprintf('Default timezone is %s - it should be UTC', $defaultTimezone );
                         }
                         else
                         {
                             $defaultTimezone = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                            $stcr_system_information['Server Environment']["Default Timezone is UTC"] = "Yes";
                         }
                         // DOMDocument
                         $DOMDocument = __( 'Not Available', 'subscribe-reloaded' );
                         if ( class_exists( 'DOMDocument' ) )
                         {
                             $DOMDocument = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                            $stcr_system_information['Server Environment']["DOMDocument"] = "Yes";
                         }
                         else {
                             $DOMDocument = sprintf( __( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', 'subscribe-reloaded' ), '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
+                            $stcr_system_information['Server Environment']["DOMDocument"] = sprintf( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
                         }
                         // Check gzip
                         $gzip = __( 'Not Available', 'subscribe-reloaded' );
                         if ( is_callable( 'gzopen' ) )
                         {
                             $gzip = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                            $stcr_system_information['Server Environment']["gzip"] = "Yes";
                         }
                         else {
                             $gzip = sprintf( __( 'Your server does not support the %s function - this is used for file compression and decompression.', 'subscribe-reloaded' ), '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
+                            $stcr_system_information['Server Environment']["gzip"] = sprintf( 'Your server does not support the %s function - this is used for file compression and decompression.', '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
                         }// Check GD
                         $gd = __( 'Not Available', 'subscribe-reloaded' );
                         if ( extension_loaded( 'gd' ) && function_exists( 'gd_info' ) )
                         {
                             $gd = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
+                            $stcr_system_information['Server Environment']["GD Graphics Library"] = "Yes";
                         }
                         else {
-                            $gd = '<div class="system-error"><span class="dashicons dashicons-no"></span></div>';;
+                            $gd = '<div class="system-error"><span class="dashicons dashicons-no"></span></div>';
+                            $stcr_system_information['Server Environment']["GD Graphics Library"] = "No";
                         }
 
                         // Define array of values
@@ -467,7 +525,7 @@ else {
                             ),
                             3 => array(
                                 __( "Server Info", "subscribe-reloaded" ),
-                                esc_html( $_SERVER['SERVER_SOFTWARE'] )
+                                $serverInfo
                             ),
                             4 => array(
                                 __( "PHP Version", "subscribe-reloaded" ),
@@ -475,7 +533,7 @@ else {
                             ),
                             5 => array(
                                 __( "PHP Post Max Size", "subscribe-reloaded" ),
-                                size_format( $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( ini_get( 'post_max_size' ) ) )
+                                $maxPostSize
                             ),
                             6 => array(
                                 __( "PHP Max Execution Time", "subscribe-reloaded" ),
@@ -527,50 +585,132 @@ else {
                         ?>
                         </tbody>
                     </table>
-
-                    <!-- Other Active Plugins -->
-
-                    <table class="table table-sm table-hover table-striped subscribers-table" style="font-size: 0.8em">
-                        <thead>
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Other Active Plugins', 'subscribe-reloaded' ) ?></th>
+                    <?php
+                    $plugins = $wp_subscribe_reloaded->stcr->utils->stcr_get_plugins();
+                    $installed_plugins = array();
+                    ?>
+                    <!-- Active Plugins -->
+                    <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
+                        <thead style="background-color: #4688d2; color: #ffffff;">
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Active Plugins', 'subscribe-reloaded' ) ?></th>
                         </thead>
-                        <?php
 
-                        $tlsCheck      = false;
-                        $tlsCheckValue = __( 'Cannot Evaluate', 'subscribe-reloaded' );
-                        $tlsRating     = __( 'Not Available', 'subscribe-reloaded' );
-                        $phpVersion    = __( 'Not Available', 'subscribe-reloaded' );
-                        $cURLVersion   = __( 'Not Available', 'subscribe-reloaded' );
-                        $MySQLSVersion = __( 'Not Available', 'subscribe-reloaded' );
-                        $defaultTimezone = __( 'Not Available', 'subscribe-reloaded' );
-
-                        // Define array of values
-                        $activePlugins = array(
-                            1 => array(
-                                __( "TLS Connection", "subscribe-reloaded" ),
-                                $tlsCheckValue
-                            )
-                        );
-
-                        // Get the SSL status.
-                        if ( ini_get( 'allow_url_fopen' ) ) {
-                            $tlsCheckValue = file_get_contents( 'https://www.howsmyssl.com/a/check' );
-                        }
-                        ?>
                         <tbody>
                         <?php
-                        foreach ( $activePlugins as $key => $opt )
+
+                        foreach ( $plugins as $plugin_data )
                         {
+                            // Filter only the Active plugins
+                            if ('active' !== $plugin_data['Status'] )
+                            {
+                                continue;
+                            }
+
+                            $plugin_name = $plugin_data['Name'];
+                            $author_name = $plugin_data['Author'];
+
+                            $installed_plugins[] = array(
+                                    "plugin-name" => $plugin_name,
+                                    "plugin-author" => $author_name
+                            );
+
+                            // Link the plugin name to the plugin URL if available.
+                            if ( ! empty( $plugin_data['PluginURI'] ) ) {
+                                $plugin_name = sprintf(
+                                    '<a href="%s" title="%s">%s</a>',
+                                    esc_url( $plugin_data['PluginURI'] ),
+                                    esc_attr__( 'Visit plugin homepage', 'subscribe-reloaded' ),
+                                    $plugin_name
+                                );
+                            }
+                            // Link the author name to the author URL if available.
+                            if ( ! empty( $plugin_data['AuthorURI'] ) ) {
+                                $author_name = sprintf(
+                                    '<a href="%s" title="%s">%s</a>',
+                                    esc_url( $plugin_data['AuthorURI'] ),
+                                    esc_attr__( 'Visit author homepage', 'subscribe-reloaded' ),
+                                    $author_name
+                                );
+
+                                $author_name = sprintf( _x( 'by %s', 'by author', 'subscribe-reloaded' ),
+                                                    wp_kses( $author_name, wp_kses_allowed_html( 'post' ) ) ) . ' &ndash; '
+                                                    . esc_html( $plugin_data['Version'] );
+                            }
                             echo "<tr>";
-                            echo "<td class='text-left' style='min-width: 50px;'>{$opt[0]}</td>";
-                            echo "<td class='text-left'>{$opt[1]}</td>";
+                            echo "<td class='text-left' style='min-width: 50px;'>{$plugin_name}</td>";
+                            echo "<td class='text-left'>{$author_name}</td>";
                             echo "</tr>";
+                            $stcr_system_information['WordPress Active Plugins'][$plugin_data['Name']] = $plugin_data;
+                        }
+
+                        ?>
+                        </tbody>
+                    </table>
+                    <!-- Inactive Plugins -->
+                    <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
+                        <thead style="background-color: #4688d2; color: #ffffff;">
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Inactive Plugins', 'subscribe-reloaded' ) ?></th>
+                        </thead>
+
+                        <tbody>
+                        <?php
+
+                        foreach ( $plugins as $plugin_data )
+                        {
+                            // Filter only the Inactive plugins
+                            if ('inactive' !== $plugin_data['Status'] )
+                            {
+                                continue;
+                            }
+
+                            $plugin_name = $plugin_data['Name'];
+                            $author_name = $plugin_data['Author'];
+
+                            $installed_plugins[] = array(
+                                "plugin-name" => $plugin_name,
+                                "plugin-author" => $author_name
+                            );
+
+                            // Link the plugin name to the plugin URL if available.
+                            if ( ! empty( $plugin_data['PluginURI'] ) ) {
+                                $plugin_name = sprintf(
+                                    '<a href="%s" title="%s">%s</a>',
+                                    esc_url( $plugin_data['PluginURI'] ),
+                                    esc_attr__( 'Visit plugin homepage', 'subscribe-reloaded' ),
+                                    $plugin_name
+                                );
+                            }
+                            // Link the author name to the author URL if available.
+                            if ( ! empty( $plugin_data['AuthorURI'] ) ) {
+                                $author_name = sprintf(
+                                    '<a href="%s" title="%s">%s</a>',
+                                    esc_url( $plugin_data['AuthorURI'] ),
+                                    esc_attr__( 'Visit author homepage', 'subscribe-reloaded' ),
+                                    $author_name
+                                );
+
+                                $author_name = sprintf( _x( 'by %s', 'by author', 'subscribe-reloaded' ),
+                                        wp_kses( $author_name, wp_kses_allowed_html( 'post' ) ) ) . ' &ndash; '
+                                    . esc_html( $plugin_data['Version'] );
+                            }
+                            echo "<tr>";
+                            echo "<td class='text-left' style='min-width: 50px;'>{$plugin_name}</td>";
+                            echo "<td class='text-left'>{$author_name}</td>";
+                            echo "</tr>";
+                            $stcr_system_information['WordPress Inactive Plugins'][$plugin_data['Name']] = $plugin_data;
                         }
                         ?>
                         </tbody>
                     </table>
-<!--                    <textarea style="width:90%; min-height:300px;" readonly>--><?php //echo serialize( $stcr_options_array ); ?><!--</textarea>-->
 
+                    <?php
+//                       echo '<pre>';
+//                        print_r( $installed_plugins );
+//                        print_r( $stcr_system_information );
+//                       echo '</pre>';
+                    ?>
+
+                    <textarea style="width:90%; min-height:300px;" readonly><?php echo serialize( $stcr_system_information ); ?></textarea>
                 </form>
             </div>
 

@@ -44,6 +44,22 @@ gulp.task('watch', function () {
     gulp.watch('src/includes/sass/*.scss', ['sass']);
 });
 
+gulp.task('copy', function () {
+    return gulp.src([
+        'src/*/**',
+        '!src/bower_components'
+    ])
+        .pipe( gulp.dest('build') );
+});
+
+gulp.task('build', function () {
+
+});
+
+gulp.task('compile', function () {
+
+});
+
 gulp.task('default', ['lint'], function () {
     // This will only run if the lint task is successful...
 });

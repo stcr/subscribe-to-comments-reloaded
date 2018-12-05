@@ -232,6 +232,38 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             return $ret;
         }
 
+        /**
+         * Get plugin info including status
+         *
+         * This is an enhanced version of get_plugins() that returns the status
+         * (`active` or `inactive`) of all plugins. Does not include MU plugins.
+         *
+         * @version 1.0.0
+         * @since 28-Nov-2018
+         *
+         * @return array Plugin info plus status
+         */
+        function stcr_get_plugins() {
+            $plugins             = get_plugins();
+            $active_plugin_paths = (array) get_option( 'active_plugins', array() );
+
+            if ( is_multisite() ) {
+                $network_activated_plugin_paths = array_keys( get_site_option( 'active_sitewide_plugins', array() ) );
+                $active_plugin_paths            = array_merge( $active_plugin_paths, $network_activated_plugin_paths );
+            }
+
+            foreach ( $plugins as $plugin_path => $plugin_data ) {
+                // Is plugin active?
+                if ( in_array( $plugin_path, $active_plugin_paths ) ) {
+                    $plugins[ $plugin_path ]['Status'] = 'active';
+                } else {
+                    $plugins[ $plugin_path ]['Status'] = 'inactive';
+                }
+            }
+
+            return $plugins;
+        }
+
 		/**
 		 * Creates the HTML structure to properly handle HTML messages
 		 */
