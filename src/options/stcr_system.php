@@ -109,8 +109,6 @@ else {
         echo "</p></div>";
     }
 }
-
-
 ?>
     <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
     <style type="text/css">
@@ -189,7 +187,7 @@ else {
                     </div>
 
                     <div class="form-group row">
-                        <label for="unique_key" class="col-sm-3 col-form-label text-right">
+                        <label for="purge_log" class="col-sm-3 col-form-label text-right">
                             <?php _e( 'Clean Up Log Archive', 'subscribe-reloaded' ) ?></label>
                         <div class="col-sm-7">
 
@@ -199,9 +197,35 @@ else {
                                 ); ?>
                             </span>
 
-                            <input type='submit' value='<?php _e( 'Clean' ); ?>' class='btn btn-secondary subscribe-form-button' name='purge_log' >
+                            <input type='submit' id="purge_log" value='<?php _e( 'Clean' ); ?>' class='btn btn-secondary subscribe-form-button' name='purge_log' >
+                        </div>
+                    </div>
 
-
+                    <div class="form-group row">
+                        <label for="generate_system_info" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Generate System Info File', 'subscribe-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <?php
+                                $nonceName = "generate-report";
+                                $nonce = wp_create_nonce( $nonceName );
+                            ?>
+                            <button id="generate_system_info" readonly="readonly"
+                                    class="generate_system_info btn btn-third subscribe-form-button"
+                                    <?php echo "data-nonce='{$nonce}|{$nonceName}'"  ?>>
+                                <?php _e( 'Generate', 'subscribe-reloaded' ); ?>
+                            </button>
+                            <span class="generate_spinner stcr-hidden"><i class="fas fa-play-circle"></i></span>
+                            <a class="download_report btn btn-download subscribe-form-button stcr-hidden" href="#">
+                                <?php _e( 'Download', 'subscribe-reloaded' ); ?>
+                            </a>
+                            <div style="height: 10px;"></div>
+                            <div class="alert alert-danger stcr-hidden stcr-alert-box download_report_error" role="alert">
+                                <p><?php _e('Please verify that you have the correct file permissions. WordPress System Info File could not be created !', 'subscribe-reloaded' );?>
+                                </p>
+                                <p style="font-weight: bold;"><?php _e(  "Path: ", "subscribe-reloaded"); ?>
+                                    <span class="file-path" style="font-family: 'Courier New'"></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -704,13 +728,15 @@ else {
                     </table>
 
                     <?php
-//                       echo '<pre>';
-//                        print_r( $installed_plugins );
-//                        print_r( $stcr_system_information );
-//                       echo '</pre>';
+                    // Setup Ajax action
+                    //                    add_action( 'wp_ajax_' . $name, array( $this, 'stcr_ajax_update_notification') );
+                    // Add the AJAX Action
+                    //                    $this->utils->stcr_create_ajax_notices();
+                    $wp_subscribe_reloaded->stcr->utils->stcr_create_ajax_hook( "generate-system-report", "stcr_create_file" );
+                    $reportPath = $wp_subscribe_reloaded->stcr->utils->stcr_create_file( "systemInformation.txt", $stcr_system_information );
+                    global $current_user;
                     ?>
-
-                    <textarea style="width:90%; min-height:300px;" readonly><?php echo serialize( $stcr_system_information ); ?></textarea>
+                    <input class="reportPath" type="hidden" name="reportPath" value="<?php echo $reportPath; ?>">
                 </form>
             </div>
 
@@ -745,10 +771,10 @@ else {
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.
-$wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-subs-options", "subs_options.js", "includes/js/admin");
+$wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-system-info", "stcr_system.js", "includes/js/admin");
 // Includes the Panel JS resource file as well as the JS text domain translations.
 //$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-subs-options", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
 // Enqueue the JS File
-$wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-subs-options" );
+$wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-system-info" );
 
 ?>

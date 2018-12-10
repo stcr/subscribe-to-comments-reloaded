@@ -74,13 +74,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				wp_enqueue_script( 'stcr-admin-js' );
 				wp_enqueue_style( 'stcr-admin-style' );
 
-				foreach ( $notices as $key => $notice ) {
-					if( $notice['status'] == 'unread' ) {
-						$nonce = wp_create_nonce( $key );
+				foreach ( $notices as $name => $noticeData ) {
+					if( $noticeData['status'] == 'unread' ) {
+						$nonce = wp_create_nonce( $name );
 						// Set the a fresh nonce
-						$this->utils->stcr_update_admin_notice_status( $key, 'unread', $nonce );
-						echo "<div class='notice is-dismissible stcr-dismiss-notice  {$notice['type']}' data-nonce='{$nonce}|{$key}'>";
-							echo $notice['message'];
+						$this->utils->stcr_update_admin_notice_status( $name, 'unread', $nonce );
+						echo "<div class='notice is-dismissible stcr-dismiss-notice  {$noticeData['type']}' data-nonce='{$nonce}|{$name}'>";
+							echo $noticeData['message'];
 						echo "</div>";
 					}
 				}

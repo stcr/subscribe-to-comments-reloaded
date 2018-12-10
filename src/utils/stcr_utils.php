@@ -807,6 +807,55 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			}
 			return;
 		}
+        /**
+         * Create a new Ajax Hook.
+         *
+         * @since 07-Dic-2018
+         * @author reedyseth
+         *
+         * @param string $_hookname The notifice to be binded.
+         */
+        public function stcr_create_ajax_hook( $_hookname, $_function_to_bind )
+        {
+
+            add_action( 'wp_ajax_' . $_hookname, array( $this, $_function_to_bind ) );
+
+            return;
+        }
+        /**
+         * Create a file with the given information.
+         *
+         * @since 07-Dic-2018
+         * @author reedyseth
+         *
+         * @param string $_hookname The notifice to be binded.
+         */
+        public function stcr_create_file( $_filename, $_filedata )
+        {
+            $plugin_dir   = plugin_dir_path( __DIR__ );
+            $file_path    = $plugin_dir . "utils/" ;
+            $path         = "";
+
+            // Check  if $_filedata is an array
+            if ( is_array( $_filedata ) )
+            {
+                $_filedata = serialize( $_filedata );
+            }
+
+            if( is_writable( $file_path ) )
+            {
+                $handle = fopen( $file_path . $_filename, "w" );
+                fwrite( $handle, $_filedata);
+                $path = "true|" . plugins_url( "download.php", __FILE__ ) . "|";
+                fclose( $handle );
+            }
+            else
+            {
+                $path = "false|Check file permissions|{$file_path}";
+            }
+
+            return $path;
+        }
 		/**
 		 * Update a StCR notification status
 		 *
@@ -825,6 +874,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			wp_send_json_success( 'Notification status updated for "' . $_notification . '"' );
 			die();
 		}
+        /**
+         * Check if the current user is a WordPress Admin
+         *
+         * @since 10-Dic-2018
+         * @author reedyseth
+         *
+         */
+        public function stcr_is_admin()
+        {
+            return is_admin();
+        }
 		/**
 		 * Function to log messages into a given file. The variable $file_path must have writing permissions.
 		 *

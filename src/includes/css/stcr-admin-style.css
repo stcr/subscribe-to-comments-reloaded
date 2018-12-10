@@ -33,6 +33,9 @@ Common styles and utilities on pages.
 .float-left {
   float: left; }
 
+.stcr-alert-box {
+  font-size: .85em; }
+
 /* ----------------------------------------------------------
 Styles use on the interaction with the user.
 @author Israel Barragan (Reedyseth)
@@ -385,6 +388,26 @@ Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
   color: #fff !important;
   background-color: #4299b9 !important;
   border-color: #5495ad !important; }
+
+.btn-third {
+  color: #444 !important;
+  background-color: #ffc63c !important;
+  border-color: #dcb456 !important; }
+
+.btn-third:hover {
+  color: #444 !important;
+  background-color: #fdd575 !important;
+  border-color: #dcb456 !important; }
+
+.btn-download {
+  color: #445435;
+  background-color: #7bd774;
+  border-color: #28a745 !important; }
+
+.btn-download:hover {
+  color: #445435;
+  background-color: #78c771;
+  border-color: #28a745 !important; }
 
 /* ----------------------------------------------------------
 Styles use on loading events.
