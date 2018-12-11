@@ -21,6 +21,8 @@ class stcr_i18n
     public function __construct()
     {
         add_action( 'plugins_loaded', array( $this, 'register_js_subs_translation' ) );
+        global $wp_locale;
+        $this->wp_locale = get_locale();
     }
 
     /**
@@ -68,7 +70,7 @@ class stcr_i18n
                 "sortAscending" => __( "activate to sort column ascending", "subscribe-reloaded" ),
                 "sortDescending"=> __( "activate to sort column descending", "subscribe-reloaded" )
             ),
-            "langTextDirection" => $this->get_wp_locale()->text_direction
+            "langTextDirection" => $this->get_text_direction()
         );
 
         $this->set_js_subs_translation( $translation_array );
@@ -97,6 +99,19 @@ class stcr_i18n
         return $this->wp_locale;
     }
 
+    public function get_text_direction()
+    {
+        if ( is_rtl() )
+        {
+            $text_direction = "rtl";
+        }
+        else
+        {
+            $text_direction = "ltr";
+        }
+
+        return $text_direction;
+    }
     /**
      * @param null $wp_locale
      */
