@@ -428,8 +428,8 @@ else {
 
                             if ( version_compare( $phpVersion, '5.6', '<' ) )
                             {
-                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $phpVersion ), '<a href="http://docs.givewp.com/settings-system-info" target="_blank">' . __( 'PHP Requirements in Give', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
-                                $stcr_system_information['Server Environment']["PHP Version"] = sprintf( '%s - We recommend a minimum PHP version of 5.6. See: %s', esc_html( $phpVersion ), '<a href="http://docs.givewp.com/settings-system-info" target="_blank">PHP Requirements in Give</a>' );
+                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">' . __( 'PHP Requirements in StCR', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                                $stcr_system_information['Server Environment']["PHP Version"] = sprintf( '%s - We recommend a minimum PHP version of 5.6. See: %s', esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">PHP Requirements in StCR</a>' );
                             }
                             else
                             {
