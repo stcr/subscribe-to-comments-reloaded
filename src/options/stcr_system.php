@@ -29,6 +29,14 @@ foreach ($stcr_options as $option) {
 $stcr_options_array["custom_post_types"] = implode( "| ", get_post_types( '', 'names' )  );
 $stcr_options_array["permalink_structure"] = get_option('permalink_structure');
 
+// Setup the auto purge for the download report.
+// // Schedule the auto purge for the log file.
+if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_system_report_file_purge' ) ) {
+    wp_clear_scheduled_hook( '_cron_subscribe_reloaded_system_report_file_purge' );
+    // Let us bind the schedule event with our desire action.
+    wp_schedule_event( time() + 15, "daily", '_cron_subscribe_reloaded_system_report_file_purge' );
+}
+
 // Updating options
 if ( array_key_exists( "purge_log", $_POST ) ) {
     // Check that the log file exits

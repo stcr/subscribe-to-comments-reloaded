@@ -813,7 +813,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          * @since 07-Dic-2018
          * @author reedyseth
          *
-         * @param string $_hookname The notifice to be binded.
+         * @param array $_actions An array with the ajax hooks to bind. Each element of the array should be the name and the function to bind.
          */
         public function stcr_create_ajax_hook( array $_actions )
         {
@@ -864,7 +864,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          * @since 10-Dic-2018
          * @author reedyseth
          *
-         * @param string $_hookname The notifice to be binded.
          */
         public function stcr_recreate_file()
         {
@@ -890,6 +889,24 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 
             die();
+        }
+        /**
+         * Delete the Report File to keep the house clean
+         *
+         * @since 12-Dic-2018
+         * @author reedyseth
+         *
+         */
+        public function stcr_delete_report_file()
+        {
+            $plugin_dir   = plugin_dir_path( __DIR__ );
+            $file    = $plugin_dir . "utils/systemInformation.txt" ;
+
+            if( file_exists( $file )  && is_writable( $plugin_dir ) )
+            {
+                // unlink the file
+                unlink($file);
+            }
         }
 		/**
 		 * Update a StCR notification status

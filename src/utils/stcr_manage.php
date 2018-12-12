@@ -219,11 +219,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 					switch_to_blog( $blog_id );
 					wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
 					wp_clear_scheduled_hook( '_cron_log_file_purge' );
+					wp_clear_scheduled_hook( '_cron_subscribe_reloaded_system_report_file_purge' );
+
 				}
 				restore_current_blog();
 			} else {
 				wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
 				wp_clear_scheduled_hook( '_cron_log_file_purge' );
+                wp_clear_scheduled_hook( '_cron_subscribe_reloaded_system_report_file_purge' );
 			}
 		}
 
@@ -718,8 +721,5 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 		}
 		// end subscribe_url_shortcode
-
-
-
 	}
 }

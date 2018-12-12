@@ -73,6 +73,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
             // Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
             add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
             add_action('_cron_log_file_purge', array($this, 'log_file_purge'), 10 );
+            add_action('_cron_subscribe_reloaded_system_report_file_purge', array($this->utils, 'stcr_delete_report_file'), 10 );
 
             // Load Text Domain
             add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
