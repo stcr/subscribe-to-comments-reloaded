@@ -206,7 +206,7 @@ else {
                             <?php _e( 'Generate System Info File', 'subscribe-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <?php
-                                $nonceName = "generate-report";
+                                $nonceName = "generate_system_report";
                                 $nonce = wp_create_nonce( $nonceName );
                             ?>
                             <button id="generate_system_info" readonly="readonly"
@@ -728,15 +728,12 @@ else {
                     </table>
 
                     <?php
-                    // Setup Ajax action
-                    //                    add_action( 'wp_ajax_' . $name, array( $this, 'stcr_ajax_update_notification') );
-                    // Add the AJAX Action
-                    //                    $this->utils->stcr_create_ajax_notices();
-                    $wp_subscribe_reloaded->stcr->utils->stcr_create_ajax_hook( "generate-system-report", "stcr_create_file" );
+                    // Register Ajax actions on wp_subscribe_reloaded->define_wp_hooks
                     $reportPath = $wp_subscribe_reloaded->stcr->utils->stcr_create_file( "systemInformation.txt", $stcr_system_information );
-                    global $current_user;
+
                     ?>
                     <input class="reportPath" type="hidden" name="reportPath" value="<?php echo $reportPath; ?>">
+                    <textarea class="reportData stcr-hidden" readonly name="reportPath" ><?php echo serialize( $stcr_system_information ); ?></textarea>
                 </form>
             </div>
 
@@ -773,7 +770,7 @@ else {
 // Tell WP that we are going to use a resource.
 $wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-system-info", "stcr_system.js", "includes/js/admin");
 // Includes the Panel JS resource file as well as the JS text domain translations.
-//$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-subs-options", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
+//$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-system-info", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
 // Enqueue the JS File
 $wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-system-info" );
 

@@ -815,10 +815,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          *
          * @param string $_hookname The notifice to be binded.
          */
-        public function stcr_create_ajax_hook( $_hookname, $_function_to_bind )
+        public function stcr_create_ajax_hook( array $_actions )
         {
-
-            add_action( 'wp_ajax_' . $_hookname, array( $this, $_function_to_bind ) );
+            foreach ($_actions as $hookName => $functionToBind )
+            {
+                add_action( 'wp_ajax_' . $hookName, array( $this, $functionToBind ) );
+            }
 
             return;
         }
@@ -828,7 +830,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          * @since 07-Dic-2018
          * @author reedyseth
          *
-         * @param string $_hookname The notifice to be binded.
+         * @param string $_hookname The notice to be binded.
          */
         public function stcr_create_file( $_filename, $_filedata )
         {
@@ -855,6 +857,39 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 
             return $path;
+        }
+        /**
+         * Call stcr_create_file to create the file again.
+         *
+         * @since 10-Dic-2018
+         * @author reedyseth
+         *
+         * @param string $_hookname The notifice to be binded.
+         */
+        public function stcr_recreate_file()
+        {
+            $filename = esc_attr( $_POST['fileName'] );
+            $filedata = stripslashes($_POST['fileData']);
+            $action   = esc_attr( $_POST['action'] );
+//            sleep(1/2);
+
+            // Check Nonce
+            $isValid = check_ajax_referer( $action, 'security', false );
+
+            if( $isValid )
+            {
+               $result =  $this->stcr_create_file( $filename, unserialize($filedata) );
+               $result = explode( "|", $result);
+               $data = array(
+                   "result"         => $result[0],
+                   "path"           => $result[1],
+                   "additionalInfo" => $result[2]
+               );
+                // Send success message
+                wp_send_json_success( $data );
+            }
+
+            die();
         }
 		/**
 		 * Update a StCR notification status
