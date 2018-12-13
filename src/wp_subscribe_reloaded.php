@@ -523,7 +523,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                     } else if ($email_by_key && !empty($email_by_key)) {
                         $email = $email_by_key;
                     } else if (!empty($sre)) {
-                        $email = $sre;
+                        $email = $this->utils->check_valid_email( $sre );
                     } else {
                         $email = '';
                     }

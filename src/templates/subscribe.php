@@ -1,8 +1,8 @@
 <?php
 // Avoid direct access to this piece of code
 if ( ! function_exists( 'add_action' ) ) {
-	header( 'Location: /' );
-	exit;
+    header( 'Location: /' );
+    exit;
 }
 
 global $wp_subscribe_reloaded;
@@ -32,12 +32,12 @@ if ( ! empty( $email ) ) {
             global $akismet_api_host, $akismet_api_port;
 
             $akismet_query_string  = "user_ip={$_SERVER['REMOTE_ADDR']}";
-            $akismet_query_string .= "&user_agent=" . urlencode( stripslashes( $_SERVER['HTTP_USER_AGENT'] ) );
-            $akismet_query_string .= "&blog=" . urlencode( get_option( 'home' ) );
+            $akismet_query_string .= "&user_agent=" . esc_url( stripslashes( $_SERVER['HTTP_USER_AGENT'] ) );
+            $akismet_query_string .= "&blog=" . esc_url( get_option( 'home' ) );
             $akismet_query_string .= "&blog_lang=" . get_locale();
             $akismet_query_string .= "&blog_charset=" . get_option( 'blog_charset' );
-            $akismet_query_string .= "&permalink=$post_permalink";
-            $akismet_query_string .= "&comment_author_email=" . urlencode( stripslashes( $email ) );
+            $akismet_query_string .= "&permalink=".esc_url( $post_permalink );
+            $akismet_query_string .= "&comment_author_email=" . esc_url( sanitize_email( $email ) );
 
             $akismet_response = akismet_http_post( $akismet_query_string, $akismet_api_host, '/1.1/comment-check', $akismet_api_port );
 
@@ -96,7 +96,7 @@ else {
     }
     else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ))
     {
-        $email = $_COOKIE['comment_author_email_' . COOKIEHASH];
+        $email = sanitize_email( $_COOKIE['comment_author_email_' . COOKIEHASH] );
     }
     else
     {
@@ -104,47 +104,47 @@ else {
     }
 
     echo "<p>";
-        $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
-        if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
-            $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
-            $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
-        } else {
-            $message = str_replace( '[post_title]', $target_post->post_title, $message );
-        }
-        echo $message;
+    $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
+    if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
+        $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
+        $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
+    } else {
+        $message = str_replace( '[post_title]', $target_post->post_title, $message );
+    }
+    echo $message;
     echo "</p>";
-	?>
-	<form action="<?php
-		echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
-		method="post" name="sub-form">
-		<fieldset style="border:0">
-			<p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-				<input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" />
-				<input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
-                <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
-			</p>
-		</fieldset>
-	</form>
-<?php
+    ?>
+    <form action="<?php
+    echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
+          method="post" name="sub-form">
+        <fieldset style="border:0">
+            <p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
+                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
+            <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+            </p>
+        </fieldset>
+    </form>
+    <?php
 }
 if( ! $valid_email )
 {
     echo "<p>";
-        $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
-        if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
-            $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
-            $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
-        } else {
-            $message = str_replace( '[post_title]', $target_post->post_title, $message );
-        }
-        echo $message;
+    $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
+    if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
+        $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
+        $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
+    } else {
+        $message = str_replace( '[post_title]', esc_html( $target_post->post_title ), $message );
+    }
+    echo $message;
 
     echo "</p>";
     ?>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
             <p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
-                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo $email ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
             </p>
             <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?></p>
@@ -153,48 +153,48 @@ if( ! $valid_email )
     <?php
 }
 ?>
-<script type="text/javascript">
-    ( function($){
-        $(document).ready(function($){
-            var stcr_request_form = $('form[name="sub-form"]');
-            var email_input       = $('form[name="sub-form"] input[name="sre"]');
-            /**
-             * Validate the email address.
-             * @since 09-Sep-2016
-             * @author reedyseth
-             */
-            stcr_request_form.on('submit',function (event) {
-                var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                var email = $('input[name="sre"]');
+    <script type="text/javascript">
+        ( function($){
+            $(document).ready(function($){
+                var stcr_request_form = $('form[name="sub-form"]');
+                var email_input       = $('form[name="sub-form"] input[name="sre"]');
+                /**
+                 * Validate the email address.
+                 * @since 09-Sep-2016
+                 * @author reedyseth
+                 */
+                stcr_request_form.on('submit',function (event) {
+                    var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                    var email = $('input[name="sre"]');
 
-                if( email.val() !== "email" && email.val() === "" )
-                {
-                    event.preventDefault();
-                    $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Please enter your email", "subscribe-reloaded") ?>").show().delay(4000).fadeOut(1000);
-                }
-                else if( emailRegex.test( email.val() ) === false )
-                {
-                    event.preventDefault();
-                    $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?>").show().delay(4000).fadeOut(1000);
-                }
-            });
+                    if( email.val() !== "email" && email.val() === "" )
+                    {
+                        event.preventDefault();
+                        $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Please enter your email", "subscribe-reloaded") ?>").show().delay(4000).fadeOut(1000);
+                    }
+                    else if( emailRegex.test( email.val() ) === false )
+                    {
+                        event.preventDefault();
+                        $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?>").show().delay(4000).fadeOut(1000);
+                    }
+                });
 
-            email_input.focus(function(){
-                if( $(this).val() == "<?php echo $email; ?>" )
-                {
-                    $(this).val("");
-                }
-            });
+                email_input.focus(function(){
+                    if( $(this).val() == <?php echo esc_attr( $email ); ?> )
+                    {
+                        $(this).val("");
+                    }
+                });
 
-            email_input.blur(function(){
-                if( $(this).val() == "" )
-                {
-                    $(this).val("<?php echo $email; ?>");
-                }
+                email_input.blur(function(){
+                    if( $(this).val() == "" )
+                    {
+                        $(this).val(<?php echo esc_attr( $email ); ?>);
+                    }
+                });
             });
-        });
-    } )( jQuery );
-</script>
+        } )( jQuery );
+    </script>
 
 <?php
 $output = ob_get_contents();

@@ -469,7 +469,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 			$reply_to     = get_option( "subscribe_reloaded_reply_to" ) == ''
 									? $from_email : get_option( "subscribe_reloaded_reply_to" );
-			$content_type = $content_type = (  get_option(  'subscribe_reloaded_enable_html_emails' ) == 'yes' )
+			$content_type = (  get_option(  'subscribe_reloaded_enable_html_emails' ) == 'yes' )
 									?  'text/html'  :  'text/plain';
 			$headers      = "Content-Type: $content_type; charset=" . get_bloginfo( 'charset' ) . "\n";
 			$date = date_i18n( 'Y-m-d H:i:s' );
@@ -488,8 +488,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 			$_emailSettings = array_merge( $_emailSettings, $_settings );
 
-			if ( $content_type == 'text/html' ) {
-				$_emailSettings[ 'message' ] = $this->wrap_html_message( $_emailSettings['message'], $_emailSettings['subject'] );
+			if ( $content_type == 'text/html' )
+			{
+                // Sanitize HTML if require
+				$_emailSettings[ 'message' ] = esc_html( $this->wrap_html_message( $_emailSettings['message'], $_emailSettings['subject'] ) );
 			}
 
 			$headers .= "From: \"{$_emailSettings['fromName']}\" <{$_emailSettings['fromEmail']}>\n";

@@ -18,6 +18,7 @@ if ( ! empty( $_POST['email_list'] ) ) {
 	}
 
 	$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' );
+    $action = sanitize_text_field( $action );
 	switch ( $action ) {
 	case 'delete':
 		$rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_ID, $email_list );
@@ -50,7 +51,7 @@ if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) 
 echo "<p>$message</p>";
 ?>
 
-	<form action="<?php echo htmlspecialchars( $_SERVER['REQUEST_URI'] ) ?>" method="post" id="email_list_form" name="email_list_form" onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
+	<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" id="email_list_form" name="email_list_form" onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>')">
 		<fieldset style="border:0">
 			<?php
                 $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( 'post_id', 'equals', $post_ID, 'dt', 'ASC' );
@@ -81,7 +82,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
         echo "<tr>";
             echo "<td style='text-align: center;'><input type='checkbox' name='email_list[]' value='" . urlencode( $a_subscription->email ) . "' id='e_$i'/><label for='e_$i'>$date_translated</label></td>";
-            echo "<td>$a_subscription->email</td>";
+            echo "<td>". esc_attr( $a_subscription->email ) . "</td>";
             echo "<td style='text-align: center;'>$legend_translate[$t_status]</td>";
         echo "</tr>";
 	}
