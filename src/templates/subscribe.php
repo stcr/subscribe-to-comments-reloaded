@@ -180,7 +180,7 @@ if( ! $valid_email )
                 });
 
                 email_input.focus(function(){
-                    if( $(this).val() == <?php echo esc_attr( $email ); ?> )
+                    if( $(this).val() == <?php echo wp_json_encode( $email ); ?> )
                     {
                         $(this).val("");
                     }
@@ -189,7 +189,7 @@ if( ! $valid_email )
                 email_input.blur(function(){
                     if( $(this).val() == "" )
                     {
-                        $(this).val(<?php echo esc_attr( $email ); ?>);
+                        $(this).val(<?php echo wp_json_encode( $email ); ?>);
                     }
                 });
             });

@@ -125,7 +125,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			$post           = get_post( $_post_ID );
             $post_permalink = get_permalink( $_post_ID );
 
-            $manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . esc_url( $this->utils->get_subscriber_key( $clean_email ) ) . "&srk=" . esc_url( $subscriber_salt );
+            $manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' ) . "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=" . $subscriber_salt;
             $confirm_link = "$manager_link&srp=$_post_ID&sra=c&srsrc=e&confirmation_email=y&post_permalink=" . esc_url( $post_permalink );
 
 

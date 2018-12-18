@@ -76,7 +76,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			if( $email != null ) {
 				$subscriber = $wpdb->get_row($wpdb->prepare($retrieveEmail,$email), OBJECT);
 				if( ! empty( $subscriber ) ) {
-					return $subscriber->subscriber_unique_id;
+					return sanitize_key( $subscriber->subscriber_unique_id );
 				}
 			}
 			return false;
@@ -135,7 +135,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 			if( $key != null ) {
 				// Sanitize the key just for precaution.
-				$key = trim( esc_attr($key) );
+				$key = trim( sanitize_key($key) );
 				// Check if the user is register and the unique key
 				$retrieveEmail = "SELECT subscriber_email FROM "
 					.$wpdb->prefix."subscribe_reloaded_subscribers WHERE subscriber_unique_id = %s";
@@ -154,13 +154,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function generate_key( $_email = "" ) {
 			$salt      = time();
 			$dd_salt   = md5( $salt );
-			$uniqueKey = md5( $dd_salt . $salt . $_email );
+			$uniqueKey = md5( $dd_salt . $salt . sanitize_email( $_email ) );
 
 			return $uniqueKey;
 		}
 
 		public function generate_temp_key( $_email ) {
-			$uniqueKey = get_option( "subscribe_reloaded_unique_key" );
+			$uniqueKey = sanitize_key( get_option( "subscribe_reloaded_unique_key" ) );
 			$key       = md5( $uniqueKey . $_email );
 
 			return $key;
@@ -307,7 +307,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 				"/mime\-version\:/i"
 			);
 
-			return esc_attr( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
+			return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
 		}
 		// end clean_email
 

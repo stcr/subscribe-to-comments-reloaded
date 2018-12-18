@@ -81,8 +81,8 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         $date_translated = $wp_subscribe_reloaded->stcr->utils->stcr_translate_month( $formatted_date );
 
         echo "<tr>";
-            echo "<td style='text-align: center;'><input type='checkbox' name='email_list[]' value='" . urlencode( $a_subscription->email ) . "' id='e_$i'/><label for='e_$i'>$date_translated</label></td>";
-            echo "<td>". esc_attr( $a_subscription->email ) . "</td>";
+            echo "<td style='text-align: center;'><input type='checkbox' name='email_list[]' value='" . esc_html( $a_subscription->email ) . "' id='e_$i'/><label for='e_$i'>$date_translated</label></td>";
+            echo "<td>". esc_html( $a_subscription->email ) . "</td>";
             echo "<td style='text-align: center;'>$legend_translate[$t_status]</td>";
         echo "</tr>";
 	}

@@ -55,7 +55,7 @@ if ( ! empty( $email ) ) {
         $manager_link .= "srek=" . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key($clean_email) . "&srk=$subscriber_salt&amp;srsrc=e&post_permalink=" . esc_url( $post_permalink );
         $one_click_unsubscribe_link .= ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?';
         $one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
-            . "srek=" . esc_url( $this->utils->get_subscriber_key( $clean_email ) )
+            . "srek=" . esc_attr( $this->utils->get_subscriber_key( $clean_email ) )
             . "&srk=$subscriber_salt" . "&sra=u;srsrc=e" . "&srp=";
 
         // Replace tags with their actual values
@@ -173,7 +173,7 @@ if( ! $valid_email )
                 });
 
                 email_input.focus(function(){
-                    if( $(this).val() == <?php echo esc_attr( $email ); ?> )
+                    if( $(this).val() == <?php echo wp_json_encode( $email ); ?> )
                     {
                         $(this).val("");
                     }
@@ -182,7 +182,7 @@ if( ! $valid_email )
                 email_input.blur(function(){
                     if( $(this).val() == "" )
                     {
-                        $(this).val(<?php echo esc_attr( $email ); ?>);
+                        $(this).val(<?php echo wp_json_encode( $email ); ?>);
                     }
                 });
             });
