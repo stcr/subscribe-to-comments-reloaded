@@ -85,7 +85,8 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                     $manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
                 }
                 if ( empty( $manager_page_permalink ) ) {
-                    $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+                    // Manager page can't be empty, set it to default.
+                    $manager_page_permalink = '/comment-subscriptions/';
                 }
 
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {

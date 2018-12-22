@@ -21,28 +21,42 @@ $options = array(
     "user_text"                    => "text-html"
 );
 
+$options_readable = array(
+        "manager_page" => __("Management URL","subscribe-reloaded")
+);
+
 // Update options
 if ( isset( $_POST['options'] ) ) {
     $faulty_fields = array();
 
     foreach ( $_POST['options'] as $option => $value )
     {
-//        echo $option . '<br>';
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
+        {
+            array_push( $faulty_fields, $option );
+        }
+        if( $option == "manager_page" && $value == "") //TODO: Add validation for all he require fields.
         {
             array_push( $faulty_fields, $option );
         }
     }
 
     // Display an alert in the admin interface if something went wrong
-    echo '<div class="updated"><p>';
     if ( sizeof( $faulty_fields ) == 0 ) {
-        _e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+        echo '<div class="updated"><p>';
+            _e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+        echo "</p></div>";
     } else {
-        _e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
-        // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
+        echo '<div class="error"><p>';
+            _e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
+            echo "<ul style='font-size: 0.8em;'>";
+            foreach( $faulty_fields as $field )
+            {
+                echo ' <li>> ' . $options_readable[$field] . '</li>';
+            }
+            echo "</ul>";
+        echo "</p></div>";
     }
-    echo "</p></div>";
 }
 wp_print_scripts( 'quicktags' );
 
@@ -53,7 +67,7 @@ wp_print_scripts( 'quicktags' );
         <div class="mt-3"></div>
         <div class="row">
             <div class="col-sm-9">
-                <form action="" method="post">
+                <form class="management_page_form" action="" method="post">
                     <div class="form-group row">
                         <label for="manager_page_enabled" class="col-sm-3 col-form-label text-right"><?php _e( 'Virtual Management Page', 'subscribe-reloaded' ) ?></label>
                         <div class="col-sm-7">
@@ -374,9 +388,11 @@ wp_print_scripts( 'quicktags' );
 global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.
 $wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-subs-options", "subs_options.js", "includes/js/admin");
+$wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-management-page", "management_page.js", "includes/js/admin");
 // Includes the Panel JS resource file as well as the JS text domain translations.
 //$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-subs-options", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
 // Enqueue the JS File
 $wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-subs-options" );
+$wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-management-page" );
 
 ?>

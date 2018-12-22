@@ -35,6 +35,7 @@ else if ($safeUnistall === "no")
 
 // Remove scheduled autopurge events
 wp_clear_scheduled_hook( '_cron_subscribe_reloaded_purge' );
+wp_clear_scheduled_hook( '_cron_subscribe_reloaded_system_report_file_purge' );
 
 
 function stcr_get_settings($_wpdb)
