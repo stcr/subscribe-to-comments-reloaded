@@ -168,3 +168,7 @@ src/bower_components/
 
 # Node
 node_modules/
+
+# Others
+src/utils/log.txt
+src/utils/systemInformation.txt
