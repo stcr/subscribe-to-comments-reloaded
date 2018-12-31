@@ -94,7 +94,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-reloaded' );
 	echo '&nbsp;&nbsp;<select name="sra">';
 		echo '<option value="">'. __( 'Choose your action', 'subscribe-reloaded' ) .'</option>';
-		echo '<option value="delete">'. __( 'Delete', 'subscribe-reloaded' ) .'</option>';
+		echo '<option value="delete">'. __( 'Unsubscribe', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="suspend">'. __( 'Suspend', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="force_y">'. __( 'All comments', 'subscribe-reloaded' ) .'</option>';
 		echo '<option value="force_r">'. __( 'Replies to my comments', 'subscribe-reloaded' ) .'</option>';
