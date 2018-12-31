@@ -487,12 +487,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			);
 
 			$_emailSettings = array_merge( $_emailSettings, $_settings );
-
-			if ( $content_type == 'text/html' )
-			{
-                // Sanitize HTML if require
-				$_emailSettings[ 'message' ] = esc_html( $this->wrap_html_message( $_emailSettings['message'], $_emailSettings['subject'] ) );
-			}
+            $_emailSettings[ 'message' ] = $this->wrap_html_message( $_emailSettings['message'], $_emailSettings['subject'] );
 
 			$headers .= "From: \"{$_emailSettings['fromName']}\" <{$_emailSettings['fromEmail']}>\n";
 			$headers .= "Reply-To: {$_emailSettings['reply_to']}\n";
