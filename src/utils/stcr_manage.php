@@ -19,7 +19,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 {
 	class stcr_manage {
 
-		public $current_version = '180225';
+		public $current_version = VERSION;
 		public $utils = null;
 		public $upgrade = null;
 		public $db_version = null;
@@ -235,7 +235,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function maybe_update()
 		{
 			$int_db_version   = str_replace('.','', $this->db_version) ;
-			$int_curr_version = str_replace('.','', $this->current_version) ;;
+			$int_curr_version = str_replace('.','', $this->current_version) ;
 
 			if ( empty ( $int_db_version ) || (int) $int_db_version < (int) $int_curr_version ) {
 				// // Do whatever upgrades needed here.
