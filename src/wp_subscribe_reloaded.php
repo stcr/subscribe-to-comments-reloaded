@@ -150,6 +150,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
         public function display_admin_header ()
         {
             $slug = "stcr_manage_subscriptions";
+            global $wp_locale;
             $current_page = isset( $_GET['page'] ) ? $_GET['page'] : '';
             // Define the panels
             $array_pages = array(
