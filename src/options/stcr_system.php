@@ -452,16 +452,18 @@ else {
                         if ( function_exists( 'curl_version' ) )
                         {
                             $cURLVersion = curl_version();
+                            $cURLVersionNumber = $cURLVersion['version'];
+                            $cURLSSLVersion = $cURLVersion['ssl_version'];
 
-                            if ( version_compare( $cURLVersion['version'], '7.40', '<' ) )
+                            if ( version_compare( $cURLVersionNumber, '7.40', '<' ) )
                             {
-                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-reloaded' ), esc_html( $cURLVersion['version'] . ', ' . $cURLVersion['ssl_version'] ) ) . '</div>';
-                                $stcr_system_information['Server Environment']["cURL Version"] = sprintf('%s - We recommend a minimum cURL version of 7.40.', esc_html( $cURLVersion['version'] . ', ' . $cURLVersion['ssl_version'] ) );
+                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-reloaded' ), esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) ) . '</div>';
+                                $stcr_system_information['Server Environment']["cURL Version"] = sprintf('%s - We recommend a minimum cURL version of 7.40.', esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) );
                             }
                             else
                             {
-                                $cURLVersion = '<div class="system-success">' . esc_html( $cURLVersion ) . '</div>';
-                                $stcr_system_information['Server Environment']["cURL Version"] = esc_html( $cURLVersion );
+                                $cURLVersion = '<div class="system-success">' . esc_html( $cURLVersionNumber ) . '</div>';
+                                $stcr_system_information['Server Environment']["cURL Version"] = $cURLVersion;
                             }
                         }
                         else
