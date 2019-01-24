@@ -46,8 +46,10 @@ gulp.task('watch', function () {
 
 gulp.task('copy', function () {
     return gulp.src([
-        'src/*/**',
-        '!src/bower_components'
+        'src/**/*',
+        '!src/bower_components/',
+        '!src/utils/log.txt'
+        // 'src/**'
     ])
         .pipe( gulp.dest('build') );
 });
