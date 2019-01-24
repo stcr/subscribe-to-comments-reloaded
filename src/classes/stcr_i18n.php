@@ -48,12 +48,12 @@ class stcr_i18n
     public function register_js_subs_translation()
     {
         $translation_array = array (
-            "decimal"        => __( "", "subscribe-reloaded" ),
+            "decimal"        => __( " ", "subscribe-reloaded" ),
             "emptyTable"     => __( "No data available in table", "subscribe-reloaded" ),
             "info"           => __( "Showing _START_ to _END_ of _TOTAL_ entries", "subscribe-reloaded" ),
             "infoEmpty"      => __( "Showing 0 to 0 of 0 entries", "subscribe-reloaded" ),
             "infoFiltered"   => __( "(filtered from _MAX_ total entries)", "subscribe-reloaded" ),
-            "infoPostFix"    => __( "", "subscribe-reloaded" ),
+            "infoPostFix"    => __( " ", "subscribe-reloaded" ),
             "thousands"      => __( ",", "subscribe-reloaded" ),
             "lengthMenu"     => __( "Show _MENU_ entries", "subscribe-reloaded" ),
             "loadingRecords" => __( "Loading...", "subscribe-reloaded" ),
