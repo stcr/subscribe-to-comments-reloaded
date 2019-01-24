@@ -16,7 +16,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 {
 	class stcr_utils {
 
-	    protected $menu_opts_cache = [];
+	    protected $menu_opts_cache = array();
 
 	    public function __construct()
         {
