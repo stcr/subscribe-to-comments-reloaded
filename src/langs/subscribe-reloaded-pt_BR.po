@@ -17,6 +17,8 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: bower_components\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
 
 # @ subscribe-reloaded
 #: options/index.php:69 utils/stcr_manage.php:352 utils/stcr_manage.php:353

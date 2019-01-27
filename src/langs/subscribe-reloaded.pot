@@ -15,6 +15,8 @@ msgstr ""
 "Language-Team: \n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: bower_components\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
 
 #: options/index.php:69 utils/stcr_manage.php:352 utils/stcr_manage.php:353
 #: utils/stcr_utils.php:203
