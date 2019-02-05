@@ -324,7 +324,7 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="admin_subscribe" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Track all subscriptions', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Let Admin Subscribe', 'subscribe-reloaded' ) ?>
                         </label>
                         <div class="col-sm-7">
                             <div class="switch">
