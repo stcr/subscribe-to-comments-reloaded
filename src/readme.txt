@@ -6,8 +6,9 @@ Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded
 Plugin URI: http://subscribe-reloaded.com/
 Requires at least: 4.0
 Requires PHP: 5.6
-Tested up to: 5.0.4-alpha
-Stable tag: 190117
+Requires MySQL: 5.6
+Tested up to: 5.1
+Stable tag: 190214
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,6 +104,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+= v190214 =
+
+* **Fix** Compatibility with some PHP versions and MySQL. Fixes other minor issues.
+
 = v190117 =
 
 * **Upgrade** The backend interface to make the UX simpler for the user and Add option to get information of your WordPress System. Improve Logging with PHP errors catching.
@@ -111,6 +116,14 @@ Just go to the Options Panel and click the generate button. By generating a new 
 **Fix** Information that was not been validated on the backened.
 
 == Changelog ==
+
+= v190214 =
+
+* **Fix** String error calling the Curl Array.
+* **Fix** wrong array definition that was breaking the site in some newer PHP versions.
+* **Fix** error by calling `$wp_locale` that was not needed.
+* **Fix** wrong label on option issue #467.
+* **Fix** typo en help description issue #468.
 
 = v190117 =
 
