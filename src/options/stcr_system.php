@@ -473,7 +473,7 @@ else {
                         }
 
                         // Check MySQL Version
-                        if ( $wpdb->use_mysqli )
+                        if ( ! $wpdb->use_mysqli )
                         {
                             $ver = mysqli_get_server_info( $wpdb->dbh );
                         }
