@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-26 21:04-0700\n"
-"PO-Revision-Date: 2019-01-26 21:04-0700\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/src\n"
+"POT-Creation-Date: 2019-02-07 08:12:11+00:00\n"
+"PO-Revision-Date: 2019-01-31 15:24-0700\n"
 "Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -804,7 +804,7 @@ msgstr ""
 
 #: options/stcr_options.php:98 options/stcr_options.php:100
 msgid ""
-"This option will disable the StCR checkbox or dropdown in you comment form. "
+"This option will disable the StCR checkbox or dropdown in your comment form. "
 "You should leave it to Yes always."
 msgstr ""
 
@@ -896,7 +896,7 @@ msgstr ""
 "Notificar a los usuarios cuando se añade un nuevo trackback o pingback a la "
 "discusión."
 
-#: options/stcr_options.php:300 options/stcr_options.php:327
+#: options/stcr_options.php:300
 msgid "Track all subscriptions"
 msgstr "Seguir todas las suscripciones"
 
@@ -904,6 +904,11 @@ msgstr "Seguir todas las suscripciones"
 msgid "Notify the administrator when users subscribe without commenting."
 msgstr ""
 "Notificar al administrador cuando los usuarios se suscriban sin comentar."
+
+#: options/stcr_options.php:327
+#, fuzzy
+msgid "Let Admin Subscribe"
+msgstr "Permitir al administrador suscribirse"
 
 #: options/stcr_options.php:344 options/stcr_options.php:346
 msgid "Let the administrator subscribe to comments when logged in."
@@ -926,7 +931,7 @@ msgstr ""
 #: options/stcr_options.php:398 options/stcr_options.php:400
 msgid ""
 "Let you control the inclusion of the Font Awesome into your site. Disable if "
-"you theme already add this into your site."
+"your theme already add this into your site."
 msgstr ""
 
 #: options/stcr_options.php:408
@@ -974,7 +979,6 @@ msgid "<strong>No</strong>  = Only delete the StCR Options."
 msgstr ""
 
 #: options/stcr_support.php:20
-#, php-format
 msgid ""
 "Support the developer, You can donate via <a href=\"%s\"  rel=\"external\" "
 "target=\"_blank\"><i class=\"fab fa-paypal\" aria-hidden=\"true\"></i> "
@@ -1052,7 +1056,6 @@ msgstr ""
 "lugar de hacerlo en la página de soporte de WordPress."
 
 #: options/stcr_support.php:43
-#, php-format
 msgid ""
 "The options on the WordPress forum at very limited to share media "
 "information, so I urge you to use GitHub to report any issue, you will get a "
@@ -1115,7 +1118,7 @@ msgstr ""
 msgid "Clean Up Log Archive"
 msgstr "Limpiar Log de archivo"
 
-#: options/stcr_system.php:203
+#: options/stcr_system.php:202
 msgid ""
 "If you want to clean up the log archive please click the following button"
 msgstr ""
@@ -1151,7 +1154,6 @@ msgid "WordPress Environment"
 msgstr ""
 
 #: options/stcr_system.php:290
-#, php-format
 msgid "%s - We recommend setting memory to at least 64 MB. See: %s"
 msgstr ""
 
@@ -1222,13 +1224,12 @@ msgstr ""
 msgid "Not Available"
 msgstr ""
 
+#. translators: %s: SSL connection response
 #: options/stcr_system.php:414
-#, php-format
 msgid "Connection uses %s"
 msgstr ""
 
 #: options/stcr_system.php:431
-#, php-format
 msgid "%s - We recommend a minimum PHP version of 5.6. See: %s"
 msgstr ""
 
@@ -1243,12 +1244,10 @@ msgid ""
 msgstr ""
 
 #: options/stcr_system.php:460
-#, php-format
 msgid "%s - We recommend a minimum cURL version of 7.40."
 msgstr ""
 
 #: options/stcr_system.php:494
-#, php-format
 msgid "%s - We recommend a minimum MySQL version of 5.6. See: %s"
 msgstr ""
 
@@ -1257,19 +1256,16 @@ msgid "WordPress Requirements"
 msgstr ""
 
 #: options/stcr_system.php:509
-#, php-format
 msgid "Default timezone is %s - it should be UTC"
 msgstr ""
 
 #: options/stcr_system.php:525
-#, php-format
 msgid ""
 "Your server does not have the %s class enabled - HTML/Multipart emails, and "
 "also some extensions, will not work without DOMDocument."
 msgstr ""
 
 #: options/stcr_system.php:536
-#, php-format
 msgid ""
 "Your server does not support the %s function - this is used for file "
 "compression and decompression."
@@ -1333,6 +1329,19 @@ msgstr ""
 
 #: options/stcr_system.php:629
 msgid "Active Plugins"
+msgstr ""
+
+#: options/stcr_system.php:656 options/stcr_system.php:713
+msgid "Visit plugin homepage"
+msgstr ""
+
+#: options/stcr_system.php:665 options/stcr_system.php:722
+msgid "Visit author homepage"
+msgstr ""
+
+#: options/stcr_system.php:669 options/stcr_system.php:726
+msgctxt "by author"
+msgid "by %s"
 msgstr ""
 
 #: options/stcr_system.php:686
@@ -1497,14 +1506,6 @@ msgstr "¡Dona un poco de dinero!"
 msgid "Important Notice"
 msgstr "Nota Importante"
 
-#: utils/stcr_upgrade.php:120
-msgid ""
-"<strong>Subscribe to Comments Reloaded:</strong> The information in your "
-"database has been sanitized to prevent the raw html messages. <a class="
-"\"dismiss\" href=\"#\">Dismiss.  </a><img class=\"stcr-loading-animation\" "
-"src=\""
-msgstr ""
-
 #: utils/stcr_upgrade.php:175
 msgid ""
 "<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
@@ -1532,15 +1533,6 @@ msgstr ""
 "Si tienes datos de suscripción de Subscribe to Comments Reloaded < v2.0 que "
 "quieres importar, necesitaras importar esos datos manualmente, ya que sólo "
 "se ejecutará una rutina de importación para evitar la pérdida de datos."
-
-#: utils/stcr_upgrade.php:177 utils/stcr_upgrade.php:251
-#: utils/stcr_upgrade.php:400
-msgid ""
-"Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
-"reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to review "
-"your configuration.<a class=\"dismiss\" href=\"#\">Dismiss.  </a><img class="
-"\"stcr-loading-animation\" src=\""
-msgstr ""
 
 #: utils/stcr_upgrade.php:250
 msgid ""
@@ -1637,14 +1629,6 @@ msgid ""
 "%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
 msgstr ""
 
-#: utils/stcr_upgrade.php:421
-msgid ""
-"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
-"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for detailed "
-"information on plugin changes.<a class=\"dismiss\" href=\"#\">Dismiss.  </"
-"a><img class=\"stcr-loading-animation\" src=\""
-msgstr ""
-
 #: utils/stcr_upgrade.php:432
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
@@ -1656,18 +1640,6 @@ msgid ""
 "This version includes many changes and fixes to improve your experience with "
 "the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
 "email templates, Subscription Checkbox position, and more!"
-msgstr ""
-
-#: utils/stcr_upgrade.php:434 utils/stcr_upgrade.php:449
-#: utils/stcr_upgrade.php:471 utils/stcr_upgrade.php:494
-#: utils/stcr_upgrade.php:515 utils/stcr_upgrade.php:541
-#: utils/stcr_upgrade.php:566 utils/stcr_upgrade.php:592
-#: utils/stcr_upgrade.php:611
-msgid ""
-"Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
-"comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
-"complete list of changes.<a class=\"dismiss\" href=\"#\">Dismiss.  </a><img "
-"class=\"stcr-loading-animation\" src=\""
 msgstr ""
 
 #: utils/stcr_upgrade.php:447
@@ -1761,13 +1733,6 @@ msgid ""
 "<strong>Improve</strong> Email validation for empty values and using a regex."
 msgstr ""
 
-#: utils/stcr_upgrade.php:528 utils/stcr_upgrade.php:554
-#: utils/stcr_upgrade.php:579 utils/stcr_upgrade.php:605
-#: utils/stcr_upgrade.php:624
-msgid ""
-"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
-msgstr ""
-
 #: utils/stcr_upgrade.php:532
 msgid ""
 "<strong>Fix</strong> Wrong confirmation link when the double check option is "
@@ -1845,12 +1810,6 @@ msgstr ""
 
 #: utils/stcr_upgrade.php:627
 msgid "You might need to clear you cache !!"
-msgstr ""
-
-#: utils/stcr_upgrade.php:631
-msgid ""
-"Please visit the <a href=\"http://subscribe-reloaded.com/update/stcr-release-"
-"version-"
 msgstr ""
 
 #: utils/stcr_utils.php:172
@@ -2167,9 +2126,6 @@ msgstr "Todo"
 
 #~ msgid "Notify admin"
 #~ msgstr "Notificar al administrador"
-
-#~ msgid "Let admin subscribe"
-#~ msgstr "Permitir al administrador suscribirse"
 
 #~ msgid "days"
 #~ msgstr "días"
