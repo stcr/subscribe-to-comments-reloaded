@@ -1,0 +1,13 @@
+{
+  "name": "subscribe-to-comments-reloaded",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "4.0.0",
+    "Font-Awesome": "5.0.8",
+    "datatables": "1.10.16",
+    "datatables.net-responsive": "2.2.0",
+    "datatables.net-responsive-bs4": "^2.2.0",
+    "webui-popover": "^2.1.15"
+  }
+}

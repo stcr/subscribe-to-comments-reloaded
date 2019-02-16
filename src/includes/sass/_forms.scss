@@ -1,0 +1,239 @@
+/* ----------------------------------------------------------
+Styles use on form styles. Helpful to customize Bootstrap behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.form-controls-font {
+  font-size: 1em !important;
+
+}
+
+.col-form-label {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+}
+
+.subscribers-mass-actions
+{
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.subscribers-mass-actions select,
+.subscribers-mass-actions button,
+.subscribers-mass-actions input
+{
+  font-size: 0.9rem !important;
+}
+
+.mass-update-subs {
+  /*height: 100%;*/
+  margin-top: 0 !important;
+}
+
+.mass-update-select-status {
+  width: 70% !important;
+  display: inline !important;
+}
+
+.new-sub-select-status {
+  width: 76% !important;
+  display: inline !important;
+}
+
+.form-control-select {
+  width: 42% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-3 {
+  width: 30% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-4 {
+  width: 40% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-5 {
+  width: 50% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-6 {
+  width: 60% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-7 {
+  width: 70% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-8 {
+  width: 80% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.form-control-input-9 {
+  width: 90% !important;
+  display: inline !important;
+  font-size: 0.9rem !important;
+}
+
+.add-new-subs {
+  /*height: 100%;*/
+  margin-top: 0 !important;
+}
+
+.mass-update-subs h6,
+.add-new-subs h6 {
+  cursor: pointer;
+}
+
+.subscribe-form-button {
+  font-size: 0.8rem !important;
+}
+
+// https://php.quicoto.com/toggle-switches-using-input-radio-and-css3/
+.switch {
+  position: relative;
+  display: inline-flex;
+  margin-top: 7px;
+  height: 26px;
+  width: 120px;
+  background: rgba(45, 43, 42, 0.1);
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.13), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.13), 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 58px;
+  line-height: 26px;
+  font-size: 11px;
+  color: rgba(148, 148, 148, 1);
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.switch-label:active {
+  font-weight: bold;
+}
+
+.switch-label-off {
+  padding-left: 2px;
+}
+
+.switch-label-on {
+  padding-right: 2px;
+}
+
+.switch-input {
+  display: none !important;
+}
+
+.switch-input:checked + .switch-label {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.65);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+}
+
+$switch-initial-bg: #46d443;
+$switch-final-bg: #9dd993;
+$switch-initial-bg-dis: #82928f;
+$switch-final-bg-dis: #f3e4f6;
+
+.switch-input:checked + .switch-label-on ~ .switch-selection{
+  /* Note: left: 50% doesn't transition in WebKit */
+  left: 60px;
+  background-image: -webkit-linear-gradient(top, $switch-final-bg-dis, $switch-initial-bg-dis);
+  background-image: -moz-linear-gradient(top, $switch-final-bg-dis, $switch-initial-bg-dis);
+  background-image: -o-linear-gradient(top, $switch-final-bg-dis, $switch-initial-bg-dis);
+  background-image: linear-gradient(to bottom, $switch-final-bg-dis, $switch-initial-bg-dis);
+}
+
+.switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  width: 58px;
+  height: 22px;
+  background: #65bd63;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, $switch-final-bg, $switch-initial-bg);
+  background-image: -moz-linear-gradient(top, $switch-final-bg, $switch-initial-bg);
+  background-image: -o-linear-gradient(top, $switch-final-bg, $switch-initial-bg);
+  background-image: linear-gradient(to bottom, $switch-final-bg, $switch-initial-bg);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+}
+
+.switch-blue .switch-selection {
+  background: #3aa2d0;
+  background-image: -webkit-linear-gradient(top, #4fc9ee, #3aa2d0);
+  background-image: -moz-linear-gradient(top, #4fc9ee, #3aa2d0);
+  background-image: -o-linear-gradient(top, #4fc9ee, #3aa2d0);
+  background-image: linear-gradient(to bottom, #4fc9ee, #3aa2d0);
+}
+
+.switch-yellow .switch-selection {
+  background: #c4bb61;
+  background-image: -webkit-linear-gradient(top, #e0dd94, #c4bb61);
+  background-image: -moz-linear-gradient(top, #e0dd94, #c4bb61);
+  background-image: -o-linear-gradient(top, #e0dd94, #c4bb61);
+  background-image: linear-gradient(to bottom, #e0dd94, #c4bb61);
+}
+
+.helpDescription {
+  margin-left: 10px;
+  display: inline-flex;
+  color: #008ec2;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.webui-popover-helpDescriptionContent {
+  font-size: 0.85rem;
+}
+
+
+.arrow {
+  left: -8px !important;
+}
+
+.arrow:after{
+  left: 4px !important;
+  top: 0px !important;
+  width: 17px !important;
+  height: 2px !important;
+}
+//.popover .arrow {
+//  position: absolute;
+//  display: block;
+//  width: 1rem !important;
+//  height: .5rem !important;
+//  margin: 0 .3rem !important;
+//}

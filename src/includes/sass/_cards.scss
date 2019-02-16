@@ -1,0 +1,30 @@
+/* ----------------------------------------------------------
+Styles use on Cards styles. Helpful to customize Bootstrap Cards behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.card {
+  padding: 0 !important;
+}
+
+.card-subscribers {
+  -webkit-box-shadow: 0 0 6px 0 #9E9E9E;
+  box-shadow: 0 0 6px 0 #9E9E9E;
+}
+
+.card-header{
+  background-color: #008ec2 !important;
+  color: #ffffff;
+}
+
+.card-font-size {
+  font-size: 0.85em;
+}
+
+.original-card-padding {
+  padding: 1.25rem !important;
+}
+
+.card-no-max-width {
+  max-width: 100% !important;
+}

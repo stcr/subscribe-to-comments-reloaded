@@ -1,0 +1,38 @@
+/* ----------------------------------------------------------
+Common styles and utilities on pages.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.validate-error-text
+{
+  color: #f55252;
+  font-weight:bold;
+}
+
+.validate-error-field { border: 1px solid #ff9595 !important; }
+
+.stcr-hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.clearFix {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.stcr-alert-box {
+  font-size: .85em;
+}

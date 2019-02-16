@@ -1,0 +1,458 @@
+/*
+	Admin styles for StCR.
+
+	@author reedyseth
+	@since 21-Sep-2015
+*/
+/* ----------------------------------------------------------
+Common styles and utilities on pages.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.validate-error-text {
+  color: #f55252;
+  font-weight: bold; }
+
+.validate-error-field {
+  border: 1px solid #ff9595 !important; }
+
+.stcr-hidden {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important; }
+
+.clearFix {
+  clear: both; }
+
+.hidden {
+  display: none; }
+
+.float-right {
+  float: right; }
+
+.float-left {
+  float: left; }
+
+.stcr-alert-box {
+  font-size: .85em; }
+
+/* ----------------------------------------------------------
+Styles use on the interaction with the user.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.stcr-loading-animation {
+  display: none; }
+
+.dismiss {
+  background: #00a0d2;
+  border-color: #0073aa;
+  -webkit-box-shadow: inset 0 1px 0 rgba(120, 200, 230, 0.5), 0 1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 0 rgba(120, 200, 230, 0.5), 0 1px 0 rgba(0, 0, 0, 0.15);
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 26px;
+  height: 28px;
+  margin: 0 0 0 10px;
+  padding: 0 10px 1px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.dismiss:hover {
+  background: #0091cd;
+  border-color: #0073aa;
+  -webkit-box-shadow: inset 0 1px 0 rgba(120, 200, 230, 0.6);
+  box-shadow: inset 0 1px 0 rgba(120, 200, 230, 0.6);
+  color: #fff; }
+
+.info-panel {
+  background-color: #BBBBBB;
+  padding: 8px;
+  font-style: italic; }
+
+.more-info {
+  color: #008ec2;
+  cursor: pointer;
+  width: 10%;
+  font-size: 1.4rem; }
+
+.stcr-dismiss-notice p {
+  font-size: 0.8rem !important; }
+
+.stcr-dismiss-notice h2 {
+  font-size: 1rem !important; }
+
+li {
+  margin-bottom: 0; }
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  top: 30px;
+  font-size: 0.9rem; }
+
+/* ----------------------------------------------------------
+Styles use on form styles. Helpful to customize Bootstrap behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.form-controls-font {
+  font-size: 1em !important; }
+
+.col-form-label {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important; }
+
+.subscribers-mass-actions {
+  margin-top: 20px;
+  font-size: 0.9rem; }
+
+.subscribers-mass-actions select,
+.subscribers-mass-actions button,
+.subscribers-mass-actions input {
+  font-size: 0.9rem !important; }
+
+.mass-update-subs {
+  /*height: 100%;*/
+  margin-top: 0 !important; }
+
+.mass-update-select-status {
+  width: 70% !important;
+  display: inline !important; }
+
+.new-sub-select-status {
+  width: 76% !important;
+  display: inline !important; }
+
+.form-control-select {
+  width: 42% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-3 {
+  width: 30% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-4 {
+  width: 40% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-5 {
+  width: 50% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-6 {
+  width: 60% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-7 {
+  width: 70% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-8 {
+  width: 80% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.form-control-input-9 {
+  width: 90% !important;
+  display: inline !important;
+  font-size: 0.9rem !important; }
+
+.add-new-subs {
+  /*height: 100%;*/
+  margin-top: 0 !important; }
+
+.mass-update-subs h6,
+.add-new-subs h6 {
+  cursor: pointer; }
+
+.subscribe-form-button {
+  font-size: 0.8rem !important; }
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  margin-top: 7px;
+  height: 26px;
+  width: 120px;
+  background: rgba(45, 43, 42, 0.1);
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.13), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.13), 0 1px rgba(255, 255, 255, 0.1); }
+
+.switch-label {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 58px;
+  line-height: 26px;
+  font-size: 11px;
+  color: #949494;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer; }
+
+.switch-label:active {
+  font-weight: bold; }
+
+.switch-label-off {
+  padding-left: 2px; }
+
+.switch-label-on {
+  padding-right: 2px; }
+
+.switch-input {
+  display: none !important; }
+
+.switch-input:checked + .switch-label {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.65);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  -o-transition: 0.15s ease-out;
+  transition: 0.15s ease-out; }
+
+.switch-input:checked + .switch-label-on ~ .switch-selection {
+  /* Note: left: 50% doesn't transition in WebKit */
+  left: 60px;
+  background-image: -webkit-linear-gradient(top, #f3e4f6, #82928f);
+  background-image: -moz-linear-gradient(top, #f3e4f6, #82928f);
+  background-image: -o-linear-gradient(top, #f3e4f6, #82928f);
+  background-image: linear-gradient(to bottom, #f3e4f6, #82928f); }
+
+.switch-selection {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 2px;
+  width: 58px;
+  height: 22px;
+  background: #65bd63;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, #9dd993, #46d443);
+  background-image: -moz-linear-gradient(top, #9dd993, #46d443);
+  background-image: -o-linear-gradient(top, #9dd993, #46d443);
+  background-image: linear-gradient(to bottom, #9dd993, #46d443);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 0 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.15s ease-out;
+  -moz-transition: left 0.15s ease-out;
+  -o-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out; }
+
+.switch-blue .switch-selection {
+  background: #3aa2d0;
+  background-image: -webkit-linear-gradient(top, #4fc9ee, #3aa2d0);
+  background-image: -moz-linear-gradient(top, #4fc9ee, #3aa2d0);
+  background-image: -o-linear-gradient(top, #4fc9ee, #3aa2d0);
+  background-image: linear-gradient(to bottom, #4fc9ee, #3aa2d0); }
+
+.switch-yellow .switch-selection {
+  background: #c4bb61;
+  background-image: -webkit-linear-gradient(top, #e0dd94, #c4bb61);
+  background-image: -moz-linear-gradient(top, #e0dd94, #c4bb61);
+  background-image: -o-linear-gradient(top, #e0dd94, #c4bb61);
+  background-image: linear-gradient(to bottom, #e0dd94, #c4bb61); }
+
+.helpDescription {
+  margin-left: 10px;
+  display: inline-flex;
+  color: #008ec2;
+  font-size: 0.9rem;
+  cursor: pointer; }
+
+.webui-popover-helpDescriptionContent {
+  font-size: 0.85rem; }
+
+.arrow {
+  left: -8px !important; }
+
+.arrow:after {
+  left: 4px !important;
+  top: 0px !important;
+  width: 17px !important;
+  height: 2px !important; }
+
+/* ----------------------------------------------------------
+Styles use on Cards styles. Helpful to customize Bootstrap Cards behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.card {
+  padding: 0 !important; }
+
+.card-subscribers {
+  -webkit-box-shadow: 0 0 6px 0 #9E9E9E;
+  box-shadow: 0 0 6px 0 #9E9E9E; }
+
+.card-header {
+  background-color: #008ec2 !important;
+  color: #ffffff; }
+
+.card-font-size {
+  font-size: 0.85em; }
+
+.original-card-padding {
+  padding: 1.25rem !important; }
+
+.card-no-max-width {
+  max-width: 100% !important; }
+
+/* ----------------------------------------------------------
+Styles use on Table styles. Helpful to customize Bootstrap Tables behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+table.subscribers-table {
+  width: 100% !important; }
+
+table.subscribers-table thead {
+  background-color: #b3e0f1; }
+
+table.subscribers-table thead th {
+  line-height: normal;
+  vertical-align: middle;
+  padding: 0.55rem; }
+
+table.subscribers-table thead th:first-child {
+  width: 15%;
+  text-align: center; }
+
+table.subscribers-table tbody tr td:first-child {
+  text-align: center; }
+
+table.subscribers-table thead th i {
+  margin-right: 5px;
+  font-size: 1.0rem; }
+
+table.subscribers-table thead th span {
+  vertical-align: text-bottom;
+  font-size: 0.9rem;
+  text-transform: uppercase; }
+
+@media screen and (max-width: 651px) {
+  table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
+  table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
+    padding-left: 40px !important; } }
+
+@media screen and (max-width: 350px) {
+  table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
+  table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
+    padding-left: 57px !important; } }
+
+/* Override rules from DataTables causing styling issues.*/
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0 !important;
+  margin-left: 0 !important;
+  border: none !important;
+  border-radius: 0px !important; }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important; }
+
+.system-info-table a {
+  color: #0073aa; }
+
+/* ----------------------------------------------------------
+Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.btn-primary {
+  color: #fff !important;
+  background-color: #0085ba !important;
+  border-color: #80bbd2 !important; }
+
+.btn-primary:hover {
+  color: #fff !important;
+  background-color: #4299b9 !important;
+  border-color: #5495ad !important; }
+
+.btn-third {
+  color: #444 !important;
+  background-color: #ffc63c !important;
+  border-color: #dcb456 !important; }
+
+.btn-third:hover {
+  color: #444 !important;
+  background-color: #fdd575 !important;
+  border-color: #dcb456 !important; }
+
+.btn-download {
+  color: #445435;
+  background-color: #7bd774;
+  border-color: #28a745 !important; }
+
+.btn-download:hover {
+  color: #445435;
+  background-color: #78c771;
+  border-color: #28a745 !important; }
+
+/* ----------------------------------------------------------
+Styles use on loading events.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.fa-spinner, .fa-play-circle {
+  color: #ffc53a;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 900ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+  -moz-animation-name: spin;
+  -moz-animation-duration: 900ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+  -ms-animation-name: spin;
+  -ms-animation-duration: 900ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98);
+  animation-name: spin;
+  animation-duration: 900ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0.62, 0.93, 0.98); }
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }

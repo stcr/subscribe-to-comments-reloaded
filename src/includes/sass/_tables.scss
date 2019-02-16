@@ -1,0 +1,72 @@
+/* ----------------------------------------------------------
+Styles use on Table styles. Helpful to customize Bootstrap Tables behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+table.subscribers-table {
+  width: 100% !important;
+}
+
+table.subscribers-table thead{
+  background-color: #b3e0f1;
+}
+
+table.subscribers-table thead th{
+  line-height: normal;
+  vertical-align: middle;
+  padding: 0.55rem;
+}
+
+table.subscribers-table thead th:first-child {
+  width: 15%;
+  text-align: center;
+}
+
+table.subscribers-table tbody tr td:first-child {
+  text-align: center;
+}
+
+table.subscribers-table thead th i{
+  margin-right: 5px;
+  font-size: 1.0rem;
+}
+table.subscribers-table thead th span{
+  vertical-align: text-bottom;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+@media screen and ( max-width: 651px ) {
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+    padding-left: 40px !important;
+  }
+}
+
+@media screen and ( max-width: 350px ) {
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+  table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+    padding-left: 57px !important;
+  }
+}
+
+/* Override rules from DataTables causing styling issues.*/
+.dataTables_wrapper .dataTables_paginate .paginate_button
+{
+  padding: 0 !important;
+  margin-left: 0 !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.system-info-table a {
+  color: #0073aa;
+}

@@ -1,0 +1,2506 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subscribe To Comments Reloaded 2.0 en español\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/src\n"
+"POT-Creation-Date: 2019-02-07 08:12:11+00:00\n"
+"PO-Revision-Date: 2019-01-31 15:24-0700\n"
+"Last-Translator: Reedyseth - Israel Barragan <reedyseth@gmail.com>\n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n !=1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: bower_components\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: classes/stcr_i18n.php:51 classes/stcr_i18n.php:56
+msgid " "
+msgstr ""
+
+#: classes/stcr_i18n.php:52
+msgid "No data available in table"
+msgstr "No disponible en la tabla"
+
+#: classes/stcr_i18n.php:53
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Mostrando _START_ al _END_ de _TOTAL_ registros"
+
+#: classes/stcr_i18n.php:54
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Mostrando 0 al 0 de 0 registros"
+
+#: classes/stcr_i18n.php:55
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(filtro de _MAX_ total registros)"
+
+#: classes/stcr_i18n.php:57
+msgid ","
+msgstr ","
+
+#: classes/stcr_i18n.php:58
+msgid "Show _MENU_ entries"
+msgstr "Mostrar _MENU_ registros"
+
+#: classes/stcr_i18n.php:59
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: classes/stcr_i18n.php:60
+msgid "Processing..."
+msgstr "Procesando..."
+
+#: classes/stcr_i18n.php:61
+msgid "Search"
+msgstr "Buscar"
+
+#: classes/stcr_i18n.php:62
+msgid "No matching records found"
+msgstr "No se encontraron registros"
+
+#: classes/stcr_i18n.php:64
+msgid "First"
+msgstr "Primero"
+
+#: classes/stcr_i18n.php:65
+msgid "Last"
+msgstr "Ultimo"
+
+#: classes/stcr_i18n.php:66
+msgid "Next"
+msgstr "Siguiente"
+
+#: classes/stcr_i18n.php:67
+msgid "Previous"
+msgstr "Anterior"
+
+#: classes/stcr_i18n.php:70
+msgid "activate to sort column ascending"
+msgstr "activar para ordenar columna ascendente"
+
+#: classes/stcr_i18n.php:71
+msgid "activate to sort column descending"
+msgstr "activar para ordenar columna descendente"
+
+#: options/options_template.php:44 options/stcr_comment_form.php:40
+#: options/stcr_management_page.php:47 options/stcr_notifications.php:55
+#: options/stcr_options.php:32 options/stcr_options.php:63
+#: options/stcr_system.php:112
+msgid "Your settings have been successfully updated."
+msgstr "Tu configuración se ha actualizado correctamente."
+
+#: options/options_template.php:46 options/stcr_notifications.php:57
+#: options/stcr_options.php:65 options/stcr_system.php:114
+msgid "There was an error updating the options."
+msgstr ""
+
+#: options/options_template.php:67 options/stcr_comment_form.php:338
+#: options/stcr_management_page.php:350 options/stcr_notifications.php:319
+#: options/stcr_options.php:479 options/stcr_system.php:243
+msgid "Save Changes"
+msgstr "Guardar cambios"
+
+#: options/panel1-add-subscription.php:8
+#: options/stcr_manage_subscriptions.php:104
+msgid "Add New Subscription"
+msgstr "Añadir Nueva Suscripción"
+
+#: options/panel1-add-subscription.php:13
+#: options/panel1-edit-subscription.php:13
+msgid "Post:"
+msgstr "Entrada:"
+
+#: options/panel1-add-subscription.php:16
+#: options/stcr_manage_subscriptions.php:118
+#: options/stcr_manage_subscriptions.php:184 templates/key_expired.php:72
+#: templates/request-management-link.php:113
+#: templates/request-management-link.php:139 templates/subscribe.php:121
+#: templates/subscribe.php:146
+msgid "Email"
+msgstr "Email"
+
+#: options/panel1-add-subscription.php:20
+#: options/panel1-edit-subscription.php:26
+#: options/stcr_manage_subscriptions.php:70
+#: options/stcr_manage_subscriptions.php:123
+#: options/stcr_manage_subscriptions.php:202
+#: options/stcr_manage_subscriptions.php:215
+msgid "Status"
+msgstr "Estado"
+
+#: options/panel1-add-subscription.php:22
+#: options/panel1-edit-subscription.php:29
+#: options/stcr_manage_subscriptions.php:73
+#: options/stcr_manage_subscriptions.php:126
+#: options/stcr_manage_subscriptions.php:175 templates/author.php:65
+#: templates/user.php:77
+msgid "Active"
+msgstr "Activo"
+
+#: options/panel1-add-subscription.php:23
+#: options/panel1-edit-subscription.php:30
+#: options/stcr_manage_subscriptions.php:74
+#: options/stcr_manage_subscriptions.php:127
+msgid "Replies only"
+msgstr "Solo respuestas"
+
+#: options/panel1-add-subscription.php:24
+#: options/stcr_manage_subscriptions.php:128
+msgid "Ask user to confirm"
+msgstr "Pedir confirmación al usuario"
+
+#: options/panel1-add-subscription.php:26
+#: options/panel1-edit-subscription.php:33
+#: options/stcr_manage_subscriptions.php:77
+msgid "Update"
+msgstr "Actualizar"
+
+#: options/panel1-business-logic.php:40
+msgid "Subscription added."
+msgstr "Suscripción añadida."
+
+#: options/panel1-business-logic.php:65
+msgid "Subscriptions updated."
+msgstr "Suscripción actualizada."
+
+#: options/panel1-business-logic.php:80
+msgid "Subscription deleted."
+msgstr "Suscripción eliminada."
+
+#: options/panel1-business-logic.php:99 templates/author.php:25
+#: templates/user.php:34
+msgid "Subscriptions deleted:"
+msgstr "Suscripciones eliminadas:"
+
+#: options/panel1-business-logic.php:103 templates/author.php:29
+#: templates/user.php:38
+msgid "Subscriptions suspended:"
+msgstr "Suscripción suspendida:"
+
+#: options/panel1-business-logic.php:107 templates/author.php:33
+#: templates/user.php:42
+msgid "Subscriptions activated:"
+msgstr "Suscripciones activadas:"
+
+#: options/panel1-business-logic.php:111 options/panel1-business-logic.php:115
+#: templates/author.php:37 templates/author.php:41 templates/user.php:46
+#: templates/user.php:50
+msgid "Subscriptions updated:"
+msgstr "Suscripciones actualizadas:"
+
+#: options/panel1-business-logic.php:151
+msgid "&laquo; Previous"
+msgstr "&laquo; Anterior"
+
+#: options/panel1-business-logic.php:155
+msgid "Next &raquo;"
+msgstr "Siguiente &raquo;"
+
+#: options/panel1-edit-subscription.php:8
+msgid "Update Subscription"
+msgstr "Actualizar Suscripción"
+
+#: options/panel1-edit-subscription.php:11
+#: options/panel1-edit-subscription.php:21
+#: options/panel1-edit-subscription.php:22
+#: options/panel1-edit-subscription.php:23
+msgid "optional"
+msgstr "opcional"
+
+#: options/panel1-edit-subscription.php:11
+#: options/stcr_manage_subscriptions.php:162
+#: options/stcr_manage_subscriptions.php:246
+#: options/stcr_manage_subscriptions.php:261 templates/author.php:54
+#: templates/user.php:66
+msgid ""
+"Please remember: this operation cannot be undone. Are you sure you want to "
+"proceed?"
+msgstr ""
+"Recuerda: esta operación no se puede deshacer. ¿Estás seguro de que quieres "
+"hacerlo?"
+
+#: options/panel1-edit-subscription.php:16
+#: options/stcr_manage_subscriptions.php:58
+msgid "From"
+msgstr "De"
+
+#: options/panel1-edit-subscription.php:20
+#: options/stcr_manage_subscriptions.php:63
+msgid "To"
+msgstr "Para"
+
+#: options/panel1-edit-subscription.php:28
+#: options/stcr_manage_subscriptions.php:72
+msgid "Keep unchanged"
+msgstr "Mantener sin cambios"
+
+#: options/panel1-edit-subscription.php:31
+#: options/stcr_manage_subscriptions.php:75
+msgid "Suspended"
+msgstr "Suspendido"
+
+#: options/stcr_comment_form.php:42 options/stcr_management_page.php:51
+msgid "There was an error updating the following fields:"
+msgstr "Se ha producido un error al actualizar los siguientes campos:"
+
+#: options/stcr_comment_form.php:56
+msgid "Enable default checkbox"
+msgstr "Activar casilla por defecto"
+
+#: options/stcr_comment_form.php:62 options/stcr_comment_form.php:87
+#: options/stcr_comment_form.php:137 options/stcr_management_page.php:78
+#: options/stcr_options.php:88 options/stcr_options.php:113
+#: options/stcr_options.php:172 options/stcr_options.php:199
+#: options/stcr_options.php:226 options/stcr_options.php:253
+#: options/stcr_options.php:280 options/stcr_options.php:307
+#: options/stcr_options.php:334 options/stcr_options.php:361
+#: options/stcr_options.php:388 options/stcr_options.php:460
+#: options/stcr_system.php:146 options/stcr_system.php:172
+msgid "Yes"
+msgstr "Sí"
+
+#: options/stcr_comment_form.php:67 options/stcr_comment_form.php:92
+#: options/stcr_comment_form.php:142 options/stcr_management_page.php:83
+#: options/stcr_options.php:93 options/stcr_options.php:118
+#: options/stcr_options.php:177 options/stcr_options.php:204
+#: options/stcr_options.php:231 options/stcr_options.php:258
+#: options/stcr_options.php:285 options/stcr_options.php:312
+#: options/stcr_options.php:339 options/stcr_options.php:366
+#: options/stcr_options.php:393 options/stcr_options.php:465
+#: options/stcr_system.php:151 options/stcr_system.php:177
+#: utils/stcr_manage.php:673
+msgid "No"
+msgstr "No"
+
+#: options/stcr_comment_form.php:72 options/stcr_comment_form.php:74
+msgid ""
+"Disable this option if you want to move the subscription checkbox to a "
+"different place on your page."
+msgstr ""
+"Desactivar esta opción si quieres mover la casilla de suscripción en un "
+"lugar diferente de tu página."
+
+#: options/stcr_comment_form.php:81
+msgid "Checked by default"
+msgstr "Marcada por defecto"
+
+#: options/stcr_comment_form.php:97 options/stcr_comment_form.php:99
+msgid "Decide if the checkbox should be checked by default or not."
+msgstr "Establece si la casilla tiene que estar marcada por defecto o no."
+
+#: options/stcr_comment_form.php:109
+msgid "Default Checkbox Value"
+msgstr "Valor por defecto de la casilla"
+
+#: options/stcr_comment_form.php:112 options/stcr_comment_form.php:164
+msgid "All new comments"
+msgstr "Todos los comentarios nuevos"
+
+#: options/stcr_comment_form.php:113 options/stcr_comment_form.php:165
+msgid "Replies to this comment"
+msgstr "Respuestas a mis comentarios"
+
+#: options/stcr_comment_form.php:116 options/stcr_comment_form.php:118
+msgid ""
+"Select the default option for the Checkbox. Be careful! Some users might "
+"like to be subscribed to all the post."
+msgstr ""
+"Selecciona la opción predeterminada para la casilla de verificación. ¡Sé "
+"cuidadoso! Algunos usuarios pueden preferir estar suscritos a todo el post."
+
+#: options/stcr_comment_form.php:130
+msgid "Advanced subscription"
+msgstr "Suscripción avanzada"
+
+#: options/stcr_comment_form.php:147 options/stcr_comment_form.php:149
+msgid ""
+"Allow users to choose from different subscription types (all, replies only)."
+msgstr ""
+"Permitir a los usuarios escoger diferentes tipos de suscripción (todo, solo "
+"respuestas)."
+
+#: options/stcr_comment_form.php:160
+msgid "Advanced default"
+msgstr "Marcada por defecto"
+
+#: options/stcr_comment_form.php:163
+msgid "None"
+msgstr "Ninguno"
+
+#: options/stcr_comment_form.php:168 options/stcr_comment_form.php:170
+msgid ""
+"The default subscription type that should be selected when Advanced "
+"subscriptions are enable."
+msgstr ""
+"El tipo de suscripción por defecto que debe ser seleccionado cuando se "
+"activa Suscripción avanzada."
+
+#: options/stcr_comment_form.php:182
+msgid "Custom inline style"
+msgstr "Estilo en línea personalizado"
+
+#: options/stcr_comment_form.php:189 options/stcr_comment_form.php:191
+msgid "Custom inline CSS to add to the checkbox."
+msgstr "CSS en línea personalizado para la casilla de verificación."
+
+#: options/stcr_comment_form.php:199
+msgid "Custom HTML"
+msgstr "HTML personalizado"
+
+#: options/stcr_comment_form.php:202 options/stcr_comment_form.php:204
+msgid ""
+"Custom HTML code to be used when displaying the checkbox. Allowed tags: "
+"[checkbox_field], [checkbox_label]"
+msgstr ""
+"Código HTML personalizado para ser utilizado cuando se muestra la casilla de "
+"verificación. Etiquetas permitidas: [checkbox_field] y [checkbox_label]"
+
+#: options/stcr_comment_form.php:225
+msgid "Messages for your visitors"
+msgstr "Mensajes de tus visitantes"
+
+#: options/stcr_comment_form.php:229
+msgid "Default label"
+msgstr "Etiqueta por defecto"
+
+#: options/stcr_comment_form.php:232 options/stcr_comment_form.php:234
+msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
+msgstr ""
+"Texto asociado a la casilla para suscribirse. Etiquetas permitidas: "
+"[subscribe_link]."
+
+#: options/stcr_comment_form.php:256
+msgid "Subscribed label"
+msgstr "Suscrito"
+
+#: options/stcr_comment_form.php:259 options/stcr_comment_form.php:261
+msgid ""
+"Label shown to those who are already subscribed to a post. Allowed tag: "
+"[manager_link]"
+msgstr ""
+"Texto que se muestra cuando alguien se suscribe a una entrada. Etiquetas "
+"permitidas: [manager_link]."
+
+#: options/stcr_comment_form.php:283
+msgid "Pending label"
+msgstr "Etiqueta pendiente"
+
+#: options/stcr_comment_form.php:286 options/stcr_comment_form.php:288
+msgid ""
+"Label shown to those who are already subscribed, but haven't clicked on the "
+"confirmation link yet. Allowed tag: [manager_link]"
+msgstr ""
+"Texto que se muestra cuando alguien ya está suscrito a una entrada, pero es "
+"pero no ha confirmado su suscripción aún. Etiquetas permitidas: "
+"[manager_link]."
+
+#: options/stcr_comment_form.php:310
+msgid "Author label"
+msgstr "Autor"
+
+#: options/stcr_comment_form.php:313 options/stcr_comment_form.php:315
+msgid ""
+"Label shown to authors (and administrators). Allowed tag: [manager_link]"
+msgstr ""
+"Texto que se muestra a los autores (y administradores) para gestionar las "
+"suscripciones. Etiquetas permitidas: [manager_link]."
+
+#: options/stcr_manage_subscriptions.php:22
+msgid "The email that you typed is not correct."
+msgstr "El email ingresado no es correcto"
+
+#: options/stcr_manage_subscriptions.php:29
+msgid "Please enter a valid Post ID."
+msgstr "Por favor ingresa un ID de Post valido."
+
+#: options/stcr_manage_subscriptions.php:49
+msgid "Mass Update Subscriptions"
+msgstr "Actualizar Suscripciones en Masa"
+
+#: options/stcr_manage_subscriptions.php:59
+msgid "email address"
+msgstr "Dirección de correo electrónico del remitente"
+
+#: options/stcr_manage_subscriptions.php:64
+msgid "optional - new email address"
+msgstr "Actualizar dirección de correo electrónico"
+
+#: options/stcr_manage_subscriptions.php:81
+msgid "More info"
+msgstr "Mas informacion"
+
+#: options/stcr_manage_subscriptions.php:93
+msgid ""
+"This option will allow you to change an email address for another one or to "
+"update the same status for all the subscription on a specific email address."
+msgstr ""
+"Esta opción te permite cambiar la dirección de correo electrónico por otra o "
+"actualizar el mismo estatus para todas las subscripciones en un email "
+"específico."
+
+#: options/stcr_manage_subscriptions.php:113
+msgid "Post ID"
+msgstr "ID de entrada"
+
+#: options/stcr_manage_subscriptions.php:130
+msgid "Add"
+msgstr "Añadir"
+
+#: options/stcr_manage_subscriptions.php:155
+msgid "Search subscriptions"
+msgstr "Buscar suscripciones"
+
+#: options/stcr_manage_subscriptions.php:157
+msgid "Loading"
+msgstr ""
+
+#: options/stcr_manage_subscriptions.php:170 templates/author.php:60
+#: templates/user.php:72
+msgid "Replies"
+msgstr "Respuestas"
+
+#: options/stcr_manage_subscriptions.php:171 templates/author.php:61
+#: templates/user.php:73
+msgid "Replies Unconfirmed"
+msgstr "Respuestas si confirmar"
+
+#: options/stcr_manage_subscriptions.php:172 templates/author.php:62
+#: templates/user.php:74
+msgid "All Comments"
+msgstr "Todos los comentarios"
+
+#: options/stcr_manage_subscriptions.php:173 templates/author.php:63
+#: templates/user.php:75
+msgid "Unconfirmed"
+msgstr "Sin Confirmar"
+
+#: options/stcr_manage_subscriptions.php:174 templates/author.php:64
+#: templates/user.php:76
+msgid "Inactive"
+msgstr "Activo"
+
+#: options/stcr_manage_subscriptions.php:183
+msgid "Post (ID)"
+msgstr "ID de Entrada"
+
+#: options/stcr_manage_subscriptions.php:196
+#: options/stcr_manage_subscriptions.php:210
+msgid "Actions"
+msgstr "Acciones"
+
+#: options/stcr_manage_subscriptions.php:201
+#: options/stcr_manage_subscriptions.php:214
+msgid "Date and Time"
+msgstr "Fecha y Hora"
+
+#: options/stcr_manage_subscriptions.php:243
+#: options/stcr_manage_subscriptions.php:258
+msgid "Subscription"
+msgstr "Suscripciones"
+
+#: options/stcr_manage_subscriptions.php:245
+#: options/stcr_manage_subscriptions.php:260
+msgid "Edit"
+msgstr "Editar"
+
+#: options/stcr_manage_subscriptions.php:246
+#: options/stcr_manage_subscriptions.php:261
+msgid "Delete"
+msgstr "Eliminar"
+
+#: options/stcr_manage_subscriptions.php:276 templates/author.php:94
+#: templates/user.php:111
+msgid "Action:"
+msgstr "Acción:"
+
+#: options/stcr_manage_subscriptions.php:279
+msgid "Delete forever"
+msgstr "Eliminar para siempre"
+
+#: options/stcr_manage_subscriptions.php:280 templates/author.php:98
+#: templates/user.php:116
+msgid "Suspend"
+msgstr "Suspender"
+
+#: options/stcr_manage_subscriptions.php:281
+msgid "Activate and set to Y"
+msgstr "Activar y establecer a Y"
+
+#: options/stcr_manage_subscriptions.php:282
+msgid "Activate and set to R"
+msgstr "Activar y establecer a R"
+
+#: options/stcr_manage_subscriptions.php:283
+msgid "Activate"
+msgstr "Activar"
+
+#: options/stcr_manage_subscriptions.php:287 templates/author.php:103
+#: templates/user.php:122
+msgid "Update subscriptions"
+msgstr "Actualizar suscripciones"
+
+#: options/stcr_manage_subscriptions.php:292
+msgid "Sorry, no subscriptions match your search criteria."
+msgstr "Lo siento, ninguna suscripción coincide con tu criterio de búsqueda."
+
+#: options/stcr_management_page.php:25 options/stcr_management_page.php:115
+msgid "Management URL"
+msgstr "Página de Administración"
+
+#: options/stcr_management_page.php:72
+msgid "Virtual Management Page"
+msgstr "Página de Administración virtual"
+
+#: options/stcr_management_page.php:88 options/stcr_management_page.php:90
+msgid ""
+"Disable the virtual management page if you need to create a <a href='https://"
+"github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-"
+"management-page'>real page</a> to make your theme happy."
+msgstr ""
+
+#: options/stcr_management_page.php:98
+msgid "Page title"
+msgstr "Título de la página"
+
+#: options/stcr_management_page.php:105 options/stcr_management_page.php:107
+msgid "Title of the page your visitors will use to manage their subscriptions."
+msgstr ""
+"Título de la página para que tus visitantes usarán para gestionar tus "
+"suscripciones."
+
+#: options/stcr_management_page.php:123 options/stcr_management_page.php:125
+msgid ""
+"The permalink for your management page (something like <code>/manage-"
+"subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</"
+"b> actually exist in the system, but its link must follow your permalink "
+"structure."
+msgstr ""
+"El enlace permanente para la página de administración (algo como <code>/"
+"administrar-suscripciones</code> o <code>/?page_id=345</code>). Esta página "
+"realmente <b>no tiene</b> que existir en el sistema, pero su enlace debe "
+"seguir tu estructura de enlaces permanentes."
+
+#: options/stcr_management_page.php:132
+msgid ""
+"Warning: it looks like the value you are using may be incompatible with your "
+"permalink structure"
+msgstr ""
+"Precaución: parece que el valor que estás usando puede ser incompatible con "
+"tu estructura de enlaces permanentes"
+
+#: options/stcr_management_page.php:141
+msgid "Custom HEAD meta"
+msgstr "HEAD meta personalizada"
+
+#: options/stcr_management_page.php:148 options/stcr_management_page.php:150
+msgid ""
+"Specify your custom HTML code to be added to the HEAD section of the page. "
+"Use <strong>single</strong> quotes for values."
+msgstr ""
+"Especifica tu código HTML personalizado para ser añadido a la sección HEAD "
+"de tu página. Usa comillas <strong>simples</strong> para los valores."
+
+#: options/stcr_management_page.php:156 options/stcr_notifications.php:124
+msgid "Messages"
+msgstr "Mensajes"
+
+#: options/stcr_management_page.php:160
+msgid "Request link"
+msgstr "Petición de enlace"
+
+#: options/stcr_management_page.php:163 options/stcr_management_page.php:165
+msgid "Text shown to those who request to manage their subscriptions."
+msgstr ""
+"Texto que se muestra a quienes solicitan acceso para administrar sus "
+"suscripciones."
+
+#: options/stcr_management_page.php:187
+msgid "Request submitted"
+msgstr "Petición enviada"
+
+#: options/stcr_management_page.php:190 options/stcr_management_page.php:192
+msgid ""
+"Thank you note shown after the request here above has been processed. "
+"Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Nota de agradecimiento que se muestra tras haber sido procesada la solicitud "
+"notificación. Etiquetas permitidas: [post_title] y [post_permalink]."
+
+#: options/stcr_management_page.php:214
+msgid "Subscribe without commenting"
+msgstr "Suscribir sin comentar"
+
+#: options/stcr_management_page.php:217 options/stcr_management_page.php:219
+msgid ""
+"Text shown to those who want to subscribe without commenting. Allowed tags: "
+"[post_title], [post_permalink]"
+msgstr ""
+"Texto que se muestra a quienes se quieren suscribir sin comentar. Etiquetas "
+"permitidas: [post_title] y [post_permalink]."
+
+#: options/stcr_management_page.php:241
+msgid "Subscription processed"
+msgstr "Suscripción procesada"
+
+#: options/stcr_management_page.php:244 options/stcr_management_page.php:246
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Nota de agradecimiento que se muestra tras haber sido procesada la solicitud "
+"notificación (con doble verificación desactivada). Etiquetas permitidas: "
+"[post_title] y [post_permalink]."
+
+#: options/stcr_management_page.php:268
+msgid "Subscription processed (DCI)"
+msgstr "Suscripción procesada (Pendiente de confirmación)"
+
+#: options/stcr_management_page.php:271 options/stcr_management_page.php:273
+msgid ""
+"Thank you note shown after the subscription request has been processed "
+"(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
+msgstr ""
+"Nota de agradecimiento que se muestra tras haber sido procesada la solicitud "
+"notificación (con doble verificación activada). Etiquetas disponibles: "
+"[post_title] y [post_permalink]."
+
+#: options/stcr_management_page.php:295
+msgid "Authors"
+msgstr "Autores"
+
+#: options/stcr_management_page.php:298 options/stcr_management_page.php:300
+msgid "Introductory text for the authors' management page."
+msgstr "Texto de introducción para los autores en la página de administración."
+
+#: options/stcr_management_page.php:322
+msgid "Users"
+msgstr "Usuarios"
+
+#: options/stcr_management_page.php:325 options/stcr_management_page.php:327
+msgid "Introductory text for the users' management page."
+msgstr ""
+"Texto de introducción para los usuarios en la página de administración."
+
+#: options/stcr_notifications.php:75 options/stcr_notifications.php:92
+msgid "Sender email address"
+msgstr "Dirección de correo electrónico del remitente"
+
+#: options/stcr_notifications.php:82 options/stcr_notifications.php:84
+msgid ""
+"Name to use for the 'from' field when sending a new notification to the user."
+msgstr ""
+
+#: options/stcr_notifications.php:99 options/stcr_notifications.php:101
+msgid ""
+"Email address to use for the \"from\" field when sending a new notification "
+"to the user."
+msgstr ""
+"Dirección de correo electrónico que a usar en el campo \"Para:\" cuando se "
+"envía una nueva notificación al usuario."
+
+#: options/stcr_notifications.php:109
+msgid "Reply To"
+msgstr "Responder A"
+
+#: options/stcr_notifications.php:116 options/stcr_notifications.php:118
+msgid ""
+"This will be use when the user click reply on their email agent. If not set "
+"it will be the same as the Sender email address."
+msgstr ""
+
+#: options/stcr_notifications.php:128
+msgid "Notification subject"
+msgstr "Asunto de la notificación"
+
+#: options/stcr_notifications.php:135 options/stcr_notifications.php:137
+msgid "Subject of the notification email. Allowed tag: [post_title]"
+msgstr ""
+"Asunto del mensaje de notificación de nuevos comentarios. Etiquetas "
+"permitidas: [post_title]."
+
+#: options/stcr_notifications.php:145
+msgid "Notification message"
+msgstr "Mensaje de la notificación"
+
+#: options/stcr_notifications.php:148 options/stcr_notifications.php:150
+msgid ""
+"Content of the notification email. Allowed tags: [post_title], "
+"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
+"[manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: "
+"To get a default template clear all the content and save the options.</"
+"strong></p>"
+msgstr ""
+
+#: options/stcr_notifications.php:176
+msgid "Double check subject"
+msgstr "Asunto del mensaje de doble verificación"
+
+#: options/stcr_notifications.php:183 options/stcr_notifications.php:185
+msgid "Subject of the confirmation email. Allowed tag: [post_title]"
+msgstr ""
+"Asunto del mensaje de confirmación para suscripciones nuevas. Etiquetas "
+"permitidas: [post_title]."
+
+#: options/stcr_notifications.php:193
+msgid "Double check message"
+msgstr "Mensaje del mensaje de doble verificación"
+
+#: options/stcr_notifications.php:196 options/stcr_notifications.php:198
+msgid ""
+"Content of the confirmation email. Allowed tags: [post_permalink], "
+"[confirm_link], [post_title], [manager_link]"
+msgstr ""
+"Contenido del mensaje de confirmación para suscripciones nuevas. Etiquetas "
+"permitidas: [post_permalink], [confirm_link], [post_title] y [manager_link]."
+
+#: options/stcr_notifications.php:220
+msgid "Management subject"
+msgstr "Asunto de administración"
+
+#: options/stcr_notifications.php:227 options/stcr_notifications.php:229
+msgid ""
+"Subject of the mail sent to those who request to access their management "
+"page. Allowed tag: [blog_name]"
+msgstr ""
+"Asunto del mensaje para quienes solicitan acceso a su página de "
+"administración. Etiquetas permitidas: [blog_name]."
+
+#: options/stcr_notifications.php:237
+msgid "Management Page message"
+msgstr ""
+
+#: options/stcr_notifications.php:240 options/stcr_notifications.php:242
+msgid "Content of the management Page message. Allowed tags: [blog_name]."
+msgstr ""
+
+#: options/stcr_notifications.php:264
+msgid "Management Email message"
+msgstr "Mensaje de Administración de Email"
+
+#: options/stcr_notifications.php:267 options/stcr_notifications.php:269
+msgid ""
+"Content of the management email message. Allowed tags: [blog_name], "
+"[manager_link]."
+msgstr ""
+
+#: options/stcr_notifications.php:291
+msgid "One Click Unsubscribe"
+msgstr "Permitir al administrador suscribirse"
+
+#: options/stcr_notifications.php:294 options/stcr_notifications.php:296
+msgid ""
+"Content of the One Click confirmation. Allowed tags: [post_title], "
+"[blog_name]."
+msgstr ""
+
+#: options/stcr_options.php:82
+msgid "Show StCR checkbox / dropdown"
+msgstr ""
+
+#: options/stcr_options.php:98 options/stcr_options.php:100
+msgid ""
+"This option will disable the StCR checkbox or dropdown in your comment form. "
+"You should leave it to Yes always."
+msgstr ""
+
+#: options/stcr_options.php:107
+msgid "Safely Uninstall"
+msgstr ""
+
+#: options/stcr_options.php:123 options/stcr_options.php:125
+msgid ""
+"This option will allow you to delete the plugin with WordPress without "
+"loosing your subscribers. Any database table and plugin options are wipeout."
+msgstr ""
+
+#: options/stcr_options.php:133
+msgid "Autopurge requests"
+msgstr "Solicitudes de purga automática"
+
+#: options/stcr_options.php:140 options/stcr_options.php:142
+msgid ""
+"Delete pending subscriptions (not confirmed) after X days. Zero disables "
+"this feature."
+msgstr ""
+"Eliminar suscripciones pendientes (sin confirmar) después de X días. 0 "
+"(cero) desactiva esta función."
+
+#: options/stcr_options.php:150
+msgid "Date Format"
+msgstr ""
+
+#: options/stcr_options.php:157 options/stcr_options.php:159
+msgid ""
+"Date format that will be display on the management page. Use <a "
+"href='https://secure.php.net/manual/en/function.date.php#refsect1-function."
+"date-parameters' target='_blank'>PHP Date Format</a>"
+msgstr ""
+
+#: options/stcr_options.php:166
+msgid "StCR Position"
+msgstr ""
+
+#: options/stcr_options.php:182 options/stcr_options.php:184
+msgid ""
+"If this option is enable the subscription box will be above the submit "
+"button in your comment form. Use this when your theme is outdated and using "
+"the incorrect WordPress Hooks and the checkbox is not displayed."
+msgstr ""
+
+#: options/stcr_options.php:192
+msgid "Enable double check"
+msgstr "Activar doble verificación"
+
+#: options/stcr_options.php:209 options/stcr_options.php:211
+msgid ""
+"Send a notification email to confirm the subscription (to avoid addresses "
+"misuse)."
+msgstr ""
+"Enviar un mensaje de notificación para confirmar la suscripción (para evitar "
+"un uso fraudulento de las direcciones)."
+
+#: options/stcr_options.php:219
+msgid "Subscribe authors"
+msgstr "Suscrito"
+
+#: options/stcr_options.php:236 options/stcr_options.php:238
+msgid ""
+"Automatically subscribe authors to their own articles (not retroactive)."
+msgstr "Suscribir autores automaticamente a sus artículos (No retroactivo)."
+
+#: options/stcr_options.php:246
+msgid "Enable HTML emails"
+msgstr "Activar HTML en emails"
+
+#: options/stcr_options.php:263 options/stcr_options.php:265
+msgid ""
+"If enabled, will send email messages with content-type = text/html instead "
+"of text/plain"
+msgstr ""
+"Si está activado, enviará mensajes de correo electrónico con content-type = "
+"text/html en lugar de text/plain"
+
+#: options/stcr_options.php:273
+msgid "Process trackbacks"
+msgstr "Procesar trackbacks"
+
+#: options/stcr_options.php:290 options/stcr_options.php:292
+msgid ""
+"Notify users when a new trackback or pingback is added to the discussion."
+msgstr ""
+"Notificar a los usuarios cuando se añade un nuevo trackback o pingback a la "
+"discusión."
+
+#: options/stcr_options.php:300
+msgid "Track all subscriptions"
+msgstr "Seguir todas las suscripciones"
+
+#: options/stcr_options.php:317 options/stcr_options.php:319
+msgid "Notify the administrator when users subscribe without commenting."
+msgstr ""
+"Notificar al administrador cuando los usuarios se suscriban sin comentar."
+
+#: options/stcr_options.php:327
+#, fuzzy
+msgid "Let Admin Subscribe"
+msgstr "Permitir al administrador suscribirse"
+
+#: options/stcr_options.php:344 options/stcr_options.php:346
+msgid "Let the administrator subscribe to comments when logged in."
+msgstr ""
+"Permitir al administrador suscribirse a los comentarios cuando tiene la "
+"sesión iniciada."
+
+#: options/stcr_options.php:354
+msgid "BCC admin on Notifications"
+msgstr "Notificaciones"
+
+#: options/stcr_options.php:371 options/stcr_options.php:373
+msgid "Send a copy of all Notifications to the administrator."
+msgstr "Enviar una copia de todas las Notificaciones al administrador."
+
+#: options/stcr_options.php:381
+msgid "Enable Font Awesome"
+msgstr ""
+
+#: options/stcr_options.php:398 options/stcr_options.php:400
+msgid ""
+"Let you control the inclusion of the Font Awesome into your site. Disable if "
+"your theme already add this into your site."
+msgstr ""
+
+#: options/stcr_options.php:408
+msgid "StCR Unique Key"
+msgstr "StCR Clave Única"
+
+#: options/stcr_options.php:415
+msgid "This Unique Key is not set, please click the following button to "
+msgstr ""
+"Esta Clave Única no se ha establecido, por favor haga clic en el siguiente "
+"botón para"
+
+#: options/stcr_options.php:416 options/stcr_system.php:223
+msgid "Generate"
+msgstr "Generar"
+
+#: options/stcr_options.php:425
+msgid "Generate New Key"
+msgstr ""
+
+#: options/stcr_options.php:430 options/stcr_options.php:432
+msgid ""
+"This Unique Key will be use to send the notification to your subscribers "
+"with more security."
+msgstr ""
+"Esta Clave Única se utiliza para enviar notificaciones a sus suscriptores "
+"con más seguridad."
+
+#: options/stcr_options.php:440 options/stcr_options.php:470
+msgid "Reset All Options"
+msgstr ""
+
+#: options/stcr_options.php:447
+msgid ""
+"This will reset all the options and messages of the plugin. Please proceed "
+"with caution."
+msgstr ""
+
+#: options/stcr_options.php:451
+msgid "<strong>Yes</strong> = Delete Options including subscriptions."
+msgstr ""
+
+#: options/stcr_options.php:452
+msgid "<strong>No</strong>  = Only delete the StCR Options."
+msgstr ""
+
+#: options/stcr_support.php:20
+msgid ""
+"Support the developer, You can donate via <a href=\"%s\"  rel=\"external\" "
+"target=\"_blank\"><i class=\"fab fa-paypal\" aria-hidden=\"true\"></i> "
+"Paypal</a>"
+msgstr ""
+
+#: options/stcr_support.php:27
+msgid ""
+"How valuable is the feature offered by this plugin to your visitors? please "
+"consider supporting the author if this plugin made your web site better, "
+"especially if you are making money out of it.<br><br> You can donate <strong>"
+"$5.00, $10.00, $20.00</strong> or more, $Any donation received will be "
+"reinvested in the development of <strong>Subscribe to Comments Reloaded</"
+"strong>, and to buy some food for my hungry family."
+msgstr ""
+
+#: options/stcr_support.php:29
+msgid "You can still help"
+msgstr ""
+
+#: options/stcr_support.php:30
+msgid ""
+"Please consider blogging about my plugin with a link to the plugin's page. "
+"Please let your readers know what makes your blog better. You can also "
+"contribute donating your time: do not hesitate to send me bug reports, your "
+"localization files, ideas on how to improve <strong>Subscribe to Comments "
+"Reloaded</strong> and so on. Whatever you do, thanks for using my plugin!"
+msgstr ""
+
+#: options/stcr_support.php:32
+msgid "Subscribe to the Beta testers"
+msgstr "Suscribirse a los Beta testers"
+
+#: options/stcr_support.php:33
+msgid ""
+"Before a new Update we release a Beta version so that our current users can "
+"give us feedback if they find a bug, If you want to join the tester list you "
+"can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</"
+"a>"
+msgstr ""
+"Previo a una nueva Actualización, lanzamos una versión Beta para que "
+"nuestros usuarios actuales nos pueden dar información si encuentran un "
+"error. Si quieres unirte a la lista de testers, puedes agregar tu correo "
+"electrónico <a href='http://eepurl.com/biCk1b' target='_blank'>aquí</a>."
+
+#: options/stcr_support.php:35
+msgid "Vote and show your appreciation"
+msgstr "Vota y muestra tu agradecimiento"
+
+#: options/stcr_support.php:36
+msgid ""
+"Tell other people if <strong>Subscribe to Comments Reloaded</strong> works "
+"for you and how good it is. <a href=\"http://wordpress.org/extend/plugins/"
+"subscribe-to-comments-reloaded/\">Rate it</a> on its Plugin Directory page."
+msgstr ""
+"Dile a otras personas si <strong>Subscribe to Comments Reloaded</strong> "
+"funciona para ti y cómo es de bueno. <a href=\"http://wordpress.org/extend/"
+"plugins/subscribe-to-comments-reloaded/\">Valóralo</a> en la página de "
+"plugins de WordPress."
+
+#: options/stcr_support.php:38
+msgid "Did you find a Bug on the plugin?"
+msgstr "Encontraste un Error en el plugin?"
+
+#: options/stcr_support.php:39
+msgid ""
+"Please report any bug on the <a href=\"https://github.com/stcr/subscribe-to-"
+"comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description"
+"%3E&labels=bug\" target=\"_blank\">GitHub</a> Page rather than on the "
+"WordPress Support page."
+msgstr ""
+"Por favor, reporta cualquier error en la página de <a href=\"https://github."
+"com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:"
+"%20%3Cshort%20description%3E&labels=bug\" target=\"_blank\">GitHub</a> en "
+"lugar de hacerlo en la página de soporte de WordPress."
+
+#: options/stcr_support.php:43
+msgid ""
+"The options on the WordPress forum at very limited to share media "
+"information, so I urge you to use GitHub to report any issue, you will get a "
+"better and faster experience than in WordPress. And you can use <a href=\"%s"
+"\" target=\"_blank\" >Markdown syntax</a>."
+msgstr ""
+
+#: options/stcr_system.php:55
+msgid "The log file has been successfully deleted."
+msgstr "El archivo log ha sido eliminado exitosamente."
+
+#: options/stcr_system.php:60
+msgid "Can't delete the log file, check the file permissions."
+msgstr "No se puede eliminar el archivo log, verifica que tengas permisos."
+
+#: options/stcr_system.php:66
+msgid "The log file does not exists."
+msgstr "El archivo log no existe."
+
+#: options/stcr_system.php:140
+msgid "Enable Log Information"
+msgstr "Habilitar el log de información."
+
+#: options/stcr_system.php:157
+msgid ""
+"If enabled, will log information of the plugin. Helpful for debugging "
+"purposes.<p>The file is stored under the path <code>Plugins Dir>subscribe-to-"
+"comments-reloaded>utils>log.txt</code></code></p>"
+msgstr ""
+
+#: options/stcr_system.php:159
+msgid ""
+"If enabled, will log information of the plugin. Helpful for debugging "
+"purposes."
+msgstr ""
+
+#: options/stcr_system.php:166
+msgid "Enable Auto clean log data"
+msgstr "Habilitar la auto limpieza del archivo log."
+
+#: options/stcr_system.php:183
+msgid "Hourly"
+msgstr ""
+
+#: options/stcr_system.php:184
+msgid "Twice Daily"
+msgstr ""
+
+#: options/stcr_system.php:185
+msgid "Daily"
+msgstr ""
+
+#: options/stcr_system.php:189 options/stcr_system.php:191
+msgid ""
+"If enabled, StCR will auto clean your information according to the frequency "
+"that you defined on the dropdown."
+msgstr ""
+
+#: options/stcr_system.php:199
+msgid "Clean Up Log Archive"
+msgstr "Limpiar Log de archivo"
+
+#: options/stcr_system.php:202
+msgid ""
+"If you want to clean up the log archive please click the following button"
+msgstr ""
+
+#: options/stcr_system.php:208
+msgid "Clean"
+msgstr "Limpiar"
+
+#: options/stcr_system.php:214
+msgid "Generate System Info File"
+msgstr ""
+
+#: options/stcr_system.php:227
+msgid "Download"
+msgstr ""
+
+#: options/stcr_system.php:231
+msgid ""
+"Please verify that you have the correct file permissions. WordPress System "
+"Info File could not be created !"
+msgstr ""
+
+#: options/stcr_system.php:233
+msgid "Path: "
+msgstr ""
+
+#: options/stcr_system.php:248
+msgid "System Information"
+msgstr "Información del Sistema"
+
+#: options/stcr_system.php:252
+msgid "WordPress Environment"
+msgstr ""
+
+#: options/stcr_system.php:290
+msgid "%s - We recommend setting memory to at least 64 MB. See: %s"
+msgstr ""
+
+#: options/stcr_system.php:290
+msgid "Increasing memory allocated to PHP"
+msgstr ""
+
+#: options/stcr_system.php:322
+msgid "Home URL"
+msgstr ""
+
+#: options/stcr_system.php:326
+msgid "Site URL"
+msgstr ""
+
+#: options/stcr_system.php:330
+msgid "WordPress Version"
+msgstr ""
+
+#: options/stcr_system.php:338
+msgid "Memory Limit"
+msgstr ""
+
+#: options/stcr_system.php:342
+msgid "WP Debug Mode"
+msgstr ""
+
+#: options/stcr_system.php:346
+msgid "WP Cron"
+msgstr ""
+
+#: options/stcr_system.php:350
+msgid "Language"
+msgstr ""
+
+#: options/stcr_system.php:354
+msgid "Permalink Structure"
+msgstr ""
+
+#: options/stcr_system.php:358
+msgid "Table Prefix"
+msgstr ""
+
+#: options/stcr_system.php:362
+msgid "Table Prefix Length"
+msgstr ""
+
+#: options/stcr_system.php:366
+msgid "Table Prefix Status"
+msgstr ""
+
+#: options/stcr_system.php:370
+msgid "Registered Post Statuses"
+msgstr ""
+
+#: options/stcr_system.php:391
+msgid "Server Environment"
+msgstr ""
+
+#: options/stcr_system.php:396
+msgid "Cannot Evaluate"
+msgstr ""
+
+#: options/stcr_system.php:397 options/stcr_system.php:398
+#: options/stcr_system.php:399 options/stcr_system.php:400
+#: options/stcr_system.php:401 options/stcr_system.php:518
+#: options/stcr_system.php:529 options/stcr_system.php:539
+msgid "Not Available"
+msgstr ""
+
+#. translators: %s: SSL connection response
+#: options/stcr_system.php:414
+msgid "Connection uses %s"
+msgstr ""
+
+#: options/stcr_system.php:431
+msgid "%s - We recommend a minimum PHP version of 5.6. See: %s"
+msgstr ""
+
+#: options/stcr_system.php:431
+msgid "PHP Requirements in StCR"
+msgstr ""
+
+#: options/stcr_system.php:442
+msgid ""
+"Couldn't determine PHP version because the function phpversion() doesn't "
+"exist."
+msgstr ""
+
+#: options/stcr_system.php:460
+msgid "%s - We recommend a minimum cURL version of 7.40."
+msgstr ""
+
+#: options/stcr_system.php:494
+msgid "%s - We recommend a minimum MySQL version of 5.6. See: %s"
+msgstr ""
+
+#: options/stcr_system.php:494
+msgid "WordPress Requirements"
+msgstr ""
+
+#: options/stcr_system.php:509
+msgid "Default timezone is %s - it should be UTC"
+msgstr ""
+
+#: options/stcr_system.php:525
+msgid ""
+"Your server does not have the %s class enabled - HTML/Multipart emails, and "
+"also some extensions, will not work without DOMDocument."
+msgstr ""
+
+#: options/stcr_system.php:536
+msgid ""
+"Your server does not support the %s function - this is used for file "
+"compression and decompression."
+msgstr ""
+
+#: options/stcr_system.php:553
+msgid "TLS Connection"
+msgstr ""
+
+#: options/stcr_system.php:557
+msgid "TLS Rating"
+msgstr ""
+
+#: options/stcr_system.php:561
+msgid "Server Info"
+msgstr ""
+
+#: options/stcr_system.php:565
+msgid "PHP Version"
+msgstr ""
+
+#: options/stcr_system.php:569
+msgid "PHP Post Max Size"
+msgstr ""
+
+#: options/stcr_system.php:573
+msgid "PHP Max Execution Time"
+msgstr ""
+
+#: options/stcr_system.php:577
+msgid "PHP Max Input Vars"
+msgstr ""
+
+#: options/stcr_system.php:581
+msgid "PHP Max Upload Size"
+msgstr ""
+
+#: options/stcr_system.php:585
+msgid "cURL Version"
+msgstr ""
+
+#: options/stcr_system.php:589
+msgid "MySQL Version"
+msgstr ""
+
+#: options/stcr_system.php:593
+msgid "Default Timezone is UTC"
+msgstr ""
+
+#: options/stcr_system.php:597
+msgid "DOMDocument"
+msgstr ""
+
+#: options/stcr_system.php:601
+msgid "gzip"
+msgstr ""
+
+#: options/stcr_system.php:605
+msgid "GD Graphics Library"
+msgstr ""
+
+#: options/stcr_system.php:629
+msgid "Active Plugins"
+msgstr ""
+
+#: options/stcr_system.php:656 options/stcr_system.php:713
+msgid "Visit plugin homepage"
+msgstr ""
+
+#: options/stcr_system.php:665 options/stcr_system.php:722
+msgid "Visit author homepage"
+msgstr ""
+
+#: options/stcr_system.php:669 options/stcr_system.php:726
+msgctxt "by author"
+msgid "by %s"
+msgstr ""
+
+#: options/stcr_system.php:686
+msgid "Inactive Plugins"
+msgstr ""
+
+#: templates/author.php:68 templates/user.php:84
+msgid "Title"
+msgstr "Título"
+
+#: templates/author.php:71 templates/user.php:83
+msgid "Subscription Date"
+msgstr "Fecha de Subscripción"
+
+#: templates/author.php:72
+msgid "Subscription Email"
+msgstr "Email de Subscripción"
+
+#: templates/author.php:73 templates/user.php:85
+msgid "Subscription Status"
+msgstr "Estado de Subscripción"
+
+#: templates/author.php:92 templates/user.php:108
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+#: templates/author.php:93 templates/user.php:110
+msgid "Invert selection"
+msgstr "Invertir selección"
+
+#: templates/author.php:96 templates/user.php:114
+msgid "Choose your action"
+msgstr "Selecciona la acción"
+
+#: templates/author.php:97 templates/user.php:115
+msgid "Unsubscribe"
+msgstr ""
+
+#: templates/author.php:99 templates/user.php:117
+msgid "All comments"
+msgstr "Todos los comentarios"
+
+#: templates/author.php:100 templates/user.php:118
+#: wp_subscribe_reloaded.php:1210
+msgid "Replies to my comments"
+msgstr "Respuestas a mis comentarios"
+
+#: templates/author.php:106 templates/confirm.php:28
+#: templates/request-management-link.php:125 templates/user.php:128
+msgid "Return to Post"
+msgstr "Regresar al Post"
+
+#: templates/author.php:111 templates/one-click-unsubscribe.php:30
+#: templates/user.php:132
+msgid "No subscriptions match your search criteria."
+msgstr "Ninguna suscripción coincide con tu criterio de búsqueda."
+
+#: templates/key_expired.php:8
+msgid ""
+"Woohaa the link to manage your subscriptions has expired, don't worry, just "
+"enter your email below and a new link will be send."
+msgstr ""
+
+#: templates/key_expired.php:74 templates/request-management-link.php:115
+#: templates/request-management-link.php:141 templates/subscribe.php:123
+#: templates/subscribe.php:148
+msgid "Send"
+msgstr "Enviar"
+
+#: templates/request-management-link.php:143
+#: templates/request-management-link.php:171 templates/subscribe.php:150
+#: templates/subscribe.php:178
+msgid "Email address is not valid"
+msgstr "Dirección de email incorrecta"
+
+#: templates/request-management-link.php:166 templates/subscribe.php:173
+msgid "Please enter your email"
+msgstr "Por favor Ingresa tu Email"
+
+#: templates/subscribe.php:60 templates/subscribe.php:61
+msgid "New subscription to"
+msgstr "Nueva suscripción a"
+
+#: templates/subscribe.php:61
+msgid "User:"
+msgstr "Usuario:"
+
+#: templates/user.php:80
+msgid "Email to manage"
+msgstr "Email a administrar"
+
+#: templates/wrong-request.php:9
+msgid "You have request to manage another email address and this is forbidden."
+msgstr ""
+
+#: utils/stcr_manage.php:355 utils/stcr_manage.php:356 utils/stcr_utils.php:347
+#: wp_subscribe_reloaded.php:157
+msgid "Manage subscriptions"
+msgstr "Administrar suscripciones"
+
+#: utils/stcr_manage.php:361 utils/stcr_manage.php:362
+#: wp_subscribe_reloaded.php:158
+msgid "Comment Form"
+msgstr "Formulario de Comentario"
+
+#: utils/stcr_manage.php:367 utils/stcr_manage.php:368
+#: wp_subscribe_reloaded.php:159
+msgid "Management Page"
+msgstr "Página de Administración"
+
+#: utils/stcr_manage.php:373 utils/stcr_manage.php:374
+#: wp_subscribe_reloaded.php:160
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: utils/stcr_manage.php:379 utils/stcr_manage.php:380
+#: wp_subscribe_reloaded.php:161 wp_subscribe_reloaded.php:163
+msgid "Options"
+msgstr "Opciones"
+
+#: utils/stcr_manage.php:396 utils/stcr_manage.php:397
+#: wp_subscribe_reloaded.php:162
+msgid "Support"
+msgstr "Soporte"
+
+#: utils/stcr_manage.php:408 utils/stcr_manage.php:409
+#: wp_subscribe_reloaded.php:191
+msgid "StCR System"
+msgstr "Sistema de StCR"
+
+#: utils/stcr_manage.php:429 utils/stcr_manage.php:457
+#: utils/stcr_manage.php:484 utils/stcr_manage.php:511
+#: utils/stcr_manage.php:538 utils/stcr_manage.php:565
+#: utils/stcr_manage.php:594
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: utils/stcr_manage.php:644
+msgid "Subscriptions"
+msgstr "Suscripciones"
+
+#: utils/stcr_manage.php:700
+msgid ""
+"Need help on how to use Subscribe to Comments Reloaded? Visit the official"
+msgstr ""
+"¿Necesitas ayuda sobre como usar \"Subscribe to Comments Reloaded\"? Visita "
+"el"
+
+#: utils/stcr_manage.php:700
+msgid "support forum"
+msgstr "foro de soporte oficial"
+
+#: utils/stcr_manage.php:701
+msgid "Feeling generous?"
+msgstr "¿Te sientes generoso?"
+
+#: utils/stcr_manage.php:701
+msgid "Donate a few bucks!"
+msgstr "¡Dona un poco de dinero!"
+
+#: utils/stcr_upgrade.php:72
+msgid "Important Notice"
+msgstr "Nota Importante"
+
+#: utils/stcr_upgrade.php:175
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Subscribe to Comments</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+"Se detectaron datos de suscripción a comentarios del plugin "
+"<strong>Subscribe to Comments</strong> y se importaron automáticamente en "
+"<strong>Subscribe to Comments Reloaded</strong>."
+
+#: utils/stcr_upgrade.php:175
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Subscribe to "
+"Comments to prevent confusion between the two plugins."
+msgstr ""
+"Se recomienda que <strong>desactive</strong> ahora Subscribe to Comments "
+"para prevenir conflictos entre ambos plugins."
+
+#: utils/stcr_upgrade.php:176
+msgid ""
+"If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
+"that you want to import, you'll need to import that data manually, as only "
+"one import routine will ever run to prevent data loss."
+msgstr ""
+"Si tienes datos de suscripción de Subscribe to Comments Reloaded < v2.0 que "
+"quieres importar, necesitaras importar esos datos manualmente, ya que sólo "
+"se ejecutará una rutina de importación para evitar la pérdida de datos."
+
+#: utils/stcr_upgrade.php:250
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Comment Reply Notification</strong> plugin was detected and "
+"automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
+msgstr ""
+"Se detectaron datos de suscripción a comentarios del plugin <strong>Comment "
+"Reply Notification</strong> y se importaron automáticamente en "
+"<strong>Subscribe to Comments Reloaded</strong>."
+
+#: utils/stcr_upgrade.php:250
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> Comment Reply "
+"Notification to prevent confusion between the two plugins."
+msgstr ""
+"Se recomienda que <strong>desactive</strong> ahora Comment Reply "
+"Notification para prevenir conflictos entre ambos plugins."
+
+#: utils/stcr_upgrade.php:397
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
+"subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
+"were detected and automatically imported into <strong>Subscribe to Comments "
+"Reloaded</strong>."
+msgstr ""
+"Se detectaron opciones y datos de suscripción a comentarios del plugin "
+"<strong>WP Comment Subscriptions</strong> y se importaron automáticamente en "
+"<strong>Subscribe to Comments Reloaded</strong>."
+
+#: utils/stcr_upgrade.php:397
+msgid ""
+" It is recommended that you now <strong>deactivate</strong> WP Comment "
+"Subscriptions to prevent confusion between the two plugins."
+msgstr ""
+"Se recomienda que <strong>desactive</strong> ahora WP Comment Subscriptions "
+"para prevenir conflictos entre ambos plugins."
+
+#: utils/stcr_upgrade.php:398
+msgid ""
+"If you have subscription data from another plugin (such as Subscribe to "
+"Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
+"you'll need to import that data manually, as only one import routine will "
+"ever run to prevent data loss."
+msgstr ""
+"Si tienes datos de suscripción de otro plugin (como Subscribe to Comments o "
+"Subscribe to Comments Reloaded < v2.0) que quieres importar, necesitaras "
+"importar esos datos manualmente, ya que sólo se ejecutará una rutina de "
+"importación para evitar la pérdida de datos."
+
+#: utils/stcr_upgrade.php:399
+msgid ""
+"<strong>Note:</strong> If you were previously using the "
+"<code>wp_comment_subscriptions_show()</code> function or the <code>[wpcs-"
+"subscribe-url]</code> shortcode, you'll need to replace those with "
+"<code>subscribe_reloaded_show()</code> and <code>[subscribe-url]</code> "
+"respectively."
+msgstr ""
+"<strong>Nota:</strong> Si estaba utilizando previamente la función "
+"<code>wp_comment_subscriptions_show()</code> o el shortcode <code>[wpcs-"
+"subscribe-url]</code>, deberá reemplazar ambos con "
+"<code>subscribe_reloaded_show()</code> y <code>[subscribe-url]</code> "
+"respectivamente."
+
+#: utils/stcr_upgrade.php:410 utils/stcr_upgrade.php:504
+#: wp_subscribe_reloaded.php:230
+msgid "Settings"
+msgstr "Configuración"
+
+#: utils/stcr_upgrade.php:411
+msgid "Log Settings"
+msgstr "Ajustes de logs"
+
+#: utils/stcr_upgrade.php:417
+msgid ""
+"<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>."
+msgstr "Aviso Importante de Subscribe to Comments Reloaded"
+
+#: utils/stcr_upgrade.php:418 utils/stcr_upgrade.php:537
+#: utils/stcr_upgrade.php:562 utils/stcr_upgrade.php:588
+#: utils/stcr_upgrade.php:607 utils/stcr_upgrade.php:626
+msgid ""
+"If you find a bug or an issue you can report it <a href=\"https://github.com/"
+"stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:419
+msgid ""
+"Please consider to make a donation to support the plugin. You can donate via "
+"<i class=\"fab fa-paypal\" aria-hidden=\"true\"></i> <a href=\"\n"
+"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:432
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160106."
+msgstr ""
+
+#: utils/stcr_upgrade.php:433
+msgid ""
+"This version includes many changes and fixes to improve your experience with "
+"the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
+"email templates, Subscription Checkbox position, and more!"
+msgstr ""
+
+#: utils/stcr_upgrade.php:447
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160115."
+msgstr "Aviso Importante de Subscribe to Comments Reloaded"
+
+#: utils/stcr_upgrade.php:448
+msgid ""
+"This version includes fixes to broken links while managing your subscriptions"
+msgstr ""
+
+#: utils/stcr_upgrade.php:462
+#, fuzzy
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160831"
+msgstr "Aviso Importante de Subscribe to Comments Reloaded"
+
+#: utils/stcr_upgrade.php:463 utils/stcr_upgrade.php:485
+msgid "This version includes fixes to many bugs and also new features, "
+msgstr ""
+
+#: utils/stcr_upgrade.php:465 utils/stcr_upgrade.php:488
+msgid ""
+"<strong>New Feature</strong> Add new option to set the Reply To email "
+"address. This will help the subscribers to use the Reply option in their "
+"email agents."
+msgstr ""
+
+#: utils/stcr_upgrade.php:466 utils/stcr_upgrade.php:489
+msgid ""
+"<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the "
+"StCR menu on the Settings Menu for a new Menu with sub menus for the pages."
+msgstr ""
+
+#: utils/stcr_upgrade.php:467 utils/stcr_upgrade.php:490
+msgid ""
+"<strong>New Feature</strong> Safely Uninstall option to Delete the plugin "
+"without loosing your subscriptions. You can use this option also for reset "
+"all the settings, see the FAQ."
+msgstr ""
+
+#: utils/stcr_upgrade.php:468 utils/stcr_upgrade.php:491
+msgid ""
+"<strong>New Feature</strong> Now the WordPress Authors can use the "
+"<strong>Subscribe authors</strong> option to autor subscribe to a Custom "
+"Post Type."
+msgstr ""
+
+#: utils/stcr_upgrade.php:469 utils/stcr_upgrade.php:492
+msgid ""
+"<strong>New Feature</strong> A new field was added under the notification "
+"options to and the management link only by email and not to display it on "
+"the request link page."
+msgstr ""
+
+#: utils/stcr_upgrade.php:484
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160902"
+msgstr ""
+
+#: utils/stcr_upgrade.php:487
+msgid ""
+"<strong>Fix update</strong> this version Fixes some issue trigger by the "
+"previous 160831 version."
+msgstr ""
+
+#: utils/stcr_upgrade.php:508
+msgid ""
+"<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
+"160915"
+msgstr ""
+
+#: utils/stcr_upgrade.php:509 utils/stcr_upgrade.php:529
+#: utils/stcr_upgrade.php:555 utils/stcr_upgrade.php:580
+#: utils/stcr_upgrade.php:606 utils/stcr_upgrade.php:625
+msgid "This version includes fixes and improvements, "
+msgstr ""
+
+#: utils/stcr_upgrade.php:512
+msgid ""
+"<strong>Change</strong> the radio buttons in the management page for a "
+"dropdown."
+msgstr ""
+
+#: utils/stcr_upgrade.php:513
+msgid ""
+"<strong>Improve</strong> Email validation for empty values and using a regex."
+msgstr ""
+
+#: utils/stcr_upgrade.php:532
+msgid ""
+"<strong>Fix</strong> Wrong confirmation link when the double check option is "
+"enable."
+msgstr ""
+
+#: utils/stcr_upgrade.php:533
+msgid "<strong>Improve</strong> Manage subscription page. Take a look ;)."
+msgstr ""
+
+#: utils/stcr_upgrade.php:538 utils/stcr_upgrade.php:563
+#: utils/stcr_upgrade.php:589 utils/stcr_upgrade.php:608
+#: utils/stcr_upgrade.php:628
+msgid "The support of this plugin is given thanks to your donations."
+msgstr ""
+
+#: utils/stcr_upgrade.php:539
+msgid ""
+"Help to keep the support alive. You can donate via <i class=\"fab fa-paypal"
+"\" aria-hidden=\"true\"></i> <a href=\"\n"
+"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:558
+msgid ""
+"<strong>Fix Critical Bug</strong> This version fix a critical bug on fresh "
+"installation regarding a database table creation."
+msgstr ""
+
+#: utils/stcr_upgrade.php:559
+msgid ""
+"<strong>Add</strong> Option to control the inclusion of the style Font "
+"Awesome."
+msgstr ""
+
+#: utils/stcr_upgrade.php:564
+msgid ""
+"Help to keep the support alive. You can donate via <i class=\"fab fa-paypal"
+"\" aria-hidden=\"true\"></i> <a href=\"\n"
+"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>. Thank you "
+"for the users that have supported the plugin development."
+msgstr ""
+
+#: utils/stcr_upgrade.php:583
+msgid ""
+"<strong>Security Patch</strong> This version add a patch for some security "
+"issues."
+msgstr ""
+
+#: utils/stcr_upgrade.php:584
+msgid "<strong>Add</strong> Option to reset all the plugin options"
+msgstr ""
+
+#: utils/stcr_upgrade.php:585
+msgid "<strong>Fix</strong> issue regarding database collations"
+msgstr ""
+
+#: utils/stcr_upgrade.php:590 utils/stcr_upgrade.php:609
+#: utils/stcr_upgrade.php:629
+msgid ""
+"Help to keep the support alive. You can donate via <i class=\"fab fa-paypal"
+"\" aria-hidden=\"true\"></i> <a href=\"\n"
+"    https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft"
+"%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF"
+"%3abtn_donate_LG%2egif%3aNonHosted\" target=\"_blank\">PayPal</a>. A big "
+"Thanks for all the users that have supported the plugin development."
+msgstr ""
+
+#: utils/stcr_upgrade.php:627
+msgid "You might need to clear you cache !!"
+msgstr ""
+
+#: utils/stcr_utils.php:172
+msgid "January"
+msgstr "Enero"
+
+#: utils/stcr_utils.php:173
+msgid "February"
+msgstr "Febrero"
+
+#: utils/stcr_utils.php:174
+msgid "March"
+msgstr "Marzo"
+
+#: utils/stcr_utils.php:175
+msgid "April"
+msgstr "Abril"
+
+#: utils/stcr_utils.php:176 utils/stcr_utils.php:191
+msgid "May"
+msgstr "Mayo"
+
+#: utils/stcr_utils.php:177
+msgid "June"
+msgstr "Junio"
+
+#: utils/stcr_utils.php:178
+msgid "July"
+msgstr "Julio"
+
+#: utils/stcr_utils.php:179
+msgid "August"
+msgstr "Agosto"
+
+#: utils/stcr_utils.php:180
+msgid "September"
+msgstr "Septiembre"
+
+#: utils/stcr_utils.php:181
+msgid "October"
+msgstr "Octubre"
+
+#: utils/stcr_utils.php:182
+msgid "November"
+msgstr "Noviembre"
+
+#: utils/stcr_utils.php:183
+msgid "December"
+msgstr "Diciembre"
+
+#: utils/stcr_utils.php:187
+msgid "Jan"
+msgstr "Ene"
+
+#: utils/stcr_utils.php:188
+msgid "Feb"
+msgstr "Feb"
+
+#: utils/stcr_utils.php:189
+msgid "Mar"
+msgstr "Mar"
+
+#: utils/stcr_utils.php:190
+msgid "Apr"
+msgstr "Abr"
+
+#: utils/stcr_utils.php:192
+msgid "Jun"
+msgstr "Jun"
+
+#: utils/stcr_utils.php:193
+msgid "Jul"
+msgstr "Jul"
+
+#: utils/stcr_utils.php:194
+msgid "Aug"
+msgstr "Ago"
+
+#: utils/stcr_utils.php:195
+msgid "Sep"
+msgstr "Sep"
+
+#: utils/stcr_utils.php:196
+msgid "Oct"
+msgstr "Oct"
+
+#: utils/stcr_utils.php:197
+msgid "Nov"
+msgstr "Nov"
+
+#: utils/stcr_utils.php:198
+msgid "Dec"
+msgstr "Dic"
+
+#: utils/stcr_utils.php:340
+msgid ""
+"Notify me of followup comments via e-mail. You can also <a "
+"href='[subscribe_link]'>subscribe</a> without commenting."
+msgstr ""
+"Notificarme los nuevos comentarios por correo electrónico. También puedes <a "
+"href='[subscribe_link]'>suscribirte</a> sin comentar."
+
+#: utils/stcr_utils.php:341
+msgid ""
+"You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
+"subscriptions."
+msgstr ""
+"Te has suscrito a esta entrada. <a href='[manager_link]'>Gestionar</a> tus "
+"suscripciones."
+
+#: utils/stcr_utils.php:342
+msgid ""
+"Your subscription to this post needs to be confirmed. <a "
+"href='[manager_link]'>Manage your subscriptions</a>."
+msgstr ""
+"Tu suscripción a esta entrada necesita ser confirmada. <a "
+"href='[manager_link]'>Gestiona tus suscripciones</a>."
+
+#: utils/stcr_utils.php:343
+msgid ""
+"You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
+msgstr ""
+"Puedes <a href='[manager_link]'>gestionar las suscripciones</a> de esta "
+"entrada."
+
+#: utils/stcr_utils.php:349
+msgid ""
+"To manage your subscriptions, please enter your email address here below. We "
+"will send you a message containing the link to access your personal "
+"management page."
+msgstr ""
+"Para gestionar tus suscripciones introduce tu correo electrónico a "
+"continuación. Te enviaremos un mensaje con un enlace para acceder a tu "
+"página de administración."
+
+#: utils/stcr_utils.php:350
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed, and you should receive an email with the management link in a few "
+"minutes."
+msgstr ""
+"Gracias por usar nuestro servicio de suscripción. Tu petición se ha "
+"completada con éxito, deberías recibir un mensaje en tu buzón de correo "
+"electrónico con con el enlace de administración en unos minutos."
+
+#: utils/stcr_utils.php:351
+msgid ""
+"You can follow the discussion on <strong>[post_title]</strong> without "
+"having to leave a comment. Cool, huh? Just enter your email address in the "
+"form here below and you're all set."
+msgstr ""
+"Puedes seguir la discusión de <strong>[post_title]</strong> sin tener que "
+"dejar un comentario. Introduce tu dirección de correo electrónico en el "
+"siguiente formulario y listo."
+
+#: utils/stcr_utils.php:352
+msgid ""
+"Thank you for using our subscription service. Your request has been "
+"completed. You will receive a notification email every time a new comment to "
+"this article is approved and posted by the administrator."
+msgstr ""
+"Gracias por usar nuestro servicio de suscripción. Tu petición se ha "
+"completado. Recibirás un mensaje de notificación cada que vez que un nuevo "
+"comentario se publique o apruebe en esta entrada."
+
+#: utils/stcr_utils.php:353
+msgid ""
+"Thank you for using our subscription service. In order to confirm your "
+"request, please check your email for the verification message and follow the "
+"instructions."
+msgstr ""
+"Gracias por usar nuestro servicio de suscripción. Para confirmar tu "
+"petición, por favor comprueba si has recibido un mensaje en tu buzón de "
+"correo electrónico y sigue las instrucciones."
+
+#: utils/stcr_utils.php:354
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list."
+msgstr ""
+"Para cancelar o suspender una o más suscripciones, selecciona la "
+"correspondiente casilla de verificación y pulsa en el botón del final de la "
+"lista."
+
+#: utils/stcr_utils.php:355
+msgid ""
+"In order to cancel or suspend one or more notifications, select the "
+"corresponding checkbox(es) and click on the button at the end of the list. "
+"You are currently subscribed to:"
+msgstr ""
+"Para cancelar o suspender una o más suscripciones, selecciona la "
+"correspondiente casilla de verificación y pulsa en el botón del final de la "
+"lista. Actualmente estás suscrito a:"
+
+#: utils/stcr_utils.php:359
+msgid "There is a new comment to [post_title]"
+msgstr "Hay un nuevo comentario en [post_title]"
+
+#: utils/stcr_utils.php:360
+msgid ""
+"<h1>There is a new comment on [post_title].</h1>\n"
+"\n"
+"<hr />\n"
+"<strong>Comment link:</strong> <a href="
+"\"[comment_permalink]\">[comment_permalink]</a>\n"
+"<strong>Author:</strong> [comment_author]\n"
+"\n"
+"<strong>Comment:</strong>\n"
+"[comment_content]\n"
+"<div style=\"font-size: 0.8em;\"><strong>Permalink:</strong> <a href="
+"\"[post_permalink]\">[post_permalink]</a>\n"
+"<a href=\"[manager_link]\">Manage your subscriptions</a> | <a href="
+"\"[oneclick_link]\">One click unsubscribe</a></div>"
+msgstr ""
+
+#: utils/stcr_utils.php:361
+msgid "Please confirm your subscription to [post_title]"
+msgstr "Por favor, confirma tu suscripción a [post_title]"
+
+#: utils/stcr_utils.php:362
+msgid ""
+"You have requested to be notified every time a new comment is added to:\n"
+"<a href='[post_permalink]'>[post_permalink]</a>\n"
+"\n"
+"Please confirm your request by clicking on this link:\n"
+"<a href='[confirm_link]'>[confirm_link]</a>"
+msgstr ""
+
+#: utils/stcr_utils.php:363
+msgid "Manage your subscriptions on [blog_name]"
+msgstr "Gestiona tus suscripciones en [blog_name]"
+
+#: utils/stcr_utils.php:364
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Please check the Subscriptions management link in your email"
+msgstr ""
+
+#: utils/stcr_utils.php:365
+msgid ""
+"You have requested to manage your subscriptions to the articles on "
+"[blog_name]. Follow this link to access your personal page:\n"
+"<a href='[manager_link]'>[manager_link]</a>"
+msgstr ""
+
+#: utils/stcr_utils.php:481
+msgid "StCR Notification"
+msgstr "Notificaciones"
+
+#: wp_subscribe_reloaded.php:189
+msgid "StCR Options"
+msgstr ""
+
+#: wp_subscribe_reloaded.php:1208
+msgid "Don't subscribe"
+msgstr "No Suscribirse"
+
+#: wp_subscribe_reloaded.php:1209
+msgid "All"
+msgstr "Todo"
+
+#~ msgid "Checked by default Value"
+#~ msgstr "Casilla marcada"
+
+#~ msgid "Checkbox label"
+#~ msgstr "Casilla de verificación"
+
+#~ msgid "Awaiting label"
+#~ msgstr "Esperando"
+
+#~ msgid "Enabled"
+#~ msgstr "Habilitado"
+
+#~ msgid "Disabled"
+#~ msgstr "Deshabilitado"
+
+#~ msgid ""
+#~ "Disable the virtual management page if you need to create a <a href="
+#~ "\"https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-"
+#~ "real-management-page\">real page</a> to make your theme happy."
+#~ msgstr ""
+#~ "Deshabilita la página de administración virtual si necesitas crear una <a "
+#~ "href=\"http://behstant.com/subscribe-reloaded/realMgnPage.php\">página "
+#~ "real</a> para hacer tu tema feliz."
+
+#~ msgid "Sender name"
+#~ msgstr "Nombre del remitente"
+
+#~ msgid "Management message"
+#~ msgstr "Mensaje de administración"
+
+#~ msgid ""
+#~ "Name to use for the \"from\" field when sending a new notification to the "
+#~ "user."
+#~ msgstr ""
+#~ "Nombre a usar en el campo \"De:\" cuando se envía una nueva notificación "
+#~ "al usuario."
+
+#~ msgid ""
+#~ "Content of the One Click confirmation. Allowed tags: [post_title], "
+#~ "[blog_name]"
+#~ msgstr ""
+#~ "Contenido del mensaje para quienes solicitan acceso a su página de "
+#~ "administración. Etiquetas permitidas: [blog_name] y [manager_link]."
+
+#~ msgid "Safetly Uninstall"
+#~ msgstr "Desinstalar Seguramente"
+
+#~ msgid "HTMLify Links in HTML emails"
+#~ msgstr "Convertir enlaces HTML en emails HTML"
+
+#~ msgid "Send trackbacks"
+#~ msgstr "Enviar trackbacks"
+
+#~ msgid "Notify admin"
+#~ msgstr "Notificar al administrador"
+
+#~ msgid "days"
+#~ msgstr "días"
+
+#~ msgid "HTMLify links in emails"
+#~ msgstr "Convertir enlaces HTML"
+
+#~ msgid ""
+#~ "If enabled, will wrap all links in messages with <code>&lt;a href=\"\"&gt;"
+#~ "&lt;/a&gt;</code> (only when HTML emails enabled)."
+#~ msgstr ""
+#~ "Si está activado, agregará <code>&lt;a href=\"\"&gt;&lt;/a&gt;</code> en "
+#~ "todos los enlaces de los mensajes (sólo si se activó HTML en emails)."
+
+#~ msgid "Support Subscribe to Comments Reloaded"
+#~ msgstr "Aviso Importante de Subscribe to Comments Reloaded"
+
+#~ msgid "Donate"
+#~ msgstr "¡Dona un poco de dinero!"
+
+#~ msgid ""
+#~ "You can either <a href=\"%s\">view all the subscriptions</a> or find "
+#~ "those where the"
+#~ msgstr ""
+#~ "Puedes bien <a href=\"%s\">ver todas las suscripciones</a> o bien "
+#~ "encontrar aquellas en las que el/la"
+
+#~ msgid "email"
+#~ msgstr "email"
+
+#~ msgid "post ID"
+#~ msgstr "ID de Entrada"
+
+#~ msgid "status"
+#~ msgstr "estado"
+
+#~ msgid "equals"
+#~ msgstr "es igual a"
+
+#~ msgid "contains"
+#~ msgstr "contiene"
+
+#~ msgid "does not contain"
+#~ msgstr "no contiene"
+
+#~ msgid "starts with"
+#~ msgstr "comienza con"
+
+#~ msgid "ends with"
+#~ msgstr "termina con"
+
+#~ msgid "results per page:"
+#~ msgstr "resultados por página:"
+
+#~ msgid "Reverse the order by Post ID"
+#~ msgstr "Invertir el orden por ID de entrada"
+
+#~ msgid "Reverse the order by Date/Time"
+#~ msgstr "Invertir el orden por Fecha/Hora"
+
+#~ msgid "Search query:"
+#~ msgstr "Petición de búsqueda:"
+
+#~ msgid "Rows:"
+#~ msgstr "Filas:"
+
+#~ msgid "of"
+#~ msgstr "de"
+
+#, fuzzy
+#~ msgid "Missing information"
+#~ msgstr "Esperando confirmación"
+
+#, fuzzy
+#~ msgid "Invalid email address."
+#~ msgstr "Dirección de correo electrónico del remitente"
+
+#, fuzzy
+#~ msgid "Missing email information"
+#~ msgstr "Esperando confirmación"
+
+#~ msgid "You can help"
+#~ msgstr "Puedes ayudar"
+
+#~ msgid "Support the developers"
+#~ msgstr "Apoya a los desarrolladores"
+
+#~ msgid ""
+#~ "How valuable is the feature offered by this plugin to your visitors? "
+#~ "please consider supporting the author if this plugin made your web site "
+#~ "better, especially if you are making money out of it. Any donation "
+#~ "received will be reinvested in the development of <strong>Subscribe to "
+#~ "Comments Reloaded</strong>, and to buy some food for my hungry family."
+#~ msgstr ""
+#~ "¿Qué valor tienen las características que ofrece este plugin para tus "
+#~ "visitantes? Por favor, considera apoyar al autor si este plugin hace tu "
+#~ "web mejor, especialmente si estás haciendo dinero con ella. Cualquier "
+#~ "donación recibida será reinvertida en el desarrollo de <strong>Subscribe "
+#~ "to Comments Reloaded</strong>, y en comprar algo de comida para mi "
+#~ "familia hambrienta."
+
+#~ msgid "Don't want to donate? You can still help"
+#~ msgstr "¿No quieres donar? Todavía puedes ayudar"
+
+#~ msgid ""
+#~ "If you don't want to donate money, please consider blogging about my "
+#~ "plugin with a link to the plugin's page. Please let your readers know "
+#~ "what makes your blog better. You can also contribute donating your time: "
+#~ "do not hesitate to send me bug reports, your localization files, ideas on "
+#~ "how to improve <strong>Subscribe to Comments Reloaded</strong> and so on. "
+#~ "Whatever you do, thanks for using my plugin!"
+#~ msgstr ""
+#~ "Si no quieres donar dinero, por favor considera escribir una entrada en "
+#~ "tu sitio acerca de mi plugin con un enlace hacia la página del plugin. "
+#~ "Deja que tus lectores sepan lo que hace tu blog mejor. También puedes "
+#~ "contribuir donando tu tiempo: no dudes en enviarme informes de fallos en "
+#~ "el plugin, traducciones, ideas sobre cómo mejorar <strong>Subscribe to "
+#~ "Comments Reloaded</strong> y más. Hagas lo que hagas, ¡gracias por usar "
+#~ "mi plugin!"
+
+#~ msgid ""
+#~ "There is a new comment to [post_title].\n"
+#~ "Comment Link: [comment_permalink]\n"
+#~ "Author: [comment_author]\n"
+#~ "Comment:\n"
+#~ "[comment_content]\n"
+#~ "Permalink: [post_permalink]\n"
+#~ "Manage your subscriptions: [manager_link]"
+#~ msgstr ""
+#~ "Hay un nuevo comentario en [post_title].\n"
+#~ "Enlace al comentario: [comment_permalink]\n"
+#~ "Autor: [comment_author]\n"
+#~ "Comentario:\n"
+#~ "[comment_content]\n"
+#~ "Enlace permanente: [post_permalink]\n"
+#~ "Administrar tus suscripciones: [manager_link]"
+
+#~ msgid ""
+#~ "You have requested to be notified every time a new comment is added to:\n"
+#~ "[post_permalink]\n"
+#~ "\n"
+#~ "Please confirm your request by clicking on this link:\n"
+#~ "[confirm_link]"
+#~ msgstr ""
+#~ "Has solicitado que te notifiquemos cada vez que se escriba un comentario "
+#~ "en:\n"
+#~ "[post_permalink]\n"
+#~ "\n"
+#~ "Por favor, confirma tu petición pulsando el siguiente enlace:\n"
+#~ "[confirm_link]"
+
+#~ msgid ""
+#~ "You have requested to manage your subscriptions to the articles on "
+#~ "[blog_name]. Follow this link to access your personal page:\n"
+#~ "[manager_link]"
+#~ msgstr ""
+#~ "Has solicitado gestionar tus suscripciones a las entradas de [blog_name]. "
+#~ "Sigue el siguiente enlace para acceder a tu página de suscripciones:\n"
+#~ "[manager_link]"
+
+#~ msgid ""
+#~ "Content of the notification email. Allowed tags: [post_title], "
+#~ "[comment_permalink], [comment_author], [comment_content], "
+#~ "[post_permalink], [manager_link]"
+#~ msgstr ""
+#~ "Contenido del mensaje de notificación de nuevos comentarios. Etiquetas "
+#~ "permitidas: [post_title], [comment_permalink], [comment_author], "
+#~ "[comment_content], [post_permalink] y [manager_link]."
+
+#~ msgid "Legend: Y = all comments, R = replies only, C = inactive"
+#~ msgstr ""
+#~ "Leyenda: Y = todos los comentarios, R = solo respuestas, C = inactivo"
+
+#~ msgid ""
+#~ "<strong>Subscribe to Comments Reloaded:</strong> The information in your "
+#~ "database has been sanitized to prevent the raw html messages. <a class="
+#~ "\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-animation\" "
+#~ "src=\""
+#~ msgstr ""
+#~ "La información contenida en su base de datos ha sido corregida para "
+#~ "evitar mensajes HTML sin procesar."
+
+#~ msgid ""
+#~ "Please visit <a href=\"options-general.php?page=subscribe-to-comments-"
+#~ "reloaded/options/index.php\">Settings -> Subscribe to Comments</a> to "
+#~ "review your configuration.<a class=\"dismiss\" href=\"#\">Got it.  </"
+#~ "a><img class=\"stcr-loading-animation\" src=\""
+#~ msgstr ""
+#~ "Por favor visita <a href=\"options-general.php?page=subscribe-to-comments-"
+#~ "reloaded/options/index.php\">Configuración -> Subscribe to Comments</a> "
+#~ "para revisar tu configuración."
+
+#~ msgid ""
+#~ "Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+#~ "comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for "
+#~ "detailed information on plugin changes.<a class=\"dismiss\" href=\"#"
+#~ "\">Got it.  </a><img class=\"stcr-loading-animation\" src=\""
+#~ msgstr ""
+#~ "Por favor visita <a href=\"options-general.php?page=subscribe-to-comments-"
+#~ "reloaded/options/index.php\">Configuración -> Subscribe to Comments</a> "
+#~ "para revisar tu configuración."
+
+#~ msgid ""
+#~ "Please visit the <a href=\"https://wordpress.org/plugins/subscribe-to-"
+#~ "comments-reloaded/changelog/\" target=\"_blank\">Changelog</a> for a "
+#~ "complete list of changes.<a class=\"dismiss\" href=\"#\">Got it.  </"
+#~ "a><img class=\"stcr-loading-animation\" src=\""
+#~ msgstr ""
+#~ "Por favor visita <a href=\"options-general.php?page=subscribe-to-comments-"
+#~ "reloaded/options/index.php\">Configuración -> Subscribe to Comments</a> "
+#~ "para revisar tu configuración."
+
+#~ msgid ""
+#~ "<em>Note: Subscribe to Comments Reloaded remains in active development.</"
+#~ "em><a class=\"dismiss\" href=\"#\">Got it.  </a><img class=\"stcr-loading-"
+#~ "animation\" src=\""
+#~ msgstr ""
+#~ "La información contenida en su base de datos ha sido corregida para "
+#~ "evitar mensajes HTML sin procesar."
+
+#~ msgid "StCR Subscription Box Position"
+#~ msgstr "Nueva suscripción a"
+
+#~ msgid ""
+#~ "Content of the management email. Allowed tags: [blog_name], [manager_link]"
+#~ msgstr ""
+#~ "Contenido del mensaje para quienes solicitan acceso a su página de "
+#~ "administración. Etiquetas permitidas: [blog_name] y [manager_link]."
+
+#~ msgid "Subscribe to Comments Reloaded Important Notice"
+#~ msgstr "Aviso Importante de Subscribe to Comments Reloaded"
+
+#~ msgid "Bold"
+#~ msgstr "Negrita"
+
+#~ msgid "Italic"
+#~ msgstr "Cursiva"
+
+#~ msgid "Link"
+#~ msgstr "Enlace"
+
+#~ msgid "Image"
+#~ msgstr "Imagen"
+
+#~ msgid "Sponsor's Corner"
+#~ msgstr "Esquina de patrocinadores"
+
+#~ msgid ""
+#~ "If you want to sponsor this plugin, don't hesitate to <a href='http://"
+#~ "behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
+#~ msgstr ""
+#~ "Si quieres patrocinar este plugin, no dudes en <a href='http://behstant."
+#~ "com/negocio/contact.php' target='_blank'>contactarme</a>."
+
+#~ msgid "Set to Y"
+#~ msgstr "Establecer a Y"
+
+#~ msgid "Daily digest"
+#~ msgstr "Resumen diario"
+
+#~ msgid "Support the author"
+#~ msgstr "Apoya al autor"
+
+#~ msgid "Digest"
+#~ msgstr "Resumen diario"
+
+#~ msgid "Pending"
+#~ msgstr "Pendiente"
+
+#~ msgid "Notify authors"
+#~ msgstr "Notificar a los autores"
+
+#~ msgid "Notify the administrator when a new comment is posted."
+#~ msgstr "Notificar al administrador cuando se publica un comentario nuevo."
+
+#~ msgid "Management Page ID"
+#~ msgstr "ID de la Página de Administración"
+
+#~ msgid "Management page"
+#~ msgstr "Página de Administración"
+
+#~ msgid "Stats"
+#~ msgstr "Estadísticas"
+
+#~ msgid "Other Messages"
+#~ msgstr "Otros mensajes"
+
+#~ msgid "The status has been successfully updated. Rows affected:"
+#~ msgstr "El estado se ha actualizado correctamente. Registros afectados:"
+
+#~ msgid ""
+#~ "Update the email address associated to a specific subscription (by post "
+#~ "ID)."
+#~ msgstr ""
+#~ "Actualizar el correo electrónico asociado a una suscripción específica "
+#~ "(por la ID de la entrada)."
+
+#~ msgid "PID"
+#~ msgstr "PID"
+
+#~ msgid "Change status"
+#~ msgstr "Cambiar estado"
+
+#~ msgid ""
+#~ "Change the status of an email address or permanently delete all its "
+#~ "subscriptions."
+#~ msgstr ""
+#~ "Cambiar el estado de una dirección de correo electrónico o eliminar "
+#~ "permanentemente todas sus suscripciones."
+
+#~ msgid "Resume"
+#~ msgstr "Reanudar"
+
+#~ msgid ""
+#~ "You can \"mass update\" all the occurrences of a given email address "
+#~ "(exact matches only)."
+#~ msgstr ""
+#~ "Puedes actualizar masivamente todas las ocurrencias de una dirección de "
+#~ "correo electrónico determinada (sólo coincidencias exactas)."
+
+#~ msgid "Search email address"
+#~ msgstr "Buscar dirección de correo electrónico"
+
+#~ msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
+#~ msgstr "Leyenda: Y: suscrito, N: suspendido, C: esperando confirmación"
+
+#~ msgid "Custom CSS Class"
+#~ msgstr "Clase CSS personalizada"
+
+#~ msgid ""
+#~ "Custom CSS class to associate to the checkbox, if you want to customize "
+#~ "its style."
+#~ msgstr ""
+#~ "Clase CSS personalizada para asociar a la casilla, si deseas personalizar "
+#~ "su estilo."
+
+#~ msgid "StCR table has been successfully optimized."
+#~ msgstr "La tabla StCR ha sido optimizada correctamente."
+
+#~ msgid "Database"
+#~ msgstr "Base de datos"
+
+#~ msgid "Engine"
+#~ msgstr "Motor"
+
+#~ msgid "Records"
+#~ msgstr "Registros"
+
+#~ msgid "Average Record Length"
+#~ msgstr "Duración media del registro"
+
+#~ msgid "Created on"
+#~ msgstr "Creado el"
+
+#~ msgid "Approximate Overhead"
+#~ msgstr "Aproximado al alza"
+
+#~ msgid "optimize"
+#~ msgstr "optimizar"
+
+#~ msgid "Subscriptions have been successfully updated."
+#~ msgstr "Las suscripciones se han actualizado correctamente."
+
+#~ msgid "Sorry, no subscriptions found."
+#~ msgstr "Disculpa, no se encontraron suscripciones."
+
+#~ msgid "All the subscriptions have been successfully updated."
+#~ msgstr "Todas las suscripciones se han actualizado correctamente."
+
+#~ msgid "Pageviews by day - Click on a day for hourly metrics"
+#~ msgstr ""
+#~ "Páginas vistas por día - Pulsa en un día para ver estadísticas por horas"
+
+#~ msgid "Pageviews by hour"
+#~ msgstr "Páginas vistas por hora"
+
+#~ msgid "No data to display"
+#~ msgstr "No hay datos para mostrar"

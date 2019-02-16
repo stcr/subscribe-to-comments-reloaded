@@ -1,0 +1,56 @@
+{
+  "name": "subscribe-to-comments-reloaded",
+  "version": "1.0.0",
+  "description": "Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stcr/subscribe-to-comments-reloaded.git"
+  },
+  "keywords": [
+    "comments",
+    "subscribe",
+    "subscribe",
+    "to",
+    "comments",
+    "subscribe",
+    "to",
+    "comments",
+    "reloaded",
+    "email",
+    "email",
+    "notification",
+    "subscriptions",
+    "commenting",
+    "reply",
+    "reply",
+    "to",
+    "comments",
+    "post",
+    "notification",
+    "comment",
+    "notification",
+    "automatic",
+    "comment",
+    "notification",
+    "email",
+    "signup"
+  ],
+  "author": "Reedyseth",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/stcr/subscribe-to-comments-reloaded/issues"
+  },
+  "homepage": "https://github.com/stcr/subscribe-to-comments-reloaded#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint-plugin-compat": "^2.2.0",
+    "gulp": "3.9.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-sass": "^3.2.1",
+    "gulp-watch": "^5.0.0"
+  }
+}

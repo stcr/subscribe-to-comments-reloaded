@@ -1,0 +1,41 @@
+/* ----------------------------------------------------------
+Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
+@author Israel Barragan (Reedyseth)
+@since 01-Apr-2018
+---------------------------------------------------------- */
+.btn-primary {
+  color: #fff !important;
+  background-color: #0085ba !important;
+  border-color: #80bbd2 !important;
+}
+
+.btn-primary:hover {
+  color: #fff !important;
+  background-color: #4299b9 !important;
+  border-color: #5495ad !important;
+}
+
+.btn-third {
+  color: #444 !important;
+  background-color: #ffc63c !important;
+  border-color: #dcb456 !important;
+}
+
+.btn-third:hover {
+  color: #444 !important;
+  background-color: #fdd575 !important;
+  border-color: #dcb456 !important;
+}
+
+.btn-download {
+  color: #445435;
+  background-color: #7bd774;
+  border-color: #28a745 !important;
+}
+
+
+.btn-download:hover {
+  color: #445435;
+  background-color: #78c771;
+  border-color: #28a745 !important;
+}

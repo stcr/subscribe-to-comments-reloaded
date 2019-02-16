@@ -1,0 +1,9 @@
+# node modules
+node_modules/*
+
+# bower modules
+src/bower_modules/*
+
+src/vendor/*
+
+src/includes/tinymce-lite/*
