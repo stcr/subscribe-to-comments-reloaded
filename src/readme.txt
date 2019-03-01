@@ -1,6 +1,6 @@
 === Subscribe To Comments Reloaded ===
-Author: reedyseth
-Contributors: reedyseth, coolmann
+Author: WPKube
+Contributors: WPKube
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: comments, subscribe, subscribe to comments, subscribe to comments reloaded, email, email notification, subscriptions, commenting, reply, reply to comments, post notification, comment notification, automatic comment notification, email signup
 Plugin URI: http://subscribe-reloaded.com/
