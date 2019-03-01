@@ -698,7 +698,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			if ( $screen_id == 'subscribe-to-comments-reloaded/options/index' ) {
 				load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 				$contextual_help = __( 'Need help on how to use Subscribe to Comments Reloaded? Visit the official', 'subscribe-reloaded' ) . ' <a href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10" target="_blank">' . __( 'support forum', 'subscribe-reloaded' ) . '</a>. ';
-				$contextual_help .= __( 'Feeling generous?', 'subscribe-reloaded' ) . ' <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted" target="_blank">' . __( 'Donate a few bucks!', 'subscribe-reloaded' ) . '</a>';
 			}
 
 			return $contextual_help;

@@ -306,26 +306,13 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
         <div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
             <div class="card" style="max-width: 100% !important;">
                 <div class="card-body">
-                    <div class="row">
-                    <div class="col-md-3">
-                        <a href="http://subscribe-reloaded.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png"
-                             alt="Support Subscribe to Comments Reloaded" width="100" height="84">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <p>Thank you for Supporting StCR, You can Support the plugin by giving a
-                            <a href="http://subscribe-reloaded.com/active-support-donation/"  rel="external" target="_blank">
-                                <i class="fab fa-paypal"></i> Donation</a></p>
-                        <p>Please rate it
-                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png"
-                                               alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" />
-                            </a>
-                        </p>
-                        <p><i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/new" target="_blank">create a ticket</a>
-
-                        </p>
-                    </div>
-                    </div>
+                    <p>
+                        Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
+                        <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                    </p>
+                    <p>
+                        <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/new" target="_blank">create a ticket</a>
+                    </p>
                 </div>
             </div>
         </div>
