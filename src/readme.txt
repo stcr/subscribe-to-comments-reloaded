@@ -7,7 +7,7 @@ Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
 Tested up to: 5.1
-Stable tag: 190214
+Stable tag: 190305
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Upgrade Notice ==
 
+= v190305 =
+
+* **Fix** Issue with "Subscribe authors" functionality sending the emails to administrator instead of the post author
+
 = v190214 =
 
 * **Fix** Compatibility with some PHP versions and MySQL. Fixes other minor issues.
@@ -112,6 +116,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 **Fix** Information that was not been validated on the backened.
 
 == Changelog ==
+
+= v190305 =
+
+* **Fix** Issue with "Subscribe authors" functionality sending the emails to administrator instead of the post author
 
 = v190214 =
 
