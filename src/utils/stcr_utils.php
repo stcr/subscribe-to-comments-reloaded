@@ -544,20 +544,25 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @since 03-Agu-2015
 		 * @author reedyseth
 		 */
-		public function register_admin_scripts() {
-			// // Tinymce not in use.
-			// $tinyMCE_url    = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/tinymce-lite/tinymce.min.js';
-			// $tinyMCE_url_js = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-tinyMCE.js';
-			$stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
-			$stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
-            // Javascript
-            wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
-            // Enqueue Scripts
-            wp_enqueue_script('stcr-admin-js');
-            // // Styles
-            wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
-            // Enqueue the styles
-            wp_enqueue_style('stcr-admin-style');
+		public function register_admin_scripts( $hook ) {
+
+            // check if we're on our pages
+            if ( strpos( $hook, 'stcr' ) !== false ) {
+            
+                // paths
+    			$stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
+    			$stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
+                
+                // scripts
+                wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+                wp_enqueue_script('stcr-admin-js');
+
+                // styles
+                wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
+                wp_enqueue_style('stcr-admin-style');
+
+            }
+
         }
 		/**
 		 * Hooking scripts for admin pages.
