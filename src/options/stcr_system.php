@@ -454,33 +454,14 @@ else {
                             $stcr_system_information['Server Environment']["cURL Version"] = 'cURL is not available';
                         }
 
-                        // Check MySQL Version
-                        if ( ! $wpdb->use_mysqli )
-                        {
-                            $ver = mysqli_get_server_info( $wpdb->dbh );
-                        }
-                        else
-                        {
-                            if( function_exists( 'mysql_get_server_info' ) )
-                            {
-                                $ver = mysql_get_server_info();
-                            }
-                        }
-
-                        if ( ! empty( $wpdb->is_mysql ) && ! stristr( $ver, 'MariaDB' ) )
-                        {
-                            $MySQLSVersion = $wpdb->db_version();
-
-                            if ( version_compare( $MySQLSVersion, '5.6', '<' ) )
-                            {
-                                $MySQLSVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum MySQL version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $MySQLSVersion ), '<a href="https://wordpress.org/about/requirements/" target="_blank">' . __( 'WordPress Requirements', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
-                                $stcr_system_information['Server Environment']["MySQL Version"] = sprintf( '%s - We recommend a minimum MySQL version of 5.6. See: %s', esc_html( $MySQLSVersion ), '<a href="https://wordpress.org/about/requirements/" target="_blank">WordPress Requirements</a>' );
-                            }
-                            else
-                            {
-                                $MySQLSVersion = '<div class="system-success">' . esc_html( $MySQLSVersion ) . '</div>';
-                                $stcr_system_information['Server Environment']["MySQL Version"] = $wpdb->db_version();
-                            }
+                        // check MySQL version
+                        global $wp_version, $required_mysql_version;
+                        if ( version_compare( $wpdb->db_version(), $required_mysql_version, '<' ) ) {
+                            $MySQLSVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '<strong>ERROR</strong>: WordPress %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ) . '</div>';
+                            $stcr_system_information['Server Environment']["MySQL Version"] = $wpdb->db_version();
+                        } else {
+                            $MySQLSVersion = '<div class="system-success">' . $wpdb->db_version() . '</div>';
+                            $stcr_system_information['Server Environment']["MySQL Version"] = $wpdb->db_version();
                         }
 
                         // Get the Timezone
