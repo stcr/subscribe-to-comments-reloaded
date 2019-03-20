@@ -768,9 +768,11 @@ else {
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.
 $wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-system-info", "stcr_system.js", "includes/js/admin");
+$wp_subscribe_reloaded->stcr->utils->register_script_to_wp( "stcr-subs-options", "subs_options.js", "includes/js/admin");
 // Includes the Panel JS resource file as well as the JS text domain translations.
 //$wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-system-info", "stcr_i18n", $wp_subscribe_reloaded->stcr->stcr_i18n->get_js_subs_translation() );
 // Enqueue the JS File
 $wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-system-info" );
+$wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-subs-options" );
 
 ?>
