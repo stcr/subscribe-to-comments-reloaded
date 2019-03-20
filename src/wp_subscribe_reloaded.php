@@ -144,6 +144,9 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                             "generate_system_report" => "stcr_recreate_file"
                         )
                 );
+
+                add_action( 'admin_init', array( $this, 'sysinfo_download' ) );
+
             }
         }
 

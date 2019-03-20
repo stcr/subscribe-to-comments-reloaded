@@ -211,29 +211,11 @@ else {
 
                     <div class="form-group row">
                         <label for="generate_system_info" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Generate System Info File', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Download System Info File', 'subscribe-reloaded' ) ?></label>
                         <div class="col-sm-7">
-                            <?php
-                                $nonceName = "generate_system_report";
-                                $nonce = wp_create_nonce( $nonceName );
-                            ?>
-                            <button id="generate_system_info" readonly="readonly"
-                                    class="generate_system_info btn btn-third subscribe-form-button"
-                                    <?php echo "data-nonce='{$nonce}|{$nonceName}'"  ?>>
-                                <?php _e( 'Generate', 'subscribe-reloaded' ); ?>
-                            </button>
-                            <span class="generate_spinner stcr-hidden"><i class="fas fa-play-circle"></i></span>
-                            <a class="download_report btn btn-download subscribe-form-button stcr-hidden" href="#">
+                            <a class="download_report btn btn-download subscribe-form-button" href="#">
                                 <?php _e( 'Download', 'subscribe-reloaded' ); ?>
                             </a>
-                            <div style="height: 10px;"></div>
-                            <div class="alert alert-danger stcr-hidden stcr-alert-box download_report_error" role="alert">
-                                <p><?php _e('Please verify that you have the correct file permissions. WordPress System Info File could not be created !', 'subscribe-reloaded' );?>
-                                </p>
-                                <p style="font-weight: bold;"><?php _e(  "Path: ", "subscribe-reloaded"); ?>
-                                    <span class="file-path" style="font-family: 'Courier New'"></span>
-                                </p>
-                            </div>
                         </div>
                     </div>
 
@@ -745,6 +727,12 @@ else {
                     <input class="reportPath" type="hidden" name="reportPath" value="<?php echo $reportPath; ?>">
                     <textarea class="reportData stcr-hidden" readonly name="reportPath" ><?php echo serialize( $stcr_system_information ); ?></textarea>
                 </form>
+
+                <form name="stcr_sysinfo_form" class="stcr-hidden" action="<?php echo esc_url( admin_url( 'admin.php?page=stcr_system' ) ); ?>" method="post">
+                    <input type="hidden" name="stcr_sysinfo_action" value="download_sysinfo" />
+                    <textarea name="stcr_sysinfo" readonly><?php echo serialize( $stcr_system_information ); ?></textarea>
+                </form>
+
             </div>
 
             <div class="col-md-3">

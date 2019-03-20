@@ -610,6 +610,37 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		}
 
 		/**
+		 * Download system information file
+		 *
+		 * @since       20190320
+		 * @return      void
+		 */
+		function sysinfo_download() {
+
+			if ( ! isset( $_POST['stcr_sysinfo_action'] ) ) {
+				return;
+			}
+
+			if ( $_POST['stcr_sysinfo_action'] != 'download_sysinfo' ) {
+				return;
+			}
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
+			nocache_headers();
+
+			header( 'Content-Type: text/plain' );
+			header( 'Content-Disposition: attachment; filename="stcr-sysinfo.txt"' );
+
+			echo stripslashes( $_POST['stcr_sysinfo'] );
+			
+			exit;
+
+		}
+
+		/**
 		 * Adds a custom stylesheet file to the admin interface
 		 */
 		public function add_options_stylesheet() {
