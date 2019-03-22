@@ -51,7 +51,11 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 // Add subscriptions for tests
 //                $this->add_manual_subs( 50, 18,'Y', 'dev', 30);
             }
+
+            add_shortcode( 'stcr_management_page', array( $this, 'management_page_sc' ) );
+
 		}
+
 		// end __construct
         public function add_manual_subs( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 )
         {
@@ -1258,5 +1262,18 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 				setcookie( 'comment_author_email_' . COOKIEHASH, $subscribe_to_comments_clean_email, time() + 1209600, '/' );
 			}
 		}
+
+        /**
+         * Management page shortcode
+         *
+         * @since 190320
+         */
+        public function management_page_sc() {
+
+            $data = $this->subscribe_reloaded_manage();
+            return $data[0]->post_content;
+
+        }
+
 	} // end of class declaration
 }
