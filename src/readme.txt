@@ -100,6 +100,17 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190325 =
+
+* **New** Shortcode for manage page content (to be used on non-virtual management page). The shortcode is [stcr_management_page]
+* **Rewrite** New method for downloading system information file
+* **Fix** The admin panel CSS and JavaScript files now load only on StCR pages
+* **Fix** Tooltips not showing up on System options page
+* **Fix** Conflict with MailChimp for WP plugin (comment filter received echo instead of return which caused the issue)
+* **Fix** Issue with select/deselect all on management page
+* **Tweak** The MySQL requirements info on the system page now uses WordPress requirements
+* **Tweak** The post author will no longer be notified of his/her own comments
+
 = v190305 =
 
 * **Fix** Issue with "Subscribe authors" functionality sending the emails to administrator instead of the post author
