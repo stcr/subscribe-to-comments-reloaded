@@ -410,18 +410,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
             $options_link = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_options' ), __( 'Settings', 'subscribe-reloaded' ) );
             $system_link  = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_system' ), __( 'Log Settings', 'subscribe-reloaded' ) );
 
-			if( $_fresh_install ) {
-				$this->stcr_create_admin_notice(
-					'notify_update_new_install',
-					'unread',
-					'<p>' . __('<strong>Thank you for installing Subscribe to Comments Reloaded!</strong>.', 'subscribe-reloaded') . '</p>' .
-					'<p>' . __('If you find a bug or an issue you can report it <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues" target="_blank">here</a>.', 'subscribe-reloaded') . '</p>' .
-					'<p>' . __('Please visit the <a href="https://wordpress.org/plugins/subscribe-to-comments-reloaded/changelog/" target="_blank">Changelog</a> for detailed information on plugin changes.'
-						. '<a class="dismiss" href="#">Dismiss.  </a>'
-						. '<img class="stcr-loading-animation" src="' . esc_url(admin_url() . '/images/loading.gif') . '" alt="Working...">', 'subscribe-reloaded') . '</p>',
-					'updated'
-				);
-			} else {
+			if( ! $_fresh_install ) {
+			
 				switch ($_version) {
 					case '160106':
 						$this->stcr_create_admin_notice(
