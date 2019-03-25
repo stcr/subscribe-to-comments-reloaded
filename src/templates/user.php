@@ -146,7 +146,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                 var checkbox = $('form[name="post_list_form"] table input[type="checkbox"] ');
 
                 checkbox.each(function(index,  element){
-                    $(this).attr('checked','checked');
+                    $(this).prop('checked',true);
                 });
 
                 event.preventDefault();
@@ -163,7 +163,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                 var checkbox = $('form[name="post_list_form"] table input[type="checkbox"] ');
 
                 checkbox.each(function(index,  element){
-                    $(this).removeAttr('checked');
+                    $(this).prop('checked',false);
                 });
 
                 event.preventDefault();
