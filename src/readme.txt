@@ -98,23 +98,6 @@ Just go to the Options Panel and click the generate button. By generating a new 
 6. Check the number of subscribers in your posts.
 7. Manage the subscriptions on the Frontend Side.
 
-== Upgrade Notice ==
-
-= v190305 =
-
-* **Fix** Issue with "Subscribe authors" functionality sending the emails to administrator instead of the post author
-
-= v190214 =
-
-* **Fix** Compatibility with some PHP versions and MySQL. Fixes other minor issues.
-
-= v190117 =
-
-* **Upgrade** The backend interface to make the UX simpler for the user and Add option to get information of your WordPress System. Improve Logging with PHP errors catching.
-
-= v180225 =
-**Fix** Information that was not been validated on the backened.
-
 == Changelog ==
 
 = v190305 =
