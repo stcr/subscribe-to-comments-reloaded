@@ -350,10 +350,16 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
 			// If the case, notify the author
 			if ( get_option( 'subscribe_reloaded_notify_authors', 'no' ) == 'yes' ) {
+                
                 $post_author_id = get_post_field( 'post_author', $info->comment_post_ID );
                 $post_author_data = get_userdata( $post_author_id );
                 $post_author_email = $post_author_data->user_email;
-                $this->notify_user( $info->comment_post_ID, $post_author_email, $_comment_ID );
+
+                // send email to author unless the author made the comment
+                if ( $info->comment_author_email != $post_author_email ) {
+                    $this->notify_user( $info->comment_post_ID, $post_author_email, $_comment_ID );
+                }
+
 			}
 
 			return $_comment_ID;
