@@ -1247,7 +1247,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 			}
 
-			echo $output . $submit_field;
+			return $output . $submit_field;
 		} // end subscribe_reloaded_show
 
 		public function setUserCoookie() {
