@@ -6,7 +6,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-define( __NAMESPACE__.'\\VERSION','190320' );
+define( __NAMESPACE__.'\\VERSION','190325' );
 define( __NAMESPACE__.'\\DEVELOPMENT', true );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
@@ -1272,7 +1272,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
         /**
          * Management page shortcode
          *
-         * @since 190320
+         * @since 190325
          */
         public function management_page_sc() {
 

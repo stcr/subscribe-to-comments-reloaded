@@ -612,7 +612,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		/**
 		 * Download system information file
 		 *
-		 * @since       20190320
+		 * @since       190325
 		 * @return      void
 		 */
 		function sysinfo_download() {

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Subscribe to Comments Reloaded
 
-Version: 190320
+Version: 190325
 Requires at least: 4.0
 Tested up to: 5.1
 
