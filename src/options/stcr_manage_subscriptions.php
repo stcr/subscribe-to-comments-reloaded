@@ -278,8 +278,8 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                     <select name="sra" id="action_type" class="form-control">
                                                         <option value="delete"><?php _e( 'Delete forever', 'subscribe-reloaded' ) ?></option>
                                                         <option value="suspend"><?php _e( 'Suspend', 'subscribe-reloaded' ) ?></option>
-                                                        <option value="force_y"><?php _e( 'Activate and set to Y', 'subscribe-reloaded' ) ?></option>
-                                                        <option value="force_r"><?php _e( 'Activate and set to R', 'subscribe-reloaded' ) ?></option>
+                                                        <option value="force_y"><?php _e( 'Activate and set to notify on all comments', 'subscribe-reloaded' ) ?></option>
+                                                        <option value="force_r"><?php _e( 'Activate and set to notify on replies only ', 'subscribe-reloaded' ) ?></option>
                                                         <option value="activate"><?php _e( 'Activate', 'subscribe-reloaded' ) ?></option>
                                                     </select>
                                                 </div>
