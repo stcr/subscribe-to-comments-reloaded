@@ -37,7 +37,7 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 2. Upload the entire folder and all the subfolders to your Wordpress plugins' folder. You can also use the downloaded ZIP file to upload it.
 3. Activate it
 5. Customize the Permalink value under Settings > Subscribe to Comments > Management Page > Management URL. It **must** reflect your permalinks' structure
-5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>` somewhere in your `comments.php`
+5. If you don't see the checkbox to subscribe, you will have to manually edit your template, and add `<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ echo $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>` somewhere in your `comments.php`
 6. If you're upgrading from a previous version, please **make sure to deactivate/activate** StCR.
 7. You can always install the latest development version by taking a look at this [Video](https://youtu.be/uQwkBciyFGY)
 
@@ -79,7 +79,7 @@ Use the shortcode `[subscribe-url]`, or use the following code in your theme:
 
 = Can I move the subscription checkbox to another position? =
 Yes! Just disable the corresponding option under Settings > Comment Form and then add the following code where you want to display the checkbox:
-`<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>`
+`<?php global $wp_subscribe_reloaded; if (isset($wp_subscribe_reloaded)){ echo $wp_subscribe_reloaded->stcr->subscribe_reloaded_show(); } ?>`
 
 = What if after update to the version 141024 I still see plain HTML messages? =
 The information of your configuration needs to be updated. Go to the Subscribe to Comments Reloaded settings and click the `Save Changes` button on the tab
