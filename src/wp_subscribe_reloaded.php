@@ -49,7 +49,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
             if ( DEVELOPMENT )
             {
                 // Add subscriptions for tests
-//                $this->add_manual_subs( 50, 18,'Y', 'dev', 30);
+				// $this->add_manual_subs( 50, 18,'Y', 'dev', 30);
             }
 
             add_shortcode( 'stcr_management_page', array( $this, 'management_page_sc' ) );
@@ -1142,7 +1142,15 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		/**
 		 * Displays the checkbox to allow visitors to subscribe
 		 */
-		function subscribe_reloaded_show($submit_field = '') {
+		function subscribe_reloaded_show($submit_field = '' ) {
+
+			// echo on action
+			// return on filter
+			$echo = false;
+			if ( doing_action( 'comment_form' ) ) {
+				$echo = true;
+			}
+
 			global $post, $wp_subscribe_reloaded;
 			$checkbox_subscription_type = null;
             $_comment_ID = null;
@@ -1253,7 +1261,12 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 			}
 
-			return $output . $submit_field;
+			if ( $echo ) {
+				echo $output . $submit_field;
+			} else {
+				return $output . $submit_field;
+			}
+
 		} // end subscribe_reloaded_show
 
 		public function setUserCoookie() {
