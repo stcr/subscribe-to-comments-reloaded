@@ -1430,7 +1430,7 @@ msgstr "Wähle eine Aktion"
 #: templates/author.php:97 templates/user.php:115
 #, fuzzy
 msgid "Unsubscribe"
-msgstr "Nicht abbonieren"
+msgstr "Nicht abonnieren"
 
 #: templates/author.php:99 templates/user.php:117
 msgid "All comments"
@@ -2125,7 +2125,7 @@ msgstr "Optionen"
 
 #: wp_subscribe_reloaded.php:1208
 msgid "Don't subscribe"
-msgstr "Nicht abbonieren"
+msgstr "Nicht abonnieren"
 
 #: wp_subscribe_reloaded.php:1209
 msgid "All"
