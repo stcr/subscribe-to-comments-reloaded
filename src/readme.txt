@@ -100,6 +100,14 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190409 =
+
+* **Fix** Post author was notified of new comments even if they are awaiting approval, no need for this since WordPress itself sends out an email in that case
+* **Fix** Post author was notified twice ( if he was subscribed and "subscribe authors" was enabled )
+* **Fix** Issue with "StCR Position" option ( for older/outdated themes ) not working properly
+* **Fix** Issue with wrong translation in German
+* **Tweak** The "Action" select box labels on "Manage Subscriptions" page tweaked to be more descriptive
+
 = v190325 =
 
 * **New** Shortcode for manage page content (to be used on non-virtual management page). The shortcode is [stcr_management_page]
