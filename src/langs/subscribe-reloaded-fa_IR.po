@@ -530,11 +530,11 @@ msgid "Suspend"
 msgstr "تعلیق"
 
 #: options/stcr_manage_subscriptions.php:281
-msgid "Activate and set to Y"
+msgid "Activate and set to notify on all comments"
 msgstr "فعال کن و روی حالت Y بگذار"
 
 #: options/stcr_manage_subscriptions.php:282
-msgid "Activate and set to R"
+msgid "Activate and set to notify on replies only"
 msgstr "فعال کن و روی حالت R بگذار"
 
 #: options/stcr_manage_subscriptions.php:283

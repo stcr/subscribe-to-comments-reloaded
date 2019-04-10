@@ -523,11 +523,11 @@ msgid "Suspend"
 msgstr "Kikapcsolás"
 
 #: options/stcr_manage_subscriptions.php:281
-msgid "Activate and set to Y"
+msgid "Activate and set to notify on all comments"
 msgstr "Aktiválás és Y-ra állítás"
 
 #: options/stcr_manage_subscriptions.php:282
-msgid "Activate and set to R"
+msgid "Activate and set to notify on replies only"
 msgstr "Aktiválás és R-re állítás"
 
 #: options/stcr_manage_subscriptions.php:283

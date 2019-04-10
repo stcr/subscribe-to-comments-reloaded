@@ -538,11 +538,11 @@ msgid "Suspend"
 msgstr "Deaktivieren"
 
 #: options/stcr_manage_subscriptions.php:281
-msgid "Activate and set to Y"
+msgid "Activate and set to notify on all comments"
 msgstr "Aktivieren und auf Y setzen"
 
 #: options/stcr_manage_subscriptions.php:282
-msgid "Activate and set to R"
+msgid "Activate and set to notify on replies only"
 msgstr "Aktivieren und auf R setzen"
 
 #: options/stcr_manage_subscriptions.php:283
