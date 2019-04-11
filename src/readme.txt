@@ -100,6 +100,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190411 =
+
+* **Fix** Issue with JavaScript code that is supposed to show the form when "StCR Position" is enabled
+
 = v190409 =
 
 * **Fix** Post author was notified of new comments even if they are awaiting approval, no need for this since WordPress itself sends out an email in that case
