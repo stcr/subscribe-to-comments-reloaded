@@ -6,7 +6,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-define( __NAMESPACE__.'\\VERSION','190409' );
+define( __NAMESPACE__.'\\VERSION','190411' );
 define( __NAMESPACE__.'\\DEVELOPMENT', true );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
@@ -1262,8 +1262,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			// Check for the Comment Form location
 			if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
 				$output .= "<style type='text/css'>.stcr-hidden{display: none !important;}</style>";
-				$output .= "<script type='text/javascript'>$(document).ready(function($){var stcr_form=$('div.stcr-form');stcr_form.prevUntil('form').each(function(){var $this=$(this);if($this.find(':input[type=\"submit\"]').length){stcr_form.remove(),$this.before(stcr_form);$('div.stcr-form').removeClass('stcr-hidden');return false;}})});
-</script>";
+				$output .= "<script type='text/javascript'>jQuery(document).ready(function($){var stcr_form=$('div.stcr-form');stcr_form.prevUntil('form').each(function(){var _this=$(this);if(_this.find(':input[type=\"submit\"]').length){stcr_form.remove(),_this.before(stcr_form);$('div.stcr-form').removeClass('stcr-hidden');return false;}})});</script>";
 				$output .= "<div class='stcr-form stcr-hidden'>";
                 $output .= "<!-- Subscribe to Comments Reloaded version ". $wp_subscribe_reloaded->stcr->current_version . " -->";
                 $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
