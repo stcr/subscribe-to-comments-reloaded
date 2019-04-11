@@ -7,7 +7,7 @@ Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
 Tested up to: 5.1
-Stable tag: 190411
+Stable tag: 190412
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,7 +100,7 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
-= v190411 =
+= v190412 =
 
 * **Fix** Issue with JavaScript code that is supposed to show the form when "StCR Position" is enabled
 
