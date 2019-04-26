@@ -176,14 +176,9 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                 );
 
                                 if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
-//                                    $order_post_id = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Post ID', 'subscribe-to-comments-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=post_id&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
-//                                    $order_dt      = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-to-comments-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=dt&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
-//                                    $order_status  = "<a style='text-decoration:none' title='" . __( 'Reverse the order by Date/Time', 'subscribe-to-comments-reloaded' ) . "' href='admin.php?page=stcr_manage_subscriptions&amp;srv=" . urlencode( $search_value ) . "&amp;srt=" . urlencode( $operator ) . "&amp;srob=status&amp;sro=" . ( ( $order == 'ASC' ) ? "DESC'><i class=\"fas fa-caret-down\"></i>" : "ASC'><i class=\"fas fa-caret-up\"></i>" ) . "</a>";
 
                                     $show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ?  __( 'Post (ID)', 'subscribe-to-comments-reloaded' ) : '';
                                     $show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? __( 'Email', 'subscribe-to-comments-reloaded' ) : '';
-
-//                                    echo '<p>' . __( 'Search query:', 'subscribe-to-comments-reloaded' ) . " <code>$search_field $operator <strong>$search_value</strong> ORDER BY $order_by $order</code>. " . __( 'Rows:', 'subscribe-to-comments-reloaded' ) . ' ' . ( $offset + 1 ) . " - $ending_to " . __( 'of', 'subscribe-to-comments-reloaded' ) . " $count_total</p>";
 
                                     echo "<table class=\"table table-smx table-hover table-striped subscribers-table stcr-hidden\" style=\"font-size: 0.8em\">
                                              <thead>";
@@ -198,8 +193,8 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                   </th>
                                                   <th scope=\"col\"><i class=\"fas fa-thumbtack\"></i><span>$show_post_column</span></th>
                                                   <th scope=\"col\"><i class=\"fas fa-address-card\"></i><span>$show_email_column</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>". __( 'Date and Time', 'subscribe-to-comments-reloaded' ) . " &nbsp;&nbsp;$order_dt</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>". __( 'Status', 'subscribe-to-comments-reloaded' ) . " &nbsp;&nbsp;$order_status</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>". __( 'Date and Time', 'subscribe-to-comments-reloaded' ) . "</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>". __( 'Status', 'subscribe-to-comments-reloaded' ) . "</span></th>
                                               </tr>";
                                     }
                                     else
@@ -211,8 +206,8 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                   </th>
                                                   <th scope=\"col\"><i class=\"fas fa-thumbtack\"></i><span>$show_post_column</span></th>
                                                   <th scope=\"col\"><i class=\"fas fa-address-card\"></i><span>$show_email_column</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>". __( 'Date and Time', 'subscribe-to-comments-reloaded' ) . " &nbsp;&nbsp;$order_dt</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>". __( 'Status', 'subscribe-to-comments-reloaded' ) . " &nbsp;&nbsp;$order_status</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>". __( 'Date and Time', 'subscribe-to-comments-reloaded' ) . "</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>". __( 'Status', 'subscribe-to-comments-reloaded' ) . "</span></th>
                                               </tr>";
                                     }
 
