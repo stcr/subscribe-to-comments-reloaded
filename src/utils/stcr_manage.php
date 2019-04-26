@@ -673,7 +673,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function add_column_header( $_columns ) {
 			$image_url                      = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/images';
 			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
-			$_columns['subscribe-to-comments-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
+			$_columns['subscribe-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
 			return $_columns;
 		}
@@ -683,7 +683,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column to the Edit Comments panel
 		 */
 		public function add_comment_column( $_column_name ) {
-			if ( 'subscribe-to-comments-reloaded' != $_column_name ) {
+			if ( 'subscribe-reloaded' != $_column_name ) {
 				return;
 			}
 
@@ -712,7 +712,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column to the Posts management panel
 		 */
 		public function add_post_column( $_column_name ) {
-			if ( 'subscribe-to-comments-reloaded' != $_column_name ) {
+			if ( 'subscribe-reloaded' != $_column_name ) {
 				return;
 			}
 
