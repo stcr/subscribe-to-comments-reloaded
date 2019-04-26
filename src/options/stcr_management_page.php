@@ -182,7 +182,7 @@ wp_print_scripts( 'quicktags' );
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" style="display: none;">
                         <label for="request_mgmt_link_thankyou" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
                             <?php _e( 'Request submitted', 'subscribe-to-comments-reloaded' ) ?>
 
