@@ -1,5 +1,7 @@
 <?php
-// Options
+/**
+ * Displays WP-admin -> StCR -> StCR System 
+ */
 
 // Avoid direct access to this piece of code
 if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
@@ -194,7 +196,7 @@ else {
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" style="margin-bottom: 0;">
                         <label for="purge_log" class="col-sm-3 col-form-label text-right">
                             <?php _e( 'Clean Up Log Archive', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
@@ -206,6 +208,20 @@ else {
                             </span>
 
                             <input type='submit' id="purge_log" value='<?php _e( 'Clean' ); ?>' class='btn btn-secondary subscribe-form-button' name='purge_log' >
+                        </div>
+                    </div>
+                    
+                    <?php
+                        // get the total number of subscribers and subscriptions
+                        $total_subscribers = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}subscribe_reloaded_subscribers");
+                        $total_subscriptions = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}postmeta where meta_key LIKE '_stcr@_%'");
+                    ?>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"><?php _e( 'Subscribers Count', 'subscribe-to-comments-reloaded' ); ?></label>
+                        <div class="col-sm-7">
+                            <label class="col-form-label"><?php
+                                echo sprintf( __( '%d subscribers with %d subscriptions', 'subscribe-to-comments-reloaded' ), $total_subscribers, $total_subscriptions );
+                            ?></label>
                         </div>
                     </div>
 
