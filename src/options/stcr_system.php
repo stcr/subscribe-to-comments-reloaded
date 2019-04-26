@@ -301,15 +301,15 @@ else {
 
                         $wordpressEnvironment = array(
                             1 => array(
-                                __( "Home URL", "subscribe-reloaded" ),
+                                __( "Home URL", 'subscribe-to-comments-reloaded' ),
                                 $wpHome
                             ),
                             2 => array(
-                                __( "Site URL", "subscribe-reloaded" ),
+                                __( "Site URL", 'subscribe-to-comments-reloaded' ),
                                 $wpsiteurl
                             ),
                             3 => array(
-                                __( "WordPress Version", "subscribe-reloaded" ),
+                                __( "WordPress Version", 'subscribe-to-comments-reloaded' ),
                                 $wpVersion
                             ),
                             4 => array(
@@ -317,39 +317,39 @@ else {
                                 $wpMultisite ? '<span class="dashicons dashicons-yes"></span>' :  'No'
                             ),
                             5 => array(
-                                __( "Memory Limit", "subscribe-reloaded" ),
+                                __( "Memory Limit", 'subscribe-to-comments-reloaded' ),
                                 $memoryValue
                             ),
                             6 => array(
-                                __( "WP Debug Mode", "subscribe-reloaded" ),
+                                __( "WP Debug Mode", 'subscribe-to-comments-reloaded' ),
                                 $wpDebug
                             ),
                             7 => array(
-                                __( "WP Cron", "subscribe-reloaded" ),
+                                __( "WP Cron", 'subscribe-to-comments-reloaded' ),
                                 $wpCron
                             ),
                             8 => array(
-                                __( "Language", "subscribe-reloaded" ),
+                                __( "Language", 'subscribe-to-comments-reloaded' ),
                                 $wpLanguage
                             ),
                             9 => array(
-                                __( "Permalink Structure", "subscribe-reloaded" ),
+                                __( "Permalink Structure", 'subscribe-to-comments-reloaded' ),
                                 $wpPermalink
                             ),
                             10 => array(
-                                __( "Table Prefix", "subscribe-reloaded" ),
+                                __( "Table Prefix", 'subscribe-to-comments-reloaded' ),
                                 $wpTablePrefix
                             ),
                             11 => array(
-                                __( "Table Prefix Length", "subscribe-reloaded" ),
+                                __( "Table Prefix Length", 'subscribe-to-comments-reloaded' ),
                                 $wpTablePrefixLength
                             ),
                             12 => array(
-                                __( "Table Prefix Status", "subscribe-reloaded" ),
+                                __( "Table Prefix Status", 'subscribe-to-comments-reloaded' ),
                                 $wpTablePrefixStatus
                             ),
                             13 => array(
-                                __( "Registered Post Statuses", "subscribe-reloaded" ),
+                                __( "Registered Post Statuses", 'subscribe-to-comments-reloaded' ),
                                 $wpRegisteredPostStatuses
                             )
                         );
@@ -513,59 +513,59 @@ else {
                         // Define array of values
                         $serverEnvironment = array(
                             1 => array(
-                                __( "TLS Connection", "subscribe-reloaded" ),
+                                __( "TLS Connection", 'subscribe-to-comments-reloaded' ),
                                 $tlsCheckValue
                             ),
                             2 => array(
-                                __( "TLS Rating", "subscribe-reloaded" ),
+                                __( "TLS Rating", 'subscribe-to-comments-reloaded' ),
                                 $tlsRating
                             ),
                             3 => array(
-                                __( "Server Info", "subscribe-reloaded" ),
+                                __( "Server Info", 'subscribe-to-comments-reloaded' ),
                                 $serverInfo
                             ),
                             4 => array(
-                                __( "PHP Version", "subscribe-reloaded" ),
+                                __( "PHP Version", 'subscribe-to-comments-reloaded' ),
                                 $phpVersion
                             ),
                             5 => array(
-                                __( "PHP Post Max Size", "subscribe-reloaded" ),
+                                __( "PHP Post Max Size", 'subscribe-to-comments-reloaded' ),
                                 $maxPostSize
                             ),
                             6 => array(
-                                __( "PHP Max Execution Time", "subscribe-reloaded" ),
+                                __( "PHP Max Execution Time", 'subscribe-to-comments-reloaded' ),
                                 ini_get( 'max_execution_time' )
                             ),
                             7 => array(
-                                __( "PHP Max Input Vars", "subscribe-reloaded" ),
+                                __( "PHP Max Input Vars", 'subscribe-to-comments-reloaded' ),
                                 ini_get( 'max_input_vars' )
                             ),
                             8 => array(
-                                __( "PHP Max Upload Size", "subscribe-reloaded" ),
+                                __( "PHP Max Upload Size", 'subscribe-to-comments-reloaded' ),
                                 size_format( wp_max_upload_size() )
                             ),
                             9 => array(
-                                __( "cURL Version", "subscribe-reloaded" ),
+                                __( "cURL Version", 'subscribe-to-comments-reloaded' ),
                                 $cURLVersion
                             ),
                             10 => array(
-                                __( "MySQL Version", "subscribe-reloaded" ),
+                                __( "MySQL Version", 'subscribe-to-comments-reloaded' ),
                                 $MySQLSVersion
                             ),
                             11 => array(
-                                __( "Default Timezone is UTC", "subscribe-reloaded" ),
+                                __( "Default Timezone is UTC", 'subscribe-to-comments-reloaded' ),
                                 $defaultTimezone
                             ),
                             12 => array(
-                                __( "DOMDocument", "subscribe-reloaded" ),
+                                __( "DOMDocument", 'subscribe-to-comments-reloaded' ),
                                 $DOMDocument
                             ),
                             13 => array(
-                                __( "gzip", "subscribe-reloaded" ),
+                                __( "gzip", 'subscribe-to-comments-reloaded' ),
                                 $gzip
                             ),
                             14 => array(
-                                __( "GD Graphics Library", "subscribe-reloaded" ),
+                                __( "GD Graphics Library", 'subscribe-to-comments-reloaded' ),
                                 $gd
                             )
                         );

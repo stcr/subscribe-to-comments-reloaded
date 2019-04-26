@@ -147,7 +147,7 @@ if( ! $valid_email )
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
             </p>
-            <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?></p>
+            <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
         </fieldset>
     </form>
     <?php
@@ -170,12 +170,12 @@ if( ! $valid_email )
                     if( email.val() !== "email" && email.val() === "" )
                     {
                         event.preventDefault();
-                        $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Please enter your email", "subscribe-reloaded") ?>").show().delay(4000).fadeOut(1000);
+                        $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Please enter your email", 'subscribe-to-comments-reloaded') ?>").show().delay(4000).fadeOut(1000);
                     }
                     else if( emailRegex.test( email.val() ) === false )
                     {
                         event.preventDefault();
-                        $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?>").show().delay(4000).fadeOut(1000);
+                        $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?>").show().delay(4000).fadeOut(1000);
                     }
                 });
 

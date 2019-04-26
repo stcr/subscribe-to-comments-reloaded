@@ -169,33 +169,33 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
         public function stcr_translate_month( $date_str )
         {
             $months_long = array (
-                "January" => __("January","subscribe-reloaded"),
-                "February" => __("February","subscribe-reloaded"),
-                "March" => __("March","subscribe-reloaded"),
-                "April" => __("April","subscribe-reloaded"),
-                "May" => __("May","subscribe-reloaded"),
-                "June" => __("June","subscribe-reloaded"),
-                "July" => __("July","subscribe-reloaded"),
-                "August" => __("August","subscribe-reloaded"),
-                "September" => __("September","subscribe-reloaded"),
-                "October" => __("October","subscribe-reloaded"),
-                "November" => __("November","subscribe-reloaded"),
-                "December" => __("December","subscribe-reloaded")
+                "January" => __("January",'subscribe-to-comments-reloaded'),
+                "February" => __("February",'subscribe-to-comments-reloaded'),
+                "March" => __("March",'subscribe-to-comments-reloaded'),
+                "April" => __("April",'subscribe-to-comments-reloaded'),
+                "May" => __("May",'subscribe-to-comments-reloaded'),
+                "June" => __("June",'subscribe-to-comments-reloaded'),
+                "July" => __("July",'subscribe-to-comments-reloaded'),
+                "August" => __("August",'subscribe-to-comments-reloaded'),
+                "September" => __("September",'subscribe-to-comments-reloaded'),
+                "October" => __("October",'subscribe-to-comments-reloaded'),
+                "November" => __("November",'subscribe-to-comments-reloaded'),
+                "December" => __("December",'subscribe-to-comments-reloaded')
             );
 
             $months_short = array (
-                "Jan" => __("Jan","subscribe-reloaded"),
-                "Feb" => __("Feb","subscribe-reloaded"),
-                "Mar" => __("Mar","subscribe-reloaded"),
-                "Apr" => __("Apr","subscribe-reloaded"),
-                "May" => __("May","subscribe-reloaded"),
-                "Jun" => __("Jun","subscribe-reloaded"),
-                "Jul" => __("Jul","subscribe-reloaded"),
-                "Aug" => __("Aug","subscribe-reloaded"),
-                "Sep" => __("Sep","subscribe-reloaded"),
-                "Oct" => __("Oct","subscribe-reloaded"),
-                "Nov" => __("Nov","subscribe-reloaded"),
-                "Dec" => __("Dec","subscribe-reloaded")
+                "Jan" => __("Jan",'subscribe-to-comments-reloaded'),
+                "Feb" => __("Feb",'subscribe-to-comments-reloaded'),
+                "Mar" => __("Mar",'subscribe-to-comments-reloaded'),
+                "Apr" => __("Apr",'subscribe-to-comments-reloaded'),
+                "May" => __("May",'subscribe-to-comments-reloaded'),
+                "Jun" => __("Jun",'subscribe-to-comments-reloaded'),
+                "Jul" => __("Jul",'subscribe-to-comments-reloaded'),
+                "Aug" => __("Aug",'subscribe-to-comments-reloaded'),
+                "Sep" => __("Sep",'subscribe-to-comments-reloaded'),
+                "Oct" => __("Oct",'subscribe-to-comments-reloaded'),
+                "Nov" => __("Nov",'subscribe-to-comments-reloaded'),
+                "Dec" => __("Dec",'subscribe-to-comments-reloaded')
             );
 
             // Replace String

@@ -48,27 +48,27 @@ class stcr_i18n
     public function register_js_subs_translation()
     {
         $translation_array = array (
-            "decimal"        => __( " ", "subscribe-reloaded" ),
-            "emptyTable"     => __( "No data available in table", "subscribe-reloaded" ),
-            "info"           => __( "Showing _START_ to _END_ of _TOTAL_ entries", "subscribe-reloaded" ),
-            "infoEmpty"      => __( "Showing 0 to 0 of 0 entries", "subscribe-reloaded" ),
-            "infoFiltered"   => __( "(filtered from _MAX_ total entries)", "subscribe-reloaded" ),
-            "infoPostFix"    => __( " ", "subscribe-reloaded" ),
-            "thousands"      => __( ",", "subscribe-reloaded" ),
-            "lengthMenu"     => __( "Show _MENU_ entries", "subscribe-reloaded" ),
-            "loadingRecords" => __( "Loading...", "subscribe-reloaded" ),
-            "processing"     => __( "Processing...", "subscribe-reloaded" ),
-            "search"         => __( "Search", "subscribe-reloaded" ),
-            "zeroRecords"    => __( "No matching records found", "subscribe-reloaded" ),
+            "decimal"        => __( " ", 'subscribe-to-comments-reloaded' ),
+            "emptyTable"     => __( "No data available in table", 'subscribe-to-comments-reloaded' ),
+            "info"           => __( "Showing _START_ to _END_ of _TOTAL_ entries", 'subscribe-to-comments-reloaded' ),
+            "infoEmpty"      => __( "Showing 0 to 0 of 0 entries", 'subscribe-to-comments-reloaded' ),
+            "infoFiltered"   => __( "(filtered from _MAX_ total entries)", 'subscribe-to-comments-reloaded' ),
+            "infoPostFix"    => __( " ", 'subscribe-to-comments-reloaded' ),
+            "thousands"      => __( ",", 'subscribe-to-comments-reloaded' ),
+            "lengthMenu"     => __( "Show _MENU_ entries", 'subscribe-to-comments-reloaded' ),
+            "loadingRecords" => __( "Loading...", 'subscribe-to-comments-reloaded' ),
+            "processing"     => __( "Processing...", 'subscribe-to-comments-reloaded' ),
+            "search"         => __( "Search", 'subscribe-to-comments-reloaded' ),
+            "zeroRecords"    => __( "No matching records found", 'subscribe-to-comments-reloaded' ),
             "paginate"       => array(
-                "first"    => __( "First", "subscribe-reloaded" ),
-                "last"     => __( "Last", "subscribe-reloaded" ),
-                "next"     => __( "Next", "subscribe-reloaded" ),
-                "previous" => __( "Previous", "subscribe-reloaded" )
+                "first"    => __( "First", 'subscribe-to-comments-reloaded' ),
+                "last"     => __( "Last", 'subscribe-to-comments-reloaded' ),
+                "next"     => __( "Next", 'subscribe-to-comments-reloaded' ),
+                "previous" => __( "Previous", 'subscribe-to-comments-reloaded' )
             ),
             "aria"           => array(
-                "sortAscending" => __( "activate to sort column ascending", "subscribe-reloaded" ),
-                "sortDescending"=> __( "activate to sort column descending", "subscribe-reloaded" )
+                "sortAscending" => __( "activate to sort column ascending", 'subscribe-to-comments-reloaded' ),
+                "sortDescending"=> __( "activate to sort column descending", 'subscribe-to-comments-reloaded' )
             ),
             "langTextDirection" => $this->get_text_direction()
         );

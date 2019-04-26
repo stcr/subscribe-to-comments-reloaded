@@ -59,10 +59,10 @@ echo "<p>$message</p>";
             $legend_translate = array(
                 'R'  => __( 'Replies', 'subscribe-to-comments-reloaded'),
                 'RC'  => __( 'Replies Unconfirmed', 'subscribe-to-comments-reloaded'),
-                'Y'  => __( "All Comments", "subscribe-reloaded"),
-                'YC' => __( "Unconfirmed", "subscribe-reloaded"),
-                'C'	 => __( "Inactive", "subscribe-reloaded"),
-                '-C' => __( "Active", "subscribe-reloaded")
+                'Y'  => __( "All Comments", 'subscribe-to-comments-reloaded'),
+                'YC' => __( "Unconfirmed", 'subscribe-to-comments-reloaded'),
+                'C'	 => __( "Inactive", 'subscribe-to-comments-reloaded'),
+                '-C' => __( "Active", 'subscribe-to-comments-reloaded')
             );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	echo '<h1 id="subscribe-reloaded-title-p">' . __( 'Title', 'subscribe-to-comments-reloaded' ) . ': <strong>' . $target_post->post_title . '</strong></h1>'; // $target_post comes from wp_subscribe_reloaded\subscribe_reloaded_manage

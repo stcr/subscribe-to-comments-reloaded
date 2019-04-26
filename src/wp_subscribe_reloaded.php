@@ -193,9 +193,9 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                                                   '. $page_desc .'
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                  <a class="dropdown-item" href="admin.php?page=' . $page . '">'. __("StCR Options", "subscribe-reloaded") .'</a>
+                                                  <a class="dropdown-item" href="admin.php?page=' . $page . '">'. __("StCR Options", 'subscribe-to-comments-reloaded') .'</a>
                                                   <div class="dropdown-divider"></div>
-                                                  <a class="dropdown-item" href="admin.php?page=stcr_system">'. __("StCR System", "subscribe-reloaded") .'</a>
+                                                  <a class="dropdown-item" href="admin.php?page=stcr_system">'. __("StCR System", 'subscribe-to-comments-reloaded') .'</a>
                                                 </div>';
                                     }
                                     elseif (  $page == "stcr_system" )

@@ -78,7 +78,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div class="more-info" data-infopanel="info-panel-mass-update" aria-label="<?php _e("More info", "subscribe-reloaded"); ?>">
+                                        <div class="more-info" data-infopanel="info-panel-mass-update" aria-label="<?php _e("More info", 'subscribe-to-comments-reloaded'); ?>">
                                             <i class="fas fa-question-circle"></i>
                                         </div>
                                     </td>
@@ -154,7 +154,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
                         <h4><i class="fas fa-search"></i> <?php _e( 'Search subscriptions', 'subscribe-to-comments-reloaded' ) ?></h4>
 
-                        <div class="col-md-2 subs-spinner mx-auto"><h5><?php _e( "Loading", "subscribe-reloaded"); ?> <i class="fas fa-play-circle"></i></h5></div>
+                        <div class="col-md-2 subs-spinner mx-auto"><h5><?php _e( "Loading", 'subscribe-to-comments-reloaded'); ?> <i class="fas fa-play-circle"></i></h5></div>
 
                         <div class="clearfix"></div>
 
@@ -169,10 +169,10 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                 $status_arry      = array(
                                                     'R'  => __( 'Replies', 'subscribe-to-comments-reloaded'),
                                                     'RC' => __( 'Replies Unconfirmed', 'subscribe-to-comments-reloaded'),
-                                                    'Y'  => __( "All Comments", "subscribe-reloaded"),
-                                                    'YC' => __( "Unconfirmed", "subscribe-reloaded"),
-                                                    'C'	 => __( "Inactive", "subscribe-reloaded"),
-                                                    '-C' => __( "Active", "subscribe-reloaded")
+                                                    'Y'  => __( "All Comments", 'subscribe-to-comments-reloaded'),
+                                                    'YC' => __( "Unconfirmed", 'subscribe-to-comments-reloaded'),
+                                                    'C'	 => __( "Inactive", 'subscribe-to-comments-reloaded'),
+                                                    '-C' => __( "Active", 'subscribe-to-comments-reloaded')
                                                 );
 
                                 if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {

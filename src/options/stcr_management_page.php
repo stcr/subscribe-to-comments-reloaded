@@ -22,7 +22,7 @@ $options = array(
 );
 
 $options_readable = array(
-        "manager_page" => __("Management URL","subscribe-reloaded")
+        "manager_page" => __("Management URL",'subscribe-to-comments-reloaded')
 );
 
 // Update options
