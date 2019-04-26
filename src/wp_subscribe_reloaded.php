@@ -49,7 +49,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
             if ( DEVELOPMENT )
             {
                 // Add subscriptions for tests
-				// $this->add_manual_subs( 50, 18,'Y', 'dev', 30);
+				//$this->add_manual_subs( 10000, 18,'Y', 'dev', 30);
             }
 
             add_shortcode( 'stcr_management_page', array( $this, 'management_page_sc' ) );
