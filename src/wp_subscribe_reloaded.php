@@ -280,12 +280,12 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			}
 
 			// Did this visitor request to be subscribed to the discussion? (and s/he is not subscribed)
-			if ( ! empty( $_POST['subscribe-to-comments-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
+			if ( ! empty( $_POST['subscribe-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
 			    // Check that the user select a valid subscription status, otherwise skip the subscription addition and continue to notify the
                 // users that are subscribe.
-				if ( in_array( $_POST['subscribe-to-comments-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
+				if ( in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
 
-                    switch ($_POST['subscribe-to-comments-reloaded']) {
+                    switch ($_POST['subscribe-reloaded']) {
                         case 'replies':
                             $status = 'R';
                             break;
@@ -1240,16 +1240,16 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 							$checkbox_subscription_type = 'replies';
 							break;
 					}
-					$checkbox_field = "<input$checkbox_inline_style type='checkbox' name='subscribe-to-comments-reloaded' id='subscribe-to-comments-reloaded' value='$checkbox_subscription_type'" . ( ( get_option( 'subscribe_reloaded_checked_by_default', 'no' ) == 'yes' ) ? " checked='checked'" : '' ) . " />";
+					$checkbox_field = "<input$checkbox_inline_style type='checkbox' name='subscribe-reloaded' id='subscribe-reloaded' value='$checkbox_subscription_type'" . ( ( get_option( 'subscribe_reloaded_checked_by_default', 'no' ) == 'yes' ) ? " checked='checked'" : '' ) . " />";
 				} else {
-					$checkbox_field = "<select name='subscribe-to-comments-reloaded' id='subscribe-to-comments-reloaded'>
+					$checkbox_field = "<select name='subscribe-reloaded' id='subscribe-reloaded'>
 								<option value='none' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '0' ) ? "selected='selected'" : '' ) . ">" . __( "Don't subscribe", 'subscribe-to-comments-reloaded' ) . "</option>
 								<option value='yes' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '1' ) ? "selected='selected'" : '' ) . ">" . __( "All", 'subscribe-to-comments-reloaded' ) . "</option>
 								<option value='replies' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '2' ) ? "selected='selected'" : '' ) . ">" . __( "Replies to my comments", 'subscribe-to-comments-reloaded' ) . "</option>
 							</select>";
 				}
 				if ( empty( $checkbox_html_wrap ) ) {
-					$html_to_show = "$checkbox_field <label for='subscribe-to-comments-reloaded'>$checkbox_label</label>" . $html_to_show;
+					$html_to_show = "$checkbox_field <label for='subscribe-reloaded'>$checkbox_label</label>" . $html_to_show;
 				} else {
 					$checkbox_html_wrap = str_replace( '[checkbox_field]', $checkbox_field, $checkbox_html_wrap );
 					$html_to_show       = str_replace( '[checkbox_label]', $checkbox_label, $checkbox_html_wrap ) . $html_to_show;
