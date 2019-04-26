@@ -7,7 +7,7 @@
 
 
         oldsre_input.focus(function(){
-            if (oldsre_input.val() == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>")
+            if (oldsre_input.val() == "<?php _e( 'email address', 'subscribe-to-comments-reloaded' ) ?>")
             {
                 oldsre_input.val("");
             }
@@ -17,13 +17,13 @@
         oldsre_input.blur(function(){
             if (oldsre_input.val() == "")
             {
-                oldsre_input.val("<?php _e( 'email address', 'subscribe-reloaded' ) ?>");
+                oldsre_input.val("<?php _e( 'email address', 'subscribe-to-comments-reloaded' ) ?>");
                 oldsre_input.css("color","#ccc");
             }
         });
 
         sre_input.focus(function(){
-            if (sre_input.val() == "<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>")
+            if (sre_input.val() == "<?php _e( 'optional - new email address', 'subscribe-to-comments-reloaded' ) ?>")
             {
                 sre_input.val("");
             }
@@ -33,7 +33,7 @@
         sre_input.blur(function(){
             if (sre_input.val() == "")
             {
-                sre_input.val("<?php _e( 'optional - new email address', 'subscribe-reloaded' ) ?>");
+                sre_input.val("<?php _e( 'optional - new email address', 'subscribe-to-comments-reloaded' ) ?>");
                 sre_input.css("color","#ccc");
             }
         });
@@ -43,11 +43,11 @@
             var email          = $.trim( $("form#mass_update_address_form input[name='sre']").val() );
             var missing_fields = [];
 
-            if( old_email == "<?php _e( 'email address', 'subscribe-reloaded' ) ?>" || old_email == "")
+            if( old_email == "<?php _e( 'email address', 'subscribe-to-comments-reloaded' ) ?>" || old_email == "")
             {
                 missing_fields.push(
                     {
-                        message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Missing information', 'subscribe-to-comments-reloaded' ) ?>",
                         field: "oldsre"
                     } );
             }
@@ -55,7 +55,7 @@
             {
                 missing_fields.push(
                     {
-                        message: "<?php _e( 'Invalid email address.', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Invalid email address.', 'subscribe-to-comments-reloaded' ) ?>",
                         field: "oldsre"
                     } );
             }
@@ -77,7 +77,7 @@
             else
             {
                 var answer = confirm('Please remember: this operation cannot be undone. Are you sure you want to proceed?');
-                // var answer = confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-reloaded' ) ?>');
+                // var answer = confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) ?>');
                 if( ! answer )
                 {
                     return false;
@@ -115,7 +115,7 @@
             {
                 missing_fields.push(
                     {
-                        message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Missing information', 'subscribe-to-comments-reloaded' ) ?>",
                         field: "srp"
                     } );
             }
@@ -123,7 +123,7 @@
             {
                 missing_fields.push(
                     {
-                        message: "<?php _e( 'Enter a numeric Post ID.', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Enter a numeric Post ID.', 'subscribe-to-comments-reloaded' ) ?>",
                         field: "srp"
                     } );
             }
@@ -132,7 +132,7 @@
             {
                 missing_fields.push(
                     {
-                        message: "<?php _e( 'Missing email information', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Missing email information', 'subscribe-to-comments-reloaded' ) ?>",
                         field: "sre"
                     } );
             }
@@ -140,7 +140,7 @@
             {
                 missing_fields.push(
                     {
-                        message: "<?php _e( 'Invalid email address.', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Invalid email address.', 'subscribe-to-comments-reloaded' ) ?>",
                         field: "sre"
                     } );
             }
@@ -168,7 +168,7 @@
 
             if( search_value == "")
             {
-                search_input.val("<?php _e( 'Please enter a value', 'subscribe-reloaded' ) ?>");
+                search_input.val("<?php _e( 'Please enter a value', 'subscribe-to-comments-reloaded' ) ?>");
                 search_input.addClass("validate-error-field");
 
                 return false;
@@ -176,7 +176,7 @@
         });
 
         search_input.focus(function(){
-            if( search_input.val() == "<?php _e( 'Please enter a value', 'subscribe-reloaded' ) ?>" )
+            if( search_input.val() == "<?php _e( 'Please enter a value', 'subscribe-to-comments-reloaded' ) ?>" )
             {
                 search_input.val("");
             }

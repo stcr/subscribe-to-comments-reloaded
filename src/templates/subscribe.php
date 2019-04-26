@@ -57,8 +57,8 @@ if ( ! empty( $email ) ) {
             $from_name  = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
             $from_email = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 
-            $subject = __( 'New subscription to', 'subscribe-reloaded' ) . " $target_post->post_title";
-            $message = __( 'New subscription to', 'subscribe-reloaded' ) . " $target_post->post_title\n" . __( 'User:', 'subscribe-reloaded' ) . " $clean_email";
+            $subject = __( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title";
+            $message = __( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title\n" . __( 'User:', 'subscribe-to-comments-reloaded' ) . " $clean_email";
             // Prepare email settings
             $email_settings = array(
                 'subject'      => $subject,
@@ -104,7 +104,7 @@ else {
     }
 
     echo "<p>";
-    $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
+    $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-to-comments-reloaded' ) );
     if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
         $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
         $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
@@ -118,9 +118,9 @@ else {
     echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
           method="post" name="sub-form">
         <fieldset style="border:0">
-            <p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
+            <p><label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
+                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
             <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             </p>
         </fieldset>
@@ -130,7 +130,7 @@ else {
 if( ! $valid_email )
 {
     echo "<p>";
-    $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-reloaded' ) );
+    $message = str_replace( '[post_permalink]', $post_permalink, __(html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ), 'subscribe-to-comments-reloaded' ) );
     if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
         $message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $target_post->post_title ), $message );
         $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
@@ -143,9 +143,9 @@ if( ! $valid_email )
     ?>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            <p><label for="sre"><?php _e( 'Email', 'subscribe-reloaded' ) ?></label>
+            <p><label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-reloaded' ) ?>" />
+                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
             </p>
             <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", "subscribe-reloaded") ?></p>
         </fieldset>

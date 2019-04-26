@@ -52,9 +52,9 @@ if ( isset( $_POST['options'] ) ) {
     // Display an alert in the admin interface if something went wrong
     echo '<div class="updated"><p>';
     if ( sizeof( $faulty_fields ) == 0 ) {
-        _e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+        _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
     } else {
-        _e( 'There was an error updating the options.', 'subscribe-reloaded' );
+        _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
         // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
     }
     echo "</p></div>";
@@ -72,16 +72,16 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="from_name" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Sender email address', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Sender email address', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[from_name]" id="from_name"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_name' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -89,16 +89,16 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="from_email" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Sender email address', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Sender email address', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[from_email]" id="from_email"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_email' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -106,35 +106,35 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="reply_to" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Reply To', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Reply To', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[reply_to]" id="reply_to"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'reply_to' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
                     </div>
 
-                    <h3><?php _e( 'Messages', 'subscribe-reloaded' ) ?></h3>
+                    <h3><?php _e( 'Messages', 'subscribe-to-comments-reloaded' ) ?></h3>
 
                     <div class="form-group row">
                         <label for="notification_subject" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Notification subject', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Notification subject', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[notification_subject]" id="notification_subject"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'notification_subject' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -142,12 +142,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="notification_content" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Notification message', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Notification message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -173,16 +173,16 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="double_check_subject" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Double check subject', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Double check subject', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[double_check_subject]" id="double_check_subject"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'double_check_subject' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -190,12 +190,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="double_check_content" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Double check message', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Double check message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -217,16 +217,16 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="management_subject" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Management subject', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Management subject', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[management_subject]" id="management_subject"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_subject' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -234,12 +234,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="management_content" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Management Page message', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Management Page message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -261,12 +261,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="management_email_content" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Management Email message', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Management Email message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -288,12 +288,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="oneclick_text" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'One Click Unsubscribe', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'One Click Unsubscribe', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -316,7 +316,7 @@ wp_print_scripts( 'quicktags' );
                     <div class="form-group row">
                         <div class="col-sm-9 offset-sm-1">
                             <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
-                                <?php _e( 'Save Changes', 'subscribe-reloaded' ) ?>
+                                <?php _e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
                             </button>
                         </div>
                     </div>

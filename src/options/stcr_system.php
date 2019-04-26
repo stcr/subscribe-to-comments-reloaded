@@ -52,18 +52,18 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
         if( unlink($file_path) )
         {
             // show success message.
-            $message = __( 'The log file has been successfully deleted.', 'subscribe-reloaded' );
+            $message = __( 'The log file has been successfully deleted.', 'subscribe-to-comments-reloaded' );
             $message_type = "notice-success";
         }
         else
         {
-            $message = __( 'Can\'t delete the log file, check the file permissions.', 'subscribe-reloaded' );
+            $message = __( 'Can\'t delete the log file, check the file permissions.', 'subscribe-to-comments-reloaded' );
             $message_type = "notice-warning";
         }
     }
     else
     {
-        $message     = __( 'The log file does not exists.', 'subscribe-reloaded' );
+        $message     = __( 'The log file does not exists.', 'subscribe-to-comments-reloaded' );
         $message_type = "notice-warning";
     }
     echo "<div class='notice $message_type'><p>";
@@ -109,9 +109,9 @@ else {
         // Display an alert in the admin interface if something went wrong
         echo '<div class="updated"><p>';
         if ( sizeof( $faulty_fields ) == 0 ) {
-            _e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+            _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
         } else {
-            _e( 'There was an error updating the options.', 'subscribe-reloaded' );
+            _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
             // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
         }
         echo "</p></div>";
@@ -137,58 +137,58 @@ else {
                 <form action="" method="post">
 
                     <div class="form-group row" style="margin-bottom: 0;">
-                        <label for="enable_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Log Information', 'subscribe-reloaded' ) ?></label>
+                        <label for="enable_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Log Information', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <div class="switch">
                                 <input type="radio" class="switch-input" name="options[enable_log_data]"
                                        value="yes" id="enable_log_data-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data' ) == 'yes' ) ? ' checked' : ''; ?> />
                                 <label for="enable_log_data-yes" class="switch-label switch-label-off">
-                                    <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <input type="radio" class="switch-input" name="options[enable_log_data]" value="no" id="enable_log_data-no"
                                     <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data' ) == 'no' ) ? '  checked' : ''; ?> />
                                 <label for="enable_log_data-no" class="switch-label switch-label-on">
-                                    <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <span class="switch-selection"></span>
                             </div>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "If enabled, will log information of the plugin. Helpful for debugging purposes.<p>The file is stored under the path <code>Plugins Dir>subscribe-to-comments-reloaded>utils>log.txt</code></code></p>", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "If enabled, will log information of the plugin. Helpful for debugging purposes.<p>The file is stored under the path <code>Plugins Dir>subscribe-to-comments-reloaded>utils>log.txt</code></code></p>", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "If enabled, will log information of the plugin. Helpful for debugging purposes.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "If enabled, will log information of the plugin. Helpful for debugging purposes.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row" style="margin-bottom: 0;">
-                        <label for="auto_clean_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Auto clean log data', 'subscribe-reloaded' ) ?></label>
+                        <label for="auto_clean_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Auto clean log data', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <div class="switch">
                                 <input type="radio" class="switch-input" name="options[auto_clean_log_data]"
                                        value="yes" id="auto_clean_log_data-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data' ) == 'yes' ) ? ' checked' : ''; ?> />
                                 <label for="auto_clean_log_data-yes" class="switch-label switch-label-off">
-                                    <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <input type="radio" class="switch-input" name="options[auto_clean_log_data]" value="no" id="auto_clean_log_data-no"
                                     <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data' ) == 'no' ) ? '  checked' : ''; ?> />
                                 <label for="auto_clean_log_data-no" class="switch-label switch-label-on">
-                                    <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <span class="switch-selection"></span>
                             </div>
 
                             <select class="auto_clean_log_frecuency form-control form-control-select" name="options[auto_clean_log_frecuency]">
-                                <option value="hourly" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'hourly' ) ? "selected='selected'" : ''; ?>><?php _e( 'Hourly', 'subscribe-reloaded' ); ?></option>
-                                <option value="twicedaily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'twicedaily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Twice Daily', 'subscribe-reloaded' ); ?></option>
-                                <option value="daily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'daily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Daily', 'subscribe-reloaded' ); ?></option>
+                                <option value="hourly" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'hourly' ) ? "selected='selected'" : ''; ?>><?php _e( 'Hourly', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="twicedaily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'twicedaily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Twice Daily', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="daily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'daily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Daily', 'subscribe-to-comments-reloaded' ); ?></option>
                             </select>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -196,12 +196,12 @@ else {
 
                     <div class="form-group row">
                         <label for="purge_log" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Clean Up Log Archive', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Clean Up Log Archive', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
 
                             <span style="font-size: 0.9rem;"><?php _e(
                                     "If you want to clean up the log archive please click the following button",
-                                    'subscribe-reloaded'
+                                    'subscribe-to-comments-reloaded'
                                 ); ?>
                             </span>
 
@@ -211,10 +211,10 @@ else {
 
                     <div class="form-group row">
                         <label for="generate_system_info" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Download System Info File', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Download System Info File', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <a class="download_report btn btn-download subscribe-form-button" href="#">
-                                <?php _e( 'Download', 'subscribe-reloaded' ); ?>
+                                <?php _e( 'Download', 'subscribe-to-comments-reloaded' ); ?>
                             </a>
                         </div>
                     </div>
@@ -222,16 +222,16 @@ else {
                     <div class="form-group row">
                         <div class="col-sm-9 offset-sm-3">
                             <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
-                                <?php _e( 'Save Changes', 'subscribe-reloaded' ) ?>
+                                <?php _e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
                             </button>
                         </div>
                     </div>
 
-                    <h3><?php _e( 'System Information', 'subscribe-reloaded' ) ?></h3>
+                    <h3><?php _e( 'System Information', 'subscribe-to-comments-reloaded' ) ?></h3>
 
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
                         <?php
 
@@ -247,7 +247,7 @@ else {
                         $wpPermalink = esc_html( get_option( 'permalink_structure' ) );
                         $wpTablePrefix = esc_html( $wpdb->prefix );
                         $wpTablePrefixLength = strlen( $wpdb->prefix );
-                        $wpTablePrefixStatus = $wpTablePrefixLength > 16 ? esc_html( 'Error: Too long', 'subscribe-reloaded' ) : esc_html( 'Acceptable', 'subscribe-reloaded' );
+                        $wpTablePrefixStatus = $wpTablePrefixLength > 16 ? esc_html( 'Error: Too long', 'subscribe-to-comments-reloaded' ) : esc_html( 'Acceptable', 'subscribe-to-comments-reloaded' );
                         $wpRegisteredPostStatuses  = esc_html( implode( ', ', get_post_stati() ) );
 
                         $stcr_system_information['Wordpress Environment']["Home URL"] = $wpHome;
@@ -269,7 +269,7 @@ else {
                         }
 
                         if ( $memory < 67108864 ) {
-                            $memoryValue = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend setting memory to at least 64 MB. See: %s', 'subscribe-reloaded' ), size_format( $memory ), '<a href="https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . __( 'Increasing memory allocated to PHP', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                            $memoryValue = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend setting memory to at least 64 MB. See: %s', 'subscribe-to-comments-reloaded' ), size_format( $memory ), '<a href="https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . __( 'Increasing memory allocated to PHP', 'subscribe-to-comments-reloaded' ) . '</a>' ) . '</div>';
                             $stcr_system_information['Wordpress Environment']["Memory Limit"] = "Memory under 64MB";
                         }
                         else {
@@ -370,17 +370,17 @@ else {
                     <!-- Server Environment -->
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Server Environment', 'subscribe-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Server Environment', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
                         <?php
 
                         $tlsCheck      = false;
-                        $tlsCheckValue = __( 'Cannot Evaluate', 'subscribe-reloaded' );
-                        $tlsRating     = __( 'Not Available', 'subscribe-reloaded' );
-                        $phpVersion    = __( 'Not Available', 'subscribe-reloaded' );
-                        $cURLVersion   = __( 'Not Available', 'subscribe-reloaded' );
-                        $MySQLSVersion = __( 'Not Available', 'subscribe-reloaded' );
-                        $defaultTimezone = __( 'Not Available', 'subscribe-reloaded' );
+                        $tlsCheckValue = __( 'Cannot Evaluate', 'subscribe-to-comments-reloaded' );
+                        $tlsRating     = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $phpVersion    = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $cURLVersion   = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $MySQLSVersion = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $defaultTimezone = __( 'Not Available', 'subscribe-to-comments-reloaded' );
                         $serverInfo    = esc_html( $_SERVER['SERVER_SOFTWARE'] );
                         $maxPostSize    = size_format( $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( ini_get( 'post_max_size' ) ) );
 
@@ -393,7 +393,7 @@ else {
                         {
                             $tlsCheck = json_decode( $tlsCheck );
                             /* translators: %s: SSL connection response */
-                            $tlsCheckValue = sprintf( __( 'Connection uses %s', 'subscribe-reloaded' ), esc_html( $tlsCheck->tls_version ) );
+                            $tlsCheckValue = sprintf( __( 'Connection uses %s', 'subscribe-to-comments-reloaded' ), esc_html( $tlsCheck->tls_version ) );
                         }
                         $stcr_system_information['Server Environment']["TLS Connection"] = $tlsCheckValue;
                         // Check TSL Rating
@@ -410,7 +410,7 @@ else {
 
                             if ( version_compare( $phpVersion, '5.6', '<' ) )
                             {
-                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-reloaded' ), esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">' . __( 'PHP Requirements in StCR', 'subscribe-reloaded' ) . '</a>' ) . '</div>';
+                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-to-comments-reloaded' ), esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">' . __( 'PHP Requirements in StCR', 'subscribe-to-comments-reloaded' ) . '</a>' ) . '</div>';
                                 $stcr_system_information['Server Environment']["PHP Version"] = sprintf( '%s - We recommend a minimum PHP version of 5.6. See: %s', esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">PHP Requirements in StCR</a>' );
                             }
                             else
@@ -421,7 +421,7 @@ else {
                         }
                         else
                         {
-                            $phpVersion = __( "Couldn't determine PHP version because the function phpversion() doesn't exist.", 'subscribe-reloaded' );
+                            $phpVersion = __( "Couldn't determine PHP version because the function phpversion() doesn't exist.", 'subscribe-to-comments-reloaded' );
                             $stcr_system_information['Server Environment']["PHP Version"] = "Couldn't determine PHP version because the function phpversion() doesn't exist.";
                         }
 
@@ -439,7 +439,7 @@ else {
 
                             if ( version_compare( $cURLVersionNumber, '7.40', '<' ) )
                             {
-                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-reloaded' ), esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) ) . '</div>';
+                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-to-comments-reloaded' ), esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) ) . '</div>';
                                 $stcr_system_information['Server Environment']["cURL Version"] = sprintf('%s - We recommend a minimum cURL version of 7.40.', esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) );
                             }
                             else
@@ -469,7 +469,7 @@ else {
 
                         if ( 'UTC' !== $defaultTimezone )
                         {
-                            $defaultTimezone = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'subscribe-reloaded' ), $defaultTimezone ) . '</div>';
+                            $defaultTimezone = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'subscribe-to-comments-reloaded' ), $defaultTimezone ) . '</div>';
                             $stcr_system_information['Server Environment']["Default Timezone is UTC"] = sprintf('Default timezone is %s - it should be UTC', $defaultTimezone );
                         }
                         else
@@ -478,28 +478,28 @@ else {
                             $stcr_system_information['Server Environment']["Default Timezone is UTC"] = "Yes";
                         }
                         // DOMDocument
-                        $DOMDocument = __( 'Not Available', 'subscribe-reloaded' );
+                        $DOMDocument = __( 'Not Available', 'subscribe-to-comments-reloaded' );
                         if ( class_exists( 'DOMDocument' ) )
                         {
                             $DOMDocument = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
                             $stcr_system_information['Server Environment']["DOMDocument"] = "Yes";
                         }
                         else {
-                            $DOMDocument = sprintf( __( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', 'subscribe-reloaded' ), '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
+                            $DOMDocument = sprintf( __( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', 'subscribe-to-comments-reloaded' ), '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
                             $stcr_system_information['Server Environment']["DOMDocument"] = sprintf( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
                         }
                         // Check gzip
-                        $gzip = __( 'Not Available', 'subscribe-reloaded' );
+                        $gzip = __( 'Not Available', 'subscribe-to-comments-reloaded' );
                         if ( is_callable( 'gzopen' ) )
                         {
                             $gzip = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
                             $stcr_system_information['Server Environment']["gzip"] = "Yes";
                         }
                         else {
-                            $gzip = sprintf( __( 'Your server does not support the %s function - this is used for file compression and decompression.', 'subscribe-reloaded' ), '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
+                            $gzip = sprintf( __( 'Your server does not support the %s function - this is used for file compression and decompression.', 'subscribe-to-comments-reloaded' ), '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
                             $stcr_system_information['Server Environment']["gzip"] = sprintf( 'Your server does not support the %s function - this is used for file compression and decompression.', '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
                         }// Check GD
-                        $gd = __( 'Not Available', 'subscribe-reloaded' );
+                        $gd = __( 'Not Available', 'subscribe-to-comments-reloaded' );
                         if ( extension_loaded( 'gd' ) && function_exists( 'gd_info' ) )
                         {
                             $gd = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
@@ -589,7 +589,7 @@ else {
                     <!-- Active Plugins -->
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Active Plugins', 'subscribe-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Active Plugins', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
 
                         <tbody>
@@ -616,7 +616,7 @@ else {
                                 $plugin_name = sprintf(
                                     '<a href="%s" title="%s">%s</a>',
                                     esc_url( $plugin_data['PluginURI'] ),
-                                    esc_attr__( 'Visit plugin homepage', 'subscribe-reloaded' ),
+                                    esc_attr__( 'Visit plugin homepage', 'subscribe-to-comments-reloaded' ),
                                     $plugin_name
                                 );
                             }
@@ -625,11 +625,11 @@ else {
                                 $author_name = sprintf(
                                     '<a href="%s" title="%s">%s</a>',
                                     esc_url( $plugin_data['AuthorURI'] ),
-                                    esc_attr__( 'Visit author homepage', 'subscribe-reloaded' ),
+                                    esc_attr__( 'Visit author homepage', 'subscribe-to-comments-reloaded' ),
                                     $author_name
                                 );
 
-                                $author_name = sprintf( _x( 'by %s', 'by author', 'subscribe-reloaded' ),
+                                $author_name = sprintf( _x( 'by %s', 'by author', 'subscribe-to-comments-reloaded' ),
                                                     wp_kses( $author_name, wp_kses_allowed_html( 'post' ) ) ) . ' &ndash; '
                                                     . esc_html( $plugin_data['Version'] );
                             }
@@ -646,7 +646,7 @@ else {
                     <!-- Inactive Plugins -->
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Inactive Plugins', 'subscribe-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Inactive Plugins', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
 
                         <tbody>
@@ -673,7 +673,7 @@ else {
                                 $plugin_name = sprintf(
                                     '<a href="%s" title="%s">%s</a>',
                                     esc_url( $plugin_data['PluginURI'] ),
-                                    esc_attr__( 'Visit plugin homepage', 'subscribe-reloaded' ),
+                                    esc_attr__( 'Visit plugin homepage', 'subscribe-to-comments-reloaded' ),
                                     $plugin_name
                                 );
                             }
@@ -682,11 +682,11 @@ else {
                                 $author_name = sprintf(
                                     '<a href="%s" title="%s">%s</a>',
                                     esc_url( $plugin_data['AuthorURI'] ),
-                                    esc_attr__( 'Visit author homepage', 'subscribe-reloaded' ),
+                                    esc_attr__( 'Visit author homepage', 'subscribe-to-comments-reloaded' ),
                                     $author_name
                                 );
 
-                                $author_name = sprintf( _x( 'by %s', 'by author', 'subscribe-reloaded' ),
+                                $author_name = sprintf( _x( 'by %s', 'by author', 'subscribe-to-comments-reloaded' ),
                                         wp_kses( $author_name, wp_kses_allowed_html( 'post' ) ) ) . ' &ndash; '
                                     . esc_html( $plugin_data['Version'] );
                             }

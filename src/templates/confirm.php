@@ -25,7 +25,7 @@ if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) 
 if ( isset( $post_permalink ) )
 {
     $message .= '<p id="subscribe-reloaded-update-p"> 
-            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-reloaded').'</a>
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-to-comments-reloaded').'</a>
           </p>';
 }
 

@@ -190,7 +190,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function _activate() {
 			// Load localization files
-//			load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+//			load_plugin_textdomain( 'subscribe-to-comments-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 			// Upgrade rountine
 			$this->upgrade();
 
@@ -352,32 +352,32 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				add_menu_page( $page_title, $menu_title, $capability, $parent_slug, $function, $icon_url, $position );
 
 				add_submenu_page( $parent_slug ,
-								__( 'Manage subscriptions', 'subscribe-reloaded' ),
-								__( 'Manage subscriptions', 'subscribe-reloaded' ),
+								__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
+								__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_manage_subscriptions",
 								 array( $this, "stcr_option_manage_subscriptions") );
 				add_submenu_page( $parent_slug ,
-								__( 'Comment Form', 'subscribe-reloaded' ),
-								__( 'Comment Form', 'subscribe-reloaded' ),
+								__( 'Comment Form', 'subscribe-to-comments-reloaded' ),
+								__( 'Comment Form', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_comment_form",
 								 array( $this, "stcr_option_comment_form" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'Management Page', 'subscribe-reloaded' ),
-								__( 'Management Page', 'subscribe-reloaded' ),
+								__( 'Management Page', 'subscribe-to-comments-reloaded' ),
+								__( 'Management Page', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_management_page",
 								 array( $this, "stcr_option_management_page" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'Notifications', 'subscribe-reloaded' ),
-								__( 'Notifications', 'subscribe-reloaded' ),
+								__( 'Notifications', 'subscribe-to-comments-reloaded' ),
+								__( 'Notifications', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_notifications",
 								 array( $this, "stcr_option_notifications" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'Options', 'subscribe-reloaded' ),
-								__( 'Options', 'subscribe-reloaded' ),
+								__( 'Options', 'subscribe-to-comments-reloaded' ),
+								__( 'Options', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_options",
 								 array( $this, "stcr_option_options" ) );
@@ -386,27 +386,27 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// since this requires much effort this is pointe to go to the pro version. NO ETA avaiable.
 				//
 				// add_submenu_page( $parent_slug ,
-				// 				__( 'Subscribers Emails', 'subscribe-reloaded' ),
-				// 				__( 'Subscribers Emails', 'subscribe-reloaded' ),
+				// 				__( 'Subscribers Emails', 'subscribe-to-comments-reloaded' ),
+				// 				__( 'Subscribers Emails', 'subscribe-to-comments-reloaded' ),
 				// 				 $capability,
 				// 				 "stcr_subscribers_emails",
 				// 				 array( $this, "stcr_option_subscribers_emails" ) );
 
 				add_submenu_page( $parent_slug ,
-								__( 'Support', 'subscribe-reloaded' ),
-								__( 'Support', 'subscribe-reloaded' ),
+								__( 'Support', 'subscribe-to-comments-reloaded' ),
+								__( 'Support', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_support",
 								 array( $this, "stcr_option_support" ) );
 //				add_submenu_page( $parent_slug ,
-//								__( 'Donate', 'subscribe-reloaded' ),
-//								__( 'Donate', 'subscribe-reloaded' ),
+//								__( 'Donate', 'subscribe-to-comments-reloaded' ),
+//								__( 'Donate', 'subscribe-to-comments-reloaded' ),
 //								 $capability,
 //								 "stcr_donate",
 //								 array( $this, "stcr_option_donate" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'StCR System', 'subscribe-reloaded' ),
-								__( 'StCR System', 'subscribe-reloaded' ),
+								__( 'StCR System', 'subscribe-to-comments-reloaded' ),
+								__( 'StCR System', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_system",
 								 array( $this, "stcr_option_system" ) );
@@ -672,8 +672,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function add_column_header( $_columns ) {
 			$image_url                      = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/images';
-			$image_tooltip                  = __( 'Subscriptions', 'subscribe-reloaded' );
-			$_columns['subscribe-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
+			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
+			$_columns['subscribe-to-comments-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
 			return $_columns;
 		}
@@ -683,7 +683,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column to the Edit Comments panel
 		 */
 		public function add_comment_column( $_column_name ) {
-			if ( 'subscribe-reloaded' != $_column_name ) {
+			if ( 'subscribe-to-comments-reloaded' != $_column_name ) {
 				return;
 			}
 
@@ -701,7 +701,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			), 'dt', 'DESC', 0, 1
 			);
 			if ( count( $subscription ) == 0 ) {
-				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-reloaded' ) . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-to-comments-reloaded' ) . '</a>';
 			} else {
 				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . $subscription[0]->status . '</a>';
 			}
@@ -712,7 +712,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column to the Posts management panel
 		 */
 		public function add_post_column( $_column_name ) {
-			if ( 'subscribe-reloaded' != $_column_name ) {
+			if ( 'subscribe-to-comments-reloaded' != $_column_name ) {
 				return;
 			}
 
@@ -727,8 +727,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function contextual_help( $contextual_help, $screen_id, $screen ) {
 			if ( $screen_id == 'subscribe-to-comments-reloaded/options/index' ) {
-				load_plugin_textdomain( 'subscribe-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
-				$contextual_help = __( 'Need help on how to use Subscribe to Comments Reloaded? Visit the official', 'subscribe-reloaded' ) . ' <a href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10" target="_blank">' . __( 'support forum', 'subscribe-reloaded' ) . '</a>. ';
+				load_plugin_textdomain( 'subscribe-to-comments-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+				$contextual_help = __( 'Need help on how to use Subscribe to Comments Reloaded? Visit the official', 'subscribe-to-comments-reloaded' ) . ' <a href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10" target="_blank">' . __( 'support forum', 'subscribe-to-comments-reloaded' ) . '</a>. ';
 			}
 
 			return $contextual_help;

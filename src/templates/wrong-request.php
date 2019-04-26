@@ -6,7 +6,7 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 ob_start();
-echo '<p>' . __( 'You have request to manage another email address and this is forbidden.', 'subscribe-reloaded' ) . '</p>';
+echo '<p>' . __( 'You have request to manage another email address and this is forbidden.', 'subscribe-to-comments-reloaded' ) . '</p>';
 $output = ob_get_contents();
 ob_end_clean();
 

@@ -27,7 +27,7 @@ if ( is_object( $post ) ) {
 	$message = wpautop( $message ); // Let us add the <p> tag if need it.
 	echo "$message"; // TODO: Add management link with number of subscriptions.
 } else {
-	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-reloaded' ) . '</p>';
+	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
 }
 $output = ob_get_contents();
 ob_end_clean();

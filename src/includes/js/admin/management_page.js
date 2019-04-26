@@ -17,7 +17,7 @@
             	{
             		missing_fields.push( // TODO: Only push if the array does not contain the key already.
                     {
-                        message: "<?php _e( 'Missing information', 'subscribe-reloaded' ) ?>",
+                        message: "<?php _e( 'Missing information', 'subscribe-to-comments-reloaded' ) ?>",
                         field: field
                     } );
             	}

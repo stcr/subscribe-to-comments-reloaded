@@ -44,11 +44,11 @@ if ( isset( $_POST['options'] ) ) {
     // Display an alert in the admin interface if something went wrong
     if ( sizeof( $faulty_fields ) == 0 ) {
         echo '<div class="updated"><p>';
-            _e( 'Your settings have been successfully updated.', 'subscribe-reloaded' );
+            _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
         echo "</p></div>";
     } else {
         echo '<div class="error"><p>';
-            _e( 'There was an error updating the following fields:', 'subscribe-reloaded' );
+            _e( 'There was an error updating the following fields:', 'subscribe-to-comments-reloaded' );
             echo "<ul style='font-size: 0.8em;'>";
             foreach( $faulty_fields as $field )
             {
@@ -69,25 +69,25 @@ wp_print_scripts( 'quicktags' );
             <div class="col-sm-9">
                 <form class="management_page_form" action="" method="post">
                     <div class="form-group row">
-                        <label for="manager_page_enabled" class="col-sm-3 col-form-label text-right"><?php _e( 'Virtual Management Page', 'subscribe-reloaded' ) ?></label>
+                        <label for="manager_page_enabled" class="col-sm-3 col-form-label text-right"><?php _e( 'Virtual Management Page', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <div class="switch">
                                 <input type="radio" class="switch-input" name="options[manager_page_enabled]"
                                        value="yes" id="manager_page_enabled-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_enabled' ) == 'yes' ) ? ' checked' : ''; ?> />
                                 <label for="manager_page_enabled-yes" class="switch-label switch-label-off">
-                                    <?php _e( 'Yes', 'subscribe-reloaded' ) ?>
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <input type="radio" class="switch-input" name="options[manager_page_enabled]" value="no" id="manager_page_enabled-no"
                                     <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_enabled' ) == 'no' ) ? '  checked' : ''; ?> />
                                 <label for="manager_page_enabled-no" class="switch-label switch-label-on">
-                                    <?php _e( 'No', 'subscribe-reloaded' ) ?>
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <span class="switch-selection"></span>
                             </div>
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Disable the virtual management page if you need to create a <a href='https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page'>real page</a> to make your theme happy.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Disable the virtual management page if you need to create a <a href='https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page'>real page</a> to make your theme happy.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Disable the virtual management page if you need to create a <a href='https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page'>real page</a> to make your theme happy.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Disable the virtual management page if you need to create a <a href='https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page'>real page</a> to make your theme happy.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -95,16 +95,16 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="manager_page_title" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Page title', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Page title', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[manager_page_title]" id="manager_page_title"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_title' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Title of the page your visitors will use to manage their subscriptions.', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Title of the page your visitors will use to manage their subscriptions.', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Title of the page your visitors will use to manage their subscriptions.', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Title of the page your visitors will use to manage their subscriptions.', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="manager_page" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Management URL', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Management URL', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <code><?php echo get_bloginfo( 'url' ) ?></code>
                             <input type="text" name="options[manager_page]" id="manager_page"
@@ -120,16 +120,16 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ); ?>" style=" width: 60% !important;">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="bottom"
-                                 aria-label="<?php _e( "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
                             <?php
                             if ( ( get_option( 'permalink_structure' ) == '' ) && ( strpos( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ), '?page_id=' ) === false ) ) {
                                     echo "<div class=\"alert alert-danger\" role=\"alert\">";
-                                    echo '<strong>' . __( "Warning: it looks like the value you are using may be incompatible with your permalink structure", 'subscribe-reloaded' ) . '</strong>';
+                                    echo '<strong>' . __( "Warning: it looks like the value you are using may be incompatible with your permalink structure", 'subscribe-to-comments-reloaded' ) . '</strong>';
                                     echo "</div>";
                             }
                                 ?>
@@ -138,31 +138,31 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="custom_header_meta" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Custom HEAD meta', 'subscribe-reloaded' ) ?></label>
+                            <?php _e( 'Custom HEAD meta', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[custom_header_meta]" id="custom_header_meta"
                                    class="form-control form-control-input-8"
                                    value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'custom_header_meta' ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
                     </div>
 
-                    <h3><?php _e( 'Messages', 'subscribe-reloaded' ) ?></h3>
+                    <h3><?php _e( 'Messages', 'subscribe-to-comments-reloaded' ) ?></h3>
 
                     <div class="form-group row">
                         <label for="request_mgmt_link" class="col-sm-2 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Request link', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Request link', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Text shown to those who request to manage their subscriptions.', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Text shown to those who request to manage their subscriptions.', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Text shown to those who request to manage their subscriptions.', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Text shown to those who request to manage their subscriptions.', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -184,12 +184,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="request_mgmt_link_thankyou" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Request submitted', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Request submitted', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Thank you note shown after the request here above has been processed. Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -211,12 +211,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="subscribe_without_commenting" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Subscribe without commenting', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Subscribe without commenting', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Text shown to those who want to subscribe without commenting. Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -238,12 +238,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="subscription_confirmed" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Subscription processed', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Subscription processed', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in disabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -265,12 +265,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="subscription_confirmed_dci" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Subscription processed (DCI)', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Subscription processed (DCI)', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( 'Thank you note shown after the subscription request has been processed (double check-in enabled). Allowed tags: [post_title], [post_permalink]', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -292,12 +292,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="author_text" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Authors', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Authors', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Introductory text for the authors' management page.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Introductory text for the authors' management page.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Introductory text for the authors' management page.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Introductory text for the authors' management page.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -319,12 +319,12 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="user_text" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
-                            <?php _e( 'Users', 'subscribe-reloaded' ) ?>
+                            <?php _e( 'Users', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Introductory text for the users' management page.", 'subscribe-reloaded' ); ?>"
+                                 data-content="<?php _e( "Introductory text for the users' management page.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Introductory text for the users' management page.", 'subscribe-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Introductory text for the users' management page.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -347,7 +347,7 @@ wp_print_scripts( 'quicktags' );
                     <div class="form-group row">
                         <div class="col-sm-9 offset-sm-1">
                             <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
-                                <?php _e( 'Save Changes', 'subscribe-reloaded' ) ?>
+                                <?php _e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
                             </button>
                         </div>
                     </div>
