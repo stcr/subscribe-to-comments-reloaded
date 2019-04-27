@@ -100,6 +100,16 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190426 = 
+* **New** Info on the amount of subscribers and subscriptions added in WP admin > StCR > StCR System
+* **Fix** Text domain (for translations) has been changed to the correct domain (from subscribe-reloaded to subscribe-to-comments-reloaded)
+* **Fix** Issue with undefined is_rtl function
+* **Fix** Missing blank space between sentences (below comment form when subscribed)
+* **Fix** Undefined variable notices for $order_status and $order_dt
+* **Fix** Temporarily hidden an unused option in StCR > Management Page to avoid confusion. 
+* **Fix** Removed localization for non textual strings
+* **Fix** Fixed incorrectly localized textual strings
+
 = v190412 =
 
 * **Fix** Issue with JavaScript code that is supposed to show the form when "StCR Position" is enabled
