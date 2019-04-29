@@ -138,20 +138,6 @@ else {
             <div class="col-sm-9">
                 <form action="" method="post">
 
-                    <?php
-                        // get the total number of subscribers and subscriptions
-                        $total_subscribers = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}subscribe_reloaded_subscribers");
-                        $total_subscriptions = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}postmeta where meta_key LIKE '_stcr@_%'");
-                    ?>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label text-right"><?php _e( 'Subscribers Count', 'subscribe-to-comments-reloaded' ); ?></label>
-                        <div class="col-sm-7">
-                            <label class="col-form-label"><?php
-                                echo sprintf( __( '%d subscribers with %d subscriptions', 'subscribe-to-comments-reloaded' ), $total_subscribers, $total_subscriptions );
-                            ?></label>
-                        </div>
-                    </div>
-
                     <div class="form-group row" style="margin-bottom: 0;">
                         <label for="enable_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Log Information', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
@@ -243,8 +229,30 @@ else {
                         </div>
                     </div>
 
-                    <h3><?php _e( 'System Information', 'subscribe-to-comments-reloaded' ) ?></h3>
+                    <h4><?php _e( 'System Information', 'subscribe-to-comments-reloaded' ) ?></h4><br>
 
+                    <!-- Plugin Info -->
+                    <?php
+                        // get the total number of subscribers and subscriptions
+                        $total_subscribers = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}subscribe_reloaded_subscribers");
+                        $total_subscriptions = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}postmeta where meta_key LIKE '_stcr@_%'");
+                    ?>
+                    <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
+                        <thead style="background-color: #4688d2; color: #ffffff;">
+                            <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Plugin Info', 'subscribe-to-comments-reloaded' ) ?></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-left"><?php _e( 'Subscribers', 'subscribe-toc-omments-reloaded' ); ?></td>
+                                <td class="text-left"><?php echo $total_subscribers; ?></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left"><?php _e( 'Subscriptions', 'subscribe-toc-omments-reloaded' ); ?></td>
+                                <td class="text-left"><?php echo $total_subscriptions; ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
                         <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-to-comments-reloaded' ) ?></th>
