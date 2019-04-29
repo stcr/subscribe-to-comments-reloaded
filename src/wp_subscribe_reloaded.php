@@ -6,7 +6,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-define( __NAMESPACE__.'\\VERSION','190426' );
+define( __NAMESPACE__.'\\VERSION','190429' );
 define( __NAMESPACE__.'\\DEVELOPMENT', true );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
