@@ -1169,8 +1169,19 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 			$checkbox_subscription_type = null;
             $_comment_ID = null;
             $post_permalink = get_permalink( $post->ID );
-            $post_permalink = "post_permalink=" . $post_permalink;
+			$post_permalink = "post_permalink=" . $post_permalink;
+			$post_type = get_post_type( $post->ID );
+			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 
+			// if not enabled for this post type, return
+			if ( $only_for_posts == 'yes' && $post_type !== 'post' ) {
+				if ( $echo ) {
+					echo $submit_field;
+				} else {
+					return $submit_field;
+				}
+				return;
+			}
 
 			// Enable JS scripts.
 			 $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();

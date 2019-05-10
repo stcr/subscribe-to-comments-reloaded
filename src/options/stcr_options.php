@@ -21,7 +21,8 @@ $options = array(
     "admin_subscribe"              => "yesno",
     "admin_bcc"                    => "yesno",
     "enable_font_awesome"          => "yesno",
-    "delete_options_subscriptions" => "yesno"
+    "delete_options_subscriptions" => "yesno",
+    "only_for_posts"               => "yesno",
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -398,6 +399,33 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( "Let you control the inclusion of the Font Awesome into your site. Disable if your theme already add this into your site.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "Let you control the inclusion of the Font Awesome into your site. Disable if your theme already add this into your site.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="only_for_posts" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Enable only on blog posts', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <div class="switch">
+                                <input type="radio" class="switch-input" name="options[only_for_posts]"
+                                       value="yes" id="only_for_posts-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'only_for_posts', 'no' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <label for="only_for_posts-yes" class="switch-label switch-label-off">
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <input type="radio" class="switch-input" name="options[only_for_posts]" value="no" id="only_for_posts-no"
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'only_for_posts', 'no' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <label for="only_for_posts-no" class="switch-label switch-label-on">
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <span class="switch-selection"></span>
+                            </div>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>

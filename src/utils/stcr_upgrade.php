@@ -391,6 +391,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 				if ( $option = get_option( 'wp_comment_subscriptions_admin_bcc' ) ) {
 					add_option( 'subscribe_reloaded_admin_bcc', $option );
 				}
+				if ( $option = get_option( 'wp_comment_subscriptions_only_for_posts' ) ) {
+					add_option( 'subscribe_reloaded_only_for_posts', $option );
+				}
 				$this->stcr_create_admin_notice(
 					'notify_import_wpcs_data',
 					'unread',
