@@ -100,6 +100,11 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190510 =
+* **New** Option to only enable the functionality for blog posts ( option named "Enable only for blog posts" located in WP admin > StCR > StCR Options)
+* **Tweak** Info on subscriber and subscriptions amount moved into separate table
+* **Fix** Text domain
+
 = v190426 = 
 * **New** Info on the amount of subscribers and subscriptions added in WP admin > StCR > StCR System
 * **Fix** Text domain (for translations) has been changed to the correct domain (from subscribe-reloaded to subscribe-to-comments-reloaded)
