@@ -21,7 +21,7 @@ $options = array(
     "admin_subscribe"              => "yesno",
     "admin_bcc"                    => "yesno",
     "enable_font_awesome"          => "yesno",
-    "delete_options_subscriptions" => "yesno"
+    "delete_options_subscriptions" => "yesno",
     "only_for_posts"               => "yesno",
 );
 
