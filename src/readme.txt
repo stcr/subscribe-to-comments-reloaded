@@ -100,6 +100,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190523 =
+* **Fix** Remove the old system information functionality
+
 = v190510 =
 * **New** Option to only enable the functionality for blog posts ( option named "Enable only for blog posts" located in WP admin > StCR > StCR Options)
 * **Tweak** Info on subscriber and subscriptions amount moved into separate table
