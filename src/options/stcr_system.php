@@ -723,14 +723,7 @@ else {
                         ?>
                         </tbody>
                     </table>
-
-                    <?php
-                    // Register Ajax actions on wp_subscribe_reloaded->define_wp_hooks
-                    $reportPath = $wp_subscribe_reloaded->stcr->utils->stcr_create_file( "systemInformation.txt", $stcr_system_information );
-
-                    ?>
-                    <input class="reportPath" type="hidden" name="reportPath" value="<?php echo $reportPath; ?>">
-                    <textarea class="reportData stcr-hidden" readonly name="reportPath" ><?php echo serialize( $stcr_system_information ); ?></textarea>
+                    
                 </form>
 
                 <form name="stcr_sysinfo_form" class="stcr-hidden" action="<?php echo esc_url( admin_url( 'admin.php?page=stcr_system' ) ); ?>" method="post">
