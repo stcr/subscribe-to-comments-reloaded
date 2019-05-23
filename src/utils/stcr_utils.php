@@ -829,24 +829,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             return;
         }
         
-        /**
-         * Delete the Report File to keep the house clean
-         *
-         * @since 12-Dic-2018
-         * @author reedyseth
-         *
-         */
-        public function stcr_delete_report_file()
-        {
-            $plugin_dir   = plugin_dir_path( __DIR__ );
-            $file    = $plugin_dir . "utils/systemInformation.txt" ;
-
-            if( file_exists( $file )  && is_writable( $plugin_dir ) )
-            {
-                // unlink the file
-                unlink($file);
-            }
-        }
 		/**
 		 * Update a StCR notification status
 		 *
