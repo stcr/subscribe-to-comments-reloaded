@@ -83,20 +83,25 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 
             // Provide content for the management page using WP filters
             if ( ! is_admin() ) {
+
+				// The URL to the front-end subscription management page
                 $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
                 if ( function_exists( 'qtrans_convertURL' ) ) {
                     $manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
-                }
+				}
                 if ( empty( $manager_page_permalink ) ) {
                     // Manager page can't be empty, set it to default.
                     $manager_page_permalink = '/comment-subscriptions/';
                 }
 
+				// If current URL matches the subscription URL, filter it
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
                     add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
-                }
+				}
+				
                 // Enqueue plugin scripts
-                $this->utils->hook_plugin_scripts();
+				$this->utils->hook_plugin_scripts();
+				
             } else {
                 // Hook for WPMU - New blog created
                 add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
@@ -512,15 +517,19 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		 * Displays the appropriate management page
 		 */
 		public function subscribe_reloaded_manage( $_posts = '', $_query = '' ) {
+			
 			global $current_user;
 			$stcr_unique_key = get_option( "subscribe_reloaded_unique_key" );
 			$date = date_i18n( 'Y-m-d H:i:s' );
 			$error_exits = false;
 			$email = '';
+			$virtual_page_enabled = get_option( 'subscribe_reloaded_manager_page_enabled', 'yes' );
 
-			if ( ! isset( $_posts ) && ! empty( $_posts ) ) {
+			// if something exists at this URL and virtual page disabled, abort mission
+			if ( ! empty( $_posts ) && $virtual_page_enabled == 'no' ) {
 				return $_posts;
 			}
+
 			try {
 
                 $post_ID = !empty($_POST['srp']) ? intval($_POST['srp']) : (!empty($_GET['srp']) ? intval($_GET['srp']) : 0);
@@ -578,9 +587,6 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                         }
                     }
                 }
-
-
-
 
                 if ($error_exits) {
                     $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/key_expired.php';
