@@ -714,12 +714,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			$notices = get_option( 'subscribe_reloaded_deferred_admin_notices' );
 			foreach ( $notices as $key => $notice ) {
 				if ( $key == $_name ) {
-					$notices[ $key ] = array(
-						"status" => $_status,
-						"message" => $notice['message'],
-						"type"	=> $notice['type'],
-						"nonce" => $_nonce
-					);
+                    if ( $_status == 'read' ) {
+                        unset( $notices[$key] );
+                    } else {
+                        $notices[ $key ] = array(
+                            "status" => $_status,
+                            "message" => $notice['message'],
+                            "type"	=> $notice['type'],
+                            "nonce" => $_nonce
+                        );
+                    }
 				}
 			}
 			update_option( 'subscribe_reloaded_deferred_admin_notices', $notices );
