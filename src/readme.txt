@@ -100,6 +100,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v190529 =
+* **Fix** Issue with being unable to dismiss admin notices shown by StCR
+* **Fix** Virtual management page was still being shown even when disabled
+
 = v190523 =
 * **Fix** Remove the old system information functionality
 
