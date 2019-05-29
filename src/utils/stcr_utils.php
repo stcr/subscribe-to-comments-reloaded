@@ -548,19 +548,23 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 */
 		public function register_admin_scripts( $hook ) {
 
+            // paths
+            $stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
+            $stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
+
+            // register scripts
+            wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+
+            // rergister styles
+            wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
+
             // check if we're on our pages
             if ( strpos( $hook, 'stcr' ) !== false ) {
-            
-                // paths
-    			$stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
-    			$stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
                 
-                // scripts
-                wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+                // enqueue scripts
                 wp_enqueue_script('stcr-admin-js');
 
-                // styles
-                wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
+                // enqueue styles
                 wp_enqueue_style('stcr-admin-style');
 
             }
