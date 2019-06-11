@@ -16,7 +16,7 @@ ob_start();
 if ( is_object( $post ) ) {
 
 	$message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_oneclick_text' ) ), ENT_QUOTES, 'UTF-8' );
-	$message = str_replace( '[post_title]',   $post->post_name, $message );
+	$message = str_replace( '[post_title]',   get_the_title($post), $message );
 	$message = str_replace( '[blog_name]' , get_bloginfo('name'), $message );
 
 	$rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_ID, $email );
