@@ -1,118 +1,132 @@
 <?php
 namespace stcr;
+
 // Avoid direct access to this piece of code
 if ( ! function_exists( 'add_action' ) ) {
 	header( 'Location: /' );
 	exit;
 }
 
+// globals
 define( __NAMESPACE__.'\\VERSION','190529' );
-define( __NAMESPACE__.'\\DEVELOPMENT', true );
+define( __NAMESPACE__.'\\DEVELOPMENT', false );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
+// load files
 require_once dirname(__FILE__).'/utils/stcr_manage.php';
 require_once dirname(__FILE__).'/classes/stcr_i18n.php';
 
-if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
+// Main plugin class
+if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
+	/**
+	 * Main plugin class
+	 */
 	class wp_subscribe_reloaded extends stcr_manage {
-	    public $stcr_i18n;
+		
+		public $stcr_i18n;
+		
 		/**
-		 * Constructor -- Sets things up.
+		 * Constructor
 		 */
 		public function __construct() {
 
-			parent::__construct(); // Run parent constructor.
+			// run parent constructor.
+			parent::__construct();
 
 			$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
 
-			// Show the checkbox - You can manually override this by adding the corresponding function in your template
-			if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' )
-			{
-                if( get_option('subscribe_reloaded_stcr_position') == 'yes' )
-                {
+			// show the checkbox - You can manually override this by adding the corresponding function in your template
+			if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' ) {
+                if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
                     add_action( 'comment_form', array($this, 'subscribe_reloaded_show'), 5, 0 );
-                }
-                else
-                {
+                } else {
                     add_filter( 'comment_form_submit_field', array($this, 'subscribe_reloaded_show'), 5, 1 );
                 }
-
 			}
 
 			$this->maybe_update();
 
+			// define WordPress hooks the plugin uses
 			$this->define_wp_hooks();
 
-            $this->stcr_i18n = new stcr_i18n(); // Loaded after the text domain was loaded.
+			// localization
+            $this->stcr_i18n = new stcr_i18n();
 
-            if ( DEVELOPMENT )
-            {
-                // Add subscriptions for tests
-				//$this->add_manual_subs( 10000, 18,'Y', 'dev', 30);
+			// add subscriptions for tests
+            if ( DEVELOPMENT ) {
+				$this->add_test_subscriptions( 10000, 18,'Y', 'dev', 30);
             }
 
+			// management page shortcode
             add_shortcode( 'stcr_management_page', array( $this, 'management_page_sc' ) );
 
 		}
 
-		// end __construct
-        public function add_manual_subs( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 )
-        {
-            for ( $i = $last_id_subs+1; $i <= $iterations; $i++)
-            {
-                $this->add_subscription( $post_id, "{$email_prefix}_{$i}@dev.com", $status);
+		/**
+		 * Adds subscriptions for testing purposes
+		 * 
+		 * @since 190705
+		 */
+        public function add_test_subscriptions( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 ) {
+            for ( $i = $last_id_subs+1; $i <= $iterations; $i++) {
+                $this->add_subscription( $post_id, "{$email_prefix}_{$i}@dev.com", $status );
             }
-        }
+		}
+		
         /**
-         * Define the WordPress Hooks that will be use by the plugin.
+         * Define the WordPress Hooks that will be used by the plugin.
          *
-         * @since 02-March-2018
-         * @author reedyseth
+         * @since 180302
          */
-        public function define_wp_hooks()
-        {
-            // What to do when a new comment is posted
-            add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
-            // Add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
+        public function define_wp_hooks() {
+
+            // new comment posted
+			add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
+			
+            // add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
             add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
             add_action('_cron_log_file_purge', array($this, 'log_file_purge'), 10 );
 
-            // Load Text Domain
+            // load text domain
             add_action( 'plugins_loaded', array( $this, 'subscribe_reloaded_load_plugin_textdomain' ) );
 
-            // Provide content for the management page using WP filters
+            // front end
             if ( ! is_admin() ) {
 
-				// The URL to the front-end subscription management page
+				// management page permalink
                 $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
                 if ( function_exists( 'qtrans_convertURL' ) ) {
                     $manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
 				}
+
+				// management page permalink fallback
                 if ( empty( $manager_page_permalink ) ) {
-                    // Manager page can't be empty, set it to default.
                     $manager_page_permalink = '/comment-subscriptions/';
                 }
 
-				// If current URL matches the subscription URL, filter it
+				// if we are on the management page, filter the_posts
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
                     add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
 				}
 				
-                // Enqueue plugin scripts
+                // enqueue scripts
 				$this->utils->hook_plugin_scripts();
-				
+			
+			// wp admin
             } else {
-                // Hook for WPMU - New blog created
+
+                // hook for WPMU - new blog created
                 add_action( 'wpmu_new_blog', array( $this, 'new_blog' ), 10, 1 );
 
-                // Remove subscriptions attached to a post that is being deleted
+                // remove subscriptions for post that is being deleted
                 add_action( 'delete_post', array( $this, 'delete_subscriptions' ), 10, 2 );
 
-                // Monitor actions on existing comments
+                // remove subscriptions when a comment is deleted or status changed
                 add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
-                add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
-                // Add a new column to the Edit Comments panel
+				add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
+				
+                // new columns in post/comment tables ( WP admin > Posts and WP admin > Comments )
                 add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
                 add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
                 add_action( 'manage_comments_custom_column', array( $this, 'add_comment_column' ) );
@@ -123,34 +137,40 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                 add_action( 'admin_print_styles-edit-comments.php', array( $this, 'add_post_comments_stylesheet' ) );
                 add_action( 'admin_print_styles-edit.php', array( $this, 'add_post_comments_stylesheet' ) );
 
-                // Add hook for admin header
+                // admin header
                 add_action( 'in_admin_header', array( $this, 'display_admin_header' ), 100 );
 
-                // Admin notices
-                add_action( 'admin_init', array( $this, 'stcr_admin_init' ) );
+				// admin init
+				add_action( 'admin_init', array( $this, 'stcr_admin_init' ) );
+
+                // admin notices
                 add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
-                // Contextual help
+                // contextual help
                 add_action( 'contextual_help', array( $this, 'contextual_help' ), 10, 3 );
 
-                // Shortcodes to use the management URL sitewide
+                // shortcodes to use the management URL sitewide
                 add_shortcode( 'subscribe-url', array( $this, 'subscribe_url_shortcode' ) );
 
-                // Settings link for plugin on plugins page
-                add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
-                // Subscribe post authors, if the case
+                // action links for listing on WP admin > Plugins
+				add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
+				
+                // subscribe post authors, if auto subscribe for authors enabled
                 if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
                     add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
-                }
-                // Enqueue admin scripts
+				}
+				
+                // enqueue scripts
                 $this->utils->hook_admin_scripts();
 
-                // Add the AJAX Action
+                // ajax for admin notices ( mark as read )
                 $this->utils->stcr_create_ajax_notices();
 
+				// download system information file
                 add_action( 'admin_init', array( $this, 'sysinfo_download' ) );
 
-            }
+			}
+			
         }
 
         public function display_admin_header ()
@@ -300,7 +320,7 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
                         if ($this->isDoubleCheckinEnabled($info)) {
                             $this->sendConfirmationEMail($info);
                             $status = "{$status}C";
-                        }
+						}
 
                         $this->add_subscription($info->comment_post_ID, $info->comment_author_email, $status);
 
@@ -1084,13 +1104,14 @@ if(!class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded'))	{
 		 * Sends the notification message to a given user
 		 */
 		public function notify_user( $_post_ID = 0, $_email = '', $_comment_ID = 0 ) {
+			
 			$post                    = get_post( $_post_ID );
 			$comment                 = get_comment( $_comment_ID );
 			$post_permalink          = get_permalink( $_post_ID );
 			$comment_permalink       = get_comment_link( $_comment_ID );
 			$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
             $info                    = $this->_get_comment_object( $_comment_ID );
-
+			
 			// WPML compatibility
 			if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
 				// Switch language
