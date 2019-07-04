@@ -273,67 +273,83 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Load localization files
+		 * 
+		 * @since 190705 cleanup
 		 */
 		function subscribe_reloaded_load_plugin_textdomain() {
-			load_plugin_textdomain( 'subscribe-to-comments-reloaded', FALSE,  SLUG . "/langs/" );
+
+			load_plugin_textdomain( 'subscribe-to-comments-reloaded', FALSE, SLUG . '/langs/' );
+
 		}
 
-		/*
+		/**
 		 * Add Settings link to plugin on plugins page
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function plugin_settings_link( $links, $file ) {
+
 			if ( $file == 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' ) {
 				$links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_options' ), __( 'Settings', 'subscribe-to-comments-reloaded' ) );
 			}
 
 			return $links;
+
 		}
 
 		/**
 		 * Retrieves the comment information from the database
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function _get_comment_object( $_comment_ID ) {
+			
 			global $wpdb;
 
 			return $wpdb->get_row(
 				$wpdb->prepare(
-					"
-		SELECT comment_post_ID, comment_author_email, comment_approved, comment_type, comment_parent
-		FROM $wpdb->comments
-		WHERE comment_ID = %d LIMIT 1", $_comment_ID
+					"SELECT comment_post_ID, comment_author_email, comment_approved, comment_type, comment_parent
+					 FROM $wpdb->comments
+					 WHERE comment_ID = %d 
+					 LIMIT 1", $_comment_ID
 				), OBJECT
 			);
+
 		}
-		// end _get_comment_object
 
 		/**
 		 * Takes the appropriate action, when a new comment is posted
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function new_comment_posted( $_comment_ID = 0, $_comment_status = 0 ) {
-			// Retrieve the information about the new comment
+			
+			// get information about the comment
 			$info = $this->_get_comment_object( $_comment_ID );
 
+			// return if no info found or comment marked as spam
 			if ( empty( $info ) || $info->comment_approved == 'spam' ) {
 				return $_comment_ID;
 			}
 
-			// Are subscriptions allowed for this post?
+			// return if subscriptions disabled for this post
 			$is_disabled = get_post_meta( $info->comment_post_ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
 				return $_comment_ID;
 			}
 
-			// Process trackbacks and pingbacks?
+			// return if trackback/pingback ( if set not to notify on those )
 			if ( ( get_option( 'subscribe_reloaded_process_trackbacks', 'no' ) == 'no' ) && ( $info->comment_type == 'trackback' || $info->comment_type == 'pingback' ) ) {
 				return $_comment_ID;
 			}
 
-			// Did this visitor request to be subscribed to the discussion? (and s/he is not subscribed)
+			// process the subscription
 			if ( ! empty( $_POST['subscribe-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
-			    // Check that the user select a valid subscription status, otherwise skip the subscription addition and continue to notify the
-                // users that are subscribe.
+			   
+				// check if subscription type is valid
 				if ( in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
 
+					// get subscription type
                     switch ($_POST['subscribe-reloaded']) {
                         case 'replies':
                             $status = 'R';
@@ -346,47 +362,64 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                             break;
                     }
 
-                    if (!$this->is_user_subscribed($info->comment_post_ID, $info->comment_author_email)) {
-                        if ($this->isDoubleCheckinEnabled($info)) {
+					// if not already subscribed
+                    if ( ! $this->is_user_subscribed($info->comment_post_ID, $info->comment_author_email)) {
+
+						// if double check enabled, send confirmation email and append C to status
+                        if ( $this->isDoubleCheckinEnabled($info) ) {
                             $this->sendConfirmationEMail($info);
                             $status = "{$status}C";
 						}
 
+						// add the subscription
                         $this->add_subscription($info->comment_post_ID, $info->comment_author_email, $status);
 
-                        // If comment is in the moderation queue
-                        if ($info->comment_approved == 0) {
-                            //don't send notification-emails to all subscribed users
+                        // return ( do not proceed with sending notifications ) if comment held for moderation
+                        if ( $info->comment_approved == 0 ) {
                             return $_comment_ID;
-                        }
-                    }
-                }
+						}
+						
+					}
+					
+				}
+				
 			}
 
-			// Send a notification to all the users subscribed to this post
+			// if comment approved, notify subscribed users about the comment
 			if ( $info->comment_approved == 1 ) {
+
+				// get all subscriptions
 				$subscriptions = $this->get_subscriptions(
 					array(
 						'post_id',
 						'status'
-					), array(
-					'equals',
-					'equals'
-				), array(
+					), 
+					array(
+						'equals',
+						'equals'
+					), 
+					array(
 						$info->comment_post_ID,
 						'Y'
 					)
 				);
-				// Now verify if the comments has a parent comment, if so, then this comment is a reply.
+
+				// is this a reply to an existing comment?
 				if ( ! empty( $info->comment_parent ) ) {
+
+					// merge subscriptions
 					$subscriptions = array_merge(
-						$subscriptions, $this->get_subscriptions(
-						'parent', 'equals', array(
-							$info->comment_parent,
-							$info->comment_post_ID
+						$subscriptions, 
+						$this->get_subscriptions(
+							'parent', 
+							'equals', 
+							array(
+								$info->comment_parent,
+								$info->comment_post_ID
+							)
 						)
-					)
 					);
+
 				}
 
 				// post author info
@@ -413,7 +446,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 					
 				}
 
-				// Notify author
+				// notify author
 				if ( ! $post_author_notified && get_option( 'subscribe_reloaded_notify_authors', 'no' ) == 'yes' ) {
 					
 					// send email to author unless the author made the comment
@@ -425,10 +458,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			}
 
+			// that's all, return
 			return $_comment_ID;
+
 		}
 
-		// end new_comment_posted
 		public function isDoubleCheckinEnabled( $info ) {
 
 		    $is_subscribe_to_post = false;
