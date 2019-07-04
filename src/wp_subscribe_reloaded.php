@@ -173,24 +173,30 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			
         }
 
-        public function display_admin_header ()
-        {
-            $slug = "stcr_manage_subscriptions";
-            global $wp_locale;
-            $current_page = isset( $_GET['page'] ) ? $_GET['page'] : '';
-            // Define the panels
+		/**
+		 * Display the admin header menu
+		 * 
+		 * @since 190705 Cleanup
+		 */
+        public function display_admin_header () {
+
+			global $wp_locale;
+
+			$slug = 'stcr_manage_subscriptions';
+			$current_page = isset( $_GET['page'] ) ? $_GET['page'] : '';
+			
+            // define the menu items
             $array_pages = array(
-                "stcr_manage_subscriptions" => __( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
-                "stcr_comment_form"         => __( 'Comment Form', 'subscribe-to-comments-reloaded' ),
-                "stcr_management_page"      => __( 'Management Page', 'subscribe-to-comments-reloaded' ),
-                "stcr_notifications"        => __( 'Notifications', 'subscribe-to-comments-reloaded' ),
-                "stcr_options"              => __( 'Options', 'subscribe-to-comments-reloaded' ),
-                "stcr_support"              => __( 'Support', 'subscribe-to-comments-reloaded' ),
-                "stcr_system"               => __( 'Options', 'subscribe-to-comments-reloaded' )
+                'stcr_manage_subscriptions' => __( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
+                'stcr_comment_form'         => __( 'Comment Form', 'subscribe-to-comments-reloaded' ),
+                'stcr_management_page'      => __( 'Management Page', 'subscribe-to-comments-reloaded' ),
+                'stcr_notifications'        => __( 'Notifications', 'subscribe-to-comments-reloaded' ),
+                'stcr_options'              => __( 'Options', 'subscribe-to-comments-reloaded' ),
+                'stcr_support'              => __( 'Support', 'subscribe-to-comments-reloaded' ),
+                'stcr_system'               => __( 'Options', 'subscribe-to-comments-reloaded' )
             );
 
-
-            // Bail if we're not StCR plugin page.
+            // do not proceed if not on a STCR admin page
             if ( ! array_key_exists(  $current_page, $array_pages) ) {
                 return;
             }
@@ -198,47 +204,71 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             ?>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo $wp_locale->text_direction ?>">
-                <a class="navbar-brand "><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
-                <div class="collapse navbar-collapse">
+                
+				<a class="navbar-brand"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
+                
+				<div class="collapse navbar-collapse">
+
                     <ul class="navbar-nav">
-                            <?php
-                            foreach ( $array_pages as $page => $page_desc ) {
+                        
+						<?php
+							
+							// go through each stcr admin page
+							foreach ( $array_pages as $page => $page_desc ) :
 
-                                echo "<li class='". ( $page == "stcr_options" ? "dropdown" : "" ) ."'>";
+								// skip strc_system because it's added as part of stcr_options
+								if ( $page == 'stcr_system' ) continue;
 
-                                    if (  $page == "stcr_options" )
-                                    {
-                                        echo '<a class="nav-link dropdown-toggle'. ( $current_page == $page || $current_page == 'stcr_system' ? ' stcr-active-tab' : '' ) .'" style="padding: 5px 12px 0 0;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                  '. $page_desc .'
-                                                </a>
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                  <a class="dropdown-item" href="admin.php?page=' . $page . '">'. __("StCR Options", 'subscribe-to-comments-reloaded') .'</a>
-                                                  <div class="dropdown-divider"></div>
-                                                  <a class="dropdown-item" href="admin.php?page=stcr_system">'. __("StCR System", 'subscribe-to-comments-reloaded') .'</a>
-                                                </div>';
-                                    }
-                                    elseif (  $page == "stcr_system" )
-                                    {
-                                        // do nothing
-                                    }
-                                    else
-                                    {
-                                        echo '<a class="navbar-brand ';
-                                        echo ( $current_page == $page ) ? ' stcr-active-tab' : '';
-                                        echo '" href="admin.php?page=' . $page . '">';
-                                        echo $page_desc;
-                                        echo '</a>';
-                                    }
+								?><li class="<?php echo $page == 'stcr_options' ? 'dropdown' : '';  ?>"><?php
 
+									// dropdrown for options menu item
+                                    if (  $page == 'stcr_options' ) :
+										
+										?>
+										<a 
+											class="nav-link dropdown-toggle <?php echo ( $current_page == $page || $current_page == 'stcr_system' ? ' stcr-active-tab' : '' ); ?>" 
+											style="padding: 5px 12px 0 0;" 
+											href="#" 
+											id="navbarDropdown" 
+											role="button" 
+											data-toggle="dropdown" 
+											aria-haspopup="true" 
+											aria-expanded="false">
+											<?php echo $page_desc; ?>
+                                        </a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<a class="dropdown-item" href="admin.php?page=<?php echo $page; ?>"><?php echo __('StCR Options', 'subscribe-to-comments-reloaded'); ?></a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="admin.php?page=stcr_system"><?php echo __('StCR System', 'subscribe-to-comments-reloaded'); ?></a>
+										</div>
+										<?php
+									
+									// regular menu items
+                                    else :
+										
+										?>
+										<a 
+											class="navbar-brand <?php echo ( $current_page == $page ) ? ' stcr-active-tab' : ''; ?>" 
+											href="admin.php?page=<?php echo $page; ?>">
+											<?php echo $page_desc; ?>
+										</a>
+										<?php
+										
+									endif;
 
-                                echo "<li>";
-                            }
-                            ?>
-                    </ul>
-                </div>
+                                ?></li><?php
+							
+							endforeach;
+							
+                        ?>
 
-            </nav>
-        <?php
+                    </ul><!-- .navbar-nav -->
+
+                </div><!-- .navbar-collapse -->
+
+            </nav><!-- .navbar -->
+			<?php
+
         }
 
 		/**
