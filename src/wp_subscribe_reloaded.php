@@ -839,55 +839,71 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			return $posts;
 		}
 		// end subscribe_reloaded_manage
+		
 		/**
-		 * Checks if current logged in user is the author of this post
+		 * Checks if current logged in user is the author
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function is_author( $_post_author ) {
-			global $current_user;
 
+			global $current_user;
 			return ! empty( $current_user ) && ( ( $_post_author == $current_user->ID ) || current_user_can( 'manage_options' ) );
+
 		}
-		// end is_author
 
 		/**
 		 * Checks if a given email address is subscribed to a post
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function is_user_subscribed( $_post_ID = 0, $_email = '', $_status = '' ) {
+
 			global $current_user;
 
+			// return, no info about email available
 			if ( ( empty( $current_user->user_email ) && empty( $_COOKIE['comment_author_email_' . COOKIEHASH] ) && empty( $_email ) ) || empty( $_post_ID ) ) {
 				return false;
 			}
 
-			$operator      = ( $_status != '' ) ? 'equals' : 'contains';
+			$operator = ( $_status != '' ) ? 'equals' : 'contains';
+
+			// get subscriptions
 			$subscriptions = $this->get_subscriptions(
 				array(
 					'post_id',
 					'status'
+				), 
+				array(
+					'equals',
+					$operator
 				), array(
-				'equals',
-				$operator
-			), array(
 					$_post_ID,
 					$_status
 				)
 			);
 
+			// if email not supplied, tried to get it
 			if ( empty( $_email ) ) {
 				$user_email = ! empty( $current_user->user_email ) ? $current_user->user_email : ( ! empty( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? stripslashes( esc_attr( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ) : '#undefined#' );
+
+			// if supplied, use it
 			} else {
 				$user_email = $_email;
 			}
 
+			// go through all subscriptions and return true if the email is found
 			foreach ( $subscriptions as $a_subscription ) {
 				if ( $user_email == $a_subscription->email ) {
 					return true;
 				}
 			}
 
+			// return false, the email is not subscribed
 			return false;
+
 		}
-		// end is_user_subscribed
+		
 		/**
 		 * Adds a new subscription
 		 */
