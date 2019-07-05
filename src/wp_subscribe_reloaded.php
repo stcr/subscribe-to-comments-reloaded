@@ -952,15 +952,21 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		
 		/**
 		 * Deletes one or more subscriptions from the database
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function delete_subscriptions( $_post_id = 0, $_email = '' ) {
+
 			global $wpdb;
+
 			$has_subscriptions = false;
 
+			// no post ID supplied, return 0
 			if ( empty( $_post_id ) ) {
 				return 0;
 			}
 
+			// generate search for the DB query
 			$posts_where = '';
 			if ( ! is_array( $_post_id ) ) {
 				$posts_where = "post_id = " . intval( $_post_id );
@@ -968,16 +974,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				foreach ( $_post_id as $a_post_id ) {
 					$posts_where .= "post_id = '" . intval( $a_post_id ) . "' OR ";
 				}
-
 				$posts_where = substr( $posts_where, 0, - 4 );
 			}
 
+			// if email supplied, add it to the search for the DB query
 			if ( ! empty( $_email ) ) {
 				$emails_where = '';
 				if ( ! is_array( $_email ) ) {
 					$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
 					$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $_email );
-					if( $has_subscriptions === false) {
+					if ( $has_subscriptions === false) {
 						$this->utils->remove_user_subscriber_table( $_email );
 					}
 				} else {
@@ -985,19 +991,26 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 						$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
 						// Deletion on every email on the subscribers table.
 						$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $a_email );
-						if( $has_subscriptions === false ) {
+						if ( $has_subscriptions === false ) {
 							$this->utils->remove_user_subscriber_table( $a_email );
 						}
 					}
 
 					$emails_where = substr( $emails_where, 0, - 4 );
 				}
+
+				// remove subscription from DB
 				return $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE ($posts_where) AND ($emails_where)" );
+
 			} else {
+
+				// remove all subscriptions for specific post from DB
 				return $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%' AND ($posts_where)" );
+
 			}
+
 		}
-		// end delete_subscriptions
+		
 		/**
 		 * The function must search for subscription by a given post id.
 		 *
