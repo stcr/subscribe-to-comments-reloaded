@@ -508,65 +508,92 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		}
 
 		/**
-		 * Performs the appropriate action when the status of a given comment changes
+		 * Actions when comments status changes ( approve/unapprove/spam/trash )
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function comment_status_changed( $_comment_ID = 0, $_comment_status = 0 ) {
-			// Retrieve the information about the comment
+
+			// get information about the comment
 			$info = $this->_get_comment_object( $_comment_ID );
+			
+			// return, no information found
 			if ( empty( $info ) ) {
 				return $_comment_ID;
 			}
 
+			// go through the types of statuses
 			switch ( $info->comment_approved ) {
-				case '0': // Unapproved: change the status of the corresponding subscription (if exists) to 'pending'
+
+				// unapproved
+				case '0':
+					
 					$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, 'C' );
 					break;
 
-				case '1': // Approved
+				// approved
+				case '1':
+
 					$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, '-C' );
+					
+					// get subscriptions
 					$subscriptions = $this->get_subscriptions(
 						array(
 							'post_id',
 							'status'
 						), array(
-						'equals',
-						'equals'
-					), array(
+							'equals',
+							'equals'
+						), array(
 							$info->comment_post_ID,
 							'Y'
 						)
 					);
+
 					if ( ! empty( $info->comment_parent ) ) {
+
 						$subscriptions = array_merge(
 							$subscriptions, $this->get_subscriptions(
-							'parent', 'equals', array(
-								$info->comment_parent,
-								$info->comment_post_ID
+								'parent', 
+								'equals', 
+								array(
+									$info->comment_parent,
+									$info->comment_post_ID
+								)
 							)
-						)
 						);
+
 					}
 
+					// go through subscriptions and notify subscribers
 					foreach ( $subscriptions as $a_subscription ) {
-						if ( $a_subscription->email != $info->comment_author_email ) // Skip the user who posted this new comment
-						{
+
+						// skip the comment author
+						if ( $a_subscription->email != $info->comment_author_email ) {
 							$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
 						}
+
 					}
+
 					break;
 
 				case 'trash':
+
 				case 'spam':
+					
+					// perform the same actions as if it were deleted
 					$this->comment_deleted( $_comment_ID );
 					break;
 
 				default:
 					break;
+
 			}
 
+			// return
 			return $_comment_ID;
+
 		}
-		// end comment_status
 
 		/**
 		 * Performs the appropriate action when a comment is deleted
