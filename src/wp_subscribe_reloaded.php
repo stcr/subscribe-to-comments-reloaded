@@ -1377,10 +1377,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				return $output . $submit_field;
 			}
 
-		} // end subscribe_reloaded_show
+		}
 
-		public function setUserCoookie() {
-			// Set a cookie if the user just subscribed without commenting
+		/**
+		 * Set a cookie if the user just subscribed without commenting
+		 * 
+		 * @since 190705
+		 */
+		public function set_user_coookie() {
+			
 			$subscribe_to_comments_action  = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 			$subscribe_to_comments_post_ID = ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 );
 
@@ -1404,5 +1409,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
         }
 
-	} // end of class declaration
+	}
+
 }
