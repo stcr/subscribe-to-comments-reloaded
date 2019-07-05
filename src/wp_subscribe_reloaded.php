@@ -598,7 +598,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		/**
 		 * Actions when comment is deleted
 		 * 
-		 * @since 190705
+		 * @since 190705 cleanup
 		 */
 		public function comment_deleted( $_comment_ID ) {
 
@@ -631,16 +631,20 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		}
 
 		/**
-		 * Subscribes the post author, if the corresponding option is set
+		 * Subscribe the post author
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function subscribe_post_author( $_post_ID ) {
+
 			$new_post     = get_post( $_post_ID );
 			$author_email = get_the_author_meta( 'user_email', $new_post->post_author );
+
 			if ( ! empty( $author_email ) ) {
 				$this->add_subscription( $_post_ID, $author_email, 'Y' );
 			}
-		}
-		// // end subscribe_post_author
+
+		}	
 
 		/**
 		 * Displays the appropriate management page
