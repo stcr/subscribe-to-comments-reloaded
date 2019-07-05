@@ -1363,16 +1363,18 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		
 		/**
 		 * Displays the checkbox to allow visitors to subscribe
+		 * 
+		 * @since 190705 cleanup
 		 */
-		function subscribe_reloaded_show($submit_field = '' ) {
+		function subscribe_reloaded_show( $submit_field = '' ) {
 
-			// echo on action
-			// return on filter
+			// echo on action, return on filter
 			$echo = false;
 			if ( doing_action( 'comment_form' ) ) {
 				$echo = true;
 			}
 
+			// vars
 			global $post, $wp_subscribe_reloaded;
 			$checkbox_subscription_type = null;
             $_comment_ID = null;
@@ -1381,7 +1383,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$post_type = get_post_type( $post->ID );
 			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 
-			// if not enabled for this post type, return
+			// if not enabled for this post type, return default
 			if ( $only_for_posts == 'yes' && $post_type !== 'post' ) {
 				if ( $echo ) {
 					echo $submit_field;
@@ -1391,37 +1393,45 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				return;
 			}
 
-			// Enable JS scripts.
-			 $wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
+			// enqueue scripts and styles
+			$wp_subscribe_reloaded->stcr->utils->add_plugin_js_scripts();
 			wp_enqueue_style( 'stcr-plugin-style' );
 
+			// return if subscriptions disabled for this post
 			$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
 				return $_comment_ID;
 			}
 
+			// vars
 			$show_subscription_box = true;
 			$html_to_show          = '';
 			$user_link             = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '' );
 
+			// qTranslate compatibility
 			if ( function_exists( 'qtrans_convertURL' ) ) {
 				$user_link = qtrans_convertURL( $user_link );
 			}
 
+			// link for management page
 			$manager_link = ( strpos( $user_link, '?' ) !== false ) ?
 				"$user_link&amp;srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' ) :
 				"$user_link?srp=$post->ID&amp;srk=" . get_option( 'subscribe_reloaded_unique_key' );
 
+			// link for user
             $user_link = ( strpos( $user_link, '?' ) !== false ) ?
                 "$user_link&" . $post_permalink :
                 "$user_link?" . $post_permalink;
 
+			// if subscription pending confirmation
 			if ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '', 'C' ) ) {
 				$html_to_show = str_replace(
 					'[manager_link]', $user_link,
 					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-to-comments-reloaded' ) ) ), ENT_QUOTES, 'UTF-8' )
 				);
 				$show_subscription_box = false;
+
+			// if subscription active
 			} elseif ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '' ) ) {
 				$html_to_show = str_replace(
 					'[manager_link]', $user_link ,
@@ -1430,7 +1440,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				$show_subscription_box = false;
 			}
 
-			if ( $wp_subscribe_reloaded->stcr->is_author( $post->post_author ) ) { // when the second parameter is empty, cookie value will be used
+			// if current user is author of the post
+			if ( $wp_subscribe_reloaded->stcr->is_author( $post->post_author ) ) {
 				if ( get_option( 'subscribe_reloaded_admin_subscribe', 'no' ) == 'no' ) {
 					$show_subscription_box = false;
 				}
@@ -1441,16 +1452,24 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				);
 			}
 
+			// show the subscription form
 			if ( $show_subscription_box ) {
-				$checkbox_label        = str_replace(
+
+				// label
+				$checkbox_label = str_replace(
 					'[subscribe_link]', "$manager_link&amp;sra=s&amp;srsrc=f",
 					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-to-comments-reloaded' ) ) ), ENT_QUOTES, 'UTF-8' )
 				);
+
+				// CSS style
 				$checkbox_inline_style = get_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px' );
 				if ( ! empty( $checkbox_inline_style ) ) {
 					$checkbox_inline_style = " style='$checkbox_inline_style'";
 				}
+
 				$checkbox_html_wrap = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_html', '' ) ), ENT_QUOTES, 'UTF-8' );
+
+				// regular subscriptions form
 				if ( get_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no' ) == 'no' ) {
 					switch ( get_option( 'subscribe_reloaded_checked_by_default_value' ) ) {
 						case '0':
@@ -1461,6 +1480,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 							break;
 					}
 					$checkbox_field = "<input$checkbox_inline_style type='checkbox' name='subscribe-reloaded' id='subscribe-reloaded' value='$checkbox_subscription_type'" . ( ( get_option( 'subscribe_reloaded_checked_by_default', 'no' ) == 'yes' ) ? " checked='checked'" : '' ) . " />";
+
+				// advanced subscriptions form
 				} else {
 					$checkbox_field = "<select name='subscribe-reloaded' id='subscribe-reloaded'>
 								<option value='none' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '0' ) ? "selected='selected'" : '' ) . ">" . __( "Don't subscribe", 'subscribe-to-comments-reloaded' ) . "</option>
@@ -1468,16 +1489,21 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 								<option value='replies' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '2' ) ? "selected='selected'" : '' ) . ">" . __( "Replies to my comments", 'subscribe-to-comments-reloaded' ) . "</option>
 							</select>";
 				}
+				
 				if ( empty( $checkbox_html_wrap ) ) {
 					$html_to_show = "$checkbox_field <label for='subscribe-reloaded'>$checkbox_label</label>" . $html_to_show;
 				} else {
 					$checkbox_html_wrap = str_replace( '[checkbox_field]', $checkbox_field, $checkbox_html_wrap );
 					$html_to_show       = str_replace( '[checkbox_label]', $checkbox_label, $checkbox_html_wrap ) . $html_to_show;
 				}
+
 			}
+
+			// qTranslate compatiblity
 			if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 				$html_to_show = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $html_to_show );
 			}
+
 			$output = '';
 			// Check for the Comment Form location
 			if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
@@ -1494,6 +1520,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $output .= "<!-- BEGIN: subscribe to comments reloaded -->" . $html_to_show . "<!-- END: subscribe to comments reloaded -->";
 			}
 
+			// echo or return
 			if ( $echo ) {
 				echo $output . $submit_field;
 			} else {
