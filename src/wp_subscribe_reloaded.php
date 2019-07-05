@@ -1023,44 +1023,60 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 * 						if $in is false the it could return the subscriptions or false, false means not found
 		 */
 		public function retrieve_user_subscriptions( $_post_id, $_email, $in = false ) {
+			
 			global $wpdb;
+			
 			$meta_key = '_stcr@_';
 			$in_values = '';
 
+			// single post
 			if( ! is_array( $_post_id ) ){
+
 				if ( ! $in ) {
 					$retrieve_subscriptions = "SELECT * FROM $wpdb->postmeta WHERE post_id <> %d AND meta_key = %s";
 				} else if ( $in ) {
 					$retrieve_subscriptions = "SELECT * FROM $wpdb->postmeta WHERE post_id = %d AND meta_key = %s";
 				}
-				$result =$wpdb->get_results($wpdb->prepare( $retrieve_subscriptions, $_post_id, $meta_key.$_email ), OBJECT);
+
+				$result = $wpdb->get_results( $wpdb->prepare( $retrieve_subscriptions, $_post_id, $meta_key.$_email ), OBJECT );
+
+			// array of posts
 			} else {
-				//			foreach( $_post_id as $key => $id ){
-				//				$_post_id[$key] = "'" . $id . "'";
-				//			}
-				$in_values = implode( ",",$_post_id );
+				
+				$in_values = implode( ',', $_post_id );
+
 				if ( ! $in ) {
 					$retrieve_subscriptions = "SELECT * FROM $wpdb->postmeta WHERE post_id NOT IN ($in_values) AND meta_key = %s";
 				} else if ( $in ) {
 					$retrieve_subscriptions = "SELECT * FROM $wpdb->postmeta WHERE post_id IN ($in_values) AND meta_key = %s";
 				}
-				$result =$wpdb->get_results($wpdb->prepare( $retrieve_subscriptions, $meta_key.$_email ), OBJECT);
+
+				$result = $wpdb->get_results($wpdb->prepare( $retrieve_subscriptions, $meta_key.$_email ), OBJECT);
+
 			}
 
 			return $result === false || $result == 0 || empty( $result ) ? false : $result;
+
 		}
+
 		/**
 		 * Updates the status of an existing subscription
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function update_subscription_status( $_post_id = 0, $_email = '', $_new_status = 'C' ) {
+
 			global $wpdb;
 
-			// Filter unwanted statuses
+			// if not a valid status, return
 			if ( empty( $_new_status ) || ! in_array( $_new_status, array( 'Y', 'R', 'C', '-C' ) ) || empty( $_email ) ) {
 				return 0;
 			}
 
+			// specific post ID supplied
 			if ( ! empty( $_post_id ) ) {
+
+				// generate the WHERE for post ID for the DB query
 				$posts_where = '';
 				if ( ! is_array( $_post_id ) ) {
 					$posts_where = "post_id = " . intval( $_post_id );
@@ -1068,13 +1084,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 					foreach ( $_post_id as $a_post_id ) {
 						$posts_where .= "post_id = '" . intval( $a_post_id ) . "' OR ";
 					}
-
 					$posts_where = substr( $posts_where, 0, - 4 );
 				}
-			} else { // Mass update subscriptions
+			
+			// all posts
+			} else {
 				$posts_where = '1=1';
 			}
 
+			// generate WHERE for email for the DB query
 			$emails_where = '';
 			if ( ! is_array( $_email ) ) {
 				$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
@@ -1082,21 +1100,21 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				foreach ( $_email as $a_email ) {
 					$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
 				}
-
 				$emails_where = substr( $emails_where, 0, - 4 );
 			}
 
 			$meta_length = ( strpos( $_new_status, 'C' ) !== false ) ? 21 : 20;
 			$new_status  = ( $_new_status == '-C' ) ? '' : $_new_status;
 
+			// update DB
 			return $wpdb->query(
-				"
-		UPDATE $wpdb->postmeta
-		SET meta_value = CONCAT(SUBSTRING(meta_value, 1, $meta_length), '$new_status')
-		WHERE ($posts_where) AND ($emails_where)"
+				"UPDATE $wpdb->postmeta
+				 SET meta_value = CONCAT(SUBSTRING(meta_value, 1, $meta_length), '$new_status')
+				 WHERE ($posts_where) AND ($emails_where)"
 			);
+
 		}
-		// end update_subscription_status
+
 		/**
 		 * Updates the email address of an existing subscription
 		 */
