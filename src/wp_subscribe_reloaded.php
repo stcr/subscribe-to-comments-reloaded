@@ -366,7 +366,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     if ( ! $this->is_user_subscribed($info->comment_post_ID, $info->comment_author_email)) {
 
 						// if double check enabled, send confirmation email and append C to status
-                        if ( $this->isDoubleCheckinEnabled($info) ) {
+                        if ( $this->is_double_check_enabled($info) ) {
                             $this->sendConfirmationEMail($info);
                             $status = "{$status}C";
 						}
@@ -463,40 +463,49 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		}
 
-		public function isDoubleCheckinEnabled( $info ) {
+		/**
+		 * Is double check ( subscriptions need to be confirmed ) enabled
+		 * 
+		 * @since 190705
+		 */
+		public function is_double_check_enabled( $info ) {
 
-		    $is_subscribe_to_post = false;
+			$is_subscribe_to_post = false;
+			$is_user_logged_in = is_user_logged_in();
+			$is_option_enabled = false;
+			if ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' ) {
+				$is_option_enabled = true;
+			}
 
 			$approved_subscriptions = $this->get_subscriptions(
 				array(
 					'status',
 					'email'
+				), 
+				array(
+					'equals',
+					'equals'
 				), array(
-				'equals',
-				'equals'
-			), array(
 					'Y',
 					$info->comment_author_email
 				)
 			);
 
-			// Check if the user is already subscribe to the requested Post ID
-            foreach ( $approved_subscriptions as $subscription )
-            {
-                if ( $info->comment_post_ID == $subscription->post_id )
-                {
+			// check if the user is already subscribed to the requested Post ID
+            foreach ( $approved_subscriptions as $subscription ) {
+                if ( $info->comment_post_ID == $subscription->post_id ) {
                     $is_subscribe_to_post = true;
                 }
             }
 
-			if ( ( get_option( 'subscribe_reloaded_enable_double_check', 'no' ) == 'yes' ) && ! is_user_logged_in() && ( ! $is_subscribe_to_post || empty( $approved_subscriptions ) ) ) {
+			// option enabled AND user not logged in AND not already subscribed
+			if ( $is_option_enabled && ! $is_user_logged_in && ( ! $is_subscribe_to_post || empty( $approved_subscriptions ) ) ) {
 				return true;
 			} else {
 				return false;
 			}
+
 		}
-
-
 
 		/**
 		 * Performs the appropriate action when the status of a given comment changes
