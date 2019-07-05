@@ -1277,14 +1277,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				);
 
 			}
-			
+
 		}
 		
 		/**
 		 * Sends the notification message to a given user
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function notify_user( $_post_ID = 0, $_email = '', $_comment_ID = 0 ) {
 			
+			// vars
 			$post                    = get_post( $_post_ID );
 			$comment                 = get_comment( $_comment_ID );
 			$post_permalink          = get_permalink( $_post_ID );
@@ -1294,37 +1297,36 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			
 			// WPML compatibility
 			if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
-				// Switch language
 				global $sitepress;
 				$language = $sitepress->get_language_for_element( $_post_ID, 'post_' . $post->post_type );
 				$sitepress->switch_lang($language);
 			}
 
+			// vars
 			$subject      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_subject', 'There is a new comment on the post [post_title]' ) ), ENT_QUOTES, 'UTF-8' );
 			$message      = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_notification_content', '' ) ), ENT_QUOTES, 'UTF-8' );
 			$manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 			$one_click_unsubscribe_link = $manager_link;
 
+			// qTranslate compatibility
 			if ( function_exists( 'qtrans_convertURL' ) ) {
 				$manager_link = qtrans_convertURL( $manager_link );
 			}
 
+			// vars
 			$clean_email     = $this->utils->clean_email( $_email );
 			$subscriber_salt = $this->utils->generate_temp_key( $clean_email );
-
 			$manager_link .= ( ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?' )
 				. "srek=" . $this->utils->get_subscriber_key( $clean_email )
 				. "&srk=$subscriber_salt";
 			$one_click_unsubscribe_link .= ( ( strpos( $one_click_unsubscribe_link, '?' ) !== false ) ? '&' : '?' )
 				. "srek=" . $this->utils->get_subscriber_key( $clean_email ) . "&srk=$subscriber_salt"
 				. "&sra=u&srsrc=e" . "&srp=" . $_post_ID;
-
 			$comment_content = $comment->comment_content;
 
-			// Replace tags with their actual values
+			// replace tags with their actual values
 			$subject = str_replace( '[post_title]', $post->post_title, $subject );
 			$subject = str_replace( '[blog_name]' , get_bloginfo('name'), $subject );
-
 			$message = str_replace( '[post_permalink]', $post_permalink, $message );
 			$message = str_replace( '[comment_permalink]', $comment_permalink, $message );
 			$message = str_replace( '[comment_reply_permalink]', $comment_reply_permalink, $message );
@@ -1334,7 +1336,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
             $message = str_replace( '[comment_gravatar]', get_avatar($info->comment_author_email, 40), $message );
 
-			// QTranslate support
+			// qTranslate support
 			if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
 				$subject = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $subject );
 				$message = str_replace( '[post_title]', qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $post->post_title ), $message );
@@ -1342,8 +1344,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			} else {
 				$message = str_replace( '[post_title]', $post->post_title, $message );
 			}
+
 			$message = apply_filters( 'stcr_notify_user_message', $message, $_post_ID, $clean_email, $_comment_ID );
-			// Prepare email settings
+
+			// email settings
 			$email_settings = array(
 				'subject'      => $subject,
 				'message'      => $message,
@@ -1351,9 +1355,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				'XPostId'    => $_post_ID,
 				'XCommentId' => $_comment_ID
 			);
+
+			// send email
 			$this->utils->send_email( $email_settings );
+
 		}
-		// end notify_user
+		
 		/**
 		 * Displays the checkbox to allow visitors to subscribe
 		 */
