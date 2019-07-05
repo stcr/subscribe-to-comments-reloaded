@@ -596,30 +596,39 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		}
 
 		/**
-		 * Performs the appropriate action when a comment is deleted
+		 * Actions when comment is deleted
+		 * 
+		 * @since 190705
 		 */
 		public function comment_deleted( $_comment_ID ) {
+
 			global $wpdb;
 
+			// get information about the comments
 			$info = $this->_get_comment_object( $_comment_ID );
+
+			// return, no information found
 			if ( empty( $info ) ) {
 				return $_comment_ID;
 			}
 
-			// Are there any other approved comments sent by this user?
+			// how many comments does the author have on this post
 			$count_approved_comments = $wpdb->get_var(
-				"
-		SELECT COUNT(*)
-		FROM $wpdb->comments
-		WHERE comment_post_ID = '$info->comment_post_ID' AND comment_author_email = '$info->comment_author_email' AND comment_approved = 1"
+				"SELECT COUNT(*)
+				 FROM $wpdb->comments
+				 WHERE comment_post_ID = '$info->comment_post_ID' 
+				 	AND comment_author_email = '$info->comment_author_email' 
+					AND comment_approved = 1"
 			);
+
+			// if author has no comments left on this post, remove his subscription
 			if ( intval( $count_approved_comments ) == 0 ) {
 				$this->delete_subscriptions( $info->comment_post_ID, $info->comment_author_email );
 			}
 
+			// return
 			return $_comment_ID;
 		}
-		// end comment_deleted
 
 		/**
 		 * Subscribes the post author, if the corresponding option is set
