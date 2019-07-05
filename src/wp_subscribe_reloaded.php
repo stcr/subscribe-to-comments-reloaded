@@ -1157,13 +1157,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			}
 
 			return false;
-			
+
 		}
 		
 		/**
-		 * Retrieves a list of emails subscribed to this post
+		 * Retrieves a list of emails subscribed to a specific post
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function get_subscriptions( $_search_field = array( 'email' ), $_operator = array( 'equals' ), $_search_value = array( '' ), $_order_by = 'dt', $_order = 'ASC', $_offset = 0, $_limit_results = 0 ) {
+			
 			global $wpdb;
 
 			// Type adjustments
@@ -1183,26 +1186,28 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// Check if $parent_comment_author_email has any Replies Only (R) subscriptions for $comment_post_id
 
 				/*
-								Heads up: this will return Replies Only subscriptions for a given post, *not* for a given comment.
-								This plugin does not track subscriptions for specific comments but rather for entire posts, so there
-								is no way to figure out if a specific parent comment has a subscription (of any type). To make the
-								Replies Only feature half-work, we check if a parent comment author has *any* Replies Only subscriptions
-								for a given post. If they do, we assume that they must want to get notified of replies to *any* of their
-								comments on *that* post.
+				Heads up: this will return Replies Only subscriptions for a given post, *not* for a given comment.
+				This plugin does not track subscriptions for specific comments but rather for entire posts, so there
+				is no way to figure out if a specific parent comment has a subscription (of any type). To make the
+				Replies Only feature half-work, we check if a parent comment author has *any* Replies Only subscriptions
+				for a given post. If they do, we assume that they must want to get notified of replies to *any* of their
+				comments on *that* post.
 				*/
 
 				return $wpdb->get_results(
 					$wpdb->prepare(
-						"
-			SELECT pm.meta_id, REPLACE(pm.meta_key, '_stcr@_', '') AS email, pm.post_id, SUBSTRING(pm.meta_value, 1, 19) AS dt, SUBSTRING(pm.meta_value, 21) AS status, srs.subscriber_unique_id AS email_key
-			FROM $wpdb->postmeta pm
-			INNER JOIN {$wpdb->prefix}subscribe_reloaded_subscribers srs ON ( REPLACE(pm.meta_key, '_stcr@_', '') = srs.subscriber_email  )
-			WHERE pm.meta_key LIKE %s
-				AND pm.meta_value LIKE '%%R'
-				AND pm.post_id = %d", $parent_comment_author_email, $comment_post_id
+						"SELECT pm.meta_id, REPLACE(pm.meta_key, '_stcr@_', '') AS email, pm.post_id, SUBSTRING(pm.meta_value, 1, 19) AS dt, SUBSTRING(pm.meta_value, 21) AS status, srs.subscriber_unique_id AS email_key
+						 FROM $wpdb->postmeta pm
+						 INNER JOIN {$wpdb->prefix}subscribe_reloaded_subscribers srs ON ( REPLACE(pm.meta_key, '_stcr@_', '') = srs.subscriber_email  )
+						 WHERE pm.meta_key LIKE %s
+						 AND pm.meta_value LIKE '%%R'
+						 AND pm.post_id = %d", $parent_comment_author_email, $comment_post_id
 					), OBJECT
 				);
+
 			} else {
+
+				// generate WHERE for the DB query
 				$where_clause = '';
 				foreach ( $search_fields as $a_idx => $a_field ) {
 					$where_clause .= ' AND';
@@ -1239,6 +1244,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 							$where_values[] = "%{$search_values[$a_idx]}%";
 					}
 				}
+
+				// generated ORDER BY for the DB query
 				switch ( $_order_by ) {
 					case 'status':
 						$order_by = "status";
@@ -1254,23 +1261,25 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				}
 				$order = ( $_order != 'ASC' && $_order != 'DESC' ) ? 'DESC' : $_order;
 
-				// This is the 'official' way to have an offset without a limit
+				// this is the 'official' way to have an offset without a limit
 				$row_count = ( $_limit_results <= 0 ) ? '18446744073709551610' : $_limit_results;
 
+				// run the DB query
 				return $wpdb->get_results(
 					$wpdb->prepare(
-						"
-			SELECT meta_id, REPLACE(meta_key, '_stcr@_', '') AS email, post_id, SUBSTRING(meta_value, 1, 19) AS dt, SUBSTRING(meta_value, 21) AS status, srs.subscriber_unique_id AS email_key
-			FROM $wpdb->postmeta
-			INNER JOIN {$wpdb->prefix}subscribe_reloaded_subscribers srs ON ( REPLACE(meta_key, '_stcr@_', '') = srs.subscriber_email  )
-			WHERE meta_key LIKE '\_stcr@\_%%' $where_clause
-			ORDER BY $order_by $order
-			LIMIT $_offset,$row_count", $where_values
+						"SELECT meta_id, REPLACE(meta_key, '_stcr@_', '') AS email, post_id, SUBSTRING(meta_value, 1, 19) AS dt, SUBSTRING(meta_value, 21) AS status, srs.subscriber_unique_id AS email_key
+						 FROM $wpdb->postmeta
+						 INNER JOIN {$wpdb->prefix}subscribe_reloaded_subscribers srs ON ( REPLACE(meta_key, '_stcr@_', '') = srs.subscriber_email  )
+						 WHERE meta_key LIKE '\_stcr@\_%%' $where_clause
+						 ORDER BY $order_by $order
+						 LIMIT $_offset,$row_count", $where_values
 					), OBJECT
 				);
+
 			}
+			
 		}
-		// end get_subscriptions
+		
 		/**
 		 * Sends the notification message to a given user
 		 */
