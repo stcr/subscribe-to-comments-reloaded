@@ -906,46 +906,50 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		
 		/**
 		 * Adds a new subscription
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function add_subscription( $_post_id = 0, $_email = '', $_status = 'Y' ) {
+
 			global $wpdb;
-			// Does the post exist?
+
+			// does the post exist?
 			$target_post = get_post( $_post_id );
 			if ( ( $_post_id > 0 ) && ! is_object( $target_post ) ) {
 				return;
 			}
 
-			// Filter unwanted statuses
+			// return if status incorrect
 			if ( ! in_array( $_status, array( 'Y', 'YC', 'R', 'RC', 'C', '-C' ) ) || empty( $_status ) ) {
 				return;
 			}
 
-			// Using Wordpress local time
+			// using Wordpress local time
 			$dt = date_i18n( 'Y-m-d H:i:s' );
 
+			// sanitize email
 			$clean_email = $this->utils->clean_email( $_email );
-			$wpdb->query(
-				$wpdb->prepare(
-					"
-		INSERT IGNORE INTO $wpdb->postmeta (post_id, meta_key, meta_value)
-			SELECT %d, %s, %s
-			FROM DUAL
-			WHERE NOT EXISTS (
-				SELECT post_id
-				FROM $wpdb->postmeta
-				WHERE post_id = %d
-					AND meta_key = %s
-				LIMIT 0,1
-			)", $_post_id, "_stcr@_$clean_email", "$dt|$_status", $_post_id, "_stcr@_$clean_email"
-				)
-			);
+			
+			// insert subscriber into postmeta
+			$wpdb->query( $wpdb->prepare(
+				"INSERT IGNORE INTO $wpdb->postmeta (post_id, meta_key, meta_value)
+				 SELECT %d, %s, %s
+				 FROM DUAL
+				 WHERE NOT EXISTS (
+				 	SELECT post_id
+				 	FROM $wpdb->postmeta
+				 	WHERE post_id = %d
+				 	AND meta_key = %s
+				 	LIMIT 0,1
+				)", $_post_id, "_stcr@_$clean_email", "$dt|$_status", $_post_id, "_stcr@_$clean_email"
+			));
 
-			$OK = $this->utils->add_user_subscriber_table( $clean_email ); // TODO: Only on this section the user should be added to the subscribers table. On the send confirmation email is repeating this method.
-			if ( ! $OK) {
-				// TODO: Catch the error and add it to the log file.
-			}
+			// Insert user into subscribe_reloaded_subscribers table
+			// TODO: Only on this section the user should be added to the subscribers table. On the send confirmation email is repeating this method.
+			$OK = $this->utils->add_user_subscriber_table( $clean_email );
+			
 		}
-		// end add_subscription
+		
 		/**
 		 * Deletes one or more subscriptions from the database
 		 */
