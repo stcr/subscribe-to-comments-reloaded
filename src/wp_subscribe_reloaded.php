@@ -1117,29 +1117,34 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Updates the email address of an existing subscription
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function update_subscription_email( $_post_id = 0, $_email = '', $_new_email = '' ) {
+
 			global $wpdb;
 
-			// Nothing to do if the new email hasn't been specified
+			// return if no email supplied
 			if ( empty( $_email ) || empty( $_new_email ) || strpos( $_new_email, '@' ) == 0 ) {
 				return;
 			}
 
+			// sanitize old and new email
 			$clean_values[] = "_stcr@_" . $this->utils->clean_email( $_new_email );
 			$clean_values[] = "_stcr@_" . $this->utils->clean_email( $_email );
-			$post_where     = '';
+
+			// generate WHERE for DB query
+			$post_where = '';
 			if ( ! empty( $_post_id ) ) {
-				$post_where     = ' AND post_id = %d';
+				$post_where = ' AND post_id = %d';
 				$clean_values[] = $_post_id;
 			}
 
-			$rowsAffected = $wpdb->query(
-				$wpdb->prepare("UPDATE $wpdb->postmeta SET meta_key = %s  WHERE meta_key = %s $post_where",
-					$clean_values )
-			);
+			// update the email in postmeta table
+			$rowsAffected = $wpdb->query( $wpdb->prepare("UPDATE $wpdb->postmeta SET meta_key = %s  WHERE meta_key = %s $post_where", $clean_values ) );
 
-			if ( $rowsAffected > 0  || $rowsAffected !== false) {
+			// update the email in subscribe_reloaded_subscribers table
+			if ( $rowsAffected > 0 || $rowsAffected !== false) {
 				$salt = time();
 				$rowsAffected = $wpdb->query(
 					$wpdb->prepare("UPDATE ". $wpdb->prefix .
@@ -1150,9 +1155,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 						$_new_email, $salt, $this->utils->generate_temp_key( $salt . $_new_email ),$_email )
 				);
 			}
+
 			return false;
+			
 		}
-		// end update_subscription_email
+		
 		/**
 		 * Retrieves a list of emails subscribed to this post
 		 */
