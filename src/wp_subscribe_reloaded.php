@@ -648,11 +648,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Displays the appropriate management page
+		 * 
+		 * @since 190705 cleanup
 		 */
 		public function subscribe_reloaded_manage( $_posts = '', $_query = '' ) {
 			
+			// vars
 			global $current_user;
-			$stcr_unique_key = get_option( "subscribe_reloaded_unique_key" );
+			$stcr_unique_key = get_option( 'subscribe_reloaded_unique_key' );
 			$date = date_i18n( 'Y-m-d H:i:s' );
 			$error_exits = false;
 			$email = '';
@@ -665,41 +668,51 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			try {
 
+				// get post ID
                 $post_ID = !empty($_POST['srp']) ? intval($_POST['srp']) : (!empty($_GET['srp']) ? intval($_GET['srp']) : 0);
 
-                // Is the post_id passed in the query string valid?
+                // does a post with that ID exist
                 $target_post = get_post($post_ID);
-                if (($post_ID > 0) && !is_object($target_post)) {
+                if ( ( $post_ID > 0 ) && ! is_object($target_post) ) {
                     return $_posts;
                 }
 
+				// vars
                 $action = !empty($_POST['sra']) ? $_POST['sra'] : (!empty($_GET['sra']) ? $_GET['sra'] : 0);
                 $key = !empty($_POST['srk']) ? $_POST['srk'] : (!empty($_GET['srk']) ? $_GET['srk'] : 0);
                 $sre = !empty($_POST['sre']) ? $_POST['sre'] : (!empty($_GET['sre']) ? $_GET['sre'] : '');
                 $srek = !empty($_POST['srek']) ? $_POST['srek'] : (!empty($_GET['srek']) ? $_GET['srek'] : '');
                 $link_source = !empty($_POST['srsrc']) ? $_POST['srsrc'] : (!empty($_GET['srsrc']) ? $_GET['srsrc'] : '');
                 $key_expired = !empty($_POST['key_expired']) ? $_POST['key_expired'] : (!empty($_GET['key_expired']) ? $_GET['key_expired'] : '0');
-                // Check if the current subscriber has va email using the $srek key.
-                $email_by_key = $this->utils->get_subscriber_email_by_key($srek);
-                // Check for a valid SRE key, otherwise stop execution.
-                if (!$email_by_key && !empty($srek)) {
+				
+				// check if the current subscriber has valid email using the $srek key.
+				$email_by_key = $this->utils->get_subscriber_email_by_key($srek);
+				
+                // stop if invalid SRE key
+                if ( ! $email_by_key && ! empty( $srek ) ) {
+
                     $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n");
-                    $email = '';
+					$email = '';
+					
+				// valid key, proceed
                 } else {
-                    if (!$email_by_key && empty($sre)) {
+
+                    if ( ! $email_by_key && empty( $sre ) ) {
                         $email = '';
-                    } else if ($email_by_key && !empty($email_by_key)) {
+                    } else if ( $email_by_key && ! empty( $email_by_key ) ) {
                         $email = $email_by_key;
-                    } else if (!empty($sre)) {
+                    } else if ( ! empty( $sre ) ) {
                         $email = $this->utils->check_valid_email( $sre );
                     } else {
                         $email = '';
-                    }
-                }
-                // Check the link source
-                if ($link_source == "f") // Comes from the comment form.
-                {
-                    // Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
+					}
+					
+				}
+				
+                // comes from the comment form.
+                if ($link_source == 'f') {
+					
+					// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
                     // or is wrong, in that case display the request management page template
                     if ($email !== "" && $key !== 0 && $stcr_unique_key !== $key || $key_expired == "1") {
                         if ($key_expired == "1") {
@@ -708,9 +721,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                             $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n");
                             $error_exits = true;
                         }
-                    }
-                } else if ($link_source == "e") // Comes from the email link.
-                {
+					}
+					
+				// comes from email link
+                } else if ($link_source == 'e') {
+
                     if ($email !== "" && $key !== 0 && !$this->utils->_is_valid_key($key, $email) || $key_expired == "1") {
                         if ($key_expired == "1") {
                             $error_exits = true;
@@ -718,26 +733,38 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                             $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n");
                             $error_exits = true;
                         }
-                    }
+					}
+					
                 }
 
+				// error found, show message
                 if ($error_exits) {
-                    $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/key_expired.php';
+					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/key_expired.php';
+					
+				// all fine, proceed
                 } else {
-                    // Subscribe without commenting
-                    if (!empty($action) &&
+
+                    // subscribe without commenting
+                    if (
+						!empty($action) &&
                         ($action == 's') &&
                         ($post_ID > 0) &&
                         $key_expired != "1"
                     ) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
-                    } // Management page for post authors
-                    elseif (($post_ID > 0) &&
+						
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
+						
+					// post author
+					} elseif (
+						($post_ID > 0) &&
                         $this->is_author($target_post->post_author)
                     ) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
-                    } // Confirm your subscription (double check-in)
-                    elseif (($post_ID > 0) &&
+
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
+						
+					// confirm subscription
+                    } elseif (
+						($post_ID > 0) &&
                         !empty($email) &&
                         !empty($key) &&
                         !empty($action) &&
@@ -746,8 +773,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         ($action == 'c') &&
                         $key_expired != "1"
                     ) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
-                    } elseif (($post_ID > 0) &&
+
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
+						
+					// unsubscribe
+                    } elseif (
+						($post_ID > 0) &&
                         !empty($email) &&
                         !empty($key) &&
                         !empty($action) &&
@@ -755,25 +786,37 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         ($action == 'u') &&
                         $key_expired != "1"
                     ) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
-                    } // Manage your subscriptions (user)
-                    elseif (!empty($email) &&
+						
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
+
+					// user management page
+                    } elseif (
+						!empty($email) &&
                         ($key !== 0 && $this->utils->_is_valid_key($key, $email) || (!empty($current_user->data->user_email) && ($current_user->data->user_email === $email && current_user_can('read'))))
                     ) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
-                    } elseif (!empty($email) &&
+						
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
+					
+					// wrong request
+                    } elseif (
+						!empty($email) &&
                         ($key === 0 && (!empty($current_user->data->user_email) && ($current_user->data->user_email !== $email)))
                     ) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/wrong-request.php';
+						
+						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/wrong-request.php';
+
                     }
 
+					// request management link
                     if (empty($include_post_content)) {
                         $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
-                    }
+					}
+					
                 }
 
                 global $wp_query;
 
+				// management page title
                 $manager_page_title = html_entity_decode(get_option('subscribe_reloaded_manager_page_title', 'Manage subscriptions'), ENT_QUOTES, 'UTF-8');
                 if (function_exists('qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage')) {
                     $manager_page_title = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage($manager_page_title);
@@ -781,6 +824,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     $manager_page_title = $manager_page_title;
                 }
 
+				// fake posts
                 $posts[] =
                     (object)array(
                         'ID'                    => '9999999',
@@ -823,22 +867,25 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $wp_query->is_404 = false;
 
                 // Seems like WP adds its own HTML formatting code to the content, we don't need that here
-                remove_filter('the_content', 'wpautop');
+				remove_filter('the_content', 'wpautop');
+				
                 // Look like the plugin is call twice and therefor subscribe to the "the_posts" filter again so we need to
                 // tell to WordPress to not register again.
                 remove_filter("the_posts", array($this, "subscribe_reloaded_manage"));
                 add_action('wp_head', array($this, 'add_custom_header_meta'));
 
-            }
-            catch(\Exception $ex)
-            {
+			// log the error
+            } catch(\Exception $ex) {
+
                 $this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getMessage()\n" );
-                $this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getTraceAsString()\n" );
+				$this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getTraceAsString()\n" );
+				
             }
 
+			// return filtered posts
 			return $posts;
+
 		}
-		// end subscribe_reloaded_manage
 		
 		/**
 		 * Checks if current logged in user is the author
@@ -1489,7 +1536,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 								<option value='replies' " . ( ( get_option( 'subscribe_reloaded_default_subscription_type' ) === '2' ) ? "selected='selected'" : '' ) . ">" . __( "Replies to my comments", 'subscribe-to-comments-reloaded' ) . "</option>
 							</select>";
 				}
-				
+
 				if ( empty( $checkbox_html_wrap ) ) {
 					$html_to_show = "$checkbox_field <label for='subscribe-reloaded'>$checkbox_label</label>" . $html_to_show;
 				} else {
