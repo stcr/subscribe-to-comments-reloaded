@@ -118,11 +118,11 @@ else {
     echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>"
           method="post" name="sub-form">
         <fieldset style="border:0">
-            <p><label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+            <div><label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
             <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
-            </p>
+            </div>
         </fieldset>
     </form>
     <?php
