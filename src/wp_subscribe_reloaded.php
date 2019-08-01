@@ -21,6 +21,32 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 	/**
 	 * Main plugin class
+     * 
+     * __construct ( Constructor )
+     * add_test_subscriptions ( Adds subscriptions for testing purposes )
+     * define_wp_hooks ( Define the WordPress Hooks that will be used by the plugin. )
+     * display_admin_header ( Display admin header menu )
+     * subscribe_reloaded_load_plugin_textdomain ( Load localization files )
+     * plugin_settings_link ( Add Settings link to plugin on plugins page )
+     * _get_comment_object ( Retrieves the comment information from the database )
+     * new_comment_posted ( Takes the appropriate action, when a new comment is posted )
+     * is_double_check_enabled ( Is double check ( subscriptions need to be confirmed ) enabled )
+     * comment_status_changed ( Actions when comments status changes ( approve/unapprove/spam/trash ) )
+     * comment_deleted ( Actions when comment is deleted )
+     * subscribe_post_author ( Subscribe the post author )
+     * subscribe_reloaded_manage ( Displays the appropriate management page )
+     * is_author ( Checks if current logged in user is the author )
+     * is_user_subscribed ( Checks if a given email address is subscribed to a post )
+     * add_subscription ( Adds a new subscription )
+     * delete_subscriptions ( Deletes one or more subscriptions from the database )
+     * retrieve_user_subscriptions ( Retries user subscriptions by post ID )
+     * update_subscription_status ( Updates the status of an existing subscription )
+     * update_subscription_email ( Updates the email address of an existing subscription )
+     * get_subscriptions ( Retrieves a list of emails subscribed to a specific post )
+     * notify_user ( Sends the notification message to a given user )
+     * subscribe_reloaded_show ( Displays the checkbox to allow visitors to subscribe )
+     * set_user_coookie ( Set a cookie if the user just subscribed without commenting )
+     * management_page_sc ( Management page shortcode )
 	 */
 	class wp_subscribe_reloaded extends stcr_manage {
 		
