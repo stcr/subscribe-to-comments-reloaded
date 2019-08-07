@@ -152,11 +152,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 		 * Imports subscription data created with the Subscribe to Comments plugin
 		 */
 		public function _import_stc_data() {
-			global $wpdb;
+            global $wpdb;
 
 			// Import the information collected by Subscribe to Comments, if needed
-			$result = $wpdb->get_row( "DESC $wpdb->comments comment_subscribe", ARRAY_A );
-
+            $result = $wpdb->get_row( "DESC $wpdb->comments comment_subscribe", ARRAY_A );
+            
 			// Perform the import only if the target table does not contain any subscriptions
 			$count_postmeta_rows = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'" );
 
@@ -181,7 +181,73 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 				);
 			}
 		}
-		// end _import_stc_data
+        // end _import_stc_data
+        
+        /**
+         * Imports subscriptions from Subscribe to Comments by Mark Jaquith
+         * 
+         * @since 190708
+         */
+        public function _import_stc_mj_data() {
+
+            global $wpdb;
+
+            // check if we currently have subscriptions
+            $current_subscriptions_count = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'" );
+
+            // if subscriptions exists, do not proceed
+            if ( $current_subscriptions_count > 0 ) return;
+
+            // will hold subscriptions
+            $subscriptions = array();
+
+            // data from the other plugin
+            $result = $wpdb->get_results( "SELECT * FROM $wpdb->postmeta WHERE meta_key = '_sg_subscribe-to-comments'", ARRAY_A );
+
+            // no results, go back
+            if ( empty( $result ) ) return;
+
+            // add the subscriptions to an array
+            foreach ( $result as $subscription ) {
+                $subscriptions[] = array(
+                    'post_id' => $subscription['post_id'],
+                    'email'   => $this->clean_email( $subscription['meta_value'] ),
+                );
+            }
+
+            // no subscriptions, go back
+            if ( empty( $subscriptions ) ) return;
+
+            // add the subscriptions to the DB            
+            $dt = date_i18n( 'Y-m-d H:i:s' );
+            $status = 'Y';
+            foreach ( $subscriptions as $subscription ) {
+                $post_id = $subscription['post_id'];
+                $meta_key = '_stcr@_' . $subscription['email'];
+                $meta_value = $dt . '|' . $status;
+                $wpdb->query(
+                    $wpdb->prepare(
+                        "INSERT IGNORE INTO $wpdb->postmeta (post_id, meta_key, meta_value) VALUES ( %s, %s, %s )",
+                        $post_id, $meta_key, $meta_value
+                    )
+                );
+                $this->add_user_subscriber_table( $subscription['email'] );
+            }
+
+            // notify the admin about the import
+            $this->stcr_create_admin_notice(
+                'notify_import_stc_mj_data',
+                'unread',
+                '<p>' . __( '<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data from the <strong>Subscribe to Comments</strong> plugin by Mark Jaquith was detected and automatically imported into <strong>Subscribe to Comments Reloaded</strong>.', 'subscribe-to-comments-reloaded' ) . ( is_plugin_active( 'subscribe-to-comments/subscribe-to-comments.php' ) ? __( ' It is recommended that you now <strong>deactivate</strong> Subscribe to Comments to prevent confusion between the two plugins.', 'subscribe-to-comments-reloaded' ) : '' ) . '</p>' .
+                '<p>' . __( 'If you have subscription data from Subscribe to Comments Reloaded < v2.0 that you want to import, you\'ll need to import that data manually, as only one import routine will ever run to prevent data loss.', 'subscribe-to-comments-reloaded' ) . '</p>' .
+                '<p>' . __( 'Please visit <a href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php">Settings -> Subscribe to Comments</a> to review your configuration.'
+                    . '<a class="dismiss" href="#">Dismiss.  </a>'
+                    . '<img class="stcr-loading-animation" src="'. esc_url( admin_url() . '/images/loading.gif'). '" alt="Working...">', 'subscribe-to-comments-reloaded' ) . '</p>',
+                'updated'
+            );
+
+        }
+
 		/**
 		 * Imports subscription data created with the Comment Reply Notification plugin. This function is deprecated is not in use anymore.
          *

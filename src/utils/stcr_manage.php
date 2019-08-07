@@ -254,7 +254,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			$this->upgrade->_import_wpcs_data();
 
 			// Import data from Subscribe to Comments & Co., if needed
-			$this->upgrade->_import_stc_data();
+            $this->upgrade->_import_stc_data();
+            
+            // Import data from Subscribe to Comments by Mark Jaquith
+			$this->upgrade->_import_stc_mj_data();
 
 			// Import data from Comment Reply Notification, if needed
             // Function deprecated and not in use anymore.
