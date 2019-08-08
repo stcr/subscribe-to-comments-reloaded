@@ -47,6 +47,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
      * subscribe_reloaded_show ( Displays the checkbox to allow visitors to subscribe )
      * set_user_coookie ( Set a cookie if the user just subscribed without commenting )
      * management_page_sc ( Management page shortcode )
+     * comment_content_prepend ( Add custom content before comment content )
 	 */
 	class wp_subscribe_reloaded extends stcr_manage {
 		
@@ -134,7 +135,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// if we are on the management page, filter the_posts
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
                     add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
-				}
+                }
+                
+                // filter to add custom output before comment content
+                add_filter( 'comment_text', array( $this, 'comment_content_prepend' ), 10, 2 );
 				
                 // enqueue scripts
 				$this->utils->hook_plugin_scripts();
@@ -185,7 +189,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
                     add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
 				}
-				
+            
                 // enqueue scripts
                 $this->utils->hook_admin_scripts();
 
@@ -954,7 +958,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 					$_post_ID,
 					$_status
 				)
-			);
+            );
 
 			// if email not supplied, tried to get it
 			if ( empty( $_email ) ) {
@@ -1629,6 +1633,28 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
             $data = $this->subscribe_reloaded_manage();
             return $data[0]->post_content;
+
+        }
+
+        /**
+         * Add custom output before comment content
+         * 
+         * @since 190801
+         */
+        public function comment_content_prepend( $comment_text, $comment = null ) {
+
+            global $wp_subscribe_reloaded;
+            global $post;
+
+            $prepend = '';            
+
+            // comment held for moderation and email is subscribed to the post
+            if ( $comment->comment_approved == '0' && $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, $comment->comment_author_email, 'C' ) ) {
+                $prepend = '<p><em>' . __( 'Check your email to confirm your subscription.', 'subscribe-to-comments-reloaded' ) . '</em></p>';
+            }
+
+            // pass it back
+            return $prepend . $comment_text;
 
         }
 
