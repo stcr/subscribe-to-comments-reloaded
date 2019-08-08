@@ -23,7 +23,7 @@ echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " (" . intval( $_GE
 					<option value='R'><?php _e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
 					<option value='YC'><?php _e( 'Ask user to confirm', 'subscribe-to-comments-reloaded' ) ?></option>
 				</select>
-				<input type='submit' class='subscribe-form-button' value='<?php _e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' />
+				<input type='submit' class='subscribe-form-button' value='<?php esc_attr_e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' />
 			</p>
 			<input type='hidden' name='sra' value='add' />
 			<input type='hidden' name='srp' value='<?php echo intval( $_GET['srp'] ) ?>' />

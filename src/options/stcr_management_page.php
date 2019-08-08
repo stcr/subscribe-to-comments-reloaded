@@ -99,7 +99,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[manager_page_title]" id="manager_page_title"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_title' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page_title' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( 'Title of the page your visitors will use to manage their subscriptions.', 'subscribe-to-comments-reloaded' ); ?>"
@@ -117,7 +117,7 @@ wp_print_scripts( 'quicktags' );
                             <code><?php echo get_bloginfo( 'url' ) ?></code>
                             <input type="text" name="options[manager_page]" id="manager_page"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ); ?>" style=" width: 60% !important;">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ) ); ?>" style=" width: 60% !important;">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "The permalink for your management page (something like <code>/manage-subscriptions</code> or <code>/?page_id=345</code>). This page <b>does not</b> actually exist in the system, but its link must follow your permalink structure.", 'subscribe-to-comments-reloaded' ); ?>"
@@ -142,7 +142,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[custom_header_meta]" id="custom_header_meta"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'custom_header_meta' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'custom_header_meta' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-to-comments-reloaded' ); ?>"

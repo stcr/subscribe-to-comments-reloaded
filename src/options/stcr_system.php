@@ -207,7 +207,7 @@ else {
                                 ); ?>
                             </span>
 
-                            <input type='submit' id="purge_log" value='<?php _e( 'Clean' ); ?>' class='btn btn-secondary subscribe-form-button' name='purge_log' >
+                            <input type='submit' id="purge_log" value='<?php esc_attr_e( 'Clean' ); ?>' class='btn btn-secondary subscribe-form-button' name='purge_log' >
                         </div>
                     </div>
 

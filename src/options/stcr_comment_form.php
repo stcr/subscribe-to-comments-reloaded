@@ -183,7 +183,7 @@ if ( isset( $_POST['options'] ) ) {
                     <div class="col-sm-7">
                         <input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style"
                                class="form-control form-control-input-8"
-                               value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checkbox_inline_style' ); ?>" size="20">
+                               value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checkbox_inline_style' ) ); ?>" size="20">
 
                         <div class="helpDescription subsOptDescriptions"
                              data-content="<?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-to-comments-reloaded' ); ?>"

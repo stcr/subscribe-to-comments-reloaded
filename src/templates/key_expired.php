@@ -70,8 +70,8 @@ else
 	?>" name="sub-form" method="post">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? $_COOKIE['comment_author_email_' . COOKIEHASH] : 'email'; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
-				<input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? esc_attr( $_COOKIE['comment_author_email_' . COOKIEHASH] ) : 'email'; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+				<input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
 			</p>
 		</fieldset>
 	</form>

@@ -18,7 +18,7 @@ echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " (" . intval( $_GE
 			</p>
 
 			<p class="liquid"><label for='sre'><?php _e( 'To', 'subscribe-to-comments-reloaded' ) ?></label>
-				<input type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc"
+				<input type='text' size='30' name='sre' id='sre' value='<?php esc_attr_e( 'optional', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc"
 					   onfocus='if (this.value == "<?php _e( 'optional', 'subscribe-to-comments-reloaded' ) ?>") this.value="";this.style.color="#000"'
 					   onblur='if (this.value == ""){this.value="<?php _e( 'optional', 'subscribe-to-comments-reloaded' ) ?>";this.style.color="#ccc"}' />
 			</p>
@@ -30,7 +30,7 @@ echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " (" . intval( $_GE
 					<option value='R'><?php _e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
 					<option value='C'><?php _e( 'Suspended', 'subscribe-to-comments-reloaded' ) ?></option>
 				</select>
-				<input type='submit' class='subscribe-form-button' value='<?php _e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' />
+				<input type='submit' class='subscribe-form-button' value='<?php esc_attr_e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' />
 			</p>
 			<input type='hidden' name='sra' value='edit' />
 			<input type='hidden' name='srp' value='<?php echo intval( $_GET['srp'] ) ?>' />

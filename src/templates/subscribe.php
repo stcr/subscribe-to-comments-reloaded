@@ -135,7 +135,7 @@ if ( ! empty( $email ) ) {
             <div>
                 <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             </div>
         </fieldset>
@@ -162,7 +162,7 @@ if ( ! $valid_email ) {
         <fieldset style="border:0">
             <p><label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
             </p>
             <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
         </fieldset>

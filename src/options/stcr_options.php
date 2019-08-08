@@ -135,7 +135,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="number" name="options[purge_days]" id="purge_days"
                                    class="form-control form-control-input-3"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'purge_days' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'purge_days' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Delete pending subscriptions (not confirmed) after X days. Zero disables this feature.", 'subscribe-to-comments-reloaded' ); ?>"
@@ -152,7 +152,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[date_format]" id="date_format"
                                    class="form-control form-control-input-3"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'date_format' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'date_format' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Date format that will be display on the management page. Use <a href='https://secure.php.net/manual/en/function.date.php#refsect1-function.date-parameters' target='_blank'>PHP Date Format</a>", 'subscribe-to-comments-reloaded' ); ?>"
@@ -448,9 +448,9 @@ wp_print_scripts( 'quicktags' );
                             ?>
                                 <input type="text" name="options[unique_key]" id="unique_key"
                                        class="form-control form-control-input-6"
-                                       value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'unique_key' ); ?>" size="20">
+                                       value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'unique_key' ) ); ?>" size="20">
 
-                                <input type="submit" value="<?php _e( 'Generate New Key' ) ?>" class="btn btn-secondary subscribe-form-button" name="generate_key" >
+                                <input type="submit" value="<?php esc_attr_e( 'Generate New Key' ) ?>" class="btn btn-secondary subscribe-form-button" name="generate_key" >
                             <?php } ?>
 
 
@@ -495,7 +495,7 @@ wp_print_scripts( 'quicktags' );
                                     <span class="switch-selection"></span>
                                 </div>
 
-                                <input type="submit" value="<?php _e( 'Reset All Options' ) ?>" class="btn btn-danger subscribe-form-button reset_all_options" name="reset_all_options" >
+                                <input type="submit" value="<?php esc_attr_e( 'Reset All Options' ) ?>" class="btn btn-danger subscribe-form-button reset_all_options" name="reset_all_options" >
 
                             </div>
                         </div>

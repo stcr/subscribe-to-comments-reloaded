@@ -76,7 +76,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[from_name]" id="from_name"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_name' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_name' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
@@ -93,7 +93,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[from_email]" id="from_email"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_email' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_email' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
@@ -110,7 +110,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[reply_to]" id="reply_to"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'reply_to' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'reply_to' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>"
@@ -129,7 +129,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[notification_subject]" id="notification_subject"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'notification_subject' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'notification_subject' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
@@ -177,7 +177,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[double_check_subject]" id="double_check_subject"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'double_check_subject' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'double_check_subject' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
@@ -221,7 +221,7 @@ wp_print_scripts( 'quicktags' );
                         <div class="col-sm-7">
                             <input type="text" name="options[management_subject]" id="management_subject"
                                    class="form-control form-control-input-8"
-                                   value="<?php echo $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_subject' ); ?>" size="20">
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_subject' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
                                  data-content="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>"

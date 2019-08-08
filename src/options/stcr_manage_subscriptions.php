@@ -56,12 +56,12 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                             <table>
                                 <tr>
                                     <td><label for='oldsre'><?php _e( 'From', 'subscribe-to-comments-reloaded' ) ?></label></td>
-                                    <td><input class="form-control form-controls-font" type='text' size='30' name='oldsre' id='oldsre' value='<?php _e( 'email address', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc;"></td>
+                                    <td><input class="form-control form-controls-font" type='text' size='30' name='oldsre' id='oldsre' value='<?php esc_attr_e( 'email address', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc;"></td>
                                     <td><span class="validate-error-text validate-error-text-oldsre stcr-hidden "></span></td>
                                 </tr>
                                 <tr>
                                     <td><label for='sre'><?php _e( 'To', 'subscribe-to-comments-reloaded' ) ?></label></td>
-                                    <td><input class="form-control form-controls-font" type='text' size='30' name='sre' id='sre' value='<?php _e( 'optional - new email address', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc;"
+                                    <td><input class="form-control form-controls-font" type='text' size='30' name='sre' id='sre' value='<?php esc_attr_e( 'optional - new email address', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc;"
                                         >
                                     </td>
                                     <td><span class="validate-error-text validate-error-text-sre stcr-hidden "></span></td>
@@ -74,7 +74,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                             <option value='R'><?php _e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
                                             <option value='C'><?php _e( 'Suspended', 'subscribe-to-comments-reloaded' ) ?></option>
                                         </select>
-                                        <input type='submit' style="font-size: 0.8rem;" class='subscribe-form-button btn btn-primary' value='<?php _e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' ></td>
+                                        <input type='submit' style="font-size: 0.8rem;" class='subscribe-form-button btn btn-primary' value='<?php esc_attr_e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' ></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
@@ -127,7 +127,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                 <option value='R'><?php _e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
                                                 <option value='YC'><?php _e( 'Ask user to confirm', 'subscribe-to-comments-reloaded' ) ?></option>
                                             </select>
-                                            <input type='submit' style="font-size: 0.8rem;" class='subscribe-form-button btn btn-primary' value='<?php _e( 'Add', 'subscribe-to-comments-reloaded' ) ?>' >
+                                            <input type='submit' style="font-size: 0.8rem;" class='subscribe-form-button btn btn-primary' value='<?php esc_attr_e( 'Add', 'subscribe-to-comments-reloaded' ) ?>' >
                                         </td>
                                     </tr>
                                     <tr>
