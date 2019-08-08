@@ -20,7 +20,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 	    public function __construct()
         {
-            set_error_handler( array( $this, 'exceptions_error_handler' ) );
+            if ($this->stcr_get_log_path() !== null)
+            {
+                set_error_handler( array( $this, 'exceptions_error_handler' ) );
+            }
         }
 
         public function __destruct()
@@ -866,6 +869,26 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
         {
             return is_admin();
         }
+
+        /**
+         * Get path to log-path, or null if we can't write
+         *
+         * @since 01-Aug-2019
+         *
+         */
+        public function stcr_get_log_path()
+        {
+            $loggin_info = get_option("subscribe_reloaded_enable_log_data", "no");
+            if ( $loggin_info != "yes" )
+                return null;
+
+            $file_path = plugin_dir_path( __FILE__ );
+            if ( !is_writable( $file_path ))
+                return null;
+
+            return $file_path .'/log.txt';
+        }
+
 		/**
 		 * Function to log messages into a given file. The variable $file_path must have writing permissions.
 		 *
@@ -875,13 +898,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 */
 		public function stcr_logger( $value = '' )
 		{
-			$file_path = plugin_dir_path( __FILE__ );
-			$file_name = "log.txt";
-			$loggin_info = get_option("subscribe_reloaded_enable_log_data", "no");
-
-			if( is_writable( $file_path ) && $loggin_info === "yes")
+			$file_path = $this->stcr_get_log_path();
+			
+			if (isset($file_path))
 			{
-				$file = fopen( $file_path . "/" . $file_name, "a" );
+				$file = fopen( $file_path, "a" );
 
 				fputs( $file , $value);
 
