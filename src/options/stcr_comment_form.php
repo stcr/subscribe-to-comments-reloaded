@@ -8,17 +8,18 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 }
 
 $options = array(
-    "show_subscription_box"         => "yesno",
-    "checked_by_default"            => "yesno",
-    "checked_by_default_value"      => "integer",
-    "enable_advanced_subscriptions" => "yesno",
-    "default_subscription_type"     => "integer",
-    "checkbox_inline_style"         => "text-html",
-    "checkbox_html"                 => "text-html",
-    "checkbox_label"                => "text-html",
-    "subscribed_label"              => "text-html",
-    "subscribed_waiting_label"      => "text-html",
-    "author_label"                  => "text-html"
+    "show_subscription_box"                 => "yesno",
+    "checked_by_default"                    => "yesno",
+    "checked_by_default_value"              => "integer",
+    "enable_advanced_subscriptions"         => "yesno",
+    "enable_advanced_subscriptions_value"   => "integer",
+    "default_subscription_type"             => "integer",
+    "checkbox_inline_style"                 => "text-html",
+    "checkbox_html"                         => "text-html",
+    "checkbox_label"                        => "text-html",
+    "subscribed_label"                      => "text-html",
+    "subscribed_waiting_label"              => "text-html",
+    "author_label"                          => "text-html"
 );
 
 // Update options
@@ -174,7 +175,7 @@ if ( isset( $_POST['options'] ) ) {
                     </div>
                     <?php
                 else :
-                    echo "<input type='hidden' name='options[checked_by_default_value]' value = '0'>";
+                    echo "<input type='hidden' name='options[enable_advanced_subscriptions_value]' value = '0'>";
                 endif; ?>
 
                 <div class="form-group row">

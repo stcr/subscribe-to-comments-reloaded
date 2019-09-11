@@ -336,6 +336,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_show_subscription_box', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_checked_by_default', 'no', '', 'yes' );
             add_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no', '', 'yes' );
+            add_option( 'subscribe_reloaded_enable_advanced_subscriptions_value', '0', '', 'yes' );
             add_option( 'subscribe_reloaded_default_subscription_type', '2', '', 'yes' );
             add_option( 'subscribe_reloaded_checked_by_default_value', '0', '', 'yes' );
             add_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px', '', 'yes' );
