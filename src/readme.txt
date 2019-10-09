@@ -100,6 +100,15 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v191009 =
+* **Fix** Issue with post slug being displayed instead of the post title on unsubscribe
+* **Fix** HTML validation error in subscribe template
+* **Fix** Fix German translation "Nicht abonnieren"
+* **Fix** Fix import data from Subscribe Reloaded by Mark Jaquith
+* **Fix** Issue with using double quotes in options
+* **Tweak** Show a message to the comment author to check his email to confirm subscription
+* **Tweak** Performance improvement for error logging
+
 = v190529 =
 * **Fix** Issue with being unable to dismiss admin notices shown by StCR
 * **Fix** Virtual management page was still being shown even when disabled
