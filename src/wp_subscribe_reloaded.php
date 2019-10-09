@@ -45,7 +45,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
      * get_subscriptions ( Retrieves a list of emails subscribed to a specific post )
      * notify_user ( Sends the notification message to a given user )
      * subscribe_reloaded_show ( Displays the checkbox to allow visitors to subscribe )
-     * set_user_coookie ( Set a cookie if the user just subscribed without commenting )
+     * set_user_cookie ( Set a cookie if the user just subscribed without commenting )
      * management_page_sc ( Management page shortcode )
      * comment_content_prepend ( Add custom content before comment content )
 	 */
@@ -1611,7 +1611,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 * 
 		 * @since 190705
 		 */
-		public function set_user_coookie() {
+		public function set_user_cookie() {
 			
 			$subscribe_to_comments_action  = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 			$subscribe_to_comments_post_ID = ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 );

@@ -41,7 +41,7 @@ if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 		 */
 		function __construct() {
 			$this->stcr = new wp_subscribe_reloaded();
-			$this->stcr->set_user_coookie();
+			$this->stcr->set_user_cookie();
 		}
 
 		/**
