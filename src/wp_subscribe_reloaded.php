@@ -131,6 +131,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 if ( empty( $manager_page_permalink ) ) {
                     $manager_page_permalink = '/comment-subscriptions/';
                 }
+                
+                // remove the ending slash so both variations (with and without slash) work in the strpos check below
+                $manager_page_permalink = rtrim( $manager_page_permalink, '/' );
 
 				// if we are on the management page, filter the_posts
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
