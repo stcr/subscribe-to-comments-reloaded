@@ -231,7 +231,15 @@ wp_print_scripts( 'quicktags' );
                             </div>
                         </div>
                     </div>
-
+                    
+                    <?php 
+                        $disallowed_tags = array();
+                        $management_page_message = $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_content' );
+                        if ( empty( $management_page_message ) ) { $management_page_message = ''; }
+                        if ( strpos( $management_page_message, '[manager_link]' ) ) {
+                            $disallowed_tags['manager_link'] = __( '[manager_link] tag only works for "Management Email message". It is a private link that takes to a management page and for security reasons has to be sent to the email address.', 'subscribe-to-comments-reloaded' );
+                        }
+                    ?>
                     <div class="form-group row">
                         <label for="management_content" class="col-sm-4 offset-sm-1 col-form-label" style="z-index: 9999;">
                             <?php _e( 'Management Page message', 'subscribe-to-comments-reloaded' ) ?>
@@ -242,10 +250,19 @@ wp_print_scripts( 'quicktags' );
                                  aria-label="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-
                         </label>
                         <div class="clearfix"></div>
-                        <div class="col-sm-9 offset-sm-1" style="margin-top: -30px;">
+                        <div class="col-sm-9 offset-sm-1" <?php if ( empty( $disallowed_tags ) ) { echo 'style="margin-top:-30px;"'; } ?>>
+                            
+                            <?php if ( ! empty( $disallowed_tags ) ) : ?>
+                                <p class="notice notice-error" style="margin: 0;padding:8px;">
+                                    <?php foreach ( $disallowed_tags as $disallowed_tag_id => $disallowed_tag_message ) : ?>
+                                        <?php echo $disallowed_tag_message; ?>
+                                    <?php endforeach; ?>
+                                    </ul>
+                                </p>
+                            <?php endif; ?>
+
                             <?php
                             $id_management_content = "management_content";
                             $args_notificationContent = array(
