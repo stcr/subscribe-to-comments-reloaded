@@ -100,6 +100,11 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Changelog ==
 
+= v191028 =
+* **Fix** Issue with "Default Checkbox Value" not being saved
+* **Fix** Issue with /comment-subscriptions taking to 404 ( when it does not end with / )
+* **Tweak** Error notification when [manager_link] used in "Management Page message".
+
 = v191011 =
 * **Fix** Revert changes to error logging due to PHP errors/warnings
 
