@@ -174,7 +174,7 @@ if ( isset( $_POST['options'] ) ) {
                     </div>
                     <?php
                 else :
-                    echo "<input type='hidden' name='options[checked_by_default_value]' value = '0'>";
+                    echo "<input type='hidden' name='options[default_subscription_type]' value = '0'>";
                 endif; ?>
 
                 <div class="form-group row">
