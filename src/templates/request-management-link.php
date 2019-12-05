@@ -29,7 +29,7 @@ if ( array_key_exists('post_permalink', $_GET ) ) {
 // start output buffering
 ob_start();
 
-// email address not supplied
+// email address supplied
 if ( ! empty( $email ) ) {
 
     $stcr_post_email     = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $email );
@@ -88,7 +88,7 @@ if ( ! empty( $email ) ) {
 
     }
 
-// email address supplied
+// email address not supplied
 } else {
 
     $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
