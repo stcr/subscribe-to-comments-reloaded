@@ -82,7 +82,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// add subscriptions for tests
             if ( DEVELOPMENT ) {
-				$this->add_test_subscriptions( 10000, 18,'Y', 'dev', 30);
+				$this->add_test_subscriptions( 1000, 18,'Y', 'dev', 30);
             }
 
 			// management page shortcode
@@ -97,7 +97,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
         public function add_test_subscriptions( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 ) {
             for ( $i = $last_id_subs+1; $i <= $iterations; $i++) {
-                $this->add_subscription( $post_id, "{$email_prefix}_{$i}@dev.com", $status );
+                $this->add_subscription( $post_id, "{$email_prefix}_{$i}" . time() . "@dev.com", $status );
             }
 		}
 		

@@ -154,11 +154,32 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
                         <h4><i class="fas fa-search"></i> <?php _e( 'Search subscriptions', 'subscribe-to-comments-reloaded' ) ?></h4>
 
+                        <?php if ( ! empty( $_POST['srv'] ) || ( is_array( $subscriptions ) && count( $subscriptions ) == 1000 ) ) : ?>
+
+                            <?php
+                                $search_term = '';
+                                if ( ! empty( $_POST['srv'] ) ) {
+                                    $search_term = sanitize_text_field( $_POST['srv'] );
+                                }
+                            ?>
+                            <form action="" method="post" style="background: #f5f5f5; padding: 15px; margin-top: 20px;">
+                                <p>
+                                    <strong><?php esc_html_e( 'The table below is limited to loading 1000 latest subscriptions.', 'subscribe-to-comments-reloaded' ); ?></strong>
+                                    <br><?php esc_html_e( 'You have more than that, if you need to find an older subscription just enter a search term ( full email, partial email, post ID...) below.', 'subscribe-to-comments-reloaded' ); ?>
+                                </p>
+                                <p>
+                                    <input type="text" name="srv" placeholder="<?php esc_attr_e( 'Enter search term', 'subscribe-to-comments-reloaded' ); ?>" value="<?php echo esc_attr( $search_term ); ?>">
+                                    <input type="submit" class="button button-primary">
+                                </p>
+                            </form>
+                        
+                        <?php endif; ?>
+
                         <div class="col-md-2 subs-spinner mx-auto"><h5><?php _e( "Loading", 'subscribe-to-comments-reloaded'); ?> <i class="fas fa-play-circle"></i></h5></div>
 
                         <div class="clearfix"></div>
 
-                        <form action="" method="post" id="subscription_form" name="subscription_form"
+                        <form style="border: 1px solid #eee; padding: 15px; margin-top: 20px;" action="" method="post" id="subscription_form" name="subscription_form"
                               onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) ?>')">
 
                                 <?php
