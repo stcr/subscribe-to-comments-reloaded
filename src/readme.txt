@@ -99,6 +99,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v191209 =
+* **Improvement** Logged in users no longer need to submit the "email" form on a subscription page in order to access their subscriptions
+* **Improvement** Ability to filter/search the subscriptions table ( WP admin > StCR > Manage Subscriptions ) when there are more than 1000 subscriptions
 
 = v191028 =
 * **Fix** Issue with "Default Checkbox Value" not being saved
