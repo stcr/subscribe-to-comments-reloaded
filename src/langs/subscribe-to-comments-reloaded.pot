@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/src\n"
-"POT-Creation-Date: 2019-05-10 06:00+0000\n"
+"POT-Creation-Date: 2019-12-16 18:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,84 +16,88 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: wp_subscribe_reloaded.php:164 utils/stcr_manage.php:355
-#: utils/stcr_manage.php:356 utils/stcr_utils.php:347
+#: wp_subscribe_reloaded.php:223 utils/stcr_manage.php:358
+#: utils/stcr_manage.php:359 utils/stcr_utils.php:347
 msgid "Manage subscriptions"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:165 utils/stcr_manage.php:361
-#: utils/stcr_manage.php:362
+#: wp_subscribe_reloaded.php:224 utils/stcr_manage.php:364
+#: utils/stcr_manage.php:365
 msgid "Comment Form"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:166 utils/stcr_manage.php:367
-#: utils/stcr_manage.php:368
+#: wp_subscribe_reloaded.php:225 utils/stcr_manage.php:370
+#: utils/stcr_manage.php:371
 msgid "Management Page"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:167 utils/stcr_manage.php:373
-#: utils/stcr_manage.php:374
+#: wp_subscribe_reloaded.php:226 utils/stcr_manage.php:376
+#: utils/stcr_manage.php:377
 msgid "Notifications"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:168 wp_subscribe_reloaded.php:170
-#: utils/stcr_manage.php:379 utils/stcr_manage.php:380
+#: wp_subscribe_reloaded.php:227 wp_subscribe_reloaded.php:229
+#: utils/stcr_manage.php:382 utils/stcr_manage.php:383
 msgid "Options"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:169 utils/stcr_manage.php:396
-#: utils/stcr_manage.php:397
+#: wp_subscribe_reloaded.php:228 utils/stcr_manage.php:399
+#: utils/stcr_manage.php:400
 msgid "Support"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:196
+#: wp_subscribe_reloaded.php:273
 msgid "StCR Options"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:198 utils/stcr_manage.php:408
-#: utils/stcr_manage.php:409
+#: wp_subscribe_reloaded.php:275 utils/stcr_manage.php:411
+#: utils/stcr_manage.php:412
 msgid "StCR System"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:237 utils/stcr_upgrade.php:413
-#: utils/stcr_upgrade.php:495
+#: wp_subscribe_reloaded.php:326 utils/stcr_upgrade.php:479
+#: utils/stcr_upgrade.php:561
 msgid "Settings"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1214 utils/stcr_utils.php:342
+#: wp_subscribe_reloaded.php:1515 utils/stcr_utils.php:342
 msgid ""
 "Your subscription to this post needs to be confirmed. <a href='[manager_link]"
 "'>Manage your subscriptions</a>."
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1220 utils/stcr_utils.php:341
+#: wp_subscribe_reloaded.php:1523 utils/stcr_utils.php:341
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1232 utils/stcr_utils.php:343
+#: wp_subscribe_reloaded.php:1536 utils/stcr_utils.php:343
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1239 utils/stcr_utils.php:340
+#: wp_subscribe_reloaded.php:1546 utils/stcr_utils.php:340
 msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1258
+#: wp_subscribe_reloaded.php:1572
 msgid "Don't subscribe"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1259
+#: wp_subscribe_reloaded.php:1573
 msgid "All"
 msgstr ""
 
-#: wp_subscribe_reloaded.php:1260 templates/author.php:100
+#: wp_subscribe_reloaded.php:1574 templates/author.php:100
 #: templates/user.php:118
 msgid "Replies to my comments"
+msgstr ""
+
+#: wp_subscribe_reloaded.php:1661
+msgid "Check your email to confirm your subscription."
 msgstr ""
 
 #: classes/stcr_i18n.php:48 classes/stcr_i18n.php:53
@@ -177,7 +181,7 @@ msgid "There was an error updating the options."
 msgstr ""
 
 #: options/options_template.php:68 options/stcr_comment_form.php:338
-#: options/stcr_management_page.php:350 options/stcr_notifications.php:319
+#: options/stcr_management_page.php:350 options/stcr_notifications.php:336
 #: options/stcr_options.php:507 options/stcr_system.php:227
 msgid "Save Changes"
 msgstr ""
@@ -194,10 +198,10 @@ msgstr ""
 
 #: options/panel1-add-subscription.php:16
 #: options/stcr_manage_subscriptions.php:118
-#: options/stcr_manage_subscriptions.php:181 templates/key_expired.php:72
-#: templates/request-management-link.php:113
-#: templates/request-management-link.php:139 templates/subscribe.php:121
-#: templates/subscribe.php:146
+#: options/stcr_manage_subscriptions.php:202 templates/key_expired.php:72
+#: templates/request-management-link.php:115
+#: templates/request-management-link.php:146 templates/subscribe.php:136
+#: templates/subscribe.php:163
 msgid "Email"
 msgstr ""
 
@@ -205,8 +209,8 @@ msgstr ""
 #: options/panel1-edit-subscription.php:26
 #: options/stcr_manage_subscriptions.php:70
 #: options/stcr_manage_subscriptions.php:123
-#: options/stcr_manage_subscriptions.php:197
-#: options/stcr_manage_subscriptions.php:210
+#: options/stcr_manage_subscriptions.php:218
+#: options/stcr_manage_subscriptions.php:231
 msgid "Status"
 msgstr ""
 
@@ -214,7 +218,7 @@ msgstr ""
 #: options/panel1-edit-subscription.php:29
 #: options/stcr_manage_subscriptions.php:73
 #: options/stcr_manage_subscriptions.php:126
-#: options/stcr_manage_subscriptions.php:175 templates/author.php:65
+#: options/stcr_manage_subscriptions.php:196 templates/author.php:65
 #: templates/user.php:77
 msgid "Active"
 msgstr ""
@@ -290,9 +294,9 @@ msgid "optional"
 msgstr ""
 
 #: options/panel1-edit-subscription.php:11
-#: options/stcr_manage_subscriptions.php:162
-#: options/stcr_manage_subscriptions.php:241
-#: options/stcr_manage_subscriptions.php:256 templates/author.php:54
+#: options/stcr_manage_subscriptions.php:183
+#: options/stcr_manage_subscriptions.php:262
+#: options/stcr_manage_subscriptions.php:277 templates/author.php:54
 #: templates/user.php:66
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
@@ -349,7 +353,7 @@ msgstr ""
 #: options/stcr_options.php:340 options/stcr_options.php:367
 #: options/stcr_options.php:394 options/stcr_options.php:421
 #: options/stcr_options.php:493 options/stcr_system.php:153
-#: options/stcr_system.php:179 utils/stcr_manage.php:704
+#: options/stcr_system.php:179 utils/stcr_manage.php:707
 msgid "No"
 msgstr ""
 
@@ -624,96 +628,110 @@ msgstr ""
 msgid "Search subscriptions"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:157
+#: options/stcr_manage_subscriptions.php:167
+msgid "The table below is limited to loading 1000 latest subscriptions."
+msgstr ""
+
+#: options/stcr_manage_subscriptions.php:168
+msgid ""
+"You have more than that, if you need to find an older subscription just "
+"enter a search term ( full email, partial email, post ID...) below."
+msgstr ""
+
+#: options/stcr_manage_subscriptions.php:171
+msgid "Enter search term"
+msgstr ""
+
+#: options/stcr_manage_subscriptions.php:178
 msgid "Loading"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:170 templates/author.php:60
+#: options/stcr_manage_subscriptions.php:191 templates/author.php:60
 #: templates/user.php:72
 msgid "Replies"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:171 templates/author.php:61
+#: options/stcr_manage_subscriptions.php:192 templates/author.php:61
 #: templates/user.php:73
 msgid "Replies Unconfirmed"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:172 templates/author.php:62
+#: options/stcr_manage_subscriptions.php:193 templates/author.php:62
 #: templates/user.php:74
 msgid "All Comments"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:173 templates/author.php:63
+#: options/stcr_manage_subscriptions.php:194 templates/author.php:63
 #: templates/user.php:75
 msgid "Unconfirmed"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:174 templates/author.php:64
+#: options/stcr_manage_subscriptions.php:195 templates/author.php:64
 #: templates/user.php:76
 msgid "Inactive"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:180
+#: options/stcr_manage_subscriptions.php:201
 msgid "Post (ID)"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:191
-#: options/stcr_manage_subscriptions.php:205
+#: options/stcr_manage_subscriptions.php:212
+#: options/stcr_manage_subscriptions.php:226
 msgid "Actions"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:196
-#: options/stcr_manage_subscriptions.php:209
+#: options/stcr_manage_subscriptions.php:217
+#: options/stcr_manage_subscriptions.php:230
 msgid "Date and Time"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:238
-#: options/stcr_manage_subscriptions.php:253
+#: options/stcr_manage_subscriptions.php:259
+#: options/stcr_manage_subscriptions.php:274
 msgid "Subscription"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:240
-#: options/stcr_manage_subscriptions.php:255
+#: options/stcr_manage_subscriptions.php:261
+#: options/stcr_manage_subscriptions.php:276
 msgid "Edit"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:241
-#: options/stcr_manage_subscriptions.php:256
+#: options/stcr_manage_subscriptions.php:262
+#: options/stcr_manage_subscriptions.php:277
 msgid "Delete"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:271 templates/author.php:94
+#: options/stcr_manage_subscriptions.php:292 templates/author.php:94
 #: templates/user.php:111
 msgid "Action:"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:274
+#: options/stcr_manage_subscriptions.php:295
 msgid "Delete forever"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:275 templates/author.php:98
+#: options/stcr_manage_subscriptions.php:296 templates/author.php:98
 #: templates/user.php:116
 msgid "Suspend"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:276
+#: options/stcr_manage_subscriptions.php:297
 msgid "Activate and set to notify on all comments"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:277
+#: options/stcr_manage_subscriptions.php:298
 msgid "Activate and set to notify on replies only "
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:278
+#: options/stcr_manage_subscriptions.php:299
 msgid "Activate"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:282 templates/author.php:103
+#: options/stcr_manage_subscriptions.php:303 templates/author.php:103
 #: templates/user.php:122
 msgid "Update subscriptions"
 msgstr ""
 
-#: options/stcr_manage_subscriptions.php:287
+#: options/stcr_manage_subscriptions.php:308
 msgid "Sorry, no subscriptions match your search criteria."
 msgstr ""
 
@@ -791,29 +809,36 @@ msgid ""
 "page. Allowed tag: [blog_name]"
 msgstr ""
 
-#: options/stcr_notifications.php:237
+#: options/stcr_notifications.php:240
+msgid ""
+"[manager_link] tag only works for \"Management Email message\". It is a "
+"private link that takes to a management page and for security reasons has to "
+"be sent to the email address."
+msgstr ""
+
+#: options/stcr_notifications.php:245
 msgid "Management Page message"
 msgstr ""
 
-#: options/stcr_notifications.php:240 options/stcr_notifications.php:242
+#: options/stcr_notifications.php:248 options/stcr_notifications.php:250
 msgid "Content of the management Page message. Allowed tags: [blog_name]."
 msgstr ""
 
-#: options/stcr_notifications.php:264
+#: options/stcr_notifications.php:281
 msgid "Management Email message"
 msgstr ""
 
-#: options/stcr_notifications.php:267 options/stcr_notifications.php:269
+#: options/stcr_notifications.php:284 options/stcr_notifications.php:286
 msgid ""
 "Content of the management email message. Allowed tags: [blog_name], "
 "[manager_link]."
 msgstr ""
 
-#: options/stcr_notifications.php:291
+#: options/stcr_notifications.php:308
 msgid "One Click Unsubscribe"
 msgstr ""
 
-#: options/stcr_notifications.php:294 options/stcr_notifications.php:296
+#: options/stcr_notifications.php:311 options/stcr_notifications.php:313
 msgid ""
 "Content of the One Click confirmation. Allowed tags: [post_title], "
 "[blog_name]."
@@ -1353,8 +1378,8 @@ msgstr ""
 msgid "All comments"
 msgstr ""
 
-#: templates/author.php:106 templates/confirm.php:28
-#: templates/request-management-link.php:125 templates/user.php:128
+#: templates/author.php:106 templates/confirm.php:34
+#: templates/request-management-link.php:126 templates/user.php:128
 msgid "Return to Post"
 msgstr ""
 
@@ -1369,27 +1394,27 @@ msgid ""
 "enter your email below and a new link will be send."
 msgstr ""
 
-#: templates/key_expired.php:74 templates/request-management-link.php:115
-#: templates/request-management-link.php:141 templates/subscribe.php:123
-#: templates/subscribe.php:148
+#: templates/key_expired.php:74 templates/request-management-link.php:117
+#: templates/request-management-link.php:148 templates/subscribe.php:138
+#: templates/subscribe.php:165
 msgid "Send"
 msgstr ""
 
-#: templates/request-management-link.php:143
-#: templates/request-management-link.php:171 templates/subscribe.php:150
-#: templates/subscribe.php:178
+#: templates/request-management-link.php:150
+#: templates/request-management-link.php:180 templates/subscribe.php:167
+#: templates/subscribe.php:191
 msgid "Email address is not valid"
 msgstr ""
 
-#: templates/request-management-link.php:166 templates/subscribe.php:173
+#: templates/request-management-link.php:175 templates/subscribe.php:188
 msgid "Please enter your email"
 msgstr ""
 
-#: templates/subscribe.php:60 templates/subscribe.php:61
+#: templates/subscribe.php:71 templates/subscribe.php:72
 msgid "New subscription to"
 msgstr ""
 
-#: templates/subscribe.php:61
+#: templates/subscribe.php:72
 msgid "User:"
 msgstr ""
 
@@ -1401,16 +1426,16 @@ msgstr ""
 msgid "You have request to manage another email address and this is forbidden."
 msgstr ""
 
-#: utils/stcr_manage.php:675
+#: utils/stcr_manage.php:678
 msgid "Subscriptions"
 msgstr ""
 
-#: utils/stcr_manage.php:731
+#: utils/stcr_manage.php:734
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
 
-#: utils/stcr_manage.php:731
+#: utils/stcr_manage.php:734
 msgid "support forum"
 msgstr ""
 
@@ -1419,10 +1444,10 @@ msgid "Important Notice"
 msgstr ""
 
 #: utils/stcr_upgrade.php:120 utils/stcr_upgrade.php:177
-#: utils/stcr_upgrade.php:251 utils/stcr_upgrade.php:403
-#: utils/stcr_upgrade.php:425 utils/stcr_upgrade.php:440
-#: utils/stcr_upgrade.php:462 utils/stcr_upgrade.php:485
-#: utils/stcr_upgrade.php:506
+#: utils/stcr_upgrade.php:243 utils/stcr_upgrade.php:317
+#: utils/stcr_upgrade.php:469 utils/stcr_upgrade.php:491
+#: utils/stcr_upgrade.php:506 utils/stcr_upgrade.php:528
+#: utils/stcr_upgrade.php:551 utils/stcr_upgrade.php:572
 msgid "\" alt=\"Working...\">"
 msgstr ""
 
@@ -1433,33 +1458,41 @@ msgid ""
 "automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
 
-#: utils/stcr_upgrade.php:175
+#: utils/stcr_upgrade.php:175 utils/stcr_upgrade.php:241
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Subscribe to "
 "Comments to prevent confusion between the two plugins."
 msgstr ""
 
-#: utils/stcr_upgrade.php:176
+#: utils/stcr_upgrade.php:176 utils/stcr_upgrade.php:242
 msgid ""
 "If you have subscription data from Subscribe to Comments Reloaded < v2.0 "
 "that you want to import, you'll need to import that data manually, as only "
 "one import routine will ever run to prevent data loss."
 msgstr ""
 
-#: utils/stcr_upgrade.php:250
+#: utils/stcr_upgrade.php:241
+msgid ""
+"<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
+"from the <strong>Subscribe to Comments</strong> plugin by Mark Jaquith was "
+"detected and automatically imported into <strong>Subscribe to Comments "
+"Reloaded</strong>."
+msgstr ""
+
+#: utils/stcr_upgrade.php:316
 msgid ""
 "<strong>Subscribe to Comments Reloaded:</strong> Comment subscription data "
 "from the <strong>Comment Reply Notification</strong> plugin was detected and "
 "automatically imported into <strong>Subscribe to Comments Reloaded</strong>."
 msgstr ""
 
-#: utils/stcr_upgrade.php:250
+#: utils/stcr_upgrade.php:316
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> Comment Reply "
 "Notification to prevent confusion between the two plugins."
 msgstr ""
 
-#: utils/stcr_upgrade.php:400
+#: utils/stcr_upgrade.php:466
 msgid ""
 "<strong>Subscribe to Comments Reloaded:</strong> Plugin options and comment "
 "subscription data from the <strong>WP Comment Subscriptions</strong> plugin "
@@ -1467,13 +1500,13 @@ msgid ""
 "Reloaded</strong>."
 msgstr ""
 
-#: utils/stcr_upgrade.php:400
+#: utils/stcr_upgrade.php:466
 msgid ""
 " It is recommended that you now <strong>deactivate</strong> WP Comment "
 "Subscriptions to prevent confusion between the two plugins."
 msgstr ""
 
-#: utils/stcr_upgrade.php:401
+#: utils/stcr_upgrade.php:467
 msgid ""
 "If you have subscription data from another plugin (such as Subscribe to "
 "Comments or Subscribe to Comments Reloaded < v2.0) that you want to import, "
@@ -1481,7 +1514,7 @@ msgid ""
 "ever run to prevent data loss."
 msgstr ""
 
-#: utils/stcr_upgrade.php:402
+#: utils/stcr_upgrade.php:468
 msgid ""
 "<strong>Note:</strong> If you were previously using the <code>"
 "wp_comment_subscriptions_show()</code> function or the <code>[wpcs-subscribe-"
@@ -1490,167 +1523,167 @@ msgid ""
 "respectively."
 msgstr ""
 
-#: utils/stcr_upgrade.php:414
+#: utils/stcr_upgrade.php:480
 msgid "Log Settings"
 msgstr ""
 
-#: utils/stcr_upgrade.php:423
+#: utils/stcr_upgrade.php:489
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160106."
 msgstr ""
 
-#: utils/stcr_upgrade.php:424
+#: utils/stcr_upgrade.php:490
 msgid ""
 "This version includes many changes and fixes to improve your experience with "
 "the plugin, including One Click Unsubscribe, Rich Text Editor to create HTML "
 "email templates, Subscription Checkbox position, and more!"
 msgstr ""
 
-#: utils/stcr_upgrade.php:438
+#: utils/stcr_upgrade.php:504
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160115."
 msgstr ""
 
-#: utils/stcr_upgrade.php:439
+#: utils/stcr_upgrade.php:505
 msgid ""
 "This version includes fixes to broken links while managing your subscriptions"
 msgstr ""
 
-#: utils/stcr_upgrade.php:453
+#: utils/stcr_upgrade.php:519
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160831"
 msgstr ""
 
-#: utils/stcr_upgrade.php:454 utils/stcr_upgrade.php:476
+#: utils/stcr_upgrade.php:520 utils/stcr_upgrade.php:542
 msgid "This version includes fixes to many bugs and also new features, "
 msgstr ""
 
-#: utils/stcr_upgrade.php:456 utils/stcr_upgrade.php:479
+#: utils/stcr_upgrade.php:522 utils/stcr_upgrade.php:545
 msgid ""
 "<strong>New Feature</strong> Add new option to set the Reply To email "
 "address. This will help the subscribers to use the Reply option in their "
 "email agents."
 msgstr ""
 
-#: utils/stcr_upgrade.php:457 utils/stcr_upgrade.php:480
+#: utils/stcr_upgrade.php:523 utils/stcr_upgrade.php:546
 msgid ""
 "<strong>New Feature</strong> Improve the Admin Menu for StCR. Replace the "
 "StCR menu on the Settings Menu for a new Menu with sub menus for the pages."
 msgstr ""
 
-#: utils/stcr_upgrade.php:458 utils/stcr_upgrade.php:481
+#: utils/stcr_upgrade.php:524 utils/stcr_upgrade.php:547
 msgid ""
 "<strong>New Feature</strong> Safely Uninstall option to Delete the plugin "
 "without loosing your subscriptions. You can use this option also for reset "
 "all the settings, see the FAQ."
 msgstr ""
 
-#: utils/stcr_upgrade.php:459 utils/stcr_upgrade.php:482
+#: utils/stcr_upgrade.php:525 utils/stcr_upgrade.php:548
 msgid ""
 "<strong>New Feature</strong> Now the WordPress Authors can use the <strong>"
 "Subscribe authors</strong> option to autor subscribe to a Custom Post Type."
 msgstr ""
 
-#: utils/stcr_upgrade.php:460 utils/stcr_upgrade.php:483
+#: utils/stcr_upgrade.php:526 utils/stcr_upgrade.php:549
 msgid ""
 "<strong>New Feature</strong> A new field was added under the notification "
 "options to and the management link only by email and not to display it on "
 "the request link page."
 msgstr ""
 
-#: utils/stcr_upgrade.php:475
+#: utils/stcr_upgrade.php:541
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160902"
 msgstr ""
 
-#: utils/stcr_upgrade.php:478
+#: utils/stcr_upgrade.php:544
 msgid ""
 "<strong>Fix update</strong> this version Fixes some issue trigger by the "
 "previous 160831 version."
 msgstr ""
 
-#: utils/stcr_upgrade.php:499
+#: utils/stcr_upgrade.php:565
 msgid ""
 "<strong>Subscribe to Comments Reloaded</strong> has been updated to version "
 "160915"
 msgstr ""
 
-#: utils/stcr_upgrade.php:500 utils/stcr_upgrade.php:520
-#: utils/stcr_upgrade.php:543 utils/stcr_upgrade.php:565
-#: utils/stcr_upgrade.php:588 utils/stcr_upgrade.php:604
+#: utils/stcr_upgrade.php:566 utils/stcr_upgrade.php:586
+#: utils/stcr_upgrade.php:609 utils/stcr_upgrade.php:631
+#: utils/stcr_upgrade.php:654 utils/stcr_upgrade.php:670
 msgid "This version includes fixes and improvements, "
 msgstr ""
 
-#: utils/stcr_upgrade.php:503
+#: utils/stcr_upgrade.php:569
 msgid ""
 "<strong>Change</strong> the radio buttons in the management page for a "
 "dropdown."
 msgstr ""
 
-#: utils/stcr_upgrade.php:504
+#: utils/stcr_upgrade.php:570
 msgid ""
 "<strong>Improve</strong> Email validation for empty values and using a regex."
 msgstr ""
 
-#: utils/stcr_upgrade.php:523
+#: utils/stcr_upgrade.php:589
 msgid ""
 "<strong>Fix</strong> Wrong confirmation link when the double check option is "
 "enable."
 msgstr ""
 
-#: utils/stcr_upgrade.php:524
+#: utils/stcr_upgrade.php:590
 msgid "<strong>Improve</strong> Manage subscription page. Take a look ;)."
 msgstr ""
 
-#: utils/stcr_upgrade.php:528 utils/stcr_upgrade.php:550
-#: utils/stcr_upgrade.php:573 utils/stcr_upgrade.php:589
-#: utils/stcr_upgrade.php:605 utils/stcr_upgrade.php:619
+#: utils/stcr_upgrade.php:594 utils/stcr_upgrade.php:616
+#: utils/stcr_upgrade.php:639 utils/stcr_upgrade.php:655
+#: utils/stcr_upgrade.php:671 utils/stcr_upgrade.php:685
 msgid ""
 "If you find a bug or an issue you can report it <a href=\"https://github."
 "com/stcr/subscribe-to-comments-reloaded/issues\" target=\"_blank\">here</a>."
 msgstr ""
 
-#: utils/stcr_upgrade.php:529 utils/stcr_upgrade.php:551
-#: utils/stcr_upgrade.php:574 utils/stcr_upgrade.php:590
-#: utils/stcr_upgrade.php:607 utils/stcr_upgrade.php:621
+#: utils/stcr_upgrade.php:595 utils/stcr_upgrade.php:617
+#: utils/stcr_upgrade.php:640 utils/stcr_upgrade.php:656
+#: utils/stcr_upgrade.php:673 utils/stcr_upgrade.php:687
 msgid "\" alt=\"Dismissing Message\">"
 msgstr ""
 
-#: utils/stcr_upgrade.php:546
+#: utils/stcr_upgrade.php:612
 msgid ""
 "<strong>Fix Critical Bug</strong> This version fix a critical bug on fresh "
 "installation regarding a database table creation."
 msgstr ""
 
-#: utils/stcr_upgrade.php:547
+#: utils/stcr_upgrade.php:613
 msgid ""
 "<strong>Add</strong> Option to control the inclusion of the style Font "
 "Awesome."
 msgstr ""
 
-#: utils/stcr_upgrade.php:568
+#: utils/stcr_upgrade.php:634
 msgid ""
 "<strong>Security Patch</strong> This version add a patch for some security "
 "issues."
 msgstr ""
 
-#: utils/stcr_upgrade.php:569
+#: utils/stcr_upgrade.php:635
 msgid "<strong>Add</strong> Option to reset all the plugin options"
 msgstr ""
 
-#: utils/stcr_upgrade.php:570
+#: utils/stcr_upgrade.php:636
 msgid "<strong>Fix</strong> issue regarding database collations"
 msgstr ""
 
-#: utils/stcr_upgrade.php:606 utils/stcr_upgrade.php:620
+#: utils/stcr_upgrade.php:672 utils/stcr_upgrade.php:686
 msgid "You might need to clear you cache !!"
 msgstr ""
 
-#: utils/stcr_upgrade.php:618
+#: utils/stcr_upgrade.php:684
 msgid "This version includes fixes., "
 msgstr ""
 
