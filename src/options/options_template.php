@@ -23,6 +23,7 @@ $options = array(
     "enable_font_awesome"          => "yesno",
     "delete_options_subscriptions" => "yesno",
     "only_for_posts"               => "yesno",
+    "use_cookies"                  => "yesno",
 );
 
 // Update options

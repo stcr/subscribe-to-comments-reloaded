@@ -23,6 +23,7 @@ $options = array(
     "enable_font_awesome"          => "yesno",
     "delete_options_subscriptions" => "yesno",
     "only_for_posts"               => "yesno",
+    "use_cookies"                  => "yesno",
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -426,6 +427,33 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="use_cookies" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Enable cookies', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <div class="switch">
+                                <input type="radio" class="switch-input" name="options[use_cookies]"
+                                       value="yes" id="use_cookies-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'use_cookies', 'yes' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <label for="use_cookies-yes" class="switch-label switch-label-off">
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <input type="radio" class="switch-input" name="options[use_cookies]" value="no" id="use_cookies-no"
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'use_cookies', 'no' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <label for="use_cookies-no" class="switch-label switch-label-on">
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <span class="switch-selection"></span>
+                            </div>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Remembers the email address to prepopulate StCR forms.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Remembers the email address to prepopulate StCR forms.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
