@@ -15,6 +15,7 @@ define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 // load files
 require_once dirname(__FILE__).'/utils/stcr_manage.php';
 require_once dirname(__FILE__).'/classes/stcr_i18n.php';
+require_once dirname(__FILE__).'/utils/functions.php';
 
 // Main plugin class
 if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
