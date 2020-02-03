@@ -66,11 +66,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// show the checkbox - You can manually override this by adding the corresponding function in your template
 			if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' ) {
-                if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
+                
+                if ( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
                     add_action( 'comment_form', array($this, 'subscribe_reloaded_show'), 5, 0 );
                 } else {
                     add_filter( 'comment_form_submit_field', array($this, 'subscribe_reloaded_show'), 5, 1 );
                 }
+                
+                // when users must be logged in to comment and current visitor is not logged in
+                add_action( 'comment_form_must_log_in_after', array($this, 'subscribe_reloaded_show'), 5, 0 );
+
 			}
 
 			$this->maybe_update();
@@ -89,7 +94,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// management page shortcode
             add_shortcode( 'stcr_management_page', array( $this, 'management_page_sc' ) );
 
-		}
+        }
 
 		/**
 		 * Adds subscriptions for testing purposes
@@ -1456,9 +1461,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// echo on action, return on filter
 			$echo = false;
-			if ( doing_action( 'comment_form' ) ) {
+			if ( doing_action( 'comment_form' ) || doing_action( 'comment_form_must_log_in_after' ) ) {
 				$echo = true;
-			}
+            }
 
 			// vars
 			global $post, $wp_subscribe_reloaded;
