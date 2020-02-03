@@ -8,22 +8,25 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 }
 
 $options = array(
-    "show_subscription_box"        => "yesno",
-    "safely_uninstall"             => "yesno",
-    "purge_days"                   => "integer",
-    "date_format"                  => "text",
-    "stcr_position"                => "yesno",
-    "enable_double_check"          => "yesno",
-    "notify_authors"               => "yesno",
-    "enable_html_emails"           => "yesno",
-    "process_trackbacks"           => "yesno",
-    "enable_admin_messages"        => "yesno",
-    "admin_subscribe"              => "yesno",
-    "admin_bcc"                    => "yesno",
-    "enable_font_awesome"          => "yesno",
-    "delete_options_subscriptions" => "yesno",
-    "only_for_posts"               => "yesno",
-    "use_cookies"                  => "yesno",
+    'show_subscription_box'        => 'yesno',
+    'safely_uninstall'             => 'yesno',
+    'purge_days'                   => 'integer',
+    'date_format'                  => 'text',
+    'stcr_position'                => 'yesno',
+    'enable_double_check'          => 'yesno',
+    'notify_authors'               => 'yesno',
+    'enable_html_emails'           => 'yesno',
+    'process_trackbacks'           => 'yesno',
+    'enable_admin_messages'        => 'yesno',
+    'admin_subscribe'              => 'yesno',
+    'admin_bcc'                    => 'yesno',
+    'enable_font_awesome'          => 'yesno',
+    'delete_options_subscriptions' => 'yesno',
+    'only_for_posts'               => 'yesno',
+    'use_cookies'                  => 'yesno',
+    'use_challenge_question'       => 'yesno',
+    'challenge_question'           => 'text',
+    'challenge_answer'             => 'text',
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -454,6 +457,67 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( "Remembers the email address to prepopulate StCR forms.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "Remembers the email address to prepopulate StCR forms.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="use_challenge_question" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Enable challenge question', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <div class="switch">
+                                <input type="radio" class="switch-input" name="options[use_challenge_question]"
+                                       value="yes" id="use_challenge_question-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'use_challenge_question', 'no' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <label for="use_challenge_question-yes" class="switch-label switch-label-off">
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <input type="radio" class="switch-input" name="options[use_challenge_question]" value="no" id="use_challenge_question-no"
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'use_challenge_question', 'no' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <label for="use_challenge_question-no" class="switch-label switch-label-on">
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <span class="switch-selection"></span>
+                            </div>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Enables input for challenge question/answer on the subscription form.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Enables input for challenge question/answer on the subscription form.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="challenge_question" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Challenge question', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <input type="text" name="options[challenge_question]" id="challenge_question"
+                                   class="form-control form-control-input-3"
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'challenge_question', 'What is 1 + 2?' ) ); ?>">
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "The question shown to visitor when subscribing.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "The question shown to visitor when subscribing", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="challenge_answer" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Challenge answer', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <input type="text" name="options[challenge_answer]" id="challenge_answer"
+                                   class="form-control form-control-input-3"
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'challenge_answer', 3 ) ); ?>">
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "The visitor needs to provide this answer to proceed with subscription.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "The visitor needs to provide this answer to proceed with subscription.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>

@@ -9,7 +9,9 @@ if ( ! function_exists( 'add_action' ) ) {
 global $wp_subscribe_reloaded;
 
 $current_user_email = null; // Comes from wp_subscribe-to-comments-reloaded\subscribe_reloaded_manage()
+$valid_all = true;
 $valid_email = true;
+$valid_challenge = true;
 
 // get user email
 if ( isset($current_user) && $current_user->ID > 0 ) {
@@ -18,6 +20,11 @@ if ( isset($current_user) && $current_user->ID > 0 ) {
 
 // get post permalink
 $post_permalink = get_permalink( $post_ID );
+
+// challenge question
+$challenge_question_state = get_option( 'subscribe_reloaded_use_challenge_question', 'no' );
+$challenge_question = get_option( 'subscribe_reloaded_challenge_question', 'What is 1 + 2?' );
+$challenge_answer = get_option( 'subscribe_reloaded_challenge_answer', '3' );;
 
 // start output buffer
 ob_start();
@@ -28,13 +35,23 @@ if ( ! empty( $email ) ) {
     // check email validity
     $stcr_post_email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $email );
     
+    // check challenge question validity
+    if ( $challenge_question_state == 'yes' ) {
+        $challenge_user_answer = sanitize_text_field( $_POST['subscribe_reloaded_challenge'] );
+        if ( $challenge_answer != $challenge_user_answer ) {
+            $valid_challenge = false;
+            $valid_all = false;
+        }
+    }
+
     // email is invalid
     if ( $stcr_post_email === false ) {
-        
         $valid_email = false;
-
+        $valid_all = false;
+    }
+        
     // email is valid
-    } else {
+    if ( $valid_all ) {
 
         // Use Akismet, if available, to check this user is legit
         if ( function_exists( 'akismet_http_post' ) ) {
@@ -129,14 +146,31 @@ if ( ! empty( $email ) ) {
     echo '<p>' . $message . '</p>';
 
     // output the form
+
+    
     ?>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]); ?>" method="post" name="sub-form">
         <fieldset style="border:0">
             <div>
-                <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
-                <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+                <?php if ( $challenge_question_state == 'yes' ) : ?>
+                    <p>
+                        <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                    </p>
+                    <p>
+                        <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
+                        <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
+                    </p>
+                    <p>
+                        <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                    </p>
+                    <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+                <?php else : ?>
+                    <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                    <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+                <?php endif; ?>
             </div>
         </fieldset>
     </form>
@@ -145,7 +179,7 @@ if ( ! empty( $email ) ) {
 }
 
 // invalid email
-if ( ! $valid_email ) {
+if ( ! $valid_all ) {
 
     // message for subscribing without commenting
     $message = str_replace( '[post_permalink]', $post_permalink, html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribe_without_commenting' ) ), ENT_QUOTES, 'UTF-8' ) );
@@ -160,11 +194,35 @@ if ( ! $valid_email ) {
     ?>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            <p><label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+            
+            <?php if ( $challenge_question_state == 'yes' ) : ?>
+                <p>
+                    <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                </p>
+                <p>
+                    <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
+                    <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
+                </p>
+                <p>
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                </p>
+                <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+            <?php else : ?>
+                <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
-            </p>
-            <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
+                <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+            <?php endif; ?>
+
+            <?php if ( ! $valid_email ) : ?>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
+            <?php endif; ?>
+            
+            <?php if ( ! $valid_challenge ) : ?>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
+            <?php endif; ?>
+
         </fieldset>
     </form>
     <?php
