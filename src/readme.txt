@@ -99,6 +99,13 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v200204 =
+* **New** Function for developers to add subscribers. [Check the guide](https://subscribe-reloaded.com/function-to-add-subscribers-manually/)
+* **New** Option to set a challenge (question + answer) for the "subscribe without commenting" form to prevent automatic bot submissions
+* **Fix** It is now possible to send out plain text emails instead of HTML emails. [Check the guide](https://subscribe-reloaded.com/send-plain-text-emails-instead-of-html-emails/)
+* **Fix** It is now possible for visitors to subscribe to comments when the comments are only open for logged in users and the visitor is not logged in
+* **Fix** Corrections in German translation
+
 = v191217 =
 * **Improvement** Option to enable/disable the plugin from setting cookies (email address after subscription)
 * **Improvement** German translation improvements (thanks to Greendroid)
