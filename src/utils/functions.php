@@ -4,7 +4,7 @@ if ( ! function_exists( 'stcr_add_subscriber' ) ) {
     /**
      * Add subscriber
      * 
-     * @since 200204
+     * @since 200205
      */
     function stcr_add_subscription( $data ) {
 

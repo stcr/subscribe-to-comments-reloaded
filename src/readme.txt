@@ -7,7 +7,7 @@ Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
 Tested up to: 5.3
-Stable tag: 200204
+Stable tag: 200205
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,7 +99,7 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
-= v200204 =
+= v200205 =
 * **New** Function for developers to add subscribers. [Check the guide](https://subscribe-reloaded.com/function-to-add-subscribers-manually/)
 * **New** Option to set a challenge (question + answer) for the "subscribe without commenting" form to prevent automatic bot submissions
 * **Fix** It is now possible to send out plain text emails instead of HTML emails. [Check the guide](https://subscribe-reloaded.com/send-plain-text-emails-instead-of-html-emails/)
