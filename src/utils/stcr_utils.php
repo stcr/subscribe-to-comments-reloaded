@@ -268,30 +268,36 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * Creates the HTML structure to properly handle HTML messages
 		 */
 		public function wrap_html_message( $_message = '', $_subject = '' ) {
-			global $wp_locale;
-			$_message = apply_filters( 'stcr_wrap_html_message', $_message );
-			// Add HTML paragraph tags to comment
-			// See wp-includes/formatting.php for details on the wpautop() function
-			$_message = wpautop( $_message );
+            
+            global $wp_locale;
 
-			if( $wp_locale->text_direction == "rtl")
-			{
-				$locale = get_locale();
-				$html = "<html xmlns='http://www.w3.org/1999/xhtml' dir='rtl' lang='$locale'>";
-				$head = "<head><title>$_subject</title></head>";
-				$body = "<body>$_message</body>";
-				return $html . $head . $body . "</html>";
-			}
-			else
-			{
-				$html = "<html>";
-				$head = "<head><title>$_subject</title></head>";
-				$body = "<body>$_message</body>";
-				return $html . $head . $body . "</html>";
-			}
+            // HTML emails
+            if ( get_option( 'subscribe_reloaded_enable_html_emails', 'yes' ) == 'yes' ) {
+
+                $_message = apply_filters( 'stcr_wrap_html_message', $_message );
+                $_message = wpautop( $_message );
+
+                if( $wp_locale->text_direction == "rtl") {
+                    $locale = get_locale();
+                    $html = "<html xmlns='http://www.w3.org/1999/xhtml' dir='rtl' lang='$locale'>";
+                    $head = "<head><title>$_subject</title></head>";
+                    $body = "<body>$_message</body>";
+                    return $html . $head . $body . "</html>";
+                } else {
+                    $html = "<html>";
+                    $head = "<head><title>$_subject</title></head>";
+                    $body = "<body>$_message</body>";
+                    return $html . $head . $body . "</html>";
+                }
+            
+            // Plain text emails
+            } else {
+
+                return $_message;
+
+            }
 
 		}
-		// end _wrap_html_message
 
 		/**
 		 * Returns an email address where some possible 'offending' strings have been removed

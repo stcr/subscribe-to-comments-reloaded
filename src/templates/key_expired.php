@@ -37,8 +37,11 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	// Setup the email message
 	$email_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $email_message );
 	$email_message = str_replace( '[manager_link]',  $manager_link, $email_message );
-	$email_message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $email_message );
-	$email_message = wpautop( $email_message );
+    $email_message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $email_message );
+    
+    if ( get_option( 'subscribe_reloaded_enable_html_emails', 'yes' ) == 'yes' ) {
+        $email_message = wpautop( $email_message );
+    }
 
 	// QTranslate support
 	if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
