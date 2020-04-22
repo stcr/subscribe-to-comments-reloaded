@@ -99,6 +99,15 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v200422 =
+* **New** Arabic translation, thanks to [Yaser Maadan](https://github.com/stcr/subscribe-to-comments-reloaded/issues/571)
+* **Fix** WP_PLUGIN_URL replaced by plugins_url()
+* **Fix** Issue with "generate new key" button for "StCR Unique Key" not working (WP Admin > StCR > Options)
+* **Fix** Issue with ordering by date in the subscription management table (WP Admin > StCR > Manage subscriptions)
+* **Fix** Issue with management page ( /comment-subscriptions/ ) being shown for child pages as well ( /comment-subscriptions/something-else/ )
+* **Fix** Corrections in Hungarian translation
+* **Tweak** Some other minor tweaks
+
 = v200205 =
 * **New** Function for developers to add subscribers. [Check the guide](https://subscribe-reloaded.com/function-to-add-subscribers-manually/)
 * **New** Option to set a challenge (question + answer) for the "subscribe without commenting" form to prevent automatic bot submissions
