@@ -466,7 +466,7 @@ msgstr ""
 #: options/stcr_manage_subscriptions.php:172 templates/author.php:62
 #: templates/user.php:74
 msgid "All Comments"
-msgstr "Minden új hozzászólás"
+msgstr "Minden hozzászólás"
 
 #: options/stcr_manage_subscriptions.php:173 templates/author.php:63
 #: templates/user.php:75
@@ -700,7 +700,7 @@ msgstr "Feladó e-mail cím (az értesítő \"from\" mezőhöz)."
 
 #: options/stcr_notifications.php:109
 msgid "Reply To"
-msgstr "Csak a válaszokra"
+msgstr "Válaszcím"
 
 #: options/stcr_notifications.php:116 options/stcr_notifications.php:118
 msgid ""
@@ -1363,32 +1363,32 @@ msgstr "Cím"
 
 #: templates/author.php:71 templates/user.php:83
 msgid "Subscription Date"
-msgstr ""
+msgstr "Feliratkozás dátuma"
 
 #: templates/author.php:72
 msgid "Subscription Email"
-msgstr ""
+msgstr "Feliratkozott email"
 
 #: templates/author.php:73 templates/user.php:85
 msgid "Subscription Status"
-msgstr ""
+msgstr "Feliratkozás állapota"
 
 #: templates/author.php:92 templates/user.php:108
 msgid "Select all"
-msgstr "Mind kiválasztása"
+msgstr "Összes kiválasztása"
 
 #: templates/author.php:93 templates/user.php:110
 msgid "Invert selection"
-msgstr "Fordított kiválasztás"
+msgstr "Kiválasztások felcserélése"
 
 #: templates/author.php:96 templates/user.php:114
 msgid "Choose your action"
-msgstr ""
+msgstr "Válassz…"
 
 #: templates/author.php:97 templates/user.php:115
 #, fuzzy
 msgid "Unsubscribe"
-msgstr "Nem iratkozom fel"
+msgstr "Leiratkozás"
 
 #: templates/author.php:99 templates/user.php:117
 msgid "All comments"
@@ -1402,7 +1402,7 @@ msgstr "Csak a válaszokra"
 #: templates/author.php:106 templates/confirm.php:28
 #: templates/request-management-link.php:125 templates/user.php:128
 msgid "Return to Post"
-msgstr ""
+msgstr "Visszatérés a bejegyzéshez"
 
 #: templates/author.php:111 templates/one-click-unsubscribe.php:30
 #: templates/user.php:132
@@ -1442,7 +1442,7 @@ msgstr "Felhasználó:"
 
 #: templates/user.php:80
 msgid "Email to manage"
-msgstr ""
+msgstr "Kezelt emailcím"
 
 #: templates/wrong-request.php:9
 msgid "You have request to manage another email address and this is forbidden."
@@ -1451,7 +1451,7 @@ msgstr ""
 #: utils/stcr_manage.php:355 utils/stcr_manage.php:356 utils/stcr_utils.php:347
 #: wp_subscribe_reloaded.php:157
 msgid "Manage subscriptions"
-msgstr "Feliratkozás kezelése"
+msgstr "Hozzászólás értesítő"
 
 #: utils/stcr_manage.php:361 utils/stcr_manage.php:362
 #: wp_subscribe_reloaded.php:158
@@ -1476,19 +1476,19 @@ msgstr "Beállítások"
 #: utils/stcr_manage.php:396 utils/stcr_manage.php:397
 #: wp_subscribe_reloaded.php:162
 msgid "Support"
-msgstr "Падтрымка"
+msgstr "Támogatás"
 
 #: utils/stcr_manage.php:408 utils/stcr_manage.php:409
 #: wp_subscribe_reloaded.php:191
 msgid "StCR System"
-msgstr ""
+msgstr "StCR rendszer"
 
 #: utils/stcr_manage.php:429 utils/stcr_manage.php:457
 #: utils/stcr_manage.php:484 utils/stcr_manage.php:511
 #: utils/stcr_manage.php:538 utils/stcr_manage.php:565
 #: utils/stcr_manage.php:594
 msgid "You do not have sufficient permissions to access this page."
-msgstr ""
+msgstr "Nincs megfelelő jogosultsága az oldal eléréséhez."
 
 #: utils/stcr_manage.php:644
 msgid "Subscriptions"
@@ -1924,16 +1924,15 @@ msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
 msgstr ""
-"A hozzászólásokról email-ben kérek értesítést.  <a "
-"href='[subscribe_link]'>Feliratkozás</a> hozzászólás nélkül is lehetséges."
+"Email értesítést kérek a hozzászólásokról. A <a "
+"href='[subscribe_link]'>feliratkozás</a> hozzászólás nélkül is lehetséges."
 
 #: utils/stcr_utils.php:341
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr ""
-"Feliratkozva ehhez a bejegyzéshez.  <a href='[manager_link]'Saját "
-"feliratkozásaink kezelése</a>."
+"Feliratkozva ehhez a bejegyzéshez. <a href='[manager_link]'>Feliratkozások kezelése</a>."
 
 #: utils/stcr_utils.php:342
 msgid ""
@@ -1947,8 +1946,7 @@ msgstr ""
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
-"<a href='[manager_link]'>Saját feliratkozásunk kezelése</a>  ennél a "
-"bejegyzésnél."
+"<a href='[manager_link]'>Feliratkozás kezelése</a> ennél a bejegyzésnél."
 
 #: utils/stcr_utils.php:349
 msgid ""
@@ -1956,8 +1954,7 @@ msgid ""
 "will send you a message containing the link to access your personal "
 "management page."
 msgstr ""
-"A feliratkozások kezeléséhez alul meg kell adni az email címet, amelyre "
-"elküldjük azt a hivatkozást, amellyel a saját kezelési oldalra lehet belépni."
+"Az itt megadott email címre érkezik a feliratkozásokat kezelő oldal hivatkozása."
 
 #: utils/stcr_utils.php:350
 msgid ""
@@ -1974,10 +1971,8 @@ msgid ""
 "having to leave a comment. Cool, huh? Just enter your email address in the "
 "form here below and you're all set."
 msgstr ""
-"<strong>[post_title]</strong> című bejegyzésünkhöz történő hozzászólásokat "
-"úgy is figyelemmel lehet kísérni, ha az olvasó nem szól hozzá a témához. "
-"Csak meg kell adni a saját email címet az alul található mezőbe, és máris "
-"minden készen áll."
+"<strong>[post_title]</strong> bejegyzéshez érkező hozzászólásokat "
+"figyelemmel lehet kísérni csupán az email cím megadásával is."
 
 #: utils/stcr_utils.php:352
 msgid ""
@@ -1985,9 +1980,8 @@ msgid ""
 "completed. You will receive a notification email every time a new comment to "
 "this article is approved and posted by the administrator."
 msgstr ""
-"<strong>Köszönjük, hogy használtad a feliratkozás szolgáltatásunkat!</"
-"strong><br /> A kérést rögzítettük; minden egyes alkalommal küldünk egy "
-"értesítést email címedre, amikor a bejegyzéshez új hozzászólás érkezik."
+"A kérést rögzítettük; minden közzétett hozzászólás alkalmával érkezik egy értesítés "
+"a megadott email címre."
 
 #: utils/stcr_utils.php:353
 msgid ""
@@ -1995,8 +1989,7 @@ msgid ""
 "request, please check your email for the verification message and follow the "
 "instructions."
 msgstr ""
-"Köszönjük, hogy használtad a feliratkozás szolgáltatásunkat! A kérésed "
-"megerősítéséhez, kérjük ellenőrizd e-mailcímed, és kövesd az instrukciókat."
+"A feliratkozás megerősítéséhez szükséges email elküldve."
 
 #: utils/stcr_utils.php:354
 msgid ""
@@ -2013,12 +2006,12 @@ msgid ""
 "corresponding checkbox(es) and click on the button at the end of the list. "
 "You are currently subscribed to:"
 msgstr ""
-"Az értesítések kikapcsolásához, megszűntetéséhez, válassz jelölőnégyzetet és "
+"Az értesítések kikapcsolásához, megszüntetéséhez, válassz jelölőnégyzetet és "
 "a lista végén kattints a megfelelő gombra. Jelenleg ezek az értesítéseid:"
 
 #: utils/stcr_utils.php:359
 msgid "There is a new comment to [post_title]"
-msgstr "Új hozzászólás ehhez [post_title]"
+msgstr "Új hozzászólás: [post_title]"
 
 #: utils/stcr_utils.php:360
 msgid ""
@@ -2036,10 +2029,23 @@ msgid ""
 "<a href=\"[manager_link]\">Manage your subscriptions</a> | <a href="
 "\"[oneclick_link]\">One click unsubscribe</a></div>"
 msgstr ""
+"<h2>Új hozzászólás érkezett a <em>[post_title]</em> bejegyzéshez.</h2>\n"
+"\n"
+"<hr />\n"
+"<strong>Hozzászólás helye:</strong> <a href="
+"\"[comment_permalink]\">[comment_permalink]</a>\n"
+"<strong>Szerző:</strong> [comment_author]\n"
+"\n"
+"<strong>A hozzászólás szövege:</strong>\n"
+"[comment_content]\n"
+"<div style=\"font-size: 0.8em;\"><strong>Bejegyzés:</strong> <a href="
+"\"[post_permalink]\">[post_permalink]</a>\n"
+"<a href=\"[manager_link]\">Feliratkozás módosítása</a> | <a href="
+"\"[oneclick_link]\">Leiratkozás</a></div>"
 
 #: utils/stcr_utils.php:361
 msgid "Please confirm your subscription to [post_title]"
-msgstr "Kérlek, erősítsd meg feliratkozásod erre [post_title]"
+msgstr "[post_title] hozzászólás-feliratkozás megerősítése"
 
 #: utils/stcr_utils.php:362
 #, fuzzy
@@ -2058,13 +2064,15 @@ msgstr ""
 
 #: utils/stcr_utils.php:363
 msgid "Manage your subscriptions on [blog_name]"
-msgstr "Ártesítés beállítások - [blog_name]"
+msgstr "Értesítés beállítások - [blog_name]"
 
 #: utils/stcr_utils.php:364
 msgid ""
 "You have requested to manage your subscriptions to the articles on "
 "[blog_name]. Please check the Subscriptions management link in your email"
 msgstr ""
+"[blog_name] oldal bejegyzéseivel kapcsolatos feliratkozások kezeléséhez"
+"további információ az elküldött levélben."
 
 #: utils/stcr_utils.php:365
 #, fuzzy
@@ -2391,22 +2399,22 @@ msgstr "Mindenre"
 #~ msgstr "Прибл. аб'ём карыстацкіх дадзеных"
 
 #~ msgid "Custom CSS Class"
-#~ msgstr "Клас змянянага CSS"
+#~ msgstr "Egyedi CSS Class"
 
 #~ msgid ""
 #~ "Custom CSS class to associate to the checkbox, if you want to customize "
 #~ "its style."
 #~ msgstr ""
-#~ "Клас змянянага CSS для акенца выбару, калі вы жадаеце змяніць яго стыль"
+#~ "Egyedi CSS kód a jelölőnégyzet kinézetének módosításához."
 
 #~ msgid "Subscriptions have been successfully updated."
-#~ msgstr "Падпіскі паспяхова абноўлены."
+#~ msgstr "Feliratkozás sikeresen frissítve."
 
 #~ msgid "Sorry, no subscriptions found."
-#~ msgstr "Выбачыце, падпіскі не знойдзены."
+#~ msgstr "Hoppá, feliratkozás nem található."
 
 #~ msgid "All the subscriptions have been successfully updated."
-#~ msgstr "Усе падпіскі паспяхова абноўлены."
+#~ msgstr "Minden feliratkozás sikeresen frissítve."
 
 #~ msgid ""
 #~ "Disable the virtual management page if you need to create a <a href="
@@ -2418,16 +2426,15 @@ msgstr "Mindenre"
 #~ "make your theme happy."
 
 #~ msgid "Remove or suspend email address"
-#~ msgstr "Выдаліць ці прыпыніць электронны адрас"
+#~ msgstr "Emailcím törlése, vagy felfüggesztése."
 
 #~ msgid ""
 #~ "Your subscription has been successfully confirmed. Thank you for using "
 #~ "our notification service. Now you will receive a message every time "
 #~ "someone posts a new comment to"
 #~ msgstr ""
-#~ "La tua iscrizione &egrave; stata confermata con successo. Grazie per aver "
-#~ "usato il nostro servizio di notifica. Da ora in poi riceverai un "
-#~ "messaggio ogni volta che qualcuno lascia un commento per:"
+#~ "Feliratkozás sikeresen visszaigazolva. Köszönjük."
+#~ "Érteítést küldünk minden ide érkező új hozzászólásról:"
 
 #~ msgid ""
 #~ "The permalink for your management page. This page <b>does not</b> "
@@ -2525,37 +2532,37 @@ msgstr "Mindenre"
 #~ msgstr "Bacheca"
 
 #~ msgid "Visitors"
-#~ msgstr "Visitatori"
+#~ msgstr "Látogatók"
 
 #~ msgid "Traffic Sources"
 #~ msgstr "Sorgenti di traffico"
 
 #~ msgid "Content"
-#~ msgstr "Contenuto"
+#~ msgstr "Tartalom"
 
 #~ msgid "Raw Data"
-#~ msgstr "Dati grezzi"
+#~ msgstr "Nyers adat"
 
 #~ msgid "World Map"
-#~ msgstr "Mappa"
+#~ msgstr "Világtérkép"
 
 #~ msgid "Current filters:"
-#~ msgstr "Filtri attivi:"
+#~ msgstr "Aktív szűrők:"
 
 #~ msgid "Filter pageviews where"
 #~ msgstr "Filtra accessi in cui:"
 
 #~ msgid "Browser"
-#~ msgstr "Browser"
+#~ msgstr "Böngésző"
 
 #~ msgid "Browser version"
-#~ msgstr "Versione Browser"
+#~ msgstr "Böngésző verzió"
 
 #~ msgid "Country Code"
 #~ msgstr "Codice Paese"
 
 #~ msgid "Domain"
-#~ msgstr "Dominio"
+#~ msgstr "Domén"
 
 #~ msgid "IP"
 #~ msgstr "IP"
