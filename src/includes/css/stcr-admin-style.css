@@ -350,7 +350,13 @@ table.subscribers-table thead th span {
 @media screen and (max-width: 651px) {
   table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
   table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
-    padding-left: 40px !important; } }
+    padding-left: 40px !important; }
+
+    table.subscribers-table thead th span {
+        display: none;
+    }
+
+}
 
 @media screen and (max-width: 350px) {
   table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
