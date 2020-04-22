@@ -249,6 +249,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                         }
                                         $row_email = ( $operator != 'equals' || $search_field != 'email' ) ? "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=email&amp;srt=equals&amp;srv=" . urlencode( $a_subscription->email ) . "' title='email unique key: ( $a_subscription->email_key )'>$a_subscription->email</a> " : '';
                                         $date_time = date_i18n( $date_time_format, strtotime( $a_subscription->dt ) );
+                                        $date_time_sort = date_i18n( 'YmdHis', strtotime( $a_subscription->dt ) );
 
                                         $status_desc = $status_arry[$a_subscription->status];
 
@@ -263,7 +264,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                         </td>
                                                         <td>$row_post</td>
                                                         <td>$row_email</td>
-                                                        <td>$date_time</td>
+                                                        <td data-sort='$date_time_sort'>$date_time</td>
                                                         <td>$status_desc</td>
                                                   </tr>";
                                         }
@@ -278,7 +279,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                                         </td>
                                                         <td>$row_post</td>
                                                         <td>$row_email</td>
-                                                        <td>$date_time</td>
+                                                        <td data-sort='$date_time_sort'>$date_time</td>
                                                         <td>$status_desc</td>
                                                   </tr>";
                                         }
