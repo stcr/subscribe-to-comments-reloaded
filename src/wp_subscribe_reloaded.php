@@ -143,7 +143,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 				// if we are on the management page, filter the_posts
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
-                    add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
+
+                    $request_uri = $_SERVER['REQUEST_URI'];
+                    $request_uri_arr = explode( $manager_page_permalink, $request_uri );
+
+                    // don't show management page if a "child page" 
+                    if ( empty( $request_uri_arr[1] ) || $request_uri_arr[1] == '/' || strpos( $request_uri_arr[1], '/?' ) === 0 ) {
+                        add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
+                    }
+
                 }
                 
                 // filter to add custom output before comment content
