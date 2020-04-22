@@ -646,16 +646,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		/**
 		 * Adds a custom stylesheet file to the admin interface
 		 */
-		public function add_options_stylesheet() {
-			// It looks like WP_PLUGIN_URL doesn't honor the HTTPS setting in wp-config.php
-			$stylesheet_url = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/style.css';
+		public function add_options_stylesheet() {			
+			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/style.css' );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
 
 		public function add_post_comments_stylesheet() {
-			// It looks like WP_PLUGIN_URL doesn't honor the HTTPS setting in wp-config.php
-			$stylesheet_url = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/post-and-comments.css';
+			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/post-and-comments.css' );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
@@ -674,7 +672,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column header to the Edit Comments panel
 		 */
 		public function add_column_header( $_columns ) {
-			$image_url                      = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/images';
+			$image_url                      = plugins_url( 'subscribe-to-comments-reloaded/images' );
 			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
 			$_columns['subscribe-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 

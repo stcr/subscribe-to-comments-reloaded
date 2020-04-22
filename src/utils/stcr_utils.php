@@ -555,8 +555,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function register_admin_scripts( $hook ) {
 
             // paths
-            $stcr_admin_js  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/js/stcr-admin.js';
-            $stcr_admin_css  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . '/subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css';
+            $stcr_admin_js = plugins_url( 'subscribe-to-comments-reloaded/includes/js/stcr-admin.js' );
+            $stcr_admin_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css' );
 
             // register scripts
             wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
@@ -596,7 +596,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          */
 		public function register_script_to_wp( $handle, $script_name, $path_add = "" )
         {
-            $js_resource  = ( is_ssl() ? str_replace( 'http://', 'https://', WP_PLUGIN_URL ) : WP_PLUGIN_URL ) . "/". SLUG ."/$path_add/$script_name";
+            $js_resource  = plugins_url( SLUG . "/$path_add/$script_name" );
             wp_register_script( $handle, $js_resource );
         }
         /**includes/js/admin
@@ -614,7 +614,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @author reedyseth
 		 */
 		public function register_plugin_scripts() {
-            $stcr_font_awesome_css = (is_ssl() ? str_replace('http://', 'https://', WP_PLUGIN_URL) : WP_PLUGIN_URL) . '/subscribe-to-comments-reloaded/includes/css/font-awesome.min.css';
+            $stcr_font_awesome_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/font-awesome.min.css' );
             // Font Awesome
             if( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" )
             {
