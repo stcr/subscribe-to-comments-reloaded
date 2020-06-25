@@ -752,5 +752,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 		}
 		// end subscribe_url_shortcode
+
+		/**
+		 * Exclude subscriptions on post duplication
+		 * 
+		 * @since 200625
+		 */
+		public function duplicate_post_exclude_subs( $exclude ) {
+
+			return array_merge( $exclude, array( '_stcr' ) ); 
+
+		}
+
 	}
 }

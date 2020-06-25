@@ -214,7 +214,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $this->utils->stcr_create_ajax_notices();
 
 				// download system information file
-                add_action( 'admin_init', array( $this, 'sysinfo_download' ) );
+				add_action( 'admin_init', array( $this, 'sysinfo_download' ) );
+				
+				// exclude subscriptions on post duplication
+				add_filter( 'duplicate_post_blacklist_filter', array( $this, 'duplicate_post_exclude_subs' ) );
 
 			}
 			
