@@ -674,7 +674,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function add_column_header( $_columns ) {
 			$image_url                      = plugins_url( 'subscribe-to-comments-reloaded/images' );
 			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
-			$_columns['subscribe-reloaded'] = "<img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
+			$_columns['subscribe-reloaded'] = "<span class='hidden'>" . $image_tooltip . "</span><img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
 			return $_columns;
 		}
