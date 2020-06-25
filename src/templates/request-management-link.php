@@ -103,7 +103,7 @@ if ( ! empty( $email ) ) {
     } else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] )) {
         $email = sanitize_email( $_COOKIE['comment_author_email_' . COOKIEHASH] );
     } else {
-        $email = 'email';
+        $email = '';
     }
 
     // qTrans compatibility
