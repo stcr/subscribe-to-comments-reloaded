@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // Avoid direct access to this piece of code
 if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	header( 'Location: /' );
