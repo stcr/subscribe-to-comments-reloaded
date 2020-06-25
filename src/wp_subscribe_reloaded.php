@@ -1669,6 +1669,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
          */
         public function comment_content_prepend( $comment_text, $comment = null ) {
 
+			// do not proceed if comment info is not passed
+			if ( empty( $comment ) || ! isset( $comment->comment_approved ) ) {
+				return $comment_text;
+			}
+
             global $wp_subscribe_reloaded;
             global $post;
 
