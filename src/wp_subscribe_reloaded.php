@@ -1433,7 +1433,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$message = str_replace( '[comment_content]', $comment_content, $message );
 			$message = str_replace( '[manager_link]', $manager_link, $message );
 			$message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $message );
-            $message = str_replace( '[comment_gravatar]', get_avatar($info->comment_author_email, 40), $message );
+			$message = str_replace( '[comment_gravatar]', get_avatar($info->comment_author_email, 40), $message );
+			$message = str_replace( '[comment_date]',  date( get_option( 'date_format'), strtotime( $comment->comment_date ) ), $message );
+			$message = str_replace( '[comment_time]',  date( get_option( 'time_format'), strtotime( $comment->comment_date ) ), $message );
 
 			// qTranslate support
 			if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
