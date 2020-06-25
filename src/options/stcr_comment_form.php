@@ -359,7 +359,7 @@ if ( isset( $_POST['options'] ) ) {
 
     </div>
 </div>
-<!--<script type="text/javascript" src="--><?php //echo plugins_url(); ?><!--/subscribe-to-comments-reloaded/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
+
 <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.js"></script>
 <?php
 global $wp_subscribe_reloaded;
