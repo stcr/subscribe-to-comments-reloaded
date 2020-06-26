@@ -12,7 +12,9 @@ global $wp_subscribe_reloaded;
 $post_permalink = null;
 $current_user_email = null; // Comes from wp_subscribe-to-comments-reloaded\subscribe_reloaded_manage()
 $ID = $target_post;
+$valid_all = true;
 $valid_email = true;
+$valid_challenge = true;
 
 // get email if user known
 if ( isset( $current_user ) && $current_user->ID > 0 ) {
@@ -26,19 +28,36 @@ if ( array_key_exists('post_permalink', $_GET ) ) {
     }
 }
 
+// challenge question
+$challenge_question_state = get_option( 'subscribe_reloaded_use_challenge_question', 'no' );
+$challenge_question = get_option( 'subscribe_reloaded_challenge_question', 'What is 1 + 2?' );
+$challenge_answer = get_option( 'subscribe_reloaded_challenge_answer', '3' );
+
 // start output buffering
 ob_start();
 
 // email address supplied
 if ( ! empty( $email ) ) {
 
-    $stcr_post_email     = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $email );
+    // check email validity
+    $stcr_post_email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $email );
 
+    // check challenge question validity
+    if ( $challenge_question_state == 'yes' ) {
+        $challenge_user_answer = sanitize_text_field( $_POST['subscribe_reloaded_challenge'] );
+        if ( $challenge_answer != $challenge_user_answer ) {
+            $valid_challenge = false;
+            $valid_all = false;
+        }
+    }
+    
+    // email is invalid
     if ( $stcr_post_email === false ) {
-        
         $valid_email = false;
+        $valid_all = false;
+    }
 
-    } else {
+    if ( $valid_all ) {
         
         // Send management link
         $subject        = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
@@ -115,11 +134,28 @@ if ( ! empty( $email ) ) {
     <p><?php echo wpautop( $message ); ?></p>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            <p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
-            </p>
-            <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+            <?php if ( $challenge_question_state == 'yes' ) : ?>
+                <p>
+                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
+                </p>
+                <p>
+                    <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
+                    <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
+                </p>
+                <p>
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                </p>
+                <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+            <?php else : ?>
+                <p>
+                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                </p>
+                <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
+            <?php endif; ?>
+
         </fieldset>
     </form>
     <?php
@@ -133,7 +169,7 @@ if ( ! empty( $email ) ) {
 }
 
 // email invalid
-if( ! $valid_email ) {
+if( ! $valid_all ) {
 
     $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
     
@@ -145,12 +181,37 @@ if( ! $valid_email ) {
     <p><?php echo wpautop( $message ); ?></p>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            <p>
-                <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
-                <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
-            </p>
-            <p class="notice-email-error" style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
+            
+            <?php if ( $challenge_question_state == 'yes' ) : ?>
+                <p>
+                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
+                </p>
+                <p>
+                    <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
+                    <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
+                </p>
+                <p>
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                </p>
+                <p class="notice-email-error" style='color: #f55252;font-weight:bold;'></p>
+            <?php else : ?>
+                <p>
+                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                </p>
+                <p class="notice-email-error" style='color: #f55252;font-weight:bold;'></p>
+            <?php endif; ?>
+
+            <?php if ( ! $valid_email ) : ?>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
+            <?php endif; ?>
+            
+            <?php if ( ! $valid_challenge ) : ?>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
+            <?php endif; ?>
+
         </fieldset>
     </form>
     <?php
