@@ -89,8 +89,8 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         echo "</tbody>";
     echo "</table>";
 
-	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#">' . __( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
-	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#">' . __( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
+	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . __( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
+	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . __( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
 	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-to-comments-reloaded' );
 	echo '&nbsp;&nbsp;<select name="sra">';
 		echo '<option value="">'. __( 'Choose your action', 'subscribe-to-comments-reloaded' ) .'</option>';
@@ -113,44 +113,35 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 ?>
 		</fieldset>
 	</form>
-<script type="text/javascript">
-    ( function($){
-        /**
-         * Select all subscribers
-         *
-         * @since 18-Apr-2017
-         * @author reedyseth
-         */
-        $('form[name="email_list_form"]').on('click','.stcr-subs-select-all', function(event) {
-         var checkbox = $('form[name="email_list_form"] table input[type="checkbox"] ');
+    <script type="text/javascript">
 
-         checkbox.each(function(index,  element){
-         $(this).attr('checked','checked');
-         });
+        function stcrCheckAll(e) {
 
-         event.preventDefault();
+            var items = document.getElementsByName('email_list[]');
+            for ( var i=0; i<items.length; i++ ) {
+                if ( items[i].type == 'checkbox' ) {
+                    items[i].checked = true;
+                }
+            }
 
-         return false;
-         });
-        /**
-         * Deselect all subscribers
-         *
-         * @since 18-Apr-2017
-         * @author reedyseth
-         */
-        $('form[name="email_list_form"]').on('click','.stcr-subs-select-none', function(event) {
-            var checkbox = $('form[name="email_list_form"] table input[type="checkbox"] ');
+            e.preventDefault();
 
-            checkbox.each(function(index,  element){
-                $(this).removeAttr('checked');
-            });
+        }
 
-            event.preventDefault();
+        function stcrUncheckAll(e) {
 
-            return false;
-        });
-    } )( jQuery );
-</script>
+            var items = document.getElementsByName('email_list[]');
+            for ( var i=0; i<items.length; i++ ) {
+                if ( items[i].type == 'checkbox' ) {
+                    items[i].checked = false;
+                }
+            }
+
+            e.preventDefault();
+
+        }
+        
+    </script>
 <?php
 $output = ob_get_contents();
 ob_end_clean();
