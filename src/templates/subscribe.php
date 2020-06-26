@@ -24,7 +24,7 @@ $post_permalink = get_permalink( $post_ID );
 // challenge question
 $challenge_question_state = get_option( 'subscribe_reloaded_use_challenge_question', 'no' );
 $challenge_question = get_option( 'subscribe_reloaded_challenge_question', 'What is 1 + 2?' );
-$challenge_answer = get_option( 'subscribe_reloaded_challenge_answer', '3' );;
+$challenge_answer = get_option( 'subscribe_reloaded_challenge_answer', '3' );
 
 // start output buffer
 ob_start();
