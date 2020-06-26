@@ -155,7 +155,7 @@ if ( ! empty( $email ) ) {
                 <?php if ( $challenge_question_state == 'yes' ) : ?>
                     <p>
                         <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                        <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                        <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                     </p>
                     <p>
                         <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
@@ -167,7 +167,7 @@ if ( ! empty( $email ) ) {
                     <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
                 <?php else : ?>
                     <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                    <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                    <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                     <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                     <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
                 <?php endif; ?>
@@ -198,7 +198,7 @@ if ( ! $valid_all ) {
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
                     <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                    <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                    <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                 </p>
                 <p>
                     <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
@@ -210,7 +210,7 @@ if ( ! $valid_all ) {
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php else : ?>
                 <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" />
+                <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php endif; ?>
@@ -229,43 +229,6 @@ if ( ! $valid_all ) {
 
 }
 
-?>
-<script type="text/javascript">
-    ( function($){
-        $(document).ready(function($){
-            
-            var stcr_request_form = $('form[name="sub-form"]');
-            var email_input       = $('form[name="sub-form"] input[name="sre"]');           
-
-            stcr_request_form.on('submit',function (event) {
-                var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                var email = $('input[name="sre"]');
-
-                if( email.val() !== "email" && email.val() === "" ) {
-                    event.preventDefault();
-                    $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Please enter your email", 'subscribe-to-comments-reloaded') ?>").show().delay(4000).fadeOut(1000);
-                } else if( emailRegex.test( email.val() ) === false ) {
-                    event.preventDefault();
-                    $(".notice-email-error").html("<i class=\"fa fa-exclamation-triangle\"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?>").show().delay(4000).fadeOut(1000);
-                }
-            });
-
-            email_input.focus(function(){
-                if( $(this).val() == <?php echo wp_json_encode( $email ); ?> ) {
-                    $(this).val("");
-                }
-            });
-
-            email_input.blur(function(){
-                if( $(this).val() == "" ) {
-                    $(this).val(<?php echo wp_json_encode( $email ); ?>);
-                }
-            });
-        });
-    } )( jQuery );
-</script>
-
-<?php
 // stop output buffer and pass it back
 $output = ob_get_contents();
 ob_end_clean();
