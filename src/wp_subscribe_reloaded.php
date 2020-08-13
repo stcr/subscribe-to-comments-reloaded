@@ -8,7 +8,7 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 // globals
-define( __NAMESPACE__.'\\VERSION','200629' );
+define( __NAMESPACE__.'\\VERSION','200813' );
 define( __NAMESPACE__.'\\DEVELOPMENT', false );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
@@ -870,7 +870,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
 					}
 					
-                }
+				}
 
                 global $wp_query;
 
@@ -938,7 +938,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getMessage()\n" );
 				$this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getTraceAsString()\n" );
 				
-            }
+			}
 
 			// return filtered posts
 			return $posts;
