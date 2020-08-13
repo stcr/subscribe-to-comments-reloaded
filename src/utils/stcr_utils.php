@@ -303,6 +303,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * Returns an email address where some possible 'offending' strings have been removed
 		 */
 		public function clean_email( $_email ) {
+            
+            if ( is_array( $_email) || is_object( $_email ) ) {
+                return;
+            }
+
 			$offending_strings = array(
 				"/to\:/i",
 				"/from\:/i",
@@ -313,7 +318,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 				"/mime\-version\:/i"
 			);
 
-			return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
+            return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
+            
 		}
 		// end clean_email
 
