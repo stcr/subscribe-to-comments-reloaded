@@ -1062,6 +1062,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
 		public function delete_subscriptions( $_post_id = 0, $_email = '' ) {
 
+			// related to wp 5.5 delete_post coming with 2nd parameter of WP Post object
+			if ( is_object( $_email ) ) {
+				$_email = '';
+			}
+
 			global $wpdb;
 
 			$has_subscriptions = false;
