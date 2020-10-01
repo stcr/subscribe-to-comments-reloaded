@@ -79,9 +79,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_name' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Name to use for the 'from' field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -96,9 +96,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'from_email' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Email address to use for the \"from\" field when sending a new notification to the user.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -113,9 +113,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'reply_to' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "This will be use when the user click reply on their email agent. If not set it will be the same as the Sender email address.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -132,9 +132,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'notification_subject' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Subject of the notification email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -145,9 +145,9 @@ wp_print_scripts( 'quicktags' );
                             <?php _e( 'Notification message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Content of the notification email. Allowed tags: [post_title], [comment_permalink], [comment_author], [comment_content], [post_permalink], [manager_link], [comment_gravatar]<p style='color: #156dc7;'><strong>Note: To get a default template clear all the content and save the options.</strong></p>", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -180,9 +180,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'double_check_subject' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Subject of the confirmation email. Allowed tag: [post_title]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -193,9 +193,9 @@ wp_print_scripts( 'quicktags' );
                             <?php _e( 'Double check message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Content of the confirmation email. Allowed tags: [post_permalink], [confirm_link], [post_title], [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -224,9 +224,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_subject' ) ); ?>" size="20">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Subject of the mail sent to those who request to access their management page. Allowed tag: [blog_name]", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -245,9 +245,9 @@ wp_print_scripts( 'quicktags' );
                             <?php _e( 'Management Page message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Content of the management Page message. Allowed tags: [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </label>
@@ -281,9 +281,9 @@ wp_print_scripts( 'quicktags' );
                             <?php _e( 'Management Email message', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Content of the management email message. Allowed tags: [blog_name], [manager_link].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
@@ -308,9 +308,9 @@ wp_print_scripts( 'quicktags' );
                             <?php _e( 'One Click Unsubscribe', 'subscribe-to-comments-reloaded' ) ?>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "Content of the One Click confirmation. Allowed tags: [post_title], [blog_name].", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
 
