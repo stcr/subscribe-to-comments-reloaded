@@ -6,7 +6,7 @@ Plugin URI: http://subscribe-reloaded.com/
 Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
-Tested up to: 5.4
+Tested up to: 5.5
 Stable tag: 200813
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,7 +22,6 @@ Subscribe to Comments Reloaded is a robust plugin that enables commenters to sig
 * MySQL 5.x or higher
 
 ## Main Features
-* Does not modify Wordpress core tables
 * Easily manage and search among your subscriptions
 * Imports Mark Jaquith's Subscribe To Comments (and its clones) data
 * Messages are fully customizable, no poEdit required (and you can use HTML!) with a Rich Text Editor - WYSIWYG
