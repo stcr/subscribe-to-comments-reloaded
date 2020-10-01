@@ -1717,8 +1717,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
 		public function move_form_with_js() {
 
-			if( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
-				$output .= "<script type='text/javascript'>jQuery(document).ready(function($){var stcr_form=$('div.stcr-form');stcr_form.prevUntil('form').each(function(){var _this=$(this);if(_this.find(':input[type=\"submit\"]').length){stcr_form.remove(),_this.before(stcr_form);$('div.stcr-form').removeClass('stcr-hidden');return false;}})});</script>";
+			$output = '';
+
+			if ( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
+				$output .= "<script type='text/javascript'>document.addEventListener('DOMContentLoaded',function(){let e=document.querySelectorAll('div.stcr-form')[0],t=document.querySelectorAll('#commentform input[type=submit]')[0];t.parentNode.insertBefore(e,t),e.classList.remove('stcr-hidden')});</script>";
 			}
 			
 			echo $output;
