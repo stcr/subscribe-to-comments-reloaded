@@ -57,8 +57,14 @@ if ( ! empty( $email ) ) {
         $valid_all = false;
     }
 
+    // email is not subscribed
+    if ( ! $wp_subscribe_reloaded->stcr->utils->get_subscriber_key( $stcr_post_email ) ) {
+        $valid_email = false;
+        $valid_all = false;
+    }
+
     if ( $valid_all ) {
-        
+
         // Send management link
         $subject        = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
         $page_message   = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
