@@ -1436,6 +1436,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// replace tags with their actual values
 			$subject = str_replace( '[post_title]', $post->post_title, $subject );
+			$subject = str_replace( '[comment_author]', $comment->comment_author, $subject );
 			$subject = str_replace( '[blog_name]' , get_bloginfo('name'), $subject );
 			$message = str_replace( '[post_permalink]', $post_permalink, $message );
 			$message = str_replace( '[comment_permalink]', $comment_permalink, $message );
