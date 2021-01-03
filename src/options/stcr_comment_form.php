@@ -103,19 +103,19 @@ if ( isset( $_POST['options'] ) ) {
                 </div>
             <?php
             // This option will be visible only when the Checkbox option is enable
-            if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default' ) == 'yes') :
+            if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'no' ) :
             ?>
                 <div class="form-group row">
-                    <label for="checked_by_default_value" class="col-sm-3 col-form-label text-right"><?php _e( 'Default Checkbox Value', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="checked_by_default_value" class="col-sm-3 col-form-label text-right"><?php _e( 'Subscription type', 'subscribe-to-comments-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <select name="options[checked_by_default_value]" id="checked_by_default_value" class="form-control form-control-select">
                             <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-to-comments-reloaded' ); ?></option>
                             <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-to-comments-reloaded' ); ?></option>
                         </select>
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php _e( 'Select the type of subscription.', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Select the default option for the Checkbox. Be careful! Some users might like to be subscribed to all the post.', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php _e( 'Select the type of subscription.', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
                     </div>
