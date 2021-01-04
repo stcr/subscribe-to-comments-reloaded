@@ -28,6 +28,9 @@ $options = array(
     'use_challenge_question'       => 'yesno',
     'challenge_question'           => 'text',
     'challenge_answer'             => 'text',
+    'use_captcha'                  => 'yesno',
+    'captcha_site_key'             => 'text',
+    'captcha_secret_key'           => 'text',
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -524,9 +527,9 @@ wp_print_scripts( 'quicktags' );
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'challenge_question', 'What is 1 + 2?' ) ); ?>">
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "The question shown to visitor when subscribing.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php _e( "The question shown to visitor when subscribing without commenting or when requesting a subscription management link.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "The question shown to visitor when subscribing", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php _e( "The question shown to visitor when subscribing without commenting or when requesting a subscription management link", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -548,6 +551,71 @@ wp_print_scripts( 'quicktags' );
                             </div>
                         </div>
                     </div>
+
+                    <?php /* captcha options start */ ?>
+
+                    <div class="form-group row">
+                        <label for="use_captcha" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Enable Google reCAPTCHA', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <div class="switch">
+                                <input type="radio" class="switch-input" name="options[use_captcha]"
+                                       value="yes" id="use_captcha-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'use_captcha', 'no' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <label for="use_captcha-yes" class="switch-label switch-label-off">
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <input type="radio" class="switch-input" name="options[use_captcha]" value="no" id="use_captcha-no"
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'use_captcha', 'no' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <label for="use_captcha-no" class="switch-label switch-label-on">
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <span class="switch-selection"></span>
+                            </div>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Shown to visitor when subscribing without commenting or when requesting a subscription management link.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Shown to visitor when subscribing without commenting or when requesting a subscription management link.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="captcha_site_key" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'reCAPTCHA site key', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <input type="text" name="options[captcha_site_key]" id="captcha_site_key"
+                                   class="form-control form-control-input-3"
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'captcha_site_key', '' ) ); ?>">
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "The site key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "The site key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="captcha_secret_key" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'reCAPTCHA secret key', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <input type="text" name="options[captcha_secret_key]" id="captcha_secret_key"
+                                   class="form-control form-control-input-3"
+                                   value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'captcha_secret_key', '' ) ); ?>">
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "The secret key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "The secret key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php /* captcha options end */ ?>
 
                     <div class="form-group row">
                         <label for="unique_key" class="col-sm-3 col-form-label text-right">

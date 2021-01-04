@@ -28,6 +28,9 @@ $options = array(
     'use_challenge_question'       => 'yesno',
     'challenge_question'           => 'text',
     'challenge_answer'             => 'text',
+    'use_captcha'                  => 'yesno',
+    'captcha_site_key'             => 'text',
+    'captcha_secret_key'           => 'text',
 );
 
 // Update options

@@ -16,6 +16,38 @@ $valid_all = true;
 $valid_email = true;
 $valid_challenge = true;
 
+// google recaptcha
+$valid_captcha = true;
+$captcha_output = '';
+$use_captcha = get_option( 'subscribe_reloaded_use_captcha', 'no' );
+$captcha_site_key = get_option( 'subscribe_reloaded_captcha_site_key', '' );
+$captcha_secret_key = get_option( 'subscribe_reloaded_captcha_secret_key', '' );
+
+// google recaptcha confirm
+if ( $use_captcha == 'yes' ) {
+    $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
+    if ( isset( $_POST['g-recaptcha-response'] ) ) {
+        $captcha = $_POST['g-recaptcha-response'];
+        $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+            'method' => 'POST',
+            'body' => array(
+                'secret' => $captcha_secret_key,
+                'response' => $captcha,
+            )
+        ));
+        if ( is_wp_error( $captcha_result ) ) {
+            $valid_captcha = false;
+        } else {
+            $captcha_response = json_decode( $captcha_result['body'], true );
+            if ( ! $captcha_response['success'] ) {
+                $valid_captcha = false;
+            }
+        }
+    } else {
+        $valid_captcha = false;
+    }
+}
+
 // get email if user known
 if ( isset( $current_user ) && $current_user->ID > 0 ) {
     $current_user_email = $current_user->data->user_email;
@@ -60,6 +92,11 @@ if ( ! empty( $email ) ) {
     // email is not subscribed
     if ( ! $wp_subscribe_reloaded->stcr->utils->get_subscriber_key( $stcr_post_email ) ) {
         $valid_email = false;
+        $valid_all = false;
+    }
+
+    // captcha is not valid
+    if ( ! $valid_captcha ) {
         $valid_all = false;
     }
 
@@ -152,6 +189,7 @@ if ( ! empty( $email ) ) {
                 <p>
                     <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
+                <?php echo $captcha_output; ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php else : ?>
                 <p>
@@ -159,6 +197,7 @@ if ( ! empty( $email ) ) {
                     <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                     <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
+                <?php echo $captcha_output; ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php endif; ?>
 
@@ -200,6 +239,7 @@ if( ! $valid_all ) {
                 <p>
                     <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
+                <?php echo $captcha_output; ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold;'></p>
             <?php else : ?>
                 <p>
@@ -207,6 +247,7 @@ if( ! $valid_all ) {
                     <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                     <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
+                <?php echo $captcha_output; ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold;'></p>
             <?php endif; ?>
 
@@ -215,6 +256,10 @@ if( ! $valid_all ) {
             <?php endif; ?>
             
             <?php if ( ! $valid_challenge ) : ?>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
+            <?php endif; ?>
+
+            <?php if ( ! $valid_captcha ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
 

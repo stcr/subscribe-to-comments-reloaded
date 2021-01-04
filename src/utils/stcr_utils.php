@@ -620,13 +620,37 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @author reedyseth
 		 */
 		public function register_plugin_scripts() {
+            
             $stcr_font_awesome_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/font-awesome.min.css' );
             // Font Awesome
-            if( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" )
-            {
+            if ( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" ) {
                 wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
                 wp_enqueue_style('stcr-font-awesome');
             }
+
+            // google recaptcha
+            if ( get_option( 'subscribe_reloaded_use_captcha', 'no' ) == 'yes' ) {
+                
+                // management page permalink
+                $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
+                if ( function_exists( 'qtrans_convertURL' ) ) {
+                    $manager_page_permalink = qtrans_convertURL( $manager_page_permalink );
+				}
+
+				// management page permalink fallback
+                if ( empty( $manager_page_permalink ) ) {
+                    $manager_page_permalink = '/comment-subscriptions/';
+                }
+                
+                // remove the ending slash so both variations (with and without slash) work in the strpos check below
+                $manager_page_permalink = rtrim( $manager_page_permalink, '/' );
+
+				// if we are on the management page, add the script
+                if ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) {
+                    wp_enqueue_script( 'stcr-google-recaptcha', 'https://www.google.com/recaptcha/api.js' );
+                }
+            }
+
 		}
 		/**
 		 * Enqueue `style for plugin pages
