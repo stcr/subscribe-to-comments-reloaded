@@ -63,9 +63,6 @@ Just deactivate and activate the plugin and you are all set. The default value w
 = Aaargh! Were did all my subscriptions go? =
 No panic. If you upgraded from 1.6 or earlier to 2.0+, you need to deactivate/activate StCR, in order to update the DB structure. After the version 180212 a fix was applied so that you can see all the subscriptions.
 
-= How do I create a 'real' management page? =
-Please refer to [this page](https://github.com/stcr/subscribe-to-comments-reloaded/wiki/KB#create-a-real-management-page) for a detailed step-by-step description on how to do that
-
 = Can I customize the layout of the management page? =
 Yes, each HTML tag has a CSS class or ID that you can use to change its position or look-and-feel.
 
@@ -98,6 +95,15 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v210104 =
+* **New** Google reCAPTCHA now available for the "subscribe without commenting" and "request management subscription" form (WP admin > StCR > Options)
+* **Improvement** When using the checkbox (not the select box from advanced subscription) you can now select the subscription type (all or replies) (WP admin > StCR > Comment Form)
+* **Improvement** [comment_author] can now be used in the Notification subject (WP admin > StCR > Notifications)
+* **Improvement** Replaced final instances of jQuery code to be raw JavaScript (not rely on jQuery)
+* **Fix** The form to "request management link" will now check if that email is a subscriber before sending a link
+* **Fix** Issue with broken option tooltips on Notifications settings page
+* **Tweak** Removed HTML comments around the plugin's output on the frontend
+
 = v200813 =
 * **Fix** Error when permanently deleting a post/page/... (related to WP 5.5 change in the "delete_post" hook coming with a 2nd parameter)
 
@@ -259,26 +265,4 @@ Just go to the Options Panel and click the generate button. By generating a new 
 
 == Language Localization ==
 
-Subscribe to Comments Reloaded can speak your language! If you want to provide a localized file in your
-language, use the template files (.pot) you'll find inside the `langs` folder,
-and [contact me](http://subscribe-reloaded.com/contact/) once your
-localization is ready. Currently, we support the following languages:
-
-* Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
-* Dutch - [Martijn Chel](http://mcpnetwork.nl/),[Muratje](http://www.muromedia.nl/)
-* French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
-* German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
-* Indonesian - [The Masked Cat](http://themaskedcat.tk)
-* Italian - myself
-* Norwegian - [Odd Henriksen](http://www.oddhenriksen.net/)
-* Polish - [Robert Koeseling](http://www.katalogpodkastow.pl), [Filip Cierpich](http://keepmind.eu/)
-* Portuguese, Brazil - [Ronaldo Richieri](http://richieri.com), [ClassiNoiva](http://www.classinoiva.com.br), [Luciano](http://litemind.com/)
-* Portuguese, Portugal
-* Russian - [Marika Bukvonka](http://violetnotes.com)
-* Serbian - [Anna Swedziol](http://www.sneg.iz.rs/)
-* Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/), [Iván Ridao Freitas](http://ivanrf.com/)
-* Turkish - [MaD, Kali](http://www.dusunsel.com/)
-* Hebrew - [Ahrale Shrem](http://atar4u.com/), [Eitan Caspi](http://fudie.net/)
-* Hungarian - [László Tavaszi]
-* Czech - [Daniel Král](http://www.danielkral.cz/)
-* Persian - [Javad Hoseini-Nopendar](http://www.irannopendar.com/), [omid020](https://github.com/omid020)
+If you would like to help out translating the plugin to your language you can do so through the [official WordPress plugin translation system](https://translate.wordpress.org/projects/wp-plugins/subscribe-to-comments-reloaded/)
