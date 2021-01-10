@@ -110,13 +110,27 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                 <a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . __( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
 	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-to-comments-reloaded' );
 
+    $show_option_all = true;
+    $show_option_replies = true;
+
+    if ( get_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no' ) == 'no' ) {
+        if ( get_option( 'subscribe_reloaded_checked_by_default_value', '0' ) == '0' ) {
+            $show_option_replies = false;
+        } else {
+            $show_option_all = false;
+        }
+    }
+
 	echo '<select name="sra">';
 		echo '<option value="">'. __( 'Choose your action', 'subscribe-to-comments-reloaded' ) .'</option>';
 		echo '<option value="delete">'. __( 'Unsubscribe', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="suspend">'. __( 'Suspend', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="force_y">'. __( 'All comments', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="force_r">'. __( 'Replies to my comments', 'subscribe-to-comments-reloaded' ) .'</option>';
-//		echo '<option value="activate">'. __( 'Activate', 'subscribe-to-comments-reloaded' ) .'</option>';
+        echo '<option value="suspend">'. __( 'Suspend', 'subscribe-to-comments-reloaded' ) .'</option>';
+        if ( $show_option_all ) {
+            echo '<option value="force_y">'. __( 'All comments', 'subscribe-to-comments-reloaded' ) .'</option>';
+        }
+        if ( $show_option_replies ) {
+            echo '<option value="force_r">'. __( 'Replies to my comments', 'subscribe-to-comments-reloaded' ) .'</option>';
+        }
 	echo '<select>';
 
     echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '" />
