@@ -95,6 +95,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v210110 =
+* **Fix** Limit subscription types on the management page when only a specific subscription is allowed
+* **Fix** JS error on front-end
+
 = v210104 =
 * **New** Google reCAPTCHA now available for the "subscribe without commenting" and "request management subscription" form (WP admin > StCR > Options)
 * **Improvement** When using the checkbox (not the select box from advanced subscription) you can now select the subscription type (all or replies) (WP admin > StCR > Comment Form)
