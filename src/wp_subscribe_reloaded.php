@@ -1717,7 +1717,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$output = '';
 
 			if ( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
-				$output .= "<script type='text/javascript'>document.addEventListener('DOMContentLoaded',function(){let e=document.querySelectorAll('div.stcr-form')[0],t=document.querySelectorAll('#commentform input[type=submit]')[0];t.parentNode.insertBefore(e,t),e.classList.remove('stcr-hidden')});</script>";
+				$output .= '<script type="text/javascript">document.addEventListener("DOMContentLoaded",function(){if(document.querySelectorAll("div.stcr-form").length){let e=document.querySelectorAll("div.stcr-form")[0],t=document.querySelectorAll("#commentform input[type=submit]")[0];t.parentNode.insertBefore(e,t),e.classList.remove("stcr-hidden")}});</script>';
 			}
 			
 			echo $output;
