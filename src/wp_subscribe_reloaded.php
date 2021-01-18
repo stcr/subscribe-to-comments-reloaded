@@ -810,7 +810,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         $key_expired != "1"
                     ) {
 						
-						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
+						if ( get_option( 'subscribe_reloaded_allow_subscribe_without_comment', 'yes' ) == 'yes' ) {
+							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
+						} else {
+							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/not-allowed.php';
+						}
 						
 					// post author
 					} elseif (
@@ -867,7 +871,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 					// request management link
                     if (empty($include_post_content)) {
-                        $include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
+
+						if ( get_option( 'subscribe_reloaded_allow_request_management_link', 'yes' ) == 'yes' ) {
+							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
+						} else {
+							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/not-allowed.php';
+						}
+						
 					}
 					
 				}

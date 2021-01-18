@@ -18,7 +18,9 @@ $options = array(
     "subscription_confirmed"       => "text-html",
     "subscription_confirmed_dci"   => "text-html",
     "author_text"                  => "text-html",
-    "user_text"                    => "text-html"
+    "user_text"                    => "text-html",
+    'allow_subscribe_without_comment' => 'yesno',
+    'allow_request_management_link'   => 'yesno',
 );
 
 $options_readable = array(
@@ -68,6 +70,7 @@ wp_print_scripts( 'quicktags' );
         <div class="row">
             <div class="col-sm-9">
                 <form class="management_page_form" action="" method="post">
+
                     <div class="form-group row">
                         <label for="manager_page_enabled" class="col-sm-3 col-form-label text-right"><?php _e( 'Virtual Management Page', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
@@ -148,6 +151,56 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( 'Specify your custom HTML code to be added to the HEAD section of the page. Use <strong>single</strong> quotes for values.', 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="allow_subscribe_without_comment" class="col-sm-3 col-form-label text-right"><?php _e( 'Allow "Subscribe Without Comment"', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <div class="switch">
+                                <input type="radio" class="switch-input" name="options[allow_subscribe_without_comment]"
+                                       value="yes" id="allow_subscribe_without_comment-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'allow_subscribe_without_comment', 'yes' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <label for="allow_subscribe_without_comment-yes" class="switch-label switch-label-off">
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <input type="radio" class="switch-input" name="options[allow_subscribe_without_comment]" value="no" id="allow_subscribe_without_comment-no"
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'allow_subscribe_without_comment', 'yes' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <label for="allow_subscribe_without_comment-no" class="switch-label switch-label-on">
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <span class="switch-selection"></span>
+                            </div>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Enable or disable the form that allows visitors to subscribe to comments notifications without commenting.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Enable or disable the form that allows visitors to subscribe to comments notifications without commenting.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="allow_request_management_link" class="col-sm-3 col-form-label text-right"><?php _e( 'Allow "Request Management Link"', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <div class="switch">
+                                <input type="radio" class="switch-input" name="options[allow_request_management_link]"
+                                       value="yes" id="allow_request_management_link-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'allow_request_management_link', 'yes' ) == 'yes' ) ? ' checked' : ''; ?> />
+                                <label for="allow_request_management_link-yes" class="switch-label switch-label-off">
+                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <input type="radio" class="switch-input" name="options[allow_request_management_link]" value="no" id="allow_request_management_link-no"
+                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'allow_request_management_link', 'yes' ) == 'no' ) ? '  checked' : ''; ?> />
+                                <label for="allow_request_management_link-no" class="switch-label switch-label-on">
+                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                </label>
+                                <span class="switch-selection"></span>
+                            </div>
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Enable or disable the form that allows visitors to to request a subscription management link.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Enable or disable the form that allows visitors to to request a subscription management link.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>

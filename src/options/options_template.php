@@ -31,6 +31,8 @@ $options = array(
     'use_captcha'                  => 'yesno',
     'captcha_site_key'             => 'text',
     'captcha_secret_key'           => 'text',
+    'allow_subscribe_without_comment' => 'yesno',
+    'allow_request_management_link'   => 'yesno',
 );
 
 // Update options
