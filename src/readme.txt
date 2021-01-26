@@ -95,6 +95,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v210126 = 
+* **New** Option to disable the "subscribe without commenting" and "request management link" pages. ( WP Admin > StCR > Management Page )
+
 = v210110 =
 * **Fix** Limit subscription types on the management page when only a specific subscription is allowed
 * **Fix** JS error on front-end
