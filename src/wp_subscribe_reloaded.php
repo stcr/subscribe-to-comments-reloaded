@@ -101,7 +101,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 * 
 		 * @since 190705
 		 */
-        public function add_test_subscriptions( $iterations = 1 ,$post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 ) {
+        public function add_test_subscriptions( $iterations, $post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 ) {
             for ( $i = $last_id_subs+1; $i <= $iterations; $i++) {
                 $this->add_subscription( $post_id, "{$email_prefix}_{$i}" . time() . "@dev.com", $status );
             }
