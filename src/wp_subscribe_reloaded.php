@@ -1531,7 +1531,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// return if subscriptions disabled for this post
 			$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
-				return $_comment_ID;
+				if ( $echo ) {
+					echo $submit_field;
+				} else {
+					return $submit_field;
+				}
+				return;
 			}
 
 			// vars
