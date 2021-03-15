@@ -95,6 +95,12 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v210315 =
+* **Fix** Removed the "need help" added via "contextual_help" (deprecated)
+* **Fix** PHP 8 deprecated notice
+* **Fix** Fix issue with missing submit button when using "stcr_disable_subscription" custom field
+* **Tweak** Bump up WP "tested up to" version to 5.7
+
 = v210126 = 
 * **New** Option to disable the "subscribe without commenting" and "request management link" pages. ( WP Admin > StCR > Management Page )
 
