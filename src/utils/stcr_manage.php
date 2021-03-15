@@ -723,20 +723,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end add_column
 
 		/**
-		 * Contextual help (link to the support forum)
-         * @deprecated
-		 */
-		public function contextual_help( $contextual_help, $screen_id, $screen ) {
-			if ( $screen_id == 'subscribe-to-comments-reloaded/options/index' ) {
-				load_plugin_textdomain( 'subscribe-to-comments-reloaded', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
-				$contextual_help = __( 'Need help on how to use Subscribe to Comments Reloaded? Visit the official', 'subscribe-to-comments-reloaded' ) . ' <a href="http://wordpress.org/tags/subscribe-to-comments-reloaded?forum_id=10" target="_blank">' . __( 'support forum', 'subscribe-to-comments-reloaded' ) . '</a>. ';
-			}
-
-			return $contextual_help;
-		}
-		// end contextual_help
-
-		/**
 		 * Returns the URL of the management page as a shortcode
 		 */
 		public function subscribe_url_shortcode() {

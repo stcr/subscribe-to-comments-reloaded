@@ -196,9 +196,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 // admin notices
                 add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
-                // contextual help
-                add_action( 'contextual_help', array( $this, 'contextual_help' ), 10, 3 );
-
                 // shortcodes to use the management URL sitewide
                 add_shortcode( 'subscribe-url', array( $this, 'subscribe_url_shortcode' ) );
 
