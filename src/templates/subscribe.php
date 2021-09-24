@@ -25,7 +25,7 @@ if ( $use_captcha == 'yes' ) {
     $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
     if ( isset( $_POST['g-recaptcha-response'] ) ) {
         $captcha = $_POST['g-recaptcha-response'];
-        $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+        $captcha_result = wp_remote_post( 'https://www.recaptcha.net/recaptcha/api/siteverify', array(
             'method' => 'POST',
             'body' => array(
                 'secret' => $captcha_secret_key,
