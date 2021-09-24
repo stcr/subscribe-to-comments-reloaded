@@ -647,7 +647,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 				// if we are on the management page, add the script
                 if ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) {
-                    wp_enqueue_script( 'stcr-google-recaptcha', 'https://www.google.com/recaptcha/api.js' );
+                    wp_enqueue_script( 'stcr-google-recaptcha', 'https://www.recaptcha.net/recaptcha/api.js' );
                 }
             }
 
