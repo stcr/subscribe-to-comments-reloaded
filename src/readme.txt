@@ -7,7 +7,7 @@ Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
 Tested up to: 5.8
-Stable tag: 210315
+Stable tag: 211019
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v211019 =
+* **Fix** Issue with STCR output on non-virtual management page
+
 = v210315 =
 * **Fix** Removed the "need help" added via "contextual_help" (deprecated)
 * **Fix** PHP 8 deprecated notice
