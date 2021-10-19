@@ -716,6 +716,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				return $_posts;
 			}
 
+			// make sure we don't call the code below twice on non-virtual page
+			if ( $virtual_page_enabled == 'no' && ! in_the_loop() ) {
+				return;
+			}
+
 			try {
 
 				// get post ID
