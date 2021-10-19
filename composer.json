@@ -12,5 +12,8 @@
     "config": {
         "vendor-dir": "src/vendor",
         "preferred-install": "dist"
+    },
+    "require-dev": {
+        "phing/phing": "2.*"
     }
 }
