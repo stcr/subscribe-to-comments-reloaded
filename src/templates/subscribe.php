@@ -20,6 +20,10 @@ $use_captcha = get_option( 'subscribe_reloaded_use_captcha', 'no' );
 $captcha_site_key = get_option( 'subscribe_reloaded_captcha_site_key', '' );
 $captcha_secret_key = get_option( 'subscribe_reloaded_captcha_secret_key', '' );
 
+if ( get_option( 'subscribe_reloaded_allow_subscribe_without_comment', 'yes' ) != 'yes' ) {
+    exit;
+}
+
 // google recaptcha confirm
 if ( $use_captcha == 'yes' ) {
     $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
