@@ -20,7 +20,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 	    public function __construct()
         {
-            set_error_handler( array( $this, 'exceptions_error_handler' ) );
+            
         }
 
         public function __destruct()
@@ -444,30 +444,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             wp_enqueue_script( $handle );
         }
 
-        /**
-         *
-         *
-         * @since
-         * @author Israel Barragan (Reedyseth)
-         *
-         * @param $severity
-         * @param $message
-         * @param $filename
-         * @param $lineno
-         */
-        function exceptions_error_handler($severity, $message, $filename, $lineno)
-        {
-            $date = date_i18n( 'Y-m-d H:i:s' );
-            // We don't want to break things out, so instead we add the error information to
-            // the log file, thus allowing us to help more on the debug / error / support of StCR.
-            $this->stcr_logger("\n [ERROR][$date] - An error occur, here is the detail information\n");
-            $this->stcr_logger(" [ERROR][SEVERITY]    - $severity\n");
-            $this->stcr_logger(" [ERROR][MESSAGE]     - $message\n");
-            $this->stcr_logger(" [ERROR][FILENAME]    - $filename\n");
-            $this->stcr_logger(" [ERROR][LINE NUMBER] - $lineno\n\n");
-
-//            throw new \ErrorException($message, 0, $severity,$filename, $lineno);
-        }
         /**
 		 * Will send an email by adding the correct headers.
 		 *
@@ -923,10 +899,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 				fclose($file);
 			}
-			// else
-			// {
-			// 	throw new \Exception("The path $file_path is not writable, please check the folder Permissions.", 1);
-			// }
+			
 		}
 	}
 }
