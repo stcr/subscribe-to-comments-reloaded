@@ -95,6 +95,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v211130 =
+* **Fix** Removed custom error handler (thanks to JakeQZ for bringing the issue to our attention)
+* **Fix** Processing form submission in subscribe.php is now stopped in case "subscribe without commenting" is enabled
+
 = v211019 =
 * **Fix** Issue with STCR output on non-virtual management page
 
