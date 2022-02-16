@@ -537,8 +537,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function register_admin_scripts( $hook ) {
 
             // paths
-            $stcr_admin_js = plugins_url( 'subscribe-to-comments-reloaded/includes/js/stcr-admin.js' );
-            $stcr_admin_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css' );
+            $stcr_admin_js = plugins_url( '/includes/js/stcr-admin.js', STCR_PLUGIN_FILE );
+            $stcr_admin_css = plugins_url( '/includes/css/stcr-admin-style.css', STCR_PLUGIN_FILE );
 
             // register scripts
             wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
@@ -597,7 +597,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 */
 		public function register_plugin_scripts() {
 
-            $stcr_font_awesome_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/font-awesome.min.css' );
+            $stcr_font_awesome_css = plugins_url( '/includes/css/font-awesome.min.css', STCR_PLUGIN_FILE );
             // Font Awesome
             if ( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" ) {
                 wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
