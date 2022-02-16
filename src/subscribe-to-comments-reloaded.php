@@ -13,10 +13,15 @@
 
 namespace stcr;
 
-// avoid direct access to this piece of code
+// Avoid direct access to this piece of code.
 if ( ! function_exists( 'add_action' ) ) {
 	header( 'Location: /' );
 	exit;
+}
+
+// Define the main plugin constant file.
+if ( ! defined( 'STCR_PLUGIN_FILE' ) ) {
+	define( 'STCR_PLUGIN_FILE', __FILE__ );
 }
 
 require_once dirname(__FILE__) . '/wp_subscribe_reloaded.php';
