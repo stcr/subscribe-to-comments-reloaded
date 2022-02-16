@@ -50,8 +50,8 @@
     "bower": "^1.8.12",
     "eslint-plugin-compat": "^2.2.0",
     "gulp": "3.9.1",
-    "gulp-eslint": "^4.0.2",
-    "gulp-sass": "^3.2.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-watch": "^5.0.0"
   }
 }
