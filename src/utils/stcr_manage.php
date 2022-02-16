@@ -647,13 +647,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a custom stylesheet file to the admin interface
 		 */
 		public function add_options_stylesheet() {
-			$stylesheet_url = plugins_url( '/', STCR_PLUGIN_FILE ) . 'style.css';
+			$stylesheet_url = plugins_url( '/style.css', STCR_PLUGIN_FILE );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
 
 		public function add_post_comments_stylesheet() {
-			$stylesheet_url = plugins_url( '/', STCR_PLUGIN_FILE ) . 'post-and-comments.css';
+			$stylesheet_url = plugins_url( '/post-and-comments.css', STCR_PLUGIN_FILE );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
@@ -672,7 +672,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column header to the Edit Comments panel
 		 */
 		public function add_column_header( $_columns ) {
-			$image_url                      = plugins_url( 'subscribe-to-comments-reloaded/images' );
+			$image_url                      = plugins_url( '/images', STCR_PLUGIN_FILE );
 			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
 			$_columns['subscribe-reloaded'] = "<span class='hidden'>" . $image_tooltip . "</span><img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
