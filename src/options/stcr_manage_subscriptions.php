@@ -36,9 +36,9 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
 </style>
 
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/datatables/media/css/jquery.dataTables.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/datatables/media/css/dataTables.bootstrap4.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 
 <div class="container-fluid">
 
@@ -325,7 +325,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                 <div class="card-body">
                     <p>
                         Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
-                        <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                        <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( plugins_url( '/images/rate.png', STCR_PLUGIN_FILE ) ); ?>" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
                     </p>
                     <p>
                         <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/" target="_blank">create a ticket</a>
@@ -336,11 +336,10 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables/media/js/jquery.dataTables.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables/media/js/dataTables.bootstrap4.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive/js/dataTables.responsive.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 
 <?php
 // Tell WP that we are going to use a resource.
