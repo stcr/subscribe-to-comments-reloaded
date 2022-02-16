@@ -360,7 +360,7 @@ if ( isset( $_POST['options'] ) ) {
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.
