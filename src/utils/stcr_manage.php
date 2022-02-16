@@ -255,7 +255,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 			// Import data from Subscribe to Comments & Co., if needed
             $this->upgrade->_import_stc_data();
-            
+
             // Import data from Subscribe to Comments by Mark Jaquith
 			$this->upgrade->_import_stc_mj_data();
 
@@ -638,7 +638,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			header( 'Content-Disposition: attachment; filename="stcr-sysinfo.txt"' );
 
 			echo stripslashes( $_POST['stcr_sysinfo'] );
-			
+
 			exit;
 
 		}
@@ -646,7 +646,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		/**
 		 * Adds a custom stylesheet file to the admin interface
 		 */
-		public function add_options_stylesheet() {			
+		public function add_options_stylesheet() {
 			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/style.css' );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
@@ -741,12 +741,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		/**
 		 * Exclude subscriptions on post duplication
-		 * 
+		 *
 		 * @since 200625
 		 */
 		public function duplicate_post_exclude_subs( $exclude ) {
 
-			return array_merge( $exclude, array( '_stcr' ) ); 
+			return array_merge( $exclude, array( '_stcr' ) );
 
 		}
 
