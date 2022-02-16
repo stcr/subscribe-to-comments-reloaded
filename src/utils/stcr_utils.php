@@ -578,7 +578,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          */
 		public function register_script_to_wp( $handle, $script_name, $path_add = "" )
         {
-            $js_resource  = plugins_url( SLUG . "/$path_add/$script_name" );
+            $js_resource  = plugins_url( "/$path_add/$script_name", STCR_PLUGIN_FILE );
             wp_register_script( $handle, $js_resource );
         }
         /**includes/js/admin
