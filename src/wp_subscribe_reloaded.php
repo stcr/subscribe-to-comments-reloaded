@@ -22,7 +22,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 	/**
 	 * Main plugin class
-     * 
+     *
      * __construct ( Constructor )
      * add_test_subscriptions ( Adds subscriptions for testing purposes )
      * define_wp_hooks ( Define the WordPress Hooks that will be used by the plugin. )
@@ -51,9 +51,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
      * comment_content_prepend ( Add custom content before comment content )
 	 */
 	class wp_subscribe_reloaded extends stcr_manage {
-		
+
 		public $stcr_i18n;
-		
+
 		/**
 		 * Constructor
 		 */
@@ -66,13 +66,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// show the checkbox - You can manually override this by adding the corresponding function in your template
 			if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' ) {
-                
+
                 if ( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
                     add_action( 'comment_form', array($this, 'subscribe_reloaded_show'), 5, 0 );
                 } else {
                     add_filter( 'comment_form_submit_field', array($this, 'subscribe_reloaded_show'), 5, 1 );
                 }
-                
+
                 // when users must be logged in to comment and current visitor is not logged in
                 add_action( 'comment_form_must_log_in_after', array($this, 'subscribe_reloaded_show'), 5, 0 );
 
@@ -98,7 +98,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Adds subscriptions for testing purposes
-		 * 
+		 *
 		 * @since 190705
 		 */
         public function add_test_subscriptions( $iterations, $post_id, $status = 'Y', $email_prefix = 'dev', $last_id_subs = 0 ) {
@@ -106,7 +106,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $this->add_subscription( $post_id, "{$email_prefix}_{$i}" . time() . "@dev.com", $status );
             }
 		}
-		
+
         /**
          * Define the WordPress Hooks that will be used by the plugin.
          *
@@ -116,7 +116,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
             // new comment posted
 			add_action( 'comment_post', array( $this, 'new_comment_posted' ), 12, 2 );
-			
+
             // add hook for the subscribe_reloaded_purge, define on the constructure so that the hook is read on time.
             add_action('_cron_subscribe_reloaded_purge', array($this, 'subscribe_reloaded_purge'), 10 );
             add_action('_cron_log_file_purge', array($this, 'log_file_purge'), 10 );
@@ -137,7 +137,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 if ( empty( $manager_page_permalink ) ) {
                     $manager_page_permalink = '/comment-subscriptions/';
                 }
-                
+
                 // remove the ending slash so both variations (with and without slash) work in the strpos check below
                 $manager_page_permalink = rtrim( $manager_page_permalink, '/' );
 
@@ -147,22 +147,22 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     $request_uri = $_SERVER['REQUEST_URI'];
                     $request_uri_arr = explode( $manager_page_permalink, $request_uri );
 
-                    // don't show management page if a "child page" 
+                    // don't show management page if a "child page"
                     if ( empty( $request_uri_arr[1] ) || $request_uri_arr[1] == '/' || strpos( $request_uri_arr[1], '/?' ) === 0 ) {
                         add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
                     }
 
                 }
-                
+
                 // filter to add custom output before comment content
 				add_filter( 'comment_text', array( $this, 'comment_content_prepend' ), 10, 2 );
-				
+
 				// script to move the subscription form
 				add_action( 'wp_footer', array( $this, 'move_form_with_js' ), 20 );
-				
+
                 // enqueue scripts
 				$this->utils->hook_plugin_scripts();
-			
+
 			// wp admin
             } else {
 
@@ -175,7 +175,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 // remove subscriptions when a comment is deleted or status changed
                 add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
 				add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
-				
+
                 // new columns in post/comment tables ( WP admin > Posts and WP admin > Comments )
                 add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
                 add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
@@ -201,12 +201,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
                 // action links for listing on WP admin > Plugins
 				add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
-				
+
                 // subscribe post authors, if auto subscribe for authors enabled
                 if ( get_option( 'subscribe_reloaded_notify_authors' ) === 'yes' ) {
                     add_action( 'publish_post', array( $this, 'subscribe_post_author' ) );
 				}
-            
+
                 // enqueue scripts
                 $this->utils->hook_admin_scripts();
 
@@ -215,17 +215,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 				// download system information file
 				add_action( 'admin_init', array( $this, 'sysinfo_download' ) );
-				
+
 				// exclude subscriptions on post duplication
 				add_filter( 'duplicate_post_blacklist_filter', array( $this, 'duplicate_post_exclude_subs' ) );
 
 			}
-			
+
         }
 
 		/**
 		 * Display the admin header menu
-		 * 
+		 *
 		 * @since 190705 Cleanup
 		 */
         public function display_admin_header () {
@@ -234,7 +234,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			$slug = 'stcr_manage_subscriptions';
 			$current_page = isset( $_GET['page'] ) ? $_GET['page'] : '';
-			
+
             // define the menu items
             $array_pages = array(
                 'stcr_manage_subscriptions' => __( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
@@ -254,15 +254,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             ?>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo $wp_locale->text_direction ?>">
-                
+
 				<a class="navbar-brand"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
-                
+
 				<div class="collapse navbar-collapse">
 
                     <ul class="navbar-nav">
-                        
+
 						<?php
-							
+
 							// go through each stcr admin page
 							foreach ( $array_pages as $page => $page_desc ) :
 
@@ -273,16 +273,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 									// dropdrown for options menu item
                                     if (  $page == 'stcr_options' ) :
-										
+
 										?>
-										<a 
-											class="nav-link dropdown-toggle <?php echo ( $current_page == $page || $current_page == 'stcr_system' ? ' stcr-active-tab' : '' ); ?>" 
-											style="padding: 5px 12px 0 0;" 
-											href="#" 
-											id="navbarDropdown" 
-											role="button" 
-											data-toggle="dropdown" 
-											aria-haspopup="true" 
+										<a
+											class="nav-link dropdown-toggle <?php echo ( $current_page == $page || $current_page == 'stcr_system' ? ' stcr-active-tab' : '' ); ?>"
+											style="padding: 5px 12px 0 0;"
+											href="#"
+											id="navbarDropdown"
+											role="button"
+											data-toggle="dropdown"
+											aria-haspopup="true"
 											aria-expanded="false">
 											<?php echo $page_desc; ?>
                                         </a>
@@ -292,24 +292,24 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 											<a class="dropdown-item" href="admin.php?page=stcr_system"><?php echo __('StCR System', 'subscribe-to-comments-reloaded'); ?></a>
 										</div>
 										<?php
-									
+
 									// regular menu items
                                     else :
-										
+
 										?>
-										<a 
-											class="navbar-brand <?php echo ( $current_page == $page ) ? ' stcr-active-tab' : ''; ?>" 
+										<a
+											class="navbar-brand <?php echo ( $current_page == $page ) ? ' stcr-active-tab' : ''; ?>"
 											href="admin.php?page=<?php echo $page; ?>">
 											<?php echo $page_desc; ?>
 										</a>
 										<?php
-										
+
 									endif;
 
                                 ?></li><?php
-							
+
 							endforeach;
-							
+
                         ?>
 
                     </ul><!-- .navbar-nav -->
@@ -323,7 +323,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Load localization files
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		function subscribe_reloaded_load_plugin_textdomain() {
@@ -334,7 +334,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Add Settings link to plugin on plugins page
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function plugin_settings_link( $links, $file ) {
@@ -349,18 +349,18 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Retrieves the comment information from the database
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function _get_comment_object( $_comment_ID ) {
-			
+
 			global $wpdb;
 
 			return $wpdb->get_row(
 				$wpdb->prepare(
 					"SELECT comment_post_ID, comment_author_email, comment_approved, comment_type, comment_parent
 					 FROM $wpdb->comments
-					 WHERE comment_ID = %d 
+					 WHERE comment_ID = %d
 					 LIMIT 1", $_comment_ID
 				), OBJECT
 			);
@@ -369,11 +369,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Takes the appropriate action, when a new comment is posted
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function new_comment_posted( $_comment_ID = 0, $_comment_status = 0 ) {
-			
+
 			// get information about the comment
 			$info = $this->_get_comment_object( $_comment_ID );
 
@@ -395,7 +395,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// process the subscription
 			if ( ! empty( $_POST['subscribe-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
-			   
+
 				// check if subscription type is valid
 				if ( in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
 
@@ -428,11 +428,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         if ( $info->comment_approved == 0 ) {
                             return $_comment_ID;
 						}
-						
+
 					}
-					
+
 				}
-				
+
 			}
 
 			// if comment approved, notify subscribed users about the comment
@@ -443,11 +443,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 					array(
 						'post_id',
 						'status'
-					), 
+					),
 					array(
 						'equals',
 						'equals'
-					), 
+					),
 					array(
 						$info->comment_post_ID,
 						'Y'
@@ -459,10 +459,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 					// merge subscriptions
 					$subscriptions = array_merge(
-						$subscriptions, 
+						$subscriptions,
 						$this->get_subscriptions(
-							'parent', 
-							'equals', 
+							'parent',
+							'equals',
 							array(
 								$info->comment_parent,
 								$info->comment_post_ID
@@ -480,10 +480,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 				// notify subscribers
 				foreach ( $subscriptions as $a_subscription ) {
-					
+
 					// skip comment author
 					if ( $a_subscription->email != $info->comment_author_email ) {
-						
+
 						// notify the user
 						$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
 
@@ -493,12 +493,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 						}
 
 					}
-					
+
 				}
 
 				// notify author
 				if ( ! $post_author_notified && get_option( 'subscribe_reloaded_notify_authors', 'no' ) == 'yes' ) {
-					
+
 					// send email to author unless the author made the comment
 					if ( $info->comment_author_email != $post_author_email ) {
 						$this->notify_user( $info->comment_post_ID, $post_author_email, $_comment_ID );
@@ -515,7 +515,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Is double check ( subscriptions need to be confirmed ) enabled
-		 * 
+		 *
 		 * @since 190705
 		 */
 		public function is_double_check_enabled( $info ) {
@@ -531,7 +531,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				array(
 					'status',
 					'email'
-				), 
+				),
 				array(
 					'equals',
 					'equals'
@@ -559,14 +559,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Actions when comments status changes ( approve/unapprove/spam/trash )
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function comment_status_changed( $_comment_ID = 0, $_comment_status = 0 ) {
 
 			// get information about the comment
 			$info = $this->_get_comment_object( $_comment_ID );
-			
+
 			// return, no information found
 			if ( empty( $info ) ) {
 				return $_comment_ID;
@@ -577,7 +577,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 				// unapproved
 				case '0':
-					
+
 					$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, 'C' );
 					break;
 
@@ -585,7 +585,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				case '1':
 
 					$this->update_subscription_status( $info->comment_post_ID, $info->comment_author_email, '-C' );
-					
+
 					// get subscriptions
 					$subscriptions = $this->get_subscriptions(
 						array(
@@ -604,8 +604,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 						$subscriptions = array_merge(
 							$subscriptions, $this->get_subscriptions(
-								'parent', 
-								'equals', 
+								'parent',
+								'equals',
 								array(
 									$info->comment_parent,
 									$info->comment_post_ID
@@ -630,7 +630,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				case 'trash':
 
 				case 'spam':
-					
+
 					// perform the same actions as if it were deleted
 					$this->comment_deleted( $_comment_ID );
 					break;
@@ -647,7 +647,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Actions when comment is deleted
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function comment_deleted( $_comment_ID ) {
@@ -666,8 +666,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$count_approved_comments = $wpdb->get_var(
 				"SELECT COUNT(*)
 				 FROM $wpdb->comments
-				 WHERE comment_post_ID = '$info->comment_post_ID' 
-				 	AND comment_author_email = '$info->comment_author_email' 
+				 WHERE comment_post_ID = '$info->comment_post_ID'
+					AND comment_author_email = '$info->comment_author_email'
 					AND comment_approved = 1"
 			);
 
@@ -682,7 +682,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Subscribe the post author
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function subscribe_post_author( $_post_ID ) {
@@ -694,15 +694,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				$this->add_subscription( $_post_ID, $author_email, 'Y' );
 			}
 
-		}	
+		}
 
 		/**
 		 * Displays the appropriate management page
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function subscribe_reloaded_manage( $_posts = '', $_query = '' ) {
-			
+
 			// vars
 			global $current_user;
 			$stcr_unique_key = get_option( 'subscribe_reloaded_unique_key' );
@@ -735,7 +735,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// vars
                 $action = !empty($_POST['sra']) ? $_POST['sra'] : (!empty($_GET['sra']) ? $_GET['sra'] : 0);
                 $key = !empty($_POST['srk']) ? $_POST['srk'] : (!empty($_GET['srk']) ? $_GET['srk'] : 0);
-                
+
                 $sre = !empty($_POST['sre']) ? $_POST['sre'] : (!empty($_GET['sre']) ? $_GET['sre'] : '');
                 if ( is_user_logged_in() ) {
                     $sre = $current_user->data->user_email;
@@ -744,16 +744,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $srek = !empty($_POST['srek']) ? $_POST['srek'] : (!empty($_GET['srek']) ? $_GET['srek'] : '');
                 $link_source = !empty($_POST['srsrc']) ? $_POST['srsrc'] : (!empty($_GET['srsrc']) ? $_GET['srsrc'] : '');
                 $key_expired = !empty($_POST['key_expired']) ? $_POST['key_expired'] : (!empty($_GET['key_expired']) ? $_GET['key_expired'] : '0');
-				
+
 				// check if the current subscriber has valid email using the $srek key.
 				$email_by_key = $this->utils->get_subscriber_email_by_key($srek);
-				
+
                 // stop if invalid SRE key
                 if ( ! $email_by_key && ! empty( $srek ) ) {
 
                     $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n");
 					$email = '';
-					
+
 				// valid key, proceed
                 } else {
 
@@ -766,12 +766,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     } else {
                         $email = '';
 					}
-					
+
 				}
-				
+
                 // comes from the comment form.
                 if ($link_source == 'f') {
-					
+
 					// Check for a valid SRK key, until this point we know the email is correct but the $key has expired/change
                     // or is wrong, in that case display the request management page template
                     if ($email !== "" && $key !== 0 && $stcr_unique_key !== $key || $key_expired == "1") {
@@ -782,7 +782,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                             $error_exits = true;
                         }
 					}
-					
+
 				// comes from email link
                 } else if ($link_source == 'e') {
 
@@ -794,13 +794,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                             $error_exits = true;
                         }
 					}
-					
+
                 }
 
 				// error found, show message
                 if ($error_exits) {
 					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/key_expired.php';
-					
+
 				// all fine, proceed
                 } else {
 
@@ -811,13 +811,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         ($post_ID > 0) &&
                         $key_expired != "1"
                     ) {
-						
+
 						if ( get_option( 'subscribe_reloaded_allow_subscribe_without_comment', 'yes' ) == 'yes' ) {
 							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
 						} else {
 							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/not-allowed.php';
 						}
-						
+
 					// post author
 					} elseif (
 						($post_ID > 0) &&
@@ -825,7 +825,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     ) {
 
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
-						
+
 					// confirm subscription
                     } elseif (
 						($post_ID > 0) &&
@@ -839,7 +839,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     ) {
 
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
-						
+
 					// unsubscribe
                     } elseif (
 						($post_ID > 0) &&
@@ -850,7 +850,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         ($action == 'u') &&
                         $key_expired != "1"
                     ) {
-						
+
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
 
 					// user management page
@@ -858,15 +858,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 						!empty($email) &&
                         ($key !== 0 && $this->utils->_is_valid_key($key, $email) || (!empty($current_user->data->user_email) && ($current_user->data->user_email === $email && current_user_can('read'))))
                     ) {
-						
+
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
-					
+
 					// wrong request
                     } elseif (
 						!empty($email) &&
                         ($key === 0 && (!empty($current_user->data->user_email) && ($current_user->data->user_email !== $email)))
                     ) {
-						
+
 						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/wrong-request.php';
 
                     }
@@ -879,9 +879,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 						} else {
 							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/not-allowed.php';
 						}
-						
+
 					}
-					
+
 				}
 
                 global $wp_query;
@@ -938,7 +938,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
                 // Seems like WP adds its own HTML formatting code to the content, we don't need that here
 				remove_filter('the_content', 'wpautop');
-				
+
                 // Look like the plugin is call twice and therefor subscribe to the "the_posts" filter again so we need to
                 // tell to WordPress to not register again.
                 remove_filter("the_posts", array($this, "subscribe_reloaded_manage"));
@@ -949,17 +949,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
                 $this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getMessage()\n" );
 				$this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getTraceAsString()\n" );
-				
+
 			}
 
 			// return filtered posts
 			return $posts;
 
 		}
-		
+
 		/**
 		 * Checks if current logged in user is the author
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function is_author( $_post_author ) {
@@ -971,7 +971,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Checks if a given email address is subscribed to a post
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function is_user_subscribed( $_post_ID = 0, $_email = '', $_status = '' ) {
@@ -990,7 +990,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				array(
 					'post_id',
 					'status'
-				), 
+				),
 				array(
 					'equals',
 					$operator
@@ -1020,10 +1020,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			return false;
 
 		}
-		
+
 		/**
 		 * Adds a new subscription
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function add_subscription( $_post_id = 0, $_email = '', $_status = 'Y' ) {
@@ -1046,7 +1046,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// sanitize email
 			$clean_email = $this->utils->clean_email( $_email );
-			
+
 			// insert subscriber into postmeta
 			$wpdb->query( $wpdb->prepare(
 				"INSERT IGNORE INTO $wpdb->postmeta (post_id, meta_key, meta_value)
@@ -1064,12 +1064,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// Insert user into subscribe_reloaded_subscribers table
 			// TODO: Only on this section the user should be added to the subscribers table. On the send confirmation email is repeating this method.
 			$OK = $this->utils->add_user_subscriber_table( $clean_email );
-			
+
 		}
-		
+
 		/**
 		 * Deletes one or more subscriptions from the database
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function delete_subscriptions( $_post_id = 0, $_email = '' ) {
@@ -1132,7 +1132,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			}
 
 		}
-		
+
 		/**
 		 * The function must search for subscription by a given post id.
 		 *
@@ -1145,9 +1145,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 * 						if $in is false the it could return the subscriptions or false, false means not found
 		 */
 		public function retrieve_user_subscriptions( $_post_id, $_email, $in = false ) {
-			
+
 			global $wpdb;
-			
+
 			$meta_key = '_stcr@_';
 			$in_values = '';
 
@@ -1164,7 +1164,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// array of posts
 			} else {
-				
+
 				$in_values = implode( ',', $_post_id );
 
 				if ( ! $in ) {
@@ -1183,7 +1183,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Updates the status of an existing subscription
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function update_subscription_status( $_post_id = 0, $_email = '', $_new_status = 'C' ) {
@@ -1208,7 +1208,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 					}
 					$posts_where = substr( $posts_where, 0, - 4 );
 				}
-			
+
 			// all posts
 			} else {
 				$posts_where = '1=1';
@@ -1239,7 +1239,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Updates the email address of an existing subscription
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function update_subscription_email( $_post_id = 0, $_email = '', $_new_email = '' ) {
@@ -1281,14 +1281,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			return false;
 
 		}
-		
+
 		/**
 		 * Retrieves a list of emails subscribed to a specific post
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function get_subscriptions( $_search_field = array( 'email' ), $_operator = array( 'equals' ), $_search_value = array( '' ), $_order_by = 'dt', $_order = 'ASC', $_offset = 0, $_limit_results = 0 ) {
-			
+
 			global $wpdb;
 
 			// Type adjustments
@@ -1401,14 +1401,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			}
 
 		}
-		
+
 		/**
 		 * Sends the notification message to a given user
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		public function notify_user( $_post_ID = 0, $_email = '', $_comment_ID = 0 ) {
-			
+
 			// vars
 			$post                    = get_post( $_post_ID );
 			$comment                 = get_comment( $_comment_ID );
@@ -1416,7 +1416,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$comment_permalink       = get_comment_link( $_comment_ID );
 			$comment_reply_permalink = get_permalink( $_post_ID ) . '?replytocom=' . $_comment_ID . '#respond';
             $info                    = $this->_get_comment_object( $_comment_ID );
-			
+
 			// WPML compatibility
 			if ( defined('ICL_SITEPRESS_VERSION') && defined('ICL_LANGUAGE_CODE') ) {
 				global $sitepress;
@@ -1485,10 +1485,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$this->utils->send_email( $email_settings );
 
 		}
-		
+
 		/**
 		 * Displays the checkbox to allow visitors to subscribe
-		 * 
+		 *
 		 * @since 190705 cleanup
 		 */
 		function subscribe_reloaded_show( $submit_field = '' ) {
@@ -1667,11 +1667,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 		/**
 		 * Set a cookie if the user just subscribed without commenting
-		 * 
+		 *
 		 * @since 190705
 		 */
 		public function set_user_cookie() {
-			
+
 			$subscribe_to_comments_action  = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
 			$subscribe_to_comments_post_ID = ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 );
 
@@ -1699,7 +1699,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
         /**
          * Add custom output before comment content
-         * 
+         *
          * @since 190801
          */
         public function comment_content_prepend( $comment_text, $comment = null ) {
@@ -1712,7 +1712,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             global $wp_subscribe_reloaded;
             global $post;
 
-            $prepend = '';            
+            $prepend = '';
 
             // comment held for moderation and email is subscribed to the post
             if ( $comment->comment_approved == '0' && $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, $comment->comment_author_email, 'C' ) ) {
@@ -1723,10 +1723,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             return $prepend . $comment_text;
 
 		}
-		
+
 		/**
 		 * Move form with JS
-		 * 
+		 *
 		 * @since 200626
 		 */
 		public function move_form_with_js() {
@@ -1736,7 +1736,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			if ( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
 				$output .= '<script type="text/javascript">document.addEventListener("DOMContentLoaded",function(){if(document.querySelectorAll("div.stcr-form").length){let e=document.querySelectorAll("div.stcr-form")[0],t=document.querySelectorAll("#commentform input[type=submit]")[0];t.parentNode.insertBefore(e,t),e.classList.remove("stcr-hidden")}});</script>';
 			}
-			
+
 			echo $output;
 
 		}
