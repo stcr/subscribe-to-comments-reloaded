@@ -517,14 +517,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_notifications.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_notifications.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_notifications.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_notifications.php';
 				}
 			}
 		}
@@ -544,14 +544,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_options.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_options.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_options.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_options.php';
 				}
 			}
 		}
