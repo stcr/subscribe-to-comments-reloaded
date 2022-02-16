@@ -24,7 +24,7 @@ if ( ! defined( 'STCR_PLUGIN_FILE' ) ) {
 	define( 'STCR_PLUGIN_FILE', __FILE__ );
 }
 
-require_once dirname(__FILE__) . '/wp_subscribe_reloaded.php';
+require_once dirname( STCR_PLUGIN_FILE ) . '/wp_subscribe_reloaded.php';
 
 if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 
@@ -55,7 +55,7 @@ if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 		 * @since 150720
 		 */
 		static function activate() {
-			require_once dirname(__FILE__).'/utils/stcr_manage.php';
+			require_once dirname( STCR_PLUGIN_FILE ) . '/utils/stcr_manage.php';
 			$_stcra = new stcr_manage();
 			$_stcra->activate();
 		}
@@ -66,7 +66,7 @@ if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 		 * @since 150720
 		 */
 		static function deactivate() {
-			require_once dirname(__FILE__).'/utils/stcr_manage.php';
+			require_once dirname( STCR_PLUGIN_FILE ) . '/utils/stcr_manage.php';
 			$_stcrd = new stcr_manage();
 			$_stcrd->deactivate();
 		}
@@ -74,14 +74,14 @@ if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 	}
 
 	// plugin activation
-	register_activation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'activate' ) );
+	register_activation_hook( STCR_PLUGIN_FILE, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'activate' ) );
 
 	// plugin deactivation
-	register_deactivation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'deactivate' ) );
+	register_deactivation_hook( STCR_PLUGIN_FILE, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'deactivate' ) );
 
 	// instantiate stcr_subscribe_reloaded class
-	if (  ! isset( $GLOBALS['wp_subscribe_reloaded'] ) ) {
-        $GLOBALS['wp_subscribe_reloaded'] = new stcr_subscribe_reloaded();
+	if ( ! isset( $GLOBALS['wp_subscribe_reloaded'] ) ) {
+		$GLOBALS['wp_subscribe_reloaded'] = new stcr_subscribe_reloaded();
 	}
 
 }
