@@ -799,7 +799,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 				// error found, show message
                 if ($error_exits) {
-					$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/key_expired.php';
+					$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/key_expired.php';
 
 				// all fine, proceed
                 } else {
@@ -813,9 +813,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     ) {
 
 						if ( get_option( 'subscribe_reloaded_allow_subscribe_without_comment', 'yes' ) == 'yes' ) {
-							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/subscribe.php';
+							$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/subscribe.php';
 						} else {
-							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/not-allowed.php';
+							$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/not-allowed.php';
 						}
 
 					// post author
@@ -824,7 +824,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         $this->is_author($target_post->post_author)
                     ) {
 
-						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/author.php';
+						$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/author.php';
 
 					// confirm subscription
                     } elseif (
@@ -838,7 +838,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         $key_expired != "1"
                     ) {
 
-						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/confirm.php';
+						$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/confirm.php';
 
 					// unsubscribe
                     } elseif (
@@ -851,7 +851,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         $key_expired != "1"
                     ) {
 
-						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/one-click-unsubscribe.php';
+						$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/one-click-unsubscribe.php';
 
 					// user management page
                     } elseif (
@@ -859,7 +859,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         ($key !== 0 && $this->utils->_is_valid_key($key, $email) || (!empty($current_user->data->user_email) && ($current_user->data->user_email === $email && current_user_can('read'))))
                     ) {
 
-						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/user.php';
+						$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/user.php';
 
 					// wrong request
                     } elseif (
@@ -867,7 +867,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         ($key === 0 && (!empty($current_user->data->user_email) && ($current_user->data->user_email !== $email)))
                     ) {
 
-						$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/wrong-request.php';
+						$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/wrong-request.php';
 
                     }
 
@@ -875,9 +875,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                     if (empty($include_post_content)) {
 
 						if ( get_option( 'subscribe_reloaded_allow_request_management_link', 'yes' ) == 'yes' ) {
-							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/request-management-link.php';
+							$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/request-management-link.php';
 						} else {
-							$include_post_content = include WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/templates/not-allowed.php';
+							$include_post_content = include trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'templates/not-allowed.php';
 						}
 
 					}
