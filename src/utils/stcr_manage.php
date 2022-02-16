@@ -647,13 +647,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a custom stylesheet file to the admin interface
 		 */
 		public function add_options_stylesheet() {
-			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/style.css' );
+			$stylesheet_url = plugins_url( '/', STCR_PLUGIN_FILE ) . 'style.css';
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
 
 		public function add_post_comments_stylesheet() {
-			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/post-and-comments.css' );
+			$stylesheet_url = plugins_url( '/', STCR_PLUGIN_FILE ) . 'post-and-comments.css';
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
