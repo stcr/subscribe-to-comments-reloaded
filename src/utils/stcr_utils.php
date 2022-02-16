@@ -20,7 +20,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 	    public function __construct()
         {
-            
+
         }
 
         public function __destruct()
@@ -268,7 +268,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * Creates the HTML structure to properly handle HTML messages
 		 */
 		public function wrap_html_message( $_message = '', $_subject = '' ) {
-            
+
             global $wp_locale;
 
             // HTML emails
@@ -289,7 +289,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                     $body = "<body>$_message</body>";
                     return $html . $head . $body . "</html>";
                 }
-            
+
             // Plain text emails
             } else {
 
@@ -303,7 +303,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * Returns an email address where some possible 'offending' strings have been removed
 		 */
 		public function clean_email( $_email ) {
-            
+
             if ( is_array( $_email) || is_object( $_email ) ) {
                 return;
             }
@@ -319,7 +319,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			);
 
             return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
-            
+
 		}
 		// end clean_email
 
@@ -391,7 +391,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_delete_options_subscriptions', 'no', '', 'no' );
             add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
-            add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );            
+            add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );
 
         }
         /**
@@ -537,8 +537,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function register_admin_scripts( $hook ) {
 
             // paths
-            $stcr_admin_js = plugins_url( 'subscribe-to-comments-reloaded/includes/js/stcr-admin.js' );
-            $stcr_admin_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css' );
+            $stcr_admin_js = plugins_url( '/includes/js/stcr-admin.js', STCR_PLUGIN_FILE );
+            $stcr_admin_css = plugins_url( '/includes/css/stcr-admin-style.css', STCR_PLUGIN_FILE );
 
             // register scripts
             wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
@@ -548,7 +548,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             // check if we're on our pages
             if ( strpos( $hook, 'stcr' ) !== false ) {
-                
+
                 // enqueue scripts
                 wp_enqueue_script('stcr-admin-js');
 
@@ -578,7 +578,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          */
 		public function register_script_to_wp( $handle, $script_name, $path_add = "" )
         {
-            $js_resource  = plugins_url( SLUG . "/$path_add/$script_name" );
+            $js_resource  = plugins_url( "/$path_add/$script_name", STCR_PLUGIN_FILE );
             wp_register_script( $handle, $js_resource );
         }
         /**includes/js/admin
@@ -596,8 +596,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @author reedyseth
 		 */
 		public function register_plugin_scripts() {
-            
-            $stcr_font_awesome_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/font-awesome.min.css' );
+
+            $stcr_font_awesome_css = plugins_url( '/includes/css/font-awesome.min.css', STCR_PLUGIN_FILE );
             // Font Awesome
             if ( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" ) {
                 wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
@@ -606,7 +606,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             // google recaptcha
             if ( get_option( 'subscribe_reloaded_use_captcha', 'no' ) == 'yes' ) {
-                
+
                 // management page permalink
                 $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
                 if ( function_exists( 'qtrans_convertURL' ) ) {
@@ -617,7 +617,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                 if ( empty( $manager_page_permalink ) ) {
                     $manager_page_permalink = '/comment-subscriptions/';
                 }
-                
+
                 // remove the ending slash so both variations (with and without slash) work in the strpos check below
                 $manager_page_permalink = rtrim( $manager_page_permalink, '/' );
 
@@ -848,7 +848,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             return;
         }
-        
+
 		/**
 		 * Update a StCR notification status
 		 *
@@ -899,7 +899,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 				fclose($file);
 			}
-			
+
 		}
 	}
 }

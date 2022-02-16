@@ -9,8 +9,8 @@ global $wp_locale;
 
 ?>
 
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/bootstrap/dist/css/bootstrap.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 <style type="text/css">
     #wpcontent {
         background: #f1f1f1 !important;
@@ -23,5 +23,4 @@ global $wp_locale;
     .navbar a { font-size: 1em !important; font-weight: 600; color: #464646 !important;}
 </style>
 
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/bootstrap/dist/js/bootstrap.bundle.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>

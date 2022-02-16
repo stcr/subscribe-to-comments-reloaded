@@ -62,7 +62,7 @@ if ( isset( $_POST['options'] ) ) {
 wp_print_scripts( 'quicktags' );
 
 ?>
-    <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
+    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 
     <div class="container-fluid">
         <div class="mt-3"></div>
@@ -231,8 +231,8 @@ wp_print_scripts( 'quicktags' );
                             </div>
                         </div>
                     </div>
-                    
-                    <?php 
+
+                    <?php
                         $disallowed_tags = array();
                         $management_page_message = $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_content' );
                         if ( empty( $management_page_message ) ) { $management_page_message = ''; }
@@ -253,7 +253,7 @@ wp_print_scripts( 'quicktags' );
                         </label>
                         <div class="clearfix"></div>
                         <div class="col-sm-9 offset-sm-1" <?php if ( empty( $disallowed_tags ) ) { echo 'style="margin-top:-30px;"'; } ?>>
-                            
+
                             <?php if ( ! empty( $disallowed_tags ) ) : ?>
                                 <p class="notice notice-error" style="margin: 0;padding:8px;">
                                     <?php foreach ( $disallowed_tags as $disallowed_tag_id => $disallowed_tag_message ) : ?>
@@ -346,7 +346,7 @@ wp_print_scripts( 'quicktags' );
                     <div class="card-body">
                         <p>
                             Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
-                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( plugins_url( '/images/rate.png', STCR_PLUGIN_FILE ) ); ?>" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
                         </p>
                         <p>
                             <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/" target="_blank">create a ticket</a>
@@ -357,8 +357,8 @@ wp_print_scripts( 'quicktags' );
 
         </div>
     </div>
-    
-    <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.js"></script>
+
+    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.
