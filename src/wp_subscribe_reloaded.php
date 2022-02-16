@@ -255,7 +255,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo $wp_locale->text_direction ?>">
 
-				<a class="navbar-brand"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/stcr-logo-150.png" alt="" width="25" height="19"></a>
+				<a class="navbar-brand"><img src="<?php echo plugins_url( '/images/stcr-logo-150.png', STCR_PLUGIN_FILE ); ?>" alt="" width="25" height="19"></a>
 
 				<div class="collapse navbar-collapse">
 
