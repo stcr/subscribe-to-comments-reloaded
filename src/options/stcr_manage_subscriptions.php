@@ -7,13 +7,13 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 
 $action = esc_attr( ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' ) );
 if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
-	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-' . $action . '.php';
+	require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-' . $action . '.php';
 
 	return;
 }
-if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1-business-logic.php" ) ) {
+if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-business-logic.php' ) ) {
 
-	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-business-logic.php';
+	require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-business-logic.php';
 
     // Display an alert in the admin interface if the email is wrong or the post id is not a number.
     if ( ! $valid_email )
