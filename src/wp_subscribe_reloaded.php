@@ -339,7 +339,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
 		public function plugin_settings_link( $links, $file ) {
 
-			if ( $file == 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' ) {
+			if ( plugin_basename( STCR_PLUGIN_FILE ) == $file ) {
 				$links['settings'] = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_options' ), __( 'Settings', 'subscribe-to-comments-reloaded' ) );
 			}
 
