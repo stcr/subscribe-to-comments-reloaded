@@ -31,6 +31,7 @@ $options = array(
     'use_captcha'                  => 'yesno',
     'captcha_site_key'             => 'text',
     'captcha_secret_key'           => 'text',
+    'blacklisted_emails'           => 'textarea',
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -610,6 +611,23 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( "The secret key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "The secret key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="blacklisted_emails" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Blacklisted Emails', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <textarea name="options[blacklisted_emails]" id="blacklisted_emails"
+                                   class="form-control form-control-input-9" cols="10" rows="6"
+                                   ><?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'blacklisted_emails', '' ) ); ?></textarea>
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Add a comma separated list of emails to blacklist them from subscribing to comments. Example: example@example.com, mail@mail.com", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Add a comma separated list of emails to blacklist them from subscribing to comments. Example: example@example.com, mail@mail.com", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
