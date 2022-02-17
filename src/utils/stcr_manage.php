@@ -99,13 +99,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end new_blog
 
 		public function sendConfirmationEMail( $info ) {
-			$has_blacklist_email = $this->utils->blacklisted_emails( $info->comment_author_email );
-			// Do not proceed on sending the confirmation email if the email
-			// address is in blacklist email list.
-			if ( false === $has_blacklist_email ) {
-				return;
-			}
-
 			// Retrieve the information about the new comment.
 			$this->confirmation_email( $info->comment_post_ID, $info->comment_author_email );
 		}
