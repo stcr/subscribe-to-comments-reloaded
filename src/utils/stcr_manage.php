@@ -107,6 +107,22 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Sends a message to confirm a subscription
 		 */
 		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
+			// If the emails is blacklisted then, do not proceed to send the subscription confirmation email.
+			$blacklisted_emails = get_option( 'subscribe_reloaded_blacklisted_emails', '' );
+			$email_blacklist    = ! empty( $blacklisted_emails ) ? explode( ',', $blacklisted_emails ) : false;
+
+			if ( is_array( $email_blacklist ) ) {
+				foreach ( $email_blacklist as $blacklist_item ) {
+					$blacklisted_items = trim( $blacklist_item );
+
+					if ( ! empty( trim( $blacklisted_items ) ) ) {
+						if ( is_email( $_email ) === is_email( $blacklisted_items ) ) {
+							return;
+						}
+					}
+				}
+			}
+
 			// Retrieve the options from the database
 			$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
 			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
