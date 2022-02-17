@@ -147,7 +147,7 @@ if ( ! empty( $email ) ) {
             'toEmail'      => $clean_email
         );
 
-		$has_blacklist_email = $this->utils->blacklisted_emails( $email );
+		$has_blacklist_email = $this->utils->blacklisted_emails( $clean_email );
 		// Send the confirmation email only if the email
 		// address is not in blacklist email list.
 		if ( $has_blacklist_email ) {
