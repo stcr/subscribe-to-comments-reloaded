@@ -483,6 +483,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 					// skip comment author
 					if ( $a_subscription->email != $info->comment_author_email ) {
+						$has_blacklist_email = $this->utils->blacklisted_emails( $a_subscription->email );
+						// Do not proceed on sending the new comment email, if the email
+						// address is already in blacklist email list.
+						if ( false === $has_blacklist_email ) {
+							continue;
+						}
 
 						// notify the user
 						$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
