@@ -1048,6 +1048,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
 		public function add_subscription( $_post_id = 0, $_email = '', $_status = 'Y' ) {
 
+			$has_blacklist_email = $this->utils->blacklisted_emails( $_email );
+			// Do not proceed on adding the email address in subscription table,
+			// if the email address is already in blacklist email list.
+			if ( false === $has_blacklist_email ) {
+				return;
+			}
+
 			global $wpdb;
 
 			// does the post exist?
