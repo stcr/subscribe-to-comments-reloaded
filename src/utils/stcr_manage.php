@@ -114,6 +114,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Sends a message to confirm a subscription
 		 */
 		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
+			$has_blacklist_email = $this->utils->blacklisted_emails( $_email );
+			// Do not proceed on sending the confirmation email if the email
+			// address is in blacklist email list.
+			if ( false === $has_blacklist_email ) {
+				return;
+			}
+
 			// Retrieve the options from the database
 			$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
 			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
