@@ -507,6 +507,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 					// send email to author unless the author made the comment
 					if ( $info->comment_author_email != $post_author_email ) {
+						$has_blacklist_email = $this->utils->blacklisted_emails( $info->comment_author_email );
+						// Do not proceed on sending the new comment email, if the email
+						// address is already in blacklist email list.
+						if ( false === $has_blacklist_email ) {
+							return;
+						}
+
 						$this->notify_user( $info->comment_post_ID, $post_author_email, $_comment_ID );
 					}
 
