@@ -32,6 +32,7 @@ $options = array(
 	'captcha_site_key'             => 'text',
 	'captcha_secret_key'           => 'text',
 	'blacklisted_emails'           => 'textarea',
+	'unique_key'                   => '',
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
