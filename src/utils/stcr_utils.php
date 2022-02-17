@@ -393,6 +393,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
             add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );
 
+            add_option( 'subscribe_reloaded_blacklisted_emails', '', '', 'yes' );
         }
         /**
          * @since 08-February-2018
