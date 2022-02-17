@@ -67,10 +67,10 @@ ob_start();
 
 // email address supplied
 if ( ! empty( $email ) ) {
-    
+
     // check email validity
     $stcr_post_email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $email );
-    
+
     // check challenge question validity
     if ( $challenge_question_state == 'yes' ) {
         $challenge_user_answer = sanitize_text_field( $_POST['subscribe_reloaded_challenge'] );
@@ -90,7 +90,7 @@ if ( ! empty( $email ) ) {
     if ( ! $valid_captcha ) {
         $valid_all = false;
     }
-        
+
     // email is valid
     if ( $valid_all ) {
 
@@ -122,20 +122,25 @@ if ( ! empty( $email ) ) {
 
         // notify the administrator about the new subscription
         if ( get_option( 'subscribe_reloaded_enable_admin_messages' ) == 'yes' ) {
-            
+
             $from_name  = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
             $from_email = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 
             $subject = __( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title";
             $message = __( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title\n" . __( 'User:', 'subscribe-to-comments-reloaded' ) . " $clean_email";
-            
+
             $email_settings = array(
                 'subject'      => $subject,
                 'message'      => $message,
                 'toEmail'      => get_bloginfo( 'admin_email' )
             );
-            
-            $wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+
+			$has_blacklist_email = $this->utils->blacklisted_emails( $email );
+			// Send the confirmation email only if the email
+			// address is not in blacklist email list.
+			if ( $has_blacklist_email ) {
+				$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+			}
 
         }
 
@@ -144,7 +149,7 @@ if ( ! empty( $email ) ) {
             $wp_subscribe_reloaded->stcr->add_subscription( $post_ID, $clean_email, 'YC' );
             $wp_subscribe_reloaded->stcr->confirmation_email( $post_ID, $clean_email );
             $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscription_confirmed_dci' ) ), ENT_QUOTES, 'UTF-8' );
-        
+
         // not double check, add subscription
         } else {
             $this->add_subscription( $post_ID, $clean_email, 'Y' );
@@ -188,7 +193,7 @@ if ( ! empty( $email ) ) {
 
     // output the form
 
-    
+
     ?>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]); ?>" method="post" name="sub-form">
         <fieldset style="border:0">
@@ -239,7 +244,7 @@ if ( ! $valid_all ) {
     ?>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            
+
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
                     <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
@@ -265,7 +270,7 @@ if ( ! $valid_all ) {
             <?php if ( ! $valid_email ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
-            
+
             <?php if ( ! $valid_challenge ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
