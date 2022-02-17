@@ -99,14 +99,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end new_blog
 
 		public function sendConfirmationEMail( $info ) {
-			// Retrieve the information about the new comment
-			$this->confirmation_email( $info->comment_post_ID, $info->comment_author_email );
-		}
-
-		/**
-		 * Sends a message to confirm a subscription
-		 */
-		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
 			// If the emails is blacklisted then, do not proceed to send the subscription confirmation email.
 			$blacklisted_emails = get_option( 'subscribe_reloaded_blacklisted_emails', '' );
 			$email_blacklist    = ! empty( $blacklisted_emails ) ? explode( ',', $blacklisted_emails ) : false;
@@ -116,13 +108,21 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 					$blacklisted_items = trim( $blacklist_item );
 
 					if ( ! empty( trim( $blacklisted_items ) ) ) {
-						if ( is_email( $_email ) === is_email( $blacklisted_items ) ) {
+						if ( is_email( $info->comment_author_email ) === is_email( $blacklisted_items ) ) {
 							return;
 						}
 					}
 				}
 			}
 
+			// Retrieve the information about the new comment.
+			$this->confirmation_email( $info->comment_post_ID, $info->comment_author_email );
+		}
+
+		/**
+		 * Sends a message to confirm a subscription
+		 */
+		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
 			// Retrieve the options from the database
 			$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
 			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
