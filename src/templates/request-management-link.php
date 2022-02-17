@@ -82,7 +82,7 @@ if ( ! empty( $email ) ) {
             $valid_all = false;
         }
     }
-    
+
     // email is invalid
     if ( $stcr_post_email === false ) {
         $valid_email = false;
@@ -147,7 +147,12 @@ if ( ! empty( $email ) ) {
             'toEmail'      => $clean_email
         );
 
-        $wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+		$has_blacklist_email = $this->utils->blacklisted_emails( $email );
+		// Send the confirmation email only if the email
+		// address is not in blacklist email list.
+		if ( $has_blacklist_email ) {
+			$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+		}
 
         echo wpautop( $page_message );
 
@@ -157,7 +162,7 @@ if ( ! empty( $email ) ) {
 } else {
 
     $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
-    
+
     // get email address
     $email = '';
     if ( isset($current_user_email) ) {
@@ -206,7 +211,7 @@ if ( ! empty( $email ) ) {
     <?php
 
     if ( isset( $post_permalink ) ) {
-        echo '<p id="subscribe-reloaded-update-p"> 
+        echo '<p id="subscribe-reloaded-update-p">
             <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-to-comments-reloaded').'</a>
           </p>';
     }
@@ -217,7 +222,7 @@ if ( ! empty( $email ) ) {
 if( ! $valid_all ) {
 
     $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
-    
+
     if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
         $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
     }
@@ -226,7 +231,7 @@ if( ! $valid_all ) {
     <p><?php echo wpautop( $message ); ?></p>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            
+
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
                     <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
@@ -254,7 +259,7 @@ if( ! $valid_all ) {
             <?php if ( ! $valid_email ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
-            
+
             <?php if ( ! $valid_challenge ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
