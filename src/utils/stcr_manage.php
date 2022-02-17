@@ -99,20 +99,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end new_blog
 
 		public function sendConfirmationEMail( $info ) {
-			// If the emails is blacklisted then, do not proceed to send the subscription confirmation email.
-			$blacklisted_emails = get_option( 'subscribe_reloaded_blacklisted_emails', '' );
-			$email_blacklist    = ! empty( $blacklisted_emails ) ? explode( ',', $blacklisted_emails ) : false;
-
-			if ( is_array( $email_blacklist ) ) {
-				foreach ( $email_blacklist as $blacklist_item ) {
-					$blacklisted_items = trim( $blacklist_item );
-
-					if ( ! empty( trim( $blacklisted_items ) ) ) {
-						if ( is_email( $info->comment_author_email ) === is_email( $blacklisted_items ) ) {
-							return;
-						}
-					}
-				}
+			$has_blacklist_email = $this->utils->blacklisted_emails( $info->comment_author_email );
+			// Do not proceed on sending the confirmation email if the email
+			// address is in blacklist email list.
+			if ( false === $has_blacklist_email ) {
+				return;
 			}
 
 			// Retrieve the information about the new comment.

@@ -906,5 +906,34 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			}
 
 		}
+
+		/**
+		 * Function to check if the commenter email address is blacklisted or not.
+		 *
+		 * @param string $email_to_check The commentor's email address.
+		 *
+		 * @return bool
+		 */
+		public function blacklisted_emails( $email_to_check = '' ) {
+
+			// If the emails is blacklisted then, do not proceed to send the subscription confirmation email.
+			$blacklisted_emails = get_option( 'subscribe_reloaded_blacklisted_emails', '' );
+			$email_blacklist    = ! empty( $blacklisted_emails ) ? explode( ',', $blacklisted_emails ) : false;
+
+			if ( is_array( $email_blacklist ) ) {
+				foreach ( $email_blacklist as $blacklist_item ) {
+					$blacklisted_items = trim( $blacklist_item );
+
+					if ( ! empty( trim( $blacklisted_items ) ) ) {
+						if ( is_email( $email_to_check ) === is_email( $blacklisted_items ) ) {
+							return false;
+						}
+					}
+				}
+			}
+
+			return true;
+
+		}
 	}
 }
