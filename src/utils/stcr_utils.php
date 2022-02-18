@@ -681,8 +681,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             else
             {
                 $value = get_option( 'subscribe_reloaded_' . $_option, $_default );
-                $value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
-                $value = stripslashes( $value );
+                $value = ( ! is_array( $value ) ) ? html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' ) : wp_unslash( $value );
+                $value = ( ! is_array( $value ) ) ? stripslashes( $value ) : wp_unslash( $value );
                 // Set the cache value
                 $this->menu_opts_cache[$_option] = $value;
             }
@@ -761,11 +761,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 
             // Prevent XSS/CSRF attacks
-            if ( 'multicheck' == $_type ) {
-                $_value = wp_unslash( $_value );
-            } else {
-                $_value = trim( stripslashes( $_value ) );
-            }
+            $_value = ( 'multicheck' !== $_type ) ? trim( stripslashes( $_value ) ) : wp_unslash( $_value );
 
             switch ( $_type ) {
                 case 'yesno':
