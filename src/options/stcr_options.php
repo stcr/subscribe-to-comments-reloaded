@@ -456,7 +456,7 @@ wp_print_scripts( 'quicktags' );
                                 foreach ( $post_types as $post_type ) {
                                     ?>
                                     <div class="form-check pl-0">
-                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="post_type_supports[]" value="<?php echo esc_attr( $post_type ) ?>" />
+                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="options[post_type_supports][]" value="<?php echo esc_attr( $post_type ) ?>" />
 
                                         <label for="<?php echo esc_attr( $post_type ); ?>">
                                             <?php echo esc_html( get_post_type_object( $post_type )->label ); ?>
@@ -465,7 +465,7 @@ wp_print_scripts( 'quicktags' );
                                 <?php } ?>
                             </div>
 
-                            <div class="helpDescription subsOptDescriptions"
+                            <div class="helpDescription subsOptDescriptions ml-0"
                                  data-content="<?php _e( "Enable for these specific post types only.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "Enable for these specific post types only.", 'subscribe-to-comments-reloaded' ); ?>">

@@ -761,7 +761,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 
             // Prevent XSS/CSRF attacks
-            $_value = trim( stripslashes( $_value ) );
+            if ( 'multicheck' == $_type ) {
+                $_value = wp_unslash( $_value );
+            } else {
+                $_value = trim( stripslashes( $_value ) );
+            }
 
             switch ( $_type ) {
                 case 'yesno':
@@ -791,6 +795,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                     break;
                 case 'textarea':
                     update_option( 'subscribe_reloaded_' . $_option, wp_kses_post( $_value ) );
+
+                    break;
+                case 'multicheck':
+                    update_option( 'subscribe_reloaded_' . $_option, wp_unslash( $_value ) );
 
                     break;
                 default:

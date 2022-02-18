@@ -34,6 +34,7 @@ $options = array(
 	'allow_subscribe_without_comment' => 'yesno',
 	'allow_request_management_link'   => 'yesno',
 	'blacklisted_emails'              => 'textarea',
+	'post_type_supports'              => 'multicheck',
 );
 
 // Update options
