@@ -252,7 +252,7 @@ if ( ! empty( $email ) ) {
 
 }
 
-if ( $valid_captcha && 'v3' == $recaptcha_version ) {
+if ( $use_captcha == 'yes' && $valid_captcha && 'v3' == $recaptcha_version ) {
     ?>
     <div class="stcr-recaptcha">
         <script src="https://www.google.com/recaptcha/api.js?render=<?php echo esc_attr( $captcha_site_key ); ?>"></script>
