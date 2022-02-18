@@ -451,12 +451,19 @@ wp_print_scripts( 'quicktags' );
                                     '_builtin' => false,
                                     'public'   => true,
                                 );
-                                $post_types = get_post_types( $args );
+                                $post_types         = get_post_types( $args );
+                                $post_types_enabled = $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'post_type_supports', '' );
 
                                 foreach ( $post_types as $post_type ) {
+                                    $checked = '';
+                                    foreach ( (array) $post_types_enabled as $post_type_enabled ) {
+                                        if ( $post_type_enabled === $post_type ) {
+                                            $checked = checked( $post_type_enabled, $post_type, false );
+                                        }
+                                    }
                                     ?>
                                     <div class="form-check pl-0">
-                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="options[post_type_supports][]" value="<?php echo esc_attr( $post_type ) ?>" />
+                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="options[post_type_supports][]" value="<?php echo esc_attr( $post_type ) ?>" <?php echo $checked; ?> />
 
                                         <label for="<?php echo esc_attr( $post_type ); ?>">
                                             <?php echo esc_html( get_post_type_object( $post_type )->label ); ?>
