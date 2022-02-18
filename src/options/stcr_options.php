@@ -452,6 +452,11 @@ wp_print_scripts( 'quicktags' );
                                     'public'   => true,
                                 );
                                 $post_types         = get_post_types( $args );
+                                $default_post_types =  array(
+                                    'post',
+                                    'page',
+                                );
+                                $post_types         = array_merge( $default_post_types, $post_types );
                                 $post_types_enabled = $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'post_type_supports', '' );
 
                                 foreach ( $post_types as $post_type ) {
