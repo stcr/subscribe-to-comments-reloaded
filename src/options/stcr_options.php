@@ -606,6 +606,25 @@ wp_print_scripts( 'quicktags' );
                     </div>
 
                     <div class="form-group row">
+                        <label for="recaptcha_version" class="col-sm-3 col-form-label text-right">
+                            <?php esc_html_e( 'reCAPTCHA Version', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <select class="form-control form-control-input-3" id="recaptcha_version" name="options[recaptcha_version]">
+                                <option value="v2" <?php selected( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'recaptcha_version', 'v2' ), 'v2', true ) ?>><?php esc_html_e( 'V2', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="v3" <?php selected( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'recaptcha_version', 'v2' ), 'v3', true ) ?>><?php esc_html_e( 'V3', 'subscribe-to-comments-reloaded' ); ?></option>
+                            </select>
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php esc_html_e( "reCAPTCHA version to be used.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php esc_html_e( "reCAPTCHA version to be used.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="captcha_site_key" class="col-sm-3 col-form-label text-right">
                             <?php _e( 'reCAPTCHA site key', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
