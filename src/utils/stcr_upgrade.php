@@ -704,6 +704,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 				return;
 			}
 
+			// For blacklist email.
+			update_option( 'subscribe_reloaded_blacklisted_emails', '' );
+
+			// For recaptcha version.
+			update_option( 'subscribe_reloaded_recaptcha_version', 'v2' );
+
+			// Migrate the Enable only on blog posts option to newly used options.
 			add_action( 'admin_init', array( $this, 'migrate_post_type_support' ) );
 
 			// Update the option.

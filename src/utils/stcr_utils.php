@@ -395,6 +395,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             // For blacklist email.
             add_option( 'subscribe_reloaded_blacklisted_emails', '', '', 'yes' );
 
+            // For recaptcha version.
+            add_option( 'subscribe_reloaded_recaptcha_version', 'v2', '', 'yes' );
+
             // For post type support.
             $post_type_supports = array();
             $args = array(
