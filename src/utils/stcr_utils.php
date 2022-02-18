@@ -391,7 +391,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_delete_options_subscriptions', 'no', '', 'no' );
             add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
-            add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );
 
             // For blacklist email.
             add_option( 'subscribe_reloaded_blacklisted_emails', '', '', 'yes' );

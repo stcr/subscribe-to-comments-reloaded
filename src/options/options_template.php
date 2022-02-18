@@ -22,7 +22,6 @@ $options = array(
 	'admin_bcc'                       => 'yesno',
 	'enable_font_awesome'             => 'yesno',
 	'delete_options_subscriptions'    => 'yesno',
-	'only_for_posts'                  => 'yesno',
 	'only_for_logged_in'              => 'yesno',
 	'use_cookies'                     => 'yesno',
 	'use_challenge_question'          => 'yesno',

@@ -1533,7 +1533,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             $post_permalink = get_permalink( $post->ID );
 			$post_permalink = "post_permalink=" . $post_permalink;
 			$post_type = get_post_type( $post->ID );
-			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 			$only_for_logged_in = get_option( 'subscribe_reloaded_only_for_logged_in', 'no' );
 			$supported_post_types = get_option( 'subscribe_reloaded_post_type_supports' );
 			if ( in_array( 'stcr_none', $supported_post_types, true ) ) {
