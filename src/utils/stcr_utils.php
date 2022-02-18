@@ -393,7 +393,25 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
             add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );
 
+            // For blacklist email.
             add_option( 'subscribe_reloaded_blacklisted_emails', '', '', 'yes' );
+
+            // For post type support.
+            $post_type_supports = array();
+            $args = array(
+                '_builtin' => false,
+                'public'   => true,
+            );
+            $post_types         = get_post_types( $args );
+            $default_post_types =  array(
+                'post',
+                'page',
+            );
+            $post_types         = array_merge( $default_post_types, $post_types );
+            foreach ( $post_types as $post_type ) {
+                $post_type_supports[] = $post_type;
+            }
+            add_option( 'subscribe_reloaded_post_type_supports', $post_type_supports, '', 'yes' );
         }
         /**
          * @since 08-February-2018
