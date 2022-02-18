@@ -1535,9 +1535,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$post_type = get_post_type( $post->ID );
 			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 			$only_for_logged_in = get_option( 'subscribe_reloaded_only_for_logged_in', 'no' );
+			$supported_post_types = get_option( 'subscribe_reloaded_post_type_supports' );
+			if ( in_array( 'stcr_none', $supported_post_types, true ) ) {
+				$supported_post_types = array_flip( $supported_post_types );
+				unset( $supported_post_types['stcr_none'] );
+			}
+			$supported_post_types = array_flip( $supported_post_types );
 
 			// if not enabled for this post type, return default
-			if ( $only_for_posts == 'yes' && $post_type !== 'post' ) {
+			if ( ! in_array( $post_type, $supported_post_types, true ) ) {
 				if ( $echo ) {
 					echo $submit_field;
 				} else {

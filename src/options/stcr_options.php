@@ -476,7 +476,7 @@ wp_print_scripts( 'quicktags' );
                                     </div>
                                 <?php } ?>
 
-                                <input type="hidden" value="none" name="options[post_type_supports][]" />
+                                <input type="hidden" value="stcr_none" name="options[post_type_supports][]" />
                             </div>
 
                             <div class="helpDescription subsOptDescriptions ml-0"
