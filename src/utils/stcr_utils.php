@@ -817,6 +817,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                     update_option( 'subscribe_reloaded_' . $_option, wp_unslash( $_value ) );
 
                     break;
+                case 'select':
+                    update_option( 'subscribe_reloaded_' . $_option, sanitize_key( $_value ) );
+
+                    break;
                 default:
                     update_option( 'subscribe_reloaded_' . $_option, esc_attr( $_value ) );
 
