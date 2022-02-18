@@ -33,6 +33,7 @@ $options = array(
 	'captcha_secret_key'           => 'text',
 	'blacklisted_emails'           => 'textarea',
 	'unique_key'                   => '',
+	'post_type_supports'           => 'multicheck',
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -434,6 +435,40 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="post_type_supports" class="col-sm-3 col-form-label text-right">
+                            <?php esc_html_e( 'Enable on post types', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <div class="multicheck">
+                                <?php
+                                $args = array(
+                                    '_builtin' => false,
+                                    'public'   => true,
+                                );
+                                $post_types = get_post_types( $args );
+
+                                foreach ( $post_types as $post_type ) {
+                                    ?>
+                                    <div class="form-check pl-0">
+                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="post_type_supports[]" value="<?php echo esc_attr( $post_type ) ?>" />
+
+                                        <label for="<?php echo esc_attr( $post_type ); ?>">
+                                            <?php echo esc_html( get_post_type_object( $post_type )->label ); ?>
+                                        </label>
+                                    </div>
+                                <?php } ?>
+                            </div>
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php _e( "Enable for these specific post types only.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php _e( "Enable for these specific post types only.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
