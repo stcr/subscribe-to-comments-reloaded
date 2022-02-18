@@ -704,6 +704,18 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 				return;
 			}
 
+			add_action( 'admin_init', array( $this, 'migrate_post_type_support' ) );
+
+			// Update the option.
+			update_option( 'subscribe_reloaded_email_blacklist_post_types_recaptcha_migrated', true );
+
+		}
+
+		/**
+		 * Migrate the Enable only on blog posts option to newly used options.
+		 */
+		public function migrate_post_type_support() {
+
 			// Get the old data of Enable only on blog posts from database.
 			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 			if ( 'yes' == $only_for_posts ) {
@@ -726,10 +738,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 			}
 
 			// Update the new option for the same Enable only on blog posts option with new way.
-			add_option( 'subscribe_reloaded_post_type_supports', $post_type_supports, '', 'yes' );
+			update_option( 'subscribe_reloaded_post_type_supports', $post_type_supports );
 
-			// Update the option.
-			update_option( 'subscribe_reloaded_email_blacklist_post_types_recaptcha_migrated', true );
+			// Old key is required no more now.
+			delete_option( 'subscribe_reloaded_only_for_posts' );
 
 		}
 
