@@ -252,6 +252,33 @@ if ( ! empty( $email ) ) {
 
 }
 
+if ( $valid_captcha && 'v3' == $recaptcha_version ) {
+    ?>
+    <div class="stcr-recaptcha">
+        <script src="https://www.google.com/recaptcha/api.js?render=<?php echo esc_attr( $captcha_site_key ); ?>"></script>
+        <script>
+            jQuery(document).ready(function(){
+                jQuery('form.sub-form').on( 'submit', function(event) {
+
+                    event.preventDefault();
+                    var stcrForm  = jQuery(this);
+                    var stcrEmail = jQuery(this).find('#sre').val();
+
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('<?php echo esc_attr( $captcha_site_key ); ?>', {action: 'subscribe'}).then(function(token) {
+                            stcrForm.prepend('<input type="hidden" name="token" value="' + token + '">');
+                            stcrForm.prepend('<input type="hidden" name="action" value="subscribe">');
+                            stcrForm.unbind('submit').submit();
+                        });
+                    });
+
+                });
+            });
+        </script>
+    </div>
+    <?php
+}
+
 // invalid email
 if ( ! $valid_all ) {
 
