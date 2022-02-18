@@ -425,7 +425,7 @@ wp_print_scripts( 'quicktags' );
                                     'public'   => true,
                                 );
                                 $post_types         = get_post_types( $args );
-                                $default_post_types =  array(
+                                $default_post_types = array(
                                     'post',
                                     'page',
                                 );

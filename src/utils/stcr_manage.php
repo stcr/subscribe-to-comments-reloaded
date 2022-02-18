@@ -283,6 +283,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 			// Apply Patches
             $this->upgrade->apply_patches();
+
+			// Migrate/Add new plugin options on version upgrade.
+			$this->upgrade->email_blacklist_post_types_recaptcha();
 		}
 
 		/**
