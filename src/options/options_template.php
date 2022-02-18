@@ -32,6 +32,7 @@ $options = array(
 	'captcha_secret_key'              => 'text',
 	'allow_subscribe_without_comment' => 'yesno',
 	'allow_request_management_link'   => 'yesno',
+	'recaptcha_version'               => 'select',
 	'blacklisted_emails'              => 'textarea',
 	'post_type_supports'              => 'multicheck',
 );

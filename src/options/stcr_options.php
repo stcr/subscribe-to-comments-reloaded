@@ -30,8 +30,9 @@ $options = array(
 	'use_captcha'                  => 'yesno',
 	'captcha_site_key'             => 'text',
 	'captcha_secret_key'           => 'text',
-	'blacklisted_emails'           => 'textarea',
 	'unique_key'                   => '',
+	'recaptcha_version'            => 'select',
+	'blacklisted_emails'           => 'textarea',
 	'post_type_supports'           => 'multicheck',
 );
 
