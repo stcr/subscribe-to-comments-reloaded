@@ -22,25 +22,49 @@ $captcha_output = '';
 $use_captcha = get_option( 'subscribe_reloaded_use_captcha', 'no' );
 $captcha_site_key = get_option( 'subscribe_reloaded_captcha_site_key', '' );
 $captcha_secret_key = get_option( 'subscribe_reloaded_captcha_secret_key', '' );
+$recaptcha_version = get_option( 'subscribe_reloaded_recaptcha_version', 'v2' );
 
 // google recaptcha confirm
 if ( $use_captcha == 'yes' ) {
     $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
-    if ( isset( $_POST['g-recaptcha-response'] ) ) {
-        $captcha = $_POST['g-recaptcha-response'];
-        $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
-            'method' => 'POST',
-            'body' => array(
-                'secret' => $captcha_secret_key,
-                'response' => $captcha,
-            )
-        ));
-        if ( is_wp_error( $captcha_result ) ) {
-            $valid_captcha = false;
-        } else {
-            $captcha_response = json_decode( $captcha_result['body'], true );
-            if ( ! $captcha_response['success'] ) {
+    if ( 'v2' == $recaptcha_version ) {
+        if ( isset( $_POST['g-recaptcha-response'] ) ) {
+            $captcha = $_POST['g-recaptcha-response'];
+            $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+                'method' => 'POST',
+                'body' => array(
+                    'secret' => $captcha_secret_key,
+                    'response' => $captcha,
+                )
+            ));
+            if ( is_wp_error( $captcha_result ) ) {
                 $valid_captcha = false;
+            } else {
+                $captcha_response = json_decode( $captcha_result['body'], true );
+                if ( ! $captcha_response['success'] ) {
+                    $valid_captcha = false;
+                }
+            }
+        }
+    } elseif ( 'v3' == $recaptcha_version ) {
+        if ( isset( $_POST['token'] ) ) {
+            $captcha = $_POST['token'];
+            $action = $_POST['action'];
+
+            $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+                'method' => 'POST',
+                'body' => array(
+                    'secret' => $recaptcha_secret_key,
+                    'response' => $captcha,
+                )
+            ));
+            if ( is_wp_error( $captcha_result ) ) {
+                $valid_captcha = false;
+            } else {
+                $captcha_response = json_decode( $captcha_result['body'], true );
+                if ( ! $captcha_response['success'] || ! $captcha_response['action'] == $action || $captcha_response['score'] < 0.5 ) {
+                    $valid_captcha = false;
+                }
             }
         }
     } else {
