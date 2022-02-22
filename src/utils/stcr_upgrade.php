@@ -156,7 +156,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 
 			// Import the information collected by Subscribe to Comments, if needed
             $result = $wpdb->get_row( "DESC $wpdb->comments comment_subscribe", ARRAY_A );
-            
+
 			// Perform the import only if the target table does not contain any subscriptions
 			$count_postmeta_rows = $wpdb->get_var( "SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key LIKE '\_stcr@\_%'" );
 
@@ -182,10 +182,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 			}
 		}
         // end _import_stc_data
-        
+
         /**
          * Imports subscriptions from Subscribe to Comments by Mark Jaquith
-         * 
+         *
          * @since 190708
          */
         public function _import_stc_mj_data() {
@@ -218,7 +218,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
             // no subscriptions, go back
             if ( empty( $subscriptions ) ) return;
 
-            // add the subscriptions to the DB            
+            // add the subscriptions to the DB
             $dt = date_i18n( 'Y-m-d H:i:s' );
             $status = 'Y';
             foreach ( $subscriptions as $subscription ) {
@@ -480,7 +480,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
             $system_link  = sprintf( '<a href="%s"> %s </a>', admin_url( 'admin.php?page=stcr_system' ), __( 'Log Settings', 'subscribe-to-comments-reloaded' ) );
 
 			if( ! $_fresh_install ) {
-			
+
 				switch ($_version) {
 					case '160106':
 						$this->stcr_create_admin_notice(
@@ -692,6 +692,64 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 						break;
 				}
 			}
+		}
+
+		/**
+		 * Migrate/Add new plugin options on version upgrade.
+		 */
+		public function email_blacklist_post_types_recaptcha() {
+
+			// Return if already migrated.
+			if ( get_option( 'subscribe_reloaded_email_blacklist_post_types_recaptcha_migrated' ) ) {
+				return;
+			}
+
+			// For blacklist email.
+			update_option( 'subscribe_reloaded_blacklisted_emails', '' );
+
+			// For recaptcha version.
+			update_option( 'subscribe_reloaded_recaptcha_version', 'v2' );
+
+			// Migrate the Enable only on blog posts option to newly used options.
+			add_action( 'admin_init', array( $this, 'migrate_post_type_support' ) );
+
+			// Update the option.
+			update_option( 'subscribe_reloaded_email_blacklist_post_types_recaptcha_migrated', true );
+
+		}
+
+		/**
+		 * Migrate the Enable only on blog posts option to newly used options.
+		 */
+		public function migrate_post_type_support() {
+
+			// Get the old data of Enable only on blog posts from database.
+			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
+			if ( 'yes' == $only_for_posts ) {
+				$post_type_supports[] = 'post';
+			} else {
+				$post_type_supports = array();
+				$args = array(
+					'_builtin' => false,
+					'public'   => true,
+				);
+				$post_types         = get_post_types( $args );
+				$default_post_types = array(
+					'post',
+					'page',
+				);
+				$post_types         = array_merge( $default_post_types, $post_types );
+				foreach ( $post_types as $post_type ) {
+					$post_type_supports[] = $post_type;
+				}
+			}
+
+			// Update the new option for the same Enable only on blog posts option with new way.
+			update_option( 'subscribe_reloaded_post_type_supports', $post_type_supports );
+
+			// Old key is required no more now.
+			delete_option( 'subscribe_reloaded_only_for_posts' );
+
 		}
 
 		private function patch_collation()

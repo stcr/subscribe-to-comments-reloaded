@@ -483,6 +483,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 					// skip comment author
 					if ( $a_subscription->email != $info->comment_author_email ) {
+						$has_blacklist_email = $this->utils->blacklisted_emails( $a_subscription->email );
+						// Do not proceed on sending the new comment email, if the email
+						// address is already in blacklist email list.
+						if ( false === $has_blacklist_email ) {
+							continue;
+						}
 
 						// notify the user
 						$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
@@ -501,6 +507,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 					// send email to author unless the author made the comment
 					if ( $info->comment_author_email != $post_author_email ) {
+						$has_blacklist_email = $this->utils->blacklisted_emails( $info->comment_author_email );
+						// Do not proceed on sending the new comment email, if the email
+						// address is already in blacklist email list.
+						if ( false === $has_blacklist_email ) {
+							return;
+						}
+
 						$this->notify_user( $info->comment_post_ID, $post_author_email, $_comment_ID );
 					}
 
@@ -620,6 +633,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 						// skip the comment author
 						if ( $a_subscription->email != $info->comment_author_email ) {
+							$has_blacklist_email = $this->utils->blacklisted_emails( $a_subscription->email );
+							// Do not proceed on sending the new comment email, if the email
+							// address is already in blacklist email list.
+							if ( false === $has_blacklist_email ) {
+								continue;
+							}
+
 							$this->notify_user( $info->comment_post_ID, $a_subscription->email, $_comment_ID );
 						}
 
@@ -1027,6 +1047,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 * @since 190705 cleanup
 		 */
 		public function add_subscription( $_post_id = 0, $_email = '', $_status = 'Y' ) {
+
+			$has_blacklist_email = $this->utils->blacklisted_emails( $_email );
+			// Do not proceed on adding the email address in subscription table,
+			// if the email address is already in blacklist email list.
+			if ( false === $has_blacklist_email ) {
+				return;
+			}
 
 			global $wpdb;
 
@@ -1506,11 +1533,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             $post_permalink = get_permalink( $post->ID );
 			$post_permalink = "post_permalink=" . $post_permalink;
 			$post_type = get_post_type( $post->ID );
-			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 			$only_for_logged_in = get_option( 'subscribe_reloaded_only_for_logged_in', 'no' );
+			$supported_post_types = get_option( 'subscribe_reloaded_post_type_supports' );
+			if ( in_array( 'stcr_none', $supported_post_types, true ) ) {
+				$supported_post_types = array_flip( $supported_post_types );
+				unset( $supported_post_types['stcr_none'] );
+			}
+			$supported_post_types = array_flip( $supported_post_types );
 
 			// if not enabled for this post type, return default
-			if ( $only_for_posts == 'yes' && $post_type !== 'post' ) {
+			if ( ! in_array( $post_type, $supported_post_types, true ) ) {
 				if ( $echo ) {
 					echo $submit_field;
 				} else {

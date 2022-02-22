@@ -38,7 +38,7 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 	$email_message = str_replace( '[blog_name]', get_bloginfo( 'name' ), $email_message );
 	$email_message = str_replace( '[manager_link]',  $manager_link, $email_message );
     $email_message = str_replace( '[oneclick_link]', $one_click_unsubscribe_link, $email_message );
-    
+
     if ( get_option( 'subscribe_reloaded_enable_html_emails', 'yes' ) == 'yes' ) {
         $email_message = wpautop( $email_message );
     }
@@ -55,7 +55,13 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 		'message'      => $email_message,
 		'toEmail'      => $clean_email
 	);
-	$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+	$has_blacklist_email = $this->utils->blacklisted_emails( $clean_email );
+	// Send the confirmation email only if the email
+	// address is not in blacklist email list.
+	if ( $has_blacklist_email ) {
+		$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+	}
+
 	echo wpautop( $page_message );
 }
 else

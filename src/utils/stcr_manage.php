@@ -99,7 +99,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end new_blog
 
 		public function sendConfirmationEMail( $info ) {
-			// Retrieve the information about the new comment
+			// Retrieve the information about the new comment.
 			$this->confirmation_email( $info->comment_post_ID, $info->comment_author_email );
 		}
 
@@ -107,6 +107,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Sends a message to confirm a subscription
 		 */
 		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
+			$has_blacklist_email = $this->utils->blacklisted_emails( $_email );
+			// Do not proceed on sending the confirmation email if the email
+			// address is in blacklist email list.
+			if ( false === $has_blacklist_email ) {
+				return;
+			}
+
 			// Retrieve the options from the database
 			$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
 			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
@@ -276,6 +283,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 			// Apply Patches
             $this->upgrade->apply_patches();
+
+			// Migrate/Add new plugin options on version upgrade.
+			$this->upgrade->email_blacklist_post_types_recaptcha();
 		}
 
 		/**

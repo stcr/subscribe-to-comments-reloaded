@@ -318,7 +318,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 				"/mime\-version\:/i"
 			);
 
-            return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
+            return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', strtolower( $_email ) ) ) ) );
 
 		}
 		// end clean_email
@@ -391,8 +391,29 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_delete_options_subscriptions', 'no', '', 'no' );
             add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
-            add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );
 
+            // For blacklist email.
+            add_option( 'subscribe_reloaded_blacklisted_emails', '', '', 'yes' );
+
+            // For recaptcha version.
+            add_option( 'subscribe_reloaded_recaptcha_version', 'v2', '', 'yes' );
+
+            // For post type support.
+            $post_type_supports = array();
+            $args = array(
+                '_builtin' => false,
+                'public'   => true,
+            );
+            $post_types         = get_post_types( $args );
+            $default_post_types =  array(
+                'post',
+                'page',
+            );
+            $post_types         = array_merge( $default_post_types, $post_types );
+            foreach ( $post_types as $post_type ) {
+                $post_type_supports[] = $post_type;
+            }
+            add_option( 'subscribe_reloaded_post_type_supports', $post_type_supports, '', 'yes' );
         }
         /**
          * @since 08-February-2018
@@ -680,8 +701,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             else
             {
                 $value = get_option( 'subscribe_reloaded_' . $_option, $_default );
-                $value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
-                $value = stripslashes( $value );
+                $value = ( ! is_array( $value ) ) ? html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' ) : wp_unslash( $value );
+                $value = ( ! is_array( $value ) ) ? stripslashes( $value ) : wp_unslash( $value );
                 // Set the cache value
                 $this->menu_opts_cache[$_option] = $value;
             }
@@ -760,7 +781,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 
             // Prevent XSS/CSRF attacks
-            $_value = trim( stripslashes( $_value ) );
+            $_value = ( 'multicheck' !== $_type ) ? trim( stripslashes( $_value ) ) : wp_unslash( $_value );
 
             switch ( $_type ) {
                 case 'yesno':
@@ -786,6 +807,18 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                     break;
                 case 'url':
                     update_option( 'subscribe_reloaded_' . $_option, esc_url( $_value ) );
+
+                    break;
+                case 'textarea':
+                    update_option( 'subscribe_reloaded_' . $_option, wp_kses_post( $_value ) );
+
+                    break;
+                case 'multicheck':
+                    update_option( 'subscribe_reloaded_' . $_option, wp_unslash( $_value ) );
+
+                    break;
+                case 'select':
+                    update_option( 'subscribe_reloaded_' . $_option, sanitize_key( $_value ) );
 
                     break;
                 default:
@@ -899,6 +932,35 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 				fclose($file);
 			}
+
+		}
+
+		/**
+		 * Function to check if the commenter email address is blacklisted or not.
+		 *
+		 * @param string $email_to_check The commentor's email address.
+		 *
+		 * @return bool
+		 */
+		public function blacklisted_emails( $email_to_check = '' ) {
+
+			// If the emails is blacklisted then, do not proceed to send the subscription confirmation email.
+			$blacklisted_emails = get_option( 'subscribe_reloaded_blacklisted_emails', '' );
+			$email_blacklist    = ! empty( $blacklisted_emails ) ? explode( ',', $blacklisted_emails ) : false;
+
+			if ( is_array( $email_blacklist ) ) {
+				foreach ( $email_blacklist as $blacklist_item ) {
+					$blacklisted_items = trim( $blacklist_item );
+
+					if ( ! empty( trim( $blacklisted_items ) ) ) {
+						if ( is_email( $email_to_check ) === is_email( $blacklisted_items ) ) {
+							return false;
+						}
+					}
+				}
+			}
+
+			return true;
 
 		}
 	}
