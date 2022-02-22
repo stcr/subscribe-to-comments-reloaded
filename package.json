@@ -46,12 +46,15 @@
   },
   "homepage": "https://github.com/stcr/subscribe-to-comments-reloaded#readme",
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "bower": "^1.8.12",
-    "eslint-plugin-compat": "^2.2.0",
-    "gulp": "3.9.1",
-    "gulp-eslint": "^4.0.2",
-    "gulp-sass": "^3.2.1",
-    "gulp-watch": "^5.0.0"
+    "babel-eslint": "^10.1.0",
+    "bower": "^1.8.13",
+    "eslint-plugin-compat": "^4.0.2",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-watch": "^5.0.1"
+  },
+  "dependencies": {
+    "sass": "^1.49.7"
   }
 }

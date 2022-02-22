@@ -7,13 +7,13 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 
 $action = esc_attr( ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' ) );
 if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
-	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-' . $action . '.php';
+	require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-' . $action . '.php';
 
 	return;
 }
-if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel1-business-logic.php" ) ) {
+if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-business-logic.php' ) ) {
 
-	require_once WP_PLUGIN_DIR . '/subscribe-to-comments-reloaded/options/panel1-business-logic.php';
+	require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-business-logic.php';
 
     // Display an alert in the admin interface if the email is wrong or the post id is not a number.
     if ( ! $valid_email )
@@ -36,9 +36,9 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
 
 </style>
 
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
-<link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/datatables/media/css/jquery.dataTables.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/datatables/media/css/dataTables.bootstrap4.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
+<link href="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 
 <div class="container-fluid">
 
@@ -172,7 +172,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                     <input type="submit" class="button button-primary">
                                 </p>
                             </form>
-                        
+
                         <?php endif; ?>
 
                         <div class="col-md-2 subs-spinner mx-auto"><h5><?php _e( "Loading", 'subscribe-to-comments-reloaded'); ?> <i class="fas fa-play-circle"></i></h5></div>
@@ -258,7 +258,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                             echo "<tr>
                                                         <td>
                                                             <label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-to-comments-reloaded' ) . " {$a_subscription->meta_id}</label>
-                                                            <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />                                                        
+                                                            <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
                                                             <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
                                                             &nbsp;&nbsp;&nbsp;&nbsp;<a href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
                                                         </td>
@@ -273,7 +273,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                                             echo "<tr>
                                                         <td>
                                                             <label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-to-comments-reloaded' ) . " {$a_subscription->meta_id}</label>
-                                                            <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />                                                        
+                                                            <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
                                                             <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
                                                             &nbsp;&nbsp;&nbsp;&nbsp;<a href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
                                                         </td>
@@ -325,7 +325,7 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
                 <div class="card-body">
                     <p>
                         Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
-                        <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                        <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( plugins_url( '/images/rate.png', STCR_PLUGIN_FILE ) ); ?>" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
                     </p>
                     <p>
                         <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/" target="_blank">create a ticket</a>
@@ -336,11 +336,10 @@ if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables/media/js/jquery.dataTables.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables/media/js/dataTables.bootstrap4.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive/js/dataTables.responsive.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
+<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 
 <?php
 // Tell WP that we are going to use a resource.
@@ -351,4 +350,3 @@ $wp_subscribe_reloaded->stcr->stcr_i18n->stcr_localize_script( "stcr-subs-manage
 $wp_subscribe_reloaded->stcr->utils->enqueue_script_to_wp( "stcr-subs-management" );
 
 ?>
-

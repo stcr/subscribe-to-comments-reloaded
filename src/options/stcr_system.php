@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays WP-admin -> StCR -> StCR System 
+ * Displays WP-admin -> StCR -> StCR System
  */
 
 // Avoid direct access to this piece of code
@@ -120,7 +120,7 @@ else {
     }
 }
 ?>
-    <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
+    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
     <style type="text/css">
         .system-error {
             color: #dc3545;
@@ -252,7 +252,7 @@ else {
                             </tr>
                         </tbody>
                     </table>
-                                
+
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
                         <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-to-comments-reloaded' ) ?></th>
@@ -723,7 +723,7 @@ else {
                         ?>
                         </tbody>
                     </table>
-                    
+
                 </form>
 
                 <form name="stcr_sysinfo_form" class="stcr-hidden" action="<?php echo esc_url( admin_url( 'admin.php?page=stcr_system' ) ); ?>" method="post">
@@ -738,7 +738,7 @@ else {
                     <div class="card-body">
                         <p>
                             Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
-                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( plugins_url( '/images/rate.png', STCR_PLUGIN_FILE ) ); ?>" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
                         </p>
                         <p>
                             <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/" target="_blank">create a ticket</a>
@@ -749,7 +749,7 @@ else {
 
         </div>
     </div>
-    <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.js"></script>
+    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.

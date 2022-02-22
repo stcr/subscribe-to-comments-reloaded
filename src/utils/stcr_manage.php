@@ -99,7 +99,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end new_blog
 
 		public function sendConfirmationEMail( $info ) {
-			// Retrieve the information about the new comment
+			// Retrieve the information about the new comment.
 			$this->confirmation_email( $info->comment_post_ID, $info->comment_author_email );
 		}
 
@@ -107,6 +107,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Sends a message to confirm a subscription
 		 */
 		public function confirmation_email( $_post_ID = 0, $_email = '' ) {
+			$has_blacklist_email = $this->utils->blacklisted_emails( $_email );
+			// Do not proceed on sending the confirmation email if the email
+			// address is in blacklist email list.
+			if ( false === $has_blacklist_email ) {
+				return;
+			}
+
 			// Retrieve the options from the database
 			$from_name    = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
 			$from_email   = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
@@ -255,7 +262,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 			// Import data from Subscribe to Comments & Co., if needed
             $this->upgrade->_import_stc_data();
-            
+
             // Import data from Subscribe to Comments by Mark Jaquith
 			$this->upgrade->_import_stc_mj_data();
 
@@ -276,6 +283,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 			// Apply Patches
             $this->upgrade->apply_patches();
+
+			// Migrate/Add new plugin options on version upgrade.
+			$this->upgrade->email_blacklist_post_types_recaptcha();
 		}
 
 		/**
@@ -436,14 +446,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    global $wp_subscribe_reloaded;
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_manage_subscriptions.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_manage_subscriptions.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_manage_subscriptions.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_manage_subscriptions.php';
 				}
 			}
 		}
@@ -463,14 +473,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_comment_form.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_comment_form.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_comment_form.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_comment_form.php';
 				}
 			}
 		}
@@ -490,14 +500,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_management_page.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_management_page.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_management_page.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_management_page.php';
 				}
 			}
 		}
@@ -517,14 +527,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_notifications.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_notifications.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_notifications.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_notifications.php';
 				}
 			}
 		}
@@ -544,14 +554,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_options.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_options.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_options.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_options.php';
 				}
 			}
 		}
@@ -571,14 +581,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_support.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_support.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_support.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_support.php';
 				}
 			}
 		}
@@ -600,14 +610,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 
 			// echo 'New Page Settings';
-			if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php" ) )
+			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
 				$current_panel = 2;
-				require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/index.php";
-				if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_system.php" ) )
+				require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php';
+				if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_system.php' ) )
 				{
-					require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/stcr_system.php";
+					require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/stcr_system.php';
 				}
 			}
 		}
@@ -638,7 +648,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			header( 'Content-Disposition: attachment; filename="stcr-sysinfo.txt"' );
 
 			echo stripslashes( $_POST['stcr_sysinfo'] );
-			
+
 			exit;
 
 		}
@@ -646,14 +656,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		/**
 		 * Adds a custom stylesheet file to the admin interface
 		 */
-		public function add_options_stylesheet() {			
-			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/style.css' );
+		public function add_options_stylesheet() {
+			$stylesheet_url = plugins_url( '/style.css', STCR_PLUGIN_FILE );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
 
 		public function add_post_comments_stylesheet() {
-			$stylesheet_url = plugins_url( 'subscribe-to-comments-reloaded/post-and-comments.css' );
+			$stylesheet_url = plugins_url( '/post-and-comments.css', STCR_PLUGIN_FILE );
 			wp_register_style( 'subscribe-to-comments', $stylesheet_url );
 			wp_enqueue_style( 'subscribe-to-comments' );
 		}
@@ -672,7 +682,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds a new column header to the Edit Comments panel
 		 */
 		public function add_column_header( $_columns ) {
-			$image_url                      = plugins_url( 'subscribe-to-comments-reloaded/images' );
+			$image_url                      = plugins_url( '/images', STCR_PLUGIN_FILE );
 			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
 			$_columns['subscribe-reloaded'] = "<span class='hidden'>" . $image_tooltip . "</span><img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
@@ -741,12 +751,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		/**
 		 * Exclude subscriptions on post duplication
-		 * 
+		 *
 		 * @since 200625
 		 */
 		public function duplicate_post_exclude_subs( $exclude ) {
 
-			return array_merge( $exclude, array( '_stcr' ) ); 
+			return array_merge( $exclude, array( '_stcr' ) );
 
 		}
 

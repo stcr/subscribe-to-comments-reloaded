@@ -1,15 +1,15 @@
 /*
 * Gulp Configuration File.
-* 
+*
 * @since 21-March-2018
 * @author Reedyseth
 * @version 1.0.0
-* 
+*
 * */
 var gulp   = require( 'gulp' );
 var eslint = require( 'gulp-eslint' );
 var watch  = require('gulp-watch');
-var sass   = require('gulp-sass');
+var sass   = require('gulp-sass')(require('sass'));
 
 gulp.task('lint', function() {
     // ESLint ignores files with "node_modules" paths.
@@ -62,6 +62,6 @@ gulp.task('compile', function () {
 
 });
 
-gulp.task('default', ['lint'], function () {
+gulp.task('default', gulp.series('lint'), function () {
     // This will only run if the lint task is successful...
 });

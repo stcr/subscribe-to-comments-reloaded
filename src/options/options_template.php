@@ -8,31 +8,33 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 }
 
 $options = array(
-    'show_subscription_box'        => 'yesno',
-    'safely_uninstall'             => 'yesno',
-    'purge_days'                   => 'integer',
-    'date_format'                  => 'text',
-    'stcr_position'                => 'yesno',
-    'enable_double_check'          => 'yesno',
-    'notify_authors'               => 'yesno',
-    'enable_html_emails'           => 'yesno',
-    'process_trackbacks'           => 'yesno',
-    'enable_admin_messages'        => 'yesno',
-    'admin_subscribe'              => 'yesno',
-    'admin_bcc'                    => 'yesno',
-    'enable_font_awesome'          => 'yesno',
-    'delete_options_subscriptions' => 'yesno',
-    'only_for_posts'               => 'yesno',
-    'only_for_logged_in'           => 'yesno',
-    'use_cookies'                  => 'yesno',
-    'use_challenge_question'       => 'yesno',
-    'challenge_question'           => 'text',
-    'challenge_answer'             => 'text',
-    'use_captcha'                  => 'yesno',
-    'captcha_site_key'             => 'text',
-    'captcha_secret_key'           => 'text',
-    'allow_subscribe_without_comment' => 'yesno',
-    'allow_request_management_link'   => 'yesno',
+	'show_subscription_box'           => 'yesno',
+	'safely_uninstall'                => 'yesno',
+	'purge_days'                      => 'integer',
+	'date_format'                     => 'text',
+	'stcr_position'                   => 'yesno',
+	'enable_double_check'             => 'yesno',
+	'notify_authors'                  => 'yesno',
+	'enable_html_emails'              => 'yesno',
+	'process_trackbacks'              => 'yesno',
+	'enable_admin_messages'           => 'yesno',
+	'admin_subscribe'                 => 'yesno',
+	'admin_bcc'                       => 'yesno',
+	'enable_font_awesome'             => 'yesno',
+	'delete_options_subscriptions'    => 'yesno',
+	'only_for_logged_in'              => 'yesno',
+	'use_cookies'                     => 'yesno',
+	'use_challenge_question'          => 'yesno',
+	'challenge_question'              => 'text',
+	'challenge_answer'                => 'text',
+	'use_captcha'                     => 'yesno',
+	'captcha_site_key'                => 'text',
+	'captcha_secret_key'              => 'text',
+	'allow_subscribe_without_comment' => 'yesno',
+	'allow_request_management_link'   => 'yesno',
+	'recaptcha_version'               => 'select',
+	'blacklisted_emails'              => 'textarea',
+	'post_type_supports'              => 'multicheck',
 );
 
 // Update options
@@ -62,7 +64,7 @@ if ( isset( $_POST['options'] ) ) {
 wp_print_scripts( 'quicktags' );
 
 ?>
-    <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
+    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 
     <div class="container-fluid">
         <div class="mt-3"></div>
@@ -70,7 +72,7 @@ wp_print_scripts( 'quicktags' );
             <div class="col-sm-9">
                 <form action="" method="post">
 
-                    
+
 
                     <div class="form-group row">
                         <div class="col-sm-9 offset-sm-1">
@@ -88,7 +90,7 @@ wp_print_scripts( 'quicktags' );
                     <div class="card-body">
                         <p>
                             Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
-                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( plugins_url( '/images/rate.png', STCR_PLUGIN_FILE ) ); ?>" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
                         </p>
                         <p>
                             <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/" target="_blank">create a ticket</a>
@@ -99,7 +101,7 @@ wp_print_scripts( 'quicktags' );
 
         </div>
     </div>
-    <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.js"></script>
+    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.

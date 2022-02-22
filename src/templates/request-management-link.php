@@ -22,25 +22,49 @@ $captcha_output = '';
 $use_captcha = get_option( 'subscribe_reloaded_use_captcha', 'no' );
 $captcha_site_key = get_option( 'subscribe_reloaded_captcha_site_key', '' );
 $captcha_secret_key = get_option( 'subscribe_reloaded_captcha_secret_key', '' );
+$recaptcha_version = get_option( 'subscribe_reloaded_recaptcha_version', 'v2' );
 
 // google recaptcha confirm
 if ( $use_captcha == 'yes' ) {
     $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
-    if ( isset( $_POST['g-recaptcha-response'] ) ) {
-        $captcha = $_POST['g-recaptcha-response'];
-        $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
-            'method' => 'POST',
-            'body' => array(
-                'secret' => $captcha_secret_key,
-                'response' => $captcha,
-            )
-        ));
-        if ( is_wp_error( $captcha_result ) ) {
-            $valid_captcha = false;
-        } else {
-            $captcha_response = json_decode( $captcha_result['body'], true );
-            if ( ! $captcha_response['success'] ) {
+    if ( 'v2' == $recaptcha_version ) {
+        if ( isset( $_POST['g-recaptcha-response'] ) ) {
+            $captcha = $_POST['g-recaptcha-response'];
+            $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+                'method' => 'POST',
+                'body' => array(
+                    'secret' => $captcha_secret_key,
+                    'response' => $captcha,
+                )
+            ));
+            if ( is_wp_error( $captcha_result ) ) {
                 $valid_captcha = false;
+            } else {
+                $captcha_response = json_decode( $captcha_result['body'], true );
+                if ( ! $captcha_response['success'] ) {
+                    $valid_captcha = false;
+                }
+            }
+        }
+    } elseif ( 'v3' == $recaptcha_version ) {
+        if ( isset( $_POST['token'] ) ) {
+            $captcha = $_POST['token'];
+            $action = $_POST['action'];
+
+            $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+                'method' => 'POST',
+                'body' => array(
+                    'secret' => $recaptcha_secret_key,
+                    'response' => $captcha,
+                )
+            ));
+            if ( is_wp_error( $captcha_result ) ) {
+                $valid_captcha = false;
+            } else {
+                $captcha_response = json_decode( $captcha_result['body'], true );
+                if ( ! $captcha_response['success'] || ! $captcha_response['action'] == $action || $captcha_response['score'] < 0.5 ) {
+                    $valid_captcha = false;
+                }
             }
         }
     } else {
@@ -82,7 +106,7 @@ if ( ! empty( $email ) ) {
             $valid_all = false;
         }
     }
-    
+
     // email is invalid
     if ( $stcr_post_email === false ) {
         $valid_email = false;
@@ -147,7 +171,12 @@ if ( ! empty( $email ) ) {
             'toEmail'      => $clean_email
         );
 
-        $wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+		$has_blacklist_email = $this->utils->blacklisted_emails( $clean_email );
+		// Send the confirmation email only if the email
+		// address is not in blacklist email list.
+		if ( $has_blacklist_email ) {
+			$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
+		}
 
         echo wpautop( $page_message );
 
@@ -157,7 +186,7 @@ if ( ! empty( $email ) ) {
 } else {
 
     $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
-    
+
     // get email address
     $email = '';
     if ( isset($current_user_email) ) {
@@ -206,18 +235,45 @@ if ( ! empty( $email ) ) {
     <?php
 
     if ( isset( $post_permalink ) ) {
-        echo '<p id="subscribe-reloaded-update-p"> 
+        echo '<p id="subscribe-reloaded-update-p">
             <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-to-comments-reloaded').'</a>
           </p>';
     }
 
 }
 
+if ( $use_captcha == 'yes' && $valid_captcha && 'v3' == $recaptcha_version ) {
+    ?>
+    <div class="stcr-recaptcha">
+        <script src="https://www.google.com/recaptcha/api.js?render=<?php echo esc_attr( $captcha_site_key ); ?>"></script>
+        <script>
+            jQuery(document).ready(function(){
+                jQuery('form.sub-form').on( 'submit', function(event) {
+
+                    event.preventDefault();
+                    var stcrForm  = jQuery(this);
+                    var stcrEmail = jQuery(this).find('#subscribe_reloaded_email').val();
+
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('<?php echo esc_attr( $captcha_site_key ); ?>', {action: 'management_link'}).then(function(token) {
+                            stcrForm.prepend('<input type="hidden" name="token" value="' + token + '">');
+                            stcrForm.prepend('<input type="hidden" name="action" value="management_link">');
+                            stcrForm.unbind('submit').submit();
+                        });
+                    });
+
+                });
+            });
+        </script>
+    </div>
+    <?php
+}
+
 // email invalid
 if( ! $valid_all ) {
 
     $message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_request_mgmt_link' ) ), ENT_QUOTES, 'UTF-8' );
-    
+
     if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) ) {
         $message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
     }
@@ -226,7 +282,7 @@ if( ! $valid_all ) {
     <p><?php echo wpautop( $message ); ?></p>
     <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
         <fieldset style="border:0">
-            
+
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
                     <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
@@ -254,7 +310,7 @@ if( ! $valid_all ) {
             <?php if ( ! $valid_email ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
-            
+
             <?php if ( ! $valid_challenge ) : ?>
                 <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>

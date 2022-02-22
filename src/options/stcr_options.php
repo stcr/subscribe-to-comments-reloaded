@@ -8,29 +8,32 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 }
 
 $options = array(
-    'show_subscription_box'        => 'yesno',
-    'safely_uninstall'             => 'yesno',
-    'purge_days'                   => 'integer',
-    'date_format'                  => 'text',
-    'stcr_position'                => 'yesno',
-    'enable_double_check'          => 'yesno',
-    'notify_authors'               => 'yesno',
-    'enable_html_emails'           => 'yesno',
-    'process_trackbacks'           => 'yesno',
-    'enable_admin_messages'        => 'yesno',
-    'admin_subscribe'              => 'yesno',
-    'admin_bcc'                    => 'yesno',
-    'enable_font_awesome'          => 'yesno',
-    'delete_options_subscriptions' => 'yesno',
-    'only_for_posts'               => 'yesno',
-    'only_for_logged_in'           => 'yesno',
-    'use_cookies'                  => 'yesno',
-    'use_challenge_question'       => 'yesno',
-    'challenge_question'           => 'text',
-    'challenge_answer'             => 'text',
-    'use_captcha'                  => 'yesno',
-    'captcha_site_key'             => 'text',
-    'captcha_secret_key'           => 'text',
+	'show_subscription_box'        => 'yesno',
+	'safely_uninstall'             => 'yesno',
+	'purge_days'                   => 'integer',
+	'date_format'                  => 'text',
+	'stcr_position'                => 'yesno',
+	'enable_double_check'          => 'yesno',
+	'notify_authors'               => 'yesno',
+	'enable_html_emails'           => 'yesno',
+	'process_trackbacks'           => 'yesno',
+	'enable_admin_messages'        => 'yesno',
+	'admin_subscribe'              => 'yesno',
+	'admin_bcc'                    => 'yesno',
+	'enable_font_awesome'          => 'yesno',
+	'delete_options_subscriptions' => 'yesno',
+	'only_for_logged_in'           => 'yesno',
+	'use_cookies'                  => 'yesno',
+	'use_challenge_question'       => 'yesno',
+	'challenge_question'           => 'text',
+	'challenge_answer'             => 'text',
+	'use_captcha'                  => 'yesno',
+	'captcha_site_key'             => 'text',
+	'captcha_secret_key'           => 'text',
+	'unique_key'                   => '',
+	'recaptcha_version'            => 'select',
+	'blacklisted_emails'           => 'textarea',
+	'post_type_supports'           => 'multicheck',
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
@@ -77,7 +80,7 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 wp_print_scripts( 'quicktags' );
 
 ?>
-    <link href="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.css" rel="stylesheet"/>
+    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 
     <div class="container-fluid">
         <div class="mt-3"></div>
@@ -411,27 +414,48 @@ wp_print_scripts( 'quicktags' );
                     </div>
 
                     <div class="form-group row">
-                        <label for="only_for_posts" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Enable only on blog posts', 'subscribe-to-comments-reloaded' ) ?>
+                        <label for="post_type_supports" class="col-sm-3 col-form-label text-right">
+                            <?php esc_html_e( 'Enable on post types', 'subscribe-to-comments-reloaded' ) ?>
                         </label>
                         <div class="col-sm-7">
-                            <div class="switch">
-                                <input type="radio" class="switch-input" name="options[only_for_posts]"
-                                       value="yes" id="only_for_posts-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'only_for_posts', 'no' ) == 'yes' ) ? ' checked' : ''; ?> />
-                                <label for="only_for_posts-yes" class="switch-label switch-label-off">
-                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
-                                </label>
-                                <input type="radio" class="switch-input" name="options[only_for_posts]" value="no" id="only_for_posts-no"
-                                    <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'only_for_posts', 'no' ) == 'no' ) ? '  checked' : ''; ?> />
-                                <label for="only_for_posts-no" class="switch-label switch-label-on">
-                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
-                                </label>
-                                <span class="switch-selection"></span>
+                            <div class="multicheck">
+                                <?php
+                                $args = array(
+                                    '_builtin' => false,
+                                    'public'   => true,
+                                );
+                                $post_types         = get_post_types( $args );
+                                $default_post_types = array(
+                                    'post',
+                                    'page',
+                                );
+                                $post_types         = array_merge( $default_post_types, $post_types );
+                                $post_types_enabled = $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'post_type_supports', '' );
+
+                                foreach ( $post_types as $post_type ) {
+                                    $checked = '';
+                                    foreach ( (array) $post_types_enabled as $post_type_enabled ) {
+                                        if ( $post_type_enabled === $post_type ) {
+                                            $checked = checked( $post_type_enabled, $post_type, false );
+                                        }
+                                    }
+                                    ?>
+                                    <div class="form-check pl-0">
+                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="options[post_type_supports][]" value="<?php echo esc_attr( $post_type ) ?>" <?php echo $checked; ?> />
+
+                                        <label for="<?php echo esc_attr( $post_type ); ?>">
+                                            <?php echo esc_html( get_post_type_object( $post_type )->label ); ?>
+                                        </label>
+                                    </div>
+                                <?php } ?>
+
+                                <input type="hidden" value="stcr_none" name="options[post_type_supports][]" />
                             </div>
-                            <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>"
+
+                            <div class="helpDescription subsOptDescriptions ml-0"
+                                 data-content="<?php _e( "Enable for these specific post types only.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "Enable only for blog posts (pages and custom post types will be excluded).", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php _e( "Enable for these specific post types only.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -582,6 +606,25 @@ wp_print_scripts( 'quicktags' );
                     </div>
 
                     <div class="form-group row">
+                        <label for="recaptcha_version" class="col-sm-3 col-form-label text-right">
+                            <?php esc_html_e( 'reCAPTCHA Version', 'subscribe-to-comments-reloaded' ) ?>
+                        </label>
+                        <div class="col-sm-7">
+                            <select class="form-control form-control-input-3" id="recaptcha_version" name="options[recaptcha_version]">
+                                <option value="v2" <?php selected( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'recaptcha_version', 'v2' ), 'v2', true ) ?>><?php esc_html_e( 'V2', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="v3" <?php selected( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'recaptcha_version', 'v2' ), 'v3', true ) ?>><?php esc_html_e( 'V3', 'subscribe-to-comments-reloaded' ); ?></option>
+                            </select>
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php esc_html_e( "reCAPTCHA version to be used.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php esc_html_e( "reCAPTCHA version to be used.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="captcha_site_key" class="col-sm-3 col-form-label text-right">
                             <?php _e( 'reCAPTCHA site key', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
@@ -610,6 +653,23 @@ wp_print_scripts( 'quicktags' );
                                  data-content="<?php _e( "The secret key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
                                  aria-label="<?php _e( "The secret key for Google reCAPTCHA.", 'subscribe-to-comments-reloaded' ); ?>">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="blacklisted_emails" class="col-sm-3 col-form-label text-right">
+                            <?php _e( 'Blacklisted Emails', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <div class="col-sm-7">
+                            <textarea name="options[blacklisted_emails]" id="blacklisted_emails"
+                                   class="form-control form-control-input-9" cols="10" rows="6"
+                                   ><?php echo esc_textarea( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'blacklisted_emails', '' ) ); ?></textarea>
+
+                            <div class="helpDescription subsOptDescriptions"
+                                 data-content="<?php esc_html_e( "Add a comma separated list of emails to blacklist them from subscribing to comments. Example: example@example.com, mail@mail.com", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-placement="right"
+                                 aria-label="<?php esc_html_e( "Add a comma separated list of emails to blacklist them from subscribing to comments. Example: example@example.com, mail@mail.com", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -703,7 +763,7 @@ wp_print_scripts( 'quicktags' );
                     <div class="card-body">
                         <p>
                             Thank you for using Subscribe to Comments Reloaded. You can Support the plugin by rating it
-                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/images/rate.png" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
+                            <a href="https://wordpress.org/support/plugin/subscribe-to-comments-reloaded/reviews/#new-post" target="_blank"><img src="<?php echo esc_url( plugins_url( '/images/rate.png', STCR_PLUGIN_FILE ) ); ?>" alt="Rate Subscribe to Comments Reloaded" style="vertical-align: sub;" /></a>
                         </p>
                         <p>
                             <i class="fas fa-bug"></i> Having issues? Please <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/" target="_blank">create a ticket</a>
@@ -714,7 +774,7 @@ wp_print_scripts( 'quicktags' );
 
         </div>
     </div>
-    <script type="text/javascript" src="<?php echo plugins_url(); ?>/subscribe-to-comments-reloaded/vendor/webui-popover/dist/jquery.webui-popover.min.js"></script>
+    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.

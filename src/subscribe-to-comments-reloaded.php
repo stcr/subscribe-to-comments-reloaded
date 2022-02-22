@@ -13,30 +13,35 @@
 
 namespace stcr;
 
-// avoid direct access to this piece of code
+// Avoid direct access to this piece of code.
 if ( ! function_exists( 'add_action' ) ) {
 	header( 'Location: /' );
 	exit;
 }
 
-require_once dirname(__FILE__) . '/wp_subscribe_reloaded.php';
+// Define the main plugin constant file.
+if ( ! defined( 'STCR_PLUGIN_FILE' ) ) {
+	define( 'STCR_PLUGIN_FILE', __FILE__ );
+}
+
+require_once dirname( STCR_PLUGIN_FILE ) . '/wp_subscribe_reloaded.php';
 
 if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
-	
+
 	/**
 	 * Main plugin class
-	 * 
+	 *
 	 * @since 150720
 	 */
 	class stcr_subscribe_reloaded {
-		
+
 		const CLASSNAME = __CLASS__; // http://www.garfieldtech.com/blog/class-constants-php54
 
 		public $stcr = null;
 
 		/**
 		 * Constructor
-		 * 
+		 *
 		 * @since 150720
 		 */
 		function __construct() {
@@ -46,22 +51,22 @@ if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 
 		/**
 		 * This will trigger the activate function located on utils/stcr_manage.php
-		 * 
+		 *
 		 * @since 150720
 		 */
 		static function activate() {
-			require_once dirname(__FILE__).'/utils/stcr_manage.php';
+			require_once dirname( STCR_PLUGIN_FILE ) . '/utils/stcr_manage.php';
 			$_stcra = new stcr_manage();
 			$_stcra->activate();
 		}
 
 		/**
 		 * This will trigger the deactivate function located on utils/stcr_manage.php
-		 * 
+		 *
 		 * @since 150720
 		 */
 		static function deactivate() {
-			require_once dirname(__FILE__).'/utils/stcr_manage.php';
+			require_once dirname( STCR_PLUGIN_FILE ) . '/utils/stcr_manage.php';
 			$_stcrd = new stcr_manage();
 			$_stcrd->deactivate();
 		}
@@ -69,14 +74,14 @@ if( ! class_exists( '\\'.__NAMESPACE__.'\\stcr_subscribe_reloaded' ) ) {
 	}
 
 	// plugin activation
-	register_activation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'activate' ) );
+	register_activation_hook( STCR_PLUGIN_FILE, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'activate' ) );
 
 	// plugin deactivation
-	register_deactivation_hook( __FILE__, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'deactivate' ) );
+	register_deactivation_hook( STCR_PLUGIN_FILE, array( \stcr\stcr_subscribe_reloaded::CLASSNAME , 'deactivate' ) );
 
 	// instantiate stcr_subscribe_reloaded class
-	if (  ! isset( $GLOBALS['wp_subscribe_reloaded'] ) ) {
-        $GLOBALS['wp_subscribe_reloaded'] = new stcr_subscribe_reloaded();
+	if ( ! isset( $GLOBALS['wp_subscribe_reloaded'] ) ) {
+		$GLOBALS['wp_subscribe_reloaded'] = new stcr_subscribe_reloaded();
 	}
-	
+
 }

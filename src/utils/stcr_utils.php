@@ -20,7 +20,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 	    public function __construct()
         {
-            
+
         }
 
         public function __destruct()
@@ -268,7 +268,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * Creates the HTML structure to properly handle HTML messages
 		 */
 		public function wrap_html_message( $_message = '', $_subject = '' ) {
-            
+
             global $wp_locale;
 
             // HTML emails
@@ -289,7 +289,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                     $body = "<body>$_message</body>";
                     return $html . $head . $body . "</html>";
                 }
-            
+
             // Plain text emails
             } else {
 
@@ -303,7 +303,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * Returns an email address where some possible 'offending' strings have been removed
 		 */
 		public function clean_email( $_email ) {
-            
+
             if ( is_array( $_email) || is_object( $_email ) ) {
                 return;
             }
@@ -318,8 +318,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 				"/mime\-version\:/i"
 			);
 
-            return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', $_email ) ) ) );
-            
+            return sanitize_email( stripslashes( strip_tags( preg_replace( $offending_strings, '', strtolower( $_email ) ) ) ) );
+
 		}
 		// end clean_email
 
@@ -391,8 +391,29 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_enable_font_awesome', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_delete_options_subscriptions', 'no', '', 'no' );
             add_option( 'subscribe_reloaded_date_format', 'd M Y', '', 'no' );
-            add_option( 'subscribe_reloaded_only_for_posts', 'no', '', 'yes' );            
 
+            // For blacklist email.
+            add_option( 'subscribe_reloaded_blacklisted_emails', '', '', 'yes' );
+
+            // For recaptcha version.
+            add_option( 'subscribe_reloaded_recaptcha_version', 'v2', '', 'yes' );
+
+            // For post type support.
+            $post_type_supports = array();
+            $args = array(
+                '_builtin' => false,
+                'public'   => true,
+            );
+            $post_types         = get_post_types( $args );
+            $default_post_types =  array(
+                'post',
+                'page',
+            );
+            $post_types         = array_merge( $default_post_types, $post_types );
+            foreach ( $post_types as $post_type ) {
+                $post_type_supports[] = $post_type;
+            }
+            add_option( 'subscribe_reloaded_post_type_supports', $post_type_supports, '', 'yes' );
         }
         /**
          * @since 08-February-2018
@@ -537,8 +558,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function register_admin_scripts( $hook ) {
 
             // paths
-            $stcr_admin_js = plugins_url( 'subscribe-to-comments-reloaded/includes/js/stcr-admin.js' );
-            $stcr_admin_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/stcr-admin-style.css' );
+            $stcr_admin_js = plugins_url( '/includes/js/stcr-admin.js', STCR_PLUGIN_FILE );
+            $stcr_admin_css = plugins_url( '/includes/css/stcr-admin-style.css', STCR_PLUGIN_FILE );
 
             // register scripts
             wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
@@ -548,7 +569,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             // check if we're on our pages
             if ( strpos( $hook, 'stcr' ) !== false ) {
-                
+
                 // enqueue scripts
                 wp_enqueue_script('stcr-admin-js');
 
@@ -578,7 +599,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
          */
 		public function register_script_to_wp( $handle, $script_name, $path_add = "" )
         {
-            $js_resource  = plugins_url( SLUG . "/$path_add/$script_name" );
+            $js_resource  = plugins_url( "/$path_add/$script_name", STCR_PLUGIN_FILE );
             wp_register_script( $handle, $js_resource );
         }
         /**includes/js/admin
@@ -596,8 +617,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @author reedyseth
 		 */
 		public function register_plugin_scripts() {
-            
-            $stcr_font_awesome_css = plugins_url( 'subscribe-to-comments-reloaded/includes/css/font-awesome.min.css' );
+
+            $stcr_font_awesome_css = plugins_url( '/includes/css/font-awesome.min.css', STCR_PLUGIN_FILE );
             // Font Awesome
             if ( get_option( 'subscribe_reloaded_enable_font_awesome' ) == "yes" ) {
                 wp_register_style( 'stcr-font-awesome', $stcr_font_awesome_css );
@@ -606,7 +627,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             // google recaptcha
             if ( get_option( 'subscribe_reloaded_use_captcha', 'no' ) == 'yes' ) {
-                
+
                 // management page permalink
                 $manager_page_permalink = get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
                 if ( function_exists( 'qtrans_convertURL' ) ) {
@@ -617,7 +638,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                 if ( empty( $manager_page_permalink ) ) {
                     $manager_page_permalink = '/comment-subscriptions/';
                 }
-                
+
                 // remove the ending slash so both variations (with and without slash) work in the strpos check below
                 $manager_page_permalink = rtrim( $manager_page_permalink, '/' );
 
@@ -680,8 +701,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             else
             {
                 $value = get_option( 'subscribe_reloaded_' . $_option, $_default );
-                $value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
-                $value = stripslashes( $value );
+                $value = ( ! is_array( $value ) ) ? html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' ) : wp_unslash( $value );
+                $value = ( ! is_array( $value ) ) ? stripslashes( $value ) : wp_unslash( $value );
                 // Set the cache value
                 $this->menu_opts_cache[$_option] = $value;
             }
@@ -760,7 +781,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             }
 
             // Prevent XSS/CSRF attacks
-            $_value = trim( stripslashes( $_value ) );
+            $_value = ( 'multicheck' !== $_type ) ? trim( stripslashes( $_value ) ) : wp_unslash( $_value );
 
             switch ( $_type ) {
                 case 'yesno':
@@ -786,6 +807,18 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                     break;
                 case 'url':
                     update_option( 'subscribe_reloaded_' . $_option, esc_url( $_value ) );
+
+                    break;
+                case 'textarea':
+                    update_option( 'subscribe_reloaded_' . $_option, wp_kses_post( $_value ) );
+
+                    break;
+                case 'multicheck':
+                    update_option( 'subscribe_reloaded_' . $_option, wp_unslash( $_value ) );
+
+                    break;
+                case 'select':
+                    update_option( 'subscribe_reloaded_' . $_option, sanitize_key( $_value ) );
 
                     break;
                 default:
@@ -848,7 +881,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             return;
         }
-        
+
 		/**
 		 * Update a StCR notification status
 		 *
@@ -899,7 +932,36 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
 				fclose($file);
 			}
-			
+
+		}
+
+		/**
+		 * Function to check if the commenter email address is blacklisted or not.
+		 *
+		 * @param string $email_to_check The commentor's email address.
+		 *
+		 * @return bool
+		 */
+		public function blacklisted_emails( $email_to_check = '' ) {
+
+			// If the emails is blacklisted then, do not proceed to send the subscription confirmation email.
+			$blacklisted_emails = get_option( 'subscribe_reloaded_blacklisted_emails', '' );
+			$email_blacklist    = ! empty( $blacklisted_emails ) ? explode( ',', $blacklisted_emails ) : false;
+
+			if ( is_array( $email_blacklist ) ) {
+				foreach ( $email_blacklist as $blacklist_item ) {
+					$blacklisted_items = trim( $blacklist_item );
+
+					if ( ! empty( trim( $blacklisted_items ) ) ) {
+						if ( is_email( $email_to_check ) === is_email( $blacklisted_items ) ) {
+							return false;
+						}
+					}
+				}
+			}
+
+			return true;
+
 		}
 	}
 }
