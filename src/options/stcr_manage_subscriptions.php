@@ -237,7 +237,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
                                     foreach ( $subscriptions as $a_subscription ) {
                                         //$wp_subscribe_reloaded->stcr->utils->stcr_logger( print_r($a_subscription, true) );
-                                        $title     = get_the_title( $a_subscription->post_id );
+                                        $title     = wp_strip_all_tags( get_the_title( $a_subscription->post_id ) );
                                         $title     = ( strlen( $title ) > 35 ) ? substr( $title, 0, 35 ) . '..' : $title;
                                         if( $wp_locale->text_direction == 'rtl' )
                                         {
