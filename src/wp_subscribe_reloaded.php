@@ -917,7 +917,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// fake posts
                 $posts[] =
                     (object)array(
-                        'ID'                    => '9999999',
+                        'ID'                    => '-999',
                         'post_autToggle hor'    => '1',
                         'post_date'             => '2001-01-01 11:38:56',
                         'post_date_gmt'         => '2001-01-01 00:38:56',
@@ -940,8 +940,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         'post_category'         => '0',
                         'comment_count'         => '0',
                         'filter'                => 'raw',
-                        'guid'                  => get_bloginfo('url') . '/?page_id=9999999',
-                        'post_name'             => get_bloginfo('url') . '/?page_id=9999999',
+                        'guid'                  => get_bloginfo('url') . '/?page_id=-999',
+                        'post_name'             => get_bloginfo('url') . '/?page_id=-999',
                         'ancestors'             => array()
                     );
 
