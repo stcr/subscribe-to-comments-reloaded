@@ -960,7 +960,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
                 // Look like the plugin is call twice and therefor subscribe to the "the_posts" filter again so we need to
                 // tell to WordPress to not register again.
-                remove_filter("the_posts", array($this, "subscribe_reloaded_manage"));
+                // remove_filter("the_posts", array($this, "subscribe_reloaded_manage"));
                 add_action('wp_head', array($this, 'add_custom_header_meta'));
 
 			// log the error
