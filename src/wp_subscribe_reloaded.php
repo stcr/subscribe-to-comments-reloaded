@@ -918,6 +918,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 $posts[] =
                     (object)array(
                         'ID'                    => '-999',
+                        'post_author'           => '1',
                         'post_date'             => current_time( 'mysql' ),
                         'post_date_gmt'         => current_time( 'mysql', 1 ),
                         'post_content'          => $include_post_content,
