@@ -917,10 +917,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// fake posts
                 $posts[] =
                     (object)array(
-                        'ID'                    => '9999999',
-                        'post_autToggle hor'    => '1',
-                        'post_date'             => '2001-01-01 11:38:56',
-                        'post_date_gmt'         => '2001-01-01 00:38:56',
+                        'ID'                    => '-999',
+                        'post_author'           => '1',
+                        'post_date'             => current_time( 'mysql' ),
+                        'post_date_gmt'         => current_time( 'mysql', 1 ),
                         'post_content'          => $include_post_content,
                         'post_title'            => $manager_page_title,
                         'post_excerpt'          => '',
@@ -930,8 +930,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         'post_password'         => '',
                         'to_ping'               => '',
                         'pinged'                => '',
-                        'post_modified'         => '2001-01-01 11:00:01',
-                        'post_modified_gmt'     => '2001-01-01 00:00:01',
+                        'post_modified'         => current_time( 'mysql' ),
+                        'post_modified_gmt'     => current_time( 'mysql', 1 ),
                         'post_content_filtered' => '',
                         'post_parent'           => '0',
                         'menu_order'            => '0',
@@ -940,8 +940,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         'post_category'         => '0',
                         'comment_count'         => '0',
                         'filter'                => 'raw',
-                        'guid'                  => get_bloginfo('url') . '/?page_id=9999999',
-                        'post_name'             => get_bloginfo('url') . '/?page_id=9999999',
+                        'guid'                  => get_bloginfo('url') . '/?page_id=-999',
+                        'post_name'             => get_bloginfo('url') . '/?page_id=-999',
                         'ancestors'             => array()
                     );
 
@@ -961,7 +961,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
                 // Look like the plugin is call twice and therefor subscribe to the "the_posts" filter again so we need to
                 // tell to WordPress to not register again.
-                remove_filter("the_posts", array($this, "subscribe_reloaded_manage"));
+                // remove_filter("the_posts", array($this, "subscribe_reloaded_manage"));
                 add_action('wp_head', array($this, 'add_custom_header_meta'));
 
 			// log the error
