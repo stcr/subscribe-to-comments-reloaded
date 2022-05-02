@@ -17,6 +17,19 @@ $status              = sanitize_text_field( trim( $status ) );
 
 switch ( $action ) {
     case 'add':
+
+        if ( empty( $_POST['stcr_add_subscription_nonce'] ) ) {
+            exit();
+        }
+        
+        if ( ! wp_verify_nonce( $_POST['stcr_add_subscription_nonce'], 'stcr_add_subscription_nonce' ) ) {
+            exit();
+        }
+        
+        if ( ! current_user_can( 'manage_options' ) ) {
+            exit();
+        }
+
         $stcr_post_email     = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $stcr_post_email );
         $valid_post_id       = $wp_subscribe_reloaded->stcr->utils->check_valid_number( $post_id );
 
@@ -41,6 +54,19 @@ switch ( $action ) {
         break;
 
     case 'edit':
+
+        if ( empty( $_POST['stcr_edit_subscription_nonce'] ) ) {
+            exit();
+        }
+        
+        if ( ! wp_verify_nonce( $_POST['stcr_edit_subscription_nonce'], 'stcr_edit_subscription_nonce' ) ) {
+            exit();
+        }
+        
+        if ( ! current_user_can( 'manage_options' ) ) {
+            exit();
+        }
+
         $stcr_post_email     = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $stcr_post_email );
         $stcr_old_post_email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $stcr_old_post_email );
         $valid_post_id       = $wp_subscribe_reloaded->stcr->utils->check_valid_number( $post_id );
@@ -66,6 +92,19 @@ switch ( $action ) {
         break;
 
     case 'delete-subscription':
+
+        if ( empty( $_GET['stcr_delete_subscription_nonce'] ) ) {
+            exit();
+        }
+        
+        if ( ! wp_verify_nonce( $_GET['stcr_delete_subscription_nonce'], 'stcr_delete_subscription_nonce' ) ) {
+            exit();
+        }
+        
+        if ( ! current_user_can( 'manage_options' ) ) {
+            exit();
+        }
+
         $stcr_post_email     = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $stcr_post_email );
         $valid_post_id       = $wp_subscribe_reloaded->stcr->utils->check_valid_number( $post_id );
 
@@ -82,6 +121,19 @@ switch ( $action ) {
 
     default:
         if ( ! empty( $_POST['subscriptions_list'] ) ) {
+
+            if ( empty( $_POST['stcr_update_subscriptions_nonce'] ) ) {
+                exit();
+            }
+            
+            if ( ! wp_verify_nonce( $_POST['stcr_update_subscriptions_nonce'], 'stcr_update_subscriptions_nonce' ) ) {
+                exit();
+            }
+            
+            if ( ! current_user_can( 'manage_options' ) ) {
+                exit();
+            }
+
             $post_list = $email_list = array();
             foreach ( $_POST['subscriptions_list'] as $a_subscription ) {
                 list( $a_post, $a_email ) = explode( ',', $a_subscription );

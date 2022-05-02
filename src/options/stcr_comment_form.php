@@ -23,11 +23,24 @@ $options = array(
 
 // Update options
 if ( isset( $_POST['options'] ) ) {
+
+    if ( empty( $_POST['stcr_save_comment_form_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_save_comment_form_nonce'], 'stcr_save_comment_form_nonce' ) ) {
+        return;
+    }
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
 	$faulty_fields = array();
 
     foreach ( $_POST['options'] as $option => $value )
     {
-//        echo $option . '<br>';
+
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {
             array_push( $faulty_fields, $option );
@@ -339,6 +352,8 @@ if ( isset( $_POST['options'] ) ) {
                         </button>
                     </div>
                 </div>
+
+                <?php wp_nonce_field( 'stcr_save_comment_form_nonce', 'stcr_save_comment_form_nonce' ); ?>
 
             </form>
         </div>

@@ -41,6 +41,19 @@ if ( ! wp_next_scheduled( '_cron_subscribe_reloaded_system_report_file_purge' ) 
 
 // Updating options
 if ( array_key_exists( "purge_log", $_POST ) ) {
+
+    if ( empty( $_POST['stcr_purge_log_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_purge_log_nonce'], 'stcr_purge_log_nonce' ) ) {
+        return;
+    }
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
     // Check that the log file exits
     $plugin_dir   = plugin_dir_path( __DIR__ );
     $file_name    = "log.txt";
@@ -74,11 +87,20 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
     echo "</p></div>\n";
 }
 else {
-    // echo "<pre>Option selected ";
-    // 		 print_r($_POST['options']);
-    // 		 echo "</pre>";
-    // Update options
+    
     if( isset( $_POST['options'] ) ) { // Update options
+
+        if ( empty( $_POST['stcr_save_system_nonce'] ) ) {
+            return;
+        }
+        
+        if ( ! wp_verify_nonce( $_POST['stcr_save_system_nonce'], 'stcr_save_system_nonce' ) ) {
+            return;
+        }
+    
+        if ( ! current_user_can( 'manage_options' ) ) {
+            return;
+        }
 
         $faulty_fields = array();
 
@@ -207,6 +229,7 @@ else {
                                 ); ?>
                             </span>
 
+                            <?php wp_nonce_field( 'stcr_purge_log_nonce', 'stcr_purge_log_nonce' ); ?>
                             <input type='submit' id="purge_log" value='<?php esc_attr_e( 'Clean' ); ?>' class='btn btn-secondary subscribe-form-button' name='purge_log' >
                         </div>
                     </div>
@@ -724,11 +747,14 @@ else {
                         </tbody>
                     </table>
 
+                    <?php wp_nonce_field( 'stcr_save_system_nonce', 'stcr_save_system_nonce' ); ?>
+
                 </form>
 
                 <form name="stcr_sysinfo_form" class="stcr-hidden" action="<?php echo esc_url( admin_url( 'admin.php?page=stcr_system' ) ); ?>" method="post">
                     <input type="hidden" name="stcr_sysinfo_action" value="download_sysinfo" />
                     <textarea name="stcr_sysinfo" readonly><?php echo serialize( $stcr_system_information ); ?></textarea>
+                    <?php wp_nonce_field( 'stcr_download_sysinfo_nonce', 'stcr_download_sysinfo_nonce' ); ?>
                 </form>
 
             </div>

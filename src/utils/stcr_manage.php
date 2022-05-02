@@ -638,7 +638,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				return;
 			}
 
-			if ( ! current_user_can( 'moderate_comments' ) ) {
+			if ( empty( $_POST['stcr_download_sysinfo_nonce'] ) ) {
+				return;
+			}
+			
+			if ( ! wp_verify_nonce( $_POST['stcr_download_sysinfo_nonce'], 'stcr_download_sysinfo_nonce' ) ) {
+				return;
+			}
+
+			if ( ! current_user_can( 'manage_options' ) ) {
 				return;
 			}
 

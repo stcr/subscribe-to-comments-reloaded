@@ -37,6 +37,19 @@ $options = array(
 );
 
 if ( array_key_exists( "generate_key", $_POST ) ) {
+
+    if ( empty( $_POST['stcr_save_options_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_save_options_nonce'], 'stcr_save_options_nonce' ) ) {
+        return;
+    }
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
     $unique_key = $wp_subscribe_reloaded->stcr->utils->generate_key();
     $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( 'unique_key', $unique_key, 'text' );
 
@@ -45,6 +58,19 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
     echo "</p></div>";
 
 } elseif ( array_key_exists( "reset_all_options", $_POST ) ) {
+
+    if ( empty( $_POST['stcr_save_options_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_save_options_nonce'], 'stcr_save_options_nonce' ) ) {
+        return;
+    }
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
     $delete_subscriptions_selection = $_POST['options']['delete_options_subscriptions'];
     $deletion_result = $wp_subscribe_reloaded->stcr->utils->delete_all_settings( $delete_subscriptions_selection );
 
@@ -54,6 +80,18 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
         $wp_subscribe_reloaded->stcr->utils->create_options();
     }
 } elseif( isset( $_POST['options'] ) ) { // Update options
+
+    if ( empty( $_POST['stcr_save_options_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_save_options_nonce'], 'stcr_save_options_nonce' ) ) {
+        return;
+    }
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
 
     $faulty_fields = array();
 
@@ -754,6 +792,8 @@ wp_print_scripts( 'quicktags' );
                             </button>
                         </div>
                     </div>
+
+                    <?php wp_nonce_field( 'stcr_save_options_nonce', 'stcr_save_options_nonce' ); ?>
 
                 </form>
             </div>

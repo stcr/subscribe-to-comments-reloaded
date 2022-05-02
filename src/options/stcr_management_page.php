@@ -29,6 +29,19 @@ $options_readable = array(
 
 // Update options
 if ( isset( $_POST['options'] ) ) {
+
+    if ( empty( $_POST['stcr_save_management_page_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_save_management_page_nonce'], 'stcr_save_management_page_nonce' ) ) {
+        return;
+    }
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
     $faulty_fields = array();
 
     foreach ( $_POST['options'] as $option => $value )
@@ -404,6 +417,8 @@ wp_print_scripts( 'quicktags' );
                             </button>
                         </div>
                     </div>
+
+                    <?php wp_nonce_field( 'stcr_save_management_page_nonce', 'stcr_save_management_page_nonce' ); ?>
 
                 </form>
             </div>

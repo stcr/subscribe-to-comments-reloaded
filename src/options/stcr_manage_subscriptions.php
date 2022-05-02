@@ -92,6 +92,8 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                             <div class="alert alert-info hidden  info-panel-mass-update" role="alert">
                                 <?php _e('This option will allow you to change an email address for another one or to update the same status for all the subscription on a specific email address.', 'subscribe-to-comments-reloaded' ); ?>
                             </div>
+                            
+                            <?php wp_nonce_field( 'stcr_edit_subscription_nonce', 'stcr_edit_subscription_nonce' ); ?>
                         </form>
                     </div>
                 </div>
@@ -136,6 +138,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                 </table>
                                 &nbsp;
                             </fieldset>
+                            <?php wp_nonce_field( 'stcr_add_subscription_nonce', 'stcr_add_subscription_nonce' ); ?>
                         </form>
                     </div>
                 </div>
@@ -253,6 +256,9 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
                                         $status_desc = $status_arry[$a_subscription->status];
 
+                                        $delete_url = "admin.php?page=stcr_manage_subscriptions&sra=delete-subscription&srp=" . $a_subscription->post_id . "&sre=" . urlencode( $a_subscription->email );
+                                        $delete_url = wp_nonce_url( $delete_url, 'stcr_delete_subscription_nonce', 'stcr_delete_subscription_nonce' );
+
                                         if( $wp_locale->text_direction == 'rtl' )
                                         {
                                             echo "<tr>
@@ -260,7 +266,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                                             <label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-to-comments-reloaded' ) . " {$a_subscription->meta_id}</label>
                                                             <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
                                                             <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='$delete_url' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
                                                         </td>
                                                         <td>$row_post</td>
                                                         <td>$row_email</td>
@@ -275,7 +281,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                                             <label for='sub_{$a_subscription->meta_id}' class='hidden'>" . __( 'Subscription', 'subscribe-to-comments-reloaded' ) . " {$a_subscription->meta_id}</label>
                                                             <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='$a_subscription->post_id," . urlencode( $a_subscription->email ) . "' id='sub_{$a_subscription->meta_id}' />
                                                             <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='admin.php?page=stcr_manage_subscriptions&amp;sra=delete-subscription&amp;srp=" . $a_subscription->post_id . "&amp;sre=" . urlencode( $a_subscription->email ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='$delete_url' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
                                                         </td>
                                                         <td>$row_post</td>
                                                         <td>$row_email</td>
@@ -309,6 +315,8 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                     echo '<p>' . __( 'Sorry, no subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . "</p>";
                                 }
                                 ?>
+
+                                <?php wp_nonce_field( 'stcr_update_subscriptions_nonce', 'stcr_update_subscriptions_nonce' ); ?>
 
                         </form>
                     </div>

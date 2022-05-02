@@ -34,6 +34,7 @@ echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " (" . intval( $_GE
 			</p>
 			<input type='hidden' name='sra' value='edit' />
 			<input type='hidden' name='srp' value='<?php echo intval( $_GET['srp'] ) ?>' />
+			<?php wp_nonce_field( 'stcr_edit_subscription_nonce', 'stcr_edit_subscription_nonce' ); ?>
 		</fieldset>
 	</form>
 </div>

@@ -1,4 +1,8 @@
 <?php
+/**
+ * This is just a template/example file, not used
+ */
+
 // Options
 
 // Avoid direct access to this piece of code
@@ -39,6 +43,19 @@ $options = array(
 
 // Update options
 if ( isset( $_POST['options'] ) ) {
+
+    if ( empty( $_POST['stcr_action_nonce'] ) ) {
+        return;
+    }
+    
+    if ( ! wp_verify_nonce( $_POST['stcr_action_nonce'], 'stcr_action_nonce' ) ) {
+        return;
+    }
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return;
+    }
+
     $faulty_fields = array();
 
     foreach ( $_POST['options'] as $option => $value )
@@ -81,6 +98,8 @@ wp_print_scripts( 'quicktags' );
                             </button>
                         </div>
                     </div>
+
+                    <?php wp_nonce_field( 'stcr_action_nonce', 'stcr_action_nonce' ); ?>
 
                 </form>
             </div>
