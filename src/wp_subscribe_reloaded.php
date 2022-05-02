@@ -683,13 +683,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			}
 
 			// how many comments does the author have on this post
-			$count_approved_comments = $wpdb->get_var(
+			$count_approved_comments = $wpdb->get_var( $wpdb->prepare(
 				"SELECT COUNT(*)
 				 FROM $wpdb->comments
-				 WHERE comment_post_ID = '$info->comment_post_ID'
-					AND comment_author_email = '$info->comment_author_email'
-					AND comment_approved = 1"
-			);
+				 WHERE comment_post_ID = %d
+					AND comment_author_email = %s
+					AND comment_approved = 1",
+				$info->comment_post_ID,
+				$info->comment_author_email
+			));			
 
 			// if author has no comments left on this post, remove his subscription
 			if ( intval( $count_approved_comments ) == 0 ) {
@@ -1118,10 +1120,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// generate search for the DB query
 			$posts_where = '';
 			if ( ! is_array( $_post_id ) ) {
-				$posts_where = "post_id = " . intval( $_post_id );
+				$posts_where = $wpdb->prepare( "post_id = %d", intval( $_post_id ) );
 			} else {
 				foreach ( $_post_id as $a_post_id ) {
-					$posts_where .= "post_id = '" . intval( $a_post_id ) . "' OR ";
+					$posts_where .= $wpdb->prepare( "post_id = %d OR ", intval( $a_post_id ) );
 				}
 				$posts_where = substr( $posts_where, 0, - 4 );
 			}
@@ -1130,14 +1132,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			if ( ! empty( $_email ) ) {
 				$emails_where = '';
 				if ( ! is_array( $_email ) ) {
-					$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
+					$emails_where = $wpdb->prepare( "meta_key = %s", '_stcr@_' . $this->utils->clean_email( $_email ) );
 					$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $_email );
 					if ( $has_subscriptions === false) {
 						$this->utils->remove_user_subscriber_table( $_email );
 					}
 				} else {
 					foreach ( $_email as $a_email ) {
-						$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
+						$emails_where .= $wpdb->prepare( "meta_key = %s OR ", '_stcr@_' . $this->utils->clean_email( $a_email ) );
 						// Deletion on every email on the subscribers table.
 						$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $a_email );
 						if ( $has_subscriptions === false ) {
@@ -1228,10 +1230,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// generate the WHERE for post ID for the DB query
 				$posts_where = '';
 				if ( ! is_array( $_post_id ) ) {
-					$posts_where = "post_id = " . intval( $_post_id );
+					$posts_where = $wpdb->prepare( "post_id = %d", intval( $_post_id ) );
 				} else {
 					foreach ( $_post_id as $a_post_id ) {
-						$posts_where .= "post_id = '" . intval( $a_post_id ) . "' OR ";
+						$posts_where .= $wpdb->prepare( "post_id = %d OR ", intval( $a_post_id ) );
 					}
 					$posts_where = substr( $posts_where, 0, - 4 );
 				}
@@ -1244,10 +1246,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// generate WHERE for email for the DB query
 			$emails_where = '';
 			if ( ! is_array( $_email ) ) {
-				$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
+				$emails_where = $wpdb->prepare( "meta_key = %s", '_stcr@_' . $this->utils->clean_email( $_email ) );
 			} else {
 				foreach ( $_email as $a_email ) {
-					$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
+					$emails_where .= $wpdb->prepare( "meta_key = %s OR ", '_stcr@_' . $this->utils->clean_email( $a_email ) );
 				}
 				$emails_where = substr( $emails_where, 0, - 4 );
 			}
