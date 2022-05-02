@@ -987,7 +987,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		public function is_author( $_post_author ) {
 
 			global $current_user;
-			return ! empty( $current_user ) && ( ( $_post_author == $current_user->ID ) || current_user_can( 'moderate_comments' ) );
+			return ! empty( $current_user ) && ( ( $_post_author == $current_user->ID ) || current_user_can( 'manage_options' ) );
 
 		}
 
