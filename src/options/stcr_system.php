@@ -45,7 +45,7 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
     if ( empty( $_POST['stcr_purge_log_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_purge_log_nonce'], 'stcr_purge_log_nonce' ) ) {
         return;
     }
@@ -81,23 +81,22 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
         $message     = __( 'The log file does not exists.', 'subscribe-to-comments-reloaded' );
         $message_type = "notice-warning";
     }
-    echo "<div class='notice $message_type'><p>";
-    echo 	$message;
-    // echo 	"<br><pre>$file_path$file_name</pre>";
+    echo "<div class='notice " . esc_attr( $message_type ) . "'><p>";
+    echo esc_html( $message );
     echo "</p></div>\n";
 }
 else {
-    
+
     if( isset( $_POST['options'] ) ) { // Update options
 
         if ( empty( $_POST['stcr_save_system_nonce'] ) ) {
             return;
         }
-        
+
         if ( ! wp_verify_nonce( $_POST['stcr_save_system_nonce'], 'stcr_save_system_nonce' ) ) {
             return;
         }
-    
+
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
         }
@@ -681,8 +680,8 @@ else {
                                                     . esc_html( $plugin_data['Version'] );
                             }
                             echo "<tr>";
-                            echo "<td class='text-left' style='min-width: 50px;'>{$plugin_name}</td>";
-                            echo "<td class='text-left'>{$author_name}</td>";
+                            echo "<td class='text-left' style='min-width: 50px;'>" . wp_kses( $plugin_name, wp_kses_allowed_html( 'post' ) ) . "</td>";
+                            echo "<td class='text-left'>" . wp_kses( $author_name, wp_kses_allowed_html( 'post' ) ) . "</td>";
                             echo "</tr>";
                             $stcr_system_information['WordPress Active Plugins'][$plugin_data['Name']] = $plugin_data;
                         }
@@ -738,8 +737,8 @@ else {
                                     . esc_html( $plugin_data['Version'] );
                             }
                             echo "<tr>";
-                            echo "<td class='text-left' style='min-width: 50px;'>{$plugin_name}</td>";
-                            echo "<td class='text-left'>{$author_name}</td>";
+                            echo "<td class='text-left' style='min-width: 50px;'>" . wp_kses( $plugin_name, wp_kses_allowed_html( 'post' ) ) . "</td>";
+                            echo "<td class='text-left'>" . wp_kses( $author_name, wp_kses_allowed_html( 'post' ) ) . "</td>";
                             echo "</tr>";
                             $stcr_system_information['WordPress Inactive Plugins'][$plugin_data['Name']] = $plugin_data;
                         }
