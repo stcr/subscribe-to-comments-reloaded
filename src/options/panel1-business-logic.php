@@ -5,10 +5,10 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	exit;
 }
 
-$stcr_post_email     = ! empty( $_POST['sre'] ) ? $_POST['sre'] : ( ! empty( $_GET['sre'] ) ? $_GET['sre'] : '' );
-$stcr_old_post_email = ! empty( $_POST['oldsre'] ) ? $_POST['oldsre'] : ( ! empty( $_GET['oldsre'] ) ? $_GET['oldsre'] : '' );
-$status              = ! empty( $_POST['srs'] ) ? $_POST['srs'] : ( ! empty( $_GET['srs'] ) ? $_GET['srs'] : '' );
-$post_id             = ! empty( $_POST['srp'] ) ? $_POST['srp'] : ( ! empty( $_GET['srp'] ) ? $_GET['srp'] : 0 );
+$stcr_post_email     = sanitize_text_field( ! empty( $_POST['sre'] ) ? wp_unslash( $_POST['sre'] ) : ( ! empty( $_GET['sre'] ) ? wp_unslash( $_GET['sre'] ) : '' ) );
+$stcr_old_post_email = sanitize_text_field( ! empty( $_POST['oldsre'] ) ? wp_unslash( $_POST['oldsre'] ) : ( ! empty( $_GET['oldsre'] ) ? wp_unslash( $_GET['oldsre'] ) : '' ) );
+$status              = sanitize_text_field( ! empty( $_POST['srs'] ) ? wp_unslash( $_POST['srs'] ) : ( ! empty( $_GET['srs'] ) ? wp_unslash( $_GET['srs'] ) : '' ) );
+$post_id             = sanitize_text_field( ! empty( $_POST['srp'] ) ? wp_unslash( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? wp_unslash( $_GET['srp'] ) : 0 ) );
 $valid_email         = true;
 $valid_post_id       = true;
 // Clean data
@@ -21,11 +21,11 @@ switch ( $action ) {
         if ( empty( $_POST['stcr_add_subscription_nonce'] ) ) {
             exit();
         }
-        
+
         if ( ! wp_verify_nonce( $_POST['stcr_add_subscription_nonce'], 'stcr_add_subscription_nonce' ) ) {
             exit();
         }
-        
+
         if ( ! current_user_can( 'manage_options' ) ) {
             exit();
         }
@@ -58,11 +58,11 @@ switch ( $action ) {
         if ( empty( $_POST['stcr_edit_subscription_nonce'] ) ) {
             exit();
         }
-        
+
         if ( ! wp_verify_nonce( $_POST['stcr_edit_subscription_nonce'], 'stcr_edit_subscription_nonce' ) ) {
             exit();
         }
-        
+
         if ( ! current_user_can( 'manage_options' ) ) {
             exit();
         }
@@ -96,11 +96,11 @@ switch ( $action ) {
         if ( empty( $_GET['stcr_delete_subscription_nonce'] ) ) {
             exit();
         }
-        
+
         if ( ! wp_verify_nonce( $_GET['stcr_delete_subscription_nonce'], 'stcr_delete_subscription_nonce' ) ) {
             exit();
         }
-        
+
         if ( ! current_user_can( 'manage_options' ) ) {
             exit();
         }
@@ -125,11 +125,11 @@ switch ( $action ) {
             if ( empty( $_POST['stcr_update_subscriptions_nonce'] ) ) {
                 exit();
             }
-            
+
             if ( ! wp_verify_nonce( $_POST['stcr_update_subscriptions_nonce'], 'stcr_update_subscriptions_nonce' ) ) {
                 exit();
             }
-            
+
             if ( ! current_user_can( 'manage_options' ) ) {
                 exit();
             }
