@@ -62,7 +62,7 @@ if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
 		$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
 	}
 
-	echo wpautop( $page_message );
+	echo wpautop( wp_kses( $page_message, wp_kses_allowed_html( 'post' ) ) );
 }
 else
 {
@@ -71,7 +71,7 @@ else
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
-	<p><?php echo wpautop( $error_message ); ?></p>
+	<p><?php echo wpautop( esc_html( $error_message ) ); ?></p>
 	<form action="<?php
 	$url = $_SERVER[ 'REQUEST_URI' ];
 	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
