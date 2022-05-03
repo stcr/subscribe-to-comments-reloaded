@@ -8,7 +8,7 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 // globals
-define( __NAMESPACE__.'\\VERSION','211130' );
+define( __NAMESPACE__.'\\VERSION','220502' );
 define( __NAMESPACE__.'\\DEVELOPMENT', false );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 
@@ -144,7 +144,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// if we are on the management page, filter the_posts
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
 
-                    $request_uri = $_SERVER['REQUEST_URI'];
+                    $request_uri     = sanitize_text_field( isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '' );
                     $request_uri_arr = explode( $manager_page_permalink, $request_uri );
 
                     // don't show management page if a "child page"
@@ -233,7 +233,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			global $wp_locale;
 
 			$slug = 'stcr_manage_subscriptions';
-			$current_page = isset( $_GET['page'] ) ? $_GET['page'] : '';
+			$current_page = sanitize_text_field( isset( $_GET['page'] ) ? wp_unslash( $_GET['page'] ) : '' );
 
             // define the menu items
             $array_pages = array(
@@ -683,13 +683,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			}
 
 			// how many comments does the author have on this post
-			$count_approved_comments = $wpdb->get_var(
+			$count_approved_comments = $wpdb->get_var( $wpdb->prepare(
 				"SELECT COUNT(*)
 				 FROM $wpdb->comments
-				 WHERE comment_post_ID = '$info->comment_post_ID'
-					AND comment_author_email = '$info->comment_author_email'
-					AND comment_approved = 1"
-			);
+				 WHERE comment_post_ID = %d
+					AND comment_author_email = %s
+					AND comment_approved = 1",
+				$info->comment_post_ID,
+				$info->comment_author_email
+			));
 
 			// if author has no comments left on this post, remove his subscription
 			if ( intval( $count_approved_comments ) == 0 ) {
@@ -744,26 +746,26 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			try {
 
 				// get post ID
-                $post_ID = !empty($_POST['srp']) ? intval($_POST['srp']) : (!empty($_GET['srp']) ? intval($_GET['srp']) : 0);
+				$post_ID = sanitize_text_field( ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 ) );
 
-                // does a post with that ID exist
-                $target_post = get_post($post_ID);
-                if ( ( $post_ID > 0 ) && ! is_object($target_post) ) {
-                    return $_posts;
-                }
+				// does a post with that ID exist
+				$target_post = get_post( $post_ID );
+				if ( ( $post_ID > 0 ) && ! is_object( $target_post ) ) {
+					return $_posts;
+				}
 
 				// vars
-                $action = !empty($_POST['sra']) ? $_POST['sra'] : (!empty($_GET['sra']) ? $_GET['sra'] : 0);
-                $key = !empty($_POST['srk']) ? $_POST['srk'] : (!empty($_GET['srk']) ? $_GET['srk'] : 0);
+				$action = sanitize_text_field( ! empty( $_POST['sra'] ) ? wp_unslash( $_POST['sra'] ) : ( ! empty( $_GET['sra'] ) ? wp_unslash( $_GET['sra'] ) : 0 ) );
+				$key    = sanitize_text_field( ! empty( $_POST['srk'] ) ? wp_unslash( $_POST['srk'] ) : ( ! empty( $_GET['srk'] ) ? wp_unslash( $_GET['srk'] ) : 0 ) );
 
-                $sre = !empty($_POST['sre']) ? $_POST['sre'] : (!empty($_GET['sre']) ? $_GET['sre'] : '');
-                if ( is_user_logged_in() ) {
-                    $sre = $current_user->data->user_email;
-                }
+				$sre = sanitize_text_field( ! empty( $_POST['sre'] ) ? wp_unslash( $_POST['sre'] ) : ( ! empty( $_GET['sre'] ) ? wp_unslash( $_GET['sre'] ) : '' ) );
+				if ( is_user_logged_in() ) {
+					$sre = $current_user->data->user_email;
+				}
 
-                $srek = !empty($_POST['srek']) ? $_POST['srek'] : (!empty($_GET['srek']) ? $_GET['srek'] : '');
-                $link_source = !empty($_POST['srsrc']) ? $_POST['srsrc'] : (!empty($_GET['srsrc']) ? $_GET['srsrc'] : '');
-                $key_expired = !empty($_POST['key_expired']) ? $_POST['key_expired'] : (!empty($_GET['key_expired']) ? $_GET['key_expired'] : '0');
+				$srek = sanitize_text_field( ! empty( $_POST['srek'] ) ? wp_unslash( $_POST['srek'] ) : ( ! empty( $_GET['srek'] ) ? wp_unslash( $_GET['srek'] ) : '' ) );
+				$link_source = sanitize_text_field( ! empty( $_POST['srsrc'] ) ? $_POST['srsrc'] : ( ! empty( $_GET['srsrc'] ) ? $_GET['srsrc'] : '' ) );
+				$key_expired = sanitize_text_field( ! empty( $_POST['key_expired'] ) ? wp_unslash( $_POST['key_expired'] ) : ( ! empty( $_GET['key_expired'] ) ? wp_unslash( $_GET['key_expired'] ) : '0' ) );
 
 				// check if the current subscriber has valid email using the $srek key.
 				$email_by_key = $this->utils->get_subscriber_email_by_key($srek);
@@ -985,7 +987,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		public function is_author( $_post_author ) {
 
 			global $current_user;
-			return ! empty( $current_user ) && ( ( $_post_author == $current_user->ID ) || current_user_can( 'moderate_comments' ) );
+			return ! empty( $current_user ) && ( ( $_post_author == $current_user->ID ) || current_user_can( 'manage_options' ) );
 
 		}
 
@@ -1118,10 +1120,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// generate search for the DB query
 			$posts_where = '';
 			if ( ! is_array( $_post_id ) ) {
-				$posts_where = "post_id = " . intval( $_post_id );
+				$posts_where = $wpdb->prepare( "post_id = %d", intval( $_post_id ) );
 			} else {
 				foreach ( $_post_id as $a_post_id ) {
-					$posts_where .= "post_id = '" . intval( $a_post_id ) . "' OR ";
+					$posts_where .= $wpdb->prepare( "post_id = %d OR ", intval( $a_post_id ) );
 				}
 				$posts_where = substr( $posts_where, 0, - 4 );
 			}
@@ -1130,14 +1132,14 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			if ( ! empty( $_email ) ) {
 				$emails_where = '';
 				if ( ! is_array( $_email ) ) {
-					$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
+					$emails_where = $wpdb->prepare( "meta_key = %s", '_stcr@_' . $this->utils->clean_email( $_email ) );
 					$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $_email );
 					if ( $has_subscriptions === false) {
 						$this->utils->remove_user_subscriber_table( $_email );
 					}
 				} else {
 					foreach ( $_email as $a_email ) {
-						$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
+						$emails_where .= $wpdb->prepare( "meta_key = %s OR ", '_stcr@_' . $this->utils->clean_email( $a_email ) );
 						// Deletion on every email on the subscribers table.
 						$has_subscriptions = $this->retrieve_user_subscriptions( $_post_id, $a_email );
 						if ( $has_subscriptions === false ) {
@@ -1228,10 +1230,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// generate the WHERE for post ID for the DB query
 				$posts_where = '';
 				if ( ! is_array( $_post_id ) ) {
-					$posts_where = "post_id = " . intval( $_post_id );
+					$posts_where = $wpdb->prepare( "post_id = %d", intval( $_post_id ) );
 				} else {
 					foreach ( $_post_id as $a_post_id ) {
-						$posts_where .= "post_id = '" . intval( $a_post_id ) . "' OR ";
+						$posts_where .= $wpdb->prepare( "post_id = %d OR ", intval( $a_post_id ) );
 					}
 					$posts_where = substr( $posts_where, 0, - 4 );
 				}
@@ -1244,10 +1246,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// generate WHERE for email for the DB query
 			$emails_where = '';
 			if ( ! is_array( $_email ) ) {
-				$emails_where = "meta_key = '_stcr@_" . $this->utils->clean_email( $_email ) . "'";
+				$emails_where = $wpdb->prepare( "meta_key = %s", '_stcr@_' . $this->utils->clean_email( $_email ) );
 			} else {
 				foreach ( $_email as $a_email ) {
-					$emails_where .= "meta_key = '_stcr@_" . $this->utils->clean_email( $a_email ) . "' OR ";
+					$emails_where .= $wpdb->prepare( "meta_key = %s OR ", '_stcr@_' . $this->utils->clean_email( $a_email ) );
 				}
 				$emails_where = substr( $emails_where, 0, - 4 );
 			}
