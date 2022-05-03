@@ -11,7 +11,7 @@ global $wp_subscribe_reloaded;
 
 ob_start();
 
-	?><p><?php echo wpautop( $error_message ); ?></p><?php
+	?><p><?php echo wpautop( esc_html( $error_message ) ); ?></p><?php
 
 $output = ob_get_contents();
 ob_end_clean();
