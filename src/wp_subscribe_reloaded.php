@@ -253,9 +253,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
             ?>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo $wp_locale->text_direction ?>">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light <?php echo esc_attr( $wp_locale->text_direction ); ?>">
 
-				<a class="navbar-brand"><img src="<?php echo plugins_url( '/images/stcr-logo-150.png', STCR_PLUGIN_FILE ); ?>" alt="" width="25" height="19"></a>
+				<a class="navbar-brand"><img src="<?php echo esc_url( plugins_url( '/images/stcr-logo-150.png', STCR_PLUGIN_FILE ) ); ?>" alt="" width="25" height="19"></a>
 
 				<div class="collapse navbar-collapse">
 
@@ -269,7 +269,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 								// skip strc_system because it's added as part of stcr_options
 								if ( $page == 'stcr_system' ) continue;
 
-								?><li class="<?php echo $page == 'stcr_options' ? 'dropdown' : '';  ?>"><?php
+								?><li class="<?php echo $page == 'stcr_options' ? 'dropdown' : ''; ?>"><?php
 
 									// dropdrown for options menu item
                                     if (  $page == 'stcr_options' ) :
@@ -284,12 +284,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 											data-toggle="dropdown"
 											aria-haspopup="true"
 											aria-expanded="false">
-											<?php echo $page_desc; ?>
+											<?php echo esc_html( $page_desc ); ?>
                                         </a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<a class="dropdown-item" href="admin.php?page=<?php echo $page; ?>"><?php echo __('StCR Options', 'subscribe-to-comments-reloaded'); ?></a>
+											<a class="dropdown-item" href="admin.php?page=<?php echo esc_attr( $page ); ?>"><?php _e('StCR Options', 'subscribe-to-comments-reloaded'); ?></a>
 											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="admin.php?page=stcr_system"><?php echo __('StCR System', 'subscribe-to-comments-reloaded'); ?></a>
+											<a class="dropdown-item" href="admin.php?page=stcr_system"><?php _e('StCR System', 'subscribe-to-comments-reloaded'); ?></a>
 										</div>
 										<?php
 
@@ -299,8 +299,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 										?>
 										<a
 											class="navbar-brand <?php echo ( $current_page == $page ) ? ' stcr-active-tab' : ''; ?>"
-											href="admin.php?page=<?php echo $page; ?>">
-											<?php echo $page_desc; ?>
+											href="admin.php?page=<?php echo esc_attr( $page ); ?>">
+											<?php echo esc_html( $page_desc ); ?>
 										</a>
 										<?php
 
@@ -1546,7 +1546,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// if not enabled for this post type, return default
 			if ( ! in_array( $post_type, $supported_post_types ) ) {
 				if ( $echo ) {
-					echo $submit_field;
+					echo wp_kses( $submit_field, wp_kses_allowed_html( 'post' ) );
 				} else {
 					return $submit_field;
 				}
@@ -1556,7 +1556,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// only for logged in users
 			if ( $only_for_logged_in == 'yes' && ! is_user_logged_in() ) {
 				if ( $echo ) {
-					echo $submit_field;
+					echo wp_kses( $submit_field, wp_kses_allowed_html( 'post' ) );
 				} else {
 					return $submit_field;
 				}
@@ -1571,7 +1571,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
 				if ( $echo ) {
-					echo $submit_field;
+					echo wp_kses( $submit_field, wp_kses_allowed_html( 'post' ) );
 				} else {
 					return $submit_field;
 				}
@@ -1692,7 +1692,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// echo or return
 			if ( $echo ) {
-				echo $output . $submit_field;
+				echo wp_kses( $output . $submit_field, wp_kses_allowed_html( 'post' ) );
 			} else {
 				return $output . $submit_field;
 			}
@@ -1771,7 +1771,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				$output .= '<script type="text/javascript">document.addEventListener("DOMContentLoaded",function(){if(document.querySelectorAll("div.stcr-form").length){let e=document.querySelectorAll("div.stcr-form")[0],t=document.querySelectorAll("#commentform input[type=submit]")[0];t.parentNode.insertBefore(e,t),e.classList.remove("stcr-hidden")}});</script>';
 			}
 
-			echo $output;
+			echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
 
 		}
 
