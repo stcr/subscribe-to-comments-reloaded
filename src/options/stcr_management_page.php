@@ -33,11 +33,11 @@ if ( isset( $_POST['options'] ) ) {
     if ( empty( $_POST['stcr_save_management_page_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_save_management_page_nonce'], 'stcr_save_management_page_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -60,17 +60,17 @@ if ( isset( $_POST['options'] ) ) {
     if ( sizeof( $faulty_fields ) == 0 ) {
         echo '<div class="updated"><p>';
             _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
-        echo "</p></div>";
+        echo '</p></div>';
     } else {
         echo '<div class="error"><p>';
             _e( 'There was an error updating the following fields:', 'subscribe-to-comments-reloaded' );
-            echo "<ul style='font-size: 0.8em;'>";
+            echo '<ul style="font-size: 0.8em;">';
             foreach( $faulty_fields as $field )
             {
-                echo ' <li>> ' . $options_readable[$field] . '</li>';
+                echo ' <li>> ' . esc_html( $options_readable[$field] ) . '</li>';
             }
-            echo "</ul>";
-        echo "</p></div>";
+            echo '</ul>';
+        echo '</p></div>';
     }
 }
 wp_print_scripts( 'quicktags' );
@@ -130,7 +130,7 @@ wp_print_scripts( 'quicktags' );
                         <label for="manager_page" class="col-sm-3 col-form-label text-right">
                             <?php _e( 'Management URL', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
-                            <code><?php echo get_bloginfo( 'url' ) ?></code>
+                            <code><?php echo esc_url( get_bloginfo( 'url' ) ); ?></code>
                             <input type="text" name="options[manager_page]" id="manager_page"
                                    class="form-control form-control-input-8"
                                    value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ) ); ?>" style=" width: 60% !important;">

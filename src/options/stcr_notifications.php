@@ -69,7 +69,7 @@ if ( isset( $_POST['options'] ) ) {
         _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
         // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
     }
-    echo "</p></div>";
+    echo '</p></div>';
 }
 wp_print_scripts( 'quicktags' );
 

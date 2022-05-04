@@ -41,11 +41,11 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
     if ( empty( $_POST['stcr_save_options_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_save_options_nonce'], 'stcr_save_options_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -54,19 +54,19 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
     $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( 'unique_key', $unique_key, 'text' );
 
     echo '<div class="updated"><p>';
-    echo __( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
-    echo "</p></div>";
+    _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
+    echo '</p></div>';
 
 } elseif ( array_key_exists( "reset_all_options", $_POST ) ) {
 
     if ( empty( $_POST['stcr_save_options_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_save_options_nonce'], 'stcr_save_options_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -84,11 +84,11 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
     if ( empty( $_POST['stcr_save_options_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_save_options_nonce'], 'stcr_save_options_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -97,8 +97,6 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 
     foreach ( $_POST['options'] as $option => $value )
     {
-//        echo $option . '<br>';
-
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {
             array_push( $faulty_fields, $option );
@@ -113,7 +111,7 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
         _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
         // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
     }
-    echo "</p></div>";
+    echo '</p></div>';
 }
 wp_print_scripts( 'quicktags' );
 
@@ -479,7 +477,7 @@ wp_print_scripts( 'quicktags' );
                                     }
                                     ?>
                                     <div class="form-check pl-0">
-                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="options[post_type_supports][]" value="<?php echo esc_attr( $post_type ) ?>" <?php echo $checked; ?> />
+                                        <input type="checkbox" id="<?php echo esc_attr( $post_type ); ?>" name="options[post_type_supports][]" value="<?php echo esc_attr( $post_type ) ?>" <?php echo $checked; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> />
 
                                         <label for="<?php echo esc_attr( $post_type ); ?>">
                                             <?php echo esc_html( get_post_type_object( $post_type )->label ); ?>
