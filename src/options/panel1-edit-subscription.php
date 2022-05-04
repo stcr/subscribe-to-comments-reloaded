@@ -10,11 +10,15 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	<form action="" method="post" id="update_address_form"
 		  onsubmit="if (this.sre.value != '<?php _e( 'optional', 'subscribe-to-comments-reloaded' ) ?>') return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) ?>')">
 		<fieldset style="border:0">
-			<p><?php _e( 'Post:', 'subscribe-to-comments-reloaded' );
-echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . " (" . intval( $_GET['srp'] ) . ")"; ?></strong></p>
+			<p>
+				<?php
+				_e( 'Post:', 'subscribe-to-comments-reloaded' );
+				echo ' <strong>' . get_the_title( intval( $_GET['srp'] ) ) . ' (' . intval( $_GET['srp'] ) . ')</strong>';
+				?>
+			</p>
 
 			<p class="liquid"><label for='oldsre'><?php _e( 'From', 'subscribe-to-comments-reloaded' ) ?></label>
-				<input readonly='readonly' type='text' size='30' name='oldsre' id='oldsre' value='<?php echo esc_attr($_GET['sre']) ?>' />
+				<input readonly='readonly' type='text' size='30' name='oldsre' id='oldsre' value='<?php echo sanitize_text_field( wp_unslash( $_GET['sre'] ) ) ?>' />
 			</p>
 
 			<p class="liquid"><label for='sre'><?php _e( 'To', 'subscribe-to-comments-reloaded' ) ?></label>

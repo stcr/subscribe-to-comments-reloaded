@@ -27,11 +27,11 @@ if ( isset( $_POST['options'] ) ) {
     if ( empty( $_POST['stcr_save_comment_form_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_save_comment_form_nonce'], 'stcr_save_comment_form_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -55,7 +55,7 @@ if ( isset( $_POST['options'] ) ) {
 		_e( 'There was an error updating the following fields:', 'subscribe-to-comments-reloaded' );
 		// echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
 	}
-	echo "</p></div>";
+	echo '</p></div>';
 }
 ?>
 <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
