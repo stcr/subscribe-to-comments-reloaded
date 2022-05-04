@@ -5,7 +5,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	exit;
 }
 
-$action = sanitize_text_field( ! empty( $_POST['sra'] ) ? wp_unslash( $_POST['sra'] ) : ( ! empty( $_GET['sra'] ) ? wp_unslash( $_GET['sra'] ) : '' ) );
+$action = ! empty( $_POST['sra'] ) ? sanitize_text_field( wp_unslash( $_POST['sra'] ) ) : ( ! empty( $_GET['sra'] ) ? sanitize_text_field( wp_unslash( $_GET['sra'] ) ) : '' );
 if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
 	require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-' . $action . '.php';
 

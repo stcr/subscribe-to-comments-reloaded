@@ -5,10 +5,10 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	exit;
 }
 
-$stcr_post_email     = sanitize_text_field( ! empty( $_POST['sre'] ) ? wp_unslash( $_POST['sre'] ) : ( ! empty( $_GET['sre'] ) ? wp_unslash( $_GET['sre'] ) : '' ) );
-$stcr_old_post_email = sanitize_text_field( ! empty( $_POST['oldsre'] ) ? wp_unslash( $_POST['oldsre'] ) : ( ! empty( $_GET['oldsre'] ) ? wp_unslash( $_GET['oldsre'] ) : '' ) );
-$status              = sanitize_text_field( ! empty( $_POST['srs'] ) ? wp_unslash( $_POST['srs'] ) : ( ! empty( $_GET['srs'] ) ? wp_unslash( $_GET['srs'] ) : '' ) );
-$post_id             = sanitize_text_field( ! empty( $_POST['srp'] ) ? wp_unslash( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? wp_unslash( $_GET['srp'] ) : 0 ) );
+$stcr_post_email     = ! empty( $_POST['sre'] ) ? sanitize_text_field( wp_unslash( $_POST['sre'] ) ) : ( ! empty( $_GET['sre'] ) ? sanitize_text_field( wp_unslash( $_GET['sre'] ) ) : '' );
+$stcr_old_post_email = ! empty( $_POST['oldsre'] ) ? sanitize_text_field( wp_unslash( $_POST['oldsre'] ) ) : ( ! empty( $_GET['oldsre'] ) ? sanitize_text_field( wp_unslash( $_GET['oldsre'] ) ) : '' );
+$status              = ! empty( $_POST['srs'] ) ? sanitize_text_field( wp_unslash( $_POST['srs'] ) ) : ( ! empty( $_GET['srs'] ) ? sanitize_text_field( wp_unslash( $_GET['srs'] ) ) : '' );
+$post_id             = ! empty( $_POST['srp'] ) ? sanitize_text_field( wp_unslash( $_POST['srp'] ) ) : ( ! empty( $_GET['srp'] ) ? sanitize_text_field( wp_unslash( $_GET['srp'] ) ) : 0 );
 $valid_email         = true;
 $valid_post_id       = true;
 // Clean data

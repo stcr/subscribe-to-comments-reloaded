@@ -144,7 +144,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// if we are on the management page, filter the_posts
                 if ( ( strpos( $_SERVER["REQUEST_URI"], $manager_page_permalink ) !== false ) ) {
 
-                    $request_uri     = sanitize_text_field( isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '' );
+                    $request_uri     = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
                     $request_uri_arr = explode( $manager_page_permalink, $request_uri );
 
                     // don't show management page if a "child page"
@@ -233,7 +233,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			global $wp_locale;
 
 			$slug = 'stcr_manage_subscriptions';
-			$current_page = sanitize_text_field( isset( $_GET['page'] ) ? wp_unslash( $_GET['page'] ) : '' );
+			$current_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
 
             // define the menu items
             $array_pages = array(
@@ -746,7 +746,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			try {
 
 				// get post ID
-				$post_ID = sanitize_text_field( ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 ) );
+				$post_ID = ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 );
 
 				// does a post with that ID exist
 				$target_post = get_post( $post_ID );
@@ -755,17 +755,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				}
 
 				// vars
-				$action = sanitize_text_field( ! empty( $_POST['sra'] ) ? wp_unslash( $_POST['sra'] ) : ( ! empty( $_GET['sra'] ) ? wp_unslash( $_GET['sra'] ) : 0 ) );
-				$key    = sanitize_text_field( ! empty( $_POST['srk'] ) ? wp_unslash( $_POST['srk'] ) : ( ! empty( $_GET['srk'] ) ? wp_unslash( $_GET['srk'] ) : 0 ) );
+				$action = ! empty( $_POST['sra'] ) ? sanitize_text_field( wp_unslash( $_POST['sra'] ) ) : ( ! empty( $_GET['sra'] ) ? sanitize_text_field( wp_unslash( $_GET['sra'] ) ) : 0 );
+				$key    = ! empty( $_POST['srk'] ) ? sanitize_text_field( wp_unslash( $_POST['srk'] ) ) : ( ! empty( $_GET['srk'] ) ? sanitize_text_field( wp_unslash( $_GET['srk'] ) ) : 0 );
 
-				$sre = sanitize_text_field( ! empty( $_POST['sre'] ) ? wp_unslash( $_POST['sre'] ) : ( ! empty( $_GET['sre'] ) ? wp_unslash( $_GET['sre'] ) : '' ) );
+				$sre = ! empty( $_POST['sre'] ) ? sanitize_text_field( wp_unslash( $_POST['sre'] ) ) : ( ! empty( $_GET['sre'] ) ? sanitize_text_field( wp_unslash( $_GET['sre'] ) ) : '' );
 				if ( is_user_logged_in() ) {
 					$sre = $current_user->data->user_email;
 				}
 
-				$srek = sanitize_text_field( ! empty( $_POST['srek'] ) ? wp_unslash( $_POST['srek'] ) : ( ! empty( $_GET['srek'] ) ? wp_unslash( $_GET['srek'] ) : '' ) );
-				$link_source = sanitize_text_field( ! empty( $_POST['srsrc'] ) ? $_POST['srsrc'] : ( ! empty( $_GET['srsrc'] ) ? $_GET['srsrc'] : '' ) );
-				$key_expired = sanitize_text_field( ! empty( $_POST['key_expired'] ) ? wp_unslash( $_POST['key_expired'] ) : ( ! empty( $_GET['key_expired'] ) ? wp_unslash( $_GET['key_expired'] ) : '0' ) );
+				$srek = ! empty( $_POST['srek'] ) ? sanitize_text_field( wp_unslash( $_POST['srek'] ) ) : ( ! empty( $_GET['srek'] ) ? sanitize_text_field( wp_unslash( $_GET['srek'] ) ) : '' );
+				$link_source = ! empty( $_POST['srsrc'] ) ? sanitize_text_field( wp_unslash( $_POST['srsrc'] ) ) : ( ! empty( $_GET['srsrc'] ) ? sanitize_text_field( wp_unslash( $_GET['srsrc'] ) ) : '' );
+				$key_expired = ! empty( $_POST['key_expired'] ) ? sanitize_text_field( wp_unslash( $_POST['key_expired'] ) ) : ( ! empty( $_GET['key_expired'] ) ? sanitize_text_field( wp_unslash( $_GET['key_expired'] ) ) : '0' );
 
 				// check if the current subscriber has valid email using the $srek key.
 				$email_by_key = $this->utils->get_subscriber_email_by_key($srek);
