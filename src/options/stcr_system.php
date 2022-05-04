@@ -105,8 +105,6 @@ else {
 
         foreach ( $_POST['options'] as $option => $value )
         {
-//        echo $option . '<br>';
-
             if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
             {
                 array_push( $faulty_fields, $option );
@@ -137,7 +135,7 @@ else {
             _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
             // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
         }
-        echo "</p></div>";
+        echo '</p></div>';
     }
 }
 ?>
@@ -266,11 +264,11 @@ else {
                         <tbody>
                             <tr>
                                 <td class="text-left"><?php _e( 'Subscribers', 'subscribe-toc-omments-reloaded' ); ?></td>
-                                <td class="text-left"><?php echo $total_subscribers; ?></td>
+                                <td class="text-left"><?php echo esc_html( $total_subscribers ); ?></td>
                             </tr>
                             <tr>
                                 <td class="text-left"><?php _e( 'Subscriptions', 'subscribe-toc-omments-reloaded' ); ?></td>
-                                <td class="text-left"><?php echo $total_subscriptions; ?></td>
+                                <td class="text-left"><?php echo esc_html( $total_subscriptions ); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -405,8 +403,8 @@ else {
                         foreach ( $wordpressEnvironment as $key => $opt )
                         {
                             echo "<tr>";
-                            echo "<td class='text-left' style='min-width: 50px;'>{$opt[0]}</td>";
-                            echo "<td class='text-left'>{$opt[1]}</td>";
+                            echo "<td class='text-left' style='min-width: 50px;'>" . esc_html( $opt[0] ) . "</td>";
+                            echo "<td class='text-left'>" . wp_kses( $opt[1], wp_kses_allowed_html( 'post' ) ) . "</td>";
                             echo "</tr>";
                         }
                         ?>
@@ -621,8 +619,8 @@ else {
                         foreach ( $serverEnvironment as $key => $opt )
                         {
                             echo "<tr>";
-                                echo "<td class='text-left' style='min-width: 50px;'>{$opt[0]}</td>";
-                                echo "<td class='text-left'>{$opt[1]}</td>";
+                                echo "<td class='text-left' style='min-width: 50px;'>" . esc_html( $opt[0] ) . "</td>";
+                                echo "<td class='text-left'>" . wp_kses( $opt[1], wp_kses_allowed_html( 'post' ) ) . "</td>";
                             echo "</tr>";
                         }
                         ?>
