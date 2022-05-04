@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "bootstrap": "4.0.0",
+    "bootstrap": "4.6.1",
     "Font-Awesome": "5.0.8",
     "datatables": "1.10.16",
     "datatables.net-responsive": "2.2.0",

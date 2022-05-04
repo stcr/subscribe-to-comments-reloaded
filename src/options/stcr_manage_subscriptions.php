@@ -5,7 +5,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 	exit;
 }
 
-$action = esc_attr( ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' ) );
+$action = ! empty( $_POST['sra'] ) ? sanitize_text_field( wp_unslash( $_POST['sra'] ) ) : ( ! empty( $_GET['sra'] ) ? sanitize_text_field( wp_unslash( $_GET['sra'] ) ) : '' );
 if ( $action == 'edit-subscription' || $action == 'add-subscription' ) {
 	require_once trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/panel1-' . $action . '.php';
 
@@ -92,7 +92,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                             <div class="alert alert-info hidden  info-panel-mass-update" role="alert">
                                 <?php _e('This option will allow you to change an email address for another one or to update the same status for all the subscription on a specific email address.', 'subscribe-to-comments-reloaded' ); ?>
                             </div>
-                            
+
                             <?php wp_nonce_field( 'stcr_edit_subscription_nonce', 'stcr_edit_subscription_nonce' ); ?>
                         </form>
                     </div>
