@@ -148,23 +148,23 @@ switch ( $action ) {
             switch ( $action ) {
                 case 'delete':
                     $rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_list, $email_list );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p></div>";
+                    echo '<div class="updated"><p>' . __( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'suspend':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, 'C' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p></div>";
+                    echo '<div class="updated"><p>' . __( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'activate':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, '-C' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p></div>";
+                    echo '<div class="updated"><p>' . __( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'force_y':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, 'Y' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p></div>";
+                    echo '<div class="updated"><p>' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'force_r':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, 'R' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p></div>";
+                    echo '<div class="updated"><p>' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 default:
                     break;

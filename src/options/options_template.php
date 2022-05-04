@@ -47,11 +47,11 @@ if ( isset( $_POST['options'] ) ) {
     if ( empty( $_POST['stcr_action_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_action_nonce'], 'stcr_action_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
@@ -60,8 +60,6 @@ if ( isset( $_POST['options'] ) ) {
 
     foreach ( $_POST['options'] as $option => $value )
     {
-//        echo $option . '<br>';
-
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {
             array_push( $faulty_fields, $option );
@@ -76,7 +74,7 @@ if ( isset( $_POST['options'] ) ) {
         _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
         // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
     }
-    echo "</p></div>";
+    echo '</p></div>';
 }
 wp_print_scripts( 'quicktags' );
 
