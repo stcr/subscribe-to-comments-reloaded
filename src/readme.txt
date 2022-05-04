@@ -95,6 +95,14 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v220502 =
+* **Important** Security fixes
+* **New** Option to set for which post types the subscription will be available
+* **New** Option to define blacklisted emails (that won't be allowed to subscribe). Option located in WP Admin > StCR > Options.
+* **Improvement** reCaptcha v3 now available
+* **Fix** General code improvements
+* **Fix** Issue with "comment-subscriptions" page showing a 404 error
+
 = v211130 =
 * **Fix** Removed custom error handler (thanks to JakeQZ for bringing the issue to our attention)
 * **Fix** Processing form submission in subscribe.php is now stopped in case "subscribe without commenting" is enabled

@@ -353,21 +353,22 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function add_config_menu( $_s ) {
 
-			if ( current_user_can( 'moderate_comments' ) ) {
+			if ( current_user_can( 'manage_options' ) ) {
 
 				$page_title = "Subscribe to Comments Reloaded";
 				$menu_title = "StCR";
-				$capability = "moderate_comments";
+				$capability = "manage_options";
+				$moderate_capability = 'manage_options';
 				$function   = "";
 				$icon_url   = "dashicons-email";
 				$position   = 26;
 				$parent_slug= "stcr_manage_subscriptions";
-				add_menu_page( $page_title, $menu_title, $capability, $parent_slug, $function, $icon_url, $position );
+				add_menu_page( $page_title, $menu_title, $moderate_capability, $parent_slug, $function, $icon_url, $position );
 
 				add_submenu_page( $parent_slug ,
 								__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
 								__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
-								 $capability,
+								 $moderate_capability,
 								 "stcr_manage_subscriptions",
 								 array( $this, "stcr_option_manage_subscriptions") );
 				add_submenu_page( $parent_slug ,
@@ -437,7 +438,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_manage_subscriptions()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }
@@ -465,7 +466,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_comment_form()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }
@@ -492,7 +493,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_management_page()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }
@@ -519,7 +520,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_notifications()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }
@@ -546,7 +547,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_options()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }
@@ -573,7 +574,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_support()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }
@@ -602,7 +603,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		public function stcr_option_system()
 		{
 			//must check that the user has the required capability
-		    if (!current_user_can('moderate_comments'))
+		    if (!current_user_can('manage_options'))
 		    {
 		    	wp_die( __('You do not have sufficient permissions to access this page.') );
 		    }

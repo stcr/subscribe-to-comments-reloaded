@@ -89,9 +89,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function remove_user_subscriber_table($_email) {
 			global $wpdb;
 
-			$OK = $wpdb->query(
-				"DELETE FROM ".$wpdb->prefix."subscribe_reloaded_subscribers WHERE subscriber_email = '$_email'"
-			);
+			$OK = $wpdb->query( $wpdb->prepare( 
+                "DELETE FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers WHERE subscriber_email = %s",
+                $_email
+            ));
 			return $OK === false || $OK == 0 || empty( $OK ) ? false : $OK;
 		}
 
