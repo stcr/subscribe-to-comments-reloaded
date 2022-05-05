@@ -1604,16 +1604,16 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			if ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '', 'C' ) ) {
 				$html_to_show = str_replace(
 					'[manager_link]', $user_link,
-					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', wp_kses( __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ), ENT_QUOTES, 'UTF-8' )
-				) );
+					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_waiting_label', wp_kses( __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ) ), ENT_QUOTES, 'UTF-8' )
+				);
 				$show_subscription_box = false;
 
 			// if subscription active
 			} elseif ( $wp_subscribe_reloaded->stcr->is_user_subscribed( $post->ID, '' ) ) {
 				$html_to_show = str_replace(
 					'[manager_link]', $user_link ,
-					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', wp_kses( __( "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ), ENT_QUOTES, 'UTF-8' )
-				) );
+					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_subscribed_label', wp_kses( __( "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ) ), ENT_QUOTES, 'UTF-8' )
+				);
 				$show_subscription_box = false;
 			}
 
@@ -1625,8 +1625,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				$html_to_show .= ' ';
 				$html_to_show .= str_replace(
 					'[manager_link]', $manager_link,
-					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_author_label', wp_kses( __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ), ENT_QUOTES, 'UTF-8' )
-				) );
+					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_author_label', wp_kses( __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ) ), ENT_QUOTES, 'UTF-8' )
+				);
 			}
 
 			// show the subscription form
