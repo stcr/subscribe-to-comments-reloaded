@@ -209,7 +209,7 @@ if ( ! empty( $email ) ) {
         <fieldset style="border:0">
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
-                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="subscribe_reloaded_email"><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                     <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                 </p>
                 <p>
@@ -217,15 +217,15 @@ if ( ! empty( $email ) ) {
                     <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
                 </p>
                 <p>
-                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
                 <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php else : ?>
                 <p>
-                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="subscribe_reloaded_email"><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                     <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
-                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
                 <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
@@ -287,7 +287,7 @@ if( ! $valid_all ) {
 
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
-                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="subscribe_reloaded_email"><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                     <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                 </p>
                 <p>
@@ -295,30 +295,30 @@ if( ! $valid_all ) {
                     <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
                 </p>
                 <p>
-                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
                 <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold;'></p>
             <?php else : ?>
                 <p>
-                    <label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="subscribe_reloaded_email"><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                     <input id='subscribe_reloaded_email' type="email" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
-                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php _e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
+                    <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
                 <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold;'></p>
             <?php endif; ?>
 
             <?php if ( ! $valid_email ) : ?>
-                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php esc_html_e("Email address is not valid", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
 
             <?php if ( ! $valid_challenge ) : ?>
-                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php esc_html_e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
 
             <?php if ( ! $valid_captcha ) : ?>
-                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php _e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
+                <p style='color: #f55252;font-weight:bold;'><i class="fa fa-exclamation-triangle"></i> <?php esc_html_e("Challenge answer is not correct", 'subscribe-to-comments-reloaded') ?></p>
             <?php endif; ?>
 
         </fieldset>

@@ -78,7 +78,7 @@ else
 	echo esc_url( $url . "&key_expired=1" );
 	?>" name="sub-form" method="post">
 		<fieldset style="border:0">
-			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+			<p><label for="subscribe_reloaded_email"><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
 			<?php
 			$comment_author_email = isset( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ) : '';
 			?>
