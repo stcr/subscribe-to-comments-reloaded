@@ -12,7 +12,7 @@ if (array_key_exists('post_permalink', $_GET))
 {
     if ( ! empty( $_GET['post_permalink'] ) )
     {
-        $post_permalink = $_GET['post_permalink'];
+        $post_permalink = sanitize_text_field( wp_unslash( $_GET['post_permalink'] ) );
     }
 }
 
@@ -26,7 +26,7 @@ if ( ! empty( $_POST['post_list'] ) ) {
 		}
 	}
 
-	$action = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : '' );
+	$action = ! empty( $_POST['sra'] ) ? sanitize_text_field( wp_unslash( $_POST['sra'] ) ) : ( ! empty( $_GET['sra'] ) ? sanitize_text_field( wp_unslash( $_GET['sra'] ) ) : '' );
     $action = sanitize_text_field( $action );
 	switch ( $action ) {
 	case 'delete':

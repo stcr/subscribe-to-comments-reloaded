@@ -80,7 +80,7 @@ if ( isset( $current_user ) && $current_user->ID > 0 ) {
 // post permalink supplied with $_GET
 if ( array_key_exists('post_permalink', $_GET ) ) {
     if ( ! empty( $_GET['post_permalink'] ) ) {
-        $post_permalink = $_GET['post_permalink'];
+        $post_permalink = sanitize_text_field( wp_unslash( $_GET['post_permalink'] ) );
     }
 }
 

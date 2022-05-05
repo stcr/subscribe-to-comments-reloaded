@@ -175,21 +175,13 @@ switch ( $action ) {
 $initial_limit_results  = 1000;
 $official_limit_results = '18446744073709551610';
 
-$search_field  = ! empty( $_POST['srf'] ) ? $_POST['srf'] : ( ! empty( $_GET['srf'] ) ? $_GET['srf'] : 'email' );
-$operator      = ! empty( $_POST['srt'] ) ? $_POST['srt'] : ( ! empty( $_GET['srt'] ) ? $_GET['srt'] : 'contains' );
-$search_value  = ! empty( $_POST['srv'] ) ? $_POST['srv'] : ( ! empty( $_GET['srv'] ) ? $_GET['srv'] : '@' );
-$order_by      = ! empty( $_POST['srob'] ) ? $_POST['srob'] : ( ! empty( $_GET['srob'] ) ? $_GET['srob'] : 'dt' );
-$order         = ! empty( $_POST['sro'] ) ? $_POST['sro'] : ( ! empty( $_GET['sro'] ) ? $_GET['sro'] : 'DESC' );
+$search_field  = ! empty( $_POST['srf'] ) ? sanitize_text_field( wp_unslash( $_POST['srf'] ) ) : ( ! empty( $_GET['srf'] ) ? sanitize_text_field( wp_unslash( $_GET['srf'] ) ) : 'email' );
+$operator      = ! empty( $_POST['srt'] ) ? sanitize_text_field( wp_unslash( $_POST['srt'] ) ) : ( ! empty( $_GET['srt'] ) ? sanitize_text_field( wp_unslash( $_GET['srt'] ) ) : 'contains' );
+$search_value  = ! empty( $_POST['srv'] ) ? sanitize_text_field( wp_unslash( $_POST['srv'] ) ) : ( ! empty( $_GET['srv'] ) ? sanitize_text_field( wp_unslash( $_GET['srv'] ) ) : '@' );
+$order_by      = ! empty( $_POST['srob'] ) ? sanitize_text_field( wp_unslash( $_POST['srob'] ) ) : ( ! empty( $_GET['srob'] ) ? sanitize_text_field( wp_unslash( $_GET['srob'] ) ) : 'dt' );
+$order         = ! empty( $_POST['sro'] ) ? sanitize_text_field( wp_unslash( $_POST['sro'] ) ) : ( ! empty( $_GET['sro'] ) ? sanitize_text_field( wp_unslash( $_GET['sro'] ) ) : 'DESC' );
 $offset        = ! empty( $_POST['srsf'] ) ? intval( $_POST['srsf'] ) : ( ! empty( $_GET['srsf'] ) ? intval( $_GET['srsf'] ) : 0 );
 $limit_results = ! empty( $_POST['srrp'] ) ? intval( $_POST['srrp'] ) : ( ! empty( $_GET['srrp'] ) ? intval( $_GET['srrp'] ) : $initial_limit_results );
-// Clean data
-$search_field  = sanitize_text_field($search_field);
-$operator      = sanitize_text_field($operator);
-$order_by      = sanitize_text_field($order_by);
-$order         = sanitize_text_field($order);
-$offset        = sanitize_text_field($offset);
-$search_value  = sanitize_text_field(trim($search_value));
-$limit_results = sanitize_text_field(trim($limit_results));
 
 $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value, $order_by, $order, $offset, $limit_results );
 $count_total   = count( $wp_subscribe_reloaded->stcr->get_subscriptions( $search_field, $operator, $search_value ) );

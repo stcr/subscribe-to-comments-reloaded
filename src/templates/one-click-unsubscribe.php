@@ -9,8 +9,8 @@ global $wp_subscribe_reloaded;
 $post = get_post( $post_ID );
 $manager_link = get_bloginfo( 'url' ) . get_option( 'subscribe_reloaded_manager_page', '/comment-subscriptions/' );
 $manager_link .= ( strpos( $manager_link, '?' ) !== false ) ? '&' : '?';
-$srk = ! empty( $_POST['srek'] ) ? $_POST['srek']  : ( ! empty( $_GET['srek'] ) ?  $_GET['srek']  : '' );
-$manager_link .= "srek=" . $srk . "&srk=" . $_GET['srk']."&amp;srsrc=e";
+$srk = ! empty( $_POST['srek'] ) ? sanitize_text_field( wp_unslash( $_POST['srek'] ) )  : ( ! empty( $_GET['srek'] ) ?  sanitize_text_field( wp_unslash( $_GET['srek'] ) )  : '' );
+$manager_link .= "srek=" . $srk . "&srk=" . sanitize_text_field( wp_unslash( $_GET['srk'] ) )."&amp;srsrc=e";
 ob_start();
 
 if ( is_object( $post ) ) {
