@@ -25,7 +25,7 @@ if ( is_object( $post ) ) {
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	$message = wpautop( $message ); // Let us add the <p> tag if need it.
-	echo "$message"; // TODO: Add management link with number of subscriptions.
+	echo wp_kses( $message, wp_kses_allowed_html( 'post' ) ); // TODO: Add management link with number of subscriptions.
 } else {
 	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
 }

@@ -178,7 +178,7 @@ if ( ! empty( $email ) ) {
 			$wp_subscribe_reloaded->stcr->utils->send_email( $email_settings );
 		}
 
-        echo wpautop( $page_message );
+        echo wp_kses( wpautop( $page_message ), wp_kses_allowed_html( 'post' ) );
 
     }
 
@@ -203,8 +203,9 @@ if ( ! empty( $email ) ) {
     }
 
     ?>
-    <p><?php echo wpautop( $message ); ?></p>
-    <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
+    <?php echo wp_kses( wpautop( $message ), wp_kses_allowed_html( 'post' ) ); ?>
+    <?php $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : ''; ?>
+    <form action="<?php echo esc_url( $server_request_uri ); ?>" method="post" name="sub-form">
         <fieldset style="border:0">
             <?php if ( $challenge_question_state == 'yes' ) : ?>
                 <p>
@@ -279,8 +280,9 @@ if( ! $valid_all ) {
     }
 
     ?>
-    <p><?php echo wpautop( $message ); ?></p>
-    <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
+    <?php echo wp_kses( wpautop( $message ), wp_kses_allowed_html( 'post' ) ); ?>
+    <?php $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : ''; ?>
+    <form action="<?php echo esc_url( $server_request_uri ); ?>" method="post" name="sub-form">
         <fieldset style="border:0">
 
             <?php if ( $challenge_question_state == 'yes' ) : ?>
