@@ -19,14 +19,14 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
     if ( ! $valid_email )
     {
         echo '<div class="notice notice-error is-dismissible"><p>';
-            _e( 'The email that you typed is not correct.', 'subscribe-to-comments-reloaded' );
+            esc_html_e( 'The email that you typed is not correct.', 'subscribe-to-comments-reloaded' );
         echo '</p></div>';
     }
 
     if ( ! $valid_post_id )
     {
         echo '<div class="notice notice-error is-dismissible"><p>';
-            _e( 'Please enter a valid Post ID.', 'subscribe-to-comments-reloaded' );
+            esc_html_e( 'Please enter a valid Post ID.', 'subscribe-to-comments-reloaded' );
         echo '</p></div>';
     }
 }
@@ -46,7 +46,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
         <div class="col-sm-6">
             <div class="card card-font-size mass-update-subs">
                 <h6 class="card-header">
-                    <i class="fas fa-exchange-alt"></i> <?php _e( 'Mass Update Subscriptions', 'subscribe-to-comments-reloaded' ) ?>
+                    <i class="fas fa-exchange-alt"></i> <?php esc_html_e( 'Mass Update Subscriptions', 'subscribe-to-comments-reloaded' ) ?>
                     <i class="fas fa-caret-down pull-right"></i>
                 </h6>
                 <div class="card-body cbody-mass" style="padding: 0;">
@@ -55,30 +55,30 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
                             <table>
                                 <tr>
-                                    <td><label for='oldsre'><?php _e( 'From', 'subscribe-to-comments-reloaded' ) ?></label></td>
+                                    <td><label for='oldsre'><?php esc_html_e( 'From', 'subscribe-to-comments-reloaded' ) ?></label></td>
                                     <td><input class="form-control form-controls-font" type='text' size='30' name='oldsre' id='oldsre' value='<?php esc_attr_e( 'email address', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc;"></td>
                                     <td><span class="validate-error-text validate-error-text-oldsre stcr-hidden "></span></td>
                                 </tr>
                                 <tr>
-                                    <td><label for='sre'><?php _e( 'To', 'subscribe-to-comments-reloaded' ) ?></label></td>
+                                    <td><label for='sre'><?php esc_html_e( 'To', 'subscribe-to-comments-reloaded' ) ?></label></td>
                                     <td><input class="form-control form-controls-font" type='text' size='30' name='sre' id='sre' value='<?php esc_attr_e( 'optional - new email address', 'subscribe-to-comments-reloaded' ) ?>' style="color:#ccc;"
                                         >
                                     </td>
                                     <td><span class="validate-error-text validate-error-text-sre stcr-hidden "></span></td>
                                 </tr>
                                 <tr>
-                                    <td><label for='srs'><?php _e( 'Status', 'subscribe-to-comments-reloaded' ) ?></label></td>
+                                    <td><label for='srs'><?php esc_html_e( 'Status', 'subscribe-to-comments-reloaded' ) ?></label></td>
                                     <td><select class="form-control form-controls-font mass-update-select-status" name="srs" id="srs">
-                                            <option value=''><?php _e( 'Keep unchanged', 'subscribe-to-comments-reloaded' ) ?></option>
-                                            <option value='Y'><?php _e( 'Active', 'subscribe-to-comments-reloaded' ) ?></option>
-                                            <option value='R'><?php _e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
-                                            <option value='C'><?php _e( 'Suspended', 'subscribe-to-comments-reloaded' ) ?></option>
+                                            <option value=''><?php esc_html_e( 'Keep unchanged', 'subscribe-to-comments-reloaded' ) ?></option>
+                                            <option value='Y'><?php esc_html_e( 'Active', 'subscribe-to-comments-reloaded' ) ?></option>
+                                            <option value='R'><?php esc_html_e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
+                                            <option value='C'><?php esc_html_e( 'Suspended', 'subscribe-to-comments-reloaded' ) ?></option>
                                         </select>
                                         <input type='submit' style="font-size: 0.8rem;" class='subscribe-form-button btn btn-primary' value='<?php esc_attr_e( 'Update', 'subscribe-to-comments-reloaded' ) ?>' ></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div class="more-info" data-infopanel="info-panel-mass-update" aria-label="<?php _e("More info", 'subscribe-to-comments-reloaded'); ?>">
+                                        <div class="more-info" data-infopanel="info-panel-mass-update" aria-label="<?php esc_html_e("More info", 'subscribe-to-comments-reloaded'); ?>">
                                             <i class="fas fa-question-circle"></i>
                                         </div>
                                     </td>
@@ -90,7 +90,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                             </table>
 
                             <div class="alert alert-info hidden  info-panel-mass-update" role="alert">
-                                <?php _e('This option will allow you to change an email address for another one or to update the same status for all the subscription on a specific email address.', 'subscribe-to-comments-reloaded' ); ?>
+                                <?php esc_html_e('This option will allow you to change an email address for another one or to update the same status for all the subscription on a specific email address.', 'subscribe-to-comments-reloaded' ); ?>
                             </div>
 
                             <?php wp_nonce_field( 'stcr_edit_subscription_nonce', 'stcr_edit_subscription_nonce' ); ?>
@@ -103,7 +103,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
         <div class="col-sm-6">
             <div class="card card-font-size add-new-subs">
                 <h6 class="card-header">
-                    <i class="fas fa-plus-square"></i> <?php _e( 'Add New Subscription', 'subscribe-to-comments-reloaded' ) ?>
+                    <i class="fas fa-plus-square"></i> <?php esc_html_e( 'Add New Subscription', 'subscribe-to-comments-reloaded' ) ?>
                     <i class="fas fa-caret-down pull-right"></i>
                 </h6>
                 <div class="card-body" style="padding: 0;">
@@ -112,22 +112,22 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                             <fieldset style="border:0">
                                 <table>
                                     <tr>
-                                        <td><?php _e( 'Post ID', 'subscribe-to-comments-reloaded' ) ?></td>
+                                        <td><?php esc_html_e( 'Post ID', 'subscribe-to-comments-reloaded' ) ?></td>
                                         <td><input class="form-control form-controls-font" type='text' size='30' name='srp' value='' ></td>
                                         <td><span class="validate-error-text validate-error-text-srp stcr-hidden "></span></td>
                                     </tr>
                                     <tr>
-                                        <td><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></td>
+                                        <td><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></td>
                                         <td><input class="form-control form-controls-font" type='text' size='30' name='sre' value='' ></td>
                                         <td><span class="validate-error-text validate-error-text-sre stcr-hidden "></span></td>
                                     </tr>
                                     <tr>
-                                        <td><?php _e( 'Status', 'subscribe-to-comments-reloaded' ) ?></td>
+                                        <td><?php esc_html_e( 'Status', 'subscribe-to-comments-reloaded' ) ?></td>
                                         <td>
                                             <select name="srs" class="form-control form-controls-font new-sub-select-status">
-                                                <option value='Y'><?php _e( 'Active', 'subscribe-to-comments-reloaded' ) ?></option>
-                                                <option value='R'><?php _e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
-                                                <option value='YC'><?php _e( 'Ask user to confirm', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                <option value='Y'><?php esc_html_e( 'Active', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                <option value='R'><?php esc_html_e( 'Replies only', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                <option value='YC'><?php esc_html_e( 'Ask user to confirm', 'subscribe-to-comments-reloaded' ) ?></option>
                                             </select>
                                             <input type='submit' style="font-size: 0.8rem;" class='subscribe-form-button btn btn-primary' value='<?php esc_attr_e( 'Add', 'subscribe-to-comments-reloaded' ) ?>' >
                                         </td>
@@ -155,7 +155,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
                     <div class="card-text postbox" style="border: none;">
 
-                        <h4><i class="fas fa-search"></i> <?php _e( 'Search subscriptions', 'subscribe-to-comments-reloaded' ) ?></h4>
+                        <h4><i class="fas fa-search"></i> <?php esc_html_e( 'Search subscriptions', 'subscribe-to-comments-reloaded' ) ?></h4>
 
                         <?php if ( ! empty( $_POST['srv'] ) || ( is_array( $subscriptions ) && count( $subscriptions ) == 1000 ) ) : ?>
 
@@ -178,12 +178,12 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
                         <?php endif; ?>
 
-                        <div class="col-md-2 subs-spinner mx-auto"><h5><?php _e( "Loading", 'subscribe-to-comments-reloaded'); ?> <i class="fas fa-play-circle"></i></h5></div>
+                        <div class="col-md-2 subs-spinner mx-auto"><h5><?php esc_html_e( "Loading", 'subscribe-to-comments-reloaded'); ?> <i class="fas fa-play-circle"></i></h5></div>
 
                         <div class="clearfix"></div>
 
                         <form style="border: 1px solid #eee; padding: 15px; margin-top: 20px;" action="" method="post" id="subscription_form" name="subscription_form"
-                              onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) ?>')">
+                              onsubmit="if(this.sra[0].checked) return confirm('<?php esc_attr_e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) ?>')">
 
                                 <?php
 
@@ -299,11 +299,11 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                         echo '<label for="action_type" class="col-sm-1 col-form-label">' . esc_html__( 'Action:', 'subscribe-to-comments-reloaded' ) . '</label >' ;
                                     ?>          <div class="col-sm-3">
                                                     <select name="sra" id="action_type" class="form-control">
-                                                        <option value="delete"><?php _e( 'Delete forever', 'subscribe-to-comments-reloaded' ) ?></option>
-                                                        <option value="suspend"><?php _e( 'Suspend', 'subscribe-to-comments-reloaded' ) ?></option>
-                                                        <option value="force_y"><?php _e( 'Activate and set to notify on all comments', 'subscribe-to-comments-reloaded' ) ?></option>
-                                                        <option value="force_r"><?php _e( 'Activate and set to notify on replies only ', 'subscribe-to-comments-reloaded' ) ?></option>
-                                                        <option value="activate"><?php _e( 'Activate', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                        <option value="delete"><?php esc_html_e( 'Delete forever', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                        <option value="suspend"><?php esc_html_e( 'Suspend', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                        <option value="force_y"><?php esc_html_e( 'Activate and set to notify on all comments', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                        <option value="force_r"><?php esc_html_e( 'Activate and set to notify on replies only ', 'subscribe-to-comments-reloaded' ) ?></option>
+                                                        <option value="activate"><?php esc_html_e( 'Activate', 'subscribe-to-comments-reloaded' ) ?></option>
                                                     </select>
                                                 </div>
                                     <?php

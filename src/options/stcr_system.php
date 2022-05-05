@@ -130,9 +130,9 @@ else {
         // Display an alert in the admin interface if something went wrong
         echo '<div class="updated"><p>';
         if ( sizeof( $faulty_fields ) == 0 ) {
-            _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
+            esc_html_e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
         } else {
-            _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
+            esc_html_e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
             // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
         }
         echo '</p></div>';
@@ -158,58 +158,58 @@ else {
                 <form action="" method="post">
 
                     <div class="form-group row" style="margin-bottom: 0;">
-                        <label for="enable_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Log Information', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <label for="enable_log_data" class="col-sm-3 col-form-label text-right"><?php esc_html_e( 'Enable Log Information', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <div class="switch">
                                 <input type="radio" class="switch-input" name="options[enable_log_data]"
                                        value="yes" id="enable_log_data-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data' ) == 'yes' ) ? ' checked' : ''; ?> />
                                 <label for="enable_log_data-yes" class="switch-label switch-label-off">
-                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                    <?php esc_html_e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <input type="radio" class="switch-input" name="options[enable_log_data]" value="no" id="enable_log_data-no"
                                     <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_log_data' ) == 'no' ) ? '  checked' : ''; ?> />
                                 <label for="enable_log_data-no" class="switch-label switch-label-on">
-                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                    <?php esc_html_e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <span class="switch-selection"></span>
                             </div>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "If enabled, will log information of the plugin. Helpful for debugging purposes.<p>The file is stored under the path <code>Plugins Dir>subscribe-to-comments-reloaded>utils>log.txt</code></code></p>", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "If enabled, will log information of the plugin. Helpful for debugging purposes.<p>The file is stored under the path <code>Plugins Dir>subscribe-to-comments-reloaded>utils>log.txt</code></code></p>", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "If enabled, will log information of the plugin. Helpful for debugging purposes.", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "If enabled, will log information of the plugin. Helpful for debugging purposes.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row" style="margin-bottom: 0;">
-                        <label for="auto_clean_log_data" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable Auto clean log data', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <label for="auto_clean_log_data" class="col-sm-3 col-form-label text-right"><?php esc_html_e( 'Enable Auto clean log data', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <div class="switch">
                                 <input type="radio" class="switch-input" name="options[auto_clean_log_data]"
                                        value="yes" id="auto_clean_log_data-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data' ) == 'yes' ) ? ' checked' : ''; ?> />
                                 <label for="auto_clean_log_data-yes" class="switch-label switch-label-off">
-                                    <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                    <?php esc_html_e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <input type="radio" class="switch-input" name="options[auto_clean_log_data]" value="no" id="auto_clean_log_data-no"
                                     <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_data' ) == 'no' ) ? '  checked' : ''; ?> />
                                 <label for="auto_clean_log_data-no" class="switch-label switch-label-on">
-                                    <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                    <?php esc_html_e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                                 </label>
                                 <span class="switch-selection"></span>
                             </div>
 
                             <select class="auto_clean_log_frecuency form-control form-control-select" name="options[auto_clean_log_frecuency]">
-                                <option value="hourly" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'hourly' ) ? "selected='selected'" : ''; ?>><?php _e( 'Hourly', 'subscribe-to-comments-reloaded' ); ?></option>
-                                <option value="twicedaily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'twicedaily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Twice Daily', 'subscribe-to-comments-reloaded' ); ?></option>
-                                <option value="daily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'daily' ) ? "selected='selected'" : ''; ?>><?php _e( 'Daily', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="hourly" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'hourly' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'Hourly', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="twicedaily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'twicedaily' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'Twice Daily', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="daily" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'auto_clean_log_frecuency' ) === 'daily' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'Daily', 'subscribe-to-comments-reloaded' ); ?></option>
                             </select>
 
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( "If enabled, StCR will auto clean your information according to the frequency that you defined on the dropdown.", 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -217,10 +217,10 @@ else {
 
                     <div class="form-group row">
                         <label for="purge_log" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Clean Up Log Archive', 'subscribe-to-comments-reloaded' ) ?></label>
+                            <?php esc_html_e( 'Clean Up Log Archive', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
 
-                            <span style="font-size: 0.9rem;"><?php _e(
+                            <span style="font-size: 0.9rem;"><?php esc_html_e(
                                     "If you want to clean up the log archive please click the following button",
                                     'subscribe-to-comments-reloaded'
                                 ); ?>
@@ -233,10 +233,10 @@ else {
 
                     <div class="form-group row">
                         <label for="generate_system_info" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Download System Info File', 'subscribe-to-comments-reloaded' ) ?></label>
+                            <?php esc_html_e( 'Download System Info File', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <a class="download_report btn btn-download subscribe-form-button" href="#">
-                                <?php _e( 'Download', 'subscribe-to-comments-reloaded' ); ?>
+                                <?php esc_html_e( 'Download', 'subscribe-to-comments-reloaded' ); ?>
                             </a>
                         </div>
                     </div>
@@ -244,12 +244,12 @@ else {
                     <div class="form-group row">
                         <div class="col-sm-9 offset-sm-3">
                             <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
-                                <?php _e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
                             </button>
                         </div>
                     </div>
 
-                    <h4><?php _e( 'System Information', 'subscribe-to-comments-reloaded' ) ?></h4><br>
+                    <h4><?php esc_html_e( 'System Information', 'subscribe-to-comments-reloaded' ) ?></h4><br>
 
                     <!-- Plugin Info -->
                     <?php
@@ -259,15 +259,15 @@ else {
                     ?>
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                            <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Plugin Info', 'subscribe-to-comments-reloaded' ) ?></th>
+                            <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'Plugin Info', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="text-left"><?php _e( 'Subscribers', 'subscribe-toc-omments-reloaded' ); ?></td>
+                                <td class="text-left"><?php esc_html_e( 'Subscribers', 'subscribe-toc-omments-reloaded' ); ?></td>
                                 <td class="text-left"><?php echo esc_html( $total_subscribers ); ?></td>
                             </tr>
                             <tr>
-                                <td class="text-left"><?php _e( 'Subscriptions', 'subscribe-toc-omments-reloaded' ); ?></td>
+                                <td class="text-left"><?php esc_html_e( 'Subscriptions', 'subscribe-toc-omments-reloaded' ); ?></td>
                                 <td class="text-left"><?php echo esc_html( $total_subscriptions ); ?></td>
                             </tr>
                         </tbody>
@@ -275,7 +275,7 @@ else {
 
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'WordPress Environment', 'subscribe-to-comments-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'WordPress Environment', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
                         <?php
 
@@ -414,7 +414,7 @@ else {
                     <!-- Server Environment -->
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Server Environment', 'subscribe-to-comments-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'Server Environment', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
                         <?php
 
@@ -633,7 +633,7 @@ else {
                     <!-- Active Plugins -->
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Active Plugins', 'subscribe-to-comments-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'Active Plugins', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
 
                         <tbody>
@@ -690,7 +690,7 @@ else {
                     <!-- Inactive Plugins -->
                     <table class="table table-sm table-hover table-striped system-info-table" style="font-size: 0.8em">
                         <thead style="background-color: #4688d2; color: #ffffff;">
-                        <th style="textalilfe" class="text-left" colspan="2"><?php _e( 'Inactive Plugins', 'subscribe-to-comments-reloaded' ) ?></th>
+                        <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'Inactive Plugins', 'subscribe-to-comments-reloaded' ) ?></th>
                         </thead>
 
                         <tbody>

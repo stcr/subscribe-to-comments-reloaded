@@ -17,17 +17,17 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
                 <div class="card-body">
                     <div class="card-text">
 
-                        <h5><?php _e( "You can help", 'subscribe-to-comments-reloaded' ) ?></h5>
-                        <p><?php _e( "Please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever you do, thanks for using my plugin!", 'subscribe-to-comments-reloaded' ) ?></p>
+                        <h5><?php esc_html_e( "You can help", 'subscribe-to-comments-reloaded' ) ?></h5>
+                        <p><?php echo wp_kses( __( "Please consider blogging about my plugin with a link to the plugin's page. Please let your readers know what makes your blog better. You can also contribute donating your time: do not hesitate to send me bug reports, your localization files, ideas on how to improve <strong>Subscribe to Comments Reloaded</strong> and so on. Whatever you do, thanks for using my plugin!", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ); ?></p>
 
-                        <h5><?php _e( "Subscribe to the Beta testers", 'subscribe-to-comments-reloaded' ) ?></h5>
-                        <p><?php _e( "Before a new Update we release a Beta version so that our current users can give us feedback if they find a bug, If you want to join the tester list you can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</a>", 'subscribe-to-comments-reloaded' ) ?></h5></p>
+                        <h5><?php esc_html_e( "Subscribe to the Beta testers", 'subscribe-to-comments-reloaded' ) ?></h5>
+                        <p><?php echo wp_kses( __( "Before a new Update we release a Beta version so that our current users can give us feedback if they find a bug, If you want to join the tester list you can add your email <a href='http://eepurl.com/biCk1b' target='_blank'>here</a>", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ); ?></h5></p>
 
-                        <h5><?php _e( "Vote and show your appreciation", 'subscribe-to-comments-reloaded' ) ?></h5>
-                        <p><?php _e( 'Tell other people if <strong>Subscribe to Comments Reloaded</strong> works for you and how good it is. <a href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate it</a> on its Plugin Directory page.', 'subscribe-to-comments-reloaded' ) ?></p>
+                        <h5><?php esc_html_e( "Vote and show your appreciation", 'subscribe-to-comments-reloaded' ) ?></h5>
+                        <p><?php echo wp_kses( __( 'Tell other people if <strong>Subscribe to Comments Reloaded</strong> works for you and how good it is. <a href="http://wordpress.org/extend/plugins/subscribe-to-comments-reloaded/">Rate it</a> on its Plugin Directory page.', 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ); ?></p>
 
-                        <h5><?php _e( "Did you find a Bug on the plugin?", 'subscribe-to-comments-reloaded' ) ?></h5>
-                        <p><?php _e( 'Please report any bug on the <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description%3E&labels=bug" target="_blank">GitHub</a> Page rather than on the WordPress Support page.', 'subscribe-to-comments-reloaded' ) ?>
+                        <h5><?php esc_html_e( "Did you find a Bug on the plugin?", 'subscribe-to-comments-reloaded' ) ?></h5>
+                        <p><?php echo wp_kses( __( 'Please report any bug on the <a href="https://github.com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description%3E&labels=bug" target="_blank">GitHub</a> Page rather than on the WordPress Support page.', 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ); ?>
                         </p>
                         <div class="alert alert-info" role="alert">
                             <strong>Heads up!</strong>
