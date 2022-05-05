@@ -73,7 +73,7 @@ else
 	?>
 	<?php echo wpautop( esc_html( $error_message ) ); ?>
 	<form action="<?php
-	$url = $_SERVER[ 'REQUEST_URI' ];
+	$url = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
 	echo esc_url( $url . "&key_expired=1" );
 	?>" name="sub-form" method="post">

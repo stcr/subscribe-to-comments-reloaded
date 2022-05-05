@@ -425,7 +425,7 @@ else {
                         $cURLVersion   = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
                         $MySQLSVersion = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
                         $defaultTimezone = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
-                        $serverInfo    = esc_html( $_SERVER['SERVER_SOFTWARE'] );
+                        $serverInfo    = isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : '';
                         $maxPostSize    = size_format( $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( ini_get( 'post_max_size' ) ) );
 
                         // Get the SSL status.

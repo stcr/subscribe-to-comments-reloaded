@@ -123,8 +123,9 @@ if ( ! empty( $email ) ) {
 
             global $akismet_api_host, $akismet_api_port;
 
+            $user_agent            = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
             $akismet_query_string  = "user_ip={$_SERVER['REMOTE_ADDR']}";
-            $akismet_query_string .= "&user_agent=" . esc_url( stripslashes( $_SERVER['HTTP_USER_AGENT'] ) );
+            $akismet_query_string .= "&user_agent=" . esc_url( stripslashes( $user_agent ) );
             $akismet_query_string .= "&blog=" . esc_url( get_option( 'home' ) );
             $akismet_query_string .= "&blog_lang=" . get_locale();
             $akismet_query_string .= "&blog_charset=" . get_option( 'blog_charset' );
