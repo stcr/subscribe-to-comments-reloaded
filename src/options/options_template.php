@@ -47,21 +47,20 @@ if ( isset( $_POST['options'] ) ) {
     if ( empty( $_POST['stcr_action_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_action_nonce'], 'stcr_action_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    $faulty_fields = array();
-
-    foreach ( $_POST['options'] as $option => $value )
+    $faulty_fields     = array();
+    $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+    $subscribe_options = array_map( 'sanitize_text_field', $subscribe_options );
+    foreach ( $subscribe_options as $option => $value )
     {
-//        echo $option . '<br>';
-
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {
             array_push( $faulty_fields, $option );
@@ -71,12 +70,12 @@ if ( isset( $_POST['options'] ) ) {
     // Display an alert in the admin interface if something went wrong
     echo '<div class="updated"><p>';
     if ( sizeof( $faulty_fields ) == 0 ) {
-        _e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
+        esc_html_e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
     } else {
-        _e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
+        esc_html_e( 'There was an error updating the options.', 'subscribe-to-comments-reloaded' );
         // echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
     }
-    echo "</p></div>";
+    echo '</p></div>';
 }
 wp_print_scripts( 'quicktags' );
 
@@ -94,7 +93,7 @@ wp_print_scripts( 'quicktags' );
                     <div class="form-group row">
                         <div class="col-sm-9 offset-sm-1">
                             <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
-                                <?php _e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
                             </button>
                         </div>
                     </div>

@@ -5,13 +5,13 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-$error_message   = __( "Woohaa the link to manage your subscriptions has expired, don't worry, just enter your email below and a new link will be send.", 'subscribe-to-comments-reloaded');
+$error_message   = esc_html__( "Woohaa the link to manage your subscriptions has expired, don't worry, just enter your email below and a new link will be send.", 'subscribe-to-comments-reloaded');
 
 global $wp_subscribe_reloaded;
 ob_start();
 
 if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
-	$email         = esc_attr( $_POST[ 'sre' ] );
+	$email         = sanitize_text_field( wp_unslash( $_POST['sre'] ) );
 	$subject       = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
 	$page_message  = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
 	$email_message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_email_content', '' ) ), ENT_QUOTES, 'UTF-8' );
@@ -71,15 +71,18 @@ else
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
-	<p><?php echo wpautop( esc_html( $error_message ) ); ?></p>
+	<?php echo wpautop( esc_html( $error_message ) ); ?>
 	<form action="<?php
-	$url = $_SERVER[ 'REQUEST_URI' ];
+	$url = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
 	echo esc_url( $url . "&key_expired=1" );
 	?>" name="sub-form" method="post">
 		<fieldset style="border:0">
-			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? esc_attr( $_COOKIE['comment_author_email_' . COOKIEHASH] ) : ''; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+			<p><label for="subscribe_reloaded_email"><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
+			<?php
+			$comment_author_email = isset( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ) : '';
+			?>
+				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
 				<input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
 			</p>
 		</fieldset>

@@ -89,7 +89,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		public function remove_user_subscriber_table($_email) {
 			global $wpdb;
 
-			$OK = $wpdb->query( $wpdb->prepare( 
+			$OK = $wpdb->query( $wpdb->prepare(
                 "DELETE FROM " . $wpdb->prefix . "subscribe_reloaded_subscribers WHERE subscriber_email = %s",
                 $_email
             ));
@@ -170,33 +170,33 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
         public function stcr_translate_month( $date_str )
         {
             $months_long = array (
-                "January" => __("January",'subscribe-to-comments-reloaded'),
-                "February" => __("February",'subscribe-to-comments-reloaded'),
-                "March" => __("March",'subscribe-to-comments-reloaded'),
-                "April" => __("April",'subscribe-to-comments-reloaded'),
-                "May" => __("May",'subscribe-to-comments-reloaded'),
-                "June" => __("June",'subscribe-to-comments-reloaded'),
-                "July" => __("July",'subscribe-to-comments-reloaded'),
-                "August" => __("August",'subscribe-to-comments-reloaded'),
-                "September" => __("September",'subscribe-to-comments-reloaded'),
-                "October" => __("October",'subscribe-to-comments-reloaded'),
-                "November" => __("November",'subscribe-to-comments-reloaded'),
-                "December" => __("December",'subscribe-to-comments-reloaded')
+                "January" => esc_html__("January",'subscribe-to-comments-reloaded'),
+                "February" => esc_html__("February",'subscribe-to-comments-reloaded'),
+                "March" => esc_html__("March",'subscribe-to-comments-reloaded'),
+                "April" => esc_html__("April",'subscribe-to-comments-reloaded'),
+                "May" => esc_html__("May",'subscribe-to-comments-reloaded'),
+                "June" => esc_html__("June",'subscribe-to-comments-reloaded'),
+                "July" => esc_html__("July",'subscribe-to-comments-reloaded'),
+                "August" => esc_html__("August",'subscribe-to-comments-reloaded'),
+                "September" => esc_html__("September",'subscribe-to-comments-reloaded'),
+                "October" => esc_html__("October",'subscribe-to-comments-reloaded'),
+                "November" => esc_html__("November",'subscribe-to-comments-reloaded'),
+                "December" => esc_html__("December",'subscribe-to-comments-reloaded')
             );
 
             $months_short = array (
-                "Jan" => __("Jan",'subscribe-to-comments-reloaded'),
-                "Feb" => __("Feb",'subscribe-to-comments-reloaded'),
-                "Mar" => __("Mar",'subscribe-to-comments-reloaded'),
-                "Apr" => __("Apr",'subscribe-to-comments-reloaded'),
-                "May" => __("May",'subscribe-to-comments-reloaded'),
-                "Jun" => __("Jun",'subscribe-to-comments-reloaded'),
-                "Jul" => __("Jul",'subscribe-to-comments-reloaded'),
-                "Aug" => __("Aug",'subscribe-to-comments-reloaded'),
-                "Sep" => __("Sep",'subscribe-to-comments-reloaded'),
-                "Oct" => __("Oct",'subscribe-to-comments-reloaded'),
-                "Nov" => __("Nov",'subscribe-to-comments-reloaded'),
-                "Dec" => __("Dec",'subscribe-to-comments-reloaded')
+                "Jan" => esc_html__("Jan",'subscribe-to-comments-reloaded'),
+                "Feb" => esc_html__("Feb",'subscribe-to-comments-reloaded'),
+                "Mar" => esc_html__("Mar",'subscribe-to-comments-reloaded'),
+                "Apr" => esc_html__("Apr",'subscribe-to-comments-reloaded'),
+                "May" => esc_html__("May",'subscribe-to-comments-reloaded'),
+                "Jun" => esc_html__("Jun",'subscribe-to-comments-reloaded'),
+                "Jul" => esc_html__("Jul",'subscribe-to-comments-reloaded'),
+                "Aug" => esc_html__("Aug",'subscribe-to-comments-reloaded'),
+                "Sep" => esc_html__("Sep",'subscribe-to-comments-reloaded'),
+                "Oct" => esc_html__("Oct",'subscribe-to-comments-reloaded'),
+                "Nov" => esc_html__("Nov",'subscribe-to-comments-reloaded'),
+                "Dec" => esc_html__("Dec",'subscribe-to-comments-reloaded')
             );
 
             // Replace String
@@ -350,32 +350,32 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             add_option( 'subscribe_reloaded_checked_by_default_value', '0', '', 'yes' );
             add_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px', '', 'yes' );
             add_option( 'subscribe_reloaded_checkbox_html', "<p class='comment-form-subscriptions'><label for='subscribe-reloaded'>[checkbox_field] [checkbox_label]</label></p>", '', 'yes' );
-            add_option( 'subscribe_reloaded_checkbox_label', __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_subscribed_label', __( "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_subscribed_waiting_label', __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_author_label', __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_checkbox_label', wp_kses( __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
+            add_option( 'subscribe_reloaded_subscribed_label', wp_kses( __( "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your subscriptions.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
+            add_option( 'subscribe_reloaded_subscribed_waiting_label', wp_kses( __( "Your subscription to this post needs to be confirmed. <a href='[manager_link]'>Manage your subscriptions</a>.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
+            add_option( 'subscribe_reloaded_author_label', wp_kses( __( "You can <a href='[manager_link]'>manage the subscriptions</a> of this post.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
 
             add_option( 'subscribe_reloaded_manager_page_enabled', 'yes', '', 'yes' );
             add_option( 'subscribe_reloaded_virtual_manager_page_enabled', 'yes', '', 'yes' );
-            add_option( 'subscribe_reloaded_manager_page_title', __( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_manager_page_title', esc_html__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ), '', 'yes' );
             add_option( 'subscribe_reloaded_custom_header_meta', "<meta name='robots' content='noindex,nofollow'>", '', 'yes' );
-            add_option( 'subscribe_reloaded_request_mgmt_link', __( 'To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page.', 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_request_mgmt_link_thankyou', __( 'Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes.', 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_subscribe_without_commenting', __( "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_subscription_confirmed', __( "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_subscription_confirmed_dci', __( "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_author_text', __( "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_user_text', __( "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:", 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_request_mgmt_link', esc_html__( 'To manage your subscriptions, please enter your email address here below. We will send you a message containing the link to access your personal management page.', 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_request_mgmt_link_thankyou', esc_html__( 'Thank you for using our subscription service. Your request has been completed, and you should receive an email with the management link in a few minutes.', 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_subscribe_without_commenting', wp_kses( __( "You can follow the discussion on <strong>[post_title]</strong> without having to leave a comment. Cool, huh? Just enter your email address in the form here below and you're all set.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
+            add_option( 'subscribe_reloaded_subscription_confirmed', esc_html__( "Thank you for using our subscription service. Your request has been completed. You will receive a notification email every time a new comment to this article is approved and posted by the administrator.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_subscription_confirmed_dci', esc_html__( "Thank you for using our subscription service. In order to confirm your request, please check your email for the verification message and follow the instructions.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_author_text', esc_html__( "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list.", 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_user_text', esc_html__( "In order to cancel or suspend one or more notifications, select the corresponding checkbox(es) and click on the button at the end of the list. You are currently subscribed to:", 'subscribe-to-comments-reloaded' ), '', 'yes' );
 
             add_option( 'subscribe_reloaded_from_name', get_bloginfo( 'name' ), '', 'yes' );
             add_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_notification_subject', __( 'There is a new comment to [post_title]', 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_notification_content', __( "<h1>There is a new comment on [post_title].</h1>\n\n<hr />\n<strong>Comment link:</strong> <a href=\"[comment_permalink]\">[comment_permalink]</a>\n<strong>Author:</strong> [comment_author]\n\n<strong>Comment:</strong>\n[comment_content]\n<div style=\"font-size: 0.8em;\"><strong>Permalink:</strong> <a href=\"[post_permalink]\">[post_permalink]</a>\n<a href=\"[manager_link]\">Manage your subscriptions</a> | <a href=\"[oneclick_link]\">One click unsubscribe</a></div>", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_double_check_subject', __( 'Please confirm your subscription to [post_title]', 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_double_check_content', __( "You have requested to be notified every time a new comment is added to:\n<a href='[post_permalink]'>[post_permalink]</a>\n\nPlease confirm your request by clicking on this link:\n<a href='[confirm_link]'>[confirm_link]</a>", 'subscribe-to-comments-reloaded' ), '', 'yes' );
-            add_option( 'subscribe_reloaded_management_subject', __( 'Manage your subscriptions on [blog_name]', 'subscribe-to-comments-reloaded' ) );
-            add_option( 'subscribe_reloaded_management_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Please check the Subscriptions management link in your email", 'subscribe-to-comments-reloaded' ) );
-            add_option( 'subscribe_reloaded_management_email_content', __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n<a href='[manager_link]'>[manager_link]</a>", 'subscribe-to-comments-reloaded' ) );
+            add_option( 'subscribe_reloaded_notification_subject', esc_html__( 'There is a new comment to [post_title]', 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_notification_content', wp_kses( __( "<h1>There is a new comment on [post_title].</h1>\n\n<hr />\n<strong>Comment link:</strong> <a href=\"[comment_permalink]\">[comment_permalink]</a>\n<strong>Author:</strong> [comment_author]\n\n<strong>Comment:</strong>\n[comment_content]\n<div style=\"font-size: 0.8em;\"><strong>Permalink:</strong> <a href=\"[post_permalink]\">[post_permalink]</a>\n<a href=\"[manager_link]\">Manage your subscriptions</a> | <a href=\"[oneclick_link]\">One click unsubscribe</a></div>", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
+            add_option( 'subscribe_reloaded_double_check_subject', esc_html__( 'Please confirm your subscription to [post_title]', 'subscribe-to-comments-reloaded' ), '', 'yes' );
+            add_option( 'subscribe_reloaded_double_check_content', wp_kses( __( "You have requested to be notified every time a new comment is added to:\n<a href='[post_permalink]'>[post_permalink]</a>\n\nPlease confirm your request by clicking on this link:\n<a href='[confirm_link]'>[confirm_link]</a>", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '', 'yes' );
+            add_option( 'subscribe_reloaded_management_subject', esc_html__( 'Manage your subscriptions on [blog_name]', 'subscribe-to-comments-reloaded' ) );
+            add_option( 'subscribe_reloaded_management_content', esc_html__( "You have requested to manage your subscriptions to the articles on [blog_name]. Please check the Subscriptions management link in your email", 'subscribe-to-comments-reloaded' ) );
+            add_option( 'subscribe_reloaded_management_email_content', wp_kses( __( "You have requested to manage your subscriptions to the articles on [blog_name]. Follow this link to access your personal page:\n<a href='[manager_link]'>[manager_link]</a>", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) );
 
             add_option( 'subscribe_reloaded_purge_days', '30', '', 'yes' );
             add_option( 'subscribe_reloaded_enable_double_check', 'yes', '', 'yes' );
@@ -490,7 +490,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 				'fromEmail'    =>  $from_email,
 				'fromName'     =>  $from_name,
 				'toEmail'      =>  '',
-				'subject'      =>  __('StCR Notification' ,'subscribe-to-comments-reloaded'),
+				'subject'      =>  esc_html__('StCR Notification' ,'subscribe-to-comments-reloaded'),
 				'message'      =>  '',
 				'bcc'          =>  '',
 				'reply_to'     =>  $reply_to,
@@ -892,7 +892,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @param string $_notification The notification Name of the notice to be deleted.
 		 */
 		public function stcr_ajax_update_notification () {
-			$_notification = $_POST['action'];
+			$_notification = isset( $_POST['action'] ) ? sanitize_text_field( wp_unslash( $_POST['action'] ) ) : '';
 			// Check Nonce
 			check_ajax_referer( $_notification, 'security' );
 			// Update status

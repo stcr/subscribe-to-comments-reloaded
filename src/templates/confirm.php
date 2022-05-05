@@ -13,7 +13,7 @@ global $wp_subscribe_reloaded;
 $post_permalink = null;
 if (array_key_exists('post_permalink', $_GET)) {
     if ( ! empty( $_GET['post_permalink'] ) ) {
-        $post_permalink = $_GET['post_permalink'];
+        $post_permalink = sanitize_text_field( wp_unslash( $_GET['post_permalink'] ) );
     }
 }
 
@@ -30,8 +30,8 @@ if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) 
 
 // append post link to message
 if ( isset( $post_permalink ) ) {
-    $message .= '<p id="subscribe-reloaded-update-p"> 
-            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-to-comments-reloaded').'</a>
+    $message .= '<p id="subscribe-reloaded-update-p">
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. esc_html__('Return to Post','subscribe-to-comments-reloaded').'</a>
           </p>';
 }
 

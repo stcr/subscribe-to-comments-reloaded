@@ -27,18 +27,19 @@ if ( isset( $_POST['options'] ) ) {
     if ( empty( $_POST['stcr_save_comment_form_nonce'] ) ) {
         return;
     }
-    
+
     if ( ! wp_verify_nonce( $_POST['stcr_save_comment_form_nonce'], 'stcr_save_comment_form_nonce' ) ) {
         return;
     }
-    
+
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
     }
 
-	$faulty_fields = array();
-
-    foreach ( $_POST['options'] as $option => $value )
+	$faulty_fields     = array();
+    $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+    $subscribe_options = array_map( 'sanitize_text_field', $subscribe_options );
+    foreach ( $subscribe_options as $option => $value )
     {
 
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
@@ -50,12 +51,12 @@ if ( isset( $_POST['options'] ) ) {
 	// Display an alert in the admin interface if something went wrong
 	echo '<div class="updated"><p>';
 	if ( sizeof( $faulty_fields ) == 0 ) {
-		_e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
+		esc_html_e( 'Your settings have been successfully updated.', 'subscribe-to-comments-reloaded' );
 	} else {
-		_e( 'There was an error updating the following fields:', 'subscribe-to-comments-reloaded' );
+		esc_html_e( 'There was an error updating the following fields:', 'subscribe-to-comments-reloaded' );
 		// echo ' <strong>' . substr( $faulty_fields, 0, - 2 ) . '</strong>';
 	}
-	echo "</p></div>";
+	echo '</p></div>';
 }
 ?>
 <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
@@ -66,50 +67,50 @@ if ( isset( $_POST['options'] ) ) {
         <div class="col-sm-9">
             <form action="" method="post">
                 <div class="form-group row">
-                    <label for="show_subscription_box" class="col-sm-3 col-form-label text-right"><?php _e( 'Enable default checkbox', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="show_subscription_box" class="col-sm-3 col-form-label text-right"><?php esc_html_e( 'Enable default checkbox', 'subscribe-to-comments-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <div class="switch">
                             <input type="radio" class="switch-input" name="options[show_subscription_box]"
                                    value="yes" id="show_subscription_box-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'show_subscription_box' ) == 'yes' ) ? ' checked' : ''; ?> />
                             <label for="show_subscription_box-yes" class="switch-label switch-label-off">
-                                <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                             </label>
                             <input type="radio" class="switch-input" name="options[show_subscription_box]" value="no" id="show_subscription_box-no"
                                 <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'show_subscription_box' ) == 'no' ) ? '  checked' : ''; ?> />
                             <label for="show_subscription_box-no" class="switch-label switch-label-on">
-                                <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                             </label>
                             <span class="switch-selection"></span>
                         </div>
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Disable this option if you want to move the subscription checkbox to a different place on your page.', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="checked_by_default" class="col-sm-3 col-form-label text-right"><?php _e( 'Checked by default', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="checked_by_default" class="col-sm-3 col-form-label text-right"><?php esc_html_e( 'Checked by default', 'subscribe-to-comments-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <div class="switch">
                             <input type="radio" class="switch-input" name="options[checked_by_default]"
                                    value="yes" id="checked_by_default-yes" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default' ) == 'yes' ) ? ' checked' : ''; ?> />
                             <label for="checked_by_default-yes" class="switch-label switch-label-off">
-                                <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                             </label>
                             <input type="radio" class="switch-input" name="options[checked_by_default]" value="no" id="checked_by_default-no"
                                 <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default' ) == 'no' ) ? '  checked' : ''; ?> />
                             <label for="checked_by_default-no" class="switch-label switch-label-on">
-                                <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                             </label>
                             <span class="switch-selection"></span>
                         </div>
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Decide if the checkbox should be checked by default or not.', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
                     </div>
@@ -119,16 +120,16 @@ if ( isset( $_POST['options'] ) ) {
             if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'no' ) :
             ?>
                 <div class="form-group row">
-                    <label for="checked_by_default_value" class="col-sm-3 col-form-label text-right"><?php _e( 'Subscription type', 'subscribe-to-comments-reloaded' ) ?></label>
+                    <label for="checked_by_default_value" class="col-sm-3 col-form-label text-right"><?php esc_html_e( 'Subscription type', 'subscribe-to-comments-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <select name="options[checked_by_default_value]" id="checked_by_default_value" class="form-control form-control-select">
-                            <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-to-comments-reloaded' ); ?></option>
-                            <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-to-comments-reloaded' ); ?></option>
+                            <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '0' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'All new comments', 'subscribe-to-comments-reloaded' ); ?></option>
+                            <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checked_by_default_value' ) === '1' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'Replies to this comment', 'subscribe-to-comments-reloaded' ); ?></option>
                         </select>
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Select the type of subscription.', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Select the type of subscription.', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Select the type of subscription.', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Select the type of subscription.', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
                     </div>
@@ -140,26 +141,26 @@ if ( isset( $_POST['options'] ) ) {
 
                 <div class="form-group row">
                     <label for="enable_advanced_subscriptions" class="col-sm-3 col-form-label text-right">
-                        <?php _e( 'Advanced subscription', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <?php esc_html_e( 'Advanced subscription', 'subscribe-to-comments-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <div class="switch">
                             <input type="radio" class="switch-input" name="options[enable_advanced_subscriptions]"
                                    value="yes" id="enable_advanced_subscriptions-yes"
                                 <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'yes' ) ? ' checked' : ''; ?> />
                             <label for="enable_advanced_subscriptions-yes" class="switch-label switch-label-off">
-                                <?php _e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'Yes', 'subscribe-to-comments-reloaded' ) ?>
                             </label>
                             <input type="radio" class="switch-input" name="options[enable_advanced_subscriptions]" value="no" id="enable_advanced_subscriptions-no"
                                 <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'no' ) ? '  checked' : ''; ?> />
                             <label for="enable_advanced_subscriptions-no" class="switch-label switch-label-on">
-                                <?php _e( 'No', 'subscribe-to-comments-reloaded' ) ?>
+                                <?php esc_html_e( 'No', 'subscribe-to-comments-reloaded' ) ?>
                             </label>
                             <span class="switch-selection"></span>
                         </div>
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Allow users to choose from different subscription types (all, replies only).', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
                     </div>
@@ -170,17 +171,17 @@ if ( isset( $_POST['options'] ) ) {
                 if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'enable_advanced_subscriptions' ) == 'yes' ):    ?>
                     <div class="form-group row">
                         <label for="default_subscription_type" class="col-sm-3 col-form-label text-right">
-                            <?php _e( 'Advanced default', 'subscribe-to-comments-reloaded' ) ?></label>
+                            <?php esc_html_e( 'Advanced default', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <select name="options[default_subscription_type]" id="default_subscription_type" class="form-control form-control-select">
-                                <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '0' ) ? "selected='selected'" : ''; ?>><?php _e( 'None', 'subscribe-to-comments-reloaded' ); ?></option>
-                                <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '1' ) ? "selected='selected'" : ''; ?>><?php _e( 'All new comments', 'subscribe-to-comments-reloaded' ); ?></option>
-                                <option value="2" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '2' ) ? "selected='selected'" : ''; ?>><?php _e( 'Replies to this comment', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="0" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '0' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'None', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="1" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '1' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'All new comments', 'subscribe-to-comments-reloaded' ); ?></option>
+                                <option value="2" <?php echo ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'default_subscription_type' ) === '2' ) ? "selected='selected'" : ''; ?>><?php esc_html_e( 'Replies to this comment', 'subscribe-to-comments-reloaded' ); ?></option>
                             </select>
                             <div class="helpDescription subsOptDescriptions"
-                                 data-content="<?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-to-comments-reloaded' ); ?>"
+                                 data-content="<?php esc_attr_e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-to-comments-reloaded' ); ?>"
                                  data-placement="right"
-                                 aria-label="<?php _e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-to-comments-reloaded' ); ?>">
+                                 aria-label="<?php esc_attr_e( 'The default subscription type that should be selected when Advanced subscriptions are enable.', 'subscribe-to-comments-reloaded' ); ?>">
                                 <i class="fas fa-question-circle"></i>
                             </div>
                         </div>
@@ -192,16 +193,16 @@ if ( isset( $_POST['options'] ) ) {
 
                 <div class="form-group row">
                     <label for="checkbox_inline_style" class="col-sm-3 col-form-label text-right">
-                        <?php _e( 'Custom inline style', 'subscribe-to-comments-reloaded' ) ?></label>
+                        <?php esc_html_e( 'Custom inline style', 'subscribe-to-comments-reloaded' ) ?></label>
                     <div class="col-sm-7">
                         <input type="text" name="options[checkbox_inline_style]" id="checkbox_inline_style"
                                class="form-control form-control-input-8"
                                value="<?php echo esc_attr( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'checkbox_inline_style' ) ); ?>" size="20">
 
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Custom inline CSS to add to the checkbox.', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Custom inline CSS to add to the checkbox.', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Custom inline CSS to add to the checkbox.', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
                     </div>
@@ -209,12 +210,12 @@ if ( isset( $_POST['options'] ) ) {
 
                 <div class="form-group row">
                     <label for="checkbox_html" class="col-sm-3 offset-sm-1 col-form-label">
-                        <?php _e( 'Custom HTML', 'subscribe-to-comments-reloaded' ) ?>
+                        <?php esc_html_e( 'Custom HTML', 'subscribe-to-comments-reloaded' ) ?>
 
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Custom HTML code to be used when displaying the checkbox. Allowed tags: [checkbox_field], [checkbox_label]', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
 
@@ -235,16 +236,16 @@ if ( isset( $_POST['options'] ) ) {
                     </div>
                 </div>
 
-                <h3><?php _e( 'Messages for your visitors', 'subscribe-to-comments-reloaded' ) ?></h3>
+                <h3><?php esc_html_e( 'Messages for your visitors', 'subscribe-to-comments-reloaded' ) ?></h3>
 
                 <div class="form-group row">
                     <label for="checkbox_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
-                        <?php _e( 'Default label', 'subscribe-to-comments-reloaded' ) ?>
+                        <?php esc_html_e( 'Default label', 'subscribe-to-comments-reloaded' ) ?>
 
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Label associated to the checkbox. Allowed tag: [subscribe_link]', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
 
@@ -266,12 +267,12 @@ if ( isset( $_POST['options'] ) ) {
 
                 <div class="form-group row">
                     <label for="subscribed_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
-                        <?php _e( 'Subscribed label', 'subscribe-to-comments-reloaded' ) ?>
+                        <?php esc_html_e( 'Subscribed label', 'subscribe-to-comments-reloaded' ) ?>
 
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( 'Label shown to those who are already subscribed to a post. Allowed tag: [manager_link]', 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
 
@@ -293,12 +294,12 @@ if ( isset( $_POST['options'] ) ) {
 
                 <div class="form-group row">
                     <label for="subscribed_waiting_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
-                        <?php _e( 'Pending label', 'subscribe-to-comments-reloaded' ) ?>
+                        <?php esc_html_e( 'Pending label', 'subscribe-to-comments-reloaded' ) ?>
 
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( "Label shown to those who are already subscribed, but haven't clicked on the confirmation link yet. Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
 
@@ -320,12 +321,12 @@ if ( isset( $_POST['options'] ) ) {
 
                 <div class="form-group row">
                     <label for="author_label" class="col-sm-3 offset-sm-1 col-form-label" style="z-index: 9999;">
-                        <?php _e( 'Author label', 'subscribe-to-comments-reloaded' ) ?>
+                        <?php esc_html_e( 'Author label', 'subscribe-to-comments-reloaded' ) ?>
 
                         <div class="helpDescription subsOptDescriptions"
-                             data-content="<?php _e( "Label shown to authors (and administrators). Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
+                             data-content="<?php esc_attr_e( "Label shown to authors (and administrators). Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>"
                              data-placement="right"
-                             aria-label="<?php _e( "Label shown to authors (and administrators). Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
+                             aria-label="<?php esc_attr_e( "Label shown to authors (and administrators). Allowed tag: [manager_link]", 'subscribe-to-comments-reloaded' ); ?>">
                             <i class="fas fa-question-circle"></i>
                         </div>
 
@@ -348,7 +349,7 @@ if ( isset( $_POST['options'] ) ) {
                 <div class="form-group row">
                     <div class="col-sm-9 offset-sm-1">
                         <button type="submit" class="btn btn-primary subscribe-form-button" name="Submit">
-                            <?php _e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
+                            <?php esc_html_e( 'Save Changes', 'subscribe-to-comments-reloaded' ) ?>
                         </button>
                     </div>
                 </div>

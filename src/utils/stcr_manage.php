@@ -79,8 +79,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 						$nonce = wp_create_nonce( $name );
 						// Set the a fresh nonce
 						$this->utils->stcr_update_admin_notice_status( $name, 'unread', $nonce );
-						echo "<div class='notice is-dismissible stcr-dismiss-notice  {$noticeData['type']}' data-nonce='{$nonce}|{$name}'>";
-							echo $noticeData['message'];
+						echo "<div class='notice is-dismissible stcr-dismiss-notice  " . esc_attr( $noticeData['type'] ) . "' data-nonce='" . esc_attr( $nonce ) . "|" . esc_attr( $name ) . "'>";
+							echo wp_kses( $noticeData['message'], wp_kses_allowed_html( 'post' ) );
 						echo "</div>";
 					}
 				}
@@ -366,32 +366,32 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				add_menu_page( $page_title, $menu_title, $moderate_capability, $parent_slug, $function, $icon_url, $position );
 
 				add_submenu_page( $parent_slug ,
-								__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
-								__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Manage subscriptions', 'subscribe-to-comments-reloaded' ),
 								 $moderate_capability,
 								 "stcr_manage_subscriptions",
 								 array( $this, "stcr_option_manage_subscriptions") );
 				add_submenu_page( $parent_slug ,
-								__( 'Comment Form', 'subscribe-to-comments-reloaded' ),
-								__( 'Comment Form', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Comment Form', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Comment Form', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_comment_form",
 								 array( $this, "stcr_option_comment_form" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'Management Page', 'subscribe-to-comments-reloaded' ),
-								__( 'Management Page', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Management Page', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Management Page', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_management_page",
 								 array( $this, "stcr_option_management_page" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'Notifications', 'subscribe-to-comments-reloaded' ),
-								__( 'Notifications', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Notifications', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Notifications', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_notifications",
 								 array( $this, "stcr_option_notifications" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'Options', 'subscribe-to-comments-reloaded' ),
-								__( 'Options', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Options', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Options', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_options",
 								 array( $this, "stcr_option_options" ) );
@@ -400,27 +400,27 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				// since this requires much effort this is pointe to go to the pro version. NO ETA avaiable.
 				//
 				// add_submenu_page( $parent_slug ,
-				// 				__( 'Subscribers Emails', 'subscribe-to-comments-reloaded' ),
-				// 				__( 'Subscribers Emails', 'subscribe-to-comments-reloaded' ),
+				// 				esc_html__( 'Subscribers Emails', 'subscribe-to-comments-reloaded' ),
+				// 				esc_html__( 'Subscribers Emails', 'subscribe-to-comments-reloaded' ),
 				// 				 $capability,
 				// 				 "stcr_subscribers_emails",
 				// 				 array( $this, "stcr_option_subscribers_emails" ) );
 
 				add_submenu_page( $parent_slug ,
-								__( 'Support', 'subscribe-to-comments-reloaded' ),
-								__( 'Support', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Support', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'Support', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_support",
 								 array( $this, "stcr_option_support" ) );
 //				add_submenu_page( $parent_slug ,
-//								__( 'Donate', 'subscribe-to-comments-reloaded' ),
-//								__( 'Donate', 'subscribe-to-comments-reloaded' ),
+//								esc_html__( 'Donate', 'subscribe-to-comments-reloaded' ),
+//								esc_html__( 'Donate', 'subscribe-to-comments-reloaded' ),
 //								 $capability,
 //								 "stcr_donate",
 //								 array( $this, "stcr_option_donate" ) );
 				add_submenu_page( $parent_slug ,
-								__( 'StCR System', 'subscribe-to-comments-reloaded' ),
-								__( 'StCR System', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'StCR System', 'subscribe-to-comments-reloaded' ),
+								esc_html__( 'StCR System', 'subscribe-to-comments-reloaded' ),
 								 $capability,
 								 "stcr_system",
 								 array( $this, "stcr_option_system" ) );
@@ -440,13 +440,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 		    global $wp_subscribe_reloaded;
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -468,12 +467,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -495,12 +493,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -522,12 +519,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -549,12 +545,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -576,12 +571,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -605,12 +599,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			//must check that the user has the required capability
 		    if (!current_user_can('manage_options'))
 		    {
-		    	wp_die( __('You do not have sufficient permissions to access this page.') );
+		    	wp_die( esc_html__('You do not have sufficient permissions to access this page.', 'subscribe-to-comments-reloaded') );
 		    }
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -642,7 +635,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			if ( empty( $_POST['stcr_download_sysinfo_nonce'] ) ) {
 				return;
 			}
-			
+
 			if ( ! wp_verify_nonce( $_POST['stcr_download_sysinfo_nonce'], 'stcr_download_sysinfo_nonce' ) ) {
 				return;
 			}
@@ -683,7 +676,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function add_custom_header_meta() {
 			$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
-			echo $a;
+			echo wp_kses( $a, wp_kses_allowed_html( 'post' ) );
 		}
 		// end add_custom_header_meta
 
@@ -692,7 +685,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function add_column_header( $_columns ) {
 			$image_url                      = plugins_url( '/images', STCR_PLUGIN_FILE );
-			$image_tooltip                  = __( 'Subscriptions', 'subscribe-to-comments-reloaded' );
+			$image_tooltip                  = esc_html__( 'Subscriptions', 'subscribe-to-comments-reloaded' );
 			$_columns['subscribe-reloaded'] = "<span class='hidden'>" . $image_tooltip . "</span><img src='$image_url/subscribe-to-comments-small.png' width='17' height='12' alt='" . $image_tooltip . "' title='" . $image_tooltip . "' />";
 
 			return $_columns;
@@ -721,9 +714,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			), 'dt', 'DESC', 0, 1
 			);
 			if ( count( $subscription ) == 0 ) {
-				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-to-comments-reloaded' ) . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . esc_attr( $comment->comment_post_ID ) . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . esc_html__( 'No', 'subscribe-to-comments-reloaded' ) . '</a>';
 			} else {
-				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . $subscription[0]->status . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . esc_html( $subscription[0]->status ) . '</a>';
 			}
 		}
 		// end add_column
@@ -737,7 +730,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 
 			global $post;
-			echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . $post->ID . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
+			echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . esc_attr( $post->ID ) . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
 		}
 		// end add_column
 
