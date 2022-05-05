@@ -287,9 +287,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 											<?php echo esc_html( $page_desc ); ?>
                                         </a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<a class="dropdown-item" href="admin.php?page=<?php echo esc_attr( $page ); ?>"><?php _e('StCR Options', 'subscribe-to-comments-reloaded'); ?></a>
+											<a class="dropdown-item" href="admin.php?page=<?php echo esc_attr( $page ); ?>"><?php esc_html_e('StCR Options', 'subscribe-to-comments-reloaded'); ?></a>
 											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="admin.php?page=stcr_system"><?php _e('StCR System', 'subscribe-to-comments-reloaded'); ?></a>
+											<a class="dropdown-item" href="admin.php?page=stcr_system"><?php esc_html_e('StCR System', 'subscribe-to-comments-reloaded'); ?></a>
 										</div>
 										<?php
 
