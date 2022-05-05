@@ -71,7 +71,7 @@ else
 		$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 	}
 	?>
-	<p><?php echo wpautop( esc_html( $error_message ) ); ?></p>
+	<?php echo wpautop( esc_html( $error_message ) ); ?>
 	<form action="<?php
 	$url = $_SERVER[ 'REQUEST_URI' ];
 	$url = preg_replace('/sre=\w+&|&key\_expired=\d+/', '', $url );
@@ -79,7 +79,10 @@ else
 	?>" name="sub-form" method="post">
 		<fieldset style="border:0">
 			<p><label for="subscribe_reloaded_email"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo isset( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? esc_attr( $_COOKIE['comment_author_email_' . COOKIEHASH] ) : ''; ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
+			<?php
+			$comment_author_email = isset( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) ) : '';
+			?>
+				<input id='subscribe_reloaded_email' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" onfocus="if(this.value==this.defaultValue)this.value=''" onblur="if(this.value=='')this.value=this.defaultValue" />
 				<input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
 			</p>
 		</fieldset>

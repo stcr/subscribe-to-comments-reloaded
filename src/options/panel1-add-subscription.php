@@ -18,7 +18,8 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
 			</p>
 
 			<p class="liquid"><label for='sre'><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
-				<input readonly='readonly' type='text' size='30' name='sre' id='sre' value='<?php echo sanitize_text_field( wp_unslash( $_GET['sre'] ) ) ?>' />
+				<?php $sre = isset( $_GET['sre'] ) ? sanitize_text_field( wp_unslash( $_GET['sre'] ) ) : ''; ?>
+				<input readonly='readonly' type='text' size='30' name='sre' id='sre' value='<?php echo esc_attr( $sre ); ?>' />
 			</p>
 
 			<p class="liquid"><label for='srs'><?php _e( 'Status', 'subscribe-to-comments-reloaded' ) ?></label>
