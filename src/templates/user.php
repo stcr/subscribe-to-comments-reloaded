@@ -31,23 +31,23 @@ if ( ! empty( $_POST['post_list'] ) ) {
 	switch ( $action ) {
 	case 'delete':
 		$rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_list, $email );
-		echo '<p class="updated">' . __( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p>";
+		echo '<p class="updated">' . __( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'suspend':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email, 'C' );
-		echo '<p class="updated">' . __( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p>";
+		echo '<p class="updated">' . __( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'activate':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email, '-C' );
-		echo '<p class="updated">' . __( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p>";
+		echo '<p class="updated">' . __( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'force_y':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email, 'Y' );
-		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p>";
+		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'force_r':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email, 'R' );
-		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . " $rows_affected</p>";
+		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	default:
 		break;
@@ -59,11 +59,12 @@ if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) 
 	$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 }
 
-echo "<p>$message</p>";
+echo "<p>" . wp_kses( $message. wp_kses_allowed_html( 'post' ) . "</p>";
 
 ?>
 
-	<form action="<?php echo esc_url( $_SERVER['REQUEST_URI'] ) ?>" method="post" id="post_list_form" name="post_list_form" onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) ?>')">
+    <?php $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : ''; ?>
+	<form action="<?php echo esc_url( $server_request_uri ); ?>" method="post" id="post_list_form" name="post_list_form" onsubmit="if(this.sra[0].checked) return confirm('<?php _e( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ); ?>')">
 		<fieldset style="border:0">
 			<?php
                 $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( 'email', 'equals', $email, 'dt', 'DESC' );
@@ -77,7 +78,7 @@ echo "<p>$message</p>";
                     '-C' => __( "Active", 'subscribe-to-comments-reloaded')
                 );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
-	echo '<p id="subscribe-reloaded-email-p">' . __( 'Email to manage', 'subscribe-to-comments-reloaded' ) . ': <strong>' . $email . '</strong></p>';
+	echo '<p id="subscribe-reloaded-email-p">' . __( 'Email to manage', 'subscribe-to-comments-reloaded' ) . ': <strong>' . esc_html( $email ) . '</strong></p>';
 
     echo "<table class='stcr-subscription-list'><thead><tr>
                 <th style='width:24%; text-align: center;'><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". __('Subscription Date','subscribe-to-comments-reloaded')."</th>
@@ -95,9 +96,9 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         $date_translated = $wp_subscribe_reloaded->stcr->utils->stcr_translate_month( $formatted_date );
 
         echo "<tr>";
-        echo "<td style='text-align: center;'><input type='checkbox' name='post_list[]' value='{$a_subscription->post_id}' id='e_$i'/><label for='e_$i'>  $date_translated</td>";
-        echo "<td><a href='$permalink' target='_blank'>$title</a> </td>";
-        echo "<td style='text-align: center;'>$legend_translate[$t_status]</td>";
+        echo "<td style='text-align: center;'><input type='checkbox' name='post_list[]' value='" . esc_attr( $a_subscription->post_id ) . "' id='e_" . esc_attr( $i ) . "'/><label for='e_" . esc_attr( $i ) . "'>  " . esc_html( $date_translated ) . "</td>";
+        echo "<td><a href='" . esc_url( $permalink ) . "' target='_blank'>" . esc_html( $title ) . "</a> </td>";
+        echo "<td style='text-align: center;'>" . esc_html( $legend_translate[ $t_status ] ) . "</td>";
         echo "</tr>";
     }
     echo "</tbody>";
@@ -138,7 +139,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
     if ( isset( $post_permalink ) )
     {
-        echo '<p id="subscribe-reloaded-update-p"> 
+        echo '<p id="subscribe-reloaded-update-p">
             <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. __('Return to Post','subscribe-to-comments-reloaded').'</a>
           </p>';
     }
