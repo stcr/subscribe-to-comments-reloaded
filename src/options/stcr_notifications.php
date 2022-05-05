@@ -249,7 +249,7 @@ wp_print_scripts( 'quicktags' );
                         $management_page_message = $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'management_content' );
                         if ( empty( $management_page_message ) ) { $management_page_message = ''; }
                         if ( strpos( $management_page_message, '[manager_link]' ) ) {
-                            $disallowed_tags['manager_link'] = __( '[manager_link] tag only works for "Management Email message". It is a private link that takes to a management page and for security reasons has to be sent to the email address.', 'subscribe-to-comments-reloaded' );
+                            $disallowed_tags['manager_link'] = esc_html__( '[manager_link] tag only works for "Management Email message". It is a private link that takes to a management page and for security reasons has to be sent to the email address.', 'subscribe-to-comments-reloaded' );
                         }
                     ?>
                     <div class="form-group row">

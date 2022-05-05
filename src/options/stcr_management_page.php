@@ -24,7 +24,7 @@ $options = array(
 );
 
 $options_readable = array(
-        "manager_page" => __("Management URL",'subscribe-to-comments-reloaded')
+        "manager_page" => esc_html__("Management URL",'subscribe-to-comments-reloaded')
 );
 
 // Update options
@@ -145,7 +145,7 @@ wp_print_scripts( 'quicktags' );
                             <?php
                             if ( ( get_option( 'permalink_structure' ) == '' ) && ( strpos( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'manager_page' ), '?page_id=' ) === false ) ) {
                                     echo "<div class=\"alert alert-danger\" role=\"alert\">";
-                                    echo '<strong>' . __( "Warning: it looks like the value you are using may be incompatible with your permalink structure", 'subscribe-to-comments-reloaded' ) . '</strong>';
+                                    echo '<strong>' . esc_html__( "Warning: it looks like the value you are using may be incompatible with your permalink structure", 'subscribe-to-comments-reloaded' ) . '</strong>';
                                     echo "</div>";
                             }
                                 ?>

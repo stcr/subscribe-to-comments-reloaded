@@ -191,18 +191,18 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                 $date_time_format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
                                 // Let us form those status
                                 $status_arry      = array(
-                                                    'R'  => __( 'Replies', 'subscribe-to-comments-reloaded'),
-                                                    'RC' => __( 'Replies Unconfirmed', 'subscribe-to-comments-reloaded'),
-                                                    'Y'  => __( "All Comments", 'subscribe-to-comments-reloaded'),
-                                                    'YC' => __( "Unconfirmed", 'subscribe-to-comments-reloaded'),
-                                                    'C'	 => __( "Inactive", 'subscribe-to-comments-reloaded'),
-                                                    '-C' => __( "Active", 'subscribe-to-comments-reloaded')
+                                                    'R'  => esc_html__( 'Replies', 'subscribe-to-comments-reloaded'),
+                                                    'RC' => esc_html__( 'Replies Unconfirmed', 'subscribe-to-comments-reloaded'),
+                                                    'Y'  => esc_html__( "All Comments", 'subscribe-to-comments-reloaded'),
+                                                    'YC' => esc_html__( "Unconfirmed", 'subscribe-to-comments-reloaded'),
+                                                    'C'	 => esc_html__( "Inactive", 'subscribe-to-comments-reloaded'),
+                                                    '-C' => esc_html__( "Active", 'subscribe-to-comments-reloaded')
                                                 );
 
                                 if ( ! empty( $subscriptions ) && is_array( $subscriptions ) ) {
 
-                                    $show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ?  __( 'Post (ID)', 'subscribe-to-comments-reloaded' ) : '';
-                                    $show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? __( 'Email', 'subscribe-to-comments-reloaded' ) : '';
+                                    $show_post_column  = ( $operator != 'equals' || $search_field != 'post_id' ) ?  esc_html__( 'Post (ID)', 'subscribe-to-comments-reloaded' ) : '';
+                                    $show_email_column = ( $operator != 'equals' || $search_field != 'email' ) ? esc_html__( 'Email', 'subscribe-to-comments-reloaded' ) : '';
 
                                     echo "<table class=\"table table-smx table-hover table-striped subscribers-table stcr-hidden\" style=\"font-size: 0.8em\">
                                              <thead>";
@@ -212,13 +212,13 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 
                                         echo "<tr>
                                                   <th scope=\"col\">
-                                                    &nbsp;&nbsp;&nbsp;<i class=\"fas fa-exchange-alt\"></i> <span>" . __( 'Actions', 'subscribe-to-comments-reloaded' ) . "</span>
+                                                    &nbsp;&nbsp;&nbsp;<i class=\"fas fa-exchange-alt\"></i> <span>" . esc_html__( 'Actions', 'subscribe-to-comments-reloaded' ) . "</span>
                                                     <input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all' class='stcr_select_all'/>
                                                   </th>
                                                   <th scope=\"col\"><i class=\"fas fa-thumbtack\"></i><span>" . esc_html( $show_post_column ) . "</span></th>
                                                   <th scope=\"col\"><i class=\"fas fa-address-card\"></i><span>" . esc_html( $show_email_column ) . "</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>" . __( 'Date and Time', 'subscribe-to-comments-reloaded' ) . "</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>" . __( 'Status', 'subscribe-to-comments-reloaded' ) . "</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>" . esc_html__( 'Date and Time', 'subscribe-to-comments-reloaded' ) . "</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>" . esc_html__( 'Status', 'subscribe-to-comments-reloaded' ) . "</span></th>
                                               </tr>";
                                     }
                                     else
@@ -226,12 +226,12 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                         echo "<tr>
                                                   <th scope=\"col\">
                                                     <input class='checkbox' type='checkbox' name='subscription_list_select_all' id='stcr_select_all' class='stcr_select_all'/>
-                                                    &nbsp;&nbsp;&nbsp;<i class=\"fas fa-exchange-alt\"></i> <span>" . __( 'Actions', 'subscribe-to-comments-reloaded' ) . "</span>
+                                                    &nbsp;&nbsp;&nbsp;<i class=\"fas fa-exchange-alt\"></i> <span>" . esc_html__( 'Actions', 'subscribe-to-comments-reloaded' ) . "</span>
                                                   </th>
                                                   <th scope=\"col\"><i class=\"fas fa-thumbtack\"></i><span>" . esc_html( $show_post_column ) . "</span></th>
                                                   <th scope=\"col\"><i class=\"fas fa-address-card\"></i><span>" . esc_html( $show_email_column ) . "</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>" . __( 'Date and Time', 'subscribe-to-comments-reloaded' ) . "</span></th>
-                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>" . __( 'Status', 'subscribe-to-comments-reloaded' ) . "</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-calendar-alt\"></i><span>" . esc_html__( 'Date and Time', 'subscribe-to-comments-reloaded' ) . "</span></th>
+                                                  <th scope=\"col\"><i class=\"fas fa-info-circle\"></i><span>" . esc_html__( 'Status', 'subscribe-to-comments-reloaded' ) . "</span></th>
                                               </tr>";
                                     }
 
@@ -263,10 +263,10 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                         {
                                             echo "<tr>
                                                         <td>
-                                                            <label for='sub_" . esc_attr( $a_subscription->meta_id ) . "' class='hidden'>" . __( 'Subscription', 'subscribe-to-comments-reloaded' ) . esc_attr( $a_subscription->meta_id ) . "</label>
+                                                            <label for='sub_" . esc_attr( $a_subscription->meta_id ) . "' class='hidden'>" . esc_html__( 'Subscription', 'subscribe-to-comments-reloaded' ) . esc_attr( $a_subscription->meta_id ) . "</label>
                                                             <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='" . esc_attr( $a_subscription->post_id ) . "," . urlencode( $a_subscription->email ) . "' id='sub_" . esc_attr( $a_subscription->meta_id ) . "' />
-                                                            <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . esc_attr( $a_subscription->post_id ) . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='" . esc_url( $delete_url ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
+                                                            <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . esc_attr( $a_subscription->post_id ) . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . esc_html__( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='" . esc_url( $delete_url ) . "' onclick='return confirm(\"" . esc_html__( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . esc_html__( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
                                                         </td>
                                                         <td>" . wp_kses( $row_post, wp_kses_allowed_html( 'post' ) ) . "</td>
                                                         <td>" . wp_kses( $row_email, wp_kses_allowed_html( 'post' ) ) . "</td>
@@ -278,10 +278,10 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                         {
                                             echo "<tr>
                                                         <td>
-                                                            <label for='sub_" . esc_attr( $a_subscription->meta_id ) . "' class='hidden'>" . __( 'Subscription', 'subscribe-to-comments-reloaded' ) . esc_attr( $a_subscription->meta_id ) . "</label>
+                                                            <label for='sub_" . esc_attr( $a_subscription->meta_id ) . "' class='hidden'>" . esc_html__( 'Subscription', 'subscribe-to-comments-reloaded' ) . esc_attr( $a_subscription->meta_id ) . "</label>
                                                             <input class='checkbox' type='checkbox' name='subscriptions_list[]' value='" . esc_attr( $a_subscription->post_id ) . "," . urlencode( $a_subscription->email ) . "' id='sub_" . esc_attr( $a_subscription->meta_id ) . "' />
-                                                            <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . esc_attr( $a_subscription->post_id ) . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . __( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='" . esc_url( $delete_url ) . "' onclick='return confirm(\"" . __( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . __( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
+                                                            <a href='admin.php?page=stcr_manage_subscriptions&amp;sra=edit-subscription&amp;srp=" . esc_attr( $a_subscription->post_id ) . "&amp;sre=" . urlencode( $a_subscription->email ) . "' alt='" . esc_html__( 'Edit', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-edit\" style='font-size: 1.1em;color: #ffc53a;'></i></a>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href='" . esc_url( $delete_url ) . "' onclick='return confirm(\"" . esc_html__( 'Please remember: this operation cannot be undone. Are you sure you want to proceed?', 'subscribe-to-comments-reloaded' ) . "\");' alt='" . esc_html__( 'Delete', 'subscribe-to-comments-reloaded' ) . "'><i class=\"fas fa-trash-alt\" style='font-size: 1.1em;color: #ff695a;'></i></a>
                                                         </td>
                                                         <td>" . wp_kses( $row_post, wp_kses_allowed_html( 'post' ) ) . "</td>
                                                         <td>" . wp_kses( $row_email, wp_kses_allowed_html( 'post' ) ) . "</td>
@@ -296,7 +296,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                     echo "</table>";
 
                                     echo "<div class='subscribers-mass-actions form-group row'>";
-                                        echo '<label for="action_type" class="col-sm-1 col-form-label">' . __( 'Action:', 'subscribe-to-comments-reloaded' ) . '</label >' ;
+                                        echo '<label for="action_type" class="col-sm-1 col-form-label">' . esc_html__( 'Action:', 'subscribe-to-comments-reloaded' ) . '</label >' ;
                                     ?>          <div class="col-sm-3">
                                                     <select name="sra" id="action_type" class="form-control">
                                                         <option value="delete"><?php _e( 'Delete forever', 'subscribe-to-comments-reloaded' ) ?></option>
@@ -307,12 +307,12 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                                     </select>
                                                 </div>
                                     <?php
-                                                echo '<div class="col-sm-2"><button type="submit" class="subscribe-form-button btn btn-primary" >' . __( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '</button></div>';
+                                                echo '<div class="col-sm-2"><button type="submit" class="subscribe-form-button btn btn-primary" >' . esc_html__( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '</button></div>';
                                                 echo "<input type='hidden' name='srf' value='" . esc_attr( $search_field ) . "'/><input type='hidden' name='srt' value='" . esc_attr( $operator ) . "'/><input type='hidden' name='srv' value='" . esc_attr( $search_value ) . "'/><input type='hidden' name='srsf' value='" .esc_attr( $offset ) . "'/><input type='hidden' name='srrp' value='" . esc_attr( $limit_results ) . "'/><input type='hidden' name='srob' value='" . esc_attr( $order_by ) . "'/><input type='hidden' name='sro' value='" . esc_attr( $order ) . "'/>";
                                     echo '</div>';
 
                                 } elseif ( $action == 'search' ) {
-                                    echo '<p>' . __( 'Sorry, no subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
+                                    echo '<p>' . esc_html__( 'Sorry, no subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
                                 }
                                 ?>
 
