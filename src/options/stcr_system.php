@@ -67,18 +67,18 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
         if( unlink($file_path) )
         {
             // show success message.
-            $message = __( 'The log file has been successfully deleted.', 'subscribe-to-comments-reloaded' );
+            $message = esc_html__( 'The log file has been successfully deleted.', 'subscribe-to-comments-reloaded' );
             $message_type = "notice-success";
         }
         else
         {
-            $message = __( 'Can\'t delete the log file, check the file permissions.', 'subscribe-to-comments-reloaded' );
+            $message = esc_html__( 'Can\'t delete the log file, check the file permissions.', 'subscribe-to-comments-reloaded' );
             $message_type = "notice-warning";
         }
     }
     else
     {
-        $message     = __( 'The log file does not exists.', 'subscribe-to-comments-reloaded' );
+        $message     = esc_html__( 'The log file does not exists.', 'subscribe-to-comments-reloaded' );
         $message_type = "notice-warning";
     }
     echo "<div class='notice " . esc_attr( $message_type ) . "'><p>";
@@ -313,7 +313,7 @@ else {
                         }
 
                         if ( $memory < 67108864 ) {
-                            $memoryValue = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend setting memory to at least 64 MB. See: %s', 'subscribe-to-comments-reloaded' ), size_format( $memory ), '<a href="https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . __( 'Increasing memory allocated to PHP', 'subscribe-to-comments-reloaded' ) . '</a>' ) . '</div>';
+                            $memoryValue = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( esc_html__( '%s - We recommend setting memory to at least 64 MB. See: %s', 'subscribe-to-comments-reloaded' ), size_format( $memory ), '<a href="https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . esc_html__( 'Increasing memory allocated to PHP', 'subscribe-to-comments-reloaded' ) . '</a>' ) . '</div>';
                             $stcr_system_information['Wordpress Environment']["Memory Limit"] = "Memory under 64MB";
                         }
                         else {
@@ -345,15 +345,15 @@ else {
 
                         $wordpressEnvironment = array(
                             1 => array(
-                                __( "Home URL", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Home URL", 'subscribe-to-comments-reloaded' ),
                                 $wpHome
                             ),
                             2 => array(
-                                __( "Site URL", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Site URL", 'subscribe-to-comments-reloaded' ),
                                 $wpsiteurl
                             ),
                             3 => array(
-                                __( "WordPress Version", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "WordPress Version", 'subscribe-to-comments-reloaded' ),
                                 $wpVersion
                             ),
                             4 => array(
@@ -361,39 +361,39 @@ else {
                                 $wpMultisite ? '<span class="dashicons dashicons-yes"></span>' :  'No'
                             ),
                             5 => array(
-                                __( "Memory Limit", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Memory Limit", 'subscribe-to-comments-reloaded' ),
                                 $memoryValue
                             ),
                             6 => array(
-                                __( "WP Debug Mode", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "WP Debug Mode", 'subscribe-to-comments-reloaded' ),
                                 $wpDebug
                             ),
                             7 => array(
-                                __( "WP Cron", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "WP Cron", 'subscribe-to-comments-reloaded' ),
                                 $wpCron
                             ),
                             8 => array(
-                                __( "Language", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Language", 'subscribe-to-comments-reloaded' ),
                                 $wpLanguage
                             ),
                             9 => array(
-                                __( "Permalink Structure", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Permalink Structure", 'subscribe-to-comments-reloaded' ),
                                 $wpPermalink
                             ),
                             10 => array(
-                                __( "Table Prefix", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Table Prefix", 'subscribe-to-comments-reloaded' ),
                                 $wpTablePrefix
                             ),
                             11 => array(
-                                __( "Table Prefix Length", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Table Prefix Length", 'subscribe-to-comments-reloaded' ),
                                 $wpTablePrefixLength
                             ),
                             12 => array(
-                                __( "Table Prefix Status", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Table Prefix Status", 'subscribe-to-comments-reloaded' ),
                                 $wpTablePrefixStatus
                             ),
                             13 => array(
-                                __( "Registered Post Statuses", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Registered Post Statuses", 'subscribe-to-comments-reloaded' ),
                                 $wpRegisteredPostStatuses
                             )
                         );
@@ -419,12 +419,12 @@ else {
                         <?php
 
                         $tlsCheck      = false;
-                        $tlsCheckValue = __( 'Cannot Evaluate', 'subscribe-to-comments-reloaded' );
-                        $tlsRating     = __( 'Not Available', 'subscribe-to-comments-reloaded' );
-                        $phpVersion    = __( 'Not Available', 'subscribe-to-comments-reloaded' );
-                        $cURLVersion   = __( 'Not Available', 'subscribe-to-comments-reloaded' );
-                        $MySQLSVersion = __( 'Not Available', 'subscribe-to-comments-reloaded' );
-                        $defaultTimezone = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $tlsCheckValue = esc_html__( 'Cannot Evaluate', 'subscribe-to-comments-reloaded' );
+                        $tlsRating     = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $phpVersion    = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $cURLVersion   = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $MySQLSVersion = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $defaultTimezone = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
                         $serverInfo    = esc_html( $_SERVER['SERVER_SOFTWARE'] );
                         $maxPostSize    = size_format( $wp_subscribe_reloaded->stcr->utils->to_num_ini_notation( ini_get( 'post_max_size' ) ) );
 
@@ -437,7 +437,7 @@ else {
                         {
                             $tlsCheck = json_decode( $tlsCheck );
                             /* translators: %s: SSL connection response */
-                            $tlsCheckValue = sprintf( __( 'Connection uses %s', 'subscribe-to-comments-reloaded' ), esc_html( $tlsCheck->tls_version ) );
+                            $tlsCheckValue = sprintf( esc_html__( 'Connection uses %s', 'subscribe-to-comments-reloaded' ), esc_html( $tlsCheck->tls_version ) );
                         }
                         $stcr_system_information['Server Environment']["TLS Connection"] = $tlsCheckValue;
                         // Check TSL Rating
@@ -454,7 +454,7 @@ else {
 
                             if ( version_compare( $phpVersion, '5.6', '<' ) )
                             {
-                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-to-comments-reloaded' ), esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">' . __( 'PHP Requirements in StCR', 'subscribe-to-comments-reloaded' ) . '</a>' ) . '</div>';
+                                $phpVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( esc_html__( '%s - We recommend a minimum PHP version of 5.6. See: %s', 'subscribe-to-comments-reloaded' ), esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">' . esc_html__( 'PHP Requirements in StCR', 'subscribe-to-comments-reloaded' ) . '</a>' ) . '</div>';
                                 $stcr_system_information['Server Environment']["PHP Version"] = sprintf( '%s - We recommend a minimum PHP version of 5.6. See: %s', esc_html( $phpVersion ), '<a href="http://subscribe-reloaded.com/about/" target="_blank">PHP Requirements in StCR</a>' );
                             }
                             else
@@ -465,7 +465,7 @@ else {
                         }
                         else
                         {
-                            $phpVersion = __( "Couldn't determine PHP version because the function phpversion() doesn't exist.", 'subscribe-to-comments-reloaded' );
+                            $phpVersion = esc_html__( "Couldn't determine PHP version because the function phpversion() doesn't exist.", 'subscribe-to-comments-reloaded' );
                             $stcr_system_information['Server Environment']["PHP Version"] = "Couldn't determine PHP version because the function phpversion() doesn't exist.";
                         }
 
@@ -483,7 +483,7 @@ else {
 
                             if ( version_compare( $cURLVersionNumber, '7.40', '<' ) )
                             {
-                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-to-comments-reloaded' ), esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) ) . '</div>';
+                                $cURLVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( esc_html__( '%s - We recommend a minimum cURL version of 7.40.', 'subscribe-to-comments-reloaded' ), esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) ) . '</div>';
                                 $stcr_system_information['Server Environment']["cURL Version"] = sprintf('%s - We recommend a minimum cURL version of 7.40.', esc_html( $cURLVersionNumber . ', ' . $cURLSSLVersion ) );
                             }
                             else
@@ -501,7 +501,7 @@ else {
                         // check MySQL version
                         global $wp_version, $required_mysql_version;
                         if ( version_compare( $wpdb->db_version(), $required_mysql_version, '<' ) ) {
-                            $MySQLSVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '<strong>ERROR</strong>: WordPress %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ) . '</div>';
+                            $MySQLSVersion = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( wp_kses( __( '<strong>ERROR</strong>: WordPress %1$s requires MySQL %2$s or higher' ), wp_kses_allowed_html( 'post' ) ), $wp_version, $required_mysql_version ) . '</div>';
                             $stcr_system_information['Server Environment']["MySQL Version"] = $wpdb->db_version();
                         } else {
                             $MySQLSVersion = '<div class="system-success">' . $wpdb->db_version() . '</div>';
@@ -513,7 +513,7 @@ else {
 
                         if ( 'UTC' !== $defaultTimezone )
                         {
-                            $defaultTimezone = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'subscribe-to-comments-reloaded' ), $defaultTimezone ) . '</div>';
+                            $defaultTimezone = '<div class="system-error"><span class="dashicons dashicons-warning"></span> ' . sprintf( esc_html__( 'Default timezone is %s - it should be UTC', 'subscribe-to-comments-reloaded' ), $defaultTimezone ) . '</div>';
                             $stcr_system_information['Server Environment']["Default Timezone is UTC"] = sprintf('Default timezone is %s - it should be UTC', $defaultTimezone );
                         }
                         else
@@ -522,28 +522,28 @@ else {
                             $stcr_system_information['Server Environment']["Default Timezone is UTC"] = "Yes";
                         }
                         // DOMDocument
-                        $DOMDocument = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $DOMDocument = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
                         if ( class_exists( 'DOMDocument' ) )
                         {
                             $DOMDocument = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
                             $stcr_system_information['Server Environment']["DOMDocument"] = "Yes";
                         }
                         else {
-                            $DOMDocument = sprintf( __( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', 'subscribe-to-comments-reloaded' ), '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
+                            $DOMDocument = sprintf( wp_kses( __( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
                             $stcr_system_information['Server Environment']["DOMDocument"] = sprintf( 'Your server does not have the %s class enabled - HTML/Multipart emails, and also some extensions, will not work without DOMDocument.', '<a href="https://php.net/manual/en/class.domdocument.php">DOMDocument</a>' );
                         }
                         // Check gzip
-                        $gzip = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $gzip = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
                         if ( is_callable( 'gzopen' ) )
                         {
                             $gzip = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
                             $stcr_system_information['Server Environment']["gzip"] = "Yes";
                         }
                         else {
-                            $gzip = sprintf( __( 'Your server does not support the %s function - this is used for file compression and decompression.', 'subscribe-to-comments-reloaded' ), '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
+                            $gzip = sprintf( wp_kses( __( 'Your server does not support the %s function - this is used for file compression and decompression.', 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
                             $stcr_system_information['Server Environment']["gzip"] = sprintf( 'Your server does not support the %s function - this is used for file compression and decompression.', '<a href="https://php.net/manual/en/zlib.installation.php">gzopen</a>' );
                         }// Check GD
-                        $gd = __( 'Not Available', 'subscribe-to-comments-reloaded' );
+                        $gd = esc_html__( 'Not Available', 'subscribe-to-comments-reloaded' );
                         if ( extension_loaded( 'gd' ) && function_exists( 'gd_info' ) )
                         {
                             $gd = '<div class="system-success"><span class="dashicons dashicons-yes"></span></div>';
@@ -557,59 +557,59 @@ else {
                         // Define array of values
                         $serverEnvironment = array(
                             1 => array(
-                                __( "TLS Connection", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "TLS Connection", 'subscribe-to-comments-reloaded' ),
                                 $tlsCheckValue
                             ),
                             2 => array(
-                                __( "TLS Rating", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "TLS Rating", 'subscribe-to-comments-reloaded' ),
                                 $tlsRating
                             ),
                             3 => array(
-                                __( "Server Info", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Server Info", 'subscribe-to-comments-reloaded' ),
                                 $serverInfo
                             ),
                             4 => array(
-                                __( "PHP Version", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "PHP Version", 'subscribe-to-comments-reloaded' ),
                                 $phpVersion
                             ),
                             5 => array(
-                                __( "PHP Post Max Size", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "PHP Post Max Size", 'subscribe-to-comments-reloaded' ),
                                 $maxPostSize
                             ),
                             6 => array(
-                                __( "PHP Max Execution Time", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "PHP Max Execution Time", 'subscribe-to-comments-reloaded' ),
                                 ini_get( 'max_execution_time' )
                             ),
                             7 => array(
-                                __( "PHP Max Input Vars", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "PHP Max Input Vars", 'subscribe-to-comments-reloaded' ),
                                 ini_get( 'max_input_vars' )
                             ),
                             8 => array(
-                                __( "PHP Max Upload Size", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "PHP Max Upload Size", 'subscribe-to-comments-reloaded' ),
                                 size_format( wp_max_upload_size() )
                             ),
                             9 => array(
-                                __( "cURL Version", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "cURL Version", 'subscribe-to-comments-reloaded' ),
                                 $cURLVersion
                             ),
                             10 => array(
-                                __( "MySQL Version", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "MySQL Version", 'subscribe-to-comments-reloaded' ),
                                 $MySQLSVersion
                             ),
                             11 => array(
-                                __( "Default Timezone is UTC", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "Default Timezone is UTC", 'subscribe-to-comments-reloaded' ),
                                 $defaultTimezone
                             ),
                             12 => array(
-                                __( "DOMDocument", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "DOMDocument", 'subscribe-to-comments-reloaded' ),
                                 $DOMDocument
                             ),
                             13 => array(
-                                __( "gzip", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "gzip", 'subscribe-to-comments-reloaded' ),
                                 $gzip
                             ),
                             14 => array(
-                                __( "GD Graphics Library", 'subscribe-to-comments-reloaded' ),
+                                esc_html__( "GD Graphics Library", 'subscribe-to-comments-reloaded' ),
                                 $gd
                             )
                         );

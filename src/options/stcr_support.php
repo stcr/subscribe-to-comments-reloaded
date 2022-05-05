@@ -31,7 +31,7 @@ if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
                         </p>
                         <div class="alert alert-info" role="alert">
                             <strong>Heads up!</strong>
-                            <p><?php printf( __( 'The options on the WordPress forum at very limited to share media information, so I urge you to use GitHub to report any issue, you will get a better and faster experience than in WordPress. And you can use <a href="%s" target="_blank" >Markdown syntax</a>.', 'subscribe-to-comments-reloaded' ), "https://guides.github.com/features/mastering-markdown/" ); ?></p>
+                            <p><?php printf( wp_kses( __( 'The options on the WordPress forum at very limited to share media information, so I urge you to use GitHub to report any issue, you will get a better and faster experience than in WordPress. And you can use <a href="%s" target="_blank" >Markdown syntax</a>.', 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ), "https://guides.github.com/features/mastering-markdown/" ); ?></p>
                         </div>
                     </div>
                 </div>

@@ -722,8 +722,8 @@ wp_print_scripts( 'quicktags' );
                             if ( $wp_subscribe_reloaded->stcr->utils->stcr_get_menu_options( 'unique_key' ) == "" ) {
 
                                 echo "<div class=\"alert alert-danger\" role=\"alert\" style='font-size: 0.85rem;'>";
-                                echo '<strong>' . __( "This Unique Key is not set, please click the following button to ", 'subscribe-to-comments-reloaded' ) . '</strong>';
-                                echo "<input type='submit' value='" . __( 'Generate' ) ."' class='btn btn-secondary subscribe-form-button' name='generate_key' >";
+                                echo '<strong>' . esc_html__( "This Unique Key is not set, please click the following button to ", 'subscribe-to-comments-reloaded' ) . '</strong>';
+                                echo "<input type='submit' value='" . esc_attr__( 'Generate' ) ."' class='btn btn-secondary subscribe-form-button' name='generate_key' >";
                                 echo "</div>";
                             }
                             else {
