@@ -79,8 +79,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 						$nonce = wp_create_nonce( $name );
 						// Set the a fresh nonce
 						$this->utils->stcr_update_admin_notice_status( $name, 'unread', $nonce );
-						echo "<div class='notice is-dismissible stcr-dismiss-notice  {$noticeData['type']}' data-nonce='{$nonce}|{$name}'>";
-							echo $noticeData['message'];
+						echo "<div class='notice is-dismissible stcr-dismiss-notice  " . esc_attr( $noticeData['type'] ) . "' data-nonce='" . esc_attr( $nonce ) . "|" . esc_attr( $name ) . "'>";
+							echo wp_kses( $noticeData['message'], wp_kses_allowed_html( 'post' ) );
 						echo "</div>";
 					}
 				}
@@ -446,7 +446,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		    $this->add_options_stylesheet();
 		    global $wp_subscribe_reloaded;
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -473,7 +472,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -500,7 +498,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -527,7 +524,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -554,7 +550,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -581,7 +576,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -610,7 +604,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 
 		    $this->add_options_stylesheet();
 
-			// echo 'New Page Settings';
 			if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/index.php' ) )
 			{
 				// What panel to display
@@ -642,7 +635,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			if ( empty( $_POST['stcr_download_sysinfo_nonce'] ) ) {
 				return;
 			}
-			
+
 			if ( ! wp_verify_nonce( $_POST['stcr_download_sysinfo_nonce'], 'stcr_download_sysinfo_nonce' ) ) {
 				return;
 			}
@@ -683,7 +676,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function add_custom_header_meta() {
 			$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
-			echo $a;
+			echo wp_kses( $a, wp_kses_allowed_html( 'post' ) );
 		}
 		// end add_custom_header_meta
 
@@ -721,9 +714,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			), 'dt', 'DESC', 0, 1
 			);
 			if ( count( $subscription ) == 0 ) {
-				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . $comment->comment_post_ID . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-to-comments-reloaded' ) . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;sra=add-subscription&amp;srp=' . esc_attr( $comment->comment_post_ID ) . '&amp;sre=' . urlencode( $comment->comment_author_email ) . '">' . __( 'No', 'subscribe-to-comments-reloaded' ) . '</a>';
 			} else {
-				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . $subscription[0]->status . '</a>';
+				echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=email&amp;srt=equals&amp;srv=' . urlencode( $comment->comment_author_email ) . '">' . esc_html( $subscription[0]->status ) . '</a>';
 			}
 		}
 		// end add_column
@@ -737,7 +730,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 			}
 
 			global $post;
-			echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . $post->ID . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
+			echo '<a href="admin.php?page=stcr_manage_subscriptions&subscribepanel=1&amp;srf=post_id&amp;srt=equals&amp;srv=' . esc_attr( $post->ID ) . '">' . count( $this->get_subscriptions( 'post_id', 'equals', $post->ID ) ) . '</a>';
 		}
 		// end add_column
 

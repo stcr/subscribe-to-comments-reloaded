@@ -189,7 +189,7 @@ if ( ! empty( $email ) ) {
             $message = str_replace( '[post_title]', $target_post->post_title, $message );
         }
 
-        echo wpautop( $message );
+        echo wp_kses( wpautop( $message ), wp_kses_allowed_html( 'post' ) );
 
     }
 
@@ -213,13 +213,14 @@ if ( ! empty( $email ) ) {
     } else {
         $message = str_replace( '[post_title]', $target_post->post_title, $message );
     }
-    echo '<p>' . $message . '</p>';
+    echo '<p>' . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . '</p>';
 
     // output the form
 
 
     ?>
-    <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]); ?>" method="post" name="sub-form">
+    <?php $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : ''; ?>
+    <form action="<?php echo esc_url( $server_request_uri ); ?>" method="post" name="sub-form">
         <fieldset style="border:0">
             <div>
                 <?php if ( $challenge_question_state == 'yes' ) : ?>
@@ -228,13 +229,13 @@ if ( ! empty( $email ) ) {
                         <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                     </p>
                     <p>
-                        <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
+                        <label for="subscribe-reloaded-challenge"><?php echo esc_html( $challenge_question ); ?></label>
                         <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
                     </p>
                     <p>
                         <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                     </p>
-                    <?php echo $captcha_output; ?>
+                    <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                     <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
                 <?php else : ?>
                     <p>
@@ -242,7 +243,7 @@ if ( ! empty( $email ) ) {
                         <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                         <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                     </p>
-                    <?php echo $captcha_output; ?>
+                    <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                     <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
                 <?php endif; ?>
             </div>
@@ -290,10 +291,11 @@ if ( ! $valid_all ) {
     } else {
         $message = str_replace( '[post_title]', esc_html( $target_post->post_title ), $message );
     }
-    echo '<p>' . $message . '</p>';
+    echo '<p>' . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . '</p>';
 
     ?>
-    <form action="<?php echo esc_url( $_SERVER[ 'REQUEST_URI' ]);?>" method="post" name="sub-form">
+    <?php $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : ''; ?>
+    <form action="<?php echo esc_url( $server_request_uri ); ?>" method="post" name="sub-form">
         <fieldset style="border:0">
 
             <?php if ( $challenge_question_state == 'yes' ) : ?>
@@ -302,19 +304,19 @@ if ( ! $valid_all ) {
                     <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                 </p>
                 <p>
-                    <label for="subscribe-reloaded-challenge"><?php echo $challenge_question; ?></label>
+                    <label for="subscribe-reloaded-challenge"><?php echo esc_html( $challenge_question ); ?></label>
                     <input id="subscribe-reloaded-challenge" type="text" class="subscribe-form-field" name="subscribe_reloaded_challenge" />
                 </p>
                 <p>
                     <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
                 </p>
-                <?php echo $captcha_output; ?>
+                <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php else : ?>
                 <label for="sre"><?php _e( 'Email', 'subscribe-to-comments-reloaded' ) ?></label>
                 <input id='sre' type="text" class="subscribe-form-field" name="sre" value="<?php echo esc_attr( $email ); ?>" size="22" required />
                 <input name="submit" type="submit" class="subscribe-form-button" value="<?php esc_attr_e( 'Send', 'subscribe-to-comments-reloaded' ) ?>" />
-                <?php echo $captcha_output; ?>
+                <?php echo wp_kses( $captcha_output, wp_kses_allowed_html( 'post' ) ); ?>
                 <p class="notice-email-error" style='color: #f55252;font-weight:bold; display: none;'></p>
             <?php endif; ?>
 
