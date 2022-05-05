@@ -50,7 +50,7 @@ switch ( $action ) {
             $wp_subscribe_reloaded->stcr->confirmation_email( $post_id, $email );
         }
 
-        echo '<div class="updated"><p>' . __( 'Subscription added.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
+        echo '<div class="updated"><p>' . esc_html__( 'Subscription added.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
         break;
 
     case 'edit':
@@ -88,7 +88,7 @@ switch ( $action ) {
         $wp_subscribe_reloaded->stcr->update_subscription_status( $post_id, $old_email, $status );
         $wp_subscribe_reloaded->stcr->update_subscription_email( $post_id, $old_email, $new_email );
 
-        echo '<div class="updated"><p>' . __( 'Subscriptions updated.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
+        echo '<div class="updated"><p>' . esc_html__( 'Subscriptions updated.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
         break;
 
     case 'delete-subscription':
@@ -116,7 +116,7 @@ switch ( $action ) {
 
         $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_id, $stcr_post_email );
 
-        echo '<div class="updated"><p>' . __( 'Subscription deleted.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
+        echo '<div class="updated"><p>' . esc_html__( 'Subscription deleted.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
         break;
 
     default:
@@ -148,23 +148,23 @@ switch ( $action ) {
             switch ( $action ) {
                 case 'delete':
                     $rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_list, $email_list );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
+                    echo '<div class="updated"><p>' . esc_html__( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'suspend':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, 'C' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
+                    echo '<div class="updated"><p>' . esc_html__( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'activate':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, '-C' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
+                    echo '<div class="updated"><p>' . esc_html__( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'force_y':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, 'Y' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
+                    echo '<div class="updated"><p>' . esc_html__( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 case 'force_r':
                     $rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_list, $email_list, 'R' );
-                    echo '<div class="updated"><p>' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
+                    echo '<div class="updated"><p>' . esc_html__( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p></div>';
                     break;
                 default:
                     break;
@@ -200,9 +200,9 @@ $previous_link = $next_link = $next_page_link = $previous_page_link = '';
 
 if ( $offset > 0 ) {
 	$new_starting  = ( $offset > $limit_results ) ? $offset - $limit_results : 0;
-	$previous_link = "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>" . __( '&laquo; Previous', 'subscribe-to-comments-reloaded' ) . "</a> ";
+	$previous_link = "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>" . esc_html__( '&laquo; Previous', 'subscribe-to-comments-reloaded' ) . "</a> ";
 }
 if ( ( $ending_to < $count_total ) && ( $count_results > 0 ) ) {
 	$new_starting = $offset + $limit_results;
-	$next_link    = "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>" . __( 'Next &raquo;', 'subscribe-to-comments-reloaded' ) . "</a> ";
+	$next_link    = "<a href='admin.php?page=stcr_manage_subscriptions&amp;srf=$search_field&amp;srt=" . urlencode( $operator ) . "&amp;srv=$search_value&amp;srob=$order_by&amp;sro=$order&amp;srsf=$new_starting&amp;srrp=$limit_results'>" . esc_html__( 'Next &raquo;', 'subscribe-to-comments-reloaded' ) . "</a> ";
 }
