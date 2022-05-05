@@ -162,7 +162,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                             <?php
                                 $search_term = '';
                                 if ( ! empty( $_POST['srv'] ) ) {
-                                    $search_term = sanitize_text_field( $_POST['srv'] );
+                                    $search_term = sanitize_text_field( wp_unslash( $_POST['srv'] ) );
                                 }
                             ?>
                             <form action="" method="post" style="background: #f5f5f5; padding: 15px; margin-top: 20px;">

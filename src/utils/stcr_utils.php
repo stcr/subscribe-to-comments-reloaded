@@ -892,7 +892,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 * @param string $_notification The notification Name of the notice to be deleted.
 		 */
 		public function stcr_ajax_update_notification () {
-			$_notification = $_POST['action'];
+			$_notification = isset( $_POST['action'] ) ? sanitize_text_field( wp_unslash( $_POST['action'] ) ) : '';
 			// Check Nonce
 			check_ajax_referer( $_notification, 'security' );
 			// Update status

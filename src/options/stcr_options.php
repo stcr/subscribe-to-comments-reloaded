@@ -71,7 +71,7 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
         return;
     }
 
-    $delete_subscriptions_selection = $_POST['options']['delete_options_subscriptions'];
+    $delete_subscriptions_selection = isset( $_POST['options']['delete_options_subscriptions'] ) ? sanitize_text_field( wp_unslash( $_POST['options']['delete_options_subscriptions'] ) ) : '';
     $deletion_result = $wp_subscribe_reloaded->stcr->utils->delete_all_settings( $delete_subscriptions_selection );
 
     if( $deletion_result )
@@ -93,9 +93,10 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
         return;
     }
 
-    $faulty_fields = array();
-
-    foreach ( $_POST['options'] as $option => $value )
+    $faulty_fields     = array();
+    $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+    $subscribe_options = array_map( 'sanitize_text_field', $subscribe_options );
+    foreach ( $subscribe_options as $option => $value )
     {
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
         {

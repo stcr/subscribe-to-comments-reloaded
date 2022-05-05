@@ -11,7 +11,7 @@ global $wp_subscribe_reloaded;
 ob_start();
 
 if ( isset( $_POST[ 'sre' ] ) && trim( $_POST[ 'sre' ] ) !== "" ) {
-	$email         = esc_attr( $_POST[ 'sre' ] );
+	$email         = sanitize_text_field( wp_unslash( $_POST['sre'] ) );
 	$subject       = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_subject', 'Manage your subscriptions on [blog_name]' ) ), ENT_QUOTES, 'UTF-8' );
 	$page_message  = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_content', '' ) ), ENT_QUOTES, 'UTF-8' );
 	$email_message = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_management_email_content', '' ) ), ENT_QUOTES, 'UTF-8' );

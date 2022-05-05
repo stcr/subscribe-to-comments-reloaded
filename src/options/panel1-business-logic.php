@@ -135,7 +135,9 @@ switch ( $action ) {
             }
 
             $post_list = $email_list = array();
-            foreach ( $_POST['subscriptions_list'] as $a_subscription ) {
+            $subscription_lists = wp_unslash( $_POST['subscriptions_list'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+            $subscribe_options = array_map( 'sanitize_text_field', $subscription_lists );
+            foreach ( $subscription_lists as $a_subscription ) {
                 list( $a_post, $a_email ) = explode( ',', $a_subscription );
                 if ( ! in_array( $a_post, $post_list ) ) {
                     $post_list[] = $a_post;

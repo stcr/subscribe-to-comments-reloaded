@@ -396,11 +396,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// process the subscription
 			if ( ! empty( $_POST['subscribe-reloaded'] ) && ! empty( $info->comment_author_email ) ) {
 
+				$subscribe_reloaded_type = isset( $_POST['subscribe-reloaded'] ) ? sanitize_text_field( wp_unslash( $_POST['subscribe-reloaded'] ) ) : '';
+
 				// check if subscription type is valid
-				if ( in_array( $_POST['subscribe-reloaded'], array( 'replies', 'digest', 'yes' ) ) ) {
+				if ( in_array( $subscribe_reloaded_type, array( 'replies', 'digest', 'yes' ) ) ) {
 
 					// get subscription type
-                    switch ($_POST['subscribe-reloaded']) {
+                    switch ( $subscribe_reloaded_type ) {
                         case 'replies':
                             $status = 'R';
                             break;
@@ -1706,7 +1708,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
 		public function set_user_cookie() {
 
-			$subscribe_to_comments_action  = ! empty( $_POST['sra'] ) ? $_POST['sra'] : ( ! empty( $_GET['sra'] ) ? $_GET['sra'] : 0 );
+			$subscribe_to_comments_action  = ! empty( $_POST['sra'] ) ? sanitize_text_field( wp_unslash( $_POST['sra'] ) ) : ( ! empty( $_GET['sra'] ) ? sanitize_text_field( wp_unslash( $_GET['sra'] ) ) : 0 );
 			$subscribe_to_comments_post_ID = ! empty( $_POST['srp'] ) ? intval( $_POST['srp'] ) : ( ! empty( $_GET['srp'] ) ? intval( $_GET['srp'] ) : 0 );
 
 			if ( ! empty( $subscribe_to_comments_action ) && ! empty( $_POST['subscribe_reloaded_email'] ) &&
