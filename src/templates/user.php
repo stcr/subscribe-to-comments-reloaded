@@ -59,7 +59,7 @@ if ( function_exists( 'qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage' ) 
 	$message = qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage( $message );
 }
 
-echo "<p>" . wp_kses( $message. wp_kses_allowed_html( 'post' ) . "</p>";
+echo "<p>" . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . "</p>";
 
 ?>
 
