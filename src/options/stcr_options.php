@@ -95,7 +95,6 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 
     $faulty_fields     = array();
     $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
-    $subscribe_options = array_map( 'sanitize_text_field', $subscribe_options );
     foreach ( $subscribe_options as $option => $value )
     {
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
