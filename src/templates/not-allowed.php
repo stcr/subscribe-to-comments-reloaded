@@ -11,7 +11,7 @@ global $wp_subscribe_reloaded;
 
 ob_start();
 
-	?><?php echo wp_kses( wpautop( esc_html( $error_message ) ), wp_kses_allowed_html( 'post' ) ); ?><?php
+	?><?php echo wp_kses( wpautop( $error_message ), wp_kses_allowed_html( 'post' ) ); ?><?php
 
 $output = ob_get_contents();
 ob_end_clean();
