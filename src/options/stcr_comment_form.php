@@ -38,7 +38,6 @@ if ( isset( $_POST['options'] ) ) {
 
 	$faulty_fields     = array();
     $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
-    $subscribe_options = array_map( 'sanitize_text_field', $subscribe_options );
     foreach ( $subscribe_options as $option => $value )
     {
 
