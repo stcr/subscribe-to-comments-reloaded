@@ -192,7 +192,7 @@ if ( ! empty( $email ) ) {
     if ( isset($current_user_email) ) {
         $email = $current_user_email;
     } else if ( isset( $_COOKIE['comment_author_email_' . COOKIEHASH] )) {
-        $email = sanitize_email( $_COOKIE['comment_author_email_' . COOKIEHASH] );
+        $email = sanitize_email( wp_unslash( $_COOKIE[ 'comment_author_email_' . COOKIEHASH ] ) );
     } else {
         $email = '';
     }

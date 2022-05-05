@@ -1026,7 +1026,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// if email not supplied, tried to get it
 			if ( empty( $_email ) ) {
-				$user_email = ! empty( $current_user->user_email ) ? $current_user->user_email : ( ! empty( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? stripslashes( esc_attr( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ) : '#undefined#' );
+				$user_email = ! empty( $current_user->user_email ) ? $current_user->user_email : ( ! empty( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ? sanitize_text_field( wp_unslash( $_COOKIE['comment_author_email_' . COOKIEHASH] ) ) : '#undefined#' );
 
 			// if supplied, use it
 			} else {
