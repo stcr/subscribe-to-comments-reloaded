@@ -5,7 +5,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-$error_message   = __( "Woohaa the link to manage your subscriptions has expired, don't worry, just enter your email below and a new link will be send.", 'subscribe-to-comments-reloaded');
+$error_message   = esc_html__( "Woohaa the link to manage your subscriptions has expired, don't worry, just enter your email below and a new link will be send.", 'subscribe-to-comments-reloaded');
 
 global $wp_subscribe_reloaded;
 ob_start();

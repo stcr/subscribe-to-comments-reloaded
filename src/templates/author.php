@@ -22,23 +22,23 @@ if ( ! empty( $_POST['email_list'] ) ) {
 	switch ( $action ) {
 	case 'delete':
 		$rows_affected = $wp_subscribe_reloaded->stcr->delete_subscriptions( $post_ID, $email_list );
-		echo '<p class="updated">' . __( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
+		echo '<p class="updated">' . esc_html__( 'Subscriptions deleted:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'suspend':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, 'C' );
-		echo '<p class="updated">' . __( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
+		echo '<p class="updated">' . esc_html__( 'Subscriptions suspended:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'activate':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, '-C' );
-		echo '<p class="updated">' . __( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
+		echo '<p class="updated">' . esc_html__( 'Subscriptions activated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'force_y':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, 'Y' );
-		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
+		echo '<p class="updated">' . esc_html__( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	case 'force_r':
 		$rows_affected = $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email_list, 'R' );
-		echo '<p class="updated">' . __( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
+		echo '<p class="updated">' . esc_html__( 'Subscriptions updated:', 'subscribe-to-comments-reloaded' ) . esc_html( $rows_affected ) . '</p>';
 		break;
 	default:
 		break;
@@ -58,20 +58,20 @@ echo "<p>" . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . "</p>";
                 $subscriptions = $wp_subscribe_reloaded->stcr->get_subscriptions( 'post_id', 'equals', $post_ID, 'dt', 'ASC' );
             // Let us translate those status
             $legend_translate = array(
-                'R'  => __( 'Replies', 'subscribe-to-comments-reloaded'),
-                'RC'  => __( 'Replies Unconfirmed', 'subscribe-to-comments-reloaded'),
-                'Y'  => __( "All Comments", 'subscribe-to-comments-reloaded'),
-                'YC' => __( "Unconfirmed", 'subscribe-to-comments-reloaded'),
-                'C'	 => __( "Inactive", 'subscribe-to-comments-reloaded'),
-                '-C' => __( "Active", 'subscribe-to-comments-reloaded')
+                'R'  => esc_html__( 'Replies', 'subscribe-to-comments-reloaded'),
+                'RC'  => esc_html__( 'Replies Unconfirmed', 'subscribe-to-comments-reloaded'),
+                'Y'  => esc_html__( "All Comments", 'subscribe-to-comments-reloaded'),
+                'YC' => esc_html__( "Unconfirmed", 'subscribe-to-comments-reloaded'),
+                'C'	 => esc_html__( "Inactive", 'subscribe-to-comments-reloaded'),
+                '-C' => esc_html__( "Active", 'subscribe-to-comments-reloaded')
             );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
-	echo '<h1 id="subscribe-reloaded-title-p">' . __( 'Title', 'subscribe-to-comments-reloaded' ) . ': <strong>' . esc_html( $target_post->post_title ) . '</strong></h1>'; // $target_post comes from wp_subscribe_reloaded\subscribe_reloaded_manage
+	echo '<h1 id="subscribe-reloaded-title-p">' . esc_html__( 'Title', 'subscribe-to-comments-reloaded' ) . ': <strong>' . esc_html( $target_post->post_title ) . '</strong></h1>'; // $target_post comes from wp_subscribe_reloaded\subscribe_reloaded_manage
 
 	echo "<table class='stcr-subscription-list'><thead><tr>
-                <th style='width:30%; text-align: center;'><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". __('Subscription Date','subscribe-to-comments-reloaded')."</th>
-                <th style='width:35%;'><i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". __('Subscription Email','subscribe-to-comments-reloaded')."</th>
-                <th style='width:20%; text-align: center;'><i class=\"fa fa-info\" aria-hidden=\"true\"></i>&nbsp;&nbsp; ". __('Subscription Status','subscribe-to-comments-reloaded')."</th>
+                <th style='width:30%; text-align: center;'><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". esc_html__('Subscription Date','subscribe-to-comments-reloaded')."</th>
+                <th style='width:35%;'><i class=\"fa fa-envelope\" aria-hidden=\"true\"></i>&nbsp;&nbsp;". esc_html__('Subscription Email','subscribe-to-comments-reloaded')."</th>
+                <th style='width:20%; text-align: center;'><i class=\"fa fa-info\" aria-hidden=\"true\"></i>&nbsp;&nbsp; ". esc_html__('Subscription Status','subscribe-to-comments-reloaded')."</th>
             </tr></thead>";
     echo "<tbody>";
 
@@ -90,26 +90,26 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         echo "</tbody>";
     echo "</table>";
 
-	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . __( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
-	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . __( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
-	echo '<p id="subscribe-reloaded-action-p">' . __( 'Action:', 'subscribe-to-comments-reloaded' );
+	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . esc_html__( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
+	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . esc_html__( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
+	echo '<p id="subscribe-reloaded-action-p">' . esc_html__( 'Action:', 'subscribe-to-comments-reloaded' );
 	echo '&nbsp;&nbsp;<select name="sra">';
-		echo '<option value="">'. __( 'Choose your action', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="delete">'. __( 'Unsubscribe', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="suspend">'. __( 'Suspend', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="force_y">'. __( 'All comments', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="force_r">'. __( 'Replies to my comments', 'subscribe-to-comments-reloaded' ) .'</option>';
-//		echo '<option value="activate">'. __( 'Activate', 'subscribe-to-comments-reloaded' ) .'</option>';
+		echo '<option value="">'. esc_html__( 'Choose your action', 'subscribe-to-comments-reloaded' ) .'</option>';
+		echo '<option value="delete">'. esc_html__( 'Unsubscribe', 'subscribe-to-comments-reloaded' ) .'</option>';
+		echo '<option value="suspend">'. esc_html__( 'Suspend', 'subscribe-to-comments-reloaded' ) .'</option>';
+		echo '<option value="force_y">'. esc_html__( 'All comments', 'subscribe-to-comments-reloaded' ) .'</option>';
+		echo '<option value="force_r">'. esc_html__( 'Replies to my comments', 'subscribe-to-comments-reloaded' ) .'</option>';
+//		echo '<option value="activate">'. esc_html__( 'Activate', 'subscribe-to-comments-reloaded' ) .'</option>';
 	echo '<select>';
-    echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . __( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '" />
+    echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . esc_html__( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '" />
           <input type="hidden" name="srp" value="' . intval( $post_ID ) . '"/></p>';
 	echo '<p id="subscribe-reloaded-update-p">
-            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( get_permalink( $post_ID ) ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp;'. __('Return to Post','subscribe-to-comments-reloaded').'</a>
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( get_permalink( $post_ID ) ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp;'. esc_html__('Return to Post','subscribe-to-comments-reloaded').'</a>
           </p>';
 
 
 } else {
-	echo '<p>' . __( 'No subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
+	echo '<p>' . esc_html__( 'No subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
 }
 ?>
 		</fieldset>

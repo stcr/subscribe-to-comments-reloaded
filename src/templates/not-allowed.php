@@ -5,7 +5,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-$error_message = __( 'You are not allowed to access this page.', 'subscribe-to-comments-reloaded' );
+$error_message = esc_html__( 'You are not allowed to access this page.', 'subscribe-to-comments-reloaded' );
 
 global $wp_subscribe_reloaded;
 

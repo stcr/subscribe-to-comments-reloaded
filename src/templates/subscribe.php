@@ -150,8 +150,8 @@ if ( ! empty( $email ) ) {
             $from_name  = stripslashes( get_option( 'subscribe_reloaded_from_name', 'admin' ) );
             $from_email = get_option( 'subscribe_reloaded_from_email', get_bloginfo( 'admin_email' ) );
 
-            $subject = __( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title";
-            $message = __( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title\n" . __( 'User:', 'subscribe-to-comments-reloaded' ) . " $clean_email";
+            $subject = esc_html__( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title";
+            $message = esc_html__( 'New subscription to', 'subscribe-to-comments-reloaded' ) . " $target_post->post_title\n" . esc_html__( 'User:', 'subscribe-to-comments-reloaded' ) . " $clean_email";
 
             $email_settings = array(
                 'subject'      => $subject,
