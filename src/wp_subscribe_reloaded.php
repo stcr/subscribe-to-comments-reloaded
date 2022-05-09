@@ -1635,8 +1635,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 				// label
 				$checkbox_label = str_replace(
 					'[subscribe_link]', "$manager_link&amp;sra=s&amp;srsrc=f",
-					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', wp_kses( __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ), ENT_QUOTES, 'UTF-8' )
-				) );
+					html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_checkbox_label', wp_kses( __( "Notify me of followup comments via e-mail. You can also <a href='[subscribe_link]'>subscribe</a> without commenting.", 'subscribe-to-comments-reloaded' ), wp_kses_allowed_html( 'post' ) ) ) ), ENT_QUOTES, 'UTF-8' )
+				);
 
 				// CSS style
 				$checkbox_inline_style = get_option( 'subscribe_reloaded_checkbox_inline_style', 'width:30px' );
