@@ -1548,7 +1548,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// if not enabled for this post type, return default
 			if ( ! in_array( $post_type, $supported_post_types ) ) {
 				if ( $echo ) {
-					echo wp_kses( $submit_field, wp_kses_allowed_html( 'post' ) );
+					
 				} else {
 					return $submit_field;
 				}
@@ -1558,7 +1558,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// only for logged in users
 			if ( $only_for_logged_in == 'yes' && ! is_user_logged_in() ) {
 				if ( $echo ) {
-					echo wp_kses( $submit_field, wp_kses_allowed_html( 'post' ) );
+					
 				} else {
 					return $submit_field;
 				}
@@ -1573,7 +1573,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
 				if ( $echo ) {
-					echo wp_kses( $submit_field, wp_kses_allowed_html( 'post' ) );
+					
 				} else {
 					return $submit_field;
 				}
@@ -1694,7 +1694,37 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 
 			// echo or return
 			if ( $echo ) {
-				echo wp_kses( $output . $submit_field, wp_kses_allowed_html( 'post' ) );
+				echo wp_kses( $output, array(
+					'style' => array(
+						'type' => array()
+					),
+					'div' => array(
+						'class' => array(),
+					),
+					'p' => array(
+						'class' => array(),
+					),
+					'label' => array(
+						'for' => array(),
+					),
+					'input' => array(
+						'style' => array(),
+						'type' => array(),
+						'name' => array(),
+						'id' => array(),
+						'value' => array(),
+					),
+					'select' => array(
+						'name' => array(),
+						'id' => array(),
+					),
+					'option' => array(
+						'value' => array()
+					),
+					'a' => array(
+						'href' => array(),
+					)
+				));
 			} else {
 				return $output . $submit_field;
 			}
@@ -1767,13 +1797,9 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 		 */
 		public function move_form_with_js() {
 
-			$output = '';
-
 			if ( get_option('subscribe_reloaded_stcr_position') == 'yes' ) {
-				$output .= '<script type="text/javascript">document.addEventListener("DOMContentLoaded",function(){if(document.querySelectorAll("div.stcr-form").length){let e=document.querySelectorAll("div.stcr-form")[0],t=document.querySelectorAll("#commentform input[type=submit]")[0];t.parentNode.insertBefore(e,t),e.classList.remove("stcr-hidden")}});</script>';
+				echo '<script type="text/javascript">document.addEventListener("DOMContentLoaded",function(){if(document.querySelectorAll("div.stcr-form").length){let e=document.querySelectorAll("div.stcr-form")[0],t=document.querySelectorAll("#commentform input[type=submit]")[0];t.parentNode.insertBefore(e,t),e.classList.remove("stcr-hidden")}});</script>';
 			}
-
-			echo wp_kses( $output, wp_kses_allowed_html( 'post' ) );
 
 		}
 
