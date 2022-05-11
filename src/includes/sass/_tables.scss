@@ -3,6 +3,10 @@ Styles use on Table styles. Helpful to customize Bootstrap Tables behavior.
 @author Israel Barragan (Reedyseth)
 @since 01-Apr-2018
 ---------------------------------------------------------- */
+.table {
+  color: #464646 !important;
+}
+
 table.subscribers-table {
   width: 100% !important;
 }

@@ -41,6 +41,10 @@ Styles use on form styles. Helpful to customize Bootstrap behavior.
   display: inline !important;
 }
 
+.form-control {
+  height: auto !important;
+}
+
 .form-control-select {
   width: 42% !important;
   display: inline !important;
@@ -237,3 +241,11 @@ $switch-final-bg-dis: #f3e4f6;
 //  height: .5rem !important;
 //  margin: 0 .3rem !important;
 //}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px) !important;
+}
+
+.input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]), .input-group-sm > .input-group-append > select.input-group-text:not([size]):not([multiple]), .input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]), .input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]), select.form-control-sm:not([size]):not([multiple]) {
+  height: calc(1.8125rem + 2px) !important;
+}
