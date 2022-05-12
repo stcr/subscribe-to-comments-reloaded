@@ -6,8 +6,8 @@ Plugin URI: http://subscribe-reloaded.com/
 Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
-Tested up to: 5.8
-Stable tag: 211130
+Tested up to: 5.9
+Stable tag: 220512
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,9 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v220512 =
+* **Important** Security fixes
+
 = v220502 =
 * **Important** Security fixes
 * **New** Option to set for which post types the subscription will be available
