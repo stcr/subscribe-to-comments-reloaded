@@ -4,6 +4,10 @@
 	@author reedyseth
 	@since 21-Sep-2015
 */
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+}
+
 /* ----------------------------------------------------------
 Common styles and utilities on pages.
 @author Israel Barragan (Reedyseth)
@@ -154,6 +158,10 @@ Styles use on form styles. Helpful to customize Bootstrap behavior.
 .new-sub-select-status {
   width: 76% !important;
   display: inline !important;
+}
+
+.form-control {
+  height: auto !important;
 }
 
 .form-control-select {
@@ -339,6 +347,14 @@ Styles use on form styles. Helpful to customize Bootstrap behavior.
   height: 2px !important;
 }
 
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px) !important;
+}
+
+.input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]), .input-group-sm > .input-group-append > select.input-group-text:not([size]):not([multiple]), .input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]), .input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]), select.form-control-sm:not([size]):not([multiple]) {
+  height: calc(1.8125rem + 2px) !important;
+}
+
 /* ----------------------------------------------------------
 Styles use on Cards styles. Helpful to customize Bootstrap Cards behavior.
 @author Israel Barragan (Reedyseth)
@@ -346,6 +362,7 @@ Styles use on Cards styles. Helpful to customize Bootstrap Cards behavior.
 ---------------------------------------------------------- */
 .card {
   padding: 0 !important;
+  border-bottom: 0;
 }
 
 .card-subscribers {
@@ -375,6 +392,10 @@ Styles use on Table styles. Helpful to customize Bootstrap Tables behavior.
 @author Israel Barragan (Reedyseth)
 @since 01-Apr-2018
 ---------------------------------------------------------- */
+.table {
+  color: #464646 !important;
+}
+
 table.subscribers-table {
   width: 100% !important;
 }
@@ -446,6 +467,10 @@ Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
 @author Israel Barragan (Reedyseth)
 @since 01-Apr-2018
 ---------------------------------------------------------- */
+.btn {
+  white-space: nowrap;
+}
+
 .btn-primary {
   color: #fff !important;
   background-color: #0085ba !important;
@@ -472,13 +497,13 @@ Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
 
 .btn-download {
   color: #445435;
-  background-color: #7bd774;
+  background-color: #7bd774 !important;
   border-color: #28a745 !important;
 }
 
 .btn-download:hover {
   color: #445435;
-  background-color: #78c771;
+  background-color: #78c771 !important;
   border-color: #28a745 !important;
 }
 

@@ -3,6 +3,10 @@ Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
 @author Israel Barragan (Reedyseth)
 @since 01-Apr-2018
 ---------------------------------------------------------- */
+.btn {
+  white-space: nowrap;
+}
+
 .btn-primary {
   color: #fff !important;
   background-color: #0085ba !important;
@@ -29,13 +33,13 @@ Styles use on form styles. Helpful to customize Bootstrap Buttons behavior.
 
 .btn-download {
   color: #445435;
-  background-color: #7bd774;
+  background-color: #7bd774 !important;
   border-color: #28a745 !important;
 }
 
 
 .btn-download:hover {
   color: #445435;
-  background-color: #78c771;
+  background-color: #78c771 !important;
   border-color: #28a745 !important;
 }
