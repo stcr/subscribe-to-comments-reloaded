@@ -63,6 +63,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 					add_action( 'publish_' . $post_type_name , array( $this, 'subscribe_post_author' ) );
 				}
 			}
+			
+			// Migrate the Enable only on blog posts option to newly used options.
+			$this->upgrade->migrate_post_type_support();
+
 		}
 
 		public function admin_notices() {

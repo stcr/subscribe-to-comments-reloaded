@@ -723,6 +723,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
 		 */
 		public function migrate_post_type_support() {
 
+			// Check if migration already done
+			if ( get_option( 'subscribe_reloaded_post_type_supports' ) ) {
+				return;
+			}
+
 			// Get the old data of Enable only on blog posts from database.
 			$only_for_posts = get_option( 'subscribe_reloaded_only_for_posts', 'no' );
 			if ( 'yes' == $only_for_posts ) {
