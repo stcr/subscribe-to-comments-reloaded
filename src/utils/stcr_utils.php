@@ -563,7 +563,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             $stcr_admin_css = plugins_url( '/includes/css/stcr-admin-style.css', STCR_PLUGIN_FILE );
 
             // register scripts
-            wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+            wp_register_script( 'stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+            wp_register_script( 'bootstrap', plugins_url( '/vendor/bootstrap/dist/js/bootstrap.bundle.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'webui-popover', plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'dataTables', plugins_url( '/vendor/datatables/media/js/jquery.dataTables.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'dataTables-bootstrap4', plugins_url( '/vendor/datatables/media/js/dataTables.bootstrap4.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'dataTables-responsive', plugins_url( '/vendor/datatables.net-responsive/js/dataTables.responsive.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'responsive-bootstrap4', plugins_url( '/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
 
             // rergister styles
             wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
@@ -578,7 +584,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             if ( strpos( $hook, 'stcr' ) !== false ) {
 
                 // enqueue scripts
-                wp_enqueue_script('stcr-admin-js');
+                wp_enqueue_script( 'stcr-admin-js' );
+                wp_enqueue_script( 'fontawesome' );
+                wp_enqueue_script( 'bootstrap' );
+                wp_enqueue_script( 'webui-popover' );
+                wp_enqueue_script( 'datatables' );
+                wp_enqueue_script( 'datatables-bootstrap4' );
+                wp_enqueue_script( 'datatables-net-responsive-bs4' );
 
                 // enqueue styles
                 wp_enqueue_style( 'stcr-admin-style' );
