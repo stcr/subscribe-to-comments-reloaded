@@ -32,13 +32,6 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
 }
 
 ?>
-<style type="text/css">
-
-</style>
-
-<link href="<?php echo esc_url( plugins_url( '/vendor/datatables/media/css/jquery.dataTables.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
-<link href="<?php echo esc_url( plugins_url( '/vendor/datatables/media/css/dataTables.bootstrap4.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
-<link href="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
 
 <div class="container-fluid">
 
@@ -343,11 +336,6 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables/media/js/jquery.dataTables.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
-<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables/media/js/dataTables.bootstrap4.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
-<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive/js/dataTables.responsive.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
-<script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 
 <?php
 // Tell WP that we are going to use a resource.

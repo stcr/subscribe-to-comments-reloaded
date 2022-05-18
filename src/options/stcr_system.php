@@ -139,7 +139,6 @@ else {
     }
 }
 ?>
-    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
     <style type="text/css">
         .system-error {
             color: #dc3545;
@@ -777,7 +776,6 @@ else {
 
         </div>
     </div>
-    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.
