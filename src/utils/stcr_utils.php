@@ -988,5 +988,28 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			return true;
 
 		}
+
+		/**
+		 * Sanitize the user input on plugin options save.
+		 *
+		 * @param string|array|mixed $values The plugin setting options.
+		 *
+		 * @return string|array|mixed The sanitized user data.
+		 */
+		public static function sanitize_options( $values ) {
+
+			if ( is_array( $values ) ) {
+				$final_value = array();
+				foreach ( $values as $value ) {
+					$final_value[] = sanitize_text_field( $value );
+				}
+				$values = $final_value;
+
+				return $values;
+			}
+
+			return wp_kses_post( $values );
+
+		}
 	}
 }
