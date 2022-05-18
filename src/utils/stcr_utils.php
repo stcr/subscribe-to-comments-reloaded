@@ -839,7 +839,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
                     break;
                 case 'multicheck':
-                    update_option( 'subscribe_reloaded_' . $_option, wp_unslash( $_value ) );
+                    $final_value = array();
+                    foreach ( $_value as $value ) {
+                        $final_value[] = sanitize_text_field( $value );
+                    }
+                    update_option( 'subscribe_reloaded_' . $_option, $final_value );
 
                     break;
                 case 'select':
