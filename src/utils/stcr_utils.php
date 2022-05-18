@@ -567,6 +567,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
             // rergister styles
             wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
+            wp_register_style( 'fontawesome', plugins_url( '/vendor/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'bootstrap', plugins_url( '/vendor/bootstrap/dist/css/bootstrap.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'webui-popover', plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'datatables', plugins_url( '/vendor/datatables/media/css/jquery.dataTables.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'datatables-bootstrap4', plugins_url( '/vendor/datatables/media/css/dataTables.bootstrap4.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'datatables-net-responsive-bs4', plugins_url( '/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css', STCR_PLUGIN_FILE ) );
 
             // check if we're on our pages
             if ( strpos( $hook, 'stcr' ) !== false ) {
@@ -575,7 +581,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                 wp_enqueue_script('stcr-admin-js');
 
                 // enqueue styles
-                wp_enqueue_style('stcr-admin-style');
+                wp_enqueue_style( 'stcr-admin-style' );
+                wp_enqueue_style( 'fontawesome' );
+                wp_enqueue_style( 'bootstrap' );
+                wp_enqueue_style( 'webui-popover' );
+                wp_enqueue_style( 'datatables' );
+                wp_enqueue_style( 'datatables-bootstrap4' );
+                wp_enqueue_style( 'datatables-net-responsive-bs4' );
 
             }
 
