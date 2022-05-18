@@ -998,16 +998,36 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 */
 		public static function sanitize_options( $values ) {
 
+			// If the values is set to array, sanitize each of the values.
 			if ( is_array( $values ) ) {
 				$final_value = array();
 				foreach ( $values as $value ) {
 					$final_value[] = sanitize_text_field( $value );
 				}
-				$values = $final_value;
 
-				return $values;
+				return $final_value;
 			}
 
+			// If user have set the meta tag, then, sanitize that via wp_kses.
+			$matches = array();
+			preg_match( '/<meta/i', $values, $matches );
+			if ( $matches ) {
+				$final_value = wp_kses(
+					$values,
+					array(
+						'meta' => array(
+							'charset'    => array(),
+							'content'    => array(),
+							'http-equiv' => array(),
+							'name'       => array(),
+						),
+					)
+				);
+
+				return $final_value;
+			}
+
+			// Sanitize everything else with the HTML attributes available for posts.
 			return wp_kses_post( $values );
 
 		}
