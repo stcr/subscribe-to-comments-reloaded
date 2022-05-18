@@ -585,12 +585,12 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
                 // enqueue scripts
                 wp_enqueue_script( 'stcr-admin-js' );
-                wp_enqueue_script( 'fontawesome' );
                 wp_enqueue_script( 'bootstrap' );
                 wp_enqueue_script( 'webui-popover' );
-                wp_enqueue_script( 'datatables' );
-                wp_enqueue_script( 'datatables-bootstrap4' );
-                wp_enqueue_script( 'datatables-net-responsive-bs4' );
+                wp_enqueue_script( 'dataTables' );
+                wp_enqueue_script( 'dataTables-bootstrap4' );
+                wp_enqueue_script( 'dataTables-responsive' );
+                wp_enqueue_script( 'responsive-bootstrap4' );
 
                 // enqueue styles
                 wp_enqueue_style( 'stcr-admin-style' );
