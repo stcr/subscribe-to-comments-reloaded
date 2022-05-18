@@ -430,7 +430,12 @@ else {
 
                         // Get the SSL status.
                         if ( ini_get( 'allow_url_fopen' ) ) {
-                            $tlsCheck = file_get_contents( 'https://www.howsmyssl.com/a/check' );
+                            $tlsRemote    = wp_remote_get( 'https://www.howsmyssl.com/a/check' );
+                            $responseCode = wp_remote_retrieve_response_code( $tlsRemote );
+
+                            if ( 200 === $responseCode ) {
+                                $tlsCheck = wp_remote_retrieve_body( $tlsRemote );
+                            }
                         }
 
                         if ( false !== $tlsCheck )
