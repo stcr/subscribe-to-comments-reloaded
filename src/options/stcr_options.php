@@ -95,6 +95,13 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 
     $faulty_fields     = array();
     $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+    $subscribe_options = array_map(
+        array(
+            'stcr\stcr_utils',
+            'sanitize_options'
+        ),
+        $subscribe_options
+    );
     foreach ( $subscribe_options as $option => $value )
     {
         if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
@@ -116,8 +123,6 @@ if ( array_key_exists( "generate_key", $_POST ) ) {
 wp_print_scripts( 'quicktags' );
 
 ?>
-    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
-
     <div class="container-fluid">
         <div class="mt-3"></div>
         <div class="row">
@@ -812,7 +817,6 @@ wp_print_scripts( 'quicktags' );
 
         </div>
     </div>
-    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.

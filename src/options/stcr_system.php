@@ -103,6 +103,13 @@ else {
 
         $faulty_fields     = array();
         $subscribe_options = wp_unslash( $_POST['options'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+        $subscribe_options = array_map(
+            array(
+                'stcr\stcr_utils',
+                'sanitize_options'
+            ),
+            $subscribe_options
+        );
         foreach ( $subscribe_options as $option => $value )
         {
             if ( ! $wp_subscribe_reloaded->stcr->utils->stcr_update_menu_options( $option, $value, $options[$option] ) )
@@ -139,7 +146,6 @@ else {
     }
 }
 ?>
-    <link href="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) ); ?>" rel="stylesheet"/>
     <style type="text/css">
         .system-error {
             color: #dc3545;
@@ -430,7 +436,12 @@ else {
 
                         // Get the SSL status.
                         if ( ini_get( 'allow_url_fopen' ) ) {
-                            $tlsCheck = file_get_contents( 'https://www.howsmyssl.com/a/check' );
+                            $tlsRemote    = wp_remote_get( 'https://www.howsmyssl.com/a/check' );
+                            $responseCode = wp_remote_retrieve_response_code( $tlsRemote );
+
+                            if ( 200 === $responseCode ) {
+                                $tlsCheck = wp_remote_retrieve_body( $tlsRemote );
+                            }
                         }
 
                         if ( false !== $tlsCheck )
@@ -772,7 +783,6 @@ else {
 
         </div>
     </div>
-    <script type="text/javascript" src="<?php echo esc_url( plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ) ); ?>"></script>
 <?php
 //global $wp_subscribe_reloaded;
 // Tell WP that we are going to use a resource.

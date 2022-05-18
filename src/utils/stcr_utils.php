@@ -563,19 +563,43 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
             $stcr_admin_css = plugins_url( '/includes/css/stcr-admin-style.css', STCR_PLUGIN_FILE );
 
             // register scripts
-            wp_register_script('stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+            wp_register_script( 'stcr-admin-js', $stcr_admin_js, array( 'jquery' ) );
+            wp_register_script( 'bootstrap', plugins_url( '/vendor/bootstrap/dist/js/bootstrap.bundle.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'webui-popover', plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'dataTables', plugins_url( '/vendor/datatables/media/js/jquery.dataTables.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'dataTables-bootstrap4', plugins_url( '/vendor/datatables/media/js/dataTables.bootstrap4.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'dataTables-responsive', plugins_url( '/vendor/datatables.net-responsive/js/dataTables.responsive.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
+            wp_register_script( 'responsive-bootstrap4', plugins_url( '/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js', STCR_PLUGIN_FILE ), array( 'jquery' ), false, true );
 
             // rergister styles
             wp_register_style( 'stcr-admin-style',  $stcr_admin_css );
+            wp_register_style( 'fontawesome', plugins_url( '/vendor/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'bootstrap', plugins_url( '/vendor/bootstrap/dist/css/bootstrap.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'webui-popover', plugins_url( '/vendor/webui-popover/dist/jquery.webui-popover.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'datatables', plugins_url( '/vendor/datatables/media/css/jquery.dataTables.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'datatables-bootstrap4', plugins_url( '/vendor/datatables/media/css/dataTables.bootstrap4.min.css', STCR_PLUGIN_FILE ) );
+            wp_register_style( 'datatables-net-responsive-bs4', plugins_url( '/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css', STCR_PLUGIN_FILE ) );
 
             // check if we're on our pages
             if ( strpos( $hook, 'stcr' ) !== false ) {
 
                 // enqueue scripts
-                wp_enqueue_script('stcr-admin-js');
+                wp_enqueue_script( 'stcr-admin-js' );
+                wp_enqueue_script( 'bootstrap' );
+                wp_enqueue_script( 'webui-popover' );
+                wp_enqueue_script( 'dataTables' );
+                wp_enqueue_script( 'dataTables-bootstrap4' );
+                wp_enqueue_script( 'dataTables-responsive' );
+                wp_enqueue_script( 'responsive-bootstrap4' );
 
                 // enqueue styles
-                wp_enqueue_style('stcr-admin-style');
+                wp_enqueue_style( 'stcr-admin-style' );
+                wp_enqueue_style( 'fontawesome' );
+                wp_enqueue_style( 'bootstrap' );
+                wp_enqueue_style( 'webui-popover' );
+                wp_enqueue_style( 'datatables' );
+                wp_enqueue_style( 'datatables-bootstrap4' );
+                wp_enqueue_style( 'datatables-net-responsive-bs4' );
 
             }
 
@@ -815,7 +839,11 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 
                     break;
                 case 'multicheck':
-                    update_option( 'subscribe_reloaded_' . $_option, wp_unslash( $_value ) );
+                    $final_value = array();
+                    foreach ( $_value as $value ) {
+                        $final_value[] = sanitize_text_field( $value );
+                    }
+                    update_option( 'subscribe_reloaded_' . $_option, $final_value );
 
                     break;
                 case 'select':
@@ -962,6 +990,49 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 			}
 
 			return true;
+
+		}
+
+		/**
+		 * Sanitize the user input on plugin options save.
+		 *
+		 * @param string|array|mixed $values The plugin setting options.
+		 *
+		 * @return string|array|mixed The sanitized user data.
+		 */
+		public static function sanitize_options( $values ) {
+
+			// If the values is set to array, sanitize each of the values.
+			if ( is_array( $values ) ) {
+				$final_value = array();
+				foreach ( $values as $value ) {
+					$final_value[] = sanitize_text_field( $value );
+				}
+
+				return $final_value;
+			}
+
+			// If user have set the meta tag, then, sanitize that via wp_kses.
+			$matches = array();
+			preg_match( '/<meta/i', $values, $matches );
+			if ( $matches ) {
+				$final_value = wp_kses(
+					$values,
+					array(
+						'meta' => array(
+							'charset'    => array(),
+							'content'    => array(),
+							'http-equiv' => array(),
+							'name'       => array(),
+						),
+					)
+				);
+
+				return $final_value;
+			}
+
+			// Sanitize everything else with the HTML attributes available for posts.
+			return wp_kses_post( $values );
 
 		}
 	}
