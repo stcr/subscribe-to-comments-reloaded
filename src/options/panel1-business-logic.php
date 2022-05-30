@@ -47,7 +47,7 @@ switch ( $action ) {
         $wp_subscribe_reloaded->stcr->add_subscription( $post_id, $stcr_post_email, $status );
 
         if ( strpos( $status, 'C' ) !== false ) {
-            $wp_subscribe_reloaded->stcr->confirmation_email( $post_id, $email );
+            $wp_subscribe_reloaded->stcr->confirmation_email( $post_id, $stcr_post_email );
         }
 
         echo '<div class="updated"><p>' . esc_html__( 'Subscription added.', 'subscribe-to-comments-reloaded' ) . '</p></div>';
