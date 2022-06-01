@@ -84,6 +84,10 @@ if ( array_key_exists('post_permalink', $_GET ) ) {
     }
 }
 
+if ( strpos( $post_permalink, home_url( '/' ) ) === false ) {
+	$post_permalink = home_url( '/' );
+}
+
 // challenge question
 $challenge_question_state = get_option( 'subscribe_reloaded_use_challenge_question', 'no' );
 $challenge_question = get_option( 'subscribe_reloaded_challenge_question', 'What is 1 + 2?' );
