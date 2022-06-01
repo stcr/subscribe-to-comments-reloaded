@@ -17,6 +17,10 @@ if (array_key_exists('post_permalink', $_GET)) {
     }
 }
 
+if ( strpos( $post_permalink, home_url( '/' ) ) === false ) {
+	$post_permalink = home_url( '/' );
+}
+
 // update status of subscription to confirmed
 $wp_subscribe_reloaded->stcr->update_subscription_status( $post_ID, $email, '-C' );
 
