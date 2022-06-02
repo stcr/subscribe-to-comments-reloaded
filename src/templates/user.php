@@ -82,6 +82,12 @@ echo "<p>" . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . "</p>";
                     '-C' => esc_html__( "Active", 'subscribe-to-comments-reloaded')
                 );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
+    $total_subscriptions    = count( $subscriptions );
+    $subscriptions_per_page = 20;
+    $subscriptions_pagenum  = isset( $_REQUEST['subscription_paged'] ) ? absint( $_REQUEST['subscription_paged'] ) : 1; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $subscriptions_offset   = ( $subscriptions_pagenum - 1 ) * $subscriptions_per_page;
+    $subscriptions          = array_slice( $subscriptions, $subscriptions_offset, $subscriptions_per_page );
+
 	echo '<p id="subscribe-reloaded-email-p">' . esc_html__( 'Email to manage', 'subscribe-to-comments-reloaded' ) . ': <strong>' . esc_html( $email ) . '</strong></p>';
 
     echo "<table class='stcr-subscription-list'><thead><tr>
@@ -153,6 +159,11 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 ?>
 		</fieldset>
 	</form>
+
+    <form method="get" action="">
+
+    </form>
+
     <script type="text/javascript">
 
         function stcrCheckAll(e) {
