@@ -201,6 +201,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
             printf(
                 '<a class="next-page" href="%s"><span aria-hidden="true">%s</span></a>',
                 esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ) ), $current_url ) ),
+                '&rsaquo;'
             );
         }
 
