@@ -220,7 +220,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                     );
                     $dots = true;
                 } else {
-                    if ( ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) ) {
+                    if ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) {
                         printf(
                             '<a class="page-numbers" href="%s">%s</a>',
                             /** This filter is documented in wp-includes/general-template.php */
