@@ -190,10 +190,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
             <?php
             // For first disable.
             if ( $disable_first ) {
-                echo '<span class="button disabled" aria-hidden="true">&laquo;</span>';
+                echo '<span class="disabled" aria-hidden="true">&laquo;</span>';
             } else {
                 printf(
-                    '<a class="first-page button" href="%s"><span aria-hidden="true">%s</span></a>',
+                    '<a class="first-page" href="%s"><span aria-hidden="true">%s</span></a>',
                     esc_url( remove_query_arg( 'subscription_paged', $current_url ) ),
                     '&laquo;'
                 );
@@ -201,10 +201,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
             // For previous disable.
             if ( $disable_prev ) {
-                echo '<span class="button disabled" aria-hidden="true">&lsaquo;</span>';
+                echo '<span class="disabled" aria-hidden="true">&lsaquo;</span>';
             } else {
                 printf(
-                    '<a class="prev-page button" href="%s"><span aria-hidden="true">%s</span></a>',
+                    '<a class="prev-page" href="%s"><span aria-hidden="true">%s</span></a>',
                     esc_url( add_query_arg( 'subscription_paged', max( 1, $subscriptions_pagenum - 1 ), $current_url ) ),
                     '&lsaquo;'
                 );
@@ -215,12 +215,12 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
             for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
                 if ( $number === $subscriptions_pagenum ) {
                     printf(
-                        '<span aria-current="page" class="button page-numbers current">%s</span>',
+                        '<span aria-current="page" class="page-numbers current">%s</span>',
                         esc_attr( number_format_i18n( $number ) )
                     );
                 } else {
                     printf(
-                        '<a class="button page-numbers" href="%s">%s</a>',
+                        '<a class="page-numbers" href="%s">%s</a>',
                         /** This filter is documented in wp-includes/general-template.php */
                         esc_url( esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ) ),
                         esc_attr( number_format_i18n( $number ) )
@@ -231,10 +231,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
             // For next disable.
             if ( $disable_next ) {
-                echo '<span class="button disabled" aria-hidden="true">&rsaquo;</span>';
+                echo '<span class="disabled" aria-hidden="true">&rsaquo;</span>';
             } else {
                 printf(
-                    '<a class="next-page button" href="%s"><span aria-hidden="true">%s</span></a>',
+                    '<a class="next-page" href="%s"><span aria-hidden="true">%s</span></a>',
                     esc_url( add_query_arg( 'subscription_paged', min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ), $current_url ) ),
                     '&rsaquo;'
                 );
@@ -242,7 +242,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
             // For last disable.
             if ( $disable_last ) {
-                echo '<span class="button disabled" aria-hidden="true">&raquo;</span>';
+                echo '<span class="disabled" aria-hidden="true">&raquo;</span>';
             } else {
                 printf(
                     "<a class='last-page button' href='%s'><span aria-hidden='true'>%s</span></a>",
