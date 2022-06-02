@@ -221,7 +221,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                     printf(
                         '<a class="page-numbers" href="%s">%s</a>',
                         /** This filter is documented in wp-includes/general-template.php */
-                        esc_url( esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ) ),
+                        esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ),
                         esc_attr( number_format_i18n( $number ) )
                     );
                     $dots = true;
