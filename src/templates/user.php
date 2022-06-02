@@ -89,6 +89,28 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     $subscriptions_offset      = ( $subscriptions_pagenum - 1 ) * $subscriptions_per_page;
     $subscriptions             = array_slice( $subscriptions, $subscriptions_offset, $subscriptions_per_page );
 
+    $disable_first = false;
+    $disable_last  = false;
+    $disable_prev  = false;
+    $disable_next  = false;
+
+    if ( 1 == $subscriptions_pagenum ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+        $disable_first = true;
+        $disable_prev  = true;
+    }
+
+    if ( $subscriptions_total_pages == $subscriptions_pagenum ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+        $disable_last = true;
+        $disable_next = true;
+    }
+
+    // For generating new url.
+    $removable_query_args = wp_removable_query_args();
+    $server_http_host     = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+    $server_request_uri   = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+    $current_url          = set_url_scheme( 'http://' . $server_http_host . $server_request_uri );
+    $current_url          = remove_query_arg( $removable_query_args, $current_url );
+
 	echo '<p id="subscribe-reloaded-email-p">' . esc_html__( 'Email to manage', 'subscribe-to-comments-reloaded' ) . ': <strong>' . esc_html( $email ) . '</strong></p>';
 
     echo "<table class='stcr-subscription-list'><thead><tr>
