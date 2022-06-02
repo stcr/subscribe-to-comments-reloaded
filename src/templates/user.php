@@ -211,8 +211,8 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
             }
 
             // For page numbers.
+            echo '<span class="stcr-subscriptions-management-links">';
             for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
-
                 if ( $number === $subscriptions_pagenum ) {
                     printf(
                         '<span aria-current="page" class="button page-numbers current">%s</span>',
@@ -226,8 +226,8 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                         esc_attr( number_format_i18n( $number ) )
                     );
                 }
-
             }
+            echo '</span>';
 
             // For next disable.
             if ( $disable_next ) {
