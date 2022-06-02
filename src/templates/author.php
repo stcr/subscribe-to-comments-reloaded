@@ -66,6 +66,35 @@ echo "<p>" . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . "</p>";
                 '-C' => esc_html__( "Active", 'subscribe-to-comments-reloaded')
             );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
+    $total_subscriptions       = count( $subscriptions );
+    $subscriptions_per_page    = 20;
+    $subscriptions_total_pages = ceil( $total_subscriptions / $subscriptions_per_page );
+    $subscriptions_pagenum     = isset( $_REQUEST['subscription_paged'] ) ? absint( $_REQUEST['subscription_paged'] ) : 1; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $subscriptions_offset      = ( $subscriptions_pagenum - 1 ) * $subscriptions_per_page;
+    $subscriptions             = array_slice( $subscriptions, $subscriptions_offset, $subscriptions_per_page );
+
+    $disable_first = false;
+    $disable_last  = false;
+    $disable_prev  = false;
+    $disable_next  = false;
+
+    if ( 1 == $subscriptions_pagenum ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+        $disable_first = true;
+        $disable_prev  = true;
+    }
+
+    if ( $subscriptions_total_pages == $subscriptions_pagenum ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+        $disable_last = true;
+        $disable_next = true;
+    }
+
+    // For generating new url.
+    $removable_query_args = array( 'post_permalink' );
+    $server_http_host     = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+    $server_request_uri   = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+    $current_url          = set_url_scheme( 'http://' . $server_http_host . $server_request_uri );
+    $current_url          = remove_query_arg( $removable_query_args, $current_url );
+
 	echo '<h1 id="subscribe-reloaded-title-p">' . esc_html__( 'Title', 'subscribe-to-comments-reloaded' ) . ': <strong>' . esc_html( $target_post->post_title ) . '</strong></h1>'; // $target_post comes from wp_subscribe_reloaded\subscribe_reloaded_manage
 
 	echo "<table class='stcr-subscription-list'><thead><tr>
@@ -114,6 +143,81 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 ?>
 		</fieldset>
 	</form>
+
+	<div class="stcr-pagination-links">
+        <?php
+        // For first disable.
+        if ( $disable_first ) {
+            echo '<span class="disabled" aria-hidden="true">&laquo;</span>';
+        } else {
+            printf(
+                '<a class="first-page" href="%s"><span aria-hidden="true">%s</span></a>',
+                esc_url( remove_query_arg( 'subscription_paged', $current_url ) ),
+                '&laquo;'
+            );
+        }
+
+        // For previous disable.
+        if ( $disable_prev ) {
+            echo '<span class="disabled" aria-hidden="true">&lsaquo;</span>';
+        } else {
+            printf(
+                '<a class="prev-page" href="%s"><span aria-hidden="true">%s</span></a>',
+                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => max( 1, $subscriptions_pagenum - 1 ) ), $current_url ) ),
+                '&lsaquo;'
+            );
+        }
+
+        // For page numbers.
+        echo '<span class="stcr-subscriptions-management-links">';
+        for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
+            if ( $number === $subscriptions_pagenum ) {
+                printf(
+                    '<span aria-current="page" class="page-numbers current">%s</span>',
+                    esc_attr( number_format_i18n( $number ) )
+                );
+                $dots = true;
+            } else {
+                if ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) {
+                    printf(
+                        '<a class="page-numbers" href="%s">%s</a>',
+                        /** This filter is documented in wp-includes/general-template.php */
+                        esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $number ), $current_url ) ),
+                        esc_attr( number_format_i18n( $number ) )
+                    );
+                    $dots = true;
+                } elseif ( $dots ) {
+                    echo '<span class="page-numbers dots">' . __( '&hellip;', 'subscribe-to-comments-reloaded' ) . '</span>';
+                    $dots = false;
+                }
+            }
+        }
+        echo '</span>';
+
+        // For next disable.
+        if ( $disable_next ) {
+            echo '<span class="disabled" aria-hidden="true">&rsaquo;</span>';
+        } else {
+            printf(
+                '<a class="next-page" href="%s"><span aria-hidden="true">%s</span></a>',
+                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ) ), $current_url ) ),
+                '&rsaquo;'
+            );
+        }
+
+        // For last disable.
+        if ( $disable_last ) {
+            echo '<span class="disabled" aria-hidden="true">&raquo;</span>';
+        } else {
+            printf(
+                "<a class='last-page' href='%s'><span aria-hidden='true'>%s</span></a>",
+                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $subscriptions_total_pages ), $current_url ) ),
+                '&raquo;'
+            );
+        }
+        ?>
+    </div>
+
     <script type="text/javascript">
 
         function stcrCheckAll(e) {
