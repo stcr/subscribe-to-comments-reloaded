@@ -105,7 +105,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     }
 
     // For generating new url.
-    $removable_query_args = wp_removable_query_args();
+    $removable_query_args = array( 'post_permalink' );
     $server_http_host     = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
     $server_request_uri   = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
     $current_url          = set_url_scheme( 'http://' . $server_http_host . $server_request_uri );
@@ -202,7 +202,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         } else {
             printf(
                 '<a class="prev-page" href="%s"><span aria-hidden="true">%s</span></a>',
-                esc_url( add_query_arg( 'subscription_paged', max( 1, $subscriptions_pagenum - 1 ), $current_url ) ),
+                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => max( 1, $subscriptions_pagenum - 1 ) ), $current_url ) ),
                 '&lsaquo;'
             );
         }
@@ -221,7 +221,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                     printf(
                         '<a class="page-numbers" href="%s">%s</a>',
                         /** This filter is documented in wp-includes/general-template.php */
-                        esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ),
+                        esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $number ), $current_url ) ),
                         esc_attr( number_format_i18n( $number ) )
                     );
                     $dots = true;
@@ -239,7 +239,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         } else {
             printf(
                 '<a class="next-page" href="%s"><span aria-hidden="true">%s</span></a>',
-                esc_url( add_query_arg( 'subscription_paged', min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ), $current_url ) ),
+                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ) ), $current_url ) ),
                 '&rsaquo;'
             );
         }
@@ -250,7 +250,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         } else {
             printf(
                 "<a class='last-page' href='%s'><span aria-hidden='true'>%s</span></a>",
-                esc_url( add_query_arg( 'subscription_paged', $subscriptions_total_pages, $current_url ) ),
+                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $subscriptions_total_pages ), $current_url ) ),
                 '&raquo;'
             );
         }
