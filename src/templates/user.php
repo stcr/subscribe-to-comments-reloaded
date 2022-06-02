@@ -245,7 +245,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                 echo '<span class="disabled" aria-hidden="true">&raquo;</span>';
             } else {
                 printf(
-                    "<a class='last-page button' href='%s'><span aria-hidden='true'>%s</span></a>",
+                    "<a class='last-page' href='%s'><span aria-hidden='true'>%s</span></a>",
                     esc_url( add_query_arg( 'subscription_paged', $subscriptions_total_pages, $current_url ) ),
                     '&raquo;'
                 );
