@@ -218,13 +218,20 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                         '<span aria-current="page" class="page-numbers current">%s</span>',
                         esc_attr( number_format_i18n( $number ) )
                     );
+                    $dots = true;
                 } else {
-                    printf(
-                        '<a class="page-numbers" href="%s">%s</a>',
-                        /** This filter is documented in wp-includes/general-template.php */
-                        esc_url( esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ) ),
-                        esc_attr( number_format_i18n( $number ) )
-                    );
+                    if ( ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) ) {
+                        printf(
+                            '<a class="page-numbers" href="%s">%s</a>',
+                            /** This filter is documented in wp-includes/general-template.php */
+                            esc_url( esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ) ),
+                            esc_attr( number_format_i18n( $number ) )
+                        );
+                        $dots = true;
+                    } elseif ( $dots ) {
+                        echo '<span class="page-numbers dots">' . __( '&hellip;', 'subscribe-to-comments-reloaded' ) . '</span>';
+                        $dots = false;
+                    }
                 }
             }
             echo '</span>';
