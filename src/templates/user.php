@@ -161,7 +161,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	</form>
 
     <form method="get" action="">
-
+        <input type="hidden" name="post_permalink" value="<?php echo esc_attr( $post_permalink ); ?>" />
     </form>
 
     <script type="text/javascript">
