@@ -210,6 +210,25 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                 );
             }
 
+            // For page numbers.
+            for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
+
+                if ( $number === $subscriptions_pagenum ) {
+                    printf(
+                        '<span aria-current="page" class="button page-numbers current">%s</span>',
+                        esc_attr( number_format_i18n( $number ) )
+                    );
+                } else {
+                    printf(
+                        '<a class="button page-numbers" href="%s">%s</a>',
+                        /** This filter is documented in wp-includes/general-template.php */
+                        esc_url( esc_url( add_query_arg( 'subscription_paged', $number, $current_url ) ) ),
+                        esc_attr( number_format_i18n( $number ) )
+                    );
+                }
+
+            }
+
             // For next disable.
             if ( $disable_next ) {
                 echo '<span class="button disabled" aria-hidden="true">&rsaquo;</span>';
