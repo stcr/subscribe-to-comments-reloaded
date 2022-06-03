@@ -99,11 +99,14 @@
         });
 
         sre_input.blur(function(){
-            if( emailRegex.test(sre_input.val() ) ) // check email value
-            {
-                $(this).removeClass("validate-error-field");
-                $("form#add_new_subscription .validate-error-text-sre").hide();
-            }
+            var sre_input_array = sre_input.val().split( ', ' );
+            $.each( sre_input_array, function( index, value ) {
+                if( emailRegex.test( value ) ) // check email value
+                {
+                    $(sre_input).removeClass("validate-error-field");
+                    $("form#add_new_subscription .validate-error-text-sre").hide();
+                }
+            } );
         });
 
         $("form#add_new_subscription").submit(function(){
