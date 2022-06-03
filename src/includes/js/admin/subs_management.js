@@ -139,13 +139,19 @@
                         field: "sre"
                     } );
             }
-            else if( ! emailRegex.test(email) ) // check valid email
-            {
-                missing_fields.push(
+            else {
+                var email_submit = email.split( ', ' );
+                $.each( email_submit, function( index, value ) {
+                    if( ! emailRegex.test(value) ) // check valid email
                     {
-                        message: "<?php _e( 'Invalid email address.', 'subscribe-to-comments-reloaded' ) ?>",
-                        field: "sre"
-                    } );
+                        missing_fields.push(
+                            {
+                                message: "<?php _e( 'Invalid email address.', 'subscribe-to-comments-reloaded' ) ?>",
+                                field: "sre"
+                            } );
+                    }
+                } );
+
             }
 
             var missing_fields_size = missing_fields.length;
