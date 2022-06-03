@@ -3,7 +3,7 @@
 
         var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var oldsre_input = $("form#mass_update_address_form input[name='oldsre']");
-        var sre_input    = $("form#mass_update_address_form textarea[name='sre']");
+        var sre_input    = $("form#mass_update_address_form input[name='sre']");
 
 
         oldsre_input.focus(function(){
