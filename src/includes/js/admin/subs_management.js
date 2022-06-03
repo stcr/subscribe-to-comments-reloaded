@@ -3,7 +3,7 @@
 
         var emailRegex   = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var oldsre_input = $("form#mass_update_address_form input[name='oldsre']");
-        var sre_input    = $("form#mass_update_address_form input[name='sre']");
+        var sre_input    = $("form#mass_update_address_form textarea[name='sre']");
 
 
         oldsre_input.focus(function(){
@@ -88,7 +88,7 @@
         });
         // Add New Subscription
         var stcr_post_id_input = $("form#add_new_subscription input[name='srp']");
-        var sre_input          = $("form#add_new_subscription input[name='sre']");
+        var sre_input          = $("form#add_new_subscription textarea[name='sre']");
 
         stcr_post_id_input.blur(function(){
             if( $.isNumeric(stcr_post_id_input.val() ) ) // check numeric value
