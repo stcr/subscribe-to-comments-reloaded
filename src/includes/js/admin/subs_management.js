@@ -99,7 +99,7 @@
         });
 
         sre_input.blur(function(){
-            var sre_input_array = sre_input.val().replace( ' ', '' );
+            var sre_input_array = sre_input.val().replaceAll( ' ', '' );
             sre_input_array = sre_input_array.split( ',' );
             $.each( sre_input_array, function( index, value ) {
                 if( emailRegex.test( value ) ) // check email value
@@ -141,7 +141,7 @@
                     } );
             }
             else {
-                var email_submit = email.replace( ' ', '' );
+                var email_submit = email.replaceAll( ' ', '' );
                 email_submit = email_submit.split( ',' );
                 $.each( email_submit, function( index, value ) {
                     if( ! emailRegex.test(value) ) // check valid email
