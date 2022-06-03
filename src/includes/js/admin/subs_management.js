@@ -140,7 +140,8 @@
                     } );
             }
             else {
-                var email_submit = email.split( ', ' );
+                var email_submit = email.replace( ' ', '' );
+                email_submit = email_submit.split( ',' );
                 $.each( email_submit, function( index, value ) {
                     if( ! emailRegex.test(value) ) // check valid email
                     {
