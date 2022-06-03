@@ -111,7 +111,7 @@ if ( is_readable( trailingslashit( dirname( STCR_PLUGIN_FILE ) ) . 'options/pane
                                     </tr>
                                     <tr>
                                         <td><?php esc_html_e( 'Email', 'subscribe-to-comments-reloaded' ) ?></td>
-                                        <td><input class="form-control form-controls-font" type='text' size='30' name='sre' value='' ></td>
+                                        <td><textarea name='sre' class="form-control form-controls-font" cols="10" rows="6"></textarea></td>
                                         <td><span class="validate-error-text validate-error-text-sre stcr-hidden "></span></td>
                                     </tr>
                                     <tr>

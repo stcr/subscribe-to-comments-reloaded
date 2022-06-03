@@ -30,8 +30,13 @@ switch ( $action ) {
             exit();
         }
 
-        $stcr_post_email     = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $stcr_post_email );
-        $valid_post_id       = $wp_subscribe_reloaded->stcr->utils->check_valid_number( $post_id );
+        $subscriber_post_email = explode( ',', $stcr_post_email );
+
+        foreach ( $subscriber_post_email as $subscriber_email ) {
+            $stcr_post_email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $subscriber_email );
+        }
+
+        $valid_post_id = $wp_subscribe_reloaded->stcr->utils->check_valid_number( $post_id );
 
         if ( $stcr_post_email === false )
         {
@@ -44,10 +49,12 @@ switch ( $action ) {
             break;
         }
 
-        $wp_subscribe_reloaded->stcr->add_subscription( $post_id, $stcr_post_email, $status );
+        foreach ( $subscriber_post_email as $subscriber_email ) {
+            $wp_subscribe_reloaded->stcr->add_subscription( $post_id, $subscriber_email, $status );
 
-        if ( strpos( $status, 'C' ) !== false ) {
-            $wp_subscribe_reloaded->stcr->confirmation_email( $post_id, $stcr_post_email );
+            if ( strpos( $status, 'C' ) !== false ) {
+                $wp_subscribe_reloaded->stcr->confirmation_email( $post_id, $subscriber_email );
+            }
         }
 
         echo '<div class="updated"><p>' . esc_html__( 'Subscription added.', 'subscribe-to-comments-reloaded' ) . '</p></div>';

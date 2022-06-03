@@ -88,7 +88,7 @@
         });
         // Add New Subscription
         var stcr_post_id_input = $("form#add_new_subscription input[name='srp']");
-        var sre_input          = $("form#add_new_subscription input[name='sre']");
+        var sre_input          = $("form#add_new_subscription textarea[name='sre']");
 
         stcr_post_id_input.blur(function(){
             if( $.isNumeric(stcr_post_id_input.val() ) ) // check numeric value
@@ -99,11 +99,15 @@
         });
 
         sre_input.blur(function(){
-            if( emailRegex.test(sre_input.val() ) ) // check email value
-            {
-                $(this).removeClass("validate-error-field");
-                $("form#add_new_subscription .validate-error-text-sre").hide();
-            }
+            var sre_input_array = sre_input.val().replaceAll( ' ', '' );
+            sre_input_array = sre_input_array.split( ',' );
+            $.each( sre_input_array, function( index, value ) {
+                if( emailRegex.test( value ) ) // check email value
+                {
+                    $(sre_input).removeClass("validate-error-field");
+                    $("form#add_new_subscription .validate-error-text-sre").hide();
+                }
+            } );
         });
 
         $("form#add_new_subscription").submit(function(){
@@ -136,13 +140,20 @@
                         field: "sre"
                     } );
             }
-            else if( ! emailRegex.test(email) ) // check valid email
-            {
-                missing_fields.push(
+            else {
+                var email_submit = email.replaceAll( ' ', '' );
+                email_submit = email_submit.split( ',' );
+                $.each( email_submit, function( index, value ) {
+                    if( ! emailRegex.test(value) ) // check valid email
                     {
-                        message: "<?php _e( 'Invalid email address.', 'subscribe-to-comments-reloaded' ) ?>",
-                        field: "sre"
-                    } );
+                        missing_fields.push(
+                            {
+                                message: "<?php _e( 'Invalid email address.', 'subscribe-to-comments-reloaded' ) ?>",
+                                field: "sre"
+                            } );
+                    }
+                } );
+
             }
 
             var missing_fields_size = missing_fields.length;
