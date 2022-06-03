@@ -30,7 +30,7 @@ switch ( $action ) {
             exit();
         }
 
-        $subscriber_post_email = explode( ', ', $stcr_post_email );
+        $subscriber_post_email = explode( ',', $stcr_post_email );
 
         foreach ( $subscriber_post_email as $subscriber_email ) {
             $stcr_post_email = $wp_subscribe_reloaded->stcr->utils->check_valid_email( $subscriber_email );

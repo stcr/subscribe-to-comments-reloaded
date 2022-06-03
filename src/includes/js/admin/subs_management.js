@@ -99,7 +99,7 @@
         });
 
         sre_input.blur(function(){
-            var sre_input_array = sre_input.val().split( ', ' );
+            var sre_input_array = sre_input.val().split( ',' );
             $.each( sre_input_array, function( index, value ) {
                 if( emailRegex.test( value ) ) // check email value
                 {
