@@ -67,7 +67,7 @@ echo "<p>" . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . "</p>";
             );
 if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     $total_subscriptions       = count( $subscriptions );
-    $subscriptions_per_page    = 20;
+    $subscriptions_per_page    = 200;
     $subscriptions_total_pages = ceil( $total_subscriptions / $subscriptions_per_page );
     $subscriptions_pagenum     = isset( $_REQUEST['subscription_paged'] ) ? absint( $_REQUEST['subscription_paged'] ) : 1; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $subscriptions_offset      = ( $subscriptions_pagenum - 1 ) * $subscriptions_per_page;
