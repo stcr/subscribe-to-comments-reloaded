@@ -89,7 +89,7 @@ wp_print_scripts( 'quicktags' );
 
                     <div class="form-group row">
                         <label for="from_name" class="col-sm-3 col-form-label text-right">
-                            <?php esc_html_e( 'Sender email address', 'subscribe-to-comments-reloaded' ) ?></label>
+                            <?php esc_html_e( 'Sender name', 'subscribe-to-comments-reloaded' ) ?></label>
                         <div class="col-sm-7">
                             <input type="text" name="options[from_name]" id="from_name"
                                    class="form-control form-control-input-8"
