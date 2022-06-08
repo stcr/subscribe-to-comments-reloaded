@@ -6,8 +6,8 @@ Plugin URI: http://subscribe-reloaded.com/
 Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
-Tested up to: 5.9
-Stable tag: 220523
+Tested up to: 6.0
+Stable tag: 220608
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v220608 =
+* **New** The "Add Subscription" option in the admin panel now allows multiple email addresses to be added at once.
+* **Fix** Force the redirect URL to be the same domain as the website
+
 = v220523 =
 * **Fix** Minor fixes
 
