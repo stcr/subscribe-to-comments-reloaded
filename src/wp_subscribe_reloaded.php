@@ -176,11 +176,24 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 add_action( 'deleted_comment', array( $this, 'comment_deleted' ) );
 				add_action( 'wp_set_comment_status', array( $this, 'comment_status_changed' ) );
 
-                // new columns in post/comment tables ( WP admin > Posts and WP admin > Comments )
-                add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
-                add_filter( 'manage_posts_columns', array( $this, 'add_column_header' ) );
-                add_action( 'manage_comments_custom_column', array( $this, 'add_comment_column' ) );
-                add_action( 'manage_posts_custom_column', array( $this, 'add_post_column' ) );
+				// New columns in comment and enabled post types tables.
+				add_filter( 'manage_edit-comments_columns', array( $this, 'add_column_header' ) );
+				add_action( 'manage_comments_custom_column', array( $this, 'add_comment_column' ) );
+				// For supported post types.
+				$supported_post_types = get_option( 'subscribe_reloaded_post_type_supports' );
+				if ( ! $supported_post_types ) {
+					$this->upgrade->migrate_post_type_support();
+					$supported_post_types = get_option( 'subscribe_reloaded_post_type_supports' );
+				}
+				if ( in_array( 'stcr_none', $supported_post_types ) ) {
+					$supported_post_types = array_flip( $supported_post_types );
+					unset( $supported_post_types['stcr_none'] );
+				}
+				$supported_post_types = array_flip( $supported_post_types );
+				foreach ( $supported_post_types as $post_type ) {
+					add_filter( 'manage_' . $post_type . '_posts_columns', array( $this, 'add_column_header' ) );
+					add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'add_post_column' ) );
+				}
 
                 // Add appropriate entries in the admin menu
                 add_action( 'admin_menu', array( $this, 'add_config_menu' ) );
@@ -1552,7 +1565,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// if not enabled for this post type, return default
 			if ( ! in_array( $post_type, $supported_post_types ) ) {
 				if ( $echo ) {
-					
+
 				} else {
 					return $submit_field;
 				}
@@ -1562,7 +1575,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// only for logged in users
 			if ( $only_for_logged_in == 'yes' && ! is_user_logged_in() ) {
 				if ( $echo ) {
-					
+
 				} else {
 					return $submit_field;
 				}
@@ -1577,7 +1590,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			$is_disabled = get_post_meta( $post->ID, 'stcr_disable_subscriptions', true );
 			if ( ! empty( $is_disabled ) ) {
 				if ( $echo ) {
-					
+
 				} else {
 					return $submit_field;
 				}
