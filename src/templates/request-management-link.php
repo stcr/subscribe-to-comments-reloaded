@@ -26,8 +26,8 @@ $recaptcha_version = get_option( 'subscribe_reloaded_recaptcha_version', 'v2' );
 
 // google recaptcha confirm
 if ( $use_captcha == 'yes' ) {
-    $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
     if ( 'v2' == $recaptcha_version ) {
+        $captcha_output .= '<div class="g-recaptcha" data-sitekey="' . $captcha_site_key . '"></div>';
         if ( isset( $_POST['g-recaptcha-response'] ) ) {
             $captcha = sanitize_text_field( wp_unslash( $_POST['g-recaptcha-response'] ) );
             $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
@@ -54,7 +54,7 @@ if ( $use_captcha == 'yes' ) {
             $captcha_result = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
                 'method' => 'POST',
                 'body' => array(
-                    'secret' => $recaptcha_secret_key,
+                    'secret' => $captcha_secret_key,
                     'response' => $captcha,
                 )
             ));
