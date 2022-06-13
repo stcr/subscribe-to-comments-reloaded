@@ -2,3 +2,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+.stcr-pagination-links .stcr-page-link {
+  display: block;
+  padding: 5px 15px;
+  margin-left: -1px;
+  border: 1px solid #eaeaea;
+}
