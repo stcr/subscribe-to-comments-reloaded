@@ -650,6 +650,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
                 wp_enqueue_style('stcr-font-awesome');
             }
 
+            $stcr_style_css = plugins_url( '/includes/css/stcr-style.css', STCR_PLUGIN_FILE );
+            wp_register_style( 'stcr-style', $stcr_style_css );
+            wp_enqueue_style( 'stcr-style' );
+
             // google recaptcha
             if ( get_option( 'subscribe_reloaded_use_captcha', 'no' ) == 'yes' ) {
 
