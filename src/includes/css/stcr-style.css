@@ -1,3 +1,4 @@
-.stcr-pagination-links .disabled {
-  cursor: auto;
+.stcr-pagination-links {
+  display: flex;
+  flex-wrap: wrap;
 }
