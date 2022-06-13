@@ -118,7 +118,83 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 	}
         echo "</tbody>";
     echo "</table>";
+    ?>
 
+    <?php if ( $subscriptions_total_pages > 1 ) { ?>
+        <p class="stcr-pagination-links">
+            <?php
+            // For first disable.
+            if ( $disable_first ) {
+                echo '<span class="stcr-disabled stcr-page-link" aria-hidden="true">&laquo;</span>';
+            } else {
+                printf(
+                    '<a class="stcr-first-page stcr-page-link" href="%s"><span aria-hidden="true">%s</span></a>',
+                    esc_url( remove_query_arg( 'subscription_paged', $current_url ) ),
+                    '&laquo;'
+                );
+            }
+
+            // For previous disable.
+            if ( $disable_prev ) {
+                echo '<span class="stcr-disabled stcr-page-link" aria-hidden="true">&lsaquo;</span>';
+            } else {
+                printf(
+                    '<a class="stcr-prev-page stcr-page-link" href="%s"><span aria-hidden="true">%s</span></a>',
+                    esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => max( 1, $subscriptions_pagenum - 1 ) ), $current_url ) ),
+                    '&lsaquo;'
+                );
+            }
+
+            // For page numbers.
+            for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
+                if ( $number === $subscriptions_pagenum ) {
+                    printf(
+                        '<span aria-current="page" class="stcr-page-numbers stcr-current-page stcr-page-link">%s</span>',
+                        esc_attr( number_format_i18n( $number ) )
+                    );
+                    $dots = true;
+                } else {
+                    if ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) {
+                        printf(
+                            '<a class="stcr-page-numbers stcr-page-link" href="%s">%s</a>',
+                            /** This filter is documented in wp-includes/general-template.php */
+                            esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $number ), $current_url ) ),
+                            esc_attr( number_format_i18n( $number ) )
+                        );
+                        $dots = true;
+                    } elseif ( $dots ) {
+                        echo '<span class="stcr-page-numbers stcr-dots stcr-page-link">' . __( '&hellip;', 'subscribe-to-comments-reloaded' ) . '</span>';
+                        $dots = false;
+                    }
+                }
+            }
+
+            // For next disable.
+            if ( $disable_next ) {
+                echo '<span class="stcr-disabled stcr-page-link" aria-hidden="true">&rsaquo;</span>';
+            } else {
+                printf(
+                    '<a class="stcr-next-page stcr-page-link" href="%s"><span aria-hidden="true">%s</span></a>',
+                    esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ) ), $current_url ) ),
+                    '&rsaquo;'
+                );
+            }
+
+            // For last disable.
+            if ( $disable_last ) {
+                echo '<span class="stcr-disabled stcr-page-link" aria-hidden="true">&raquo;</span>';
+            } else {
+                printf(
+                    "<a class='stcr-last-page stcr-page-link' href='%s'><span aria-hidden='true'>%s</span></a>",
+                    esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $subscriptions_total_pages ), $current_url ) ),
+                    '&raquo;'
+                );
+            }
+            ?>
+        </p>
+    <?php } ?>
+
+    <?php
 	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . esc_html__( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
 	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . esc_html__( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
 	echo '<p id="subscribe-reloaded-action-p">' . esc_html__( 'Action:', 'subscribe-to-comments-reloaded' );
@@ -143,80 +219,6 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 ?>
 		</fieldset>
 	</form>
-
-	<div class="stcr-pagination-links">
-        <?php
-        // For first disable.
-        if ( $disable_first ) {
-            echo '<span class="disabled" aria-hidden="true">&laquo;</span>';
-        } else {
-            printf(
-                '<a class="first-page" href="%s"><span aria-hidden="true">%s</span></a>',
-                esc_url( remove_query_arg( 'subscription_paged', $current_url ) ),
-                '&laquo;'
-            );
-        }
-
-        // For previous disable.
-        if ( $disable_prev ) {
-            echo '<span class="disabled" aria-hidden="true">&lsaquo;</span>';
-        } else {
-            printf(
-                '<a class="prev-page" href="%s"><span aria-hidden="true">%s</span></a>',
-                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => max( 1, $subscriptions_pagenum - 1 ) ), $current_url ) ),
-                '&lsaquo;'
-            );
-        }
-
-        // For page numbers.
-        echo '<span class="stcr-subscriptions-management-links">';
-        for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
-            if ( $number === $subscriptions_pagenum ) {
-                printf(
-                    '<span aria-current="page" class="page-numbers current">%s</span>',
-                    esc_attr( number_format_i18n( $number ) )
-                );
-                $dots = true;
-            } else {
-                if ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) {
-                    printf(
-                        '<a class="page-numbers" href="%s">%s</a>',
-                        /** This filter is documented in wp-includes/general-template.php */
-                        esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $number ), $current_url ) ),
-                        esc_attr( number_format_i18n( $number ) )
-                    );
-                    $dots = true;
-                } elseif ( $dots ) {
-                    echo '<span class="page-numbers dots">' . __( '&hellip;', 'subscribe-to-comments-reloaded' ) . '</span>';
-                    $dots = false;
-                }
-            }
-        }
-        echo '</span>';
-
-        // For next disable.
-        if ( $disable_next ) {
-            echo '<span class="disabled" aria-hidden="true">&rsaquo;</span>';
-        } else {
-            printf(
-                '<a class="next-page" href="%s"><span aria-hidden="true">%s</span></a>',
-                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ) ), $current_url ) ),
-                '&rsaquo;'
-            );
-        }
-
-        // For last disable.
-        if ( $disable_last ) {
-            echo '<span class="disabled" aria-hidden="true">&raquo;</span>';
-        } else {
-            printf(
-                "<a class='last-page' href='%s'><span aria-hidden='true'>%s</span></a>",
-                esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $subscriptions_total_pages ), $current_url ) ),
-                '&raquo;'
-            );
-        }
-        ?>
-    </div>
 
     <script type="text/javascript">
 
