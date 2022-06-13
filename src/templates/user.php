@@ -136,52 +136,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     }
     echo "</tbody>";
     echo "</table>";
-
-	echo '<p id="subscribe-reloaded-select-all-p">
-               <i class="fa fa-expand" aria-hidden="true"></i>&nbsp;
-               <a class="subscribe-reloaded-small-button stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . esc_html__( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
-	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;
-                <a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . esc_html__( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
-	echo '<p id="subscribe-reloaded-action-p">' . esc_html__( 'Action:', 'subscribe-to-comments-reloaded' );
-
-    $show_option_all = true;
-    $show_option_replies = true;
-
-    if ( get_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no' ) == 'no' ) {
-        if ( get_option( 'subscribe_reloaded_checked_by_default_value', '0' ) == '0' ) {
-            $show_option_replies = false;
-        } else {
-            $show_option_all = false;
-        }
-    }
-
-	echo '<select name="sra">';
-		echo '<option value="">'. esc_html__( 'Choose your action', 'subscribe-to-comments-reloaded' ) .'</option>';
-		echo '<option value="delete">'. esc_html__( 'Unsubscribe', 'subscribe-to-comments-reloaded' ) .'</option>';
-        echo '<option value="suspend">'. esc_html__( 'Suspend', 'subscribe-to-comments-reloaded' ) .'</option>';
-        if ( $show_option_all ) {
-            echo '<option value="force_y">'. esc_html__( 'All comments', 'subscribe-to-comments-reloaded' ) .'</option>';
-        }
-        if ( $show_option_replies ) {
-            echo '<option value="force_r">'. esc_html__( 'Replies to my comments', 'subscribe-to-comments-reloaded' ) .'</option>';
-        }
-	echo '<select>';
-
-    echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . esc_html__( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '" />
-          <input type="hidden" name="srek" value="' . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key( $email ) . '"></p>';
-
-    if ( isset( $post_permalink ) )
-    {
-        echo '<p id="subscribe-reloaded-update-p">
-            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. esc_html__('Return to Post','subscribe-to-comments-reloaded').'</a>
-          </p>';
-    }
-} else {
-	echo '<p>' . esc_html__( 'No subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
-}
-?>
-		</fieldset>
-	</form>
+    ?>
 
     <div class="stcr-pagination-links">
         <?php
@@ -256,6 +211,53 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         }
         ?>
     </div>
+
+    <?php
+	echo '<p id="subscribe-reloaded-select-all-p">
+               <i class="fa fa-expand" aria-hidden="true"></i>&nbsp;
+               <a class="subscribe-reloaded-small-button stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . esc_html__( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
+	echo '&nbsp;&nbsp;<i class="fa fa-compress" aria-hidden="true"></i>&nbsp;
+                <a class="subscribe-reloaded-small-button stcr-subs-select-none" href="#" onclick="stcrUncheckAll(event)">' . esc_html__( 'Invert selection', 'subscribe-to-comments-reloaded' ) . '</a></p>';
+	echo '<p id="subscribe-reloaded-action-p">' . esc_html__( 'Action:', 'subscribe-to-comments-reloaded' );
+
+    $show_option_all = true;
+    $show_option_replies = true;
+
+    if ( get_option( 'subscribe_reloaded_enable_advanced_subscriptions', 'no' ) == 'no' ) {
+        if ( get_option( 'subscribe_reloaded_checked_by_default_value', '0' ) == '0' ) {
+            $show_option_replies = false;
+        } else {
+            $show_option_all = false;
+        }
+    }
+
+	echo '<select name="sra">';
+		echo '<option value="">'. esc_html__( 'Choose your action', 'subscribe-to-comments-reloaded' ) .'</option>';
+		echo '<option value="delete">'. esc_html__( 'Unsubscribe', 'subscribe-to-comments-reloaded' ) .'</option>';
+        echo '<option value="suspend">'. esc_html__( 'Suspend', 'subscribe-to-comments-reloaded' ) .'</option>';
+        if ( $show_option_all ) {
+            echo '<option value="force_y">'. esc_html__( 'All comments', 'subscribe-to-comments-reloaded' ) .'</option>';
+        }
+        if ( $show_option_replies ) {
+            echo '<option value="force_r">'. esc_html__( 'Replies to my comments', 'subscribe-to-comments-reloaded' ) .'</option>';
+        }
+	echo '<select>';
+
+    echo '&nbsp;&nbsp;<input type="submit" class="subscribe-form-button" value="' . esc_html__( 'Update subscriptions', 'subscribe-to-comments-reloaded' ) . '" />
+          <input type="hidden" name="srek" value="' . $wp_subscribe_reloaded->stcr->utils->get_subscriber_key( $email ) . '"></p>';
+
+    if ( isset( $post_permalink ) )
+    {
+        echo '<p id="subscribe-reloaded-update-p">
+            <a style="margin-right: 10px; text-decoration: none; box-shadow: unset;" href="'. esc_url( $post_permalink ) .'"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" style="vertical-align: middle;"></i>&nbsp; '. esc_html__('Return to Post','subscribe-to-comments-reloaded').'</a>
+          </p>';
+    }
+} else {
+	echo '<p>' . esc_html__( 'No subscriptions match your search criteria.', 'subscribe-to-comments-reloaded' ) . '</p>';
+}
+?>
+		</fieldset>
+	</form>
 
     <script type="text/javascript">
 
