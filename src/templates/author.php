@@ -124,10 +124,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         <?php
         // For first disable.
         if ( $disable_first ) {
-            echo '<span class="disabled" aria-hidden="true">&laquo;</span>';
+            echo '<span class="stcr-disabled" aria-hidden="true">&laquo;</span>';
         } else {
             printf(
-                '<a class="first-page" href="%s"><span aria-hidden="true">%s</span></a>',
+                '<a class="stcr-first-page" href="%s"><span aria-hidden="true">%s</span></a>',
                 esc_url( remove_query_arg( 'subscription_paged', $current_url ) ),
                 '&laquo;'
             );
@@ -135,10 +135,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
         // For previous disable.
         if ( $disable_prev ) {
-            echo '<span class="disabled" aria-hidden="true">&lsaquo;</span>';
+            echo '<span class="stcr-disabled" aria-hidden="true">&lsaquo;</span>';
         } else {
             printf(
-                '<a class="prev-page" href="%s"><span aria-hidden="true">%s</span></a>',
+                '<a class="stcr-prev-page" href="%s"><span aria-hidden="true">%s</span></a>',
                 esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => max( 1, $subscriptions_pagenum - 1 ) ), $current_url ) ),
                 '&lsaquo;'
             );
@@ -149,21 +149,21 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
             if ( $number === $subscriptions_pagenum ) {
                 printf(
-                    '<span aria-current="page" class="page-numbers current">%s</span>',
+                    '<span aria-current="page" class="stcr-page-numbers stcr-current-page">%s</span>',
                     esc_attr( number_format_i18n( $number ) )
                 );
                 $dots = true;
             } else {
                 if ( $number <= 1 || ( $subscriptions_pagenum && $number >= $subscriptions_pagenum - 2 && $number <= $subscriptions_pagenum + 2 ) || $number > $subscriptions_total_pages - 1 ) {
                     printf(
-                        '<a class="page-numbers" href="%s">%s</a>',
+                        '<a class="stcr-page-numbers" href="%s">%s</a>',
                         /** This filter is documented in wp-includes/general-template.php */
                         esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $number ), $current_url ) ),
                         esc_attr( number_format_i18n( $number ) )
                     );
                     $dots = true;
                 } elseif ( $dots ) {
-                    echo '<span class="page-numbers dots">' . __( '&hellip;', 'subscribe-to-comments-reloaded' ) . '</span>';
+                    echo '<span class="stcr-page-numbers stcr-dots">' . __( '&hellip;', 'subscribe-to-comments-reloaded' ) . '</span>';
                     $dots = false;
                 }
             }
@@ -172,10 +172,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
         // For next disable.
         if ( $disable_next ) {
-            echo '<span class="disabled" aria-hidden="true">&rsaquo;</span>';
+            echo '<span class="stcr-disabled" aria-hidden="true">&rsaquo;</span>';
         } else {
             printf(
-                '<a class="next-page" href="%s"><span aria-hidden="true">%s</span></a>',
+                '<a class="stcr-next-page" href="%s"><span aria-hidden="true">%s</span></a>',
                 esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => min( $subscriptions_total_pages, $subscriptions_pagenum + 1 ) ), $current_url ) ),
                 '&rsaquo;'
             );
@@ -183,10 +183,10 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
 
         // For last disable.
         if ( $disable_last ) {
-            echo '<span class="disabled" aria-hidden="true">&raquo;</span>';
+            echo '<span class="stcr-disabled" aria-hidden="true">&raquo;</span>';
         } else {
             printf(
-                "<a class='last-page' href='%s'><span aria-hidden='true'>%s</span></a>",
+                "<a class='stcr-last-page' href='%s'><span aria-hidden='true'>%s</span></a>",
                 esc_url( add_query_arg( array( 'post_permalink' => $post_permalink, 'subscription_paged' => $subscriptions_total_pages ), $current_url ) ),
                 '&raquo;'
             );
