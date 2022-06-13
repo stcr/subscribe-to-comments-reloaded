@@ -145,7 +145,6 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
         }
 
         // For page numbers.
-        echo '<span class="stcr-subscriptions-management-links">';
         for ( $number = 1; $number <= $subscriptions_total_pages; $number ++ ) {
             if ( $number === $subscriptions_pagenum ) {
                 printf(
@@ -168,7 +167,6 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
                 }
             }
         }
-        echo '</span>';
 
         // For next disable.
         if ( $disable_next ) {
