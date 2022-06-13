@@ -138,7 +138,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     echo "</table>";
     ?>
 
-    <div class="stcr-pagination-links">
+    <p class="stcr-pagination-links">
         <?php
         // For first disable.
         if ( $disable_first ) {
@@ -208,7 +208,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
             );
         }
         ?>
-    </div>
+    </p>
 
     <?php
 	echo '<p id="subscribe-reloaded-select-all-p">

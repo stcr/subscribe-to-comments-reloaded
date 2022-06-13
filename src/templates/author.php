@@ -120,7 +120,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
     echo "</table>";
     ?>
 
-    <div class="stcr-pagination-links">
+    <p class="stcr-pagination-links">
         <?php
         // For first disable.
         if ( $disable_first ) {
@@ -190,7 +190,7 @@ if ( is_array( $subscriptions ) && ! empty( $subscriptions ) ) {
             );
         }
         ?>
-    </div>
+    </p>
 
     <?php
 	echo '<p id="subscribe-reloaded-select-all-p"><i class="fa fa-expand" aria-hidden="true"></i>&nbsp;<a class="subscribe-reloaded-small-button  stcr-subs-select-all" href="#" onclick="stcrCheckAll(event)">' . esc_html__( 'Select all', 'subscribe-to-comments-reloaded' ) . '</a> ';
