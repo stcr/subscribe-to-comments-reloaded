@@ -690,7 +690,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 						'name'       => array(),
 					),
 				)
-			);;
+			);
 		}
 		// end add_custom_header_meta
 
