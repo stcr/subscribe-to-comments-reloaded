@@ -695,6 +695,25 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		// end add_custom_header_meta
 
 		/**
+		 * Adds custom HTML code to the HEAD section of the management page
+		 */
+		public function add_custom_header_meta_real_page() {
+			$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
+			echo wp_kses(
+				$a,
+				array(
+					'meta' => array(
+						'charset'    => array(),
+						'content'    => array(),
+						'http-equiv' => array(),
+						'name'       => array(),
+					),
+				)
+			);
+		}
+		// end add_custom_header_meta_real_page
+
+		/**
 		 * Adds a new column header to the Edit Comments panel
 		 */
 		public function add_column_header( $_columns ) {
