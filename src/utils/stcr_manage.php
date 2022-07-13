@@ -698,18 +698,24 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 * Adds custom HTML code to the HEAD section of the management page
 		 */
 		public function add_custom_header_meta_real_page() {
-			$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
-			echo wp_kses(
-				$a,
-				array(
-					'meta' => array(
-						'charset'    => array(),
-						'content'    => array(),
-						'http-equiv' => array(),
-						'name'       => array(),
-					),
-				)
-			);
+
+			$virtual_page_enabled = get_option( 'subscribe_reloaded_manager_page_enabled', 'yes' );
+
+			if ( 'no' === $virtual_page_enabled ) {
+				$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
+				echo wp_kses(
+					$a,
+					array(
+						'meta' => array(
+							'charset'    => array(),
+							'content'    => array(),
+							'http-equiv' => array(),
+							'name'       => array(),
+						),
+					)
+				);
+			}
+
 		}
 		// end add_custom_header_meta_real_page
 
