@@ -63,7 +63,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 					add_action( 'publish_' . $post_type_name , array( $this, 'subscribe_post_author' ) );
 				}
 			}
-			
+
 			// Migrate the Enable only on blog posts option to newly used options.
 			$this->upgrade->migrate_post_type_support();
 
@@ -680,7 +680,17 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 		 */
 		public function add_custom_header_meta() {
 			$a = html_entity_decode( stripslashes( get_option( 'subscribe_reloaded_custom_header_meta', '' ) ), ENT_QUOTES, 'UTF-8' );
-			echo wp_kses( $a, wp_kses_allowed_html( 'post' ) );
+			echo wp_kses(
+				$a,
+				array(
+					'meta' => array(
+						'charset'    => array(),
+						'content'    => array(),
+						'http-equiv' => array(),
+						'name'       => array(),
+					),
+				)
+			);;
 		}
 		// end add_custom_header_meta
 
