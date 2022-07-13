@@ -152,6 +152,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         add_filter( 'the_posts', array( $this, 'subscribe_reloaded_manage' ), 10, 2 );
                     }
 
+                    add_action( 'wp_head', array( $this, 'add_custom_header_meta_real_page' ) );
                 }
 
                 // filter to add custom output before comment content
