@@ -95,6 +95,10 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v220725 =
+* **Fix** Issue with the noindex tag
+* **Tweak** The noindex tag now also applies to real (non-virtual) management page
+
 = v220608 =
 * **New** The "Add Subscription" option in the admin panel now allows multiple email addresses to be added at once.
 * **Fix** Force the redirect URL to be the same domain as the website
