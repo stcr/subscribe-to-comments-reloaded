@@ -1796,10 +1796,10 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
             global $wp_subscribe_reloaded;
             global $post;
 
-			// do not proceed if we do not have a post ID
-			if ( empty( $post->ID ) ) {
-				return $comment_text;
-			}
+            // do not proceed if we do not have a post ID
+            if ( empty( $post->ID ) ) {
+                return $comment_text;
+            }
 
             $prepend = '';
 
