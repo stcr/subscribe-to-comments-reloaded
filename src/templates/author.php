@@ -6,6 +6,19 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 global $wp_subscribe_reloaded;
+$post_permalink = null;
+
+if (array_key_exists('post_permalink', $_GET))
+{
+    if ( ! empty( $_GET['post_permalink'] ) )
+    {
+        $post_permalink = sanitize_text_field( wp_unslash( $_GET['post_permalink'] ) );
+    }
+}
+
+if ( strpos( $post_permalink, home_url( '/' ) ) === false ) {
+	$post_permalink = home_url( '/' );
+}
 
 ob_start();
 
