@@ -45,6 +45,8 @@ if ( $use_captcha == 'yes' ) {
                     $valid_captcha = false;
                 }
             }
+        } else {
+            $valid_captcha = false;
         }
     } elseif ( 'v3' == $recaptcha_version ) {
         if ( isset( $_POST['token'] ) ) {
@@ -66,6 +68,8 @@ if ( $use_captcha == 'yes' ) {
                     $valid_captcha = false;
                 }
             }
+        } else {
+            $valid_captcha = false;
         }
     } else {
         $valid_captcha = false;
