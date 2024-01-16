@@ -79,7 +79,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_manage') )
 				wp_enqueue_style( 'stcr-admin-style' );
 
 				foreach ( $notices as $name => $noticeData ) {
-					if( $noticeData['status'] == 'unread' ) {
+					if ( isset( $noticeData['status'] ) && $noticeData['status'] == 'unread' ) {
 						$nonce = wp_create_nonce( $name );
 						// Set the a fresh nonce
 						$this->utils->stcr_update_admin_notice_status( $name, 'unread', $nonce );
