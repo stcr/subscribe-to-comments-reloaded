@@ -789,7 +789,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                 // stop if invalid SRE key
                 if ( ! $email_by_key && ! empty( $srek ) ) {
 
-                    $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )\n");
+                    $this->utils->stcr_logger("[ERROR][$date] - Couldn\'t find an email with the SRE key: ( $srek )");
 					$email = '';
 
 				// valid key, proceed
@@ -816,7 +816,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         if ($key_expired == "1") {
                             $error_exits = true;
                         } else {
-                            $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n");
+                            $this->utils->stcr_logger("[ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )");
                             $error_exits = true;
                         }
 					}
@@ -828,7 +828,7 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
                         if ($key_expired == "1") {
                             $error_exits = true;
                         } else {
-                            $this->utils->stcr_logger("\n [ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )\n");
+                            $this->utils->stcr_logger("[ERROR][$date] - Couldn\'t find a valid SRK key with the email ( $email_by_key ) and the SRK key: ( $key )\n This is the current unique key: ( $stcr_unique_key )");
                             $error_exits = true;
                         }
 					}
@@ -985,8 +985,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// log the error
             } catch(\Exception $ex) {
 
-                $this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getMessage()\n" );
-				$this->utils->stcr_logger( "\n [ERROR][$date] - $ex->getTraceAsString()\n" );
+                $this->utils->stcr_logger( "[ERROR][$date] - $ex->getMessage()" );
+				$this->utils->stcr_logger( "[ERROR][$date] - $ex->getTraceAsString()" );
 
 			}
 

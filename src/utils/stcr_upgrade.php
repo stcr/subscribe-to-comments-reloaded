@@ -802,21 +802,21 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_upgrade') ) {
                         {
                             // Log query execution.
                             $this->stcr_logger("Error while updating the collation for the subscribe_reloaded_subscribers COLUMN subscriber_unique_id.");
-                            $this->stcr_logger("\nDatabase Error: \" $wpdb->last_error \"\n");
+                            $this->stcr_logger("Database Error: \" $wpdb->last_error \"\n");
                         }
                     }
                     else
                     {
                         // Log query execution.
                         $this->stcr_logger("Error while updating the collation for the subscribe_reloaded_subscribers table COLUMN subscriber_email");
-                        $this->stcr_logger("\nDatabase Error: \" $wpdb->last_error \"\n");
+                        $this->stcr_logger("Database Error: \" $wpdb->last_error \"\n");
                     }
                 }
                 else
                 {
                     // Log query execution.
                     $this->stcr_logger("Error while updating the collation for the subscribe_reloaded_subscribers table");
-                    $this->stcr_logger("\nDatabase Error: \" $wpdb->last_error \"\n");
+                    $this->stcr_logger("Database Error: \" $wpdb->last_error \"\n");
                 }
             }
         }

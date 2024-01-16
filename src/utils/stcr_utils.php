@@ -510,22 +510,21 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 				$headers .= "Bcc: $from_name <$from_email>\n"; // The StCR email define or otherwise the blog admin.
 			}
 
-			$this->stcr_logger( "*********************************************************************************" );
-			$this->stcr_logger( "\n\nDate:			" . $date );
-			$this->stcr_logger( "\n\nTo Email:		" . $_emailSettings['toEmail'] );
-			$this->stcr_logger( "\n\nFrom Email: 	" . $_emailSettings['fromEmail'] );
-			$this->stcr_logger( "\n\nMessage: 		" . $_emailSettings['message'] );
-			$this->stcr_logger( "\n\nHeaders:\n\n" 	  . $headers );
-			$this->stcr_logger( "*********************************************************************************" );
+            $log_entry = '';
+			$log_entry .= "Date: " . $date;
+			$log_entry .= "\n\nTo Email: " . $_emailSettings['toEmail'];
+			$log_entry .= "\n\nFrom Email: " . $_emailSettings['fromEmail'];
+			$log_entry .= "\n\nMessage: " . $_emailSettings['message'];
+			$log_entry .= "\n\nHeaders:\n\n" . $headers;
 
 			$sent_result = ( wp_mail( $_emailSettings['toEmail'], $_emailSettings['subject'], $_emailSettings['message'], $headers ) )
 						? true : false;
 			if( ! $sent_result )
 			{
-				$this->stcr_logger( "*********************************************************************************" );
-				$this->stcr_logger( "\nError sending email notification.\n" );
-				$this->stcr_logger( "*********************************************************************************" );
+				$log_entry .= "\nError sending email notification.\n";
 			}
+
+            $this->stcr_logger( $log_entry );
 
 			return  $sent_result;
 		}// End send_email
@@ -953,17 +952,15 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\stcr_utils') )
 		 */
 		public function stcr_logger( $value = '' )
 		{
-			$file_path = plugin_dir_path( __FILE__ );
-			$file_name = "log.txt";
-			$loggin_info = get_option("subscribe_reloaded_enable_log_data", "no");
-
-			if( is_writable( $file_path ) && $loggin_info === "yes")
-			{
-				$file = fopen( $file_path . "/" . $file_name, "a" );
-
-				fputs( $file , $value);
-
-				fclose($file);
+			
+			$should_log_data = get_option( 'subscribe_reloaded_enable_log_data', 'no' );
+			if ( $should_log_data === 'yes' ) {
+				$current = get_option( 'subscribe_reloaded_log', array() );
+                $current[] = array(
+                    'time' => current_time( 'U' ),
+                    'message' => $value,
+                );
+                update_option( 'subscribe_reloaded_log', $current );
 			}
 
 		}

@@ -54,11 +54,29 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
         return;
     }
 
+    // delete the log
+    $delete_status = delete_option( 'subscribe_reloaded_log' );
+    if ( $delete_status ) {
+        $message = esc_html__( 'The log has been successfully deleted.', 'subscribe-to-comments-reloaded' );
+        $message_type = 'notice-success';
+    } else {
+        if ( empty( get_option( 'subscribe_reloaded_log' ) ) ) {
+            $message = esc_html__( 'The log is already empty.', 'subscribe-to-comments-reloaded' );
+            $message_type = 'notice-warning';
+        } else {
+            $message = esc_html__( 'Could not delete the log.', 'subscribe-to-comments-reloaded' );
+            $message_type = 'notice-warning';
+        }
+    }
+
+    /**
+     * As of version 180124, the log file is no longer used, but we keep this code here to delete the file
+     * in case the user is updating from a previous version where the log file was used and still exists.
+     */
+
     // Check that the log file exits
     $plugin_dir   = plugin_dir_path( __DIR__ );
     $file_name    = "log.txt";
-    $message_type = "";
-    $message      = "";
     $file_path    = $plugin_dir . "utils/" . $file_name;
 
     if( file_exists( $file_path )  && is_writable( $plugin_dir ) )
@@ -76,14 +94,12 @@ if ( array_key_exists( "purge_log", $_POST ) ) {
             $message_type = "notice-warning";
         }
     }
-    else
-    {
-        $message     = esc_html__( 'The log file does not exists.', 'subscribe-to-comments-reloaded' );
-        $message_type = "notice-warning";
-    }
+    
+    // Display the message
     echo "<div class='notice " . esc_attr( $message_type ) . "'><p>";
     echo esc_html( $message );
     echo "</p></div>\n";
+
 }
 else {
 
@@ -256,6 +272,39 @@ else {
                     </div>
 
                     <h4><?php esc_html_e( 'System Information', 'subscribe-to-comments-reloaded' ) ?></h4><br>
+
+                    <!-- Log -->
+                    <?php $log = get_option( 'subscribe_reloaded_log', array() ); ?>
+                    <?php if ( $log ) : ?>
+                        <?php $log = array_reverse( $log ); ?>
+                        <table class="table table-sm table-hover table-striped" style="font-size: 0.8em">
+                            <thead style="background-color: #4688d2; color: #ffffff;">
+                            <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'Log', 'subscribe-to-comments-reloaded' ) ?></th>
+                            </thead>
+                            <tbody>
+                            <?php foreach ( $log as $key => $value ) : ?>
+                                <tr>
+                                    <td class="text-left"><?php 
+                                        // unix to human readable date
+                                        echo esc_html( date( 'Y-m-d H:i:s', $value['time'] ) );
+                                    ?></td>
+                                    <td class="text-left"><?php echo nl2br( esc_html( $value['message'] ) ); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php else : ?>
+                        <table class="table table-sm table-hover table-striped" style="font-size: 0.8em">
+                            <thead style="background-color: #4688d2; color: #ffffff;">
+                            <th style="textalilfe" class="text-left" colspan="2"><?php esc_html_e( 'Log', 'subscribe-to-comments-reloaded' ) ?></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left"><?php esc_html_e( 'No log entries found.', 'subscribe-to-comments-reloaded' ); ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
 
                     <!-- Plugin Info -->
                     <?php
