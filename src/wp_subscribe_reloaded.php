@@ -62,8 +62,6 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			// run parent constructor.
 			parent::__construct();
 
-			$this->salt = defined( 'NONCE_KEY' ) ? NONCE_KEY : 'please create a unique key in your wp-config.php';
-
 			// show the checkbox - You can manually override this by adding the corresponding function in your template
 			if ( get_option( 'subscribe_reloaded_show_subscription_box' ) === 'yes' ) {
 
