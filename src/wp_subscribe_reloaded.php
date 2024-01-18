@@ -184,11 +184,13 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 					$this->upgrade->migrate_post_type_support();
 					$supported_post_types = get_option( 'subscribe_reloaded_post_type_supports' );
 				}
+				
 				if ( in_array( 'stcr_none', $supported_post_types ) ) {
 					$supported_post_types = array_flip( $supported_post_types );
 					unset( $supported_post_types['stcr_none'] );
+					$supported_post_types = array_flip( $supported_post_types );
 				}
-				$supported_post_types = array_flip( $supported_post_types );
+				
 				foreach ( $supported_post_types as $post_type ) {
 					add_filter( 'manage_' . $post_type . '_posts_columns', array( $this, 'add_column_header' ) );
 					add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'add_post_column' ) );
@@ -1558,8 +1560,8 @@ if( ! class_exists('\\'.__NAMESPACE__.'\\wp_subscribe_reloaded') ) {
 			if ( in_array( 'stcr_none', $supported_post_types ) ) {
 				$supported_post_types = array_flip( $supported_post_types );
 				unset( $supported_post_types['stcr_none'] );
+				$supported_post_types = array_flip( $supported_post_types );
 			}
-			$supported_post_types = array_flip( $supported_post_types );
 
 			// if not enabled for this post type, return default
 			if ( ! in_array( $post_type, $supported_post_types ) ) {
