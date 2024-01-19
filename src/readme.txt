@@ -95,6 +95,14 @@ Just go to the Options Panel and click the generate button. By generating a new 
 7. Manage the subscriptions on the Frontend Side.
 
 == Changelog ==
+= v240119 =
+* **Important** Security fixes
+* **Tweak** Select option label changed from "All" to "All new comments"
+* **Fix** "Creation of dynamic property" deprecated in PHP 8
+* **Fix** Issue with captcha check passing when captcha response is not supplied
+* **Fix** Issue with subscription checkbox not showing up on fresh install unless options are saved
+* **Fix** PHP warning "Illegal string offset 'status'"
+
 = v220725 =
 * **Fix** Issue with the noindex tag
 * **Tweak** The noindex tag now also applies to real (non-virtual) management page
