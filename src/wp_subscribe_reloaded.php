@@ -8,7 +8,7 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 // globals
-define( __NAMESPACE__.'\\VERSION','220725' );
+define( __NAMESPACE__.'\\VERSION','240119' );
 define( __NAMESPACE__.'\\DEVELOPMENT', false );
 define( __NAMESPACE__.'\\SLUG', "subscribe-to-comments-reloaded" );
 

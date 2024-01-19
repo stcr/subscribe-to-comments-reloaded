@@ -7,7 +7,7 @@ Requires at least: 4.0
 Requires PHP: 5.6
 Requires MySQL: 5.6
 Tested up to: 6.4
-Stable tag: 220725
+Stable tag: 240119
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
