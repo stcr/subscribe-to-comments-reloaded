@@ -190,7 +190,7 @@ if ( ! empty( $email ) ) {
             $message = str_replace( '[post_title]', $target_post->post_title, $message );
         }
 
-        echo wp_kses( wpautop( $message ), wp_kses_allowed_html( 'post' ) );
+        echo do_shortcode(wp_kses( wpautop( $message ), wp_kses_allowed_html( 'post' ) ));
 
     }
 
@@ -214,7 +214,7 @@ if ( ! empty( $email ) ) {
     } else {
         $message = str_replace( '[post_title]', $target_post->post_title, $message );
     }
-    echo '<p>' . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . '</p>';
+    echo '<p>' . do_shortcode(wp_kses( $message, wp_kses_allowed_html( 'post' ) )) . '</p>';
 
     // output the form
 
@@ -292,7 +292,7 @@ if ( ! $valid_all ) {
     } else {
         $message = str_replace( '[post_title]', esc_html( $target_post->post_title ), $message );
     }
-    echo '<p>' . wp_kses( $message, wp_kses_allowed_html( 'post' ) ) . '</p>';
+    echo '<p>' . do_shortcode(wp_kses( $message, wp_kses_allowed_html( 'post' ) ) ). '</p>';
 
     ?>
     <?php $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : ''; ?>
